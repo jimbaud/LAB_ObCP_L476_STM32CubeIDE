@@ -1,0 +1,64 @@
+ObCP2 Option CROC  Revised: Monday, September 18, 2023
+J. Imbaud          Revision: 2.3
+
+
+
+
+
+
+
+Bill Of Materials      September 18,2023      16:59:36	Page1
+
+Item	Quantity	Reference	Part	PCB Footprint
+______________________________________________
+
+1	1	BLE1	SPBTLE-RF0TR	moduleBLE
+2	7	C1,C3,C5,C7,C9,C21,C22	10u	smct1210
+3	10	C2,C4,C8,C10,C13,C15,C17,C18,C20,C23	100n	smc0805
+4	1	C6	27p	smc0805
+5	2	C11,C12	20p	smc0805
+6	2	C14,C16	4.3p	smc0805
+7	1	C19	4.7u	smc0805
+8	1	C24	10u 16V	smct1210
+9	1	D1	LED_RED	SMD0805
+10	3	D2,D4,D6	RS1J_13_F	diodeSMA
+11	1	D3	LED_GREEN	SMD0805
+12	1	D5	LED TRI-COLOUR	ledrvb
+13	1	J1	Batterie_Lithium	conalim
+14	1	J3	Digital	blkcon100vhtm1sqsw10010
+15	1	J5	TX	blkcon100vhtm1sqw1001
+16	1	J6	Power	blkcon100vhtm1sqsw1008
+17	1	J7	RX	blkcon100vhtm1sqw1001
+18	1	J8	PC4	blkcon100vhtm1sqw1001
+19	1	J10	Analog	blkcon100vhtm1sqsw1006
+20	1	J11	Digital2	blkcon100vhtm1sqsw1008
+21	1	J13	PWM	bornier2
+22	1	J17	Debug	debug_con2
+23	1	L1	4.7uH	sml1210
+24	1	L2	Perle_HF	smr0805
+25	1	M1	IRLML2803	sot23
+26	3	Q1,Q2,Q3	2N2222	sot23
+27	1	R1	4.7k	smr0805
+28	1	R2	2k	smr0805
+29	3	R3,R10,R20	470	smr0805
+30	5	R4,R7,R15,R16,R17	100	smr0805
+31	1	R5	976k	smr0805
+32	1	R6	309k	smr0805
+33	2	R8,R9	0	smr0805
+34	5	R11,R12,R13,R14,R27	22	smr0805
+35	2	R18,R19	10k	smr0805
+36	3	R21,R25,R26	1k	smr0805
+37	1	R22	47k	smr0805
+38	2	R23,R24	100k	smr0805
+39	1	SW1	User3	pushbuttonobcp
+40	2	SW2,SW4	Interrupteur	interupteur
+41	1	SW3	Reset	pushbuttonobcp
+42	1	U1	MCP73831	5leadSOT23
+43	1	U2	MCP1642	MSOP8
+44	1	U3	LD1117S33TR	to261aasot223
+45	1	U4	LIS3DSH	LGA_16
+46	1	U5	STM32L476RGT6	quad50m64wg1260
+47	1	U6	USB	conusb
+48	1	U7	M95640	sog65m8wg820l380
+49	1	Y1	CRYSTAL_8_MHz	quartz8mhz
+50	1	Y2	ANS25-32.768KHZ-6-T	quartz36khz
