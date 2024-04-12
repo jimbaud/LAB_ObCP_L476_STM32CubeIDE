@@ -7,7 +7,7 @@ Le projet ObCP (Objet Connecté Personnel) est une plateforme de développement 
 ## Fonctionnalités principales :
 - **Microcontrôleur STM32L476RG**: Offre une puissante capacité de traitement et une faible consommation d'énergie.
 - **Module Bluetooth Low Energy SPBTLE-RF**: Permet une communication sans fil à faible consommation d'énergie.
-- **Sortie PWM**: Pilotage de charges résistives et inductives jusqu'à 2,5W sous 5V à une fréquence de 20kHz avec mesure du courant.
+- **Sortie PWM**: Pilotage de charges résistives et inductives jusqu'à 2,5W sous 5V à une fréquence de 20kHz.
 - **Bouton poussoir utilisateur**: Interaction utilisateur simple et intuitive.
 - **Batterie Lithium**: Alimentation portable pour une utilisation autonome.
 - **LED multicolore**: Possibilité d'indiquer différents états ou modes de fonctionnement.
