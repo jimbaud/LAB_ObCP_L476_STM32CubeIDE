@@ -26,9 +26,9 @@ Pour utiliser le projet ObCP, veuillez suivre les instructions suivantes :
 
 ## Documentation supplémentaire :
 - Pour plus d'informations sur le microcontrôleur STM32L476, consultez la [documentation officielle](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html).
-- Pour des détails sur le module Bluetooth SPBTLE-RF, référez-vous à sa [fiche technique](https://www.st.com/en/wireless-connectivity/spbtle-rf.html).
+- Pour des détails sur le module Bluetooth SPBTLE-RF, référez-vous à sa [fiche technique](https://www.st.com/en/wireless-connectivity/bluenrg-m0.html).
 - Consultez les datasheets des composants pour une compréhension approfondie de leur fonctionnement.
 
 **Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
 
-![Implantation composants de l’ObCP](./Images/3DTOP - Copie.png)
+![Implantation composants de l’ObCP](./Images/ObCP_3DTOP.bmp)
