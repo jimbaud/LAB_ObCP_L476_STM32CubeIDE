@@ -1,6 +1,6 @@
 # ObCP - Objet Connecté Personnel
 
-![Vue 3D ObCP](./Images/ObCP_3Diso.bmp) 
+![Vue 3D ObCP](./Images/ObCP_3Diso.png) 
 
 Le projet ObCP (Objet Connecté Personnel) est une plateforme de développement basée sur le microcontrôleur STM32L476 et le module Bluetooth SPBTLE-RF, conçue pour réaliser des applications d'objets connectés personnalisés.
 
