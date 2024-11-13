@@ -31,4 +31,4 @@ Pour utiliser le projet ObCP, veuillez suivre les instructions suivantes :
 
 **Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
 
-![Implantation composants de l’ObCP](./Images/ObCP_3DTOP.bmp)
+![Implantation composants de l’ObCP](./Images/ObCP_3DTOP.png)
