@@ -66,6 +66,3 @@ Voici un exemple d'utilisation des commandes dans le programme :
 
 - Joel IMBAUD
 
-## Licence
-
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
