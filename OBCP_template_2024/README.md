@@ -1,34 +1,71 @@
-# ObCP - Objet Connecté Personnel
+# BLE UART Service for STM32
 
-![Vue 3D ObCP](./Images/ObCP_3Diso.png) 
+Ce projet implémente un service Bluetooth Low Energy (BLE) pour les microcontrôleurs STM32, permettant la communication sans fil via BLE en utilisant un service UART pour envoyer et recevoir des données. Le programme gère la connexion, les notifications, et l'échange de données entre un périphérique STM32 et un autre appareil compatible BLE.
 
-Le projet ObCP (Objet Connecté Personnel) est une plateforme de développement basée sur le microcontrôleur STM32L476 et le module Bluetooth SPBTLE-RF, conçue pour réaliser des applications d'objets connectés personnalisés.
+## Fonctionnalités principales
+- Ajout d'un service BLE avec les caractéristiques TX (Transmission) et RX (Réception) pour envoyer et recevoir des données.
+- Prise en charge de la communication BLE en mode UART.
+- Notifications BLE activées pour recevoir des données à distance.
+- Utilisation du port USB pour la transmission de données via CDC (Communication Device Class).
 
-## Fonctionnalités principales :
-- **Microcontrôleur STM32L476RG**: Offre une puissante capacité de traitement et une faible consommation d'énergie.
-- **Module Bluetooth Low Energy SPBTLE-RF**: Permet une communication sans fil à faible consommation d'énergie.
-- **Sortie PWM**: Pilotage de charges résistives et inductives jusqu'à 2,5W sous 5V à une fréquence de 20kHz.
-- **Bouton poussoir utilisateur**: Interaction utilisateur simple et intuitive.
-- **Batterie Lithium**: Alimentation portable pour une utilisation autonome.
-- **LED multicolore**: Possibilité d'indiquer différents états ou modes de fonctionnement.
-- **Capteur accélérométrique LIS3D**: Mesure des mouvements et de l'accélération.
+## Commandes possibles
 
-## Installation et utilisation :
-Pour utiliser le projet ObCP, veuillez suivre les instructions suivantes :
+| Commande                  | Description                                                                 |
+|---------------------------|-----------------------------------------------------------------------------|
+| `R` ou `r` suivi d'un entier de 0 à 65535 | Contrôle de la LED rouge via PWM, exemple : `r50` pour une intensité de 50.  |
+| `V` ou `v` suivi d'un entier de 0 à 65535 | Contrôle de la LED verte via PWM, exemple : `v50`.                          |
+| `B` ou `b` suivi d'un entier de 0 à 65535 | Contrôle de la LED bleue via PWM, exemple : `b50`.                          |
+| `M` ou `m` suivi d'un entier de 0 à 65535 | Contrôle du PWM général, exemple : `m50`.                                   |
+| `A` ou `a`                  | Lecture de l'accéléromètre, retourne les valeurs X, Y et Z.                |
+| `T` ou `t`                  | Lecture de la température.                                                  |
+| `cls`                       | Effacement de l'écran du terminal USB.                                      |
+| `start timer`               | Démarrage du timer 1s (BLE).                                                |
+| `stop timer`                | Arrêt du timer 1s (BLE).                                                   |
+| `#rst`                      | Réinitialisation de toutes les fonctions.                                   |
+| `?`                         | Affiche l'aide avec la liste des commandes.                                 |
 
-1. Telecharger le dépôt GitHub :
+## Explication du port COM USB et du BLE UART
 
-2. Connectez votre microcontrôleur STM32L476 à votre environnement de développement.
+Le programme utilise le port USB pour établir une connexion avec le périphérique STM32, qui sert de passerelle pour les données échangées via le service BLE. Une fois que le périphérique est connecté à un autre appareil BLE (comme un smartphone ou un ordinateur), les données peuvent être envoyées et reçues en utilisant les caractéristiques définies dans le service UART BLE :
 
-3. Démarrez le logiciel Capture CIS pour la saisie de schéma et la simulation.
+1. **Port COM USB** : La connexion USB sert à la communication entre le microcontrôleur STM32 et un terminal USB (par exemple, un PC). Le périphérique STM32 transmet l'adresse générée pour la communication BLE, ainsi que l'état de la connexion.
+2. **BLE comme UART** : Le service BLE implémente un canal UART pour la transmission et la réception des données. Les données sont envoyées à travers la caractéristique TX (Transmission) et reçues via la caractéristique RX (Réception). Le BLE agit ici comme un remplacement sans fil pour une connexion série traditionnelle.
 
-4. Suivez les étapes de configuration et de paramétrage des composants selon les instructions fournies dans le fichier `README.md`.
+### Utilisation
 
-## Documentation supplémentaire :
-- Pour plus d'informations sur le microcontrôleur STM32L476, consultez la [documentation officielle](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html).
-- Pour des détails sur le module Bluetooth SPBTLE-RF, référez-vous à sa [fiche technique](https://www.st.com/en/wireless-connectivity/bluenrg-m0.html).
-- Consultez les datasheets des composants pour une compréhension approfondie de leur fonctionnement.
+1. Branchez votre périphérique STM32 à votre ordinateur via USB.
+2. Lancez une application de terminal compatible BLE (comme nRF Connect ou BLE Scanner).
+3. Cherchez le périphérique STM32 dans les périphériques disponibles.
+4. Connectez-vous et commencez à échanger des données via les caractéristiques TX/RX.
 
-**Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
+## Dépendances
 
-![Implantation composants de l’ObCP](./Images/ObCP_3DTOP.png)
+- STM32CubeMX pour la configuration de la puce STM32.
+- HAL (Hardware Abstraction Layer) pour l'accès aux périphériques matériels.
+- BlueNRG pour la gestion du BLE sur STM32.
+
+## Exemple de commandes
+
+Voici un exemple d'utilisation des commandes dans le programme :
+
+### Contrôle des LED via PWM
+- Pour ajuster la LED rouge à une intensité de 50 : `r50`
+- Pour ajuster la LED verte à une intensité de 50 : `v50`
+- Pour ajuster la LED bleue à une intensité de 50 : `b50`
+
+### Lecture des capteurs
+- Pour lire les données de l'accéléromètre : `a`
+- Pour lire la température : `t`
+
+### Commandes additionnelles
+- Pour démarrer un timer de 1 seconde : `start timer`
+- Pour arrêter le timer : `stop timer`
+- Pour réinitialiser toutes les fonctions : `#rst`
+
+## Auteurs
+
+- Joel IMBAUD
+
+## Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
