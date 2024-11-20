@@ -1,5 +1,4 @@
-# BLE UART Service for STM32
-
+# Projet OBCP_template_2024
 Ce projet implémente un service Bluetooth Low Energy (BLE) pour les microcontrôleurs STM32, permettant la communication sans fil via BLE en utilisant un service UART pour envoyer et recevoir des données. Le programme gère la connexion, les notifications et l'échange de données entre un périphérique STM32 et un autre appareil compatible BLE.
 
 ## Fonctionnalités principales
