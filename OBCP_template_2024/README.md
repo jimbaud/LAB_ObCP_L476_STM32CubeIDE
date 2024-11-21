@@ -27,7 +27,7 @@ Ce projet implémente un service Bluetooth Low Energy (BLE) pour les microcontr�
 
 Le programme utilise le port USB pour établir une connexion avec le périphérique STM32, qui sert de passerelle pour les données échangées via le service BLE. Une fois que le périphérique est connecté à un autre appareil BLE (comme un smartphone ou un ordinateur), les données peuvent être envoyées et reçues en utilisant les caractéristiques définies dans le service UART BLE :
 
-1. **Port COM USB** : La connexion USB sert à la communication entre le microcontrôleur STM32 et un terminal USB (par exemple, un PC). Le périphérique STM32 transmet l'adresse générée pour la communication BLE, ainsi que l'état de la connexion. Un exemple de VI Labview est disponible pour exploiter l'UART émulé sur port USB.
+1. **Port COM USB** : La connexion USB sert à la communication entre le microcontrôleur STM32 et un terminal USB (par exemple, un PC). Le périphérique STM32 transmet l'adresse générée pour la communication BLE, ainsi que l'état de la connexion. Un exemple de VI Labview  et de programmes Python sont disponibles pour exploiter l'UART émulé sur port USB (dans les répertoires Labview et Python).
 2. **BLE comme UART** : Le service BLE implémente un canal UART pour la transmission et la réception des données. Les données sont envoyées à travers la caractéristique TX (Transmission) et reçues via la caractéristique RX (Réception). Le BLE agit ici comme un remplacement sans fil pour une connexion série traditionnelle.
 
 ### Utilisation
