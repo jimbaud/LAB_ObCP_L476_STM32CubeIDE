@@ -1,119 +1,78 @@
----
+## Description du programme OBCP_BLE_UART
 
-# ObCP - Objet Connecté Personnel
+### **À propos**
 
-<div align="center">
-  <img src="./Images/ObCP_3Diso.png" alt="Vue 3D ObCP" width="700"/>
-  <p><em>Vue 3D de l'ObCP</em></p>
-</div>
-
-Le projet **ObCP** (Objet Connecté Personnel) est une plateforme de développement basée sur le microcontrôleur **STM32L476RG** et les modules **Bluetooth SPBTLE-RF** (avant 2024) ou **BlueNRG-M0** (à partir de 2024). Elle est conçue pour permettre le prototypage d'applications connectées personnalisées.
+Ce programme implémente une solution de communication Bluetooth Low Energy (BLE) pour un microcontrôleur STM32 équipé du module BLE BlueNRG-MS. Il offre une base pour développer des applications IoT simples, avec des fonctionnalités de communication bidirectionnelle et d'interaction avec des périphériques matériels.
 
 ---
 
-## Fonctionnalités principales
+### **Fonctionnalités principales**
 
-### Composants principaux
-- **STM32L476RG** : Capacité de traitement puissante, faible consommation, idéale pour les applications IoT.
-- **SPBTLE-RF / BlueNRG-M0** : Communication Bluetooth Low Energy avec une consommation minimale.
-  
-### Caractéristiques matérielles
-- **Sortie PWM** : Contrôle de charges jusqu’à 2,5W sous 5V (fréquence de 20 kHz).
-- **Bouton poussoir utilisateur** : Interface utilisateur simple.
-- **Batterie Lithium** : Alimentation autonome portable.
-- **LED multicolore** : Indication des états ou modes de fonctionnement.
-- **Capteur LIS3D** : Mesure les accélérations sur trois axes.
+1. **Communication BLE :**
+   - Configuration d'un service BLE personnalisé compatible avec des applications comme nRF Connect ou BLE Terminal.
+   - Transmission et réception de données via des caractéristiques TX (Transmission) et RX (Réception).
 
----
+2. **Bouton poussoir utilisateur :**
+   - Gestion des interruptions matérielles pour détecter les pressions sur le bouton.
+   - Envoi d'une notification au périphérique BLE lorsqu'un bouton est pressé.
 
-## Installation et utilisation sans debugger ST-Link
+3. **Contrôle LED à distance :**
+   - Réception de commandes depuis un appareil BLE pour allumer ou éteindre une LED verte embarquée.
+   - Commandes supportées : `1` (allumer) et `0` (éteindre).
 
-### Avec STM32CubeProgrammer
+4. **Service BLE basé sur le standard Nordic UART (NUS) :**
+   - UUID personnalisé compatible avec divers outils BLE pour simplifier les tests et la validation.
 
-1. Téléchargez et installez [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
-2. Connectez votre ObCP en mode "Prog" (SW4) puis appuyez sur "Reset" (SW3).
-
-<div align="center">
-  <img src="./Images/Inter_Prog.png" alt="Mode Prog" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Prog" et bouton "Reset"</em></p>
-</div>
-
-3. Chargez le fichier binaire (.elf/.bin/.hex) via l'interface USB dans CubeProgrammer.
-
-<div align="center">
-  <img src="./Images/Config_CubeProg.png" alt="Configuration de CubeProgrammer" width="800"/>
-  <p><em>Configuration de CubeProgrammer</em></p>
-</div>
-
-4. Passez SW4 en mode "Run" et appuyez sur SW3 "Reset" pour démarrer le programme.
-
-<div align="center">
-  <img src="./Images/Inter_Run.png" alt="Mode Run" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Run" et bouton "Reset"</em></p>
-</div>
+5. **Gestion des événements BLE :**
+   - Suivi des connexions et déconnexions BLE.
+   - Activation des notifications et gestion des attributs GATT.
 
 ---
 
-### Avec STM32CubeIDE
+### **Fonctionnement**
 
-#### Configuration avec STM32CubeIDE et CubeProgrammer
-<div align="center">
-  <img src="./Images/Config_CubeIDE.png" alt="Configuration STM32CubeIDE" width="800"/>
-  <p><em>Configuration de STM32CubeIDE pour téléversement en DFU</em></p>
-</div>
+#### **Initialisation :**
+- Mise en place du service BLE avec les caractéristiques TX et RX.
+- Configuration des paramètres BLE comme le nom du périphérique et la puissance de transmission.
 
-1. Téléchargez et installez [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) et [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
-2. Configurez STM32CubeIDE pour téléverser directement en mode DFU via la CLI de CubeProgrammer :
-   - **Location** : `C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\STM32_Programmer_CLI.exe`
-   - **Working directory** : `${workspace_loc}${project_path}\Debug`
-   - **Arguments** : `-c port=usb1 -d ${project_name}.elf -s`
-3. Placez SW4 en mode "Prog", appuyez sur SW3 "Reset", puis démarrez le téléversement.
+#### **Traitement des commandes :**
+- Réception et interprétation des commandes BLE.
+- Exécution des actions correspondantes (par ex., contrôle de la LED ou envoi de messages).
 
-<div align="center">
-  <img src="./Images/Inter_Prog.png" alt="Mode Prog" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Prog" et bouton "Reset"</em></p>
-</div>
-
-5. Une fois le téléversement terminé, repassez en mode "Run" et redémarrez avec SW3.
-
-<div align="center">
-  <img src="./Images/Inter_Run.png" alt="Mode Run" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Run" et bouton "Reset"</em></p>
-</div>
+#### **Gestion des événements :**
+- Notification des événements de connexion et de déconnexion.
+- Traitement des modifications des caractéristiques BLE (par ex., réception de nouvelles données via RX).
 
 ---
 
-## Documentation supplémentaire
+### **Cas d'utilisation**
 
-- **STM32L476RG** : [Documentation officielle](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html).
-- **BlueNRG-M0** : [Fiche technique](https://www.st.com/en/wireless-connectivity/bluenrg-m0.html).
+1. **Prototypage IoT :**
+   - Créer des objets connectés simples pour les projets IoT personnels ou professionnels.
 
----
+2. **Applications BLE éducatives :**
+   - Enseigner les concepts de communication BLE avec une approche pratique.
 
-## Schéma et implantation des composants
-
-<div align="center">
-  <img src="./Images/ObCP_3DTOP.png" alt="Implantation des composants" width="700"/>
-  <p><em>Implantation des composants de l'ObCP</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/Schema_ObCP_V24_Page1.png" alt="Schéma Page 1" width="700"/>
-  <p><em>Schéma électrique - Page 1</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/Schema_ObCP_V24_Page2.png" alt="Schéma Page 2" width="700"/>
-  <p><em>Schéma électrique - Page 2</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/BOM_ObCP_V24.png" alt="Nomenclature" width="700"/>
-  <p><em>Nomenclature complète de l'ObCP</em></p>
-</div>
+3. **Contrôle distant :**
+   - Utiliser un smartphone ou un terminal BLE pour piloter des LEDs ou recevoir des notifications.
 
 ---
 
-**Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
+### **UUIDs utilisés**
 
---- 
+- **Service UUID :** `6E400001-B5A3-F393-E0A9-E50E24DCCA9E`
+- **TX UUID :** `6E400002-B5A3-F393-E0A9-E50E24DCCA9E` (envoi de données vers le périphérique distant)
+- **RX UUID :** `6E400003-B5A3-F393-E0A9-E50E24DCCA9E` (réception de commandes depuis un périphérique distant)
+
+---
+
+### **Documentation et ressources**
+
+- **Documentation officielle du STM32 :**
+  [STM32 BlueNRG-MS](https://www.st.com/en/wireless-connectivity/bluenrg-ms.html)
+- **Ressources BLE :**
+  - [nRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=fr) pour tester les services BLE.
+
+---
+
+**Remarque :** Ce programme est destiné à des fins d'apprentissage et de prototypage. Veuillez l'adapter pour une utilisation en production selon vos besoins.
