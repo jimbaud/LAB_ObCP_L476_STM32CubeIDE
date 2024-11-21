@@ -1,34 +1,78 @@
-# ObCP - Objet Connecté Personnel
+## Description du programme OBCP_BLE_UART
 
-![Vue 3D ObCP](./Images/ObCP_3Diso.png) 
+### **À propos**
 
-Le projet ObCP (Objet Connecté Personnel) est une plateforme de développement basée sur le microcontrôleur STM32L476 et le module Bluetooth SPBTLE-RF, conçue pour réaliser des applications d'objets connectés personnalisés.
+Ce programme implémente une solution de communication Bluetooth Low Energy (BLE) pour un microcontrôleur STM32 équipé du module BLE BlueNRG-MS. Il offre une base pour développer des applications IoT simples, avec des fonctionnalités de communication bidirectionnelle et d'interaction avec des périphériques matériels.
 
-## Fonctionnalités principales :
-- **Microcontrôleur STM32L476RG**: Offre une puissante capacité de traitement et une faible consommation d'énergie.
-- **Module Bluetooth Low Energy SPBTLE-RF**: Permet une communication sans fil à faible consommation d'énergie.
-- **Sortie PWM**: Pilotage de charges résistives et inductives jusqu'à 2,5W sous 5V à une fréquence de 20kHz.
-- **Bouton poussoir utilisateur**: Interaction utilisateur simple et intuitive.
-- **Batterie Lithium**: Alimentation portable pour une utilisation autonome.
-- **LED multicolore**: Possibilité d'indiquer différents états ou modes de fonctionnement.
-- **Capteur accélérométrique LIS3D**: Mesure des mouvements et de l'accélération.
+---
 
-## Installation et utilisation :
-Pour utiliser le projet ObCP, veuillez suivre les instructions suivantes :
+### **Fonctionnalités principales**
 
-1. Telecharger le dépôt GitHub :
+1. **Communication BLE :**
+   - Configuration d'un service BLE personnalisé compatible avec des applications comme nRF Connect ou BLE Terminal.
+   - Transmission et réception de données via des caractéristiques TX (Transmission) et RX (Réception).
 
-2. Connectez votre microcontrôleur STM32L476 à votre environnement de développement.
+2. **Bouton poussoir utilisateur :**
+   - Gestion des interruptions matérielles pour détecter les pressions sur le bouton.
+   - Envoi d'une notification au périphérique BLE lorsqu'un bouton est pressé.
 
-3. Démarrez le logiciel Capture CIS pour la saisie de schéma et la simulation.
+3. **Contrôle LED à distance :**
+   - Réception de commandes depuis un appareil BLE pour allumer ou éteindre une LED verte embarquée.
+   - Commandes supportées : `1` (allumer) et `0` (éteindre).
 
-4. Suivez les étapes de configuration et de paramétrage des composants selon les instructions fournies dans le fichier `README.md`.
+4. **Service BLE basé sur le standard Nordic UART (NUS) :**
+   - UUID personnalisé compatible avec divers outils BLE pour simplifier les tests et la validation.
 
-## Documentation supplémentaire :
-- Pour plus d'informations sur le microcontrôleur STM32L476, consultez la [documentation officielle](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html).
-- Pour des détails sur le module Bluetooth SPBTLE-RF, référez-vous à sa [fiche technique](https://www.st.com/en/wireless-connectivity/bluenrg-m0.html).
-- Consultez les datasheets des composants pour une compréhension approfondie de leur fonctionnement.
+5. **Gestion des événements BLE :**
+   - Suivi des connexions et déconnexions BLE.
+   - Activation des notifications et gestion des attributs GATT.
 
-**Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
+---
 
-![Implantation composants de l’ObCP](./Images/ObCP_3DTOP.png)
+### **Fonctionnement**
+
+#### **Initialisation :**
+- Mise en place du service BLE avec les caractéristiques TX et RX.
+- Configuration des paramètres BLE comme le nom du périphérique et la puissance de transmission.
+
+#### **Traitement des commandes :**
+- Réception et interprétation des commandes BLE.
+- Exécution des actions correspondantes (par ex., contrôle de la LED ou envoi de messages).
+
+#### **Gestion des événements :**
+- Notification des événements de connexion et de déconnexion.
+- Traitement des modifications des caractéristiques BLE (par ex., réception de nouvelles données via RX).
+
+---
+
+### **Cas d'utilisation**
+
+1. **Prototypage IoT :**
+   - Créer des objets connectés simples pour les projets IoT personnels ou professionnels.
+
+2. **Applications BLE éducatives :**
+   - Enseigner les concepts de communication BLE avec une approche pratique.
+
+3. **Contrôle distant :**
+   - Utiliser un smartphone ou un terminal BLE pour piloter des LEDs ou recevoir des notifications.
+
+---
+
+### **UUIDs utilisés**
+
+- **Service UUID :** `6E400001-B5A3-F393-E0A9-E50E24DCCA9E`
+- **TX UUID :** `6E400002-B5A3-F393-E0A9-E50E24DCCA9E` (envoi de données vers le périphérique distant)
+- **RX UUID :** `6E400003-B5A3-F393-E0A9-E50E24DCCA9E` (réception de commandes depuis un périphérique distant)
+
+---
+
+### **Documentation et ressources**
+
+- **Documentation officielle du STM32 :**
+  [STM32 BlueNRG-MS](https://www.st.com/en/wireless-connectivity/bluenrg-ms.html)
+- **Ressources BLE :**
+  - [nRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=fr) pour tester les services BLE.
+
+---
+
+**Remarque :** Ce programme est destiné à des fins d'apprentissage et de prototypage. Veuillez l'adapter pour une utilisation en production selon vos besoins.
