@@ -2,7 +2,7 @@
 
 ### **À propos**
 
-Ce programme implémente une solution de communication Bluetooth Low Energy (BLE) pour un microcontrôleur STM32 équipé du module BLE BlueNRG-MS. Il offre une base pour développer des applications IoT simples, avec des fonctionnalités de communication bidirectionnelle et d'interaction avec des périphériques matériels.
+Ce programme implémente une solution de communication Bluetooth Low Energy (BLE) pour un microcontrôleur STM32 équipé du module BLE BlueNRG-M0. Il offre une base pour développer des applications IoT simples, avec des fonctionnalités de communication bidirectionnelle et d'interaction avec des périphériques matériels.
 
 ---
 
