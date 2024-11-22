@@ -95,8 +95,7 @@ Ce guide explique comment flasher et configurer votre carte OBCP pour développe
 
 ## **5. Conseils pour aller plus loin**
 - **Approfondir :**
-  - [Tutoriels ST sur les cartes Nucleo](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-embedded-software/stm32cube-mcu-packages/stm32cube-nucleo-expansion-packages.html)
-  - [Configuration avancée MicroPython](https://micropython-on-esp8266.readthedocs.io/en/latest/advanced.html)
+  - [Tutoriels ST sur les cartes Nucleo](https://micropython.org/stm32/)
 - **Communauté :**
   - [Forum officiel MicroPython](https://forum.micropython.org/)
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/micropython)
