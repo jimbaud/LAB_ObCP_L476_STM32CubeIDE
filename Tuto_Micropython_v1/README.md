@@ -1,119 +1,104 @@
----
+# Guide : Configurer et Programmer l'OBCP avec MicroPython
 
-# ObCP - Objet Connecté Personnel
-
-<div align="center">
-  <img src="./Images/ObCP_3Diso.png" alt="Vue 3D ObCP" width="700"/>
-  <p><em>Vue 3D de l'ObCP</em></p>
-</div>
-
-Le projet **ObCP** (Objet Connecté Personnel) est une plateforme de développement basée sur le microcontrôleur **STM32L476RG** et les modules **Bluetooth SPBTLE-RF** (avant 2024) ou **BlueNRG-M0** (à partir de 2024). Elle est conçue pour permettre le prototypage d'applications connectées personnalisées.
+Ce guide explique comment flasher et configurer votre carte OBCP pour développer en Python avec MicroPython. Toutes les étapes nécessaires pour préparer votre environnement sont détaillées, ainsi que des ressources pour approfondir vos connaissances.
 
 ---
 
-## Fonctionnalités principales
+## **1. Préparation de la carte : Flash du firmware**
 
-### Composants principaux
-- **STM32L476RG** : Capacité de traitement puissante, faible consommation, idéale pour les applications IoT.
-- **SPBTLE-RF / BlueNRG-M0** : Communication Bluetooth Low Energy avec une consommation minimale.
-  
-### Caractéristiques matérielles
-- **Sortie PWM** : Contrôle de charges jusqu’à 2,5W sous 5V (fréquence de 20 kHz).
-- **Bouton poussoir utilisateur** : Interface utilisateur simple.
-- **Batterie Lithium** : Alimentation autonome portable.
-- **LED multicolore** : Indication des états ou modes de fonctionnement.
-- **Capteur LIS3D** : Mesure les accélérations sur trois axes.
+### Étape 1 : Passer la carte en mode *prog*
+- **Action :** Mettre la carte en mode "prog" (positionner le cavalier ou basculer l'interrupteur selon votre modèle).
+- **Connecter :** Brancher la carte à l'ordinateur via USB et l'allumer.
 
 ---
 
-## Installation et utilisation sans debugger ST-Link
-
-### Avec STM32CubeProgrammer
-
-1. Téléchargez et installez [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
-2. Connectez votre ObCP en mode "Prog" (SW4) puis appuyez sur "Reset" (SW3).
-
-<div align="center">
-  <img src="./Images/Inter_Prog.png" alt="Mode Prog" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Prog" et bouton "Reset"</em></p>
-</div>
-
-3. Chargez le fichier binaire (.elf/.bin/.hex) via l'interface USB dans CubeProgrammer.
-
-<div align="center">
-  <img src="./Images/Config_CubeProg.png" alt="Configuration de CubeProgrammer" width="800"/>
-  <p><em>Configuration de CubeProgrammer</em></p>
-</div>
-
-4. Passez SW4 en mode "Run" et appuyez sur SW3 "Reset" pour démarrer le programme.
-
-<div align="center">
-  <img src="./Images/Inter_Run.png" alt="Mode Run" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Run" et bouton "Reset"</em></p>
-</div>
+### Étape 2 : Télécharger et installer `dfu-util`
+- **Outil :** [dfu-util](http://dfu-util.sourceforge.net/) est un utilitaire de flash pour les périphériques compatibles DFU (Device Firmware Upgrade).  
+- **Téléchargez :** La version Windows du logiciel, ou utilisez un gestionnaire de paquets comme `brew` sur macOS ou `apt` sur Linux :
+  ```bash
+  sudo apt install dfu-util # Pour Linux
+  ```
 
 ---
 
-### Avec STM32CubeIDE
-
-#### Configuration avec STM32CubeIDE et CubeProgrammer
-<div align="center">
-  <img src="./Images/Config_CubeIDE.png" alt="Configuration STM32CubeIDE" width="800"/>
-  <p><em>Configuration de STM32CubeIDE pour téléversement en DFU</em></p>
-</div>
-
-1. Téléchargez et installez [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) et [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html).
-2. Configurez STM32CubeIDE pour téléverser directement en mode DFU via la CLI de CubeProgrammer :
-   - **Location** : `C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\STM32_Programmer_CLI.exe`
-   - **Working directory** : `${workspace_loc}${project_path}\Debug`
-   - **Arguments** : `-c port=usb1 -d ${project_name}.elf -s`
-3. Placez SW4 en mode "Prog", appuyez sur SW3 "Reset", puis démarrez le téléversement.
-
-<div align="center">
-  <img src="./Images/Inter_Prog.png" alt="Mode Prog" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Prog" et bouton "Reset"</em></p>
-</div>
-
-5. Une fois le téléversement terminé, repassez en mode "Run" et redémarrez avec SW3.
-
-<div align="center">
-  <img src="./Images/Inter_Run.png" alt="Mode Run" width="250"/> <img src="./Images/Reset.png" alt="Reset" width="250"/>
-  <p><em>Mode "Run" et bouton "Reset"</em></p>
-</div>
+### Étape 3 : Naviguer dans le répertoire `dfu-util`
+- **Ouvrez un terminal/console** (Windows : `cmd` ou PowerShell). 
+- **Accédez au dossier contenant l’exécutable `dfu-util` :**
+  ```bash
+  cd Downloads/Tuto_Micropython_v1/dfu-util-0.9-win64/dfu-util-0.9-win64
+  ```
 
 ---
 
-## Documentation supplémentaire
-
-- **STM32L476RG** : [Documentation officielle](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html).
-- **BlueNRG-M0** : [Fiche technique](https://www.st.com/en/wireless-connectivity/bluenrg-m0.html).
-
----
-
-## Schéma et implantation des composants
-
-<div align="center">
-  <img src="./Images/ObCP_3DTOP.png" alt="Implantation des composants" width="700"/>
-  <p><em>Implantation des composants de l'ObCP</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/Schema_ObCP_V24_Page1.png" alt="Schéma Page 1" width="700"/>
-  <p><em>Schéma électrique - Page 1</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/Schema_ObCP_V24_Page2.png" alt="Schéma Page 2" width="700"/>
-  <p><em>Schéma électrique - Page 2</em></p>
-</div>
-
-<div align="center">
-  <img src="./Images/BOM_ObCP_V24.png" alt="Nomenclature" width="700"/>
-  <p><em>Nomenclature complète de l'ObCP</em></p>
-</div>
+### Étape 4 : Flasher le firmware
+- **Commande de base :**
+  ```bash
+  dfu-util --alt 0 -D chemin_vers_fichier_firmware.dfu
+  ```
+- **Exemple :**
+  ```bash
+  dfu-util --alt 0 -D C:\Users\natha\Downloads\Tuto_Micropython_v1\NUCLEO_L476RG-20211006-unstable-v1.17-74-gd42cba0d2.dfu
+  ```
+- **Note :** Adaptez le chemin pour pointer vers le fichier `.dfu` spécifique à votre carte.
 
 ---
 
-**Note :** Ce projet est destiné à des fins de développement et d'apprentissage. Utilisez-le à vos propres risques.
+### Étape 5 : Repasser en mode *run*
+- **Action :** Mettre la carte hors tension, passer en mode "run", et rallumer la carte.
+- **Résultat :** La carte apparaît comme une clé USB contenant plusieurs fichiers, notamment :
+  - `boot.py` : Script lancé au démarrage de la carte.
+  - `main.py` : Script principal où écrire votre programme.
 
---- 
+---
+
+## **2. Écrire votre programme en Python**
+
+### Utilisation des GPIO
+- Déclarez les broches en utilisant leurs noms MicroPython (ex. : `"PA0"`) visibles sur le schéma électrique de la carte.
+- Exemple d’utilisation des broches pour contrôler une LED :
+  ```python
+  from machine import Pin
+  led = Pin("PA0", Pin.OUT)  # Déclare la broche PA0 comme sortie
+  led.on()                  # Allume la LED
+  led.off()                 # Éteint la LED
+  ```
+
+---
+
+### **Attention : Sauvegarde des fichiers**
+- Lors d’une déconnexion brutale (*sans éjecter le périphérique*), les fichiers `boot.py` et `main.py` peuvent être effacés.
+- **Conseil :** Sauvegardez toujours une copie locale de vos fichiers avant de déconnecter la carte.
+
+---
+
+## **3. Environnements de Développement**
+
+### Utiliser **PyCharm**
+- **Configuration directe :** PyCharm peut interagir avec votre carte via le port série pour coder directement en Python.
+- **Ressource :** Consultez [la documentation PyCharm](https://www.jetbrains.com/help/pycharm/) pour configurer un interpréteur externe.
+
+### Utiliser **PuTTY**
+- **Fonctionnalité :** Outil de communication série pour tester rapidement la carte, par exemple pour allumer une LED ou recevoir des logs.
+- **Installation :** Téléchargez [PuTTY ici](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+- **Configuration :** Configurez la connexion série (ex. : port COM utilisé par la carte) pour interagir avec elle.
+
+---
+
+## **4. Documentation complémentaire**
+- **Documentation officielle MicroPython :** [MicroPython Docs](https://docs.micropython.org/en/latest/)
+- **Outils et librairies MicroPython :** [MicroPython Libraries](https://docs.micropython.org/en/latest/library/index.html)
+- **Exemples de projets MicroPython :**
+  - [MicroPython sur GitHub](https://github.com/micropython/micropython)
+  - [Tutoriels MicroPython](https://learn.adafruit.com/micropython-basics)
+
+---
+
+## **5. Conseils pour aller plus loin**
+- **Approfondir :**
+  - [Tutoriels ST sur les cartes Nucleo](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-embedded-software/stm32cube-mcu-packages/stm32cube-nucleo-expansion-packages.html)
+  - [Configuration avancée MicroPython](https://micropython-on-esp8266.readthedocs.io/en/latest/advanced.html)
+- **Communauté :**
+  - [Forum officiel MicroPython](https://forum.micropython.org/)
+  - [Stack Overflow](https://stackoverflow.com/questions/tagged/micropython)
+
+Avec ce guide, vous devriez être en mesure de configurer et d’utiliser votre carte Nucleo avec MicroPython pour des projets embarqués en Python. 🎉
