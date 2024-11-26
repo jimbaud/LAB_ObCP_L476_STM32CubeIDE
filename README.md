@@ -38,7 +38,7 @@ Le projet **ObCP** (Objet Connecté Personnel) est une plateforme de développem
   <p><em>Mode "Prog" et bouton "Reset"</em></p>
 </div>
 
-3. Le port USB doit à présent être detecté comme actif pour la programmation. Effacer le STM32 (Full chip erase) puis ouvrez l'emplacement du fichier binaire (.elf/.bin/.hex) enfin cliquez sur Start programming pour charger le programme dans le STM32 via l'interface USB dans CubeProgrammer.
+3. Le port USB doit à présent être detecté comme actif pour la programmation. Effacer le STM32 (Full chip erase) puis ouvrez l'emplacement du fichier binaire (.elf/.bin/.hex) à l'aide du bouton Browse et enfin cliquez sur Start programming pour charger le programme dans le STM32 via l'interface USB dans CubeProgrammer.
 
 <div align="center">
   <img src="./Images/Config_CubeProg.png" alt="Configuration de CubeProgrammer" width="800"/>
