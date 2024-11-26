@@ -237,7 +237,7 @@ void processCommand(uint8_t* data_buffer, char interface) {
 
 	// Envoi des réponses via BLE ou USB
 	if (interface == 'B') {
-		sendDataDef((uint8_t*)Temp, strlen(Temp));  // Envoi via BLE
+		Printf_BLE(Temp);  // Envoi via BLE
 		if (USB_Connected) {
 			CDC_Transmit_FS((uint8_t*)Temp, strlen(Temp));  // Envoi aussi via USB si connecté
 		}
