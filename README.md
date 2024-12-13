@@ -97,7 +97,7 @@ Pour flasher le programme directement sur la carte, il est souvent utile de gén
 
 ---
 
-## 🔥 **Installation et utilisation**
+## 🔥 **Programmer le fichier binaire sans ST-Link**
 
 ### ⚡ **Avec STM32CubeProgrammer**
 
