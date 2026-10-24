@@ -1,0 +1,51 @@
+# ============================================================================
+# ObCP - Projets Android Studio
+# A placer dans LAB_ObCP_L476_STM32CubeIDE/Android/.gitignore
+# S'applique a tous les projets situes dans Android/ et ses sous-dossiers.
+# ============================================================================
+
+# --- Fichiers generes par Gradle et Android Studio ---
+.gradle/
+.kotlin/
+build/
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# --- Fichiers compiles / paquets de distribution ---
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# --- Secrets et cles de signature : ne jamais les publier ---
+*.jks
+*.keystore
+*.p12
+*.pfx
+key.properties
+keystore.properties
+signing.properties
+secrets.properties
+.env
+.env.*
+!.env.example
+
+# --- Fichiers temporaires et propres au poste ---
+*.log
+*.hprof
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IMPORTANT : conserver et versionner gradlew, gradlew.bat,
+# gradle/wrapper/gradle-wrapper.jar, gradle/wrapper/gradle-wrapper.properties,
+# settings.gradle(.kts), build.gradle(.kts), gradle.properties (sans secrets),
+# le code source et les ressources.
