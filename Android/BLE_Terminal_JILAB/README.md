@@ -1,167 +1,160 @@
-# 📱 BLE Terminal JILAB
+# BLE Terminal JILAB — terminal Bluetooth Low Energy pour Android
 
-[![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
-[![Kotlin](https://img.shields.io/badge/Language-Kotlin-purple.svg)](https://kotlinlang.org/)
-[![Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-blue.svg)](https://developer.android.com/jetpack/compose)
-[![Material 3](https://img.shields.io/badge/Design-Material%203-orange.svg)](https://m3.material.io/)
-[![Min SDK](https://img.shields.io/badge/Min%20SDK-28%20(Android%209.0)-brightgreen.svg)](https://developer.android.com/about/versions/pie)
-[![Target SDK](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-blue.svg)](https://developer.android.com/about/versions/14)
+![Android](https://img.shields.io/badge/Android-%E2%89%A5%209.0-3DDC84?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Langage-Kotlin-7F52FF?logo=kotlin&logoColor=white)
+![Interface](https://img.shields.io/badge/UI-Jetpack%20Compose%20%2B%20Material%203-blue)
+![Version](https://img.shields.io/badge/Release-v1.0-informational)
 
-Une application Android moderne, fluide et complète servant de **terminal Bluetooth Low Energy (BLE)** pour la communication série UART. Développée spécialement pour dialoguer avec des systèmes embarqués et microcontrôleurs (STM32, ESP32, Arduino, nRF52, HM-10, etc.) utilisant le profil **Nordic UART Service (NUS)** ou un service BLE UART personnalisé.
+**BLE Terminal JILAB** est une application Android de type terminal série sur Bluetooth Low Energy (BLE). Elle permet de rechercher un périphérique, de se connecter à son service GATT, d'envoyer des commandes et d'afficher les données reçues. Elle sert notamment à tester les cartes pédagogiques **ObCP**, mais peut aussi être adaptée à d'autres périphériques BLE disposant de caractéristiques d'écriture et de notification.
 
----
+L'application utilise **Kotlin**, **Jetpack Compose** et **Material 3**. Son code source est inclus dans le dépôt commun des projets ObCP.
 
-## 📋 Sommaire
+> **À qui s'adresse-t-elle ?** Aux étudiants, enseignants et développeurs qui souhaitent diagnostiquer un échange BLE ou communiquer avec un microcontrôleur sans créer une interface graphique spécifique.
 
-- [✨ Fonctionnalités Principales](#-fonctionnalités-principales)
-- [🛠️ Spécifications Techniques](#️-spécifications-techniques)
-- [📐 Architecture du Projet](#-architecture-du-projet)
-- [📡 Protocoles & UUIDs](#-protocoles--uuids)
-- [🚀 Installation & Déploiement](#-installation--déploiement)
-- [📖 Guide d'Utilisation](#-guide-dutilisation)
-- [⚙️ Configuration Avancée](#️-configuration-avancée)
+## Télécharger l'application
 
----
+| Ressource | Lien |
+|---|---|
+| **APK Android v1.0 — installation directe** | **[Télécharger Terminal_BLE_release.apk](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/releases/download/BLE_Terminal_V1.0/Terminal_BLE_release.apk)** |
+| Page de la publication v1.0 | [BLE_Terminal_V1.0](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/releases/tag/BLE_Terminal_V1.0) |
+| Toutes les versions publiées | [GitHub Releases](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/releases) |
+| Code source | [Dossier BLE_Terminal_JILAB](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/tree/main/Android/BLE_Terminal_JILAB) |
 
-## ✨ Fonctionnalités Principales
+Le fichier APK de la publication v1.0 fait environ **19,3 Mo**. Le lien direct pointe vers **cette version précise** ; pour rechercher une version ultérieure, consulter la page « Toutes les versions publiées ».
 
-### 🔍 1. Scanner BLE & Connexion
-- **Détection rapide** : Recherche en temps réel des appareils BLE à proximité en mode *Low Latency*.
-- **Filtrage dynamique** : Recherche instantanée par nom d'appareil ou par adresse MAC.
-- **Indicateur de statut visuel** :
-  - 🟢 **Vert** : Connecté et prêt à communiquer.
-  - 🟡 **Jaune** : Connexion en cours / Découverte des services.
-  - 🔴 **Rouge** : Déconnecté.
-- **Reconnexion automatique** : Reconnexion automatique au dernier appareil utilisé au lancement de l'application (option déconnectable).
+### Installer l'APK sur un téléphone
 
-### 💬 2. Terminal de Communication Interactive
-- **Formats Texte (UTF-8) & Hexadécimal (HEX)** : Basculez dynamiquement entre l'affichage/envoi en caractères UTF-8 ou en valeurs hexadécimales.
-- **Horodatage & Typage** : Chaque flux est distinctement catégorisé avec son horodatage (`HH:mm:ss`) :
-  - `[TX]` : Données envoyées par l'application.
-  - `[RX]` : Données reçues du périphérique BLE.
-  - `[STATUS]` : Messages système et informations de connexion.
-- **Défilement automatique** : La console défile automatiquement pour afficher les messages les plus récents.
-- **Nettoyage rapide** : Un bouton permet d'effacer la console d'un simple clic.
+1. Utiliser un téléphone Android **9.0 (API 28) ou plus récent**, équipé du Bluetooth LE.
+2. Télécharger l'APK depuis le lien ci-dessus et ouvrir le fichier depuis le téléphone.
+3. Autoriser, si Android le demande, l'installation d'applications provenant de cette source (navigateur ou gestionnaire de fichiers). Ne donner cette autorisation qu'à une source de confiance.
+4. Installer et lancer **BLE Terminal JILAB**.
+5. Activer le Bluetooth et accepter les autorisations nécessaires à la recherche des périphériques, notamment *Appareils à proximité* et, suivant la version d'Android, *Localisation*.
 
-### 🎛️ 3. Grille de Macros Personnalisables
-- **Accès rapide aux commandes** : Grille de boutons de raccourcis pour envoyer des commandes prédéfinies d'une simple pression.
-- **Édition à la volée** : **Appui long** sur n'importe quel bouton pour ouvrir un dialogue de modification (étiquette et commande).
-- **Nombre configurable** : Choisissez entre 1 et 32 boutons de macros selon vos besoins.
-- **Mise en page adaptative** : Ajustement automatique de la taille du texte et du placement en grille.
-- **Sauvegarde permanente** : Les raccourcis sont conservés en mémoire (`SharedPreferences` + `Gson`).
+**Mise à jour :** l'installation d'un nouvel APK par-dessus l'ancien nécessite le même identifiant d'application, une signature compatible et un `versionCode` supérieur. Conserver la clé de signature des versions distribuées.
 
-### 📑 4. Journalisation / Logs sur Fichier
-- **Enregistrement sur disque** : Possibilité d'enregistrer tous les échanges dans un fichier texte (`ble_log.txt`).
-- **Horodatage détaillé** : Horodatage précis à la milliseconde (`yyyy-MM-dd HH:mm:ss.SSS`).
-- **Chemin personnalisable** : Définissez le dossier cible (par défaut : `Documents/BLE_Terminal_AppLogs`).
+## Fonctionnalités
 
-### 🛡️ 5. Prise en charge des Permissions Modernes
-- Gestion complète des permissions requises sous Android 12+ (`BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`, `ACCESS_FINE_LOCATION`).
-- Demandes dynamiques au runtime avec explications si nécessaires.
+| Fonction | Utilisation |
+|---|---|
+| Recherche BLE | Scan des périphériques proches, filtrage par nom ou adresse MAC |
+| Connexion GATT | Connexion, découverte des services et activation des notifications |
+| Terminal texte | Envoi de chaînes UTF-8 et affichage des données reçues |
+| Mode hexadécimal | Envoi d'octets à partir d'une chaîne HEX et affichage des octets en HEX |
+| Historique | Affichage chronologique avec heures et catégories `TX`, `RX`, `STATUS` |
+| Macros | Boutons configurables (étiquette + commande), nombre réglable de 1 à 32 |
+| Reconnexion | Option de tentative de reconnexion au dernier périphérique connu |
+| Paramètres BLE | UUID de service, UUID de notification et UUID d'écriture modifiables |
+| Journalisation | Option d'écriture des communications dans `ble_log.txt` (voir limitation Android ci-dessous) |
 
----
+### Démarrer une session BLE
 
-## 🛠️ Spécifications Techniques
+1. Mettre sous tension et démarrer le firmware du périphérique BLE.
+2. Appuyer sur **Scanner** et sélectionner son nom (ou son adresse MAC).
+3. Attendre l'état **« Prêt à communiquer »**, obtenu après activation des notifications.
+4. Saisir un texte dans le terminal puis appuyer sur **Envoyer**, ou utiliser une macro.
+5. Observer les messages envoyés (`TX`), reçus (`RX`) et les messages de statut (`STATUS`).
+6. Cliquer sur l'état de connexion pour afficher le bouton **Déconnecter**.
 
-| Composant | Technologie / Version |
-| :--- | :--- |
-| **Langage** | Kotlin 1.9+ |
-| **Interface Utilisateur** | Jetpack Compose (Material Design 3) |
-| **Architecture UI** | Declarative UI + Navigation Compose |
-| **Persistance** | SharedPreferences + Gson |
-| **Min SDK** | API 28 (Android 9.0 Pie) |
-| **Target SDK** | API 34 (Android 14) |
-| **Build System** | Gradle (Kotlin DSL - `build.gradle.kts`) |
+**Important pour les protocoles texte :** en mode texte, la version actuelle envoie les octets UTF-8 de la chaîne saisie **sans ajouter automatiquement `CR` (`\r`), `LF` (`\n`) ou `CRLF`**. Le protocole de la carte doit donc accepter ce format, ou être adapté si un terminateur est exigé. En mode HEX, saisir par exemple `41 42 0D 0A` pour transmettre `AB\r\n`.
 
----
+### Macros et paramètres
 
-## 📐 Architecture du Projet
+- **Appui court** sur une macro : envoi de sa commande si elle n'est pas vide.
+- **Appui long** : modification de son libellé et de la commande.
+- **Icône de configuration** : paramètres BLE, mode HEX, reconnexion, journalisation et nombre de macros.
+- Les paramètres et les macros sont conservés dans les préférences locales de l'application.
 
-```
-app/src/main/java/com/example/BLE_Terminal_JILAB/
-│
-├── MainActivity.kt         # Activité principale : Scan BLE, gestion GATT, terminal & macros UI
-├── Settings.kt             # Modèle BleSettings & persistance SharedPreferences des paramètres
-├── SettingsScreen.kt       # Écran de configuration (UUIDs, logs, mode HEX, nombre de macros)
-│
-└── ui/theme/               # Fichiers de thématisation Compose
-    ├── Color.kt            # Palette de couleurs Material 3
-    ├── Theme.kt            # Application du thème clair/sombre
-    └── Type.kt             # Typographies
-```
+## Profil BLE : attention aux UUID
 
----
+L'application emploie par défaut les UUID suivants, **selon les rôles indiqués dans son code actuel** :
 
-## 📡 Protocoles & UUIDs
+| Fonction réellement attendue par BLE Terminal JILAB | UUID | Propriété GATT attendue |
+|---|---|---|
+| Service de communication | `6E400001-B5A3-F393-E0A9-E50E24DCCA9E` | Service GATT |
+| Réception sur le téléphone (**notifications**) | `6E400002-B5A3-F393-E0A9-E50E24DCCA9E` | `NOTIFY` (+ CCCD `0x2902`) |
+| Émission depuis le téléphone (**écriture**) | `6E400003-B5A3-F393-E0A9-E50E24DCCA9E` | `WRITE` ou `WRITE WITHOUT RESPONSE` |
 
-Par défaut, l'application utilise les identifiants du standard **Nordic UART Service (NUS)** :
+**Différence avec le Nordic UART Service (NUS) officiel :** dans le profil NUS de Nordic Semiconductor, `6E400002` est la caractéristique **RX / WRITE** du périphérique et `6E400003` sa caractéristique **TX / NOTIFY**. Les rôles utilisés par l'application sont **inversés** par rapport à cette définition officielle. Cette inversion reflète le paramétrage du projet STM32 ObCP documenté dans le dépôt ; elle peut empêcher l'utilisation immédiate avec un périphérique NUS standard.
 
-| Service / Caractéristique | UUID par Défaut | Propriété GATT | Rôle |
-| :--- | :--- | :--- | :--- |
-| **UART Service** | `6E400001-B5A3-F393-E0A9-E50E24DCCA9E` | Primary Service | Service conteneur |
-| **TX Characteristic** | `6E400002-B5A3-F393-E0A9-E50E24DCCA9E` | NOTIFY | Réception des données sur Android |
-| **RX Characteristic** | `6E400003-B5A3-F393-E0A9-E50E24DCCA9E` | WRITE / WRITE NO RESPONSE | Émission des données depuis Android |
+Pour une cible **NUS Nordic standard**, ouvrir **Configuration** et utiliser :
 
-> 💡 **Remarque** : Tous ces UUIDs sont modifiables directement dans l'écran de **Configuration** pour s'adapter à n'importe quel autre profil BLE.
+- **TX Characteristic UUID (Notify)** : `6E400003-B5A3-F393-E0A9-E50E24DCCA9E` ;
+- **RX Characteristic UUID (Write)** : `6E400002-B5A3-F393-E0A9-E50E24DCCA9E`.
 
----
+Les intitulés `TX`/`RX` de l'écran sont vus **du point de vue du périphérique**, et non du téléphone. Vérifier les propriétés exposées par le firmware à l'aide d'un explorateur GATT en cas de doute. Voir la [documentation officielle Nordic NUS](https://nrfconnectdocs.nordicsemi.com/ncs/latest/nrf/libraries/bluetooth/services/nus.html).
 
-## 🚀 Installation & Déploiement
+## Construire le projet avec Android Studio
 
 ### Prérequis
-- **Android Studio** (version Ladybug ou ultérieure recommandée).
-- **JDK 17** configuré dans Android Studio.
-- Un appareil Android physique sous **Android 9.0 ou supérieur** avec Bluetooth et Localisation activés.
-- Un équipement cible BLE (ex: STM32, ESP32, Arduino, Nordic nRF).
 
-### Étapes de compilation
+- Android Studio avec le **SDK Android** requis et un **JDK compatible avec la version de Gradle et le plugin Android** du projet (le JDK embarqué d'Android Studio est conseillé).
+- Accès réseau lors de la première synchronisation pour télécharger Gradle et les dépendances.
+- Pour tester en BLE : un téléphone Android physique et un périphérique BLE compatible.
 
-1. Cloner le dépôt :
-   ```bash
-   git clone https://github.com/votre-compte/BLE_Terminal_JILAB.git
-   ```
-2. Ouvrir le projet dans **Android Studio**.
-3. Lancer une synchronisation Gradle : `File` > `Sync Project with Gradle Files`.
-4. Connecter votre smartphone en mode Débogage USB.
-5. Cliquer sur **Run 'app'** (`Shift + F10`).
+**Attention :** le dépôt contient **plusieurs projets Android indépendants**. Il faut ouvrir **ce sous-dossier**, pas le dépôt entier comme s'il s'agissait d'un projet Gradle unique.
 
----
+```bash
+git clone https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE.git
+```
 
-## 📖 Guide d'Utilisation
+Dans Android Studio : **File > Open… > `LAB_ObCP_L476_STM32CubeIDE/Android/BLE_Terminal_JILAB`**, puis **Sync Project with Gradle Files**.
 
-1. **Scanner et Se Connecter** :
-   - Ouvrez l'application.
-   - Appuyez sur **Scanner** pour rechercher les équipements BLE environnants.
-   - Utilisez le champ **Filtrer les appareils...** pour restreindre la liste par nom ou adresse MAC.
-   - Cliquez sur l'appareil cible pour initier la connexion GATT.
+La version actuellement déclarée dans `app/build.gradle.kts` est `versionName = "1.0"`, `versionCode = 1`, `minSdk = 28`, `targetSdk = 34`.
 
-2. **Échanger des données** :
-   - Saisissez votre texte dans la zone de saisie au bas du terminal.
-   - Appuyez sur **Envoyer** (ou utilisez les boutons de macros).
-   - Les données reçues du microcontrôleur apparaissent instantanément dans la console.
+### Compiler depuis le terminal (Windows / PowerShell)
 
-3. **Configurer les Macros** :
-   - Effectuez un **appui long** sur un bouton de macro pour personnaliser son nom et la commande associée.
-   - Un **clic court** transmet immédiatement la commande au périphérique.
+Depuis le dossier `Android/BLE_Terminal_JILAB` :
 
-4. **Modifier les Paramètres** :
-   - Appuyez sur l'icône **Configuration ⚙️** dans la barre supérieure.
-   - Ajustez les UUIDs, activez le mode **HEX**, configurez la **reconnexion automatique** ou le **fichier de logs**.
-   - Cliquez sur **Enregistrer** pour valider vos modifications.
+```powershell
+.\gradlew.bat :app:assembleDebug
+```
 
----
+Le résultat est normalement `app/build/outputs/apk/debug/app-debug.apk`. Pour Linux/macOS : `./gradlew :app:assembleDebug`.
 
-## ⚙️ Configuration Avancée
+### Générer un APK Release signé
 
-Dans l'écran **Configuration**, vous pouvez ajuster :
-- **UUIDs personnalisés** : Modifier le service et les caractéristiques TX/RX.
-- **Afficher en Hexadécimal (HEX)** : Convertit automatiquement le texte saisi et les octets reçus en paires hexadécimales (ex: `48 45 4C 4C 4F`).
-- **Enregistrer les logs** : Active/désactive l'écriture automatique dans `ble_log.txt`.
-- **Nombre de boutons macros** : Boutons `+` et `-` pour régler le nombre de macros affichées (de 1 à 32).
-- **Reset par défaut** : Restaure les paramètres et les macros d'origine.
+Dans Android Studio : **Build > Generate Signed App Bundle / APK… > APK > Next**. Sélectionner ou créer un **keystore** (à conserver hors du dépôt Git), choisir la variante **release** et lancer la génération. Le résultat signé est généralement sous `app/build/outputs/apk/release/`.
 
----
+> `assembleRelease` ne garantit pas à lui seul que l'APK produit est signé : le bloc Gradle `release` fourni ne définit pas de `signingConfig`. Utiliser l'assistant de signature ou configurer une signature externe sécurisée.
 
-## 📄 Licence
+Avant une publication, augmenter `versionCode` et adapter `versionName`, puis tester l'APK sur un vrai téléphone. Publier le binaire dans une **GitHub Release**, pas dans le code source du dépôt.
 
-Ce projet est développé dans le cadre des travaux de laboratoire **JILAB**.Tous droits réservés.
+## Organisation du code
+
+```text
+BLE_Terminal_JILAB/
+├── app/src/main/
+│   ├── AndroidManifest.xml
+│   └── java/com/example/BLE_Terminal_JILAB/
+│       ├── MainActivity.kt       # Scan, connexion GATT, terminal, macros
+│       ├── Settings.kt           # Paramètres et persistance locale
+│       ├── SettingsScreen.kt     # Écran de configuration
+│       └── ui/theme/             # Thème Jetpack Compose
+├── gradle/                       # Versions des dépendances, wrapper Gradle
+├── app/build.gradle.kts          # Configuration de l'application
+├── settings.gradle.kts           # Projet Gradle autonome
+├── gradlew / gradlew.bat          # Scripts de compilation
+└── README.md
+```
+
+### Points d'attention et limites connues
+
+- **Journaux dans `Documents/` :** le code actuel utilise un accès direct au répertoire public via `Environment.getExternalStoragePublicDirectory`. Sur les versions récentes d'Android, les restrictions de stockage (*scoped storage*) peuvent empêcher l'écriture ; ne pas considérer cette fonction comme garantie sur Android 11 et au-delà. Une évolution vers le *Storage Access Framework* ou MediaStore serait préférable.
+- **Trames et MTU :** l'application n'implémente pas un protocole générique de fragmentation/réassemblage de longs messages applicatifs. Tenir compte de la taille utile des échanges BLE.
+- **UUID et type d'écriture :** le périphérique doit exposer les caractéristiques dans le sens attendu, avec les propriétés correspondantes. Le code sélectionne `WRITE_TYPE_DEFAULT` lors de l'envoi ; un périphérique qui ne propose que `WRITE WITHOUT RESPONSE` peut nécessiter une adaptation du type d'écriture.
+- **Reconnexion automatique :** elle utilise l'adresse du dernier périphérique enregistrée et peut ne pas fonctionner si son adresse BLE change (adresse privée aléatoire, par exemple).
+- **Permissions :** si aucun périphérique n'est trouvé, vérifier le Bluetooth, les autorisations Android, la localisation et l'état de publicité du périphérique.
+
+## Ressources associées
+
+- [Documentation générale du projet ObCP](../../README.md)
+- [Projet STM32 ObCP BLE UART](../../OBCP_BLE_UART/README.md)
+- [Application Android ObCP Control](../ObCP_Control/README.md)
+- [Documentation officielle Android sur le BLE](https://developer.android.com/develop/connectivity/bluetooth/ble/overview)
+- [Nordic UART Service — spécification des caractéristiques](https://nrfconnectdocs.nordicsemi.com/ncs/latest/nrf/libraries/bluetooth/services/nus.html)
+
+## Auteur et cadre d'utilisation
+
+Application documentée dans le cadre des projets pédagogiques et de prototypage **JILAB / ObCP**. Dépôt administré par [Joël IMBAUD](https://github.com/jimbaud) ; projets ObCP associés à [SUPMICROTECH–ENSMM](https://www.supmicrotech.fr/).
+
+Le README d'origine mentionne **« Tous droits réservés »** ; l'accès public au code ne vaut pas, à lui seul, attribution d'une licence de réutilisation. Consulter les conditions précisées par le responsable du dépôt avant toute redistribution ou modification sous une autre licence.
