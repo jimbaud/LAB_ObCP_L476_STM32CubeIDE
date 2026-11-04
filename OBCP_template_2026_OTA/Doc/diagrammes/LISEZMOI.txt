@@ -1,0 +1,14 @@
+Sources des schémas de Doc/images (à relancer depuis ce dossier)
+
+  Graphviz (dot) :  dot -Tpng -Gdpi=150 architecture.dot -o ../images/architecture.png
+                    (idem pour boucle, bouton, regeneration, chargement_ota, ota_switch)
+  Mermaid (mmdc) :  usb_reception.mmd, ble_reception.mmd (réglages : mermaid_config.json)
+  Python (matplotlib, police Carlito) :
+                    python memoire.py ../images/memoire.png
+                    python occupation.py ../../Release/OBCP_template_2026.map ../images/occupation.png
+                    (fichier .map : Release/ dans STM32CubeIDE, build/Release/ avec make)
+                    python matrice.py ../.. ../images/matrice.png
+
+memoire.py contient les adresses relevées dans le programme compilé (Release) :
+à mettre à jour si le programme change. occupation.py lit le fichier .map de
+l'édition de liens, matrice.py lit le code source : ils se mettent à jour seuls.

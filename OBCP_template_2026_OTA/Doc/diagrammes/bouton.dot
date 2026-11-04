@@ -1,0 +1,20 @@
+// Machine à états de l'anti-rebond du bouton (button.c) : dot -Tpng bouton.dot -o bouton.png
+digraph bouton {
+  graph [rankdir=TB, fontname="Carlito", nodesep=1.6, ranksep=1.1, bgcolor="white", pad=0.3];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=13, color="#5F6B7A", fillcolor="#E7EEF8", margin="0.18,0.1", width=2.6];
+  edge  [color="#5F6B7A", arrowsize=0.8, fontname="Carlito", fontsize=12, fontcolor="#2B3440"];
+
+  rel  [label="BTN_RELEASED\nrelâché"];
+  cpr  [label="BTN_CONFIRM_PRESS\nest-ce un vrai appui ?"];
+  crel [label="BTN_CONFIRM_RELEASE\nest-ce un vrai relâchement ?"];
+  held [label="BTN_HELD\nenfoncé", fillcolor="#E3F1E6"];
+  {rank=same; rel; cpr;}
+  {rank=same; crel; held;}
+
+  rel  -> cpr  [label="front descendant (EXTI)\nou PC13 = 0"];
+  cpr  -> rel  [label="PC13 = 1 avant 30 ms\n(rebond)"];
+  cpr  -> held [label="  30 ms à 0 :\n  APPUI SIGNALÉ", fontcolor="#2F6B40", color="#3C8150", penwidth=1.8];
+  held -> crel [label="PC13 = 1"];
+  crel -> held [label="PC13 = 0 avant 30 ms\n(rebond)"];
+  crel -> rel  [label="30 ms à 1  "];
+}

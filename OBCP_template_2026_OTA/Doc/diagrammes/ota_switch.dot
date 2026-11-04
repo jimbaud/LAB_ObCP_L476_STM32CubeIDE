@@ -1,0 +1,20 @@
+// Commande « #ota » : passage au chargeur Bluetooth en trois étapes (ota_switch.c) (dot -Tpng -Gdpi=150 ota_switch.dot -o ota_switch.png)
+digraph ota_switch {
+  graph [rankdir=TB, fontname="Carlito", fontsize=11, nodesep=0.55, ranksep=0.45, bgcolor="white", pad=0.25, newrank=true];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=10, color="#5F6B7A", fillcolor="#E3F1E6", margin="0.14,0.07"];
+  edge  [color="#7A8594", arrowsize=0.7, fontname="Carlito", fontsize=9, fontcolor="#44505E"];
+
+  idle  [label="IDLE\nrien de demandé", fillcolor="#EEF0F3"];
+  send  [label="1. SENDING\nla réponse « OTA loader... »\npart vers le PC et le téléphone"];
+  disc  [label="2. DISCONNECTING\nble_uart_disconnect() :\nla connexion Bluetooth se ferme"];
+  boot  [label="3. obcp_ota_enter_loader()\ndemande déposée dans la SRAM2\npuis reset logiciel", fillcolor="#E7EEF8"];
+  ldr   [label="le chargeur Bluetooth\n(banque 1) démarre\net reste actif", fillcolor="#F8EEDC"];
+
+  {rank=same; idle; send; disc;}
+  {rank=same; ldr; boot;}
+  idle -> send [label="« #ota »\n(commands.c)"];
+  send -> disc [label="plus rien à envoyer\nou 500 ms"];
+  disc -> boot [label=" connexion fermée\n ou 500 ms"];
+  ldr -> boot  [dir=back, label="redémarrage"];
+  idle -> ldr  [style=invis];
+}

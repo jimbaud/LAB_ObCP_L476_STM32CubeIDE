@@ -1,0 +1,18 @@
+digraph etats {
+  rankdir=TB; bgcolor="white"; nodesep=1.1; ranksep=0.42; newrank=true;
+  node [fontname="Carlito", fontsize=12, shape=box, style="rounded,filled", color="#455A64", width=2.0];
+  edge [fontname="Carlito", fontsize=11, color="#455A64"];
+  IDLE      [label="IDLE\nattente de START", fillcolor="#ECEFF1"];
+  RECEIVING [label="RECEIVING\nréception des paquets", fillcolor="#C8E6C9"];
+  COMPLETE  [label="COMPLETE\ntout est reçu", fillcolor="#C8E6C9"];
+  DONE      [label="DONE\nprogramme validé", fillcolor="#A5D6A7", color="#2E7D32", penwidth=1.6];
+  ERROR     [label="ERROR\nerreur signalée au PC", fillcolor="#FFCDD2", color="#C62828"];
+  IDLE -> RECEIVING      [label="  START (effacement réussi)"];
+  RECEIVING -> COMPLETE  [label="  dernier octet reçu"];
+  COMPLETE -> DONE       [label="  END : CRC et table des vecteurs corrects"];
+  IDLE -> ERROR          [label="taille refusée,\ncommande inattendue  ", color="#C62828", fontcolor="#C62828"];
+  RECEIVING -> ERROR     [label="paquet perdu, trop de\ndonnées, panne flash  ", color="#C62828", fontcolor="#C62828"];
+  COMPLETE -> ERROR      [label="CRC ou table des\nvecteurs faux  ", color="#C62828", fontcolor="#C62828"];
+  ERROR -> IDLE          [label="ABORT ou\ndéconnexion", style=dashed, constraint=false];
+  {rank=same; RECEIVING; ERROR;}
+}

@@ -1,0 +1,27 @@
+digraph demarrage {
+  rankdir=TB; bgcolor="white"; nodesep=0.4; ranksep=0.32;
+  node [fontname="Carlito", fontsize=12, shape=box, style="rounded,filled", fillcolor="#ECEFF1", color="#455A64"];
+  edge [fontname="Carlito", fontsize=11, color="#455A64"];
+  reset   [label="Reset (mise sous tension, bouton RESET, reset logiciel)", shape=box, style="rounded,filled,bold", fillcolor="#CFD8DC"];
+  boite   [label="Lire puis effacer la boîte aux lettres\n(2 mots à la fin de la SRAM2)"];
+  bouton  [label="Lire le bouton USER (PC13)\n3 lectures à 1 ms d'intervalle"];
+  appok   [label="Application valide\nen banque 2 ?", shape=diamond, fillcolor="#FFF9C4", color="#F9A825"];
+  usr     [label="USER\nenfoncé ?", shape=diamond, fillcolor="#FFF9C4", color="#F9A825"];
+  dem     [label="Demande de\nl'application ?", shape=diamond, fillcolor="#FFF9C4", color="#F9A825"];
+  rstble  [label="Impulsion de reset sur le module BLE (PC2)"];
+  saut    [label="VTOR = 0x08080000\nMSP = 1er mot de la table des vecteurs\nsaut vers Reset_Handler (2e mot)", fillcolor="#FFE082", color="#F57F17"];
+  appli   [label="APPLICATION", style="rounded,filled,bold", fillcolor="#FFD54F", color="#F57F17"];
+  charg   [label="CHARGEUR BLE\nHAL_Init, horloge 80 MHz, Bluetooth\nannonce « ObCP-OTA-xxxx »", fillcolor="#90CAF9", color="#1565C0", style="rounded,filled,bold"];
+  fin     [label="Redémarrage quand : commande RUN du PC,\nappui court sur USER, ou 2 min sans connexion", fillcolor="#E3F2FD", color="#1565C0"];
+  reset -> boite -> bouton -> appok;
+  appok -> usr   [label=" oui"];
+  appok -> charg [label=" non\n (LED violette)"];
+  usr   -> charg [label=" oui"];
+  usr   -> dem   [label=" non"];
+  dem   -> charg [label=" oui"];
+  dem   -> rstble [label=" non"];
+  rstble -> saut -> appli;
+  charg -> fin;
+  fin -> reset [style=dashed, constraint=false, label=" reset "];
+  {rank=same; usr; charg;}
+}

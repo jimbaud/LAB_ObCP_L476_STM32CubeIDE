@@ -1,0 +1,42 @@
+// Boucle principale app_loop() (Graphviz : dot -Tpng -Gdpi=150 boucle.dot -o boucle.png)
+digraph boucle {
+  graph [rankdir=TB, fontname="Carlito", fontsize=11, nodesep=0.25, ranksep=0.22, bgcolor="white", pad=0.25];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=10, color="#5F6B7A", fillcolor="#E3F1E6", width=4.2, margin="0.12,0.05"];
+  edge  [color="#7A8594", arrowsize=0.7, fontname="Carlito", fontsize=8, fontcolor="#44505E"];
+
+  init  [label="app_init()  (une fois)\nfautes détaillées, PWM, accéléromètre, bouton, Bluetooth, LED de démarrage", fillcolor="#E7EEF8", width=5.4];
+  s1  [label="1. ble_uart_process()\névènements du module, publicité, envoi des notifications"];
+  s2  [label="2. connexion d'un téléphone -> message dans le terminal"];
+  s3  [label="3. lignes reçues du téléphone -> commands_execute(..., CMD_SRC_BLE)"];
+  s4  [label="4. lignes reçues du PC -> commands_execute(..., CMD_SRC_USB)"];
+  s5  [label="5. déconnexion du téléphone -> sorties éteintes, minuterie arrêtée"];
+  s6  [label="6. USB rebranché pendant une connexion -> « USB Connected »"];
+  s7  [label="7. appui sur le bouton (anti-rebond) -> « Push button pressed »"];
+  s8  [label="8. une seconde écoulée (start timer) -> mesures vers le téléphone"];
+  s9  [label="9. VOTRE CODE ICI (sans attente !)", fillcolor="#FFF3C4", color="#B08900", penwidth=1.4];
+  s10 [label="10. usb_console_process() : envoi de la file d'attente vers le PC"];
+  s11 [label="11. ota_switch_process() : après « #ota », passage au chargeur Bluetooth"];
+  s12 [label="12. __WFI() : sommeil jusqu'à la prochaine interruption (1 ms au plus)", fillcolor="#EEF0F3"];
+
+  init -> s1 -> s2 -> s3 -> s4 -> s5 -> s6 -> s7 -> s8 -> s9 -> s10 -> s11 -> s12;
+  back [label="retour à l'étape 1 : la boucle tourne au moins 1000 fois par seconde\n(le SysTick réveille le processeur chaque milliseconde)", shape=box, style="rounded,dashed", fillcolor="white", color="#3C8150", fontcolor="#2F6B40", fontsize=9, width=5.4];
+  s12 -> back [color="#3C8150", penwidth=1.4];
+
+  node [fillcolor="#F8EEDC", width=2.6, fontsize=9];
+  irq_title [shape=plaintext, style="", label="Interruptions :\nelles notent seulement\nl'évènement", fontsize=9, fontcolor="#44505E", width=2.6];
+  i_ble [label="IRQ du module Bluetooth (PB12)"];
+  i_usb [label="USB : paquet reçu du PC"];
+  i_btn [label="EXTI13 : bouton (PC13)"];
+  i_tim [label="TIM7 : une seconde"];
+  {rank=same; irq_title; init;}
+  irq_title -> init [style=invis];
+  irq_title -> i_ble [style=invis];
+  i_ble -> s1 [style=dashed];
+  i_usb -> s4 [style=dashed];
+  i_btn -> s7 [style=dashed];
+  i_tim -> s8 [style=dashed];
+  {rank=same; i_ble; s1;}
+  {rank=same; i_usb; s4;}
+  {rank=same; i_btn; s7;}
+  {rank=same; i_tim; s8;}
+}

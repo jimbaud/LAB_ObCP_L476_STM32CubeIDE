@@ -1,0 +1,27 @@
+digraph modules {
+  rankdir=TB; bgcolor="white"; nodesep=0.3; ranksep=0.45; newrank=true;
+  node [fontname="Carlito", fontsize=11.5, shape=box, style="rounded,filled", color="#455A64"];
+  edge [fontname="Carlito", fontsize=10, color="#607D8B"];
+  main  [label="main.c\n(généré par CubeMX)", fillcolor="#E0E0E0"];
+  boot  [label="boot.c\ndécision de démarrage,\nsaut vers l'application", fillcolor="#BBDEFB"];
+  loader[label="loader.c\nboucle principale du chargeur", fillcolor="#BBDEFB"];
+  ble   [label="ble_ota.c\nservice GATT, annonces,\névénements du module", fillcolor="#90CAF9"];
+  leds  [label="leds.c\nsignalisation\n(LED RVB)", fillcolor="#BBDEFB"];
+  ota   [label="ota.c\ncœur du transfert\n(machine à états)", fillcolor="#64B5F6", penwidth=1.6];
+  flash [label="app_flash.c\neffacement, écriture\nde la banque 2", fillcolor="#BBDEFB"];
+  image [label="app_image.c\ntable des vecteurs\nvalide ?", fillcolor="#BBDEFB"];
+  crc   [label="crc32.c\nCRC-32 (comme zlib)", fillcolor="#BBDEFB"];
+  xcube [label="X-CUBE-BLE1 (ST)\nhci, aci : commandes\ndu module BlueNRG-MS", fillcolor="#C8E6C9", color="#2E7D32"];
+  hal   [label="HAL STM32L4 (ST)\nGPIO, SPI, FLASH", fillcolor="#C8E6C9", color="#2E7D32"];
+  main -> boot  [label=" USER CODE 1"];
+  main -> loader[label=" USER CODE 2 et 3"];
+  loader -> ble; loader -> leds; loader -> ota [style=dashed, label=" RUN,\n IDENTIFY"];
+  ble -> ota [label=" commandes,\n données"];
+  ota -> ble [label=" réponses", style=dashed, constraint=false];
+  ble -> xcube;
+  ota -> flash; ota -> image; ota -> crc;
+  boot -> image;
+  flash -> hal; leds -> hal; xcube -> hal;
+  {rank=same; boot; loader;}
+  {rank=same; flash; image; crc;}
+}

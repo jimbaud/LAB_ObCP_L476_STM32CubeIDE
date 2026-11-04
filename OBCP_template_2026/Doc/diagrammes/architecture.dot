@@ -1,0 +1,58 @@
+// Organisation du programme OBCP_template_2026 (Graphviz : dot -Tpng architecture.dot -o architecture.png)
+digraph architecture {
+  graph [rankdir=TB, fontname="Carlito", fontsize=11, nodesep=0.3, ranksep=0.55, bgcolor="white", pad=0.25, newrank=true];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=10, color="#5F6B7A", penwidth=1.0, margin="0.12,0.06"];
+  edge  [color="#7A8594", arrowsize=0.7, penwidth=1.0, fontname="Carlito", fontsize=8, fontcolor="#44505E"];
+
+  subgraph cluster_gen {
+    label="Code généré par STM32CubeMX : n'écrire que dans les sections USER CODE";
+    style="rounded,dashed"; color="#8C96A3"; fontcolor="#44505E"; fontsize=10;
+    main   [label="main.c\nhorloge, MX_xxx_Init()\napp_init() puis app_loop()", fillcolor="#E7EEF8"];
+    it     [label="stm32l4xx_it.c\ninterruptions, fautes", fillcolor="#E7EEF8"];
+    cdcif  [label="usbd_cdc_if.c  usbd_conf.c\névènements USB", fillcolor="#E7EEF8"];
+    periph [label="gpio.c  tim.c  spi.c\nusart.c  usb_device.c", fillcolor="#E7EEF8"];
+  }
+
+  subgraph cluster_app {
+    label="Application : Core/Src et Core/Inc (CubeMX n'y touche jamais)";
+    style="rounded"; color="#3C8150"; fontcolor="#2F6B40"; fontsize=10;
+    app      [label="app.c\ndémarrage, boucle principale", fillcolor="#E3F1E6", penwidth=1.6];
+    commands [label="commands.c\ncommandes et réponses", fillcolor="#E3F1E6"];
+    usb      [label="usb_console.c\nport COM virtuel (USB)", fillcolor="#E3F1E6"];
+    ble      [label="ble_uart.c\nliaison Bluetooth", fillcolor="#E3F1E6"];
+    outputs  [label="outputs.c\nLED et moteur (PWM)", fillcolor="#E3F1E6"];
+    accel    [label="accelerometer.c\nLIS3DH / LIS3DSH", fillcolor="#E3F1E6"];
+    button   [label="button.c\nbouton, anti-rebond", fillcolor="#E3F1E6"];
+    timer    [label="timer_1s.c\nminuterie 1 s (TIM7)", fillcolor="#E3F1E6"];
+    cb       [label="hal_callbacks.c\nrappels de la HAL", fillcolor="#E3F1E6"];
+    fault    [label="fault.c\nerreurs graves", fillcolor="#E3F1E6"];
+    tools    [label="line_builder.c   fifo.c\noutils communs", fillcolor="#F2F4F6"];
+    config   [label="app_config.h\nréglages", shape=note, fillcolor="#FFF8DC"];
+  }
+
+  subgraph cluster_lib {
+    label="Bibliothèques de ST (Drivers/, Middlewares/)";
+    style="rounded,dashed"; color="#8C96A3"; fontcolor="#44505E"; fontsize=10;
+    hal     [label="HAL STM32L4", fillcolor="#F8EEDC"];
+    usblib  [label="USB Device, classe CDC", fillcolor="#F8EEDC"];
+    bluenrg [label="BlueNRG-MS (X-CUBE-BLE1)", fillcolor="#F8EEDC"];
+  }
+
+  {rank=same; main; it; cdcif; periph;}
+  {rank=same; commands; usb; ble;}
+  {rank=same; outputs; accel; button; timer;}
+  {rank=same; hal; usblib; bluenrg;}
+
+  main -> app [penwidth=1.6];
+  app -> commands; app -> usb; app -> ble; app -> button; app -> timer; app -> fault;
+  commands -> outputs; commands -> accel; commands -> timer;
+  commands -> usb [style=dotted, label=" réponses"]; commands -> ble [style=dotted];
+  usb -> tools; ble -> tools;
+  cdcif -> usb [label=" crochets"];
+  it -> cb [style=dashed, label=" HAL_..._Callback"];
+  cb -> button [style=dashed]; cb -> timer [style=dashed];
+  outputs -> hal; accel -> hal; button -> hal; timer -> hal;
+  usb -> usblib; ble -> bluenrg;
+  periph -> hal [style=invis];
+  config -> tools [style=invis];
+}

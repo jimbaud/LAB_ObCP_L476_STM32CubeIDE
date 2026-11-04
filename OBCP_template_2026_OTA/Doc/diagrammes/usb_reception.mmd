@@ -1,0 +1,21 @@
+%% Réception d'une commande par le port COM virtuel (mmdc -i usb_reception.mmd -o usb_reception.png -c mermaid_config.json)
+sequenceDiagram
+    autonumber
+    participant PC as PC<br/>(terminal, Python, LabVIEW)
+    participant LIB as Bibliothèque USB de ST<br/>(en interruption)
+    participant CON as usb_console.c
+    participant APP as app_loop()<br/>(boucle principale)
+    participant CMD as commands.c
+    PC->>LIB: paquet « r500\n »
+    LIB->>CON: CDC_Receive_FS() (usbd_cdc_if.c)<br/>appelle usb_console_on_receive()
+    Note over CON,APP: paquet gardé tel quel,<br/>réception suivante suspendue
+    PC-->>LIB: paquet suivant ? réponse « NAK » :<br/>le PC patiente et réessaie
+    APP->>CON: usb_console_read_line()
+    CON-->>APP: ligne « r500 » (line_builder.c)
+    CON->>LIB: USBD_CDC_ReceivePacket()<br/>paquet suivant autorisé
+    APP->>CMD: commands_execute("r500", CMD_SRC_USB)
+    CMD->>CON: usb_console_print("Red = 500\n\r")
+    Note over CON,APP: copie dans la file d'envoi (fifo.c)
+    APP->>CON: usb_console_process()
+    CON->>LIB: USBD_CDC_TransmitPacket()
+    LIB->>PC: « Red = 500\n\r »

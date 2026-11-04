@@ -1,0 +1,15 @@
+digraph pc {
+  rankdir=TB; bgcolor="white"; nodesep=0.35; ranksep=0.45;
+  node [fontname="Carlito", fontsize=11.5, shape=box, style="rounded,filled", color="#455A64"];
+  edge [fontname="Carlito", fontsize=10, color="#607D8B"];
+  cli   [label="obcp_ota.py\nligne de commande, recherche et choix\nde la carte, affichage, LiaisonBLE", fillcolor="#90CAF9", penwidth=1.6];
+  img   [label="ota_image.py\nlecture .elf / .hex / .bin,\nvérifications avant envoi", fillcolor="#BBDEFB"];
+  tr    [label="ota_transfert.py\nalgorithme du transfert,\nnouveaux essais", fillcolor="#BBDEFB"];
+  proto [label="ota_protocole.py\nUUID, codes, tailles\n(jumeau de ota_protocol.h)", fillcolor="#BBDEFB"];
+  bleak [label="Bleak\n(Bluetooth du PC)", fillcolor="#C8E6C9", color="#2E7D32"];
+  tests [label="Tests/test_outil_pc.py\nLiaisonSimulee", fillcolor="#FFF9C4", color="#F9A825"];
+  sim   [label="libota_sim.so\nvrai ota.c + flash simulée", fillcolor="#FFF9C4", color="#F9A825"];
+  cli -> img; cli -> tr; cli -> bleak; tr -> proto; img -> proto; cli -> proto;
+  tests -> tr [style=dashed]; tests -> sim [style=dashed];
+  {rank=same; img; tr; bleak;}
+}

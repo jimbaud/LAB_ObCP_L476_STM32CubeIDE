@@ -1,0 +1,13 @@
+// Modifier la configuration avec STM32CubeMX (dot -Tpng regeneration.dot -o regeneration.png)
+digraph regeneration {
+  graph [rankdir=LR, fontname="Carlito", nodesep=0.3, ranksep=0.35, bgcolor="white", pad=0.25];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=10, color="#5F6B7A", fillcolor="#E7EEF8", margin="0.14,0.07"];
+  edge  [color="#7A8594", arrowsize=0.7];
+  a [label="1. Ouvrir\nOBCP_template_2026.ioc\n(double-clic dans CubeIDE)"];
+  b [label="2. Modifier\nbroches, timers,\ninterruptions..."];
+  c [label="3. Enregistrer (Ctrl+S)\n« Generate Code » : Yes"];
+  d [label="4. Vérifier\npython Tools/verif_cubemx.py", fillcolor="#E3F1E6"];
+  e [label="5. Compiler\nProject > Build Project", fillcolor="#E3F1E6"];
+  f [label="6. Charger\nDFU ou ST-LINK", fillcolor="#E3F1E6"];
+  a -> b -> c -> d -> e -> f;
+}

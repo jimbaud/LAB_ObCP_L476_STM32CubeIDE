@@ -1,0 +1,28 @@
+digraph architecture {
+  rankdir=LR; bgcolor="white"; nodesep=0.75; forcelabels=true; ranksep=0.55; newrank=true;
+  node [fontname="Carlito", fontsize=12, shape=box, style="rounded,filled", color="#455A64", penwidth=1.2, width=2.1];
+  edge [fontname="Carlito", fontsize=11, color="#455A64"];
+  subgraph cluster_obcp {
+    label="ObCP"; fontname="Carlito"; fontsize=13; style="rounded,filled"; color="#2E7D32"; fillcolor="#E8F5E9"; labelloc=b;
+    module [label="Module BLE\nBlueNRG-M0", fillcolor="#C8E6C9"];
+    subgraph cluster_stm {
+      label="STM32L476RG"; fontname="Carlito"; fontsize=12; style="rounded,filled"; color="#558B2F"; fillcolor="#F1F8E9"; labelloc=b;
+      chargeur [label="Chargeur BLE\nbanque 1 (0x08000000)", fillcolor="#A5D6A7"];
+      app      [label="Application\nbanque 2 (0x08080000)", fillcolor="#FFE082", color="#F57F17"];
+    }
+  }
+  subgraph cluster_pc {
+    label="PC (Windows ou Linux)"; fontname="Carlito"; fontsize=13; style="rounded,filled"; color="#1565C0"; fillcolor="#E3F2FD";
+    ide   [label="STM32CubeIDE\ncompilation", fillcolor="#BBDEFB"];
+    outil [label="obcp_ota.py\napplication PC (Python)", fillcolor="#90CAF9"];
+    bleak [label="Bleak\nbibliothèque Bluetooth", fillcolor="#BBDEFB"];
+  }
+  ide -> outil [label=" fichier .elf "];
+  outil -> bleak;
+  bleak -> module [style=dashed, penwidth=1.6, xlabel="Bluetooth Low Energy      \n2,4 GHz          "];
+  app -> chargeur [dir=back, label=" efface, écrit,\n vérifie "];
+  chargeur -> module [dir=back, label=" SPI2 "];
+  {rank=same; ide; app;}
+  {rank=same; outil; chargeur;}
+  {rank=same; bleak; module;}
+}

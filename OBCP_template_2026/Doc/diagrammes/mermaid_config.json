@@ -1,0 +1,5 @@
+{
+  "theme": "neutral",
+  "themeVariables": { "fontFamily": "Carlito, Calibri, Arial, sans-serif", "fontSize": "15px" },
+  "sequence": { "mirrorActors": false, "actorMargin": 40, "messageMargin": 30, "noteMargin": 8, "wrap": false }
+}

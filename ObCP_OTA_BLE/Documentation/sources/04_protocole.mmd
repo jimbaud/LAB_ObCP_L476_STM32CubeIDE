@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant PC as PC - obcp_ota.py
+    participant M as Module BLE
+    participant C as Chargeur (STM32)
+    PC->>M: connexion, activation des notifications de CTRL
+    PC->>M: lecture de INFO
+    M-->>PC: version, taille maximale, application présente...
+    PC->>C: CTRL : START (taille, CRC-32)
+    Note over C: efface les pages nécessaires<br/>(l'ancienne application devient invalide)
+    C-->>PC: READY (taille)
+    loop pour chaque bloc de 1024 octets
+        PC->>C: DATA : [n°][19 octets] x 54 paquets, sans réponse
+        Note over C: range les octets par 8<br/>et les écrit en flash
+        C-->>PC: ACK (nombre d'octets reçus)
+    end
+    PC->>C: CTRL : END
+    Note over C: CRC-32 relu en flash, table des vecteurs,<br/>écriture des 8 premiers octets EN DERNIER
+    C-->>PC: DONE (CRC-32)
+    PC->>C: CTRL : RUN
+    PC->>M: déconnexion
+    Note over C: reset dès que le PC s'est déconnecté<br/>(sinon la carte coupe elle-même après 1 s),<br/>puis lancement de la nouvelle application

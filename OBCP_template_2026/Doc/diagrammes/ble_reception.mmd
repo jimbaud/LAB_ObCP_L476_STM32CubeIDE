@@ -1,0 +1,24 @@
+%% Réception d'une commande par Bluetooth (mmdc -i ble_reception.mmd -o ble_reception.png -c mermaid_config.json)
+sequenceDiagram
+    autonumber
+    participant TEL as Téléphone<br/>(ObCP Control, BLE Terminal)
+    participant MOD as Module BlueNRG-M0<br/>(bus SPI2)
+    participant LIB as Bibliothèque<br/>BlueNRG-MS
+    participant BLE as ble_uart.c
+    participant APP as app_loop()
+    participant CMD as commands.c
+    TEL->>MOD: écrit « r500 » dans RX (6E400003)
+    MOD->>LIB: broche IRQ (PB12) à 1 : évènement à lire
+    Note over MOD,LIB: évènement lu par SPI<br/>dans l'un de ses 5 tampons
+    APP->>BLE: ble_uart_process()
+    BLE->>LIB: hci_user_evt_proc()
+    LIB->>BLE: ble_event_handler(« attribut modifié »)
+    Note over BLE,APP: texte copié et terminé par '\0',<br/>rangé dans la file des messages
+    APP->>BLE: ble_uart_read_line()
+    BLE-->>APP: ligne « r500 »
+    APP->>CMD: commands_execute("r500", CMD_SRC_BLE)
+    CMD->>BLE: ble_uart_print("Red = 500\n\r")
+    Note over BLE,APP: rangé dans la file d'envoi (fifo.c)
+    APP->>BLE: ble_uart_process() (tour suivant)
+    BLE->>MOD: aci_gatt_update_char_value()<br/>morceaux de 20 octets au plus
+    MOD->>TEL: notification de TX (6E400002)

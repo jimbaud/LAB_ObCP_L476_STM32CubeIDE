@@ -1,0 +1,19 @@
+// Chargement par Bluetooth : le chargeur ObCP-OTA et le programme modèle (dot -Tpng -Gdpi=150 chargement_ota.dot -o chargement_ota.png)
+digraph chargement_ota {
+  graph [rankdir=LR, fontname="Carlito", fontsize=11, nodesep=0.6, ranksep=0.55, bgcolor="white", pad=0.25];
+  node  [shape=box, style="rounded,filled", fontname="Carlito", fontsize=10, color="#5F6B7A", margin="0.14,0.07"];
+  edge  [color="#7A8594", arrowsize=0.7, fontname="Carlito", fontsize=9, fontcolor="#44505E"];
+
+  reset  [label="Reset\nmise sous tension,\nbouton RESET\nou reset logiciel", fillcolor="#EEF0F3"];
+  loader [label="Chargeur Bluetooth\n(banque 1, 0x08000000)\nune demande « #ota » ?\nle bouton USER enfoncé ?", fillcolor="#E7EEF8"];
+  app    [label="Programme modèle,\nou votre programme\n(banque 2, 0x08080000)", fillcolor="#E3F1E6", penwidth=1.6];
+  wait   [label="Chargeur actif\nObCP-OTA-XXXX\nLED bleue : un éclair\npar seconde", fillcolor="#F8EEDC"];
+  pc     [label="PC\nSTM32CubeIDE\npuis obcp_ota.py", style="rounded", color="#3C8150", fontcolor="#2F6B40"];
+
+  reset -> loader;
+  loader -> app  [label="non : lance le programme\n(quelques ms)"];
+  loader -> wait [label="oui : reste actif"];
+  wait -> pc     [dir=back, label="nouveau programme\npar Bluetooth", style=dashed, color="#3C8150", fontcolor="#2F6B40"];
+  app -> reset   [label="commande « #ota »\n(USB ou Bluetooth)", color="#B08900", fontcolor="#7A5F00"];
+  wait -> reset  [label="programme reçu et vérifié :\nredémarrage", color="#3C8150", fontcolor="#2F6B40"];
+}
