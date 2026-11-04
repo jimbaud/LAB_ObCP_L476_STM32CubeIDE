@@ -1,0 +1,18 @@
+Programme précompilé pour l'ObCP + X-NUCLEO-67W61M1 (version 1.2.0, projet STM32CubeMX)
+(compilation Makefile : -Os, équivalent de la configuration Release)
+
+  ObCP_WiFi_Demo.hex   à programmer par USB DFU avec STM32CubeProgrammer (conseillé)
+  ObCP_WiFi_Demo.elf   même programme au format ELF (sans informations de débogage)
+  ObCP_WiFi_Demo.bin   image brute, à programmer à l'adresse 0x08000000
+
+Programmation (détails : guide, chapitre 4) :
+  1. Activer le chargeur DFU de l'ObCP : interrupteur SW4 sur Prog puis bouton RST,
+     ou, si le démonstrateur tourne déjà, commande « dfu » dans le terminal puis « o ».
+  2. STM32CubeProgrammer : interface USB, port USB1, Connect, Erasing & programming,
+     choisir le fichier, cocher Verify programming et Run after programming, Start.
+     En ligne de commande :
+       STM32_Programmer_CLI -c port=usb1 -w ObCP_WiFi_Demo.hex -v -s
+  3. Si SW4 a été utilisé : le remettre sur Run et appuyer sur RST.
+
+Ces fichiers correspondent aux sources du paquet. Après toute modification des sources,
+recompiler (STM32CubeIDE ou « make ») au lieu de les utiliser.

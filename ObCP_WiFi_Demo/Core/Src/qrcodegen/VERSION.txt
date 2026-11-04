@@ -1,0 +1,2 @@
+3c6d0b3cefb4e049dc337e82237c9644399716a8 Mon Aug 31 19:36:34 2026 +0000
+Source : https://github.com/nayuki/QR-Code-generator (dossier c/)

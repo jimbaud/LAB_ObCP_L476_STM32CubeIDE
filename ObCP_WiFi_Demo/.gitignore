@@ -1,0 +1,19 @@
+# Sorties de compilation
+build/
+Debug/
+Release/
+Tests/build/
+*.o
+*.d
+*.su
+*.map
+*.elf
+*.hex
+*.bin
+# binaires précompilés fournis avec le paquet
+!Binaries/*.hex
+!Binaries/*.bin
+!Binaries/*.elf
+# STM32CubeIDE
+.settings/
+*.launch

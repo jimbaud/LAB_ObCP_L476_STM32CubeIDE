@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ObCP_OTA_Tools</name>
+	<comment>Application PC de chargement par Bluetooth (OTA) de l'ObCP et outils externes pour STM32CubeIDE</comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>

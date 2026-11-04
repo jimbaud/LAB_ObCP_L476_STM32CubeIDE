@@ -1,0 +1,33 @@
+OBCP_template_2026 - version 2.0.0 - programme compilé, prêt à charger
+=======================================================================
+
+Fichiers
+  OBCP_template_2026.bin   image brute de la mémoire flash (à charger à 0x08000000)
+  OBCP_template_2026.hex   même contenu au format Intel HEX (adresses incluses)
+  OBCP_template_2026.elf   même programme avec les symboles (débogage, analyse)
+
+Compilés en configuration « Release » (optimisation -Os) avec GNU Arm
+Embedded Toolchain 13.2 et les réglages du projet STM32CubeIDE (.cproject).
+Taille : environ 55 ko de flash (sur 1024 ko) et 12 ko de RAM (sur 96 ko),
+plus 6 ko réservés au tas (2 ko) et à la pile (4 ko).
+
+Charger le programme par le port USB (DFU), avec STM32CubeProgrammer
+(https://www.st.com/en/development-tools/stm32cubeprog.html) :
+  1. Brancher l'ObCP au PC par son câble USB.
+  2. Interrupteur SW4 sur « Prog », SW2 sur « On », appui sur SW3 (reset).
+  3. Dans STM32CubeProgrammer : choisir « USB » en haut à droite, cliquer
+     sur le bouton de rafraîchissement, puis sur « Connect ».
+  4. Menu « Erasing & programming » : « Browse » -> OBCP_template_2026.bin
+     (adresse de départ 0x08000000), puis « Start Programming ».
+  5. Interrupteur SW4 sur « Run », appui sur SW3 (reset) : le programme
+     démarre (un éclat vert de la LED = tout va bien).
+Procédure détaillée : Datasheets/Procedure_Programmation_OBCP_CROC.pdf
+
+Au démarrage, la LED indique l'état de la carte :
+  1 éclat vert         tout est prêt
+  2 éclats rouges      accéléromètre absent ou muet (le reste fonctionne)
+  3 éclats rouges      module Bluetooth absent ou muet (le reste fonctionne)
+  éclats rouges sans fin (N éclats, pause, N éclats...) : erreur grave,
+  voir le tableau « Codes de la LED » du fichier README.md.
+
+Utilisation : voir README.md (commandes, port COM USB, application BLE).

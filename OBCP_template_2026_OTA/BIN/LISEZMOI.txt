@@ -1,0 +1,56 @@
+OBCP_template_2026 - version 2.1.0 - programme compilé, prêt à charger
+=======================================================================
+
+Depuis la version 2.1.0, le programme est rangé dans la seconde moitié de
+la mémoire flash (0x08080000) : la première moitié accueille le chargeur
+Bluetooth ObCP-OTA (projet ObCP_OTA_BLE), qui permet ensuite d'envoyer
+chaque nouveau programme sans fil.
+
+Fichiers
+  OBCP_template_2026_et_chargeur.hex
+        chargeur Bluetooth 1.1 (0x08000000) + programme modèle (0x08080000) :
+        À UTILISER POUR LA PREMIÈRE INSTALLATION, par le port USB (DFU)
+  OBCP_template_2026.hex   programme seul, adresse 0x08080000 incluse
+  OBCP_template_2026.elf   même programme avec les symboles (débogage, analyse,
+                           ou envoi par Bluetooth avec obcp_ota.py)
+
+Plus de fichier .bin : un .bin chargé à 0x08000000, comme dans l'ancienne
+procédure, effacerait le chargeur, et le programme, prévu pour 0x08080000,
+ne fonctionnerait pas à cette adresse.
+
+Compilés en configuration « Release » (optimisation -Os) avec GNU Arm
+Embedded Toolchain 13.2 et les réglages du projet STM32CubeIDE (.cproject).
+Taille : environ 55 ko de flash (sur les 512 ko de la banque 2) et 12 ko de
+RAM (sur 96 ko), plus 6 ko réservés au tas (2 ko) et à la pile (4 ko).
+
+Première installation par le port USB (DFU), avec STM32CubeProgrammer
+(https://www.st.com/en/development-tools/stm32cubeprog.html) :
+  1. Brancher l'ObCP au PC par son câble USB.
+  2. Interrupteur SW4 sur « Prog », SW2 sur « On », appui sur SW3 (reset).
+  3. Dans STM32CubeProgrammer : choisir « USB » en haut à droite, cliquer
+     sur le bouton de rafraîchissement, puis sur « Connect ».
+  4. Menu « Erasing & programming » : « Browse » ->
+     OBCP_template_2026_et_chargeur.hex (le fichier contient ses adresses :
+     rien à saisir), puis « Start Programming ».
+  5. Interrupteur SW4 sur « Run », appui sur SW3 (reset) : le programme
+     démarre (un éclat vert de la LED = tout va bien).
+Procédure illustrée : Datasheets/Procedure_Programmation_OBCP_CROC.pdf
+(elle indique l'adresse 0x08000000 d'un fichier .bin : avec un .hex, aucune
+adresse n'est demandée).
+
+Ensuite, par Bluetooth : application PC obcp_ota.py du projet ObCP_OTA_BLE
+(ou, dans STM32CubeIDE, Run > External Tools > « ObCP OTA - compiler et
+transferer »). Pour mettre la carte dans le chargeur : commande « #ota »
+(terminal ou téléphone), ou bouton USER maintenu pendant un appui sur RESET ;
+obcp_ota.py 1.2 envoie lui-même « #ota » à une carte qu'il connaît déjà.
+
+Au démarrage, la LED indique l'état de la carte :
+  1 éclat vert         tout est prêt
+  2 éclats rouges      accéléromètre absent ou muet (le reste fonctionne)
+  3 éclats rouges      module Bluetooth absent ou muet (le reste fonctionne)
+  éclats rouges sans fin (N éclats, pause, N éclats...) : erreur grave,
+  voir le tableau « Codes de la LED » du fichier README.md.
+Dans le chargeur : bref éclair bleu chaque seconde (attente du PC).
+
+Utilisation : voir README.md (commandes, port COM USB, application BLE,
+chargement par Bluetooth).
