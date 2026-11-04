@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Les voyants du chargeur</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 20px 26px 18px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 12px; font-weight: 650; letter-spacing: .04em; color: var(--discret); text-align: left;
+       padding: 0 10px 8px; }
+  th.axe { padding-bottom: 4px; }
+  td { padding: 8px 10px; vertical-align: middle; font-size: 13.5px; line-height: 1.38; }
+  tr.ligne td { border-top: 1px solid var(--bord); }
+  tr.groupe td { padding: 14px 10px 4px; font-size: 11.5px; font-weight: 700; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--discret); }
+  tr.groupe:first-of-type td { padding-top: 4px; }
+  .nom { display: flex; align-items: center; gap: 11px; font-weight: 600; white-space: nowrap; }
+  .nom small { display: block; font-weight: 500; color: var(--discret); font-size: 12.5px; margin-top: 1px; }
+  .led { width: 18px; height: 18px; }
+  .sens { color: var(--texte); }
+  .sens .discret { color: var(--discret); }
+  .sens code { font-size: 12.5px; }
+  svg.chrono { display: block; overflow: visible; }
+  .graduations { position: relative; width: 290px; height: 14px; font-size: 11px; color: var(--discret);
+                 font-weight: 500; font-variant-numeric: tabular-nums; }
+  .graduations span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+  .graduations span:first-child { transform: none; }
+  .graduations span:last-child { transform: translateX(-100%); }
+  .pied { margin-top: 12px; font-size: 12.8px; color: var(--discret); padding: 0 10px; }
+  .pied b { color: var(--texte); font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 270px">Voyant (LED RVB)</th>
+        <th class="axe" style="width: 310px"><div class="graduations"><span style="left:0">0</span><span style="left:25%">0,5</span><span style="left:50%">1</span><span style="left:75%">1,5</span><span style="left:100%">2 s</span></div></th>
+        <th>Signification</th>
+      </tr>
+    </thead>
+    <tbody id="lignes"></tbody>
+  </table>
+  <p class="pied">Hors du chargeur, la LED appartient à <b>votre programme</b>.
+    Durées réelles : éclair de 0,1 s, clignotement rapide de 0,1 s allumé / 0,1 s éteint.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+// [groupe, couleur, nom, précision, motif, signification]
+// motif : liste de [début, fin] en ms (fenêtre de 2 s) où la LED est allumée
+function eclairs(debut, duree, periode) { const r = []; for (let t = debut; t < 2000; t += periode) r.push([t, Math.min(t + duree, 2000)]); return r; }
+const FIXE = [[0, 2000]];
+const ETATS = [
+  ["En attente"],
+  ["l-bleu",   "Bleu", "bref éclair chaque seconde", eclairs(80, 100, 1000), "En attente d'un PC. Un programme valide est installé."],
+  ["l-violet", "Violet", "bref éclair chaque seconde", eclairs(80, 100, 1000), "En attente d'un PC, <b>aucun programme valide</b> en banque 2 <span class='discret'>(première installation, ou transfert interrompu après l'effacement)</span>."],
+  ["Pendant un transfert"],
+  ["l-bleu",   "Bleu fixe", "", FIXE, "PC connecté."],
+  ["l-vert",   "Vert", "change à chaque Ko reçu", eclairs(0, 150, 300), "Transfert en cours."],
+  ["l-vert",   "Vert fixe", "", FIXE, "Programme reçu, vérifié et validé : la carte va redémarrer dessus."],
+  ["Problème"],
+  ["l-rouge",  "Rouge fixe", "", FIXE, "Erreur de transfert : explication sur le PC."],
+  ["l-rouge",  "Rouge", "clignotement rapide", eclairs(0, 100, 200), "Le module Bluetooth ne répond pas."],
+  ["Identification"],
+  ["l-blanc",  "Blanc", "clignotement rapide, 3 s", eclairs(0, 100, 200), "« C'est moi ! » : identification demandée par le PC <span class='discret'>(option <code>--liste</code>)</span>."],
+];
+const COULEURS = { "l-bleu": "var(--led-bleu)", "l-violet": "var(--led-violet)", "l-vert": "var(--led-vert)",
+                   "l-rouge": "var(--led-rouge)", "l-blanc": "var(--led-blanc)" };
+function chrono(classe, motif) {
+  const L = 290, H = 16;
+  let s = `<svg class="chrono" width="${L}" height="${H}" viewBox="0 0 ${L} ${H}">`;
+  s += `<rect x="0" y="3" width="${L}" height="${H - 6}" rx="${(H - 6) / 2}" style="fill:var(--piste)"/>`;
+  for (const [a, b] of motif) {
+    const x = a / 2000 * L, w = Math.max((b - a) / 2000 * L, 2.5);
+    const contour = classe === "l-blanc" ? "stroke:var(--contour-blanc);stroke-width:1.2;" : "";
+    s += `<rect x="${x.toFixed(2)}" y="1" width="${w.toFixed(2)}" height="${H - 2}" rx="3" style="${contour}fill:${COULEURS[classe]}"/>`;
+  }
+  for (const t of [500, 1000, 1500]) {
+    s += `<line x1="${t / 2000 * L}" x2="${t / 2000 * L}" y1="-3" y2="0" style="stroke:var(--bord);stroke-width:1"/>`;
+  }
+  return s + "</svg>";
+}
+const corps = document.querySelector("#lignes");
+for (const e of ETATS) {
+  const tr = document.createElement("tr");
+  if (e.length === 1) {
+    tr.className = "groupe";
+    tr.innerHTML = `<td colspan="3">${e[0]}</td>`;
+  } else {
+    const [classe, nom, precision, motif, sens] = e;
+    tr.className = "ligne";
+    tr.innerHTML = `<td><div class="nom"><span class="led ${classe}"></span><div>${nom}${precision ? `<small>${precision}</small>` : ""}</div></div></td>`
+                 + `<td>${chrono(classe, motif)}</td><td class="sens">${sens}</td>`;
+  }
+  corps.appendChild(tr);
+}
+// pas de trait au-dessus de la première ligne de chaque groupe
+document.querySelectorAll("tr.groupe + tr.ligne td").forEach(td => td.style.borderTop = "none");
+quand_pret(() => {});
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Un clic dans STM32CubeIDE : ce qui se passe</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 24px 26px 20px; }
+  .grille { display: grid; grid-template-columns: 62px repeat(5, 1fr); column-gap: 12px; position: relative; }
+  .grille > .bande { position: absolute; left: 0; right: 0; border-radius: 12px; z-index: 0; }
+  .bande.pc { background: var(--bleu-fond); }
+  .bande.carte { background: var(--vert-fond); }
+  .grille > * { position: relative; z-index: 1; }
+
+  .etape { text-align: center; padding-bottom: 14px; }
+  .rond { width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 7px; display: grid; place-items: center;
+          font-size: 14px; font-weight: 700; color: var(--fond); background: var(--texte); position: relative; z-index: 2; }
+  .etape.nouveau .rond { background: var(--violet); }
+  .etape h3 { font-size: 14.5px; font-weight: 650; }
+  .etape .nouv { display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 650; color: var(--violet);
+                 border: 1px solid var(--violet); border-radius: 999px; padding: 1px 7px; }
+  .voie { font-size: 12px; font-weight: 700; letter-spacing: .05em; color: var(--c); display: flex; align-items: center;
+          justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .case { padding: 12px 4px 14px; font-size: 12.8px; line-height: 1.42; color: var(--texte); }
+  .case .discret { color: var(--discret); }
+  .case code { font-size: 12px; color: var(--violet); font-weight: 600; }
+  .led-ligne { display: flex; align-items: center; gap: 7px; margin-top: 8px; font-size: 12px; color: var(--discret); }
+  .led-ligne + .led-ligne { margin-top: 5px; }
+  .prog { width: 16px; height: 16px; border-radius: 4px; flex: none; border: 1.5px solid var(--ambre); background: var(--ambre-fond); }
+  .note { margin-top: 14px; font-size: 12.8px; color: var(--discret); line-height: 1.45; padding: 0 4px; }
+  .note b { color: var(--texte); font-weight: 600; }
+  .nowrap { white-space: nowrap; }
+  .grille > .ligne-etapes { position: absolute; top: 15px; height: 2px; background: var(--bord); z-index: 1; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="grille" id="grille">
+    <div></div>
+    <div class="etape"><div class="rond">1</div><h3>Compilation</h3></div>
+    <div class="etape nouveau"><div class="rond">2</div><h3>Commande #ota</h3><span class="nouv">nouveau en 1.2</span></div>
+    <div class="etape nouveau"><div class="rond">3</div><h3>Chargeur</h3><span class="nouv">nouveau en 1.2</span></div>
+    <div class="etape"><div class="rond">4</div><h3>Transfert</h3></div>
+    <div class="etape"><div class="rond">5</div><h3>Redémarrage</h3></div>
+
+    <div class="voie bleu" id="voie-pc">PC</div>
+    <div class="case" id="pc1">STM32CubeIDE compile le projet sélectionné.</div>
+    <div class="case" id="pc2"><b>obcp_ota.py</b> reconnaît votre carte, qui fonctionne, et lui envoie <code>#ota</code>.</div>
+    <div class="case" id="pc3">Il attend que la carte se présente en mode chargement <span class="discret nowrap">(15 s au plus)</span>.</div>
+    <div class="case" id="pc4">Envoi par blocs de 1 Ko, chacun confirmé par la carte, puis vérification du CRC-32.</div>
+    <div class="case" id="pc5">« Terminé » : le nouveau programme est installé.</div>
+
+    <div class="voie vert" id="voie-carte">ObCP</div>
+    <div class="case">Votre programme fonctionne.
+      <div class="led-ligne"><span class="prog"></span>LED : votre programme</div></div>
+    <div class="case">Le programme répond, ferme la liaison et redémarre.
+      <div class="led-ligne"><span class="prog"></span>LED : votre programme</div></div>
+    <div class="case">Le chargeur démarre et s'annonce <span class="discret nowrap">(ObCP-OTA-A1B2)</span>.
+      <div class="led-ligne"><span class="led l-bleu"></span>bleu, éclair/s</div></div>
+    <div class="case">Le chargeur efface, puis écrit la banque 2.
+      <div class="led-ligne"><span class="led l-bleu"></span>bleu fixe</div>
+      <div class="led-ligne"><span class="led l-vert"></span>vert qui change</div></div>
+    <div class="case">Programme validé : la carte redémarre dessus.
+      <div class="led-ligne"><span class="led l-vert"></span>vert fixe</div>
+      <div class="led-ligne"><span class="prog"></span>LED : nouveau programme</div></div>
+  </div>
+  <p class="note">Les étapes 2 et 3 sont automatiques si le PC connaît déjà la carte (il la mémorise au premier envoi)
+    et si son programme comprend <b>#ota</b> (programme modèle 2026, version 2.1.0 et suivantes). Sinon, mettez la
+    carte en mode chargement avant l'envoi : <b>USER maintenu pendant un appui sur RESET</b>.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const grille = document.querySelector("#grille");
+  const g = grille.getBoundingClientRect();
+  // bandes colorées derrière les deux voies
+  for (const [voie, classe, premier] of [["#voie-pc", "pc", "#pc1"], ["#voie-carte", "carte", null]]) {
+    const r = document.querySelector(voie).getBoundingClientRect();
+    const b = document.createElement("div");
+    b.className = "bande " + classe;
+    b.style.top = (r.top - g.top) + "px";
+    b.style.height = r.height + "px";
+    grille.prepend(b);
+  }
+  // ligne qui relie les numéros d'étape
+  const ronds = Array.from(document.querySelectorAll(".rond")).map(e => e.getBoundingClientRect());
+  const l = document.createElement("div");
+  l.className = "ligne-etapes";
+  l.style.left = (ronds[0].left + ronds[0].width / 2 - g.left) + "px";
+  l.style.width = (ronds[4].left - ronds[0].left) + "px";
+  grille.prepend(l);
+});
+</script>
+</body>
+</html>

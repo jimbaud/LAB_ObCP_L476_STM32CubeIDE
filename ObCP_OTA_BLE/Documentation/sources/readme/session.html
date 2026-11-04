@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Session obcp_ota.py</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+  /* Terminal sombre, quel que soit le thème de la page GitHub */
+  html { --fond: #0d1117; --texte: #e6edf3; --discret: #8b949e; --bord: #30363d; }
+  body { padding: 0; }
+  #figure { width: 920px; height: 446px; background: #0d1117; display: grid;
+            grid-template-rows: 32px 1fr; grid-template-columns: 1fr 226px; overflow: hidden; }
+  .barre { grid-column: 1 / 3; background: #161b22; border-bottom: 1px solid #30363d; display: flex;
+           align-items: center; padding: 0 14px; gap: 9px; font-size: 12.5px; color: #8b949e; font-weight: 500; }
+  .barre svg { width: 15px; height: 15px; }
+  .barre .droite { margin-left: auto; font-size: 11.5px; color: #6e7681; }
+  pre { font-family: "DejaVu Sans Mono", monospace; font-size: 12.6px; line-height: 18px; color: #e6edf3;
+        padding: 12px 16px; white-space: pre; overflow: hidden; }
+  .invite { color: #8b949e; }
+  .curseur { background: #e6edf3; color: #0d1117; }
+  .panneau { border-left: 1px solid #30363d; background: #0f141b; display: flex; flex-direction: column;
+             align-items: center; padding: 16px 12px 0; }
+  .panneau .titre { font-size: 11.5px; font-weight: 650; letter-spacing: .06em; color: #8b949e; margin-bottom: 10px; }
+  .carte { position: relative; width: 168px; }
+  .carte img { width: 168px; display: block; }
+  .lueur { position: absolute; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%;
+           pointer-events: none; mix-blend-mode: screen; opacity: 0; }
+  .anneau { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+            border: 1.5px solid rgba(230, 237, 243, .55); box-shadow: 0 0 0 1px rgba(13, 17, 23, .5); }
+  .lueur.allumee { opacity: 1; }
+  .coeur { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; opacity: 0; }
+  .coeur.allumee { opacity: 1; }
+  .etat { margin-top: 14px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600;
+          color: #e6edf3; background: #161b22; border: 1px solid #30363d; border-radius: 999px; padding: 6px 12px;
+          white-space: nowrap; }
+  .etat .pastille-led { width: 13px; height: 13px; border-radius: 50%; background: #30363d; flex: none;
+                        box-shadow: 0 0 0 1px rgba(240, 246, 252, .2); }
+  .note { margin-top: 10px; font-size: 11px; color: #6e7681; text-align: center; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div id="figure">
+  <div class="barre">
+    <svg viewBox="0 0 16 16" fill="none" stroke="#8b949e" stroke-width="1.4"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><path d="M4.5 6l2 2-2 2M8.5 10.5h3"/></svg>
+    Terminal
+    <span class="droite">session reconstituée · carte simulée</span>
+  </div>
+  <pre id="terminal"></pre>
+  <div class="panneau">
+    <div class="titre">LA CARTE</div>
+    <div class="carte">
+      <img src="ressources/carte_dessus.png" alt="">
+      <div id="anneau" class="anneau"></div>
+      <div id="lueur" class="lueur"></div>
+      <div id="coeur" class="coeur"></div>
+    </div>
+    <div class="etat"><span id="pastille" class="pastille-led"></span><span id="legende">Votre programme</span></div>
+    <div class="note" id="note">LED de la carte</div>
+  </div>
+</div>
+<script>
+// Position de la LED RVB sur l'image (678 x 1032 pixels)
+const LED_X = 327 / 678, LED_Y = 350 / 1032;
+const COULEURS = { bleu: "#2f81f7", vert: "#2ea043", violet: "#b250f0", rouge: "#e5484d", blanc: "#ffffff" };
+function placer() {
+  const img = document.querySelector(".carte img");
+  for (const id of ["anneau", "lueur", "coeur"]) {
+    const e = document.getElementById(id);
+    e.style.left = (img.width * LED_X) + "px";
+    e.style.top = (img.height * LED_Y) + "px";
+  }
+}
+function echapper(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+// etat : {lignes: [...], curseur: [ligne, colonne] ou null, invite: "C:\\ObCP>", led: "bleu"|null,
+//         legende: "...", pastille: "bleu"|null}
+window.afficher = function (etat) {
+  const lignes = etat.lignes.map((l, i) => {
+    let html;
+    if (etat.curseur && etat.curseur[0] === i) {
+      const c = etat.curseur[1];
+      const avant = l.slice(0, c), sous = l[c] || " ", apres = l.slice(c + 1);
+      html = echapper(avant) + '<span class="curseur">' + echapper(sous) + "</span>" + echapper(apres);
+    } else {
+      html = echapper(l);
+    }
+    if (l.startsWith(etat.invite)) {
+      html = html.replace(echapper(etat.invite), '<span class="invite">' + echapper(etat.invite) + "</span>");
+    }
+    return html;
+  });
+  document.getElementById("terminal").innerHTML = lignes.join("\n");
+  const lueur = document.getElementById("lueur"), coeur = document.getElementById("coeur");
+  if (etat.led) {
+    const c = COULEURS[etat.led];
+    lueur.style.background = `radial-gradient(circle, ${c} 0%, ${c}ee 14%, ${c}77 34%, ${c}22 55%, transparent 72%)`;
+    coeur.style.background = `radial-gradient(circle, #ffffff 0 35%, ${c} 75%)`;
+    lueur.classList.add("allumee"); coeur.classList.add("allumee");
+  } else {
+    lueur.classList.remove("allumee"); coeur.classList.remove("allumee");
+  }
+  document.getElementById("legende").textContent = etat.legende;
+  // la pastille de la légende reproduit la LED (allumée ou éteinte)
+  const pastille = document.getElementById("pastille");
+  pastille.style.background = etat.led ? COULEURS[etat.led] : "#30363d";
+  pastille.style.boxShadow = etat.led ? `0 0 0 1px rgba(240,246,252,.25), 0 0 9px 2px ${COULEURS[etat.led]}99`
+                                      : "0 0 0 1px rgba(240, 246, 252, .2)";
+};
+document.fonts.ready.then(() => {
+  const img = document.querySelector(".carte img");
+  const fini = () => { placer(); window.figure_prete = true; };
+  if (img.complete) fini(); else img.onload = fini;
+});
+</script>
+</body>
+</html>

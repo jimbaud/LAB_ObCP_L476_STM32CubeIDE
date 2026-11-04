@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Principe du chargement par Bluetooth</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 26px 28px 22px; }
+  .rangee { display: grid; grid-template-columns: 290px 1fr 462px; align-items: stretch; }
+  .zone { border-radius: 12px; padding: 14px 16px 16px; position: relative; }
+  .zone > .titre-zone { font-size: 12.5px; font-weight: 650; letter-spacing: .04em; color: var(--c); margin-bottom: 12px;
+                        display: flex; align-items: center; gap: 8px; }
+  .zone.bleu { background: var(--bleu-fond); border: 1px solid color-mix(in srgb, var(--bleu) 35%, transparent); }
+  .zone.vert { background: var(--vert-fond); border: 1px solid color-mix(in srgb, var(--vert) 35%, transparent); }
+  .pile { display: flex; flex-direction: column; justify-content: space-between; height: calc(100% - 28px); gap: 46px; }
+  .bloc { box-shadow: var(--ombre); }
+  .bloc h3 { display: flex; align-items: center; gap: 8px; }
+  .icone { width: 20px; height: 20px; flex: none; }
+  .icone path, .icone rect, .icone circle { fill: none; stroke: var(--c); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* mémoire flash */
+  .flash { display: grid; grid-template-columns: 92px 250px; row-gap: 0; }
+  .adresse { font-family: "DejaVu Sans Mono", monospace; font-size: 11.5px; color: var(--discret);
+             text-align: right; padding-right: 10px; transform: translateY(-7px); }
+  .banque { border: 1.5px solid var(--c); background: var(--c-fond); padding: 10px 12px; height: 92px; position: relative; }
+  .banque.b1 { border-radius: 9px 9px 0 0; }
+  .banque.b2 { border-radius: 0 0 9px 9px; border-top: none; }
+  .banque h4 { font-size: 14.5px; font-weight: 650; color: var(--texte); }
+  .banque p { font-size: 12.5px; color: var(--discret); margin-top: 3px; line-height: 1.35; }
+  .banque .num { position: absolute; right: 10px; top: 9px; font-size: 11.5px; font-weight: 600; color: var(--c); }
+  .titre-flash { font-size: 13px; font-weight: 600; margin: 0 0 9px 92px; }
+  .titre-flash span { color: var(--discret); font-weight: 500; }
+  .module { margin: 0 0 34px 92px; padding: 9px 14px; }
+  .milieu { position: relative; }
+  .note { margin-top: 16px; font-size: 13px; color: var(--discret); text-align: center; }
+  .note b { color: var(--texte); font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="rangee">
+    <div class="zone bleu">
+      <div class="titre-zone">
+        <svg class="icone" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        PC · Windows ou Linux
+      </div>
+      <div class="pile">
+        <div id="ide" class="bloc bleu">
+          <h3>STM32CubeIDE</h3>
+          <p>compile votre projet</p>
+        </div>
+        <div id="outil" class="bloc bleu">
+          <h3>obcp_ota.py</h3>
+          <p>application PC (Python + Bleak) :<br>envoie le programme à la carte</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="milieu"></div>
+
+    <div class="zone vert">
+      <div class="titre-zone">
+        <svg class="icone" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+        ObCP
+      </div>
+      <div id="module" class="bloc module vert">
+        <h3>Module Bluetooth BlueNRG-M0</h3>
+      </div>
+      <div id="titre-flash" class="titre-flash">STM32L476RG <span>· flash 1 Mo</span></div>
+      <div class="flash">
+        <div class="adresse">0x0800 0000</div>
+        <div id="b1" class="banque b1 vert">
+          <span class="num">banque 1</span>
+          <h4>Chargeur ObCP-OTA</h4>
+          <p>installé une seule fois par USB (DFU),<br>jamais effacé par Bluetooth</p>
+        </div>
+        <div class="adresse">0x0808 0000</div>
+        <div id="b2" class="banque b2 ambre">
+          <span class="num">banque 2</span>
+          <h4>Votre programme</h4>
+          <p>jusqu'à 512 Ko, remplacé<br>par Bluetooth à chaque envoi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">À chaque démarrage, le chargeur lance <b>votre programme</b> en quelques millisecondes ;
+    il ne reste actif que si on le lui demande.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  relier("#ide", "#outil", { de: "bas", vers: "haut", couleur: "var(--bleu)", texte: "fichier .elf" });
+  relier("#outil", "#module", { de: "droite", vers: "gauche", couleur: "var(--violet)", epaisseur: 2.5,
+          tirets: "7 6", texte: "Bluetooth\nLow Energy", forme: "courbe", tension: 110,
+          style_texte: "fill:var(--violet);font-weight:650;font-size:13px" });
+  // flèche SPI verticale, aux 4/5 de la largeur de la banque 1
+  const m = document.querySelector("#module").getBoundingClientRect();
+  const b = document.querySelector("#b1").getBoundingClientRect();
+  const x = b.left + b.width * 0.8;
+  relier("#module", "#b1", { de: "bas", vers: "haut", couleur: "var(--vert)", texte: "SPI",
+          decalage_de: [x - (m.left + m.width / 2), 0], decalage_vers: [x - (b.left + b.width / 2), 0],
+          texte_decalage: [9, 0], fond_texte: false, ancre_texte: "start" });
+  relier("#b1", "#b2", { de: "droite", vers: "droite", couleur: "var(--vert)", forme: "courbe", tension: 40,
+          decalage_de: [0, 22], decalage_vers: [0, -14], texte: "efface,\nécrit,\nvérifie",
+          texte_decalage: [22, 0], fond_texte: false, ancre_texte: "start",
+          style_texte: "fill:var(--vert);font-weight:600" });
+});
+</script>
+</body>
+</html>
