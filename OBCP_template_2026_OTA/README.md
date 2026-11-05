@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Doc/images/banniere-sombre.png">
+  <img alt="Programme modèle de l'ObCP : LED tricolore, sortie PWM, accéléromètre et bouton pilotés depuis un PC (USB) ou un téléphone (Bluetooth), version 2.1.0 chargeable par Bluetooth" src="Doc/images/banniere-clair.png">
+</picture>
+
 # OBCP_template_2026 — programme modèle de l'ObCP (version 2.1.0)
 
 Programme de démonstration de la carte **ObCP** (Objet Connecté Personnel, SUPMICROTECH-ENSMM, option CROC) : microcontrôleur **STM32L476RG**, module Bluetooth Low Energy **BlueNRG-M0** (ou SPBTLE-RF sur les cartes d'avant 2024), accéléromètre **LIS3DH**. Le programme pilote la LED tricolore et la sortie PWM du bornier, lit l'accélération et la température, et dialogue avec un **PC** (port COM virtuel par le câble USB) et un **téléphone** (Bluetooth).
@@ -10,7 +15,13 @@ Cette version 2 est une réécriture complète de `OBCP_template_2024` :
 - **régénérable par STM32CubeMX** sans rien perdre, avec un outil qui vérifie le projet après chaque génération ;
 - **nouveau en 2.1 : chargement par Bluetooth**. Le programme est rangé derrière le chargeur Bluetooth ObCP-OTA (projet `ObCP_OTA_BLE`) : après une première installation par le câble USB, chaque nouveau programme part sans fil, directement depuis STM32CubeIDE, sans toucher aux interrupteurs. La nouvelle commande `#ota` fait redémarrer la carte dans ce chargeur (voir [§ 1](#1-prise-en-main)).
 
-> La documentation complète du programme (principes, fonctionnement de chaque module, référence des fonctions, exercices guidés) est dans [`Doc/Documentation_Programme_OBCP_2026.docx`](Doc/Documentation_Programme_OBCP_2026.docx).
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Doc/images/interfaces-sombre.png">
+  <img alt="Schéma : un PC (câble USB : terminal, scripts Python, VI LabVIEW) et un téléphone (Bluetooth : ObCP Control, BLE Terminal) envoient les mêmes commandes au programme modèle, en banque 2 du STM32L476RG, qui pilote la LED tricolore, la sortie PWM J13, l'accéléromètre et le bouton SW1 ; la commande #ota fait redémarrer la carte dans le chargeur ObCP-OTA, en banque 1" src="Doc/images/interfaces-clair.png">
+</picture>
+
+> [!NOTE]
+> La documentation complète du programme (principes, fonctionnement de chaque module, référence des fonctions, exercices guidés) est dans [`Doc/Documentation_Programme_OBCP_2026.pdf`](Doc/Documentation_Programme_OBCP_2026.pdf).
 
 ## Sommaire
 
@@ -32,6 +43,11 @@ Cette version 2 est une réécriture complète de `OBCP_template_2024` :
 ---
 
 ## 1. Prise en main
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Doc/images/carte-reperes-sombre.png">
+  <img alt="Vue de dessus de l'ObCP avec ses repères : alimentation SW2, prise USB, bouton USER SW1, accéléromètre U4, bouton RESET SW3, connecteur de débogage J17, bornier PWM J13, module Bluetooth BlueNRG-M0, LED tricolore, STM32L476RG et interrupteur Prog/Run SW4" src="Doc/images/carte-reperes-clair.png">
+</picture>
 
 ### Charger le programme
 
@@ -55,11 +71,16 @@ Depuis la version 2.1.0, la mémoire flash (1 Mo) est partagée en deux moitiés
 
 Pour recevoir un programme, la carte doit être dans le chargeur. Trois façons d'y aller :
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Doc/images/ota-auto-sombre.png">
+  <img alt="Les cinq étapes d'un envoi depuis STM32CubeIDE : compilation ; obcp_ota.py envoie #ota à la carte qui fonctionne ; la carte redémarre dans son chargeur (LED bleue, éclair chaque seconde) ; transfert par blocs de 1 Ko et vérification du CRC-32 ; programme validé, la carte redémarre dessus" src="Doc/images/ota-auto-clair.png">
+</picture>
+
 - rien à faire avec `obcp_ota.py` 1.2 (ou plus récent, sous Windows ou Linux) **si la carte a déjà reçu un programme depuis ce PC avec cette version** : l'application a mémorisé son adresse, la reconnaît pendant que le programme fonctionne et lui envoie elle-même `#ota` ;
 - envoyer **`#ota`** depuis le terminal ou le téléphone : la carte répond `OTA loader...` et redémarre dans le chargeur ;
 - maintenir le bouton **USER (SW1)** enfoncé pendant un appui sur **RESET (SW3)**.
 
-Dans le chargeur, la LED bleue émet un bref éclair chaque seconde ; le port COM virtuel disparaît du PC (le chargeur n'utilise pas l'USB) et la carte se présente en Bluetooth sous le nom `ObCP-OTA-XXXX` (XXXX : fin de l'adresse Bluetooth de la carte). Sans connexion pendant 2 minutes, ou après un appui sur RESET, le chargeur relance le programme installé. Le détail (installation de l'application PC, messages, problèmes) est dans le guide du projet `ObCP_OTA_BLE`.
+Dans le chargeur, la LED bleue émet un bref éclair chaque seconde ; le port COM virtuel disparaît du PC (le chargeur n'utilise pas l'USB) et la carte se présente en Bluetooth sous le nom `ObCP-OTA-XXXX` (XXXX : fin de l'adresse Bluetooth de la carte). Sans connexion pendant 2 minutes, ou après un appui sur RESET, le chargeur relance le programme installé. Le détail (installation de l'application PC, messages, problèmes) est dans le [README](../ObCP_OTA_BLE/) et le [guide](../ObCP_OTA_BLE/Documentation/ObCP_OTA_BLE_Guide.pdf) du projet `ObCP_OTA_BLE`.
 
 **Autres fichiers du dossier `BIN/`** : `OBCP_template_2026.hex` (ou `.elf`) contient le programme seul, à l'adresse `0x08080000` ; il se charge par Bluetooth, ou en DFU sur une carte dont le chargeur est déjà installé.
 
@@ -312,7 +333,12 @@ Le fichier `.ioc` a été enregistré avec STM32CubeMX 6.11.1. Une version plus 
 
 ## 9. Compiler
 
-**Avec STM32CubeIDE** : *File > Import > General > Existing Projects into Workspace*, choisir le dossier du projet, *Finish*. Puis *Project > Build Project*. Deux configurations :
+**Avec STM32CubeIDE** : *File > Import > General > Existing Projects into Workspace*, choisir le dossier du projet, *Finish*. Puis *Project > Build Project*.
+
+> [!IMPORTANT]
+> Dans le dépôt, ce projet est rangé dans le dossier `OBCP_template_2026_OTA`, mais son nom dans STM32CubeIDE reste `OBCP_template_2026`, comme celui de la version 2.0 (dossier `OBCP_template_2026`). Un espace de travail ne peut pas contenir deux projets du même nom : importer l'un ou l'autre, ou utiliser deux espaces de travail (*File > Switch Workspace*).
+
+Deux configurations :
 
 - **Debug** (`-O0 -g3`) : pour déboguer pas à pas (la sonde reste connectée pendant la mise en veille du processeur) ;
 - **Release** (`-Os`) : programme optimisé, celui du dossier `BIN/`.
@@ -455,6 +481,11 @@ En 2024, TIM3 (LED) comptait de 0 à 6399 (PWM à 1 kHz) : au-delà de 6399, la 
 
 ## 12. Codes de la LED
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Doc/images/codes-led-sombre.png">
+  <img alt="Codes de la LED tricolore avec leur rythme sur 4 secondes : au démarrage, 1 éclat vert (tout est prêt), 2 éclats rouges (accéléromètre muet), 3 éclats rouges (module Bluetooth muet), 2 puis 3 éclats (les deux) ; erreur grave, 1 à 6 éclats rouges puis une pause, sans fin ; dans le chargeur, bleu éclair chaque seconde (attente) et vert qui change à chaque Ko (transfert)" src="Doc/images/codes-led-clair.png">
+</picture>
+
 **Au démarrage** (un seul signal, puis le programme fonctionne) :
 
 | Signal | Signification |
@@ -495,7 +526,7 @@ Avec une sonde ST-LINK, mettre le programme en pause montre qu'il tourne dans `f
 ## 13. Contenu du dossier et versions des outils
 
 ```
-OBCP_template_2026/
+OBCP_template_2026_OTA/      (dossier du dépôt ; nom du projet dans STM32CubeIDE : OBCP_template_2026)
 ├── OBCP_template_2026.ioc   configuration STM32CubeMX
 ├── Core/Src, Core/Inc       application (app.c, commands.c...) et code généré (main.c...)
 ├── USB_DEVICE/              USB généré par CubeMX (crochets dans usbd_cdc_if.c, usbd_conf.c)
@@ -525,12 +556,12 @@ Les textes des fichiers `Datasheets/Readme_Template_ObCP.*` décrivent la versio
 
 ## 14. Documentation et liens
 
-- Documentation du programme : [`Doc/Documentation_Programme_OBCP_2026.docx`](Doc/Documentation_Programme_OBCP_2026.docx) ; schémas : [`Doc/images/`](Doc/images/) (sources Graphviz, Mermaid et Python dans `Doc/diagrammes/`, voir son `LISEZMOI.txt`).
+- Documentation du programme : [`Doc/Documentation_Programme_OBCP_2026.pdf`](Doc/Documentation_Programme_OBCP_2026.pdf) ; schémas : [`Doc/images/`](Doc/images/) (sources Graphviz, Mermaid et Python dans `Doc/diagrammes/`, voir son `LISEZMOI.txt` ; illustrations de ce README dans [`Doc/diagrammes/readme/`](Doc/diagrammes/readme/)).
 - Composants : dossier [`Datasheets/`](Datasheets/) — module Bluetooth (BlueNRG-M0, SPBTLE-RF), accéléromètre ([LIS3DH](https://www.st.com/resource/en/datasheet/lis3dh.pdf)), programmation BlueNRG-MS (PM0237), commandes ACI (UM1865), adresse Bluetooth (DT0070).
 - Minuteries et PWM : [wiki ST « Getting started with TIM »](https://wiki.st.com/stm32mcu/wiki/Getting_started_with_TIM) ; interruptions externes : [« Getting started with EXTI »](https://wiki.st.com/stm32mcu/wiki/Getting_started_with_EXTI).
 - Bibliothèque USB de ST : [UM1734](https://www.st.com/resource/en/user_manual/um1734-stm32cube-usb-device-library-stmicroelectronics.pdf) ; processeur Cortex-M4 (fautes, veille) : [PM0214](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf).
 - Service UART Bluetooth de Nordic (référence des UUID) : [NUS](https://developer.nordicsemi.com/nRF_Connect_SDK/doc-legacy/2.6.1/nrf/libraries/bluetooth_services/services/nus.html).
-- Chargement par Bluetooth : projet `ObCP_OTA_BLE` (chargeur, application PC `obcp_ota.py`, guide `ObCP_OTA_BLE_Guide.docx`).
+- Chargement par Bluetooth : projet [`ObCP_OTA_BLE`](../ObCP_OTA_BLE/) (chargeur, application PC `obcp_ota.py`, [guide](../ObCP_OTA_BLE/Documentation/ObCP_OTA_BLE_Guide.pdf)).
 - Dépôt de l'ObCP : [LAB_ObCP_L476_STM32CubeIDE](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE).
 
 ---
