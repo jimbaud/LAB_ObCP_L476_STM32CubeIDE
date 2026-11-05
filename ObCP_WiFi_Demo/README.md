@@ -1,288 +1,96 @@
+<p align="center">
+  <img src="docs/images/banniere.png" alt="Démonstrateur Wi-Fi 6 : ObCP + X-NUCLEO-67W61M1" width="100%">
+</p>
+
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2.0-03234b">
+  <img alt="MCU" src="https://img.shields.io/badge/MCU-STM32L476RG-3cb4e6">
+  <img alt="Module" src="https://img.shields.io/badge/module-ST67W611M1%20(Wi--Fi%206)-e0a100">
+  <img alt="Sans RTOS" src="https://img.shields.io/badge/bare--metal-sans%20RTOS-2e9d4f">
+  <img alt="STM32CubeMX" src="https://img.shields.io/badge/STM32CubeMX-6.11.1-03234b">
+  <img alt="Tests" src="https://img.shields.io/badge/tests%20sur%20PC-1004%20v%C3%A9rifications-2e9d4f">
+</p>
+
 # Démonstrateur Wi-Fi 6 — ObCP + X-NUCLEO-67W61M1
 
-Programme de démonstration « bare-metal » (sans RTOS) pour l'**ObCP** (Objet Connecté
-Personnel, SUPMICROTECH-ENSMM, STM32L476RG) équipé de la carte d'extension
-**X-NUCLEO-67W61M1** (module Wi-Fi 6 / BLE **ST67W611M1**). Il reprend les quatre démos de
-la version NUCLEO-L476RG et les adapte à l'ObCP :
+Programme de démonstration « bare-metal » pour l'**ObCP** (Objet Connecté Personnel de
+SUPMICROTECH-ENSMM, STM32L476RG) équipé de la carte d'extension **X-NUCLEO-67W61M1**
+(module Wi-Fi 6 / Bluetooth LE **ST67W611M1** de STMicroelectronics).
 
-- la console passe par le **port USB de l'ObCP** (port COM virtuel, classe CDC : aucun
-  pilote à installer, débit indifférent) ;
-- le programme se charge par le **chargeur USB DFU** de ST (interrupteur Prog/Run + Reset,
-  ou commande `dfu`), avec STM32CubeProgrammer ;
-- la **LED RVB**, la **sortie PWM** du bornier et l'**accéléromètre** de l'ObCP sont
-  utilisés par les commandes `led`, `pwm`, `sensors`, la page web et MQTT ;
-- le firmware du module se met à jour par le terminal (`module ota`) et, pour une première
-  programmation, l'ObCP relaie son port USB vers l'UART du module (`module boot` +
-  QConn_Flash), sans adaptateur ni autre carte ;
-- **version 1.1** : le projet est décrit par un fichier STM32CubeMX
-  (**`ObCP_WiFi_Demo.ioc`**) ; l'initialisation du matériel est générée par CubeMX et peut
-  être modifiée puis **régénérée sans casser la démo** (voir plus bas) ;
-- **version 1.2** : **démarrage automatique** pour une utilisation sur batterie, sans
-  terminal (connexion à la box enregistrée, point d'accès et serveur web, télémétrie MQTT :
-  commande `auto`, ou carte « Démarrage automatique » de la page web) ; code commenté pour
-  un lecteur débutant et **documentation du programme**.
+Quatre démonstrations se pilotent depuis un simple terminal série, sans recompiler : scanner
+Wi-Fi, services réseau, serveur web en point d'accès, télémétrie MQTT. La LED RVB, la sortie
+PWM et l'accéléromètre de l'ObCP sont mis à contribution, et la carte peut démarrer seule ses
+services lorsqu'elle est alimentée sur batterie.
 
-Le guide complet (montage, programmation par DFU, mise à jour du module, démos pas à pas,
-utilisation sur batterie, dépannage) est dans **`Doc/Guide_Demonstrateur_WiFi6_ObCP.docx`** ;
-l'organisation du code, son déroulement et la référence de toutes ses fonctions sont dans
-**`Doc/Documentation_Programme_ObCP.docx`** (voir « Lire le code »).
+> 📘 **Documentation** : [guide d'utilisation](Doc/Guide_Demonstrateur_WiFi6_ObCP.docx)
+> (montage, programmation, démos pas à pas, dépannage) et
+> [documentation du programme](Doc/Documentation_Programme_ObCP.docx) (organisation du code,
+> schémas de déroulement, référence des 470 fonctions).
 
-| Démo | Contenu | Commandes |
-|------|---------|-----------|
-| 1. Scanner Wi-Fi | réseaux visibles (RSSI, canal, sécurité, Wi-Fi 6), occupation des canaux, suivi du RSSI en direct (couleur de la LED RVB, CSV) | `scan`, `channels`, `track` |
-| 2. Connexion et services | DHCP ou IP fixe, DNS, ping, RTC mise à l'heure par SNTP (fuseau, heure d'été), reconnexion automatique | `connect`, `status`, `ip`, `dns`, `ping`, `ntp`, `time` |
-| 3. Serveur web (SoftAP) | point d'accès avec QR code, tableau de bord (accéléromètre et bille, couleur de la LED, sortie PWM, réseaux voisins, configuration Wi-Fi), API JSON | `web start`, `web status`, `web stop` |
-| 4. Télémétrie MQTT | état JSON périodique (accélérations, inclinaisons, LED, PWM…), commandes à distance (LED, couleur, PWM), évènements boutons, online/offline (LWT) | `mqtt start`, `mqtt pub`, `mqtt sub` |
+## Sommaire
 
-## Contenu
+- [Les démonstrations](#les-démonstrations)
+- [Nouveautés de la version 1.2](#nouveautés-de-la-version-12)
+- [Matériel](#matériel)
+- [Démarrage rapide](#démarrage-rapide)
+- [Tour d'horizon](#tour-dhorizon)
+- [Utilisation sur batterie](#utilisation-sur-batterie-démarrage-automatique)
+- [Mise à jour du module Wi-Fi](#mise-à-jour-du-module-wi-fi)
+- [Compiler et modifier le projet](#compiler-et-modifier-le-projet)
+- [Lire le code](#lire-le-code)
+- [Tests sur PC](#tests-sur-pc)
+- [Contenu du dépôt](#contenu-du-dépôt)
+- [État de validation](#état-de-validation) · [Versions](#versions) · [Licences](#licences)
 
-```
-ObCP_WiFi_Demo.ioc        configuration STM32CubeMX : broches (étiquettes), horloges, SPI1, SPI3, ADC1,
-                          TIM1, TIM3, RTC, USB (CDC), NVIC — CubeMX 6.11.1, STM32Cube FW_L4 V1.18.1
-Core/Src, Core/Inc        fichiers générés par CubeMX (main.c, gpio.c, spi.c, adc.c, tim.c, rtc.c,
-                          stm32l4xx_it.c, stm32l4xx_hal_msp.c, main.h...) : la démo n'y occupe que
-                          des sections USER CODE ; et fichiers de la démo, jamais générés :
-  board.c                   chargeur DFU, quartz 32 kHz, suite de l'initialisation, diagnostic, RTC
-  cdc_port.c                port COM virtuel (tampons, contrôle de flux, DTR)
-  fault_handlers.c          HardFault & co. : rapport conservé pendant le redémarrage
-  uart_bridge.c             passerelle USB <-> UART du module (module boot)
-  ncp_port_obcp.c           adaptation du pilote du module à la carte
-Core/Src/app/             console, commandes, configuration en flash, LED RVB, accéléromètre,
-                          démos 1 à 4, page web, QR code, mise à jour du module
-Core/Src/st67w6x/         pilote du ST67W611M1 : trames SPI, moteur AT, Wi-Fi, réseau, MQTT (portable)
-Core/Src/qrcodegen/       QR codes (Project Nayuki, MIT)
-Core/Inc/                 tous les en-têtes (générés et de la démo)
-USB_DEVICE/               généré par CubeMX : USB device, classe CDC (rappels -> cdc_port.c)
-Drivers/, Middlewares/    bibliothèques copiées par CubeMX (HAL STM32L4, CMSIS, USB device de ST)
-Tests/                    tests sur PC : pilote, modules, port COM virtuel, simulation des 4 démos
-Tools/verif_cubemx.py     vérification du projet après une régénération par CubeMX
-Tools/rssi_logger.py      enregistrement du RSSI en CSV + courbe (démo 1)
-Tools/maj_module_ota.py   mise à jour du firmware du module depuis le PC (YMODEM, commande module ota)
-Binaries/                 programme précompilé (.hex, .bin, .elf) à charger par USB DFU
-Doc/                      guide d'utilisation et documentation du programme (Word)
-.project, .cproject       projet STM32CubeIDE (Debug -Og, Release -Os), .mxproject (CubeMX)
-Makefile                  compilation en ligne de commande
-```
+## Les démonstrations
 
-Tout le code de la démo est sous `Core/` : il est compilé avec les seuls chemins et
-dossiers que CubeMX déclare lui-même, sans réglage ajouté au projet CubeIDE.
+| Démo | Ce que l'on montre | Commandes |
+|------|--------------------|-----------|
+| **1. Scanner Wi-Fi** | réseaux visibles (RSSI, canal, sécurité, Wi-Fi 6), occupation des canaux 1 à 13, suivi du signal en direct (couleur de la LED RVB, export CSV) | `scan`, `channels`, `track` |
+| **2. Connexion et services** | connexion à une box, DHCP ou IP fixe, DNS, ping, RTC mise à l'heure par SNTP (fuseau, heure d'été), reconnexion automatique | `connect`, `status`, `ip`, `dns`, `ping`, `ntp` |
+| **3. Serveur web** | point d'accès propre à la carte (QR code de connexion), tableau de bord : accéléromètre et bille qui roule, LED RVB, sortie PWM, réseaux voisins, configuration Wi-Fi, API JSON | `web start`, `web status` |
+| **4. Télémétrie MQTT** | état JSON périodique vers un broker, commandes à distance (LED, couleur, PWM…), évènements des boutons, présence (LWT) | `mqtt start`, `mqtt pub`, `mqtt sub` |
 
-## Démarrage rapide
+S'y ajoutent `led`, `pwm` et `sensors` pour les périphériques de l'ObCP, `module ota` pour
+mettre à jour le firmware du module par le terminal et `module boot` pour sa première
+programmation, l'ObCP servant de passerelle USB ↔ UART.
 
-1. **Matériel** : cavaliers JP1 et JP2 de la X-NUCLEO en place ; interrupteur **SW4** de
-   l'ObCP sur **Run** ; X-NUCLEO enfichée sur les connecteurs Arduino de l'ObCP ; ObCP
-   reliée au PC par un câble USB **de données** ; interrupteur **SW2** sur **ON** (LED
-   PWR ON allumée).
-2. **Programmation de l'ObCP** (USB DFU, STM32CubeProgrammer) :
-   - activer le chargeur DFU : SW4 sur **Prog** puis appui sur **RST**, ou, si le
-     démonstrateur tourne déjà, commande `dfu` puis touche `o` ;
-   - STM32CubeProgrammer : interface **USB**, port USB1, *Connect*, *Erasing & programming*,
-     fichier `Binaries/ObCP_WiFi_Demo.hex`, *Verify* + *Run after programming*, *Start
-     Programming* ; ou en ligne de commande :
-     `STM32_Programmer_CLI -c port=usb1 -w Binaries/ObCP_WiFi_Demo.hex -v -s` ;
-   - remettre SW4 sur **Run** (et appuyer sur RST) si SW4 a été utilisé.
-3. **Terminal** : « Périphérique série USB (COMx) » sous Windows, `/dev/ttyACM0` sous Linux ;
-   débit indifférent, 8N1, UTF-8, Entrée = CR, au moins 100 colonnes. La bannière de
-   démarrage est conservée jusqu'à l'ouverture du terminal ; le port disparaît pendant un
-   reset (rouvrir la connexion). Dans la console de STM32CubeIDE (sans couleurs ANSI) :
-   `set term.color 0` puis `save`.
-4. **Firmware du module** : il faut le firmware *mission T01* v2.0.x (2.0.106 conseillé).
-   La bannière et la commande `module` affichent la version présente. Si elle est plus
-   ancienne : `module ota` (voir ci-dessous). Un module d'usine trop ancien (en-tête SPI
-   `0x5501`, signalé au démarrage) ou en T02 demande une première programmation :
-   `module boot` + QConn_Flash (guide, 3.4), ou une NUCLEO-H563ZI (guide, 3.5).
-5. **Premières commandes** :
+## Nouveautés de la version 1.2
 
-```
-help demo                         guide rapide
-led rouge 30 · led off · pwm 50   LED RVB et sortie PWM de l'ObCP
-sensors suivi                     accéléromètre et inclinaisons en direct (touche = arrêt)
-scan                              démo 1
-connect "Ma Box" motdepasse       démo 2, puis « save » pour s'y reconnecter au démarrage
-ping 8.8.8.8 · ntp · time
-web start                         démo 3 : rejoindre ObCP-WiFi-<id> (obcpdemo), ouvrir http://10.19.96.1/
-mqtt start                        démo 4 : broker.emqx.io, topics obcp/<id>/...
-auto web on · auto mqtt on · save services lancés seuls à la mise sous tension (batterie)
-```
+- **Démarrage automatique** pour une utilisation sur batterie, sans terminal : connexion à la
+  box enregistrée, point d'accès et serveur web (`web.auto`, nouveau), télémétrie MQTT
+  (`mqtt.auto`) — commande `auto`, carte « Démarrage automatique » de la page web,
+  `GET /api/auto`.
+- **Code commenté pour un lecteur débutant** : chaque fichier résume son rôle, chaque fonction
+  publique est décrite dans son en-tête.
+- **Documentation du programme** (Word, 85 pages) : carte des fichiers, schémas de
+  déroulement, dialogue avec le module, mémoire, brochage, référence des fonctions, recettes.
+- Configuration enregistrée par la version 1.1 relue sans perte.
 
-Côté PC pour la démo 4 :
+## Matériel
 
-```
-mosquitto_sub -h broker.emqx.io -t "obcp/<id>/#" -v
-mosquitto_pub -h broker.emqx.io -t "obcp/<id>/cmd" -m "color=vert"
-mosquitto_pub -h broker.emqx.io -t "obcp/<id>/cmd" -m "pwm=50"
-```
+<p align="center">
+  <img src="docs/images/obcp_reperes.png" alt="Repères sur la carte ObCP" width="720">
+</p>
 
-Maintenir le bouton **User1** pendant un reset démarre avec les valeurs d'usine.
+- une carte **ObCP** (version 2.3 ou ultérieure) et une carte **X-NUCLEO-67W61M1**, enfichée
+  sur les connecteurs Arduino (cavaliers JP1 et JP2 en place) ;
+- un câble USB **de données** ; facultatif : une batterie lithium sur J1 ;
+- un point d'accès Wi-Fi **2,4 GHz** (box, routeur de TP, partage de connexion) ;
+- sur le PC : [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html),
+  un terminal série (PuTTY, Tera Term, picocom…) et, pour modifier le programme,
+  STM32CubeIDE.
 
-## Utilisation sur batterie (démarrage automatique)
+<p align="center">
+  <img src="docs/images/architecture.png" alt="Architecture matérielle et logicielle" width="100%">
+</p>
 
-Sur batterie, sans PC ni terminal, la carte lance seule à la mise sous tension les services
-choisis, avec la connexion enregistrée en flash :
+La pile TCP/IP, le DHCP, le DNS, le SNTP et le client MQTT tournent **dans le module**
+(firmware « mission T01 ») ; le STM32 lui parle par **commandes AT transportées dans des
+trames SPI**. Côté PC, l'ObCP se présente comme un port COM virtuel USB (classe CDC).
 
-| Paramètre | Commande | Défaut | Démarre seul |
-|-----------|----------|--------|--------------|
-| `wifi.auto` | `auto wifi on` | 1 | connexion à la box enregistrée (`connect` puis `save`), reconnexion après une coupure |
-| `web.auto` | `auto web on` | 0 | point d'accès ObCP-WiFi-<id> et serveur web, une fois la tentative de connexion à la box terminée (35 s d'attente au plus ; aussitôt sans box enregistrée) |
-| `mqtt.auto` | `auto mqtt on` | 0 | télémétrie MQTT, dès que la carte a obtenu son adresse sur la box |
-
-```
-connect "Ma Box" motdepasse       une fois, avec le terminal
-auto web on                       et/ou  auto mqtt on   (off pour retirer)
-save                              puis alimenter la carte par sa batterie (J1, SW2 sur ON)
-auto                              résumé de ce qui démarre seul
-```
-
-La bannière l'indique (ligne « Démarrage ») et `info` aussi. Le même réglage se fait depuis
-la page web (carte « Démarrage automatique », enregistré aussitôt en flash) ou par
-`GET /api/auto?web=1&mqtt=1`. En démarrage automatique, le QR code n'est pas affiché
-(`web start` le montre à la demande). Pour reprendre la main : `auto web off`,
-`auto mqtt off`, `save`, ou User1 maintenu pendant un reset (valeurs d'usine). Changer le
-mot de passe du point d'accès (`set ap.pass ...`, `save`) avant de laisser une carte ainsi
-réglée sans surveillance. Détails : guide, 5.6.
-
-## Lire le code
-
-Le code de la démo est commenté pour un lecteur débutant : chaque fichier commence par un
-résumé de son rôle, chaque fonction publique est décrite dans son en-tête (`Core/Inc/*.h`),
-et les passages délicats (interruptions, tampons circulaires, machines à états, trames
-SPI) sont expliqués sur place. Ordre de lecture conseillé :
-
-1. `Core/Src/main.c` : initialisation générée par CubeMX, puis `app_init()` et `app_loop()` ;
-2. `Core/Src/app/app.c` : démarrage (bannière, module, services automatiques), boucle
-   principale et tâches de fond (`app_idle()`) ;
-3. `Core/Src/app/cli.c` : table des commandes `s_cmds[]` et commandes générales ;
-4. une démo : `demo_scan.c`, `demo_net.c`, `demo_web.c` ou `demo_mqtt.c` ;
-5. le pilote du module : `Core/Src/st67w6x/ncp_at.c` (commandes AT), puis `ncp_spi.c`
-   (trames SPI).
-
-La **documentation du programme** (`Doc/Documentation_Programme_ObCP.docx`) en donne la vue
-d'ensemble : carte des fichiers et de leurs dépendances, schémas de déroulement
-(démarrage, boucle principale, trajet d'une commande, d'une requête web, d'un message
-MQTT), dialogue avec le module, occupation de la mémoire, brochage, référence des 470
-fonctions, paramètres, codes d'erreur, et recettes pour ajouter une commande, un
-paramètre, une adresse au serveur web, une mesure ou un périphérique.
-
-## Compilation
-
-- STM32CubeIDE : *File › Import › General › Existing Projects into Workspace*, dossier
-  `ObCP_WiFi_Demo`, puis compiler (Debug ou Release ; les fichiers `.bin` et `.hex` sont
-  produits aussi). Le fichier `.ioc` s'ouvre dans l'éditeur de configuration de CubeIDE 1.x
-  ou dans STM32CubeMX (CubeIDE 2.x). Programmation depuis l'IDE par un outil externe (*Run › External
-  Tools*) : `STM32_Programmer_CLI.exe` avec les arguments `-c port=usb1 -d ${project_name}.elf -v -s`
-  et le dossier `${workspace_loc}${project_path}\Debug`, chargeur DFU actif.
-- En ligne de commande : `make` (build/ObCP_WiFi_Demo.elf, .hex, .bin), `make flash`
-  (USB DFU, chargeur actif), `make test` (tests sur PC).
-- L'ObCP n'a pas de ST-LINK : le débogage pas à pas demande une sonde SWD externe sur le
-  connecteur Debug J17 (TCK = SWCLK, TMS = SWDIO, RST = NRST, GND ; référence de tension
-  sur la broche 3V3 de J6), par exemple le ST-LINK d'une Nucleo-64 (cavaliers CN2 retirés,
-  connecteur CN4).
-
-## Modifier la configuration avec STM32CubeMX
-
-Le projet se régénère comme n'importe quel projet CubeMX : ouvrir `ObCP_WiFi_Demo.ioc`
-(double-clic dans STM32CubeIDE 1.x, ou STM32CubeMX à partir de CubeIDE 2.0), modifier
-(broches, nouveaux périphériques, horloges…), puis **Generate Code** (CubeIDE : enregistrer
-le `.ioc` et accepter la génération ; CubeMX : *GENERATE CODE*, puis *F5* dans CubeIDE).
-À la première ouverture, CubeMX peut proposer de migrer vers sa version ou un paquet
-STM32Cube FW_L4 plus récent : accepter.
-
-Le code de la démo survit à la régénération parce qu'il est :
-
-- dans des fichiers que CubeMX ne génère pas (`Core/Src/board.c`, `cdc_port.c`,
-  `fault_handlers.c`, `uart_bridge.c`, `ncp_port_obcp.c`, `Core/Src/app/`,
-  `Core/Src/st67w6x/`, `Core/Src/qrcodegen/`, en-têtes dans `Core/Inc/`) ;
-- relié au code généré par quelques lignes placées dans des sections **USER CODE**, que
-  CubeMX conserve :
-
-| Fichier généré | Section USER CODE | Contenu |
-|----------------|-------------------|---------|
-| `Core/Src/main.c` | `1` | `board_early_init();` (saut éventuel dans le chargeur DFU) |
-| | `Init` | `board_lse_start();` (quartz 32 kHz, amplification « medium high ») |
-| | `2` | `board_post_init();` puis `app_init();` |
-| | `WHILE` | `app_loop();` |
-| | `Error_Handler_Debug` | `board_error_blink();` (LED rouge : 2 éclats = quartz 8 MHz, 3 = quartz 32 kHz) |
-| `Core/Src/stm32l4xx_it.c` | `NonMaskableInt_IRQn 0` | `fault_nmi();` |
-| `USB_DEVICE/App/usbd_cdc_if.c` | `3`, `4`, `5`, `6`, `7`, `13` | appels de `cdc_port.c` (port COM virtuel) |
-| `USB_DEVICE/Target/usbd_conf.c` | `2`, `3` | `cdc_port_on_suspend(...)` (veille / reprise de l'USB) |
-
-À respecter pour que la démo continue de fonctionner :
-
-- n'écrire dans les fichiers générés **qu'entre** `USER CODE BEGIN` et `USER CODE END` ;
-  mettre le nouveau code dans des fichiers à soi, sous `Core/Src` et `Core/Inc` (compilés
-  sans autre réglage) ;
-- garder les **étiquettes** des broches (`NCP_CS`, `NCP_RDY`, `Led_Red`, `User1`…) : le code
-  de la démo les utilise (`Core/Inc/board.h`) ; déplacer une broche en gardant son
-  étiquette suffit ;
-- laisser décochée la génération des gestionnaires *Hard fault*, *Memory management
-  fault*, *Prefetch fault* et *Undefined instruction* (NVIC › Code generation) : ils sont
-  dans `fault_handlers.c` ;
-- ne pas désactiver SPI1, SPI3, ADC1, TIM1, TIM3, RTC ni USB_DEVICE, et ne pas activer
-  l'USART2 (réservé à la passerelle `module boot`, pilotée par registres).
-
-Après chaque régénération : `python3 Tools/verif_cubemx.py` (ou `make -C Tests check-cubemx`)
-vérifie ces points (accroches présentes, étiquettes, périphériques, gestionnaires de faute)
-avant la compilation. Différence avec la version 1.0 : l'initialisation générée ne prévoit
-pas de repli automatique sur les oscillateurs internes ; si l'un des quartz ne démarre pas,
-la carte s'arrête dans `Error_Handler()` avec le code de clignotement ci-dessus (3 éclats
-au bout d'une dizaine de secondes pour le quartz 32 kHz). Dépannage d'une carte dont le
-quartz 32 kHz est défectueux : dans CubeMX, Clock Configuration › RTC Clock Mux sur LSI et
-Timers › RTC › Synchronous Predivider value à 249 (32 kHz / 128 / 250 = 1 Hz), puis
-régénérer (démarrage retardé de 5 s, heure moins précise entre deux mises à l'heure NTP).
-
-## Mise à jour du module
-
-Inutile de télécharger tout X-CUBE-ST67W61 (plus de 300 Mo) : un seul fichier suffit,
-dans le dossier [NCP_Binaries](https://github.com/STMicroelectronics/x-cube-st67w61/tree/main/Projects/ST67W6X_Scripts/Binaries/NCP_Binaries)
-du dépôt GitHub de ST :
-
-- [`st67w611m_mission_t01_v2.0.106.xz.ota`](https://github.com/STMicroelectronics/x-cube-st67w61/raw/main/Projects/ST67W6X_Scripts/Binaries/NCP_Binaries/st67w611m_mission_t01_v2.0.106.xz.ota) (compressé, 860 Ko, conseillé) ;
-- [`st67w611m_mission_t01_v2.0.106.bin.ota`](https://github.com/STMicroelectronics/x-cube-st67w61/raw/main/Projects/ST67W6X_Scripts/Binaries/NCP_Binaries/st67w611m_mission_t01_v2.0.106.bin.ota) (non compressé, 1,5 Mo).
-
-Le fichier part du PC en YMODEM sur le port COM virtuel de l'ObCP ; le STM32 le transmet au
-module par le lien SPI (AT+OTASTART / AT+OTASEND / AT+OTAFIN) ; le module vérifie
-l'empreinte SHA-256 de l'image puis redémarre dessus. La LED RVB (bleue) indique la
-progression.
-
-```
-Tera Term :   module ota   puis Fichier › Transfert › YMODEM › Envoyer (File › Transfer › YMODEM › Send)
-Script PC :   pip install pyserial
-              python Tools/maj_module_ota.py --port COM7 st67w611m_mission_t01_v2.0.106.xz.ota
-Linux/macOS : picocom --send-cmd "sz -vv --ymodem -k" /dev/ttyACM0
-              module ota   puis Ctrl-A Ctrl-S et le nom du fichier (paquet lrzsz)
-```
-
-En cas d'interruption ou de fichier refusé (image T02 ou `mfg`, en-tête ou taille
-incorrects, empreinte fausse), la mise à jour est abandonnée et le module garde son
-firmware. `module ota` suppose un module qui exécute déjà un firmware mission T01 2.0.x.
-
-### Première programmation par l'ObCP (`module boot`)
-
-Sur l'ObCP, l'UART du module (D0/D1) est relié au STM32 (PA3/PA2, USART2). `module boot`
-redémarre le module en mode téléchargement puis relaie le port COM virtuel vers cet UART
-(DMA, débit suivant celui du PC : 500 kbit/s puis 2 Mbit/s) ; la LED RVB est magenta.
-
-1. Récupérer le dossier `Projects/ST67W6X_Scripts` de X-CUBE-ST67W61 (liste des fichiers
-   utiles dans le guide, 3.4) ; dans `Binaries/NCP_Binaries`, copier
-   `mission_t01_flash_prog_cfg.ini` en `cfg_obcp.ini` et, section `[FW]`, remplacer
-   `st67w611m_mission_t01_vxxx.bin` par `st67w611m_mission_t01_v2.0.106.bin`.
-2. Terminal : `module boot`, puis **fermer le terminal**.
-3. Dans le dossier `Binaries` :
-
-```
-QConn_Flash\QConn_Flash_Cmd.exe --port COM7 --config NCP_Binaries\cfg_obcp.ini --efuse=NCP_Binaries\efusedata.bin
-```
-
-4. QConn_Flash terminé : **rouvrir le terminal sans rien taper** ; après 2 s de silence, la
-   passerelle s'arrête, affiche un bilan et le module redémarre sur le nouveau firmware.
-   Arrêt immédiat de la passerelle : bouton User1 (ObCP) ou SW1 (X-NUCLEO) ; arrêt
-   automatique après 2 min sans échange.
-
-La fin de session ne se fie pas au seul signal DTR : QConn_Flash le manipule (option
-`do_reset`) et peut le laisser à 0 pendant la programmation (voir `Core/Src/app/bridge_ctl.c`,
-testé sur PC).
-
-## Brochage
+<details>
+<summary><b>Brochage utilisé</b></summary>
 
 | Fonction | Arduino | STM32L476 | Étiquette CubeMX |
 |----------|---------|-----------|------------------|
@@ -291,87 +99,301 @@ testé sur PC).
 | SPI RDY | D3 | PB3 | `NCP_RDY` |
 | CHIP_EN / BOOT | D5 / D6 | PB4 / PB10 | `NCP_CHIP_EN` / `NCP_BOOT` |
 | Bouton SW1 (X-NUCLEO) | D8 | PA9 | `NCP_SW1` |
-| UART du module (seulement pendant `module boot`) | D0 / D1 | PA3 / PA2 (USART2) | `NCP_UART_RX` / `NCP_UART_TX` |
-| Console (USB, port COM virtuel) | – | PA11 / PA12 (USB OTG FS) | – |
-| LED RVB D5 (via 2N2222) | – | PC6 / PC8 / PC9 (TIM3_CH1 / CH3 / CH4, 1 kHz) | `Led_Red` / `Led_Green` / `Led_Blue` |
-| Sortie PWM, bornier J13 (IRLML2803, charge entre +5 V et PWM, 2,5 W max.) | – | PB1 (TIM1_CH3N, 1 kHz) | `PWM_Motor` |
-| Accéléromètre U4 (LIS3DH ou LIS3DSH, reconnu au démarrage) | – | SPI3 PC10 / PC11 / PC12, CS PC5 | `ACC_SCK` / `ACC_MISO` / `ACC_MOSI`, `ACC_CS` |
-| Bouton User1 (SW1 de l'ObCP) | – | PC13 | `User1` |
-| Module BLE (non utilisé, maintenu en reset) | – | PC2 (reset) | `BLE_Reset` |
+| UART du module (pendant `module boot`) | D0 / D1 | PA3 / PA2 (USART2) | `NCP_UART_RX` / `NCP_UART_TX` |
+| Console (port COM virtuel) | – | PA11 / PA12 (USB OTG FS) | – |
+| LED RVB D5 | – | PC6 / PC8 / PC9 (TIM3, 1 kHz) | `Led_Red` / `Led_Green` / `Led_Blue` |
+| Sortie PWM, bornier J13 (2,5 W max.) | – | PB1 (TIM1_CH3N, 1 kHz) | `PWM_Motor` |
+| Accéléromètre U4 (LIS3DH ou LIS3DSH) | – | SPI3 PC10 / PC11 / PC12, CS PC5 | `ACC_SCK` / `ACC_MISO` / `ACC_MOSI`, `ACC_CS` |
+| Bouton User1 | – | PC13 | `User1` |
+| Module BLE (maintenu en reset) | – | PC2 | `BLE_Reset` |
 
-Remarques : le brochage Arduino de l'ObCP est celui de la NUCLEO-L476RG (pilote du module
-inchangé) ; PB3 = SWO (pas de trace SWV, SWD possible par J17) ; le module fonctionne en
-2,4 GHz uniquement. La nomenclature de fabrication de l'ObCP cite un LIS3DSH, le programme
-modèle de l'ObCP pilote un LIS3DH : les deux sont reconnus (WHO_AM_I 0x33 / 0x3F).
+<p align="center"><img src="docs/images/prog_brochage.png" alt="Brochage du STM32L476RG" width="560"></p>
+</details>
+
+## Démarrage rapide
+
+**1. Programmer l'ObCP** par USB DFU (aucune sonde nécessaire) : interrupteur **SW4 sur Prog**
+puis **RST** (ou commande `dfu` si le démonstrateur tourne déjà), puis :
+
+```bash
+STM32_Programmer_CLI -c port=usb1 -w Binaries/ObCP_WiFi_Demo.hex -v -s
+```
+
+Remettre SW4 sur **Run** et appuyer sur RST. Avec l'interface graphique de
+STM32CubeProgrammer : interface **USB**, *Connect*, *Erasing & programming*, fichier `.hex`.
+
+**2. Ouvrir le terminal** : « Périphérique série USB (COMx) » sous Windows, `/dev/ttyACM0` sous
+Linux ; débit indifférent, UTF-8, au moins 100 colonnes. La bannière s'affiche à l'ouverture :
+
+<p align="center"><img src="docs/images/terminal_demarrage.png" alt="Bannière de démarrage" width="640"></p>
+
+**3. Vérifier le firmware du module** : la bannière doit indiquer *mission T01* 2.0.x
+(2.0.106 conseillé), sinon voir [Mise à jour du module](#mise-à-jour-du-module-wi-fi).
+
+**4. Essayer** :
+
+```text
+help demo                         guide rapide
+led rouge 30 · pwm 50 · sensors   périphériques de l'ObCP
+scan                              démo 1
+connect "Ma Box" motdepasse       démo 2, puis « save » pour s'y reconnecter au démarrage
+web start                         démo 3 : rejoindre ObCP-WiFi-<id> (obcpdemo), ouvrir http://10.19.96.1/
+mqtt start                        démo 4 : broker.emqx.io, topics obcp/<id>/...
+auto web on · auto mqtt on · save services lancés seuls à la mise sous tension
+```
+
+## Tour d'horizon
+
+<table>
+<tr>
+<td width="50%"><b>Guide rapide</b><br><img src="docs/images/terminal_guide_rapide.png" alt="help demo"></td>
+<td width="50%"><b>LED RVB, sortie PWM, accéléromètre</b><br><img src="docs/images/terminal_led_pwm_capteurs.png" alt="led, pwm, sensors"></td>
+</tr>
+<tr>
+<td><b>Démo 1 — balayage des réseaux</b><br><img src="docs/images/terminal_scan.png" alt="scan"></td>
+<td><b>Démo 1 — occupation des canaux</b><br><img src="docs/images/terminal_canaux.png" alt="channels"></td>
+</tr>
+<tr>
+<td><b>Démo 1 — suivi du signal en direct</b><br><img src="docs/images/terminal_track.png" alt="track"></td>
+<td><b>Démo 2 — connexion et heure NTP</b><br><img src="docs/images/terminal_connexion.png" alt="connect"></td>
+</tr>
+<tr>
+<td><b>Démo 2 — ping, DNS, heure</b><br><img src="docs/images/terminal_services.png" alt="ping, dns, time"></td>
+<td><b>Démo 3 — point d'accès et QR code</b><br><img src="docs/images/terminal_web.png" alt="web start"></td>
+</tr>
+</table>
+
+### La page web (démo 3)
+
+Stockée dans la flash du STM32 (environ 10 Ko, sans ressource externe : elle fonctionne sans
+Internet), elle s'adapte au téléphone et au thème clair ou sombre.
+
+<p align="center">
+  <img src="docs/images/web_mobile.png" alt="Page web sur un téléphone" width="62%">
+  &nbsp;
+  <img src="docs/images/web_bureau.png" alt="Page web sur un ordinateur, thème sombre" width="34%">
+</p>
+
+| Requête | Réponse |
+|---------|---------|
+| `GET /api/status` | état de la carte en JSON (même contenu que la télémétrie MQTT) |
+| `GET /api/led?v=75&c=FF8000` | luminosité et/ou couleur de la LED RVB |
+| `GET /api/pwm?v=30` | rapport cyclique de la sortie PWM |
+| `GET /api/scan[?refresh=1]` | réseaux voisins |
+| `POST /api/wifi` | `ssid`, `pass`, `save=1` : connexion de la carte à une box |
+| `GET /api/auto[?web=1&mqtt=1]` | démarrage automatique (lu, ou modifié et enregistré en flash) |
+
+### Télémétrie MQTT (démo 4)
+
+<p align="center"><img src="docs/images/terminal_mqtt.png" alt="Télémétrie et commandes MQTT" width="720"></p>
+
+```bash
+mosquitto_sub -h broker.emqx.io -t "obcp/<id>/#" -v
+mosquitto_pub -h broker.emqx.io -t "obcp/<id>/cmd" -m "color=vert"
+mosquitto_pub -h broker.emqx.io -t "obcp/<id>/cmd" -m "pwm=50"
+```
+
+## Utilisation sur batterie (démarrage automatique)
+
+Sur batterie, sans PC ni terminal, la carte lance seule à la mise sous tension les services
+choisis, avec la connexion enregistrée en flash.
+
+| Paramètre | Commande | Défaut | Démarre seul |
+|-----------|----------|:------:|--------------|
+| `wifi.auto` | `auto wifi on` | 1 | connexion à la box enregistrée, reconnexion après une coupure |
+| `web.auto` | `auto web on` | 0 | point d'accès ObCP-WiFi-&lt;id&gt; et serveur web, une fois la tentative de connexion à la box terminée (35 s au plus ; aussitôt sans box) |
+| `mqtt.auto` | `auto mqtt on` | 0 | télémétrie MQTT, dès que la carte a obtenu son adresse sur la box |
+
+```text
+connect "Ma Box" motdepasse       une fois, avec le terminal
+auto web on                       et/ou  auto mqtt on   (off pour retirer)
+save                              puis alimenter la carte par sa batterie (J1, SW2 sur ON)
+```
+
+<p align="center"><img src="docs/images/terminal_auto.png" alt="Commande auto" width="760"></p>
+
+<details>
+<summary><b>Ce qui s'affiche à la mise sous tension</b></summary>
+<p align="center"><img src="docs/images/terminal_demarrage_auto.png" alt="Démarrage automatique" width="640"></p>
+<p align="center"><img src="docs/images/prog_etat_web.png" alt="Machine à états du serveur web" width="640"></p>
+</details>
+
+Le même réglage se fait depuis la page web (carte « Démarrage automatique »). Pour reprendre
+la main : `auto web off`, `auto mqtt off`, `save`, ou **User1** maintenu pendant un reset
+(valeurs d'usine). ⚠️ Changer le mot de passe du point d'accès (`set ap.pass …` puis `save`)
+avant de laisser une carte ainsi réglée sans surveillance.
+
+## Mise à jour du module Wi-Fi
+
+Un seul fichier suffit, dans le dossier
+[NCP_Binaries](https://github.com/STMicroelectronics/x-cube-st67w61/tree/main/Projects/ST67W6X_Scripts/Binaries/NCP_Binaries)
+du dépôt X-CUBE-ST67W61 de ST :
+[`st67w611m_mission_t01_v2.0.106.xz.ota`](https://github.com/STMicroelectronics/x-cube-st67w61/raw/main/Projects/ST67W6X_Scripts/Binaries/NCP_Binaries/st67w611m_mission_t01_v2.0.106.xz.ota)
+(860 Ko). Il part du PC en YMODEM sur le port COM virtuel ; le STM32 le transmet au module par
+le lien SPI, qui vérifie l'empreinte SHA-256 avant de redémarrer dessus.
+
+```text
+Tera Term :   module ota   puis Fichier › Transfert › YMODEM › Envoyer
+Script PC :   python Tools/maj_module_ota.py --port COM7 st67w611m_mission_t01_v2.0.106.xz.ota
+```
+
+<p align="center"><img src="docs/images/terminal_module_ota.png" alt="Mise à jour du module par le terminal" width="680"></p>
+
+<details>
+<summary><b>Première programmation du module par l'ObCP (<code>module boot</code>)</b></summary>
+
+Pour un module d'usine trop ancien (en-tête SPI `0x5501`) ou en firmware T02 : `module boot`
+relaie le port COM virtuel vers l'UART du module, et l'outil QConn_Flash de ST programme le
+module à travers l'ObCP, sans adaptateur.
+
+1. Dans `Projects/ST67W6X_Scripts/Binaries/NCP_Binaries` de X-CUBE-ST67W61, copier
+   `mission_t01_flash_prog_cfg.ini` en `cfg_obcp.ini` et, section `[FW]`, remplacer
+   `st67w611m_mission_t01_vxxx.bin` par `st67w611m_mission_t01_v2.0.106.bin`.
+2. Terminal : `module boot`, puis **fermer le terminal**.
+3. Dans le dossier `Binaries` :
+   `QConn_Flash\QConn_Flash_Cmd.exe --port COM7 --config NCP_Binaries\cfg_obcp.ini --efuse=NCP_Binaries\efusedata.bin`
+4. Rouvrir le terminal **sans rien taper** : la passerelle s'arrête après 2 s de silence et le
+   module redémarre sur le nouveau firmware.
+
+Détails et dépannage : guide d'utilisation, chapitre 3.
+</details>
+
+## Compiler et modifier le projet
+
+- **STM32CubeIDE** : *File › Import › Existing Projects into Workspace*, puis compiler (Debug
+  ou Release). Le débogage pas à pas demande une sonde SWD externe sur le connecteur J17.
+- **Ligne de commande** (GCC Arm) : `make` (`build/ObCP_WiFi_Demo.elf`, `.hex`, `.bin`),
+  `make flash` (USB DFU), `make test` (tests sur PC).
+
+Le projet est décrit par **`ObCP_WiFi_Demo.ioc`** et se **régénère avec STM32CubeMX sans
+casser la démo** : le code de la démo est dans ses propres fichiers sous `Core/`, relié au code
+généré par quelques lignes placées dans des sections `USER CODE`. Après chaque régénération :
+
+```bash
+python3 Tools/verif_cubemx.py
+```
+
+<details>
+<summary><b>Accroches dans les fichiers générés et règles à respecter</b></summary>
+
+<p align="center"><img src="docs/images/cubemx_regeneration.png" alt="Régénération par CubeMX" width="760"></p>
+
+| Fichier généré | Section USER CODE | Contenu |
+|----------------|-------------------|---------|
+| `Core/Src/main.c` | `1` | `board_early_init();` (saut éventuel dans le chargeur DFU) |
+| | `Init` | `board_lse_start();` (quartz 32 kHz) |
+| | `2` | `board_post_init();` puis `app_init();` |
+| | `WHILE` | `app_loop();` |
+| | `Error_Handler_Debug` | `board_error_blink();` (diagnostic par la LED rouge) |
+| `Core/Src/stm32l4xx_it.c` | `NonMaskableInt_IRQn 0` | `fault_nmi();` |
+| `USB_DEVICE/App/usbd_cdc_if.c` | `3` à `7`, `13` | appels de `cdc_port.c` |
+| `USB_DEVICE/Target/usbd_conf.c` | `2`, `3` | veille / reprise de l'USB |
+
+- n'écrire dans les fichiers générés qu'entre `USER CODE BEGIN` et `USER CODE END` ;
+- garder les **étiquettes** des broches (`NCP_CS`, `Led_Red`, `User1`…) ;
+- laisser décochée la génération des gestionnaires *Hard fault*, *Memory management*,
+  *Prefetch fault* et *Undefined instruction* (ils sont dans `fault_handlers.c`) ;
+- ne pas désactiver SPI1, SPI3, ADC1, TIM1, TIM3, RTC ni USB_DEVICE, et ne pas activer
+  l'USART2 (réservé à `module boot`).
+</details>
+
+Ressources (Release) : environ 137 Ko de flash sur 1 Mo, 49 Ko de RAM sur 96 Ko (pile et tas
+compris).
+
+## Lire le code
+
+Ordre de lecture conseillé :
+
+1. `Core/Src/main.c` — initialisation générée par CubeMX, puis `app_init()` et `app_loop()` ;
+2. `Core/Src/app/app.c` — démarrage, boucle principale, tâches de fond (`app_idle()`) ;
+3. `Core/Src/app/cli.c` — table des commandes `s_cmds[]` ;
+4. une démo — `demo_scan.c`, `demo_net.c`, `demo_web.c`, `demo_mqtt.c` ;
+5. le pilote du module — `Core/Src/st67w6x/ncp_at.c` (commandes AT), puis `ncp_spi.c` (trames SPI).
+
+<table>
+<tr>
+<td width="50%"><b>Carte du programme</b><br><img src="docs/images/prog_carte.png" alt="Carte du programme"></td>
+<td width="50%"><b>Boucle principale</b><br><img src="docs/images/prog_boucle.png" alt="Boucle principale"></td>
+</tr>
+<tr>
+<td><b>Trajet d'une requête web</b><br><img src="docs/images/prog_seq_http.png" alt="Séquence HTTP"></td>
+<td><b>Occupation de la mémoire</b><br><img src="docs/images/prog_memoire.png" alt="Mémoire"></td>
+</tr>
+</table>
+
+La [documentation du programme](Doc/Documentation_Programme_ObCP.docx) détaille tout cela :
+dialogue avec le module, machines à états, référence des fonctions, paramètres, codes
+d'erreur, et recettes pour ajouter une commande, un paramètre, une adresse au serveur web, une
+mesure ou un périphérique.
 
 ## Tests sur PC
 
-```
-make -C Tests      (ou make test)
+```bash
+make -C Tests        # ou : make test
 ```
 
-Cinq programmes compilés avec gcc, AddressSanitizer et UBSan :
-`test_driver` (pilote face à un module simulé, dont la mise à jour par AT+OTASEND,
-193 vérifications), `test_app` (modules indépendants du matériel : réception YMODEM avec
-erreurs injectées, couleurs de la LED, accéléromètres LIS3DH et LIS3DSH simulés, fin de
-session de la passerelle `module boot`, relecture d'une configuration enregistrée par la
-version 1.1, 325 vérifications), `test_usb` (port COM virtuel :
-`cdc_port.c` et les rappels générés de `usbd_cdc_if.c` face à une classe CDC simulée,
-115 vérifications) et `test_sim` (application complète,
-quatre démos, LED, PWM, capteurs, `dfu`, `module ota`, `module boot`, 284 vérifications ;
-journal de session dans `Tests/build/sim_transcript.txt`) et `test_boot` (mises sous
-tension avec une configuration déjà enregistrée en flash, comme sur batterie : box, serveur
-web et MQTT ; serveur web sans box ; box qui refuse la connexion ; 87 vérifications). Les réponses JSON et le
-JavaScript de la page web sont aussi validés, puis `Tools/verif_cubemx.py` contrôle les
-accroches du code de la démo dans les fichiers générés.
+Cinq programmes compilés avec gcc, AddressSanitizer et UBSan, face à un module ST67W611M1
+simulé :
 
-Si Python 3 et pyserial sont présents, un essai de bout en bout fait tourner
-l'application en temps réel sur un pseudo-terminal et lui envoie des images `.ota` avec
-`Tools/maj_module_ota.py`, puis avec `sz --ymodem` (lrzsz) s'il est installé.
+| Programme | Vérifie | Vérifications |
+|-----------|---------|--------------:|
+| `test_driver` | pilote : trames SPI, rx_stall, flux AT, MQTT, mise à jour du module | 193 |
+| `test_app` | calendrier, JSON, HTTP, configuration et sa migration, YMODEM, LED, accéléromètres simulés, passerelle | 325 |
+| `test_usb` | port COM virtuel face à une classe CDC simulée | 115 |
+| `test_sim` | application complète, quatre démos (journal : `Tests/build/sim_transcript.txt`) | 284 |
+| `test_boot` | mises sous tension avec configuration enregistrée (démarrage automatique) | 87 |
+
+S'y ajoutent la validation du JSON et du JavaScript de la page web, un essai de bout en bout
+de `Tools/maj_module_ota.py` sur pseudo-terminal, et `Tools/verif_cubemx.py`.
+
+## Contenu du dépôt
+
+```text
+ObCP_WiFi_Demo.ioc        configuration STM32CubeMX (CubeMX 6.11.1, STM32Cube FW_L4 V1.18.1)
+Core/Src, Core/Inc        fichiers générés (main.c, gpio.c, spi.c…) et fichiers de la démo :
+  board.c, cdc_port.c,      chargeur DFU, quartz, port COM virtuel, fautes du processeur,
+  fault_handlers.c, …       passerelle module boot, adaptation du pilote
+Core/Src/app/             console, commandes, configuration en flash, démarrage automatique,
+                          LED RVB, accéléromètre, démos 1 à 4, page web, QR code, mise à jour
+Core/Src/st67w6x/         pilote du ST67W611M1 : trames SPI, moteur AT, Wi-Fi, réseau, MQTT
+Core/Src/qrcodegen/       QR codes (Project Nayuki, MIT)
+USB_DEVICE/               généré par CubeMX : USB device, classe CDC
+Drivers/, Middlewares/    HAL STM32L4, CMSIS, bibliothèque USB device de ST
+Tests/                    tests sur PC
+Tools/                    verif_cubemx.py, maj_module_ota.py, rssi_logger.py
+Binaries/                 programme précompilé (.hex, .bin, .elf) à charger par USB DFU
+Doc/                      guide d'utilisation et documentation du programme (Word)
+docs/images/              illustrations de ce README
+```
 
 ## État de validation
 
-- Version 1.0 (initialisation écrite à la main) : essayée sur ObCP, fonctionne.
-- Version 1.1 (initialisation générée par CubeMX 6.11.1, mêmes réglages : 80 MHz, USB
-  48 MHz, SPI1 mode 0 à 10 Mbit/s, SPI3 mode 3 à 5 Mbit/s, PWM 1 kHz, RTC sur le quartz
-  32 kHz, priorités d'interruption) : essayée sur une ObCP réelle, avant et après une
-  régénération effective par STM32CubeMX suivie d'une recompilation : fonctionne.
-- Version 1.2 : démarrage automatique, commande `auto`, carte de la page web, commentaires ;
-  l'initialisation du matériel et les fichiers générés sont ceux de la 1.1.
-  - Compilation sans erreur ni avertissement avec le Makefile (GCC Arm 15, `-Wall -Wextra`)
-    et avec les réglages Debug (-Og, et -O0) et Release de STM32CubeIDE, y compris avec
-    les seuls chemins déclarés par CubeMX. Release : environ 137 Ko de flash et 49 Ko de RAM.
-  - Tests sur PC réussis (ci-dessus) ; page web affichée et manipulée dans Chromium ;
-    `Tools/verif_cubemx.py` : 20 accroches sur 20.
-  - **Non essayée sur une ObCP réelle.** Premier essai conseillé : programmer par DFU,
-    vérifier la bannière (version 1.2.0, ligne « Démarrage »), `connect`, puis
-    `auto web on`, `auto mqtt on`, `save` ; alimenter ensuite la carte par sa batterie,
-    sans câble USB : le point d'accès doit apparaître, la page web s'ouvrir et la
-    télémétrie arriver sur le broker.
+| Version | État |
+|---------|------|
+| 1.0 | essayée sur ObCP : fonctionne |
+| 1.1 | essayée sur ObCP, avant et après une régénération effective par STM32CubeMX : fonctionne |
+| 1.2 | compilée sans avertissement (Makefile, Debug et Release de STM32CubeIDE), 1 004 vérifications sur PC réussies ; essai sur carte à confirmer |
 
 ## Versions
 
 | Version | Contenu |
 |---------|---------|
-| 1.0.0 | Version ObCP, issue du démonstrateur NUCLEO-L476RG 1.1.0 : console USB (CDC), programmation par DFU (`dfu`), LED RVB, sortie PWM, accéléromètre, passerelle `module boot` pour la première programmation du module |
-| 1.1.0 | Projet STM32CubeMX (`ObCP_WiFi_Demo.ioc`) régénérable sans perte : initialisation générée, code de la démo regroupé sous `Core/` et relié par des sections USER CODE, `Tools/verif_cubemx.py` ; diagnostic des quartz par la LED rouge ; mesures de l'ADC moyennées par logiciel |
-| 1.2.0 | Démarrage automatique pour une utilisation sur batterie : paramètre `web.auto` (point d'accès et serveur web), commande `auto` (avec `wifi.auto` et `mqtt.auto`), carte « Démarrage automatique » de la page web et `GET /api/auto`, ligne « Démarrage » de la bannière et de `info` ; configuration enregistrée par la 1.1 relue sans perte ; commentaires pour débutants dans tout le code de la démo ; documentation du programme (`Doc/Documentation_Programme_ObCP.docx`) ; tests de mise sous tension (`test_boot`) |
-
-La version du programme chargé s'affiche dans la bannière de démarrage et avec `info`.
+| 1.0.0 | Version ObCP du démonstrateur NUCLEO-L476RG : console USB (CDC), programmation par DFU, LED RVB, sortie PWM, accéléromètre, passerelle `module boot` |
+| 1.1.0 | Projet STM32CubeMX régénérable sans perte, code de la démo sous `Core/` relié par des sections USER CODE, `Tools/verif_cubemx.py`, diagnostic des quartz par la LED rouge |
+| 1.2.0 | Démarrage automatique sur batterie (`web.auto`, commande `auto`, carte de la page web, `/api/auto`), code commenté pour débutants, documentation du programme, tests de mise sous tension |
 
 ## Licences
 
 | Composant | Licence |
 |-----------|---------|
-| Code écrit pour ce paquet (`Core/Src/app/`, `board.c`, `cdc_port.c`, `fault_handlers.c`, `uart_bridge.c`, `ncp_port_obcp.c`, `Tests/`, `Tools/`, sections USER CODE) | aucune licence imposée : à choisir en cas de diffusion |
-| Pilote `Core/Src/st67w6x` (protocole repris du pilote ST67W6X_Network_Driver) | notice BSD-3-Clause de ST conservée, voir `Core/Src/st67w6x/LICENSE.md` |
-| Fichiers générés par STM32CubeMX dans `Core/` (main.c, gpio.c… démarrage, `syscalls.c`, script d'édition de liens), HAL STM32L4 | BSD-3-Clause (STMicroelectronics), voir `Core/LICENSE_ST.md` |
-| STM32 USB Device Library (`Middlewares/ST/STM32_USB_Device_Library`) et fichiers générés de `USB_DEVICE/` | SLA0044 « Ultimate Liberty » (STMicroelectronics), voir `LICENSE.txt` du dossier de la bibliothèque |
+| Code écrit pour ce projet (`Core/Src/app/`, fichiers de la démo dans `Core/`, `Tests/`, `Tools/`, sections USER CODE) | voir `LICENSE` |
+| Pilote `Core/Src/st67w6x` (protocole repris du pilote ST) | notice BSD-3-Clause de ST, `Core/Src/st67w6x/LICENSE.md` |
+| Fichiers générés par STM32CubeMX, HAL STM32L4 | BSD-3-Clause (STMicroelectronics), `Core/LICENSE_ST.md` |
+| STM32 USB Device Library, fichiers générés de `USB_DEVICE/` | SLA0044 (STMicroelectronics) |
 | CMSIS | Apache 2.0 |
 | QR-Code-generator (Project Nayuki) | MIT |
 
-Les binaires du module ST67W611M1 et les outils de programmation (QConn_Flash) ne sont pas
-inclus : ils sont fournis par STMicroelectronics dans X-CUBE-ST67W61
-(<https://github.com/STMicroelectronics/x-cube-st67w61>, licence dans
-`Projects/ST67W6X_Scripts/Binaries/LICENSE_BINARIES`). Documents de fabrication et
-programme modèle de l'ObCP : <https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE>.
+Les binaires du module ST67W611M1 et l'outil QConn_Flash ne sont pas inclus : ils sont fournis
+par STMicroelectronics dans [X-CUBE-ST67W61](https://github.com/STMicroelectronics/x-cube-st67w61).
+Documents de fabrication et programme modèle de l'ObCP :
+[LAB_ObCP_L476_STM32CubeIDE](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE).
