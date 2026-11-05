@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/banniere.png" alt="Démonstrateur Wi-Fi 6 : ObCP + X-NUCLEO-67W61M1" width="100%">
+  <img src="Doc/images/banniere.png" alt="Démonstrateur Wi-Fi 6 : ObCP + X-NUCLEO-67W61M1" width="100%">
 </p>
 
 <p align="center">
@@ -70,7 +70,7 @@ programmation, l'ObCP servant de passerelle USB ↔ UART.
 ## Matériel
 
 <p align="center">
-  <img src="docs/images/obcp_reperes.png" alt="Repères sur la carte ObCP" width="720">
+  <img src="Doc/images/obcp_reperes.png" alt="Repères sur la carte ObCP" width="720">
 </p>
 
 - une carte **ObCP** (version 2.3 ou ultérieure) et une carte **X-NUCLEO-67W61M1**, enfichée
@@ -82,7 +82,7 @@ programmation, l'ObCP servant de passerelle USB ↔ UART.
   STM32CubeIDE.
 
 <p align="center">
-  <img src="docs/images/architecture.png" alt="Architecture matérielle et logicielle" width="100%">
+  <img src="Doc/images/architecture.png" alt="Architecture matérielle et logicielle" width="100%">
 </p>
 
 La pile TCP/IP, le DHCP, le DNS, le SNTP et le client MQTT tournent **dans le module**
@@ -107,7 +107,7 @@ trames SPI**. Côté PC, l'ObCP se présente comme un port COM virtuel USB (clas
 | Bouton User1 | – | PC13 | `User1` |
 | Module BLE (maintenu en reset) | – | PC2 | `BLE_Reset` |
 
-<p align="center"><img src="docs/images/prog_brochage.png" alt="Brochage du STM32L476RG" width="560"></p>
+<p align="center"><img src="Doc/images/prog_brochage.png" alt="Brochage du STM32L476RG" width="560"></p>
 </details>
 
 ## Démarrage rapide
@@ -125,7 +125,7 @@ STM32CubeProgrammer : interface **USB**, *Connect*, *Erasing & programming*, fic
 **2. Ouvrir le terminal** : « Périphérique série USB (COMx) » sous Windows, `/dev/ttyACM0` sous
 Linux ; débit indifférent, UTF-8, au moins 100 colonnes. La bannière s'affiche à l'ouverture :
 
-<p align="center"><img src="docs/images/terminal_demarrage.png" alt="Bannière de démarrage" width="640"></p>
+<p align="center"><img src="Doc/images/terminal_demarrage.png" alt="Bannière de démarrage" width="640"></p>
 
 **3. Vérifier le firmware du module** : la bannière doit indiquer *mission T01* 2.0.x
 (2.0.106 conseillé), sinon voir [Mise à jour du module](#mise-à-jour-du-module-wi-fi).
@@ -146,20 +146,20 @@ auto web on · auto mqtt on · save services lancés seuls à la mise sous tensi
 
 <table>
 <tr>
-<td width="50%"><b>Guide rapide</b><br><img src="docs/images/terminal_guide_rapide.png" alt="help demo"></td>
-<td width="50%"><b>LED RVB, sortie PWM, accéléromètre</b><br><img src="docs/images/terminal_led_pwm_capteurs.png" alt="led, pwm, sensors"></td>
+<td width="50%"><b>Guide rapide</b><br><img src="Doc/images/terminal_guide_rapide.png" alt="help demo"></td>
+<td width="50%"><b>LED RVB, sortie PWM, accéléromètre</b><br><img src="Doc/images/terminal_led_pwm_capteurs.png" alt="led, pwm, sensors"></td>
 </tr>
 <tr>
-<td><b>Démo 1 — balayage des réseaux</b><br><img src="docs/images/terminal_scan.png" alt="scan"></td>
-<td><b>Démo 1 — occupation des canaux</b><br><img src="docs/images/terminal_canaux.png" alt="channels"></td>
+<td><b>Démo 1 — balayage des réseaux</b><br><img src="Doc/images/terminal_scan.png" alt="scan"></td>
+<td><b>Démo 1 — occupation des canaux</b><br><img src="Doc/images/terminal_canaux.png" alt="channels"></td>
 </tr>
 <tr>
-<td><b>Démo 1 — suivi du signal en direct</b><br><img src="docs/images/terminal_track.png" alt="track"></td>
-<td><b>Démo 2 — connexion et heure NTP</b><br><img src="docs/images/terminal_connexion.png" alt="connect"></td>
+<td><b>Démo 1 — suivi du signal en direct</b><br><img src="Doc/images/terminal_track.png" alt="track"></td>
+<td><b>Démo 2 — connexion et heure NTP</b><br><img src="Doc/images/terminal_connexion.png" alt="connect"></td>
 </tr>
 <tr>
-<td><b>Démo 2 — ping, DNS, heure</b><br><img src="docs/images/terminal_services.png" alt="ping, dns, time"></td>
-<td><b>Démo 3 — point d'accès et QR code</b><br><img src="docs/images/terminal_web.png" alt="web start"></td>
+<td><b>Démo 2 — ping, DNS, heure</b><br><img src="Doc/images/terminal_services.png" alt="ping, dns, time"></td>
+<td><b>Démo 3 — point d'accès et QR code</b><br><img src="Doc/images/terminal_web.png" alt="web start"></td>
 </tr>
 </table>
 
@@ -169,9 +169,9 @@ Stockée dans la flash du STM32 (environ 10 Ko, sans ressource externe : elle fo
 Internet), elle s'adapte au téléphone et au thème clair ou sombre.
 
 <p align="center">
-  <img src="docs/images/web_mobile.png" alt="Page web sur un téléphone" width="62%">
+  <img src="Doc/images/web_mobile.png" alt="Page web sur un téléphone" width="62%">
   &nbsp;
-  <img src="docs/images/web_bureau.png" alt="Page web sur un ordinateur, thème sombre" width="34%">
+  <img src="Doc/images/web_bureau.png" alt="Page web sur un ordinateur, thème sombre" width="34%">
 </p>
 
 | Requête | Réponse |
@@ -185,7 +185,7 @@ Internet), elle s'adapte au téléphone et au thème clair ou sombre.
 
 ### Télémétrie MQTT (démo 4)
 
-<p align="center"><img src="docs/images/terminal_mqtt.png" alt="Télémétrie et commandes MQTT" width="720"></p>
+<p align="center"><img src="Doc/images/terminal_mqtt.png" alt="Télémétrie et commandes MQTT" width="720"></p>
 
 ```bash
 mosquitto_sub -h broker.emqx.io -t "obcp/<id>/#" -v
@@ -210,12 +210,12 @@ auto web on                       et/ou  auto mqtt on   (off pour retirer)
 save                              puis alimenter la carte par sa batterie (J1, SW2 sur ON)
 ```
 
-<p align="center"><img src="docs/images/terminal_auto.png" alt="Commande auto" width="760"></p>
+<p align="center"><img src="Doc/images/terminal_auto.png" alt="Commande auto" width="760"></p>
 
 <details>
 <summary><b>Ce qui s'affiche à la mise sous tension</b></summary>
-<p align="center"><img src="docs/images/terminal_demarrage_auto.png" alt="Démarrage automatique" width="640"></p>
-<p align="center"><img src="docs/images/prog_etat_web.png" alt="Machine à états du serveur web" width="640"></p>
+<p align="center"><img src="Doc/images/terminal_demarrage_auto.png" alt="Démarrage automatique" width="640"></p>
+<p align="center"><img src="Doc/images/prog_etat_web.png" alt="Machine à états du serveur web" width="640"></p>
 </details>
 
 Le même réglage se fait depuis la page web (carte « Démarrage automatique »). Pour reprendre
@@ -237,7 +237,7 @@ Tera Term :   module ota   puis Fichier › Transfert › YMODEM › Envoyer
 Script PC :   python Tools/maj_module_ota.py --port COM7 st67w611m_mission_t01_v2.0.106.xz.ota
 ```
 
-<p align="center"><img src="docs/images/terminal_module_ota.png" alt="Mise à jour du module par le terminal" width="680"></p>
+<p align="center"><img src="Doc/images/terminal_module_ota.png" alt="Mise à jour du module par le terminal" width="680"></p>
 
 <details>
 <summary><b>Première programmation du module par l'ObCP (<code>module boot</code>)</b></summary>
@@ -276,7 +276,7 @@ python3 Tools/verif_cubemx.py
 <details>
 <summary><b>Accroches dans les fichiers générés et règles à respecter</b></summary>
 
-<p align="center"><img src="docs/images/cubemx_regeneration.png" alt="Régénération par CubeMX" width="760"></p>
+<p align="center"><img src="Doc/images/cubemx_regeneration.png" alt="Régénération par CubeMX" width="760"></p>
 
 | Fichier généré | Section USER CODE | Contenu |
 |----------------|-------------------|---------|
@@ -312,12 +312,12 @@ Ordre de lecture conseillé :
 
 <table>
 <tr>
-<td width="50%"><b>Carte du programme</b><br><img src="docs/images/prog_carte.png" alt="Carte du programme"></td>
-<td width="50%"><b>Boucle principale</b><br><img src="docs/images/prog_boucle.png" alt="Boucle principale"></td>
+<td width="50%"><b>Carte du programme</b><br><img src="Doc/images/prog_carte.png" alt="Carte du programme"></td>
+<td width="50%"><b>Boucle principale</b><br><img src="Doc/images/prog_boucle.png" alt="Boucle principale"></td>
 </tr>
 <tr>
-<td><b>Trajet d'une requête web</b><br><img src="docs/images/prog_seq_http.png" alt="Séquence HTTP"></td>
-<td><b>Occupation de la mémoire</b><br><img src="docs/images/prog_memoire.png" alt="Mémoire"></td>
+<td><b>Trajet d'une requête web</b><br><img src="Doc/images/prog_seq_http.png" alt="Séquence HTTP"></td>
+<td><b>Occupation de la mémoire</b><br><img src="Doc/images/prog_memoire.png" alt="Mémoire"></td>
 </tr>
 </table>
 
@@ -363,7 +363,7 @@ Tests/                    tests sur PC
 Tools/                    verif_cubemx.py, maj_module_ota.py, rssi_logger.py
 Binaries/                 programme précompilé (.hex, .bin, .elf) à charger par USB DFU
 Doc/                      guide d'utilisation et documentation du programme (Word)
-docs/images/              illustrations de ce README
+Doc/images/              illustrations de ce README
 ```
 
 ## État de validation
