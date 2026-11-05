@@ -81,6 +81,13 @@ programmation, l'ObCP servant de passerelle USB ↔ UART.
   un terminal série (PuTTY, Tera Term, picocom…) et, pour modifier le programme,
   STM32CubeIDE.
 
+**Configuration de la X-NUCLEO-67W61M1** : cavaliers **JP1** et **JP2** en place (ils alimentent
+le module), ponts de soudure dans leur état d'usine.
+
+<p align="center">
+  <img src="Doc/images/xnucleo_reperes.png" alt="X-NUCLEO-67W61M1 : repères et cavaliers" width="100%">
+</p>
+
 <p align="center">
   <img src="Doc/images/architecture.png" alt="Architecture matérielle et logicielle" width="100%">
 </p>
@@ -363,7 +370,7 @@ Tests/                    tests sur PC
 Tools/                    verif_cubemx.py, maj_module_ota.py, rssi_logger.py
 Binaries/                 programme précompilé (.hex, .bin, .elf) à charger par USB DFU
 Doc/                      guide d'utilisation et documentation du programme (Word)
-Doc/images/              illustrations de ce README
+  images/                 illustrations de ce README
 ```
 
 ## État de validation
@@ -395,5 +402,6 @@ Doc/images/              illustrations de ce README
 
 Les binaires du module ST67W611M1 et l'outil QConn_Flash ne sont pas inclus : ils sont fournis
 par STMicroelectronics dans [X-CUBE-ST67W61](https://github.com/STMicroelectronics/x-cube-st67w61).
+La photo de la X-NUCLEO-67W61M1 provient du manuel UM3449 (© STMicroelectronics).
 Documents de fabrication et programme modèle de l'ObCP :
 [LAB_ObCP_L476_STM32CubeIDE](https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE).
