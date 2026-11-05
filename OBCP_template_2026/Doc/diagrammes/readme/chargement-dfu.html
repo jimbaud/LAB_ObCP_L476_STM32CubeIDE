@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Un clic dans STM32CubeIDE : ce qui se passe</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 24px 26px 20px; }
+  .grille { display: grid; grid-template-columns: 62px repeat(5, 1fr); column-gap: 12px; position: relative; }
+  .grille > .bande { position: absolute; left: 0; right: 0; border-radius: 12px; z-index: 0; }
+  .bande.pc { background: var(--bleu-fond); }
+  .bande.carte { background: var(--vert-fond); }
+  .grille > * { position: relative; z-index: 1; }
+
+  .etape { text-align: center; padding-bottom: 14px; }
+  .rond { width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 7px; display: grid; place-items: center;
+          font-size: 14px; font-weight: 700; color: var(--fond); background: var(--texte); position: relative; z-index: 2; }
+  .etape.nouveau .rond { background: var(--violet); }
+  .etape h3 { font-size: 14.5px; font-weight: 650; }
+  .etape .nouv { display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 650; color: var(--violet);
+                 border: 1px solid var(--violet); border-radius: 999px; padding: 1px 7px; }
+  .voie { font-size: 12px; font-weight: 700; letter-spacing: .05em; color: var(--c); display: flex; align-items: center;
+          justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .case { padding: 12px 4px 14px; font-size: 12.8px; line-height: 1.42; color: var(--texte); }
+  .case .discret { color: var(--discret); }
+  .case code { font-size: 12px; color: var(--violet); font-weight: 600; }
+  .led-ligne { display: flex; align-items: center; gap: 7px; margin-top: 8px; font-size: 12px; color: var(--discret); }
+  .led-ligne + .led-ligne { margin-top: 5px; }
+  .prog { width: 16px; height: 16px; border-radius: 4px; flex: none; border: 1.5px solid var(--ambre); background: var(--ambre-fond); }
+  .note { margin-top: 14px; font-size: 12.8px; color: var(--discret); line-height: 1.45; padding: 0 4px; }
+  .note b { color: var(--texte); font-weight: 600; }
+  .nowrap { white-space: nowrap; }
+  .inter { display: inline-block; font-size: 11px; font-weight: 700; border: 1.5px solid var(--orange); color: var(--orange); background: var(--orange-fond); border-radius: 5px; padding: 0 5px; margin-right: 2px; }
+  .case b { font-weight: 650; }
+  .grille > .ligne-etapes { position: absolute; top: 15px; height: 2px; background: var(--bord); z-index: 1; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="grille" id="grille">
+    <div></div>
+    <div class="etape"><div class="rond">1</div><h3>Brancher</h3></div>
+    <div class="etape"><div class="rond">2</div><h3>Mode « Prog »</h3></div>
+    <div class="etape"><div class="rond">3</div><h3>Connecter</h3></div>
+    <div class="etape"><div class="rond">4</div><h3>Programmer</h3></div>
+    <div class="etape"><div class="rond">5</div><h3>Mode « Run »</h3></div>
+
+    <div class="voie bleu" id="voie-pc">PC</div>
+    <div class="case" id="pc1">Câble USB entre l'ObCP et le PC.</div>
+    <div class="case" id="pc2"><span class="discret">Le PC voit un périphérique « STM32 BOOTLOADER » (pas de port COM).</span></div>
+    <div class="case" id="pc3"><b>STM32CubeProgrammer</b> : choisir <b>USB</b> en haut à droite, rafraîchir, <b>Connect</b>.</div>
+    <div class="case" id="pc4"><i>Erasing &amp; programming</i> : <b>Browse</b> → <code>BIN/OBCP_template_2026.bin</code> à <code>0x08000000</code>, <b>Start Programming</b>.</div>
+    <div class="case" id="pc5">Le port COM virtuel apparaît : terminal, Python, LabVIEW.</div>
+
+    <div class="voie vert" id="voie-carte">ObCP</div>
+    <div class="case"><span class="inter">SW2</span> sur <b>On</b>.
+      <div class="led-ligne"><span class="led eteinte"></span>LED éteinte</div></div>
+    <div class="case"><span class="inter">SW4</span> sur <b>Prog</b>, appui sur <span class="inter">SW3</span> (reset).
+      <div class="led-ligne"><span class="led eteinte"></span>chargeur DFU de ST, en ROM</div></div>
+    <div class="case">La carte attend, prête à être écrite.
+      <div class="led-ligne"><span class="led eteinte"></span>LED éteinte</div></div>
+    <div class="case">Effacement, écriture et vérification de la flash <span class="discret nowrap">(quelques secondes)</span>.</div>
+    <div class="case"><span class="inter">SW4</span> sur <b>Run</b>, appui sur <span class="inter">SW3</span> : le programme démarre.
+      <div class="led-ligne"><span class="led l-vert"></span>1 éclat vert : tout est prêt</div></div>
+  </div>
+  <p class="note">Un fichier <code>.hex</code> contient ses adresses : rien à saisir. Avec une sonde <b>ST-LINK</b> (Nucleo) sur
+    le connecteur <b>J17</b>, STM32CubeIDE charge et débogue directement (<i>Run</i> ou <i>Debug</i>), sans toucher aux interrupteurs.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const grille = document.querySelector("#grille");
+  const g = grille.getBoundingClientRect();
+  // bandes colorées derrière les deux voies
+  for (const [voie, classe, premier] of [["#voie-pc", "pc", "#pc1"], ["#voie-carte", "carte", null]]) {
+    const r = document.querySelector(voie).getBoundingClientRect();
+    const b = document.createElement("div");
+    b.className = "bande " + classe;
+    b.style.top = (r.top - g.top) + "px";
+    b.style.height = r.height + "px";
+    grille.prepend(b);
+  }
+  // ligne qui relie les numéros d'étape
+  const ronds = Array.from(document.querySelectorAll(".rond")).map(e => e.getBoundingClientRect());
+  const l = document.createElement("div");
+  l.className = "ligne-etapes";
+  l.style.left = (ronds[0].left + ronds[0].width / 2 - g.left) + "px";
+  l.style.width = (ronds[4].left - ronds[0].left) + "px";
+  grille.prepend(l);
+});
+</script>
+</body>
+</html>

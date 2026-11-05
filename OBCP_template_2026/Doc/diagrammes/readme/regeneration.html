@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Modifier la configuration avec STM32CubeMX sans rien perdre</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 22px 26px 18px; }
+  .etapes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 34px; }
+  .etape { display: flex; flex-direction: column; }
+  .tete { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .rond { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; flex: none;
+          font-size: 13px; font-weight: 700; color: var(--fond); background: var(--c, var(--texte)); }
+  .tete b { font-size: 12px; font-weight: 700; letter-spacing: .05em; color: var(--c, var(--discret)); }
+  .bloc { box-shadow: var(--ombre); flex: 1; padding: 10px 12px; }
+  .bloc h3 { font-size: 14px; }
+  .bloc p { font-size: 12.2px; }
+  .bloc code { font-size: 11.2px; }
+  .ecran { margin-top: 7px; font-family: "DejaVu Sans Mono", monospace; font-size: 9.6px; background: var(--fond); overflow: hidden;
+           border: 1px solid var(--bord); border-radius: 6px; padding: 4px 7px; white-space: nowrap; color: var(--texte); }
+  .ecran .ok { color: var(--vert); font-weight: 700; }
+  .bas { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 16px; margin-top: 24px; }
+  .liste { border-radius: 10px; padding: 10px 14px 12px; border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); background: var(--c-fond); }
+  .liste h4 { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--c); margin-bottom: 6px; }
+  .liste ul { list-style: none; font-size: 12.3px; line-height: 1.5; }
+  .liste li::before { content: "› "; color: var(--c); font-weight: 700; }
+  .liste code { font-size: 11.3px; }
+  .liste .discret { font-size: 11.8px; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="etapes">
+    <div class="etape bleu"><div class="tete"><span class="rond">1</span><b>MODIFIER</b></div>
+      <div id="e1" class="bloc bleu"><h3>Ouvrir le <code>.ioc</code></h3>
+        <p>double-clic sur <code>OBCP_template_2026.ioc</code> <br>modifier, puis enregistrer</p></div></div>
+    <div class="etape violet"><div class="tete"><span class="rond">2</span><b>GÉNÉRER</b></div>
+      <div id="e2" class="bloc violet"><h3>Générer : répondre <b>Yes</b></h3>
+        <p>CubeMX réécrit ses fichiers, en gardant le texte des sections <code>USER CODE</code></p></div></div>
+    <div class="etape ambre"><div class="tete"><span class="rond">3</span><b>VÉRIFIER</b></div>
+      <div id="e3" class="bloc ambre"><h3>Outil de vérification</h3>
+        <div class="ecran">python Tools/verif_cubemx.py</div>
+        <div class="ecran">Bilan : <span class="ok">0 erreur(s)</span></div></div></div>
+    <div class="etape vert"><div class="tete"><span class="rond">4</span><b>COMPILER</b></div>
+      <div id="e4" class="bloc vert"><h3>Compiler, charger</h3>
+        <p><i>Project &gt; Build Project</i>, puis chargement par USB (DFU) ou par la sonde ST-LINK</p></div></div>
+  </div>
+
+  <div class="bas">
+    <div class="liste bleu"><h4>RÉÉCRIT PAR CUBEMX</h4>
+      <ul><li><code>main.c</code>, <code>gpio.c</code>, <code>tim.c</code>, <code>spi.c</code>, <code>usart.c</code></li>
+          <li><code>stm32l4xx_it.c</code>, <code>usbd_cdc_if.c</code>, <code>usbd_conf.c</code>…</li>
+          <li class="discret">sauf entre <code>USER CODE BEGIN</code> et <code>END</code> : les crochets restent</li></ul></div>
+    <div class="liste vert"><h4>JAMAIS TOUCHÉ</h4>
+      <ul><li><code>app.c</code>, <code>commands.c</code>, <code>ble_uart.c</code>…</li>
+          <li><code>app_config.h</code> et les autres <code>.h</code></li>
+          <li class="discret">le script <code>.ld</code> existant n'est pas réécrit</li></ul></div>
+    <div class="liste ambre"><h4>CE QUE L'OUTIL CONTRÔLE</h4>
+      <ul><li>crochets <code>USER CODE</code> en place</li>
+          <li>réglages : noms des broches, minuteries, interruptions</li>
+          <li>broches de l'application présentes dans <code>main.h</code></li>
+          <li>aucun rappel de la HAL écrit deux fois</li>
+          <li>options de génération (<i>Keep User Code</i>…)</li></ul></div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  relier("#e1", "#e2", { de: "droite", vers: "gauche", couleur: "var(--bleu)" });
+  relier("#e2", "#e3", { de: "droite", vers: "gauche", couleur: "var(--violet)" });
+  relier("#e3", "#e4", { de: "droite", vers: "gauche", couleur: "var(--ambre)" });
+});
+</script>
+</body>
+</html>

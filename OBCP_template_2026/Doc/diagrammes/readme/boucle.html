@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>La boucle principale (super boucle) et les interruptions</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 22px 28px 18px; }
+  .rangee { display: grid; grid-template-columns: 226px 1fr; column-gap: 64px; }
+  .titre-col { font-size: 12.5px; font-weight: 650; letter-spacing: .04em; color: var(--discret); margin-bottom: 8px; }
+  .irqs { position: relative; }
+  .irq { position: absolute; left: 0; right: 0; border: 1.5px solid var(--orange); background: var(--orange-fond);
+         border-radius: 9px; padding: 5px 10px; }
+  .irq h4 { font-size: 12.8px; font-weight: 650; white-space: nowrap; }
+  .irq h4 span { font-weight: 450; color: var(--discret); font-size: 11.8px; }
+  .irq p { font-size: 11.8px; color: var(--discret); line-height: 1.35; margin-top: 1px; }
+  .irq code { font-size: 11px; }
+  .note { margin-top: 16px; font-size: 12.8px; line-height: 1.45; color: var(--discret); text-align: center; }
+  .note b { color: var(--texte); font-weight: 600; }
+  .regle { position: absolute; left: 0; right: 0; bottom: 0; font-size: 12.3px; line-height: 1.45; color: var(--discret);
+           border-top: 1px dashed var(--bord); padding-top: 9px; }
+  .regle b { color: var(--texte); font-weight: 600; }
+  .init { border: 1.5px solid var(--bleu); background: var(--bleu-fond); border-radius: 10px; padding: 8px 14px; margin-bottom: 16px;
+          display: flex; align-items: baseline; gap: 10px; }
+  .init h3 { font-size: 14px; font-weight: 650; white-space: nowrap; }
+  .init p { font-size: 12.2px; color: var(--discret); }
+  .boucle { position: relative; border: 1.5px solid var(--bord); border-radius: 12px; background: var(--fond-doux);
+            padding: 10px 12px 10px 12px; margin-right: 58px; }
+  .etape { display: grid; grid-template-columns: 24px 196px 1fr; align-items: center; gap: 8px; height: 34px;
+           padding: 0 8px; border-radius: 7px; font-size: 12.6px; }
+  .etape + .etape { margin-top: 3px; }
+  .etape .n { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700;
+              background: var(--fond); border: 1.5px solid var(--bord); color: var(--discret); }
+  .etape .f { font-family: "DejaVu Sans Mono", monospace; font-size: 11.6px; color: var(--texte); white-space: nowrap; }
+  .etape .d { color: var(--discret); white-space: nowrap; }
+  .etape .d code { font-size: 11.2px; }
+  .etape { background: var(--fond); border: 1px solid var(--bord); }
+  .etape.vous { background: var(--ambre-fond); border: 1.5px solid var(--ambre); }
+  .etape.vous .n { border-color: var(--ambre); color: var(--ambre); }
+  .etape.vous .f { font-family: inherit; font-weight: 700; color: var(--ambre); }
+  .etape.ota { background: var(--vert-fond); border-color: color-mix(in srgb, var(--vert) 55%, transparent); }
+  .etape.ota .n { border-color: var(--vert); color: var(--vert); }
+  .etape.dort { background: var(--violet-fond); border-color: color-mix(in srgb, var(--violet) 55%, transparent); }
+  .etape.dort .n { border-color: var(--violet); color: var(--violet); }
+  .nouv { font-size: 10.5px; font-weight: 650; color: var(--vert); border: 1px solid var(--vert); border-radius: 999px; padding: 0 6px; margin-left: 6px; }
+  .retour { position: absolute; right: -50px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: center;
+            font-size: 11.8px; color: var(--vert); font-weight: 600; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="rangee">
+    <div>
+      <div class="titre-col">INTERRUPTIONS</div>
+      <div class="irqs" id="irqs">
+        <div class="irq" id="i-ble"><h4>Module Bluetooth · PB12</h4><p>évènement en attente dans le module</p></div>
+        <div class="irq" id="i-usb"><h4>USB · paquet reçu du PC</h4><p>copié, réception suivante suspendue</p></div>
+        <div class="irq" id="i-btn"><h4>Bouton SW1 · EXTI13 <span>appui noté</span></h4></div>
+        <div class="irq" id="i-tim"><h4>TIM7 · 1 s <span>seconde écoulée</span></h4></div>
+        <div class="irq" id="i-sys" style="border-color:var(--violet);background:var(--violet-fond)"><h4>SysTick · 1 ms</h4><p><code>HAL_GetTick()</code> ; réveille la boucle</p></div>
+              </div>
+    </div>
+
+    <div>
+      <div class="init" id="init"><h3><code>app_init()</code> · une fois</h3><p>fautes, PWM, accéléromètre, bouton, Bluetooth, signal LED</p></div>
+      <div class="titre-col">PUIS <code>while (1) app_loop();</code> · PLUS DE 1000 TOURS PAR SECONDE</div>
+      <div class="boucle" id="boucle">
+        <div class="etape" id="s1"><span class="n">1</span><span class="f">ble_uart_process()</span><span class="d">évènements, publicité, envois</span></div>
+        <div class="etape" id="s2"><span class="n">2</span><span class="f">connexions Bluetooth</span><span class="d">messages vers le terminal</span></div>
+        <div class="etape" id="s3"><span class="n">3</span><span class="f">commandes du téléphone</span><span class="d"><code>commands_execute()</code></span></div>
+        <div class="etape" id="s4"><span class="n">4</span><span class="f">commandes du PC</span><span class="d"><code>commands_execute()</code></span></div>
+        <div class="etape" id="s5"><span class="n">5</span><span class="f">déconnexion</span><span class="d">sorties éteintes, minuterie arrêtée</span></div>
+        <div class="etape" id="s6"><span class="n">6</span><span class="f">« USB Connected »</span><span class="d">vers le téléphone</span></div>
+        <div class="etape" id="s7"><span class="n">7</span><span class="f">button_poll_pressed()</span><span class="d">« Push button pressed »</span></div>
+        <div class="etape" id="s8"><span class="n">8</span><span class="f">timer_1s_take_tick()</span><span class="d">mesures vers le téléphone</span></div>
+        <div class="etape vous" id="s9"><span class="n">9</span><span class="f">VOTRE CODE ICI</span><span class="d">sans attente : <code>HAL_GetTick()</code></span></div>
+        <div class="etape" id="s10"><span class="n">10</span><span class="f">usb_console_process()</span><span class="d">file d'envoi vers le PC</span></div>
+        <div class="etape dort" id="s12"><span class="n">11</span><span class="f">__WFI()</span><span class="d">sommeil jusqu'à l'interruption suivante</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="note"><b>Règle d'or : aucune étape n'attend.</b> Un <code>HAL_Delay()</code> ou une boucle qui guette un évènement bloquerait toutes les autres étapes : l'USB et le Bluetooth ne seraient plus servis. Les interruptions (à gauche) ne font que noter l'évènement ; le travail est fait dans la boucle.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  // Chaque interruption est placée à la hauteur de l'étape qui la traite
+  const zone = document.getElementById("irqs").getBoundingClientRect();
+  const place = (irq, etape) => {
+    const e = document.getElementById(etape).getBoundingClientRect();
+    const i = document.getElementById(irq);
+    i.style.top = (e.top + e.height / 2 - zone.top - i.offsetHeight / 2) + "px";
+  };
+  place("i-ble", "s1"); place("i-usb", "s4"); place("i-btn", "s7"); place("i-tim", "s8"); place("i-sys", "s12");
+  document.getElementById("irqs").style.height = (document.getElementById("boucle").getBoundingClientRect().bottom - zone.top) + "px";
+  // la règle d'or entre TIM7 et SysTick : on la remonte sous TIM7 si la place manque
+  const opt = { de: "droite", vers: "gauche", couleur: "var(--orange)", tirets: "5 5", epaisseur: 1.6 };
+  relier("#i-ble", "#s1", opt); relier("#i-usb", "#s4", opt); relier("#i-btn", "#s7", opt); relier("#i-tim", "#s8", opt);
+  relier("#i-sys", "#s12", Object.assign({}, opt, { couleur: "var(--violet)" }));
+  relier("#init", "#s1", { de: "bas", vers: "haut", couleur: "var(--bleu)", decalage_de: [-120, 0], decalage_vers: [-120, 0] });
+  // retour de l'étape 12 à l'étape 1, par la droite
+  const fig = document.getElementById("figure");
+  const svg = calque(fig);
+  const a = ancre(document.getElementById("s12"), "droite", fig), b = ancre(document.getElementById("s1"), "droite", fig);
+  const x = ancre(document.getElementById("boucle"), "droite", fig)[0] + 26;
+  const chemin = document.createElementNS(SVG, "path");
+  chemin.setAttribute("d", chemin_arrondi([a, [x, a[1]], [x, b[1]], b], 12));
+  chemin.setAttribute("style", "fill:none;stroke:var(--vert);stroke-width:2.2;stroke-linecap:round");
+  chemin.setAttribute("marker-end", "url(#" + marqueur(svg, "var(--vert)", 11) + ")");
+  svg.appendChild(chemin);
+  const t = document.createElementNS(SVG, "text");
+  t.setAttribute("transform", "translate(" + (x + 16) + " " + ((a[1] + b[1]) / 2) + ") rotate(90)");
+  t.setAttribute("text-anchor", "middle");
+  t.setAttribute("style", "fill:var(--vert);font-weight:650");
+  t.textContent = "tour suivant (réveil : 1 ms au plus)";
+  svg.appendChild(t);
+});
+</script>
+</body>
+</html>

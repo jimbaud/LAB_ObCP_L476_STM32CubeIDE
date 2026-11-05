@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Repères sur la carte ObCP</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; height: 604px; }
+  #carte { position: absolute; left: 296px; top: 22px; height: 560px; }
+  .repere { position: absolute; width: 236px; }
+  .repere.gauche { left: 20px; text-align: right; }
+  .repere.droite { left: 704px; }
+  .repere h3 { font-size: 14px; font-weight: 650; line-height: 1.3; }
+  .repere h3 .sw { color: var(--discret); font-weight: 550; }
+  .repere p { font-size: 12.6px; line-height: 1.4; color: var(--discret); margin-top: 2px; }
+  .repere p b { color: var(--texte); font-weight: 600; }
+  svg.traits { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .trait-fond { stroke: var(--fond); stroke-width: 5; fill: none; stroke-linecap: round; opacity: .9; }
+  .trait { stroke: var(--c); stroke-width: 1.8; fill: none; stroke-linecap: round; }
+  .point-fond { fill: var(--fond); }
+  .point { fill: var(--c); }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <img id="carte" src="ressources/carte_dessus.png" alt="">
+  <!-- data-x, data-y : position du repère sur l'image ObCP_3DTOP.png (678 x 1032 pixels) -->
+  <div class="repere gauche orange" data-x="236" data-y="62">
+    <h3>Alimentation <span class="sw">· SW2</span></h3>
+    <p>sur <b>On</b> pour allumer la carte</p>
+  </div>
+  <div class="repere gauche bleu" data-x="68" data-y="310">
+    <h3>Prise USB</h3>
+    <p>port COM virtuel : commandes depuis le PC</p>
+  </div>
+  <div class="repere gauche orange" data-x="113" data-y="410">
+    <h3>Bouton USER <span class="sw">· SW1</span></h3>
+    <p>message <b>Push button pressed</b></p>
+  </div>
+  <div class="repere gauche vert" data-x="182" data-y="578">
+    <h3>Accéléromètre <span class="sw">· U4</span></h3>
+    <p>LIS3DH sur SPI3 : commandes <b>a</b> et <b>t</b></p>
+  </div>
+  <div class="repere gauche orange" data-x="140" data-y="678">
+    <h3>Bouton RESET <span class="sw">· SW3</span></h3>
+    <p>redémarre la carte</p>
+  </div>
+  <div class="repere gauche bleu" data-x="262" data-y="990">
+    <h3>Débogage <span class="sw">· J17</span></h3>
+    <p>sonde ST-LINK (SWD), facultative</p>
+  </div>
+  <div class="repere droite orange" data-x="420" data-y="34">
+    <h3>Bornier PWM <span class="sw">· J13</span></h3>
+    <p>commande <b>m</b> : moteur 5 V</p>
+  </div>
+  <div class="repere droite violet" data-x="568" data-y="160">
+    <h3>Module Bluetooth BlueNRG-M0</h3>
+    <p>nom <b>OBCP-CROC</b>, service UART</p>
+  </div>
+  <div class="repere droite vert" data-x="327" data-y="350">
+    <h3>LED tricolore</h3>
+    <p>commandes <b>r</b>, <b>v</b>, <b>b</b> ; codes de démarrage et d'erreur</p>
+  </div>
+  <div class="repere droite vert" data-x="348" data-y="615">
+    <h3>STM32L476RG</h3>
+    <p>programme modèle à 0x08000000 (1 Mo de flash)</p>
+  </div>
+  <div class="repere droite orange" data-x="487" data-y="880">
+    <h3>Interrupteur Prog / Run <span class="sw">· SW4</span></h3>
+    <p>sur <b>Run</b> ; sur <b>Prog</b> pour charger par USB (DFU)</p>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const figure = document.querySelector("#figure");
+  const img = document.querySelector("#carte");
+  const echelle = img.getBoundingClientRect().height / 1032;
+  const f = figure.getBoundingClientRect();
+  const i = img.getBoundingClientRect();
+  const reperes = Array.from(document.querySelectorAll(".repere")).map(el => ({
+    el, cote: el.classList.contains("gauche") ? "gauche" : "droite",
+    px: i.left - f.left - figure.clientLeft + (+el.dataset.x) * echelle,
+    py: i.top - f.top - figure.clientTop + (+el.dataset.y) * echelle,
+  }));
+  // placement vertical : titre à la hauteur du repère, sans chevauchement
+  for (const cote of ["gauche", "droite"]) {
+    let bas = 10;
+    reperes.filter(r => r.cote === cote).sort((a, b) => a.py - b.py).forEach(r => {
+      const haut = Math.max(r.py - 11, bas);
+      r.el.style.top = haut + "px";
+      bas = haut + r.el.getBoundingClientRect().height + 12;
+    });
+  }
+  const svg = document.createElementNS(SVG, "svg");
+  svg.setAttribute("class", "traits");
+  figure.appendChild(svg);
+  for (const r of reperes) {
+    const b = r.el.getBoundingClientRect();
+    const h3 = r.el.querySelector("h3").getBoundingClientRect();
+    const y = h3.top + h3.height / 2 - f.top - figure.clientTop;
+    const x = (r.cote === "gauche" ? b.right + 8 : b.left - 8) - f.left - figure.clientLeft;
+    const coude = r.cote === "gauche" ? x + 14 : x - 14;
+    const d = `M ${x} ${y} L ${coude} ${y} L ${r.px} ${r.py}`;
+    const style = getComputedStyle(r.el).getPropertyValue("--c");
+    svg.insertAdjacentHTML("beforeend",
+      `<path class="trait-fond" d="${d}"/><path class="trait" d="${d}" style="--c:${style}"/>` +
+      `<circle class="point-fond" cx="${r.px}" cy="${r.py}" r="7"/><circle class="point" cx="${r.px}" cy="${r.py}" r="4.6" style="--c:${style}"/>`);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Codes de la LED du programme modèle</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 20px 26px 18px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 12px; font-weight: 650; letter-spacing: .04em; color: var(--discret); text-align: left; padding: 0 10px 8px; }
+  th.axe { padding-bottom: 4px; }
+  td { padding: 7px 10px; vertical-align: middle; font-size: 13.5px; line-height: 1.38; }
+  tr.ligne td { border-top: 1px solid var(--bord); }
+  tr.groupe td { padding: 14px 10px 4px; font-size: 11.5px; font-weight: 700; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--discret); }
+  tr.groupe td small { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 12px; margin-left: 6px; }
+  tr.groupe:first-of-type td { padding-top: 4px; }
+  .nom { display: flex; align-items: center; gap: 11px; font-weight: 600; white-space: nowrap; }
+  .nom small { display: block; font-weight: 500; color: var(--discret); font-size: 12.5px; margin-top: 1px; }
+  .led { width: 18px; height: 18px; }
+  .sens code { font-size: 12.5px; }
+  .sens .discret { color: var(--discret); }
+  svg.chrono { display: block; overflow: visible; }
+  .graduations { position: relative; width: 300px; height: 14px; font-size: 11px; color: var(--discret);
+                 font-weight: 500; font-variant-numeric: tabular-nums; }
+  .graduations span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+  .graduations span:first-child { transform: none; }
+  .graduations span:last-child { transform: translateX(-100%); }
+  .pied { margin-top: 12px; font-size: 12.8px; color: var(--discret); padding: 0 10px; }
+  .pied b { color: var(--texte); font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 250px">LED tricolore</th>
+        <th class="axe" style="width: 320px"><div class="graduations"><span style="left:0">0</span><span style="left:25%">1</span><span style="left:50%">2</span><span style="left:75%">3</span><span style="left:100%">4 s</span></div></th>
+        <th>Signification</th>
+      </tr>
+    </thead>
+    <tbody id="lignes"></tbody>
+  </table>
+  <p class="pied">Éclats de démarrage : 0,15 s allumé / 0,15 s éteint, à 25 % de la luminosité. Erreur grave : 0,15 s / 0,25 s
+    par éclat, puis 1,2 s de pause, sans fin ; seul <b>RESET (SW3)</b> fait repartir la carte.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+const FENETRE = 4000;
+function eclats(n, debut, allume, eteint) { const r = []; let t = debut; for (let i = 0; i < n; i++) { r.push([t, t + allume]); t += allume + eteint; } return r; }
+function faute(n) { const r = []; let t = 0; while (t < FENETRE) { for (let i = 0; i < n && t < FENETRE; i++) { r.push([t, Math.min(t + 150, FENETRE)]); t += 400; } t += 1200; } return r; }
+function eclairs(duree, periode) { const r = []; for (let t = 80; t < FENETRE; t += periode) r.push([t, Math.min(t + duree, FENETRE)]); return r; }
+const ETATS = [
+  ["Au démarrage", "un seul signal, puis le programme fonctionne"],
+  ["l-vert",  "1 éclat vert", "", eclats(1, 100, 150, 150), "Tout est prêt."],
+  ["l-rouge", "2 éclats rouges", "", eclats(2, 100, 150, 150), "Accéléromètre absent ou muet (<code>a</code> et <code>t</code> répondent <code>Accelerometer error</code>)."],
+  ["l-rouge", "3 éclats rouges", "", eclats(3, 100, 150, 150), "Module Bluetooth absent ou muet (l'USB fonctionne)."],
+  ["l-rouge", "2 + 3 éclats rouges", "pause de 0,4 s entre les deux", eclats(2, 100, 150, 150).concat(eclats(3, 100 + 600 + 400, 150, 150)), "Les deux à la fois."],
+  ["Erreur grave", "LED rouge sans fin, sorties coupées"],
+  ["l-rouge", "1 éclat", "puis pause", faute(1), "<code>Error_Handler()</code> : une initialisation générée par CubeMX a échoué."],
+  ["l-rouge", "2 éclats", "puis pause", faute(2), "HardFault : faute grave que rien de plus précis n'a traitée."],
+  ["l-rouge", "3 à 6 éclats", "puis pause", faute(4), "3 MemManage · 4 BusFault (pointeur non initialisé…) · 5 UsageFault (division par zéro…) · 6 NMI."],
+];
+const COULEURS = { "l-bleu": "var(--led-bleu)", "l-vert": "var(--led-vert)", "l-rouge": "var(--led-rouge)" };
+function chrono(classe, motif) {
+  const L = 300, H = 16;
+  let s = `<svg class="chrono" width="${L}" height="${H}" viewBox="0 0 ${L} ${H}">`;
+  s += `<rect x="0" y="3" width="${L}" height="${H - 6}" rx="${(H - 6) / 2}" style="fill:var(--piste)"/>`;
+  for (const [a, b] of motif) {
+    const x = a / FENETRE * L, w = Math.max((b - a) / FENETRE * L, 2.5);
+    s += `<rect x="${x.toFixed(2)}" y="1" width="${w.toFixed(2)}" height="${H - 2}" rx="2.5" style="fill:${COULEURS[classe]}"/>`;
+  }
+  for (const t of [1000, 2000, 3000]) s += `<line x1="${t / FENETRE * L}" x2="${t / FENETRE * L}" y1="-3" y2="0" style="stroke:var(--bord);stroke-width:1"/>`;
+  return s + "</svg>";
+}
+const corps = document.querySelector("#lignes");
+for (const e of ETATS) {
+  const tr = document.createElement("tr");
+  if (e.length === 2) {
+    tr.className = "groupe";
+    tr.innerHTML = `<td colspan="3">${e[0]}<small>${e[1]}</small></td>`;
+  } else {
+    const [classe, nom, precision, motif, sens] = e;
+    tr.className = "ligne";
+    tr.innerHTML = `<td><div class="nom"><span class="led ${classe}"></span><div>${nom}${precision ? `<small>${precision}</small>` : ""}</div></div></td>`
+                 + `<td>${chrono(classe, motif)}</td><td class="sens">${sens}</td>`;
+  }
+  corps.appendChild(tr);
+}
+document.querySelectorAll("tr.groupe + tr.ligne td").forEach(td => td.style.borderTop = "none");
+quand_pret(() => {});
+</script>
+</body>
+</html>

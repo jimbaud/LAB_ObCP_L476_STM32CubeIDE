@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Chemin d'une commande reçue par USB</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="chemin.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="grille">
+    <div class="voie-titre">ALLER <span class="fl">→</span> du clavier du PC à la LED</div>
+    <div id="a1" class="case bleu"><div class="ou">PC · TERMINAL</div><h3>On tape <code>r20000</code> puis Entrée</h3>
+      <p>un ou plusieurs paquets USB (CR, LF ou CR+LF)</p></div>
+    <div id="a2" class="case orange"><div class="ou">INTERRUPTION USB</div><h3><code>CDC_Receive_FS()</code></h3>
+      <p>→ <code>usb_console_on_receive()</code> : copie du paquet ; le suivant attendra</p></div>
+    <div id="a3" class="case boucle"><div class="ou">BOUCLE · ÉTAPE 4</div><h3><code>usb_console_read_line()</code></h3>
+      <p><code>line_builder.c</code> assemble la ligne (64 car. au plus), puis réception réautorisée</p></div>
+    <div id="a4" class="case ambre"><div class="ou">COMMANDES</div><h3><code>commands_execute()</code></h3>
+      <p><code>commands_parse()</code> : rouge, valeur 20000 (0 à 65535, en décimal)</p></div>
+    <div id="a5" class="case vert"><div class="ou">SORTIES</div><h3><code>outputs_set(OUTPUT_RED, 20000)</code></h3>
+      <p>TIM3 voie 1 : rapport cyclique 20000 / 65536</p></div>
+
+    <div class="voie-titre">RETOUR <span class="fl">←</span> la réponse vers le PC (et le téléphone)</div>
+    <div id="r1" class="case bleu"><div class="ou">PC · TERMINAL</div><h3>La réponse s'affiche</h3>
+      <div class="ecran">Red = 20000</div></div>
+    <div id="r2" class="case orange"><div class="ou">USB</div><h3><code>CDC_Transmit_FS()</code></h3>
+      <p>morceaux de 256 octets au plus, l'un après l'autre</p></div>
+    <div id="r3" class="case boucle"><div class="ou">BOUCLE · ÉTAPE 10</div><h3><code>usb_console_process()</code></h3>
+      <p>envoie ce qui attend, dès que l'USB a fini l'envoi précédent</p></div>
+    <div id="r4" class="case ambre"><div class="ou">COMMANDES</div><h3><code>usb_console_print()</code></h3>
+      <p><code>"Red = 20000\n\r"</code> rangé dans la file d'envoi de 1 ko : rien ne se perd</p></div>
+    <div id="r5" class="case violet"><div class="ou">COPIE · TÉLÉPHONE</div><h3><code>ble_uart_print()</code></h3>
+      <p>si un téléphone est connecté, la même réponse part aussi en Bluetooth</p></div>
+  </div>
+  <p class="note">L'interruption ne fait que <b>copier le paquet</b> ; tout le reste a lieu dans la boucle. Tant que la ligne n'est pas traitée, la carte n'accepte pas de nouveau paquet (<b>contrôle de flux</b>) : un paquet ne peut plus écraser la commande en cours.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+// coupures de ligne permises après « _ » dans les noms de fonctions
+document.querySelectorAll(".case code").forEach(c => { c.innerHTML = c.innerHTML.replace(/_/g, "_<wbr>"); });
+quand_pret(() => {
+  const o = { de: "droite", vers: "gauche" };
+  relier("#a1", "#a2", Object.assign({ couleur: "var(--bleu)" }, o));
+  relier("#a2", "#a3", Object.assign({ couleur: "var(--orange)" }, o));
+  relier("#a3", "#a4", Object.assign({ couleur: "var(--discret)" }, o));
+  relier("#a4", "#a5", Object.assign({ couleur: "var(--ambre)" }, o));
+  relier("#a4", "#r4", { de: "bas", vers: "haut", couleur: "var(--ambre)" });
+  relier("#r4", "#r3", { de: "gauche", vers: "droite", couleur: "var(--ambre)" });
+  relier("#r3", "#r2", { de: "gauche", vers: "droite", couleur: "var(--discret)" });
+  relier("#r2", "#r1", { de: "gauche", vers: "droite", couleur: "var(--orange)" });
+  relier("#r4", "#r5", { de: "droite", vers: "gauche", couleur: "var(--violet)", tirets: "6 5" });
+});
+</script>
+</body>
+</html>

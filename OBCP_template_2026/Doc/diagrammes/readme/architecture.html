@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Organisation du programme : code généré, application, bibliothèques</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 20px 24px 18px; }
+  .couche { border-radius: 12px; padding: 10px 14px 14px; position: relative; }
+  .couche + .couche { margin-top: 34px; }
+  .couche > .titre { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--c); margin-bottom: 9px;
+                     display: flex; justify-content: space-between; align-items: baseline; }
+  .couche > .titre span { font-weight: 500; letter-spacing: 0; color: var(--discret); font-size: 12px; }
+  .couche.bleu { background: var(--bleu-fond); border: 1px solid color-mix(in srgb, var(--bleu) 35%, transparent); }
+  .couche.ambre { background: color-mix(in srgb, var(--ambre-fond) 55%, var(--fond)); border: 1px solid color-mix(in srgb, var(--ambre) 35%, transparent); }
+  .couche.gris { background: var(--fond-doux); border: 1px solid var(--bord); --c: var(--discret); }
+  .rang { display: grid; gap: 10px; }
+  .f { border: 1.5px solid var(--bord); background: var(--fond); border-radius: 8px; padding: 6px 9px; position: relative; }
+  .f h4 { font-family: "DejaVu Sans Mono", monospace; font-size: 12px; font-weight: 700; letter-spacing: -.01em; white-space: nowrap; }
+  .f p { font-size: 11.6px; color: var(--discret); line-height: 1.35; margin-top: 2px; }
+  .f p code { font-size: 10.8px; color: var(--texte); }
+  .f.cle { border-color: var(--ambre); }
+  .f.ota { border-color: var(--vert); background: var(--vert-fond); }
+  .f.cfg { border-style: dashed; }
+  .nouv { font-family: "Inter", sans-serif; font-size: 10px; font-weight: 650; color: var(--vert); border: 1px solid var(--vert);
+          border-radius: 999px; padding: 0 5px; margin-left: 5px; vertical-align: 1px; letter-spacing: 0; }
+  .gen { grid-template-columns: 1.25fr 1fr 1.15fr 1fr 1.1fr; }
+  .app1 { grid-template-columns: 1.4fr 1fr 1fr; margin-bottom: 12px; }
+  .sous-titre { font-size: 11px; font-weight: 650; letter-spacing: .05em; color: var(--discret); margin-bottom: 6px; }
+  .app2 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .app3 { grid-template-columns: 1fr 1fr 1fr; margin-top: 10px; }
+  .lib { grid-template-columns: repeat(4, 1fr); }
+  .crochet { color: var(--bleu); }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="couche bleu" id="c-gen">
+    <div class="titre">GÉNÉRÉ PAR STM32CUBEMX <span>réécrit à chaque génération, sauf entre <code>USER CODE BEGIN</code> et <code>END</code></span></div>
+    <div class="rang gen">
+      <div class="f" id="g-main"><h4>main.c</h4><p class="crochet"><code>app_init()</code>, <code>app_loop()</code>, <code>fault_signal()</code></p></div>
+      <div class="f"><h4>stm32l4xx_it.c</h4><p class="crochet">fautes → <code>fault_signal()</code></p></div>
+      <div class="f" id="g-cdc"><h4>usbd_cdc_if.c</h4><p class="crochet">réception → <code>usb_console_on_receive()</code></p></div>
+      <div class="f"><h4>usbd_conf.c</h4><p class="crochet">veille du bus USB → <code>usb_console</code></p></div>
+      <div class="f"><h4>gpio.c, tim.c…</h4><p>broches, minuteries, SPI, USART (aucun crochet)</p></div>
+    </div>
+  </div>
+
+  <div class="couche ambre" id="c-app">
+    <div class="titre" style="--c:var(--ambre)">APPLICATION · Core/Src, Core/Inc <span>jamais touchés par CubeMX</span></div>
+    <div class="rang app1">
+      <div class="f cle" id="m-app"><h4>app.c</h4><p>démarrage et <b>boucle principale</b> : c'est ici qu'on lit le programme</p></div>
+      <div class="f cle" id="m-cmd"><h4>commands.c</h4><p>analyse les lignes, exécute, écrit les réponses</p></div>
+      <div class="f cfg" id="m-ota"><h4>app_config.h</h4><p>tous les réglages, expliqués (nom Bluetooth, tampons, délais…)</p></div>
+    </div>
+    <div class="sous-titre">MODULES APPELÉS PAR app.c ET commands.c</div>
+    <div class="rang app2" id="pilotes">
+      <div class="f" id="m-usb"><h4>usb_console.c</h4><p>port COM : lignes reçues, file d'envoi</p></div>
+      <div class="f" id="m-ble"><h4>ble_uart.c</h4><p>module, service UART, notifications</p></div>
+      <div class="f" id="m-out"><h4>outputs.c</h4><p>LED et moteur (PWM)</p></div>
+      <div class="f" id="m-acc"><h4>accelerometer.c</h4><p>LIS3DH / LIS3DSH, SPI3</p></div>
+      <div class="f" id="m-btn"><h4>button.c</h4><p>anti-rebond sans attente</p></div>
+      <div class="f" id="m-tim"><h4>timer_1s.c</h4><p>TIM7, <code>start timer</code></p></div>
+    </div>
+    <div class="rang app3">
+      <div class="f"><h4>line_builder.c, fifo.c</h4><p>lignes de commande, files d'octets</p></div>
+      <div class="f"><h4>hal_callbacks.c, fault.c</h4><p>rappels de la HAL ; erreurs graves</p></div>
+      <div class="f"><h4>app.h, *.h</h4><p>chaque fonction décrite : paramètres, valeur rendue</p></div>
+    </div>
+  </div>
+
+  <div class="couche gris" id="c-lib">
+    <div class="titre">BIBLIOTHÈQUES DE ST · Drivers/, Middlewares/ <span>non modifiées</span></div>
+    <div class="rang lib">
+      <div class="f"><h4>HAL STM32L4</h4><p>FW_L4 1.18.1</p></div>
+      <div class="f"><h4>USB Device · CDC</h4><p>port COM virtuel</p></div>
+      <div class="f"><h4>BlueNRG-MS</h4><p>X-CUBE-BLE1 6.2.3</p></div>
+      <div class="f"><h4>CMSIS</h4><p>Cortex-M4</p></div>
+    </div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  { const a = document.getElementById("g-main").getBoundingClientRect(), b = document.getElementById("m-app").getBoundingClientRect();
+    relier("#g-main", "#m-app", { de: "bas", vers: "haut", couleur: "var(--bleu)", tirets: "6 5", texte: "crochets USER CODE", texte_decalage: [10, -6], ancre_texte: "start", fond_texte: false,
+            style_texte: "font-size:11.8px;font-weight:600;fill:var(--bleu)",
+            decalage_vers: [(a.left + a.width / 2) - (b.left + b.width / 2), 0] }); }
+  relier("#m-app", "#m-cmd", { de: "droite", vers: "gauche", couleur: "var(--ambre)" });
+  relier("#c-app", "#c-lib", { de: "bas", vers: "haut", couleur: "var(--discret)", texte: "appels de la HAL", decalage_de: [0, 0] });
+});
+</script>
+</body>
+</html>

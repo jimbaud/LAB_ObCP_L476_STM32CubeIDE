@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Le programme modèle et ses deux interfaces</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 24px 28px 20px; }
+  .rangee { display: grid; grid-template-columns: 286px 1fr 452px; align-items: stretch; }
+  .gauche { display: flex; flex-direction: column; gap: 22px; justify-content: center; }
+  .zone { border-radius: 12px; padding: 14px 16px 16px; position: relative; }
+  .zone .titre-zone { font-size: 12.5px; font-weight: 650; letter-spacing: .04em; color: var(--c); margin-bottom: 10px;
+                      display: flex; align-items: center; gap: 8px; }
+  .zone.bleu { background: var(--bleu-fond); border: 1px solid color-mix(in srgb, var(--bleu) 35%, transparent); }
+  .zone.violet { background: var(--violet-fond); border: 1px solid color-mix(in srgb, var(--violet) 35%, transparent); }
+  .zone.vert { background: var(--vert-fond); border: 1px solid color-mix(in srgb, var(--vert) 35%, transparent); }
+  .zone ul { list-style: none; font-size: 13px; line-height: 1.5; }
+  .zone li::before { content: "› "; color: var(--c); font-weight: 700; }
+  .zone .detail { font-size: 12.3px; color: var(--discret); margin-top: 6px; }
+  .icone { width: 19px; height: 19px; flex: none; }
+  .icone path, .icone rect, .icone circle { fill: none; stroke: var(--c); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .bloc { box-shadow: var(--ombre); }
+  #prog h3 { font-size: 15px; }
+  .peripheriques { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 30px; }
+  .peripherique { border: 1.5px solid var(--bord); background: var(--fond); border-radius: 9px; padding: 8px 11px; }
+  .peripherique h4 { font-size: 13.5px; font-weight: 650; display: flex; align-items: center; gap: 7px; }
+  .peripherique p { font-size: 12px; color: var(--discret); margin-top: 2px; }
+  .peripherique code { font-size: 11.5px; }
+  #chargeur { margin-top: 30px; }
+  .exemples { position: absolute; left: 0; right: 0; text-align: center; font-size: 12px; color: var(--discret); line-height: 1.55; }
+  .exemples code { color: var(--texte); font-size: 11.8px; }
+  .milieu { position: relative; }
+  .note { margin-top: 14px; font-size: 12.8px; color: var(--discret); text-align: center; }
+  .note b { color: var(--texte); font-weight: 600; }
+  .led-mini { width: 12px; height: 12px; }
+  #prog, #chargeur, #periph { margin-right: 54px; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="rangee">
+    <div class="gauche">
+      <div id="pc" class="zone bleu">
+        <div class="titre-zone">
+          <svg class="icone" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          PC · câble USB
+        </div>
+        <ul>
+          <li>terminal (PuTTY, Tera Term…)</li>
+          <li>scripts Python (dossier <code>Python/</code>)</li>
+          <li>VI LabVIEW (dossier <code>Labview/</code>)</li>
+        </ul>
+        <p class="detail">port COM virtuel : la vitesse choisie n'a pas d'importance</p>
+      </div>
+      <div id="tel" class="zone violet">
+        <div class="titre-zone">
+          <svg class="icone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>
+          Téléphone · Bluetooth
+        </div>
+        <ul>
+          <li>ObCP Control (Android)</li>
+          <li>BLE Terminal JILAB, nRF Connect…</li>
+        </ul>
+        <p class="detail">la carte s'annonce sous le nom <b style="white-space:nowrap">OBCP-CROC</b></p>
+      </div>
+    </div>
+
+    <div class="milieu">
+
+    </div>
+
+    <div class="zone vert">
+      <div class="titre-zone">
+        <svg class="icone" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+        ObCP · STM32L476RG
+      </div>
+      <div id="prog" class="bloc ambre">
+        <h3>Programme modèle 2.0.0</h3>
+        <p>reçoit chaque ligne, l'analyse (<code>commands.c</code>) et répond aux deux interfaces</p>
+      </div>
+      <div id="periph" class="peripheriques">
+        <div class="peripherique"><h4><span class="led led-mini l-rouge"></span>LED tricolore</h4><p><code>r</code> <code>v</code> <code>b</code> 0 à 65535 · TIM3</p></div>
+        <div class="peripherique"><h4>Sortie PWM J13</h4><p><code>m</code> 0 à 65535 · moteur 5 V · TIM1</p></div>
+        <div class="peripherique"><h4>Accéléromètre</h4><p><code>a</code> (g), <code>t</code> (°C) · LIS3DH · SPI3</p></div>
+        <div class="peripherique"><h4>Bouton SW1</h4><p>message <code>Push button pressed</code></p></div>
+      </div>
+
+    </div>
+  </div>
+  <p class="note">Mêmes commandes des deux côtés (<code>r20000</code>, <code>a</code>, <code>start timer</code>, <code>#rst</code>…). Une réponse est aussi <b>recopiée sur l'autre interface</b> : le terminal du PC montre les commandes envoyées par le téléphone, et inversement.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  relier("#pc", "#prog", { de: "droite", vers: "gauche", couleur: "var(--bleu)", forme: "courbe", tension: 70,
+          double: true, decalage_vers: [0, -8] });
+  relier("#tel", "#prog", { de: "droite", vers: "gauche", couleur: "var(--violet)", forme: "courbe", tension: 70,
+          double: true, tirets: "7 6", decalage_vers: [0, 10] });
+  relier("#prog", "#periph", { de: "bas", vers: "haut", couleur: "var(--ambre)" });
+});
+</script>
+</body>
+</html>
