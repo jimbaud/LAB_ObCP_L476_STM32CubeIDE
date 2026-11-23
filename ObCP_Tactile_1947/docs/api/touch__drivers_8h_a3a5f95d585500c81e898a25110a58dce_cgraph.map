@@ -1,0 +1,10 @@
+<map id="ft6206_probe" name="ft6206_probe">
+<area shape="rect" id="Node000001" title="Vérifier l&#39;identifiant de famille du tactile capacitif." alt="" coords="5,29,112,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="34,30,29,21,32,11,42,5,59,3,79,6,87,15,83,18,76,11,59,8,44,10,36,15,34,20,39,28"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="160,29,247,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="112,39,146,39,146,45,112,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="180,30,175,21,177,11,187,5,203,3,223,6,231,15,227,18,220,11,203,8,189,10,182,15,180,20,184,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="295,29,393,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="247,39,281,39,281,45,247,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="320,30,315,21,318,11,328,5,344,3,363,6,372,15,368,18,361,11,344,8,330,10,322,15,321,20,325,28"/>
+</map>

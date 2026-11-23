@@ -1,0 +1,7 @@
+<map id="HAL_SPI_ErrorCallback" name="HAL_SPI_ErrorCallback">
+<area shape="rect" id="Node000001" title="Publier une erreur du transport SPI1." alt="" coords="5,29,175,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="61,31,55,21,58,11,70,5,90,3,114,6,124,15,121,19,112,11,90,8,71,10,62,15,60,20,65,28"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="223,29,309,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="175,39,209,39,209,45,175,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="237,31,231,21,234,11,246,5,266,3,290,6,300,15,297,19,288,11,266,8,247,10,238,15,236,20,241,28"/>
+</map>

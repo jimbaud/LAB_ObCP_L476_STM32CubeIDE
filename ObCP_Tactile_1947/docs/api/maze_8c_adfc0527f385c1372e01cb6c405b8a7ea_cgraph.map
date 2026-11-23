@@ -1,0 +1,31 @@
+<map id="maze_draw" name="maze_draw">
+<area shape="rect" id="Node000001" title="Dessiner les murs, les cases spéciales et la bille." alt="" coords="5,128,103,153"/>
+<area shape="poly" id="edge20_Node000001_Node000001" title=" " alt="" coords="29,129,24,120,27,110,37,104,54,101,74,105,83,113,79,117,71,110,54,107,39,109,31,113,30,119,34,127"/>
+<area shape="rect" id="Node000002" href="$maze_8c.html#a0deb320c2dcb6bea105f878ebc712613" title="Convertir une cellule de carte en rectangle écran." alt="" coords="175,29,221,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,126,104,96,149,64,162,56,165,61,152,68,108,100,72,130"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a67be800d450e0519ef923669e4f354bc" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="160,103,236,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="102,130,146,122,147,127,103,135"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="301,177,367,203"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="103,147,287,179,286,184,103,152"/>
+<area shape="rect" id="Node000012" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="151,228,245,253"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="75,152,169,218,166,222,72,156"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="175,30,170,21,172,11,182,5,198,3,217,6,225,14,221,18,214,11,198,8,184,10,177,15,175,20,179,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="175,104,170,94,172,85,182,78,198,76,217,79,225,88,221,91,214,84,198,81,184,83,177,88,175,94,179,101"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="293,52,375,77"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="232,100,285,80,287,85,234,105"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="423,103,553,128"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="236,113,409,113,409,118,236,118"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="311,53,306,44,308,34,318,28,334,25,353,29,361,37,357,41,350,33,334,31,320,33,313,37,311,43,315,51"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="462,104,457,94,460,85,470,78,488,76,509,79,518,88,514,92,507,84,488,81,472,83,464,88,462,94,467,101"/>
+<area shape="poly" id="edge13_Node000009_Node000006" title=" " alt="" coords="354,175,421,137,436,131,438,136,424,142,357,179"/>
+<area shape="poly" id="edge10_Node000009_Node000009" title=" " alt="" coords="311,178,306,169,308,159,318,153,334,151,353,154,361,162,357,166,350,159,334,156,320,158,313,163,311,168,315,176"/>
+<area shape="rect" id="Node000010" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="461,176,515,201"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="367,187,448,186,448,192,367,192"/>
+<area shape="rect" id="Node000011" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="445,249,531,275"/>
+<area shape="poly" id="edge14_Node000009_Node000011" title=" " alt="" coords="363,200,449,241,446,246,361,205"/>
+<area shape="poly" id="edge12_Node000010_Node000010" title=" " alt="" coords="462,177,457,168,460,158,470,152,488,149,509,153,518,161,514,165,507,158,488,155,472,157,464,161,462,167,467,175"/>
+<area shape="poly" id="edge15_Node000011_Node000011" title=" " alt="" coords="462,251,457,241,460,231,470,225,488,223,509,226,518,235,514,239,507,231,488,228,472,230,464,235,462,240,467,248"/>
+<area shape="poly" id="edge17_Node000012_Node000009" title=" " alt="" coords="232,225,287,205,289,210,234,230"/>
+<area shape="poly" id="edge19_Node000012_Node000011" title=" " alt="" coords="246,241,431,255,431,261,245,247"/>
+<area shape="poly" id="edge18_Node000012_Node000012" title=" " alt="" coords="175,229,170,220,172,210,182,204,198,201,217,205,225,213,221,217,214,209,198,207,184,209,177,213,175,219,179,227"/>
+</map>

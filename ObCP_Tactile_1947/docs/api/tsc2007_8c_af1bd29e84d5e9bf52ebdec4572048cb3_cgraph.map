@@ -1,0 +1,10 @@
+<map id="finish" name="finish">
+<area shape="rect" id="Node000001" title="Finaliser une observation et demander le sommeil ADC." alt="" coords="5,29,63,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="10,30,5,21,8,11,18,5,34,3,53,6,62,15,58,18,51,11,34,8,20,10,12,15,11,20,15,28"/>
+<area shape="rect" id="Node000002" href="$tsc2007_8c.html#acb702898e283f4c0435744fd2b224855" title="Envoyer une commande de conversion TSC2007." alt="" coords="111,29,236,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="63,39,97,39,97,45,63,45"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="150,30,145,21,147,11,157,5,173,3,193,6,201,15,197,18,190,11,173,8,159,10,152,15,150,20,154,28"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="284,29,371,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="236,39,270,39,270,45,236,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="302,31,296,21,299,11,310,5,327,3,348,6,357,15,354,19,346,11,327,8,312,10,303,15,302,20,306,28"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="tilt_touch" name="tilt_touch">
+<area shape="rect" id="Node000001" title="Commander l&#39;assistant d&#39;orientation des axes." alt="" coords="5,101,88,127"/>
+<area shape="poly" id="edge14_Node000001_Node000001" title=" " alt="" coords="21,103,16,93,19,83,29,77,47,75,67,78,76,87,72,90,65,83,47,80,31,82,23,87,21,92,26,100"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="459,45,561,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,99,86,60,109,40,135,25,178,11,223,4,268,3,313,6,396,20,463,38,461,44,395,25,313,11,268,8,223,10,179,17,137,30,112,44,90,64,58,103"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="141,64,251,89"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="87,101,131,90,132,95,89,106"/>
+<area shape="rect" id="Node000004" href="$app_8c.html#a8a71fd897fb828a8a93919001d935512" title="Préparer un message temporaire pour l&#39;utilisateur." alt="" coords="151,137,241,163"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="89,121,139,133,137,139,87,126"/>
+<area shape="rect" id="Node000011" href="$input_8c.html#a36641f3ddd29be3bcfaf3e1927216c48" title="Commencer l&#39;assistant d&#39;orientation." alt="" coords="136,211,256,236"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="67,125,168,200,165,204,64,129"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="484,47,479,37,482,27,492,21,510,19,531,22,540,31,536,35,529,27,510,24,494,26,486,31,484,36,489,44"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="171,65,165,56,168,46,179,40,196,37,217,41,226,49,222,53,214,46,196,43,181,45,172,49,171,55,175,63"/>
+<area shape="poly" id="edge9_Node000004_Node000004" title=" " alt="" coords="171,139,165,129,168,119,179,113,196,111,217,114,226,123,222,126,214,119,196,116,181,118,172,123,171,128,175,136"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="304,100,411,125"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="240,137,290,125,291,131,241,142"/>
+<area shape="poly" id="edge8_Node000005_Node000002" title=" " alt="" coords="393,97,460,73,461,78,394,102"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="332,101,326,92,329,82,340,76,357,73,378,77,387,85,384,89,376,82,357,79,342,81,333,85,332,91,336,99"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="171,212,165,202,168,193,179,186,196,184,217,187,226,196,222,200,214,192,196,189,181,191,172,196,171,202,175,209"/>
+<area shape="rect" id="Node000012" href="$input_8c.html#a035be4c19850a5bb98d248f9bd52c9d0" title="Recommencer la mesure de la pose de repos." alt="" coords="307,211,408,236"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="256,221,293,221,293,226,256,226"/>
+<area shape="poly" id="edge13_Node000012_Node000012" title=" " alt="" coords="332,212,326,202,329,193,340,186,357,184,378,187,387,196,384,200,376,192,357,189,342,191,333,196,332,202,336,209"/>
+</map>

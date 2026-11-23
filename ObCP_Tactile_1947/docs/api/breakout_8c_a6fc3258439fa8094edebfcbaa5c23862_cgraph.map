@@ -1,0 +1,27 @@
+<map id="move_ball" name="move_ball">
+<area shape="rect" id="Node000001" title="Avancer la balle d&#39;un sous&#45;pas et traiter ses impacts." alt="" coords="5,153,96,179"/>
+<area shape="poly" id="edge15_Node000001_Node000001" title=" " alt="" coords="25,155,20,145,22,135,33,129,51,127,72,130,81,139,77,143,69,135,51,132,35,134,27,139,25,144,30,152"/>
+<area shape="rect" id="Node000002" href="$breakout_8c.html#aab0a6fda4dafb6c7a34e3d239882e229" title="Calculer l&#39;ancienne ou la nouvelle emprise de balle." alt="" coords="153,29,253,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,152,93,110,116,85,142,64,151,59,153,63,146,68,120,89,97,113,63,155"/>
+<area shape="rect" id="Node000003" href="$breakout_8c.html#a725b2159591771f868aac2dcbdc6947a" title="Calculer l&#39;emprise d&#39;une brique." alt="" coords="144,103,263,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="89,151,151,130,152,135,91,156"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="150,228,257,253"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="79,176,166,220,163,224,77,181"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="311,117,441,143"/>
+<area shape="poly" id="edge16_Node000001_Node000006" title=" " alt="" coords="96,158,297,136,297,141,96,164"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="333,337,419,363"/>
+<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="63,177,96,219,119,243,145,264,189,288,234,308,320,335,318,340,233,313,186,293,143,268,116,247,92,223,59,181"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="178,31,172,21,175,11,186,5,203,3,224,6,233,15,230,19,222,11,203,8,188,10,179,15,178,20,182,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="178,104,172,94,175,85,186,78,203,76,224,79,233,88,230,92,222,84,203,81,188,83,179,88,178,94,182,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="178,229,172,220,175,210,186,204,203,201,224,205,233,213,230,217,222,210,203,207,188,209,179,213,178,219,182,227"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="325,191,427,216"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="256,227,311,215,312,220,258,232"/>
+<area shape="poly" id="edge9_Node000004_Node000006" title=" " alt="" coords="216,226,256,190,309,152,321,146,323,151,312,156,259,194,219,230"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="331,264,421,289"/>
+<area shape="poly" id="edge11_Node000004_Node000009" title=" " alt="" coords="258,249,318,262,317,267,257,254"/>
+<area shape="poly" id="edge13_Node000004_Node000010" title=" " alt="" coords="226,251,345,328,342,332,223,256"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="347,192,341,182,345,173,357,166,376,164,399,167,409,176,406,180,397,172,376,169,358,171,349,176,347,182,352,189"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="347,119,341,109,345,99,357,93,376,91,399,94,409,103,406,107,397,99,376,96,358,98,349,103,347,108,352,116"/>
+<area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="347,265,341,256,345,246,357,240,376,237,399,241,409,249,406,253,397,246,376,243,358,245,349,249,347,255,352,262"/>
+<area shape="poly" id="edge14_Node000010_Node000010" title=" " alt="" coords="347,339,341,329,345,319,357,313,376,311,399,314,409,323,406,327,397,319,376,316,358,318,349,323,347,328,352,336"/>
+</map>

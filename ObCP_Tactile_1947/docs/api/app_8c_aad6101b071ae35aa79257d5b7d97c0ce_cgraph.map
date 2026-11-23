@@ -1,0 +1,28 @@
+<map id="button" name="button">
+<area shape="rect" id="Node000001" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="5,103,69,128"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="16,104,11,94,14,85,23,78,37,76,55,79,62,88,58,91,52,84,37,81,25,83,18,88,17,94,20,101"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="260,104,327,129"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="70,113,246,114,246,119,70,118"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="117,52,212,77"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="68,100,118,80,120,85,70,105"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="127,177,203,203"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="62,126,132,168,129,173,59,131"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="271,105,267,96,269,86,278,80,293,77,311,81,319,89,315,93,308,85,293,83,280,85,274,89,272,95,276,103"/>
+<area shape="rect" id="Node000003" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="413,103,467,128"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="327,114,400,113,400,118,327,119"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="375,176,505,201"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="321,127,402,167,400,172,319,132"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="397,29,483,55"/>
+<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="312,102,373,65,390,58,392,62,376,70,315,106"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="415,104,410,94,413,85,423,78,440,76,460,80,469,88,465,92,458,84,440,81,425,83,417,88,415,94,420,101"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="415,177,410,168,413,158,423,152,440,149,460,153,469,161,465,165,458,158,440,155,425,157,417,161,415,167,420,175"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="415,31,410,21,413,11,423,5,440,3,460,6,469,15,465,18,458,11,440,8,425,10,417,15,415,20,420,28"/>
+<area shape="poly" id="edge11_Node000008_Node000002" title=" " alt="" coords="198,75,250,96,248,101,196,80"/>
+<area shape="poly" id="edge13_Node000008_Node000007" title=" " alt="" coords="212,58,382,44,383,49,212,63"/>
+<area shape="poly" id="edge12_Node000008_Node000008" title=" " alt="" coords="143,53,139,44,141,34,150,28,165,25,182,29,190,37,186,41,179,33,165,31,152,33,145,37,144,43,148,51"/>
+<area shape="poly" id="edge15_Node000009_Node000002" title=" " alt="" coords="187,175,257,134,260,139,189,180"/>
+<area shape="poly" id="edge16_Node000009_Node000009" title=" " alt="" coords="143,178,139,169,141,159,150,153,165,151,182,154,190,162,186,166,179,159,165,156,152,158,145,162,144,168,148,176"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a483f913fa34cd8b2871e56fa7f7ed35c" title="Trouver les sept rangées d&#39;un caractère." alt="" coords="264,177,323,203"/>
+<area shape="poly" id="edge17_Node000009_Node000010" title=" " alt="" coords="203,187,250,187,250,193,203,193"/>
+<area shape="poly" id="edge18_Node000010_Node000010" title=" " alt="" coords="271,178,267,169,269,159,278,153,293,151,311,154,319,162,315,166,308,159,293,156,280,158,274,162,272,168,276,176"/>
+</map>

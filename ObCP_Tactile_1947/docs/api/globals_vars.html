@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Variables globale</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('globals_vars.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Voici la liste de toutes les variables documentées avec des liens vers la documentation :</div><br/>
+<div class="qindex"><a class="qindex" href="#index_a">A</a><div class="alphasepar"></div><a class="qindex" href="#index_b">B</a><div class="alphasepar"></div><a class="qindex" href="#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="#index_d">D</a><div class="alphasepar"></div><a class="qindex" href="#index_e">E</a><div class="alphasepar"></div><a class="qindex" href="#index_f">F</a><div class="alphasepar"></div><a class="qindex" href="#index_g">G</a><div class="alphasepar"></div><a class="qindex" href="#index_h">H</a><div class="alphasepar"></div><a class="qindex" href="#index_l">L</a><div class="alphasepar"></div><a class="qindex" href="#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="#index_n">N</a><div class="alphasepar"></div><a class="qindex" href="#index_o">O</a><div class="alphasepar"></div><a class="qindex" href="#index_p">P</a><div class="alphasepar"></div><a class="qindex" href="#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="#index_t">T</a><div class="alphasepar"></div><a class="qindex" href="#index_v">V</a></div>
+
+
+<h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>accents&#160;:&#160;<a class="el" href="app_8c.html#a7970a4c60dcf003492b48581ae7c77b0">app.c</a></li>
+<li>adc&#160;:&#160;<a class="el" href="tsc2007_8c.html#af8574f1fcb79f1565329f457b55f16dc">tsc2007.c</a></li>
+<li>app&#160;:&#160;<a class="el" href="board_8c.html#a05b5a24325d46227633053ca49de6234">board.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>boot_touch&#160;:&#160;<a class="el" href="board_8c.html#abf30501ad3b2050816909f64c69c19c3">board.c</a></li>
+<li>button&#160;:&#160;<a class="el" href="board_8c.html#a55ee34bb3d5221a19622871f04c24023">board.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>cal_cancel&#160;:&#160;<a class="el" href="app_8c.html#a0749a1046c6f9fb9a22c1ca96fd2c690">app.c</a></li>
+<li>cancel&#160;:&#160;<a class="el" href="app_8c.html#ab29329ee48fa534778fd886e293d45b8">app.c</a></li>
+<li>canvas&#160;:&#160;<a class="el" href="paint_8c.html#aaf9feb793898151c4e853de4be4a7666">paint.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>diag_axes&#160;:&#160;<a class="el" href="app_8c.html#adc3b68305bacfdae0104a85806a598ab">app.c</a></li>
+<li>diag_cal&#160;:&#160;<a class="el" href="app_8c.html#abe4c132cc0cedd914c12a2746e494849">app.c</a></li>
+<li>diag_color&#160;:&#160;<a class="el" href="app_8c.html#ab1c8a6d304b9ad32613cd1c694e99a80">app.c</a></li>
+<li>diag_neutral&#160;:&#160;<a class="el" href="app_8c.html#a8345b125c2dd346bf85ffd56ba7841da">app.c</a></li>
+<li>diag_tone&#160;:&#160;<a class="el" href="app_8c.html#a6908b31a16c4bc401ebf68f5b05f8dd5">app.c</a></li>
+<li>diag_volume&#160;:&#160;<a class="el" href="app_8c.html#a0930b1c47df757de5dbad211cdac6c55">app.c</a></li>
+<li>digits&#160;:&#160;<a class="el" href="gfx_8c.html#a59aebea400b80c9975ea63a94708bc7f">gfx.c</a></li>
+<li>dma_error&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">pwm_audio.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>ecc_failed&#160;:&#160;<a class="el" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">flash_port.c</a></li>
+<li>edit_apply&#160;:&#160;<a class="el" href="app_8c.html#ab64b7c552336f9c2fce308d5e3527df4">app.c</a></li>
+<li>edit_cancel&#160;:&#160;<a class="el" href="app_8c.html#a77c69b3e913725dac5af155f9d7b1fad">app.c</a></li>
+<li>edit_overlay&#160;:&#160;<a class="el" href="app_8c.html#a1c6af5ae7e5295ed8a3e7a69bea8589e">app.c</a></li>
+<li>epoch&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">pwm_audio.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>failed&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">pwm_audio.c</a></li>
+<li>flash&#160;:&#160;<a class="el" href="board_8c.html#adca3180dae18def6448856795fa6d87d">board.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>game_menu&#160;:&#160;<a class="el" href="app_8c.html#a7375e25cb786dd0f9a67dfe68e457e30">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_h" name="index_h"></a>- h -</h3><ul>
+<li>home&#160;:&#160;<a class="el" href="app_8c.html#a85a41633ca3cb7368ced8b4dc05ea618">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>last_diag&#160;:&#160;<a class="el" href="board_8c.html#ac653746418ffb9fd14548c6387924ae3">board.c</a></li>
+<li>last_flash_job&#160;:&#160;<a class="el" href="board_8c.html#a4913fcf2b97778649e14ad6a73a7fa8b">board.c</a></li>
+<li>last_frames&#160;:&#160;<a class="el" href="board_8c.html#ae52468b472ef00ed4b7fc46848c0489c">board.c</a></li>
+<li>last_game&#160;:&#160;<a class="el" href="board_8c.html#a0994f080b4535ab197d09f05c86fd2aa">board.c</a></li>
+<li>last_pixels&#160;:&#160;<a class="el" href="board_8c.html#a38395f2ee5ad1a22f09001013aa2faf8">board.c</a></li>
+<li>last_rates&#160;:&#160;<a class="el" href="board_8c.html#aed2b155eb0456ac344179b2e7a69e364">board.c</a></li>
+<li>last_sample&#160;:&#160;<a class="el" href="board_8c.html#a87a32aa2400084d7366f1003f3507017">board.c</a></li>
+<li>last_touch&#160;:&#160;<a class="el" href="board_8c.html#a1b6c693f0bc1c8c371e5d0ed818868ec">board.c</a></li>
+<li>last_touch_probe&#160;:&#160;<a class="el" href="board_8c.html#a1990162517dd91b19bfd8b17730cc46e">board.c</a></li>
+<li>lcd_bus_ok&#160;:&#160;<a class="el" href="board_8c.html#abe7bd755954fe3756770875cbc43e593">board.c</a></li>
+<li>LCD_RECT&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#aea3060035e49b901cb4ab30682c98655">obcp_gfx.h</a>, <a class="el" href="gfx_8c.html#aea3060035e49b901cb4ab30682c98655">gfx.c</a></li>
+<li>led_duration&#160;:&#160;<a class="el" href="board_8c.html#a545c6ab5161b7d38a5ff9fe86105f1c7">board.c</a></li>
+<li>led_since&#160;:&#160;<a class="el" href="board_8c.html#a7e516f8e94e7ece92b77933faecf730b">board.c</a></li>
+<li>letters&#160;:&#160;<a class="el" href="gfx_8c.html#af44026ee9223a4285dca3acefdb1bbfb">gfx.c</a></li>
+<li>levels&#160;:&#160;<a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">breakout.c</a>, <a class="el" href="race_8c.html#a61cdab60b97ec986808aae8c224f53cb">race.c</a></li>
+<li>limits_ms&#160;:&#160;<a class="el" href="maze_8c.html#af3e24090d3128e7faef5ea693edb7312">maze.c</a></li>
+<li>lower_letters&#160;:&#160;<a class="el" href="gfx_8c.html#a4e5c3ef0734cc3ebc991ed63b158581e">gfx.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>maps&#160;:&#160;<a class="el" href="maze_8c.html#a470f0c472f78d529ff5efa009668a13f">maze.c</a></li>
+<li>missed&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">pwm_audio.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>notes&#160;:&#160;<a class="el" href="app_8c.html#a21c367fa5ebfb6cd86fd127caa4f175b">app.c</a></li>
+<li>notice_box&#160;:&#160;<a class="el" href="app_8c.html#ab76f20e1175da60f9be852667fb5c098">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>__obcp_storage_end&#160;:&#160;<a class="el" href="flash__port_8c.html#a00e36cec7a2fd819ab52301534816983">flash_port.c</a></li>
+<li>__obcp_storage_start&#160;:&#160;<a class="el" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">flash_port.c</a></li>
+<li>obcp_live&#160;:&#160;<a class="el" href="board_8c.html#a9ccc5b040aa08a73ccfd75ef1860aeb1">board.c</a></li>
+<li>overlay&#160;:&#160;<a class="el" href="app_8c.html#a53d7f10ffe97b4dbd32fc94699b6843a">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>paint_canvas&#160;:&#160;<a class="el" href="app_8c.html#a6efaf593ca2075c49bd72183e986c52f">app.c</a></li>
+<li>PAINT_DIAMETERS&#160;:&#160;<a class="el" href="obcp__paint_8h.html#a24cbac08ace651d1aebd3bb1b811fa01">obcp_paint.h</a>, <a class="el" href="paint_8c.html#a24cbac08ace651d1aebd3bb1b811fa01">paint.c</a></li>
+<li>PAINT_PALETTE&#160;:&#160;<a class="el" href="obcp__paint_8h.html#a283a8f89e451082b1c8f1b2bf13e4675">obcp_paint.h</a>, <a class="el" href="paint_8c.html#a283a8f89e451082b1c8f1b2bf13e4675">paint.c</a></li>
+<li>palette&#160;:&#160;<a class="el" href="logo_8c.html#ad3840d9b6161485e3790c87dfa32e139">logo.c</a></li>
+<li>pause_btn&#160;:&#160;<a class="el" href="app_8c.html#a5bb8485d34ec111165885abedd868ca9">app.c</a></li>
+<li>pitches&#160;:&#160;<a class="el" href="audio_8c.html#adbccb58977f447055e455d193aa18585">audio.c</a></li>
+<li>play_btn&#160;:&#160;<a class="el" href="app_8c.html#a805c3a02546550c661a3cf1775164c41">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>renderer&#160;:&#160;<a class="el" href="board_8c.html#a96120bdea31dc797b1f3acbb8cf5a322">board.c</a></li>
+<li>ring&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">pwm_audio.c</a></li>
+<li>road&#160;:&#160;<a class="el" href="race_8c.html#ad8569863f56dcc29e01f31d3b8301902">race.c</a></li>
+<li>rows&#160;:&#160;<a class="el" href="logo_8c.html#a07b60cb8f3258ec6bee9bf998448f0cd">logo.c</a></li>
+<li>running&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">pwm_audio.c</a></li>
+<li>runs&#160;:&#160;<a class="el" href="logo_8c.html#ad34a612c5675b14cbdffea2c071c4701">logo.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>s_chip&#160;:&#160;<a class="el" href="accelerometer_8c.html#a5581710da77a7fdf216409745df95e82">accelerometer.c</a></li>
+<li>s_hspi&#160;:&#160;<a class="el" href="accelerometer_8c.html#a3b64a9666164ea78d4d4b02b47f3347d">accelerometer.c</a></li>
+<li>s_mg_per_lsb&#160;:&#160;<a class="el" href="accelerometer_8c.html#add478dc873f7d26dab95d87726cd6300">accelerometer.c</a></li>
+<li>s_offset_mg&#160;:&#160;<a class="el" href="accelerometer_8c.html#a5d45155814397ac4e24ecc9c1353951d">accelerometer.c</a></li>
+<li>s_scale&#160;:&#160;<a class="el" href="accelerometer_8c.html#af7ebdcaef64e5b4deeaa42ac63226c3d">accelerometer.c</a></li>
+<li>served&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">pwm_audio.c</a></li>
+<li>slots&#160;:&#160;<a class="el" href="storage_8c.html#a12b8ee58f061f6419e0424e0ea866cc4">storage.c</a></li>
+<li>spi_phase&#160;:&#160;<a class="el" href="stmpe610_8c.html#adfa82a8edfbba1c733abc5fa44712085">stmpe610.c</a></li>
+<li>staging&#160;:&#160;<a class="el" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">pwm_audio.c</a></li>
+<li>started_ms&#160;:&#160;<a class="el" href="ili9341_8c.html#a31ed505d40f52d42fbf22812dd81b22e">ili9341.c</a></li>
+<li>state&#160;:&#160;<a class="el" href="ili9341_8c.html#ac66c3af07a7643444c183fa00291ad5e">ili9341.c</a></li>
+<li>subtitles&#160;:&#160;<a class="el" href="app_8c.html#a45936e1491affccc69e002759758f42e">app.c</a></li>
+<li>symbols&#160;:&#160;<a class="el" href="gfx_8c.html#a427c69e84298e23a4ab27b659511d335">gfx.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>target_xy&#160;:&#160;<a class="el" href="app_8c.html#ab5710a99e542fc18d326aacae44ca641">app.c</a></li>
+<li>tilt_action&#160;:&#160;<a class="el" href="app_8c.html#a4a619a6260ab3ba89d474cbd2d31a76a">app.c</a></li>
+<li>tilt_pad&#160;:&#160;<a class="el" href="app_8c.html#affb2718c74312f5e2af7c590f8dc96c2">app.c</a></li>
+<li>tilt_retry&#160;:&#160;<a class="el" href="app_8c.html#a3a80bc9fef5de0037cc1dce2aea28d8d">app.c</a></li>
+<li>titles&#160;:&#160;<a class="el" href="app_8c.html#a6a3e1c1f998c6a626e6ecea4cfa5d8d3">app.c</a></li>
+<li>top&#160;:&#160;<a class="el" href="app_8c.html#a6bed5410062840309ada944152766593">app.c</a></li>
+<li>touch&#160;:&#160;<a class="el" href="board_8c.html#a98ce6a4462819176d40a502de4ebd5ae">board.c</a></li>
+<li>TOUCH_CAL_TARGETS&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">obcp_calibration.h</a>, <a class="el" href="calibration_8c.html#aa5907138b4354150cf84771e17f70a38">calibration.c</a></li>
+<li>touch_device&#160;:&#160;<a class="el" href="board_8c.html#ae1b7bcaec7122dfd6d68dce35cc5a6e1">board.c</a></li>
+<li>touch_failures&#160;:&#160;<a class="el" href="board_8c.html#ad8d37af05cf65c579bd9882e20bdee37">board.c</a></li>
+<li>touch_filter_state&#160;:&#160;<a class="el" href="board_8c.html#a53d9eb57cde11a38c6ea465ea9da38bb">board.c</a></li>
+<li>touch_sampling&#160;:&#160;<a class="el" href="board_8c.html#af80cdb0489221f873a8cc2f170cb3372">board.c</a></li>
+<li>touch_wait_release&#160;:&#160;<a class="el" href="board_8c.html#af3ace44989806644449bf0b529cd39e1">board.c</a></li>
+<li>track_label&#160;:&#160;<a class="el" href="app_8c.html#ad43249d737ff1fdd4507319a0e6c8671">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>vehicles&#160;:&#160;<a class="el" href="race_8c.html#a2981cf676dd31b2033654868d07106b4">race.c</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

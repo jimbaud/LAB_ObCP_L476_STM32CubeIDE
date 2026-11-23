@@ -1,0 +1,15 @@
+<map id="Core/Src/obcp/input.c" name="Core/Src/obcp/input.c">
+<area shape="rect" id="Node000001" title="Filtrage du contact, de SW1 et de l’inclinaison." alt="" coords="83,5,242,31"/>
+<area shape="rect" id="Node000002" href="$obcp__input_8h.html" title="Filtrage du contact, de SW1 et de l’inclinaison." alt="" coords="45,79,150,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,33,119,70,115,67,150,29"/>
+<area shape="rect" id="Node000006" href="$obcp__config_8h.html" title="Valeurs initiales de repère pour le montage ObCP." alt="" coords="174,79,285,104"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="176,29,211,67,207,70,172,33"/>
+<area shape="rect" id="Node000003" href="$obcp__touch_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="43,152,151,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,104,100,138,95,138,95,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,88,251"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="78,106,53,126,33,153,29,168,30,183,37,212,32,213,24,183,24,167,28,151,49,122,75,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="133,225,203,251"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="119,102,145,122,166,151,174,182,174,211,169,211,169,182,162,153,141,126,116,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="91,179,65,216,61,213,87,176"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="111,176,149,214,145,218,107,180"/>
+</map>

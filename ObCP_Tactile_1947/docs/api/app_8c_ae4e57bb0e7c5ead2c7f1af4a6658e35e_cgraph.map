@@ -1,0 +1,40 @@
+<map id="draw_response" name="draw_response">
+<area shape="rect" id="Node000001" title="Dessiner les curseurs de réactivité et leur aperçu." alt="" coords="5,318,125,344"/>
+<area shape="poly" id="edge19_Node000001_Node000001" title=" " alt="" coords="37,320,31,310,34,300,46,294,65,292,89,295,99,303,95,308,86,300,65,297,47,299,38,304,36,309,41,317"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="373,142,437,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,317,108,259,137,227,172,199,219,177,269,164,318,156,360,153,360,158,318,161,271,169,221,182,175,204,141,230,112,263,75,320"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="652,142,719,168"/>
+<area shape="poly" id="edge20_Node000001_Node000003" title=" " alt="" coords="66,317,76,277,96,221,127,163,147,136,172,113,227,73,279,41,330,19,380,6,432,3,485,10,543,26,605,53,628,68,647,87,675,128,670,131,643,91,625,72,603,57,541,31,484,15,431,9,381,12,332,24,282,46,230,77,175,117,151,139,131,165,100,223,81,278,72,318"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="509,92,604,117"/>
+<area shape="poly" id="edge21_Node000001_Node000009" title=" " alt="" coords="69,317,82,285,103,243,133,198,172,160,210,135,251,117,295,105,339,96,424,91,496,94,496,99,424,96,340,102,296,110,253,122,212,140,175,164,137,202,108,246,87,288,74,319"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="519,268,595,293"/>
+<area shape="poly" id="edge22_Node000001_Node000010" title=" " alt="" coords="107,341,176,358,265,371,314,374,364,373,413,366,460,354,482,344,502,330,534,301,538,305,505,335,484,348,462,359,414,372,364,378,314,380,265,377,175,363,106,346"/>
+<area shape="rect" id="Node000012" href="$app_8c.html#a82f182070bba784eb7f341aeb2efe703" title="Centrer une chaîne dans la largeur du TFT." alt="" coords="349,318,461,344"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="125,328,336,328,336,334,125,334"/>
+<area shape="rect" id="Node000013" href="$app_8c.html#a0f950de9cae6fccdb7f01515e72582fc" title="Composer le bandeau de navigation d&#39;un écran." alt="" coords="196,237,279,262"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="92,316,196,266,198,271,94,321"/>
+<area shape="rect" id="Node000014" href="$app_8c.html#a67969f6aefea0fa5558ed6e2fae25eb5" title="Calculer le rectangle de le bouton de réduction de réactivité." alt="" coords="173,444,301,469"/>
+<area shape="poly" id="edge23_Node000001_Node000014" title=" " alt="" coords="86,342,210,433,206,438,83,346"/>
+<area shape="rect" id="Node000015" href="$app_8c.html#a89aa646c135190d2337898a31510f1d5" title="Calculer le rectangle de le bouton d’augmentation de réactivité." alt="" coords="180,517,295,542"/>
+<area shape="poly" id="edge25_Node000001_Node000015" title=" " alt="" coords="76,343,115,405,144,443,175,480,207,507,203,511,171,483,139,446,111,408,72,345"/>
+<area shape="rect" id="Node000016" href="$app_8c.html#a0cb9dece7d2a13ba953b0a606db86dc4" title="Calculer le rectangle de une barre de réactivité." alt="" coords="175,590,299,616"/>
+<area shape="poly" id="edge27_Node000001_Node000016" title=" " alt="" coords="73,343,107,436,137,496,175,553,205,580,201,584,171,557,133,499,102,438,68,345"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="380,143,375,134,378,124,388,118,405,116,426,119,435,128,431,131,423,124,405,121,390,123,382,128,380,133,385,141"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="437,152,638,152,638,158,437,158"/>
+<area shape="poly" id="edge5_Node000002_Node000009" title=" " alt="" coords="437,142,504,119,506,124,438,147"/>
+<area shape="poly" id="edge8_Node000002_Node000010" title=" " alt="" coords="424,166,532,257,528,261,420,170"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="663,143,659,134,661,124,670,118,685,116,703,119,711,127,707,131,700,124,685,121,672,123,666,127,664,133,668,141"/>
+<area shape="poly" id="edge6_Node000009_Node000003" title=" " alt="" coords="591,115,641,135,639,140,589,120"/>
+<area shape="poly" id="edge7_Node000009_Node000009" title=" " alt="" coords="535,93,530,83,532,74,542,67,557,65,574,68,582,77,578,80,572,73,557,70,544,72,537,77,535,83,539,90"/>
+<area shape="poly" id="edge9_Node000010_Node000003" title=" " alt="" coords="569,265,660,175,664,179,573,269"/>
+<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="535,269,530,259,532,250,542,243,557,241,574,244,582,253,578,256,572,249,557,246,544,248,537,253,535,259,539,266"/>
+<area shape="poly" id="edge13_Node000012_Node000010" title=" " alt="" coords="443,316,505,295,506,300,445,321"/>
+<area shape="poly" id="edge12_Node000012_Node000012" title=" " alt="" coords="380,319,375,310,378,300,388,294,405,292,426,295,435,304,431,307,423,300,405,297,390,299,382,304,380,309,385,317"/>
+<area shape="poly" id="edge15_Node000013_Node000002" title=" " alt="" coords="260,235,369,172,371,177,262,239"/>
+<area shape="poly" id="edge17_Node000013_Node000003" title=" " alt="" coords="278,238,638,162,639,167,280,244"/>
+<area shape="poly" id="edge18_Node000013_Node000010" title=" " alt="" coords="279,251,505,273,505,278,279,256"/>
+<area shape="poly" id="edge16_Node000013_Node000013" title=" " alt="" coords="209,238,203,229,206,219,218,212,237,210,260,214,270,222,267,226,258,219,237,216,220,218,211,222,209,228,214,235"/>
+<area shape="poly" id="edge24_Node000014_Node000014" title=" " alt="" coords="209,445,203,435,206,426,218,419,237,417,260,420,270,429,267,433,258,425,237,422,220,424,211,429,209,435,214,442"/>
+<area shape="poly" id="edge26_Node000015_Node000015" title=" " alt="" coords="209,518,203,509,206,499,218,492,237,490,260,494,270,502,267,506,258,499,237,496,220,498,211,502,209,508,214,515"/>
+<area shape="poly" id="edge28_Node000016_Node000016" title=" " alt="" coords="209,592,203,582,206,572,218,566,237,564,260,567,270,576,267,580,258,572,237,569,220,571,211,576,209,581,214,589"/>
+</map>

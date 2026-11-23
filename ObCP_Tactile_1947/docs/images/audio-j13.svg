@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="380" viewBox="0 0 1080 380" role="img" aria-labelledby="titre">
+  <title id="titre">Adaptation du drain J13 à l’entrée d’un amplificateur audio</title>
+  <rect width="1080" height="380" rx="16" fill="#f1f6fa"/>
+  <text x="32" y="42" font-family="sans-serif" font-size="26" font-weight="700" fill="#10243b">Interface audio du bornier J13</text>
+  <text x="33" y="69" font-family="sans-serif" font-size="14" fill="#3a586e">Montage de banc · les points TP sont mesurés par rapport au GND commun</text>
+  <g stroke="#184865" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="34" y="146" width="122" height="65" rx="7" fill="#e0eef7"/>
+    <path d="M156 176H225 M225 176h29 M308 176h51 M359 176h28 M441 176h47 M488 176h42 M584 176h66 M650 176h78"/>
+    <path d="M254 176l6 -7 9 14 9 -14 9 14 9 -14 12 7 M387 176l6 -7 9 14 9 -14 9 14 9 -14 12 7 M530 176l6 -7 9 14 9 -14 9 14 9 -14 12 7"/>
+    <path d="M225 176v-25l-7 -6 14 -8 -14 -8 14 -8 -7 -7v-20"/>
+    <path d="M359 176v52m-11 0h22m-22 8h22m-11 0v64 M488 176v52m-11 0h22m-22 8h22m-11 0v64"/>
+    <path d="M650 176v30l-7 6 14 8 -14 8 14 8 -14 8 7 6v50"/>
+    <path d="M195 300H812 M720 300v-67h8"/>
+    <path d="M195 300v12m-12 0h24m-18 6h12m-8 6h4"/>
+    <rect x="728" y="123" width="168" height="132" rx="9" fill="#e0eef7"/>
+    <path d="M812 123v-25 M812 255v45"/>
+    <path d="M896 162h90v20 M896 219h90v-13"/>
+    <rect x="973" y="182" width="26" height="24" rx="1" fill="#e0eef7"/>
+    <path d="M999 182l15 -9v42l-15 -9"/>
+  </g>
+  <g fill="#0e7f86">
+    <circle cx="225" cy="176" r="5"/><circle cx="359" cy="176" r="4"/>
+    <circle cx="488" cy="176" r="5"/><circle cx="650" cy="176" r="5"/>
+    <circle cx="359" cy="300" r="4"/><circle cx="488" cy="300" r="4"/>
+    <circle cx="650" cy="300" r="4"/><circle cx="720" cy="300" r="4"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" fill="#10243b">
+    <text x="47" y="172" font-weight="700">J13</text><text x="47" y="193">Borne drain</text>
+    <text x="225" y="91" text-anchor="middle" font-weight="700">3,3 V ObCP</text>
+    <text x="186" y="135" text-anchor="end">4,7 kΩ</text>
+    <text x="222" y="197" text-anchor="middle" fill="#0e7f86" font-weight="700">TP1</text>
+    <text x="280" y="156" text-anchor="middle">10 kΩ</text>
+    <text x="414" y="156" text-anchor="middle">10 kΩ</text>
+    <text x="556" y="156" text-anchor="middle">33 kΩ</text>
+    <text x="377" y="238">3,3 nF</text><text x="506" y="238">3,3 nF</text>
+    <text x="488" y="198" text-anchor="middle" fill="#0e7f86" font-weight="700">TP2</text>
+    <text x="650" y="156" text-anchor="middle" fill="#0e7f86" font-weight="700">TP3</text>
+    <text x="663" y="231">6,8 kΩ</text>
+    <text x="740" y="179">A+</text><text x="740" y="237">A−</text>
+    <text x="813" y="93" text-anchor="middle">5 V régulé</text>
+    <text x="812" y="202" text-anchor="middle" font-weight="700">PAM8302</text>
+    <text x="916" y="152">SPK+</text><text x="916" y="237">SPK−</text>
+    <text x="987" y="256" text-anchor="middle">HP 8 Ω</text>
+    <text x="32" y="345" font-weight="700">GND commun</text>
+    <text x="218" y="345" fill="#3a586e">Rappel · Filtre RC deux sections · Atténuation · Amplification</text>
+  </g>
+</svg>

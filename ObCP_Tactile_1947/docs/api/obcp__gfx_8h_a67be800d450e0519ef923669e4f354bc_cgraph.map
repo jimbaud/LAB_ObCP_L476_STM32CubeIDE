@@ -1,0 +1,19 @@
+<map id="gfx_disc" name="gfx_disc">
+<area shape="rect" id="Node000001" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="5,67,81,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="18,68,13,58,16,49,26,42,43,40,64,44,73,52,69,56,61,48,43,45,28,47,20,52,18,58,23,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="154,29,235,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="81,68,140,53,141,58,82,73"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="129,103,260,128"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="82,86,128,97,127,102,81,91"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="169,31,164,21,167,11,177,5,195,3,215,6,224,15,220,19,213,11,195,8,179,10,171,15,169,20,174,28"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="308,29,417,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="236,39,294,39,294,45,236,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="335,31,329,21,332,11,343,5,363,3,386,6,396,15,392,19,383,11,363,8,345,10,336,15,334,20,339,28"/>
+<area shape="poly" id="edge11_Node000004_Node000004" title=" " alt="" coords="169,104,164,94,167,85,177,78,195,76,215,80,224,88,220,92,213,84,195,81,179,83,171,88,169,94,174,101"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="325,103,400,128"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="260,113,311,113,311,118,260,118"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="327,176,398,201"/>
+<area shape="poly" id="edge9_Node000004_Node000006" title=" " alt="" coords="226,126,321,168,319,173,224,131"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="335,104,329,94,332,85,343,78,363,76,386,79,396,88,392,92,383,84,363,81,345,83,336,88,334,94,339,101"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="335,177,329,168,332,158,343,152,363,149,386,153,396,161,392,165,383,158,363,155,345,157,336,161,334,167,339,174"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="Core/Inc/obcp_calibration.h" name="Core/Inc/obcp_calibration.h">
+<area shape="rect" id="Node000001" title="Transformation affine et assistant de calibrage résistif." alt="" coords="29,5,228,31"/>
+<area shape="rect" id="Node000002" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="137,79,259,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,29,179,67,175,71,138,33"/>
+<area shape="rect" id="Node000006" href="$obcp__touch_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="5,79,113,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="119,33,82,71,78,67,115,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="119,152,202,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,106,175,141,171,139,189,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="226,152,301,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="211,103,245,140,242,144,207,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="24,152,95,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="177,106,95,148,93,143,175,102"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="77,102,134,142,131,146,74,106"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="62,104,62,138,57,138,57,104"/>
+</map>

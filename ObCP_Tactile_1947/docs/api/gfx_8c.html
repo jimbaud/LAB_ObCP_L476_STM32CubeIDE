@@ -1,0 +1,1198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/gfx.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('gfx_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier gfx.c<div class="ingroups"><a class="el" href="group__obcp__graphics.html">Graphisme et transport par bandes</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Géométrie, primitives RGB565 et rendu par bandes DMA.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de gfx.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c__incl.svg" width="288" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="gfx_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:_5Bstruct_5D_2Esymbols" id="r__5Bstruct_5D_2Esymbols"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_0fstruct_0e_8symbols.html">[struct].symbols</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a29a7a26d9387c01c1b4e9fe4fff5704a" id="r_a29a7a26d9387c01c1b4e9fe4fff5704a"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a29a7a26d9387c01c1b4e9fe4fff5704a">min_int</a> (int a, int b)</td></tr>
+<tr class="memdesc:a29a7a26d9387c01c1b4e9fe4fff5704a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choisir la plus petite de deux valeurs entières.  <br /></td></tr>
+<tr class="memitem:a94f155fcce337a2b9d4719ed8042cbbe" id="r_a94f155fcce337a2b9d4719ed8042cbbe"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a94f155fcce337a2b9d4719ed8042cbbe">max_int</a> (int a, int b)</td></tr>
+<tr class="memdesc:a94f155fcce337a2b9d4719ed8042cbbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choisir la plus grande de deux valeurs entières.  <br /></td></tr>
+<tr class="memitem:a1fa4fc7dd28927c215eb54b2f77c7c89" id="r_a1fa4fc7dd28927c215eb54b2f77c7c89"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1fa4fc7dd28927c215eb54b2f77c7c89">rect_valid</a> (<a class="el" href="structRect.html">Rect</a> r)</td></tr>
+<tr class="memdesc:a1fa4fc7dd28927c215eb54b2f77c7c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier qu'un rectangle possède une surface.  <br /></td></tr>
+<tr class="memitem:a283661c2111fd8092727ba3616e9b333" id="r_a283661c2111fd8092727ba3616e9b333"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a283661c2111fd8092727ba3616e9b333">rect_contains</a> (<a class="el" href="structRect.html">Rect</a> r, int x, int y)</td></tr>
+<tr class="memdesc:a283661c2111fd8092727ba3616e9b333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester l'appartenance d'un point à un rectangle.  <br /></td></tr>
+<tr class="memitem:a135b689508e9ec047ec2f791a4101846" id="r_a135b689508e9ec047ec2f791a4101846"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a135b689508e9ec047ec2f791a4101846">rect_intersection</a> (<a class="el" href="structRect.html">Rect</a> a, <a class="el" href="structRect.html">Rect</a> b)</td></tr>
+<tr class="memdesc:a135b689508e9ec047ec2f791a4101846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouver la surface commune à deux rectangles.  <br /></td></tr>
+<tr class="memitem:a972f7038ac7c5f72eae8e6d20bd7b541" id="r_a972f7038ac7c5f72eae8e6d20bd7b541"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a972f7038ac7c5f72eae8e6d20bd7b541">rect_union</a> (<a class="el" href="structRect.html">Rect</a> a, <a class="el" href="structRect.html">Rect</a> b)</td></tr>
+<tr class="memdesc:a972f7038ac7c5f72eae8e6d20bd7b541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construire une enveloppe rectangulaire commune.  <br /></td></tr>
+<tr class="memitem:a776b0c3a2059dea7baebfc3e85a2714d" id="r_a776b0c3a2059dea7baebfc3e85a2714d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a776b0c3a2059dea7baebfc3e85a2714d">gfx_pixel</a> (<a class="el" href="structGfx.html">Gfx</a> *g, int x, int y, uint16_t color)</td></tr>
+<tr class="memdesc:a776b0c3a2059dea7baebfc3e85a2714d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire un pixel dans le tampon de bande.  <br /></td></tr>
+<tr class="memitem:a97927b0ab32c9b7c95adc54a9c743f7f" id="r_a97927b0ab32c9b7c95adc54a9c743f7f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a97927b0ab32c9b7c95adc54a9c743f7f">gfx_fill</a> (<a class="el" href="structGfx.html">Gfx</a> *g, <a class="el" href="structRect.html">Rect</a> r, uint16_t color)</td></tr>
+<tr class="memdesc:a97927b0ab32c9b7c95adc54a9c743f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplir la partie visible d'un rectangle.  <br /></td></tr>
+<tr class="memitem:a71b2ce09bccc4310953f4b85fb99425e" id="r_a71b2ce09bccc4310953f4b85fb99425e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a71b2ce09bccc4310953f4b85fb99425e">gfx_outline</a> (<a class="el" href="structGfx.html">Gfx</a> *g, <a class="el" href="structRect.html">Rect</a> r, uint16_t color)</td></tr>
+<tr class="memdesc:a71b2ce09bccc4310953f4b85fb99425e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner les quatre côtés d'un rectangle.  <br /></td></tr>
+<tr class="memitem:a67be800d450e0519ef923669e4f354bc" id="r_a67be800d450e0519ef923669e4f354bc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a67be800d450e0519ef923669e4f354bc">gfx_disc</a> (<a class="el" href="structGfx.html">Gfx</a> *g, int cx, int cy, int radius, uint16_t color)</td></tr>
+<tr class="memdesc:a67be800d450e0519ef923669e4f354bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner un disque plein autour d'un centre.  <br /></td></tr>
+<tr class="memitem:a483f913fa34cd8b2871e56fa7f7ed35c" id="r_a483f913fa34cd8b2871e56fa7f7ed35c"><td class="memItemLeft">static const uint8_t *&#160;</td><td class="memItemRight"><a class="el" href="#a483f913fa34cd8b2871e56fa7f7ed35c">glyph</a> (char ch)</td></tr>
+<tr class="memdesc:a483f913fa34cd8b2871e56fa7f7ed35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouver les sept rangées d'un caractère.  <br /></td></tr>
+<tr class="memitem:a517a4331601be273707c63e63d10979b" id="r_a517a4331601be273707c63e63d10979b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a517a4331601be273707c63e63d10979b">gfx_triangle</a> (<a class="el" href="structGfx.html">Gfx</a> *g, int ax, int ay, int bx, int by, int cx, int cy, uint16_t color)</td></tr>
+<tr class="memdesc:a517a4331601be273707c63e63d10979b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplir un triangle par tests de demi-plans.  <br /></td></tr>
+<tr class="memitem:a6b5b2c056e34384c60772bb7d2c1bb50" id="r_a6b5b2c056e34384c60772bb7d2c1bb50"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b5b2c056e34384c60772bb7d2c1bb50">gfx_text</a> (<a class="el" href="structGfx.html">Gfx</a> *g, int x, int y, const char *text, unsigned scale, uint16_t color)</td></tr>
+<tr class="memdesc:a6b5b2c056e34384c60772bb7d2c1bb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner une chaîne avec une police de cinq par sept pixels.  <br /></td></tr>
+<tr class="memitem:a99580b0a5d9ff3557611276dfd86b1e1" id="r_a99580b0a5d9ff3557611276dfd86b1e1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a99580b0a5d9ff3557611276dfd86b1e1">damage_full</a> (<a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a99580b0a5d9ff3557611276dfd86b1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demander une recomposition de tout l'écran.  <br /></td></tr>
+<tr class="memitem:af10480bf9f8bbe5939f455012daebf98" id="r_af10480bf9f8bbe5939f455012daebf98"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af10480bf9f8bbe5939f455012daebf98">damage_add</a> (<a class="el" href="structDamage.html">Damage</a> *damage, <a class="el" href="structRect.html">Rect</a> r)</td></tr>
+<tr class="memdesc:af10480bf9f8bbe5939f455012daebf98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajouter une zone à recomposer et fusionner les voisines.  <br /></td></tr>
+<tr class="memitem:a99bf94cd931e2d081b78fe5623fcc849" id="r_a99bf94cd931e2d081b78fe5623fcc849"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99bf94cd931e2d081b78fe5623fcc849">renderer_idle</a> (const <a class="el" href="structRenderer.html">Renderer</a> *r, const <a class="el" href="structDamage.html">Damage</a> *pending)</td></tr>
+<tr class="memdesc:a99bf94cd931e2d081b78fe5623fcc849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tester si tous les rectangles demandés ont été transmis.  <br /></td></tr>
+<tr class="memitem:a7aad3aeefb3bfad8f63100649aa9fdb1" id="r_a7aad3aeefb3bfad8f63100649aa9fdb1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7aad3aeefb3bfad8f63100649aa9fdb1">renderer_task</a> (<a class="el" href="structRenderer.html">Renderer</a> *r, <a class="el" href="structDamage.html">Damage</a> *pending, <a class="el" href="obcp__gfx_8h.html#af121ff33aa7512f219999d01aee20332">DrawScene</a> draw, const void *scene)</td></tr>
+<tr class="memdesc:a7aad3aeefb3bfad8f63100649aa9fdb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer l'envoi non bloquant d'une bande.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aea3060035e49b901cb4ab30682c98655" id="r_aea3060035e49b901cb4ab30682c98655"><td class="memItemLeft">const <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#aea3060035e49b901cb4ab30682c98655">LCD_RECT</a> = {0, 0, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a>, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a>}</td></tr>
+<tr class="memdesc:aea3060035e49b901cb4ab30682c98655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rectangle de tout l'écran paysage, de 320 × 240 pixels.  <br /></td></tr>
+<tr class="memitem:a59aebea400b80c9975ea63a94708bc7f" id="r_a59aebea400b80c9975ea63a94708bc7f"><td class="memItemLeft">static const uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a59aebea400b80c9975ea63a94708bc7f">digits</a> [][7]</td></tr>
+<tr class="memdesc:a59aebea400b80c9975ea63a94708bc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glyphes des dix chiffres. Chaque octet décrit les cinq bits d'une rangée.  <br /></td></tr>
+<tr class="memitem:af44026ee9223a4285dca3acefdb1bbfb" id="r_af44026ee9223a4285dca3acefdb1bbfb"><td class="memItemLeft">static const uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#af44026ee9223a4285dca3acefdb1bbfb">letters</a> [][7]</td></tr>
+<tr class="memdesc:af44026ee9223a4285dca3acefdb1bbfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glyphes des vingt-six majuscules, sept rangées par caractère.  <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft"><a class="el" href="struct_0fstruct_0e_8symbols.html">static const struct </a>&#160;</td><td class="memItemRight"><a class="el" href="#a427c69e84298e23a4ab27b659511d335">symbols</a> []</td></tr>
+<tr class="memdesc:a427c69e84298e23a4ab27b659511d335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correspondance entre signes de ponctuation et leurs sept rangées de pixels.  <br /></td></tr>
+<tr class="memitem:a4e5c3ef0734cc3ebc991ed63b158581e" id="r_a4e5c3ef0734cc3ebc991ed63b158581e"><td class="memItemLeft">static const uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a4e5c3ef0734cc3ebc991ed63b158581e">lower_letters</a> [26][7]</td></tr>
+<tr class="memdesc:a4e5c3ef0734cc3ebc991ed63b158581e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glyphes minuscules, utilisés notamment par la signature du menu.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Géométrie, primitives RGB565 et rendu par bandes DMA. </p>
+<p>Le repère écran a X vers la droite et Y vers le bas. Les bornes droites et basses des rectangles sont exclues. Le contexte <a class="el" href="structGfx.html" title="Vue de dessin sur un tampon de bande RGB565.">Gfx</a> conserve le pas exact de sa bande. <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a> transfère la propriété du tampon au DMA entre send et poll.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="af10480bf9f8bbe5939f455012daebf98" name="af10480bf9f8bbe5939f455012daebf98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af10480bf9f8bbe5939f455012daebf98">&#9670;&#160;</a></span>damage_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void damage_add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajouter une zone à recomposer et fusionner les voisines. </p>
+<p>Limite la zone à l'écran, fusionne les enveloppes peu coûteuses puis ajoute la zone restante. Si la capacité est atteinte, une image complète remplace la liste. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00317">317</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00189">Damage::count</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00032">DAMAGE_CAPACITY</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__gfx_8h_source.html#l00188">Damage::items</a>, <a class="el" href="gfx_8c_source.html#l00032">LCD_RECT</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00092">rect_union()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, <a class="el" href="app_8c_source.html#l00744">rgb_drag()</a>, et <a class="el" href="app_8c_source.html#l00443">set_notice()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_af10480bf9f8bbe5939f455012daebf98_cgraph.svg" width="419" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a99580b0a5d9ff3557611276dfd86b1e1" name="a99580b0a5d9ff3557611276dfd86b1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99580b0a5d9ff3557611276dfd86b1e1">&#9670;&#160;</a></span>damage_full()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void damage_full </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Demander une recomposition de tout l'écran. </p>
+<p>Remplace la liste de rectangles par LCD_RECT. Ce repli est aussi utilisé quand une liste de dommages ne peut plus contenir un changement supplémentaire. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00305">305</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00189">Damage::count</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00188">Damage::items</a>, et <a class="el" href="gfx_8c_source.html#l00032">LCD_RECT</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="app_8c_source.html#l00885">diag_next_pattern()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="app_8c_source.html#l00429">show_modal()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a99580b0a5d9ff3557611276dfd86b1e1_cgraph.svg" width="114" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a67be800d450e0519ef923669e4f354bc" name="a67be800d450e0519ef923669e4f354bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67be800d450e0519ef923669e4f354bc">&#9670;&#160;</a></span>gfx_disc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_disc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessiner un disque plein autour d'un centre. </p>
+<p>Intersecte le carré englobant avec la bande, puis conserve les pixels dont dx² + dy² ne dépasse pas le rayon au carré. Le calcul évite une racine carrée et protège les bords. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cx</td><td>Abscisse du centre ou du troisième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cy</td><td>Ordonnée du centre ou du troisième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">radius</td><td>Rayon entier positif ou nul, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00163">163</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00107">gfx_pixel()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, et <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a67be800d450e0519ef923669e4f354bc_cgraph.svg" width="423" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a97927b0ab32c9b7c95adc54a9c743f7f" name="a97927b0ab32c9b7c95adc54a9c743f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97927b0ab32c9b7c95adc54a9c743f7f">&#9670;&#160;</a></span>gfx_fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remplir la partie visible d'un rectangle. </p>
+<p>Intersecte d'abord l'emprise avec la bande, puis parcourt ses lignes. Toute écriture conserve le pas de la bande d'origine. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00122">122</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="calibration_8c_source.html#l00092">pixel()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00066">Gfx::pixels</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="app_8c_source.html#l01347">card()</a>, <a class="el" href="app_8c_source.html#l01407">draw_bar()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="app_8c_source.html#l01548">draw_paint()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l01451">draw_response()</a>, <a class="el" href="app_8c_source.html#l01389">draw_splash()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>, <a class="el" href="logo_8c_source.html#l00941">logo_draw()</a>, <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a97927b0ab32c9b7c95adc54a9c743f7f_cgraph.svg" width="379" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71b2ce09bccc4310953f4b85fb99425e" name="a71b2ce09bccc4310953f4b85fb99425e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b2ce09bccc4310953f4b85fb99425e">&#9670;&#160;</a></span>gfx_outline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_outline </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessiner les quatre côtés d'un rectangle. </p>
+<p>Quatre rectangles minces sont remplis. Les primitives sous-jacentes effectuent leur clipping même si un bord est hors de l'écran. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00146">146</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="app_8c_source.html#l01347">card()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l01451">draw_response()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, et <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a71b2ce09bccc4310953f4b85fb99425e_cgraph.svg" width="399" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a776b0c3a2059dea7baebfc3e85a2714d" name="a776b0c3a2059dea7baebfc3e85a2714d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a776b0c3a2059dea7baebfc3e85a2714d">&#9670;&#160;</a></span>gfx_pixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_pixel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Écrire un pixel dans le tampon de bande. </p>
+<p>Le clipping précède le calcul d'offset. Le mot RGB565 est rangé octet fort puis octet faible, ordre attendu par le SPI du TFT. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00107">107</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="gfx_8c_source.html#l00107">gfx_pixel()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00066">Gfx::pixels</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00107">gfx_pixel()</a>, <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, et <a class="el" href="paint_8c_source.html#l00178">paint_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a776b0c3a2059dea7baebfc3e85a2714d_cgraph.svg" width="250" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6b5b2c056e34384c60772bb7d2c1bb50" name="a6b5b2c056e34384c60772bb7d2c1bb50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b5b2c056e34384c60772bb7d2c1bb50">&#9670;&#160;</a></span>gfx_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessiner une chaîne avec une police de cinq par sept pixels. </p>
+<p>Chaque bit allumé produit un petit rectangle agrandi. L'avance de six pixels réserve un espace entre deux caractères. Le facteur d'échelle doit être positif. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>Chaîne valide terminée par zéro, conservée pendant l’appel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Facteur entier positif d’agrandissement des glyphes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00277">277</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>, <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="app_8c_source.html#l01347">card()</a>, <a class="el" href="app_8c_source.html#l00396">centered_text()</a>, <a class="el" href="app_8c_source.html#l01407">draw_bar()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="app_8c_source.html#l01548">draw_paint()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l01451">draw_response()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, et <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a6b5b2c056e34384c60772bb7d2c1bb50_cgraph.svg" width="380" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a517a4331601be273707c63e63d10979b" name="a517a4331601be273707c63e63d10979b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a517a4331601be273707c63e63d10979b">&#9670;&#160;</a></span>gfx_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx_triangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ay</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>by</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remplir un triangle par tests de demi-plans. </p>
+<p>Les produits croisés indiquent de quel côté de chaque arête se trouve un pixel. Accepter les deux orientations évite d'imposer un ordre des sommets. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ax</td><td>Abscisse du premier sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ay</td><td>Ordonnée du premier sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bx</td><td>Abscisse du deuxième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">by</td><td>Ordonnée du deuxième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cx</td><td>Abscisse du centre ou du troisième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cy</td><td>Ordonnée du centre ou du troisième sommet, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00252">252</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="gfx_8c_source.html#l00107">gfx_pixel()</a>, <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00051">max_int()</a>, <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, et <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a517a4331601be273707c63e63d10979b_cgraph.svg" width="447" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a483f913fa34cd8b2871e56fa7f7ed35c" name="a483f913fa34cd8b2871e56fa7f7ed35c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483f913fa34cd8b2871e56fa7f7ed35c">&#9670;&#160;</a></span>glyph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t * glyph </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>ch</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trouver les sept rangées d'un caractère. </p>
+<p>Les majuscules, minuscules, chiffres et signes utilisent des tables constantes. Un caractère absent est remplacé par la case espace. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ch</td><td>Caractère à chercher dans la police. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers sept octets de glyphes en lecture seule. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00227">227</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gfx_8c_source.html#l00180">digits</a>, <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>, <a class="el" href="gfx_8c_source.html#l00186">letters</a>, <a class="el" href="gfx_8c_source.html#l00207">lower_letters</a>, et <a class="el" href="#a427c69e84298e23a4ab27b659511d335">symbols</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>, et <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a483f913fa34cd8b2871e56fa7f7ed35c_cgraph.svg" width="70" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a94f155fcce337a2b9d4719ed8042cbbe" name="a94f155fcce337a2b9d4719ed8042cbbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f155fcce337a2b9d4719ed8042cbbe">&#9670;&#160;</a></span>max_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int max_int </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Choisir la plus grande de deux valeurs entières. </p>
+<p>Helper utilisé pour construire une enveloppe et vérifier des limites. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Valeur numérique à comparer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Valeur numérique à comparer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Maximum des deux arguments. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00051">51</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gfx_8c_source.html#l00051">max_int()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, <a class="el" href="gfx_8c_source.html#l00051">max_int()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, et <a class="el" href="gfx_8c_source.html#l00092">rect_union()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a94f155fcce337a2b9d4719ed8042cbbe_cgraph.svg" width="86" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a29a7a26d9387c01c1b4e9fe4fff5704a" name="a29a7a26d9387c01c1b4e9fe4fff5704a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a7a26d9387c01c1b4e9fe4fff5704a">&#9670;&#160;</a></span>min_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int min_int </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Choisir la plus petite de deux valeurs entières. </p>
+<p>Helper utilisé pour limiter les emprises avant leur intersection avec la bande. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Valeur numérique à comparer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Valeur numérique à comparer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Minimum des deux arguments. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00042">42</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00092">rect_union()</a>, et <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a29a7a26d9387c01c1b4e9fe4fff5704a_cgraph.svg" width="82" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a283661c2111fd8092727ba3616e9b333" name="a283661c2111fd8092727ba3616e9b333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283661c2111fd8092727ba3616e9b333">&#9670;&#160;</a></span>rect_contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rect_contains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tester l'appartenance d'un point à un rectangle. </p>
+<p>Les limites droite et basse sont exclues. Deux boutons adjacents ne peuvent donc pas consommer le même pixel de frontière. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le point appartient au rectangle. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00066">66</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="gfx_8c_source.html#l00107">gfx_pixel()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, <a class="el" href="paint_8c_source.html#l00072">paint_get()</a>, <a class="el" href="paint_8c_source.html#l00134">paint_segment()</a>, <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>, <a class="el" href="paint_8c_source.html#l00093">plot()</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, <a class="el" href="app_8c_source.html#l00744">rgb_drag()</a>, <a class="el" href="app_8c_source.html#l00962">settings_touch()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a283661c2111fd8092727ba3616e9b333_cgraph.svg" width="120" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a135b689508e9ec047ec2f791a4101846" name="a135b689508e9ec047ec2f791a4101846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135b689508e9ec047ec2f791a4101846">&#9670;&#160;</a></span>rect_intersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> rect_intersection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trouver la surface commune à deux rectangles. </p>
+<p>Le plus grand bord gauche et le plus petit bord droit donnent l'intervalle horizontal. Le même calcul est appliqué à la hauteur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Rectangle à comparer ou à combiner. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Rectangle à comparer ou à combiner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle commun, éventuellement vide. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00077">77</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00051">max_int()</a>, <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="paint_8c_source.html#l00178">paint_draw()</a>, <a class="el" href="paint_8c_source.html#l00134">paint_segment()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, et <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a135b689508e9ec047ec2f791a4101846_cgraph.svg" width="264" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a972f7038ac7c5f72eae8e6d20bd7b541" name="a972f7038ac7c5f72eae8e6d20bd7b541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a972f7038ac7c5f72eae8e6d20bd7b541">&#9670;&#160;</a></span>rect_union()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> rect_union </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construire une enveloppe rectangulaire commune. </p>
+<p>L'enveloppe couvre les deux rectangles. Elle sert notamment à fusionner une ancienne et une nouvelle emprise de sprite. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Rectangle à comparer ou à combiner. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Rectangle à comparer ou à combiner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Plus petit rectangle englobant les deux arguments. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00092">92</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00051">max_int()</a>, <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>, <a class="el" href="gfx_8c_source.html#l00092">rect_union()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="paint_8c_source.html#l00134">paint_segment()</a>, et <a class="el" href="gfx_8c_source.html#l00092">rect_union()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a972f7038ac7c5f72eae8e6d20bd7b541_cgraph.svg" width="224" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1fa4fc7dd28927c215eb54b2f77c7c89" name="a1fa4fc7dd28927c215eb54b2f77c7c89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa4fc7dd28927c215eb54b2f77c7c89">&#9670;&#160;</a></span>rect_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rect_valid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier qu'un rectangle possède une surface. </p>
+<p>Un rectangle vide a une largeur ou une hauteur non positive et ne demande aucun dessin. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si largeur et hauteur sont strictement positives. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00058">58</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, et <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a1fa4fc7dd28927c215eb54b2f77c7c89_cgraph.svg" width="98" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a99bf94cd931e2d081b78fe5623fcc849" name="a99bf94cd931e2d081b78fe5623fcc849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99bf94cd931e2d081b78fe5623fcc849">&#9670;&#160;</a></span>renderer_idle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool renderer_idle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRenderer.html">Renderer</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>pending</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tester si tous les rectangles demandés ont été transmis. </p>
+<p>Le DMA doit être libre, le lot courant terminé et la liste en attente vide avant une transaction flash différée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Machine d’état et tampon du rendu par bandes, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pending</td><td>Liste de rectangles à recomposer, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si aucune bande ni invalidation n'attend de traitement. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00353">353</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00246">Renderer::batch</a>, <a class="el" href="obcp__gfx_8h_source.html#l00189">Damage::count</a>, <a class="el" href="obcp__gfx_8h_source.html#l00250">Renderer::in_flight</a>, <a class="el" href="obcp__gfx_8h_source.html#l00248">Renderer::index</a>, et <a class="el" href="gfx_8c_source.html#l00353">renderer_idle()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="gfx_8c_source.html#l00353">renderer_idle()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a99bf94cd931e2d081b78fe5623fcc849_cgraph.svg" width="119" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7aad3aeefb3bfad8f63100649aa9fdb1" name="a7aad3aeefb3bfad8f63100649aa9fdb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aad3aeefb3bfad8f63100649aa9fdb1">&#9670;&#160;</a></span>renderer_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderer_task </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRenderer.html">Renderer</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>pending</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__gfx_8h.html#af121ff33aa7512f219999d01aee20332">DrawScene</a></td>          <td class="paramname"><span class="paramname"><em>draw</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer l'envoi non bloquant d'une bande. </p>
+<p>Une bande en vol est d'abord contrôlée. Sinon, un lot de rectangles est capturé et une bande de 16 lignes au plus est recomposée puis confiée au transport. Le même tampon est réutilisé seulement après la fin du transfert. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">r</td><td>Machine d’état et tampon du rendu par bandes. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pending</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">draw</td><td>Callback de recomposition d’une bande, appelé avant send(). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scene</td><td>Contexte opaque transmis sans allocation. Le port physique peut ne pas l’utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00365">365</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00031">BAND_ROWS</a>, <a class="el" href="obcp__gfx_8h_source.html#l00252">Renderer::bands</a>, <a class="el" href="obcp__gfx_8h_source.html#l00246">Renderer::batch</a>, <a class="el" href="obcp__gfx_8h_source.html#l00251">Renderer::batches</a>, <a class="el" href="obcp__gfx_8h_source.html#l00255">Renderer::buffer</a>, <a class="el" href="obcp__gfx_8h_source.html#l00225">DisplayPort::context</a>, <a class="el" href="obcp__gfx_8h_source.html#l00189">Damage::count</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00254">Renderer::errors</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__gfx_8h_source.html#l00250">Renderer::in_flight</a>, <a class="el" href="obcp__gfx_8h_source.html#l00248">Renderer::index</a>, <a class="el" href="obcp__gfx_8h_source.html#l00188">Damage::items</a>, <a class="el" href="gfx_8c_source.html#l00042">min_int()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00253">Renderer::pixels</a>, <a class="el" href="obcp__gfx_8h_source.html#l00227">DisplayPort::poll</a>, <a class="el" href="obcp__gfx_8h_source.html#l00245">Renderer::port</a>, <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00249">Renderer::rows</a>, <a class="el" href="obcp__gfx_8h_source.html#l00226">DisplayPort::send</a>, <a class="el" href="obcp__gfx_8h_source.html#l00247">Renderer::sent</a>, <a class="el" href="obcp__gfx_8h_source.html#l00214">TRANSFER_BUSY</a>, <a class="el" href="obcp__gfx_8h_source.html#l00216">TRANSFER_ERROR</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="gfx_8c_a7aad3aeefb3bfad8f63100649aa9fdb1_cgraph.svg" width="274" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a59aebea400b80c9975ea63a94708bc7f" name="a59aebea400b80c9975ea63a94708bc7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59aebea400b80c9975ea63a94708bc7f">&#9670;&#160;</a></span>digits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t digits[][7]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                            = {</div>
+<div class="line">    {14,17,19,21,25,17,14}, {4,12,4,4,4,4,14}, {14,17,1,2,4,8,31},</div>
+<div class="line">    {30,1,1,14,1,1,30}, {2,6,10,18,31,2,2}, {31,16,16,30,1,1,30},</div>
+<div class="line">    {6,8,16,30,17,17,14}, {31,1,2,4,8,8,8}, {14,17,17,14,17,17,14},</div>
+<div class="line">    {14,17,17,15,1,2,12}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Glyphes des dix chiffres. Chaque octet décrit les cinq bits d'une rangée. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00180">180</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>.</p>
+
+</div>
+</div>
+<a id="aea3060035e49b901cb4ab30682c98655" name="aea3060035e49b901cb4ab30682c98655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea3060035e49b901cb4ab30682c98655">&#9670;&#160;</a></span>LCD_RECT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structRect.html">Rect</a> LCD_RECT = {0, 0, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a>, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rectangle de tout l'écran paysage, de 320 × 240 pixels. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00032">32</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, et <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>.</p>
+
+</div>
+</div>
+<a id="af44026ee9223a4285dca3acefdb1bbfb" name="af44026ee9223a4285dca3acefdb1bbfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af44026ee9223a4285dca3acefdb1bbfb">&#9670;&#160;</a></span>letters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t letters[][7]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                             = {</div>
+<div class="line">    {14,17,17,31,17,17,17}, {30,17,17,30,17,17,30}, {14,17,16,16,16,17,14},</div>
+<div class="line">    {30,17,17,17,17,17,30}, {31,16,16,30,16,16,31}, {31,16,16,30,16,16,16},</div>
+<div class="line">    {14,17,16,23,17,17,15}, {17,17,17,31,17,17,17}, {14,4,4,4,4,4,14},</div>
+<div class="line">    {7,2,2,2,2,18,12}, {17,18,20,24,20,18,17}, {16,16,16,16,16,16,31},</div>
+<div class="line">    {17,27,21,21,17,17,17}, {17,25,21,19,17,17,17}, {14,17,17,17,17,17,14},</div>
+<div class="line">    {30,17,17,30,16,16,16}, {14,17,17,17,21,18,13}, {30,17,17,30,20,18,17},</div>
+<div class="line">    {15,16,16,14,1,1,30}, {31,4,4,4,4,4,4}, {17,17,17,17,17,17,14},</div>
+<div class="line">    {17,17,17,17,17,10,4}, {17,17,17,21,21,21,10}, {17,17,10,4,10,17,17},</div>
+<div class="line">    {17,17,10,4,4,4,4}, {31,1,2,4,8,16,31}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Glyphes des vingt-six majuscules, sept rangées par caractère. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00186">186</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>.</p>
+
+</div>
+</div>
+<a id="a4e5c3ef0734cc3ebc991ed63b158581e" name="a4e5c3ef0734cc3ebc991ed63b158581e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5c3ef0734cc3ebc991ed63b158581e">&#9670;&#160;</a></span>lower_letters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t lower_letters[26][7]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                                   = {</div>
+<div class="line">    {0,0,14,1,15,17,15}, {16,16,22,25,17,17,30}, {0,0,14,16,16,17,14},</div>
+<div class="line">    {1,1,13,19,17,17,15}, {0,0,14,17,31,16,14}, {6,9,8,28,8,8,8},</div>
+<div class="line">    {0,0,15,17,15,1,14}, {16,16,22,25,17,17,17}, {4,0,12,4,4,4,14},</div>
+<div class="line">    {2,0,6,2,2,18,12}, {16,16,18,20,24,20,18}, {12,4,4,4,4,4,14},</div>
+<div class="line">    {0,0,26,21,21,21,21}, {0,0,22,25,17,17,17}, {0,0,14,17,17,17,14},</div>
+<div class="line">    {0,0,30,17,30,16,16}, {0,0,15,17,15,1,1}, {0,0,22,25,16,16,16},</div>
+<div class="line">    {0,0,15,16,14,1,30}, {8,8,28,8,8,9,6}, {0,0,17,17,17,19,13},</div>
+<div class="line">    {0,0,17,17,17,10,4}, {0,0,17,17,21,21,10}, {0,0,17,10,4,10,17},</div>
+<div class="line">    {0,0,17,17,15,1,14}, {0,0,31,2,4,8,31}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Glyphes minuscules, utilisés notamment par la signature du menu. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="gfx_8c_source.html#l00207">207</a> du fichier <a class="el" href="gfx_8c_source.html">gfx.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>.</p>
+
+</div>
+</div>
+<a id="a427c69e84298e23a4ab27b659511d335" name="a427c69e84298e23a4ab27b659511d335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427c69e84298e23a4ab27b659511d335">&#9670;&#160;</a></span>symbols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="struct_0fstruct_0e_8symbols.html">[struct].symbols</a> symbols[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="charliteral">&#39; &#39;</span>,{0,0,0,0,0,0,0}}, {<span class="charliteral">&#39;-&#39;</span>,{0,0,0,31,0,0,0}}, {<span class="charliteral">&#39;.&#39;</span>,{0,0,0,0,0,6,6}},</div>
+<div class="line">    {<span class="charliteral">&#39;+&#39;</span>,{0,4,4,31,4,4,0}}, {<span class="charliteral">&#39;:&#39;</span>,{0,6,6,0,6,6,0}}, {<span class="charliteral">&#39;/&#39;</span>,{1,2,2,4,8,8,16}},</div>
+<div class="line">    {<span class="charliteral">&#39;&lt;&#39;</span>,{1,2,4,8,4,2,1}}, {<span class="charliteral">&#39;&gt;&#39;</span>,{16,8,4,2,4,8,16}}, {<span class="charliteral">&#39;!&#39;</span>,{4,4,4,4,4,0,4}},</div>
+<div class="line">    {<span class="charliteral">&#39;?&#39;</span>,{14,17,1,2,4,0,4}}, {<span class="charliteral">&#39;%&#39;</span>,{24,25,2,4,8,19,3}}, {<span class="charliteral">&#39;=&#39;</span>,{0,0,31,0,31,0,0}}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Correspondance entre signes de ponctuation et leurs sept rangées de pixels. </p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00227">glyph()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="gfx_8c.html">gfx.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

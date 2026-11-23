@@ -1,0 +1,10 @@
+<map id="accel_read_temperature" name="accel_read_temperature">
+<area shape="rect" id="Node000001" title="Lire une indication de température du capteur." alt="" coords="5,29,185,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="65,31,59,21,62,11,75,5,95,3,120,6,131,15,127,19,118,11,95,8,76,10,66,15,64,20,70,28"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="233,29,320,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="185,39,220,39,220,45,185,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="253,30,248,21,251,11,261,5,277,3,296,6,304,15,300,18,293,11,277,8,262,10,255,15,253,20,258,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="368,29,467,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="320,39,354,39,354,45,320,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="394,30,389,21,391,11,401,5,417,3,437,6,445,15,441,18,434,11,417,8,403,10,396,15,394,20,398,28"/>
+</map>

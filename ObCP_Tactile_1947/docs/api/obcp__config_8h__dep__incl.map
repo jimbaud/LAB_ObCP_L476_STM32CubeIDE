@@ -1,0 +1,11 @@
+<map id="Core/Inc/obcp_config.h" name="Core/Inc/obcp_config.h">
+<area shape="rect" id="Node000001" title="Valeurs initiales de repère pour le montage ObCP." alt="" coords="273,5,441,31"/>
+<area shape="rect" id="Node000002" href="$app_8c.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="5,79,156,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="300,37,126,81,125,76,298,31"/>
+<area shape="rect" id="Node000003" href="$board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle." alt="" coords="181,79,343,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="332,41,279,81,276,76,329,37"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="367,79,538,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="385,37,439,76,435,81,382,41"/>
+<area shape="rect" id="Node000005" href="$input_8c.html" title="Filtrage du contact, de SW1 et de l’inclinaison." alt="" coords="563,79,721,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="416,31,596,76,595,81,415,37"/>
+</map>

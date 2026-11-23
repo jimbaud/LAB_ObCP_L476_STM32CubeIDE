@@ -1,0 +1,13 @@
+<map id="update_rates" name="update_rates">
+<area shape="rect" id="Node000001" title="Publier les mesures et les compteurs de diagnostic." alt="" coords="5,67,112,92"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="29,68,23,58,26,49,39,42,59,40,83,44,93,52,90,56,81,48,59,45,40,47,30,52,28,58,34,65"/>
+<area shape="rect" id="Node000002" href="$pwm__audio_8c.html#aa60d391d2311871c1b440c4aaa671516" title="Consulter le nombre d&#39;échéances ou erreurs audio." alt="" coords="160,29,311,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,66,161,55,162,60,113,71"/>
+<area shape="rect" id="Node000003" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="179,103,291,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="113,88,166,99,165,104,112,93"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="206,31,200,21,203,11,215,5,235,3,260,6,270,15,266,19,257,11,235,8,217,10,207,15,205,20,210,28"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="206,104,200,94,203,85,215,78,235,76,260,80,270,88,266,92,257,84,235,81,217,83,207,88,205,94,210,101"/>
+<area shape="rect" id="Node000004" href="$calibration_8c.html#a835c2a46780f0da559cf58d9e6209057" title="Associer un contrôleur résistif à sa place dans le livre." alt="" coords="359,103,465,128"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="292,113,345,113,345,118,292,118"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="383,104,377,94,380,85,392,78,412,76,436,80,446,88,443,92,434,84,412,81,393,83,384,88,382,94,387,101"/>
+</map>

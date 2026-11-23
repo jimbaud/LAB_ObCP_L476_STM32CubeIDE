@@ -1,0 +1,7 @@
+<map id="touch_filter" name="touch_filter">
+<area shape="rect" id="Node000001" title="Stabiliser un contact résistif et ses coordonnées." alt="" coords="5,29,100,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="30,30,26,21,28,11,37,5,53,3,71,6,79,14,75,18,68,11,53,8,39,10,32,14,31,20,35,28"/>
+<area shape="rect" id="Node000002" href="$input_8c.html#ab481d47ea96d701cc9bb513bc3a47513" title="Choisir la valeur médiane de trois coordonnées." alt="" coords="148,29,219,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,39,134,39,134,45,100,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="161,30,156,21,159,11,168,5,183,3,201,6,209,14,205,18,199,11,183,8,170,10,163,14,162,20,166,28"/>
+</map>

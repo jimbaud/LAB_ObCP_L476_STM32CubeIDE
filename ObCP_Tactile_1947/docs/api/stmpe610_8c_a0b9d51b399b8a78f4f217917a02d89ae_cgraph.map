@@ -1,0 +1,7 @@
+<map id="reg_read" name="reg_read">
+<area shape="rect" id="Node000001" title="Lire un registre STMPE610 avec son octet factice." alt="" coords="5,29,84,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="22,30,17,21,20,11,29,5,45,3,63,6,71,14,67,18,60,11,45,8,31,10,24,14,22,20,26,28"/>
+<area shape="rect" id="Node000002" href="$stmpe610_8c.html#a1a6c235ce788ea4ccfa5228135e6d573" title="Échanger un message sous la sélection tactile D8." alt="" coords="132,29,227,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="84,39,118,39,118,45,84,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="156,30,152,21,154,11,164,5,179,3,198,6,206,14,202,18,195,11,179,8,166,10,159,14,157,20,161,28"/>
+</map>

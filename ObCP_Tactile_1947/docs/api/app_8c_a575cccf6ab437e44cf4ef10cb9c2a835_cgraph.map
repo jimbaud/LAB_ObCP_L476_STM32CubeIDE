@@ -1,0 +1,25 @@
+<map id="draw_menu" name="draw_menu">
+<area shape="rect" id="Node000001" title="Composer les six entrées et la signature du lanceur." alt="" coords="5,123,104,149"/>
+<area shape="poly" id="edge14_Node000001_Node000001" title=" " alt="" coords="29,125,24,115,26,105,37,99,55,97,76,100,85,109,81,113,73,105,55,102,39,104,31,109,29,114,34,122"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#ab367d15741a8384490ae3451397de251" title="Dessiner une grande carte de menu uniforme." alt="" coords="183,50,233,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,121,151,86,169,77,172,82,153,90,82,126"/>
+<area shape="rect" id="Node000012" href="$app_8c.html#a82f182070bba784eb7f341aeb2efe703" title="Centrer une chaîne dans la largeur du TFT." alt="" coords="152,123,264,149"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="104,133,138,133,138,139,104,139"/>
+<area shape="rect" id="Node000013" href="$app_8c.html#aa60261498bd130e33b1818e41e0aaa8f" title="Calculer le rectangle de une des six applications." alt="" coords="161,197,255,222"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="83,146,169,188,167,193,81,151"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="183,51,177,42,180,32,191,26,208,23,229,27,238,35,234,39,226,32,208,29,193,31,184,35,183,41,187,49"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="455,50,521,75"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="228,48,266,27,311,11,360,3,407,11,437,23,462,39,459,44,434,28,406,16,360,8,313,16,268,32,230,52"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="312,50,407,75"/>
+<area shape="poly" id="edge5_Node000002_Node000009" title=" " alt="" coords="234,60,298,60,298,65,234,65"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="321,123,397,149"/>
+<area shape="poly" id="edge8_Node000002_Node000010" title=" " alt="" coords="235,71,265,86,323,115,321,120,263,90,232,76"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="466,51,461,42,464,32,473,26,488,23,506,27,514,35,510,39,503,31,488,29,475,31,468,35,467,41,471,49"/>
+<area shape="poly" id="edge6_Node000009_Node000003" title=" " alt="" coords="407,60,441,60,441,65,407,65"/>
+<area shape="poly" id="edge7_Node000009_Node000009" title=" " alt="" coords="337,51,333,42,335,32,344,26,359,23,377,27,385,35,381,39,374,31,359,29,346,31,340,35,338,41,342,49"/>
+<area shape="poly" id="edge9_Node000010_Node000003" title=" " alt="" coords="381,121,452,80,454,85,384,126"/>
+<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="337,124,333,115,335,106,344,99,359,97,377,100,385,108,381,112,374,105,359,102,346,104,340,109,338,114,342,122"/>
+<area shape="poly" id="edge13_Node000012_Node000010" title=" " alt="" coords="264,133,308,133,308,139,264,139"/>
+<area shape="poly" id="edge12_Node000012_Node000012" title=" " alt="" coords="183,125,177,115,180,105,191,99,208,97,229,100,238,109,234,113,226,105,208,102,193,104,184,109,183,114,187,122"/>
+<area shape="poly" id="edge16_Node000013_Node000013" title=" " alt="" coords="183,198,177,188,180,179,191,172,208,170,229,174,238,182,234,186,226,178,208,175,193,177,184,182,183,188,187,195"/>
+</map>

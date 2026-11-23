@@ -1,0 +1,10 @@
+<map id="stop" name="stop">
+<area shape="rect" id="Node000001" title="Arrêter le transport et revenir au niveau de repos." alt="" coords="5,67,56,92"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="11,68,7,58,9,49,17,42,31,40,47,43,54,52,50,55,44,48,31,45,19,47,13,52,12,58,15,65"/>
+<area shape="rect" id="Node000002" href="$pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d" title="Retrouver le handle DMA associé aux mises à jour de TIM1." alt="" coords="121,29,172,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,69,107,52,109,57,57,74"/>
+<area shape="rect" id="Node000003" href="$pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0" title="Placer PB1 à zéro en sortie GPIO." alt="" coords="104,103,189,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="57,84,93,96,91,101,55,90"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="127,30,123,21,125,12,133,5,147,3,163,6,170,14,166,18,160,11,147,8,135,10,129,14,128,20,131,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="127,104,123,94,125,85,133,78,147,76,163,79,170,88,166,91,160,84,147,81,135,83,129,88,128,94,131,101"/>
+</map>

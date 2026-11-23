@@ -1,0 +1,42 @@
+<map id="race_step" name="race_step">
+<area shape="rect" id="Node000001" title="Avancer direction, trafic et état de collision." alt="" coords="5,279,91,304"/>
+<area shape="poly" id="edge22_Node000001_Node000001" title=" " alt="" coords="23,280,18,270,21,261,31,254,48,252,68,256,77,264,73,268,66,260,48,257,33,259,25,264,23,270,28,277"/>
+<area shape="rect" id="Node000002" href="$race_8c.html#ac84a5a7328eff67860767c30560fc2e1" title="Convertir le centre horizontal du joueur en rectangle." alt="" coords="159,29,232,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,278,58,240,74,186,100,127,117,98,137,72,151,60,154,64,141,76,121,101,105,129,79,188,63,241,54,279"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="300,155,407,180"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="54,277,86,232,109,208,137,189,174,174,213,166,286,160,286,166,213,171,175,180,140,194,113,212,90,236,59,280"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="469,81,571,107"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="52,277,82,219,106,186,137,157,175,135,216,117,259,104,302,95,385,87,455,86,455,92,385,92,303,101,260,110,218,122,177,139,140,161,110,189,86,222,57,280"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="455,228,585,253"/>
+<area shape="poly" id="edge23_Node000001_Node000005" title=" " alt="" coords="91,288,231,281,406,263,456,254,457,259,407,269,231,286,91,293"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="477,315,563,340"/>
+<area shape="poly" id="edge24_Node000001_Node000009" title=" " alt="" coords="91,299,139,307,227,316,316,321,463,325,463,330,316,327,227,321,138,313,90,304"/>
+<area shape="rect" id="Node000010" href="$race_8c.html#abcf9910723248cdb598cdb24684d5263" title="Invalider les marquages à un décalage donné." alt="" coords="139,228,252,253"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="85,276,144,255,146,260,87,281"/>
+<area shape="rect" id="Node000012" href="$race_8c.html#aadd5d2edbc68622ecebb4548fe099821" title="Lire l&#39;objectif de dépassements du niveau." alt="" coords="153,404,238,429"/>
+<area shape="poly" id="edge20_Node000001_Node000012" title=" " alt="" coords="66,302,171,393,167,397,63,306"/>
+<area shape="rect" id="Node000013" href="$race_8c.html#a73f9e75e67f0a315d46533a3f9969e61" title="Calculer l&#39;emprise d&#39;un adversaire selon son véhicule." alt="" coords="154,477,237,503"/>
+<area shape="poly" id="edge25_Node000001_Node000013" title=" " alt="" coords="58,303,90,365,113,403,141,440,168,467,164,470,137,444,109,406,85,367,53,306"/>
+<area shape="rect" id="Node000014" href="$race_8c.html#ad046de6584c1e301043ba8781df2f36d" title="Créer un adversaire dans une place libre." alt="" coords="163,551,227,576"/>
+<area shape="poly" id="edge27_Node000001_Node000014" title=" " alt="" coords="55,304,82,396,107,456,141,514,166,540,162,544,137,517,103,459,77,398,50,305"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="170,31,165,21,168,11,178,5,195,3,216,6,224,15,221,18,213,11,195,8,180,10,172,15,171,20,175,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="327,156,321,146,324,137,335,130,353,128,375,131,384,140,381,144,373,136,353,133,337,135,328,140,327,146,331,153"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="378,152,454,116,469,109,471,114,456,120,380,157"/>
+<area shape="poly" id="edge7_Node000003_Node000005" title=" " alt="" coords="384,178,479,220,476,225,382,183"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="475,155,565,180"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="407,165,461,165,461,170,407,170"/>
+<area shape="poly" id="edge11_Node000003_Node000009" title=" " alt="" coords="391,178,408,189,425,208,435,226,443,244,457,264,495,304,491,307,453,268,438,246,430,228,421,211,405,193,388,182"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="492,83,486,73,490,63,501,57,520,55,543,58,552,67,549,71,540,63,520,60,503,62,494,67,492,72,497,80"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="492,229,486,220,490,210,501,204,520,201,543,205,552,213,549,217,540,210,520,207,503,209,494,213,492,219,497,226"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="492,156,486,146,490,137,501,130,520,128,543,131,552,140,549,144,540,136,520,133,503,135,494,140,492,146,497,153"/>
+<area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="492,316,486,306,490,297,501,290,520,288,543,291,552,300,549,304,540,296,520,293,503,295,494,300,492,306,497,313"/>
+<area shape="poly" id="edge15_Node000010_Node000003" title=" " alt="" coords="222,225,299,189,310,184,313,188,301,194,225,230"/>
+<area shape="poly" id="edge19_Node000010_Node000010" title=" " alt="" coords="170,229,165,220,168,210,178,204,195,201,216,205,224,213,221,217,213,210,195,207,180,209,172,213,171,219,175,227"/>
+<area shape="rect" id="Node000011" href="$race_8c.html#ad1065d7ddd94b4aa4577f43ac5896916" title="Calculer la partie visible d&#39;un marquage routier." alt="" coords="327,228,380,253"/>
+<area shape="poly" id="edge16_Node000010_Node000011" title=" " alt="" coords="252,238,313,238,313,243,252,243"/>
+<area shape="poly" id="edge18_Node000011_Node000005" title=" " alt="" coords="380,238,441,238,441,243,380,243"/>
+<area shape="poly" id="edge17_Node000011_Node000011" title=" " alt="" coords="327,229,321,220,324,210,335,204,353,201,375,205,384,213,381,217,373,210,353,207,337,209,328,213,327,219,331,227"/>
+<area shape="poly" id="edge21_Node000012_Node000012" title=" " alt="" coords="170,405,165,396,168,386,178,380,195,377,216,381,224,389,221,393,213,386,195,383,180,385,172,389,171,395,175,403"/>
+<area shape="poly" id="edge26_Node000013_Node000013" title=" " alt="" coords="170,479,165,469,168,459,178,453,195,451,216,454,224,463,221,466,213,459,195,456,180,458,172,463,171,468,175,476"/>
+<area shape="poly" id="edge28_Node000014_Node000014" title=" " alt="" coords="170,552,165,542,168,533,178,526,195,524,216,528,224,536,221,540,213,532,195,529,180,531,172,536,171,542,175,549"/>
+</map>

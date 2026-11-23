@@ -1,0 +1,15 @@
+<map id="send_command" name="send_command">
+<area shape="rect" id="Node000001" title="Envoyer une commande de conversion TSC2007." alt="" coords="5,29,131,55"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="42,31,37,21,40,11,50,5,68,3,89,6,98,15,94,19,87,11,68,8,52,10,44,15,42,20,47,28"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="179,29,265,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,39,165,39,165,45,131,45"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="196,31,191,21,194,11,204,5,222,3,243,6,252,15,248,19,241,11,222,8,206,10,198,15,196,20,201,28"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#ae22b3a371df97ab3f610d8ef2c2e5835" title="Émettre une commande en plaçant D/C à zéro." alt="" coords="313,29,444,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="265,47,299,48,299,54,265,53"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="492,55,579,80"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="263,52,314,63,400,69,478,68,478,74,400,75,313,69,262,57"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="313,36,279,36,279,31,313,30"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="353,31,347,21,350,11,361,5,379,3,400,6,409,15,405,19,398,11,379,8,363,10,354,15,352,20,357,28"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="445,50,479,56,478,61,444,55"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="509,56,504,46,507,37,518,30,535,28,557,31,566,40,562,44,554,36,535,33,519,35,511,40,509,46,514,53"/>
+</map>

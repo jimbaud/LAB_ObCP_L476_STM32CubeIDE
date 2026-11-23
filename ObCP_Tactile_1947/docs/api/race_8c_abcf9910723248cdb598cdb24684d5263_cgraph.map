@@ -1,0 +1,23 @@
+<map id="dash_damage" name="dash_damage">
+<area shape="rect" id="Node000001" title="Invalider les marquages à un décalage donné." alt="" coords="5,67,119,92"/>
+<area shape="poly" id="edge14_Node000001_Node000001" title=" " alt="" coords="35,68,30,58,33,49,44,42,62,40,84,43,93,52,89,56,81,48,62,45,46,47,37,52,35,58,40,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="167,103,273,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,89,154,98,153,103,117,95"/>
+<area shape="rect" id="Node000009" href="$race_8c.html#ad1065d7ddd94b4aa4577f43ac5896916" title="Calculer la partie visible d&#39;un marquage routier." alt="" coords="193,29,247,55"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="116,64,180,49,181,54,117,69"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="193,104,188,94,191,85,202,78,220,76,242,79,251,88,247,92,239,84,220,81,204,83,195,88,193,94,198,101"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="335,103,438,128"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="274,113,322,113,322,118,274,118"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="321,29,452,55"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="245,100,320,64,336,57,338,62,322,68,247,105"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="341,176,432,201"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="251,126,345,168,343,173,249,131"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="343,249,430,275"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="235,126,273,166,323,212,358,239,354,243,320,216,270,169,231,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="359,104,353,94,356,85,368,78,387,76,409,79,419,88,416,92,407,84,387,81,369,83,360,88,358,94,363,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="359,31,353,21,356,11,368,5,387,3,409,6,419,15,416,19,407,11,387,8,369,10,360,15,358,20,363,28"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="359,177,353,168,356,158,368,152,387,149,409,153,419,161,416,165,407,158,387,155,369,157,360,161,358,167,363,174"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="359,251,353,241,356,231,368,225,387,223,409,226,419,235,416,239,407,231,387,228,369,230,360,235,358,240,363,248"/>
+<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="247,39,307,39,307,45,247,45"/>
+<area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="193,31,188,21,191,11,202,5,220,3,242,6,251,15,247,19,239,11,220,8,204,10,195,15,193,20,198,28"/>
+</map>

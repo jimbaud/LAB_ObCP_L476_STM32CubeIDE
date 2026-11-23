@@ -1,0 +1,17 @@
+<map id="inspect" name="inspect">
+<area shape="rect" id="Node000001" title="Valider l&#39;en&#45;tête, la longueur et le contenu d&#39;une copie." alt="" coords="5,103,75,128"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="16,104,11,94,14,85,24,78,40,76,59,80,68,88,64,92,57,84,40,81,26,83,18,88,17,94,21,101"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a5aa66fb4259b7415431015f4ad208912" title="Calculer un CRC en relisant la flash par petits blocs." alt="" coords="140,29,219,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,100,121,64,133,58,135,63,124,68,62,105"/>
+<area shape="rect" id="Node000004" href="$storage_8c.html#aacbea3e66e42bc3c02264361bd29e60b" title="Décoder un entier little&#45;endian de quatre octets." alt="" coords="150,103,209,128"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="75,113,136,113,136,118,75,118"/>
+<area shape="rect" id="Node000005" href="$storage_8c.html#a5101ec40d60b123d4fbb34795966fa5f" title="Calculer le CRC32 d&#39;un bloc de données." alt="" coords="123,176,236,201"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="66,126,143,167,141,172,64,130"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="156,30,151,21,153,11,163,5,179,3,199,6,207,15,203,18,196,11,179,8,165,10,158,15,156,20,160,28"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a13239798b871b82e956686baa3b67adb" title="Poursuivre le calcul bit à bit d&#39;un CRC32." alt="" coords="284,103,388,128"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,52,237,64,299,94,297,99,235,68,210,57"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="310,104,304,94,307,85,318,78,336,76,357,79,366,88,363,92,355,84,336,81,320,83,312,88,310,94,314,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="156,104,151,94,153,85,163,78,179,76,199,80,207,88,203,92,196,84,179,81,165,83,158,88,156,94,160,101"/>
+<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="206,173,294,132,296,136,209,178"/>
+<area shape="poly" id="edge10_Node000005_Node000005" title=" " alt="" coords="156,177,151,168,153,158,163,152,179,149,199,153,207,161,203,165,196,158,179,155,165,157,158,161,156,167,160,175"/>
+</map>

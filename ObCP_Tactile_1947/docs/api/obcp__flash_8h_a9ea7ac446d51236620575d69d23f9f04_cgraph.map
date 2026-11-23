@@ -1,0 +1,23 @@
+<map id="obcp_flash_storage" name="obcp_flash_storage">
+<area shape="rect" id="Node000001" title="Construire le port utilisé par storage.c." alt="" coords="5,140,152,165"/>
+<area shape="poly" id="edge15_Node000001_Node000001" title=" " alt="" coords="49,141,43,132,46,122,58,116,79,113,103,117,114,126,110,130,101,122,79,119,60,121,50,125,48,131,53,138"/>
+<area shape="rect" id="Node000002" href="$flash__port_8c.html#a882681ca046e05e7ca2acc252f8f6b5d" title="Effacer un nombre entier de pages en banque 2." alt="" coords="209,103,305,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,137,195,126,196,131,141,143"/>
+<area shape="rect" id="Node000004" href="$flash__port_8c.html#a00f6619a0a7f84cde062ae785b23a141" title="Vérifier la géométrie réelle avant de modifier la flash." alt="" coords="363,176,497,201"/>
+<area shape="poly" id="edge14_Node000001_Node000004" title=" " alt="" coords="99,163,144,189,172,202,201,211,246,218,292,217,375,202,376,207,293,222,246,223,199,217,170,207,142,194,97,168"/>
+<area shape="rect" id="Node000005" href="$flash__port_8c.html#a2f383d10f017226deeb7c96ba5e3a42e" title="Programmer exactement un double mot aligné." alt="" coords="200,176,315,201"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="143,163,187,172,186,177,142,168"/>
+<area shape="rect" id="Node000006" href="$flash__port_8c.html#ae211ff08aca7a651392cef7740bc0b1a" title="Lire une plage mémoire et surveiller son ECC." alt="" coords="213,29,302,55"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="94,138,140,102,199,64,209,58,212,63,201,68,143,107,97,142"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="229,104,223,94,226,85,238,78,257,76,281,79,291,88,287,92,278,84,257,81,239,83,230,88,228,94,233,101"/>
+<area shape="rect" id="Node000003" href="$flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac" title="Vérifier une plage d&#39;offsets dans la réserve." alt="" coords="391,103,469,128"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="306,113,377,113,377,118,306,118"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="289,126,316,137,388,168,385,173,314,142,287,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="401,104,395,94,399,85,411,78,430,76,453,79,463,88,460,92,451,84,430,81,412,83,403,88,401,94,406,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="401,177,395,168,399,158,411,152,430,149,453,153,463,161,460,165,451,158,430,155,412,157,403,161,401,167,406,174"/>
+<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="283,173,362,137,378,130,380,135,364,142,285,178"/>
+<area shape="poly" id="edge10_Node000005_Node000004" title=" " alt="" coords="315,186,349,186,349,191,315,191"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="229,177,223,168,226,158,238,152,257,149,281,153,291,161,287,165,278,158,257,155,239,157,230,161,228,167,233,174"/>
+<area shape="poly" id="edge13_Node000006_Node000003" title=" " alt="" coords="289,52,316,64,388,95,385,99,314,68,287,57"/>
+<area shape="poly" id="edge12_Node000006_Node000006" title=" " alt="" coords="229,31,223,21,226,11,238,5,257,3,281,6,291,15,287,19,278,11,257,8,239,10,230,15,228,20,233,28"/>
+</map>

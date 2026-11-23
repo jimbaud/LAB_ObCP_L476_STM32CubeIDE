@@ -1,0 +1,7 @@
+<map id="write_reg" name="write_reg">
+<area shape="rect" id="Node000001" title="Écrire un registre de l&#39;accéléromètre." alt="" coords="5,29,88,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="23,30,18,21,21,11,31,5,47,3,66,6,74,15,70,18,63,11,47,8,32,10,25,15,23,20,28,28"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="136,29,235,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,39,122,39,122,45,88,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="162,30,157,21,159,11,169,5,185,3,205,6,213,15,209,18,202,11,185,8,171,10,164,15,162,20,166,28"/>
+</map>

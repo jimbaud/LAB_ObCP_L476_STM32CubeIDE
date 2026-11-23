@@ -1,0 +1,24 @@
+<map id="damage_add" name="damage_add">
+<area shape="rect" id="Node000001" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="5,140,112,165"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="31,141,25,132,28,122,40,116,59,113,81,117,91,125,88,129,79,122,59,119,41,121,32,125,30,131,35,138"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="174,29,277,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="70,138,107,102,159,64,170,58,172,62,161,68,111,106,74,142"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="160,103,291,128"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="112,138,154,128,155,134,113,143"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="180,176,271,201"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="113,162,167,173,166,179,112,167"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="182,249,269,275"/>
+<area shape="poly" id="edge14_Node000001_Node000007" title=" " alt="" coords="81,163,195,239,192,244,78,168"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="200,31,195,21,198,11,208,5,225,3,246,6,255,15,251,19,243,11,225,8,210,10,202,15,200,20,205,28"/>
+<area shape="poly" id="edge9_Node000003_Node000003" title=" " alt="" coords="200,104,195,94,198,85,208,78,225,76,246,80,255,88,251,92,243,84,225,81,210,83,202,88,200,94,205,101"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="339,103,413,128"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="291,113,325,113,325,118,291,118"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="341,176,411,201"/>
+<area shape="poly" id="edge7_Node000003_Node000005" title=" " alt="" coords="265,126,292,137,345,166,342,171,290,142,263,131"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="351,104,345,94,348,85,359,78,376,76,397,80,406,88,402,92,394,84,376,81,361,83,352,88,351,94,355,101"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="351,177,345,168,348,158,359,152,376,149,397,153,406,161,402,165,394,158,376,155,361,157,352,161,351,167,355,175"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="251,174,335,132,338,137,254,178"/>
+<area shape="poly" id="edge12_Node000006_Node000005" title=" " alt="" coords="271,186,327,186,327,191,271,191"/>
+<area shape="poly" id="edge13_Node000006_Node000006" title=" " alt="" coords="200,177,195,168,198,158,208,152,225,149,246,153,255,161,251,165,243,158,225,155,210,157,202,161,200,167,205,175"/>
+<area shape="poly" id="edge15_Node000007_Node000007" title=" " alt="" coords="200,251,195,241,198,231,208,225,225,223,246,226,255,235,251,239,243,231,225,228,210,230,202,235,200,240,205,248"/>
+</map>

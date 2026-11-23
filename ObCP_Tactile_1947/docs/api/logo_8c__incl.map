@@ -1,0 +1,7 @@
+<map id="Core/Src/obcp/logo.c" name="Core/Src/obcp/logo.c">
+<area shape="rect" id="Node000001" title="Ressource graphique SUPMICROTECH compressée par lignes." alt="" coords="5,5,160,31"/>
+<area shape="rect" id="Node000002" href="$obcp__logo_8h.html" title="Ressource graphique SUPMICROTECH compressée par lignes." alt="" coords="33,79,133,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,31,85,65,80,65,80,31"/>
+<area shape="rect" id="Node000003" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="36,152,129,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,104,85,138,80,138,80,104"/>
+</map>

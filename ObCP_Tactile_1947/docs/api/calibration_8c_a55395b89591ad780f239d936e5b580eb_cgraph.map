@@ -1,0 +1,7 @@
+<map id="touch_cal_map" name="touch_cal_map">
+<area shape="rect" id="Node000001" title="Transformer un point brut en pixels paysage." alt="" coords="5,29,125,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="42,30,38,21,40,11,50,5,65,3,84,6,92,14,88,18,81,11,65,8,52,10,45,14,43,20,47,28"/>
+<area shape="rect" id="Node000002" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="173,29,227,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,39,159,39,159,45,126,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="177,30,172,21,175,11,184,5,200,3,218,6,226,14,223,18,216,11,200,8,186,10,179,14,178,20,182,28"/>
+</map>

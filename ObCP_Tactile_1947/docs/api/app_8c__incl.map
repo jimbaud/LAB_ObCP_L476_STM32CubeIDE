@@ -1,0 +1,31 @@
+<map id="Core/Src/obcp/app.c" name="Core/Src/obcp/app.c">
+<area shape="rect" id="Node000001" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="606,5,756,31"/>
+<area shape="rect" id="Node000002" href="$obcp__app_8h.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="324,79,420,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="632,33,433,79,432,73,631,28"/>
+<area shape="rect" id="Node000014" href="$obcp__config_8h.html" title="Valeurs initiales de repère pour le montage ObCP." alt="" coords="496,79,607,104"/>
+<area shape="poly" id="edge12_Node000001_Node000014" title=" " alt="" coords="662,33,587,74,584,69,659,28"/>
+<area shape="rect" id="Node000015" href="$obcp__logo_8h.html" title="Ressource graphique SUPMICROTECH compressée par lignes." alt="" coords="631,79,731,104"/>
+<area shape="poly" id="edge13_Node000001_Node000015" title=" " alt="" coords="684,31,684,65,678,65,678,31"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="756,79,822,104"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="700,28,762,69,759,73,697,33"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="847,79,918,104"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="714,28,838,71,836,77,713,33"/>
+<area shape="rect" id="Node000003" href="$obcp__audio_8h.html" title="Synthèse numérique et séquenceur musical sans accès matériel." alt="" coords="448,152,556,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,102,471,143,468,148,391,106"/>
+<area shape="rect" id="Node000007" href="$obcp__calibration_8h.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="24,152,165,177"/>
+<area shape="poly" id="edge3_Node000002_Node000007" title=" " alt="" coords="328,107,153,151,152,146,327,101"/>
+<area shape="rect" id="Node000008" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="34,225,155,251"/>
+<area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="324,96,243,99,150,109,65,126,34,139,14,154,9,162,8,170,17,187,35,203,58,216,55,221,32,207,13,190,3,171,4,160,10,150,32,134,64,121,149,103,243,94,323,91"/>
+<area shape="rect" id="Node000010" href="$obcp__games_8h.html" title="Modèles, niveaux et commandes des trois jeux à inclinaison." alt="" coords="580,152,696,177"/>
+<area shape="poly" id="edge5_Node000002_Node000010" title=" " alt="" coords="415,101,582,146,581,151,414,107"/>
+<area shape="rect" id="Node000012" href="$obcp__input_8h.html" title="Filtrage du contact, de SW1 et de l’inclinaison." alt="" coords="319,152,424,177"/>
+<area shape="poly" id="edge7_Node000002_Node000012" title=" " alt="" coords="374,104,374,138,369,138,369,104"/>
+<area shape="rect" id="Node000013" href="$obcp__paint_8h.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="190,152,295,177"/>
+<area shape="poly" id="edge8_Node000002_Node000013" title=" " alt="" coords="352,106,277,147,275,143,350,102"/>
+<area shape="poly" id="edge4_Node000007_Node000008" title=" " alt="" coords="97,178,97,212,92,212,92,178"/>
+<area shape="rect" id="Node000011" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="592,225,685,251"/>
+<area shape="poly" id="edge6_Node000010_Node000011" title=" " alt="" coords="641,178,641,212,636,212,636,178"/>
+<area shape="poly" id="edge10_Node000013_Node000008" title=" " alt="" coords="220,180,132,222,130,217,218,175"/>
+<area shape="poly" id="edge9_Node000013_Node000011" title=" " alt="" coords="296,173,579,223,578,229,295,178"/>
+<area shape="poly" id="edge14_Node000015_Node000011" title=" " alt="" coords="693,103,711,137,715,158,712,178,695,202,674,220,670,216,691,198,707,176,710,158,706,139,688,106"/>
+</map>

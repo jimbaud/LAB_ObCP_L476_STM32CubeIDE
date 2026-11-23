@@ -1,0 +1,7 @@
+<map id="play_step" name="play_step">
+<area shape="rect" id="Node000001" title="Déclencher les voix actives du pas courant." alt="" coords="5,29,91,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="27,30,22,21,25,11,34,5,48,3,65,6,73,14,69,18,62,11,48,8,36,10,29,14,28,20,32,28"/>
+<area shape="rect" id="Node000002" href="$audio_8c.html#a761ab2755a6c9efa5be911510a090c72" title="Réarmer une voix pour une note." alt="" coords="139,29,204,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="91,39,125,39,125,45,91,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="150,30,146,21,148,11,157,5,171,3,188,6,196,14,192,18,186,11,171,8,159,10,152,14,151,20,155,28"/>
+</map>

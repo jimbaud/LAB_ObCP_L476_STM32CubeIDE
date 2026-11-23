@@ -1,0 +1,24 @@
+ObCP tactile 0.2.0 — construction des makefiles générés à partir du .cproject
+Eclipse 2024-09, CDT 11.6.1, modules de construction ST 2.0.0 et chaîne GNU ST locale.
+Opening 'ObCP_Tactile_1947'.
+L’appel intégré à Make est interrompu dans l’assemblage Eclipse de test.
+	at com.st.stm32cube.common.ecosystemintegration.registry.MCUEcoSystemIntegrationRegistry.loadAddonFeatureExtensions(MCUEcoSystemIntegrationRegistry.java:63)
+Les makefiles générés ont été exécutés directement. Les métadonnées .project et .cproject ont été conservées.
+
+Debug
+arm-none-eabi-gcc -o "ObCP_Tactile_1947.elf" @"objects.list"   -mcpu=cortex-m4 -T"<projet>/Linker/ObCP_Flash.ld" --specs=nosys.specs -Wl,-Map="ObCP_Tactile_1947.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+warning: ObCP_Tactile_1947.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+  82880	    524	  51316	 134720	  20e40	<projet>/Debug/ObCP_Tactile_1947.elf
+HEX 0x08000000 à 0x080145d7, 83404 octets en banque 1.
+Bilan 0 écart(s).
+Tous les modules applicatifs figurent dans objects.list.
+
+Release
+arm-none-eabi-gcc -o "ObCP_Tactile_1947.elf" @"objects.list"   -mcpu=cortex-m4 -T"<projet>/Linker/ObCP_Flash.ld" --specs=nosys.specs -Wl,-Map="ObCP_Tactile_1947.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+warning: ObCP_Tactile_1947.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+  55984	    520	  51312	 107816	  1a528	<projet>/Release/ObCP_Tactile_1947.elf
+HEX 0x08000000 à 0x0800dcc3, 56504 octets en banque 1.
+Bilan 0 écart(s).
+Tous les modules applicatifs figurent dans objects.list.

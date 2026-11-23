@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Variables globale</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('globals_eval.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">Voici la liste de toutes les valeurs d'énumération documentées avec des liens vers la documentation :</div><br/>
+<div class="qindex"><a class="qindex" href="#index_a">A</a><div class="alphasepar"></div><a class="qindex" href="#index_b">B</a><div class="alphasepar"></div><a class="qindex" href="#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="#index_d">D</a><div class="alphasepar"></div><a class="qindex" href="#index_g">G</a><div class="alphasepar"></div><a class="qindex" href="#index_h">H</a><div class="alphasepar"></div><a class="qindex" href="#index_j">J</a><div class="alphasepar"></div><a class="qindex" href="#index_k">K</a><div class="alphasepar"></div><a class="qindex" href="#index_l">L</a><div class="alphasepar"></div><a class="qindex" href="#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="#index_o">O</a><div class="alphasepar"></div><a class="qindex" href="#index_p">P</a><div class="alphasepar"></div><a class="qindex" href="#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="#index_t">T</a><div class="alphasepar"></div><a class="qindex" href="#index_v">V</a></div>
+
+
+<h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>ACCEL_AXIS_X&#160;:&#160;<a class="el" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a014bd8f2ad19525dee2de60374de04eb">accelerometer.h</a></li>
+<li>ACCEL_AXIS_Y&#160;:&#160;<a class="el" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a907b48bf3bb7df1fb92f7fd2cd4d52d3">accelerometer.h</a></li>
+<li>ACCEL_AXIS_Z&#160;:&#160;<a class="el" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a7325f28986e84a06c2f4d0ff655a3088">accelerometer.h</a></li>
+<li>ACCEL_LIS3DH&#160;:&#160;<a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143abec7b71051b642c4fe002e292aee2b69">accelerometer.h</a></li>
+<li>ACCEL_LIS3DSH&#160;:&#160;<a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143a6cdea7491e1ea850657ca0fe40e59bd1">accelerometer.h</a></li>
+<li>ACCEL_NONE&#160;:&#160;<a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">accelerometer.h</a></li>
+<li>AUDIO_CENTER&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">obcp_audio.h</a></li>
+<li>AUDIO_HZ&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">obcp_audio.h</a></li>
+<li>AUDIO_MAX_DUTY&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a180f2acc53a3e72ad45e28d8c9e931bb">obcp_audio.h</a></li>
+<li>AUDIO_VOICES&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8">obcp_audio.h</a></li>
+<li>AXES_BASE&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808">storage.c</a></li>
+<li>AXES_BYTES&#160;:&#160;<a class="el" href="app_8c.html#ad5246052e0db29735289c670a5f53f85ae4fcfa57759860c166c5a1149aea420c">app.c</a></li>
+<li>AXES_VERSION&#160;:&#160;<a class="el" href="app_8c.html#ad5246052e0db29735289c670a5f53f85a42f483c606607a6401d96e5d3a4fa275">app.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>BALL_R&#160;:&#160;<a class="el" href="breakout_8c.html#a5b6d300dc83d4e5ecbb31c4b3ca91291aa28f97f0fbd29a55e3ad35004062928f">breakout.c</a></li>
+<li>BALL_RADIUS&#160;:&#160;<a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90a8b0118a01b04ae0b85a5b0eab30dfb2f">maze.c</a></li>
+<li>BAND_ROWS&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180ad8e4a6a9359a387f882482f9cd9bc2b1">obcp_gfx.h</a></li>
+<li>BASS&#160;:&#160;<a class="el" href="audio_8c.html#ad615f3950812a2819d4e546d6d3dcc4fa585d7e1ce678aab9da911bea04e71026">audio.c</a></li>
+<li>BOOT_TOUCH_CALIBRATE&#160;:&#160;<a class="el" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566">obcp_input.h</a></li>
+<li>BOOT_TOUCH_NONE&#160;:&#160;<a class="el" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993">obcp_input.h</a></li>
+<li>BOOT_TOUCH_USED&#160;:&#160;<a class="el" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971">obcp_input.h</a></li>
+<li>BUTTON_DEBOUNCE_MS&#160;:&#160;<a class="el" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1">obcp_input.h</a></li>
+<li>BUTTON_HOLD_MS&#160;:&#160;<a class="el" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652">obcp_input.h</a></li>
+<li>BUTTON_LONG&#160;:&#160;<a class="el" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f">obcp_input.h</a></li>
+<li>BUTTON_NONE&#160;:&#160;<a class="el" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d">obcp_input.h</a></li>
+<li>BUTTON_SHORT&#160;:&#160;<a class="el" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121">obcp_input.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>CAL_ADVANCED&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">obcp_calibration.h</a></li>
+<li>CAL_COMPLETE&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">obcp_calibration.h</a></li>
+<li>CAL_FIT_COUNT&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">obcp_calibration.h</a></li>
+<li>CAL_HELD&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">obcp_calibration.h</a></li>
+<li>CAL_MAX_DRIFT&#160;:&#160;<a class="el" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">calibration.c</a></li>
+<li>CAL_MAX_ERROR_PX&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">obcp_calibration.h</a></li>
+<li>CAL_MIN_DET&#160;:&#160;<a class="el" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">calibration.c</a></li>
+<li>CAL_RAW_MAX&#160;:&#160;<a class="el" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">calibration.c</a></li>
+<li>CAL_READY&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">obcp_calibration.h</a></li>
+<li>CAL_RETRY&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">obcp_calibration.h</a></li>
+<li>CAL_STABLE_SAMPLES&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">obcp_calibration.h</a></li>
+<li>CAL_TARGET_COUNT&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">obcp_calibration.h</a></li>
+<li>CAL_UNCHANGED&#160;:&#160;<a class="el" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">obcp_calibration.h</a></li>
+<li>CAL_VERSION&#160;:&#160;<a class="el" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">calibration.c</a></li>
+<li>CAL_WIRE_BYTES&#160;:&#160;<a class="el" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">calibration.c</a></li>
+<li>CAR_W&#160;:&#160;<a class="el" href="race_8c.html#a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8">race.c</a></li>
+<li>CMD_COLUMN&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4dabba7100ff1e94786aa97198d9fe28b11">ili9341.c</a></li>
+<li>CMD_DISPLAY_ON&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4da978c73e59b798975d1c9ccb3cd898446">ili9341.c</a></li>
+<li>CMD_PAGE&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4daaabc4b67c45b2c460f0c935396313c1d">ili9341.c</a></li>
+<li>CMD_RAM_WRITE&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4da5a6494ed72ceb38fddc83b17c38bb72d">ili9341.c</a></li>
+<li>CMD_READ_ID&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4da0529ec0cfd48a36e76ee2278962bd941">ili9341.c</a></li>
+<li>CMD_SLEEP_OUT&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4dae592d7b268b736371657b3200c1c576b">ili9341.c</a></li>
+<li>CMD_SWRESET&#160;:&#160;<a class="el" href="ili9341_8c.html#a511ccce61ae8578fcfe003b5d53b8d4dab0266ba653487325a8c339b3d9766efc">ili9341.c</a></li>
+<li>COLS&#160;:&#160;<a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698">maze.c</a></li>
+<li>COPY_GUARD&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">pwm_audio.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>DAMAGE_CAPACITY&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aef66826dbc1901ea70e6eda87abe5dff">obcp_gfx.h</a></li>
+<li>DRAW_COPY_BYTES&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">storage.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>GAME_LEVELS&#160;:&#160;<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">obcp_games.h</a></li>
+<li>GAME_LOST&#160;:&#160;<a class="el" href="obcp__games_8h.html#a896617de6e1c82953f407789633057d8a09882f267ff79e730df61f433a78b628">obcp_games.h</a></li>
+<li>GAME_PAUSE&#160;:&#160;<a class="el" href="obcp__games_8h.html#a896617de6e1c82953f407789633057d8a72e4d6b6330e75a9576d766115f4f513">obcp_games.h</a></li>
+<li>GAME_READY&#160;:&#160;<a class="el" href="obcp__games_8h.html#a896617de6e1c82953f407789633057d8ae160771beb5329d0e3de02f1802ab291">obcp_games.h</a></li>
+<li>GAME_RUN&#160;:&#160;<a class="el" href="obcp__games_8h.html#a896617de6e1c82953f407789633057d8ae3d2544aa751d1f73420151551ce2a98">obcp_games.h</a></li>
+<li>GAME_STEP_MS&#160;:&#160;<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957a2aa6c82e4774ddfb3a01930f6d04d154">obcp_games.h</a></li>
+<li>GAME_WON&#160;:&#160;<a class="el" href="obcp__games_8h.html#a896617de6e1c82953f407789633057d8a31fcc94800fd6d897c76e7c37da13c40">obcp_games.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_h" name="index_h"></a>- h -</h3><ul>
+<li>HALF_SAMPLES&#160;:&#160;<a class="el" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">pwm_audio.c</a></li>
+<li>HAT&#160;:&#160;<a class="el" href="audio_8c.html#ad615f3950812a2819d4e546d6d3dcc4faa99ac58ec2394c9617cf653d2ab98fc8">audio.c</a></li>
+<li>HEADER_BYTES&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a688d2c26f77aabab5113fcf6dab67f1e">storage.c</a></li>
+<li>HERO_Y&#160;:&#160;<a class="el" href="race_8c.html#a3cdc91d18cb4cdc139773eb13ca9e3b4a80fd566275353a81de824a6f9a7f0279">race.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_j" name="index_j"></a>- j -</h3><ul>
+<li>JOB_DRAW_OPEN&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977a01929a591b541fed45cbb333e776ece6">obcp_app.h</a></li>
+<li>JOB_DRAW_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977a8c84b8d9b54a10b1fa2ea69bae3144b7">obcp_app.h</a></li>
+<li>JOB_MUSIC_OPEN&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977a51d4cc743264f4a5c0cf250456c3a67d">obcp_app.h</a></li>
+<li>JOB_MUSIC_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977a68c5924d5335a157b9b9ddab9dca61e1">obcp_app.h</a></li>
+<li>JOB_NONE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977ad96fbdb75d9748271cb20bee5a6657ff">obcp_app.h</a></li>
+<li>JOB_PREFERENCES_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977aa714f1fd6dda160db875a94d1a47b8a9">obcp_app.h</a></li>
+<li>JOB_TILT_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977abfc834be365be79d4fc80e3d86eaefdd">obcp_app.h</a></li>
+<li>JOB_TOUCH_CAL_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977a246ac737e1a751cb9d9e3c9b1848915f">obcp_app.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_k" name="index_k"></a>- k -</h3><ul>
+<li>KEYS&#160;:&#160;<a class="el" href="audio_8c.html#ad615f3950812a2819d4e546d6d3dcc4faadc9989064066307ec2a047eeb661cea">audio.c</a></li>
+<li>KICK&#160;:&#160;<a class="el" href="audio_8c.html#ad615f3950812a2819d4e546d6d3dcc4fa552dbfc018bbff8b37c76efea76ca893">audio.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>LCD_HEIGHT&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">obcp_gfx.h</a></li>
+<li>LCD_WIDTH&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">obcp_gfx.h</a></li>
+<li>LEFT&#160;:&#160;<a class="el" href="breakout_8c.html#a5b6d300dc83d4e5ecbb31c4b3ca91291adb45120aafd37a973140edee24708065">breakout.c</a>, <a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90adb45120aafd37a973140edee24708065">maze.c</a></li>
+<li>LEGACY_BASE&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">storage.c</a></li>
+<li>LOGO_HEIGHT&#160;:&#160;<a class="el" href="logo_8c.html#a27f2d5458da2d9561a592859382cee6aa8e4a4f4f3bf0e9d79db18c39bd92b4ef">logo.c</a></li>
+<li>LOGO_WIDTH&#160;:&#160;<a class="el" href="logo_8c.html#a27f2d5458da2d9561a592859382cee6aa80a09abd976090365c7d683743de8f8e">logo.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>META_BYTES&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a423b01ef06e470e6c1595612a920ac91">storage.c</a></li>
+<li>MODAL_BRUSH&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a0cc78513a6dbe85f11f84feaa472dfb3">obcp_app.h</a></li>
+<li>MODAL_COLORS&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a5cfca70af541298d5c03685e21216191">obcp_app.h</a></li>
+<li>MODAL_DRAW_CLEAR&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a1e66370ddd8c3b579c340b2f05bd2c06">obcp_app.h</a></li>
+<li>MODAL_DRAW_LEAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a8179203e8bf01f11083ef7e243b2c58b">obcp_app.h</a></li>
+<li>MODAL_DRAW_OPEN&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a7ce8da64f4b84c77a8726e36674e8221">obcp_app.h</a></li>
+<li>MODAL_DRAW_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a32120490b89375044e8495e7cc46d0b0">obcp_app.h</a></li>
+<li>MODAL_MUSIC_OPEN&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969ac91ae8261cc8d27e6b35e8dc8c942efb">obcp_app.h</a></li>
+<li>MODAL_MUSIC_SAVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a4a9a2b44092666d3852614a1a29ca290">obcp_app.h</a></li>
+<li>MODAL_NONE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969a48f226f36114a1aa0b26a8f14290d96f">obcp_app.h</a></li>
+<li>MODAL_RGB&#160;:&#160;<a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969ad71581da320e05c3d82a300a530a3007">obcp_app.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>OBCP_FLASH_PAGE&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">obcp_storage.h</a></li>
+<li>OBCP_STORAGE_BYTES&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">obcp_storage.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>PADDLE_Y&#160;:&#160;<a class="el" href="breakout_8c.html#a5b6d300dc83d4e5ecbb31c4b3ca91291ad93cc05ff4c52ef1d42e667f905608e2">breakout.c</a></li>
+<li>PAINT_BRUSHES&#160;:&#160;<a class="el" href="obcp__paint_8h.html#ae1b949a6e26baa3b70a48d5fe2d93a66ae5e15fcaa9371805f37083260231548a">obcp_paint.h</a></li>
+<li>PAINT_BYTES&#160;:&#160;<a class="el" href="obcp__paint_8h.html#ae1b949a6e26baa3b70a48d5fe2d93a66ad42a7f78b7cdb0b6f3d548cfd46a2d96">obcp_paint.h</a></li>
+<li>PAINT_HEIGHT&#160;:&#160;<a class="el" href="obcp__paint_8h.html#ae1b949a6e26baa3b70a48d5fe2d93a66ae580296f96a5e09c8556df1f5b3c8748">obcp_paint.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>RACE_CARS&#160;:&#160;<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957a8d4cb1fa56c791168a774a50eb684625">obcp_games.h</a></li>
+<li>RIGHT&#160;:&#160;<a class="el" href="breakout_8c.html#a5b6d300dc83d4e5ecbb31c4b3ca91291aec8379af7490bb9eaaf579cf17876f38">breakout.c</a></li>
+<li>ROAD_W&#160;:&#160;<a class="el" href="race_8c.html#a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8">race.c</a></li>
+<li>ROAD_X&#160;:&#160;<a class="el" href="race_8c.html#a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e">race.c</a></li>
+<li>ROAD_Y&#160;:&#160;<a class="el" href="race_8c.html#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">race.c</a></li>
+<li>ROWS&#160;:&#160;<a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f">maze.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>SAVE_DRAW_1&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1">obcp_storage.h</a></li>
+<li>SAVE_DRAW_2&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9">obcp_storage.h</a></li>
+<li>SAVE_MUSIC&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a">obcp_storage.h</a></li>
+<li>SAVE_OBJECTS&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1">obcp_storage.h</a></li>
+<li>SAVE_PREFERENCES&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3">obcp_storage.h</a></li>
+<li>SAVE_TILT_AXES&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258">obcp_storage.h</a></li>
+<li>SAVE_TOUCH_CAL&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">obcp_storage.h</a></li>
+<li>SCREEN_BREAKOUT&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda238a74a1319cc8613e8e5d790c14fced">obcp_app.h</a></li>
+<li>SCREEN_DIAG&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda0329ee282bfc1d06fcab2f78af7f9631">obcp_app.h</a></li>
+<li>SCREEN_GROOVE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda4e028acf0eff971563f2f0cf3f171bed">obcp_app.h</a></li>
+<li>SCREEN_MAZE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda4baffe4c4fd877b42a7c3427710df0df">obcp_app.h</a></li>
+<li>SCREEN_MENU&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438edaa384e8d7c0f417df6b5b64f547952d52">obcp_app.h</a></li>
+<li>SCREEN_PAINT&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda1608bbd49696a31812d54a6e4e7bba02">obcp_app.h</a></li>
+<li>SCREEN_RACE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438edafaf96b2bcb26e5a890b0e31101562873">obcp_app.h</a></li>
+<li>SCREEN_RESPONSE&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda19e7083eb5ab2251aa2be6c937332be4">obcp_app.h</a></li>
+<li>SCREEN_SETTINGS&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda6fcb85d9f038bd440753c164469342dc">obcp_app.h</a></li>
+<li>SCREEN_SPLASH&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438edad1090b9d88829fd8203a08876f84df29">obcp_app.h</a></li>
+<li>SCREEN_TILT&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda95b3e9a6e9a29a5ef0e9ed843923a777">obcp_app.h</a></li>
+<li>SCREEN_TOUCH_CAL&#160;:&#160;<a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438eda9c8a4d6fdb893bd6db34636a0057547b">obcp_app.h</a></li>
+<li>SEQ_BOOK_BYTES&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">obcp_audio.h</a></li>
+<li>SEQ_MAX_BPM&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a75756fc6656e5c76f0edebaf9a507b84">obcp_audio.h</a></li>
+<li>SEQ_MIN_BPM&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa6f2d8a153a8e0a9294514801d37d65b">obcp_audio.h</a></li>
+<li>SEQ_PATTERN_BYTES&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c">obcp_audio.h</a></li>
+<li>SEQ_SLOTS&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">obcp_audio.h</a></li>
+<li>SEQ_STEPS&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">obcp_audio.h</a></li>
+<li>SEQ_TRACKS&#160;:&#160;<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">obcp_audio.h</a></li>
+<li>SNARE&#160;:&#160;<a class="el" href="audio_8c.html#ad615f3950812a2819d4e546d6d3dcc4fa8d493a1bf8555e7924466a5b0613a4fb">audio.c</a></li>
+<li>STMPE_ADC1&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51aeb3679b585f3c504ad628280542d3c4f">stmpe610.c</a></li>
+<li>STMPE_ADC2&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a2c5c286022e2166e0996f799f98c969e">stmpe610.c</a></li>
+<li>STMPE_CFG&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51af003b4a1431ba7ce703c726c4e04aed4">stmpe610.c</a></li>
+<li>STMPE_CTRL&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a496da205aab7371e7edc808a064bc0a5">stmpe610.c</a></li>
+<li>STMPE_DATA&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a428f6098046ec7569bd569680f454d36">stmpe610.c</a></li>
+<li>STMPE_DRIVE&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a2c2d6cc3ddd853283f38b962de0b2185">stmpe610.c</a></li>
+<li>STMPE_FIFO_RESET&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a3695c22a325e2fbe2c1db5c4134fa56d">stmpe610.c</a></li>
+<li>STMPE_FIFO_SIZE&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51ac890c620b595442ad74be9bbc987ebca">stmpe610.c</a></li>
+<li>STMPE_FIFO_STA&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a34193db2dafd84bd4395048a606386ec">stmpe610.c</a></li>
+<li>STMPE_FRACTION_Z&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a6b16039773c68aab160191a0b8b1152f">stmpe610.c</a></li>
+<li>STMPE_ID&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a460fd1189cdc458626bb62dbeb562416">stmpe610.c</a></li>
+<li>STMPE_INT_CTRL&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a8a6d3fe3e582689702d00f05d621af83">stmpe610.c</a></li>
+<li>STMPE_INT_EN&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51ad73e829529b3d31690b642b3dc5e4c59">stmpe610.c</a></li>
+<li>STMPE_INT_STA&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a003e5d3dbd6fd2d5f4fc8c5ead76a6ac">stmpe610.c</a></li>
+<li>STMPE_MAX_POINTS&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a605ccefc5cc69612ed8b0faea3157311">stmpe610.c</a></li>
+<li>STMPE_SYS_CTRL2&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51a6f00025830aac1df9aeb3964a8fb1b17">stmpe610.c</a></li>
+<li>STMPE_TOUCHED&#160;:&#160;<a class="el" href="stmpe610_8c.html#a4d5d00a0d01bec6782382cc3135ebc51ad615b60a0ecb6be5c98224f59be85d7a">stmpe610.c</a></li>
+<li>STORE_EMPTY&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a2198accddc3bf760db89623023d212ab">obcp_storage.h</a></li>
+<li>STORE_INVALID&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c">obcp_storage.h</a></li>
+<li>STORE_IO&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a513d6452034ae0ad2c2d31565adc11d0">obcp_storage.h</a></li>
+<li>STORE_OK&#160;:&#160;<a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5">obcp_storage.h</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>TILE&#160;:&#160;<a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90afd8331de7faa8b5fa5c0a0370f1c9342">maze.c</a></li>
+<li>TILT_AXES_MASK&#160;:&#160;<a class="el" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8">obcp_input.h</a></li>
+<li>TILT_GUIDE_DOWN&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9">obcp_input.h</a></li>
+<li>TILT_GUIDE_FLAT&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359">obcp_input.h</a></li>
+<li>TILT_GUIDE_INTRO&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e">obcp_input.h</a></li>
+<li>TILT_GUIDE_NEUTRAL&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46">obcp_input.h</a></li>
+<li>TILT_GUIDE_PREVIEW&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278">obcp_input.h</a></li>
+<li>TILT_GUIDE_RIGHT&#160;:&#160;<a class="el" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4">obcp_input.h</a></li>
+<li>TILT_INVERT_X&#160;:&#160;<a class="el" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">obcp_input.h</a></li>
+<li>TILT_INVERT_Y&#160;:&#160;<a class="el" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">obcp_input.h</a></li>
+<li>TILT_RESPONSE_DEFAULT&#160;:&#160;<a class="el" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672">obcp_input.h</a></li>
+<li>TILT_RESPONSE_MAX&#160;:&#160;<a class="el" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0">obcp_input.h</a></li>
+<li>TILT_RESPONSE_MIN&#160;:&#160;<a class="el" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463">obcp_input.h</a></li>
+<li>TILT_SWAP_XY&#160;:&#160;<a class="el" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">obcp_input.h</a></li>
+<li>TOP&#160;:&#160;<a class="el" href="breakout_8c.html#a5b6d300dc83d4e5ecbb31c4b3ca91291a0ad44897a70fba309c24a5b6007de3e3">breakout.c</a>, <a class="el" href="maze_8c.html#ad3f03d216f49d657eff0f2e2a70e8e90a0ad44897a70fba309c24a5b6007de3e3">maze.c</a></li>
+<li>TOUCH_BASE&#160;:&#160;<a class="el" href="storage_8c.html#a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb">storage.c</a></li>
+<li>TOUCH_BOOT_HOLD_MS&#160;:&#160;<a class="el" href="obcp__input_8h.html#a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2">obcp_input.h</a></li>
+<li>TOUCH_CTRL_FT62XX&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188a578e966cd57aa0903bba8f05b6e6e5aa">obcp_touch.h</a></li>
+<li>TOUCH_CTRL_NONE&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188ae1c604397f96ee3d0079906491e2a47c">obcp_touch.h</a></li>
+<li>TOUCH_CTRL_STMPE610&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188a83bfb4782276682e4cd553252f400889">obcp_touch.h</a></li>
+<li>TOUCH_CTRL_TSC2007&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188aa952098d393d7710e14583ad91482ad6">obcp_touch.h</a></li>
+<li>TOUCH_DOWN&#160;:&#160;<a class="el" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5">obcp_input.h</a></li>
+<li>TOUCH_MOVE&#160;:&#160;<a class="el" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93">obcp_input.h</a></li>
+<li>TOUCH_NONE&#160;:&#160;<a class="el" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee">obcp_input.h</a></li>
+<li>TOUCH_READ_EMPTY&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3ca7e3a4e117325e8ea91020004de6050ae">obcp_touch.h</a></li>
+<li>TOUCH_READ_ERROR&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3ca6725f8356e3d9e49381179233abe95dc">obcp_touch.h</a></li>
+<li>TOUCH_READ_OK&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3ca7ecc10bfaaf9c8bc12f1807c724591c4">obcp_touch.h</a></li>
+<li>TOUCH_READ_WAIT&#160;:&#160;<a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3ca3b886ca72af3eb01763d2bcad0f87edc">obcp_touch.h</a></li>
+<li>TOUCH_UP&#160;:&#160;<a class="el" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3">obcp_input.h</a></li>
+<li>TRANSFER_BUSY&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3ba02dfdeac905bf40d1f5e634690dd5c25">obcp_gfx.h</a></li>
+<li>TRANSFER_DONE&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3ba032a83fd0b595f39aa27015010d03f28">obcp_gfx.h</a></li>
+<li>TRANSFER_ERROR&#160;:&#160;<a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3ba214151ddd49c902eaadbb352d7d2a154">obcp_gfx.h</a></li>
+<li>TSC_ADC_MAX&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236eacf16978b52b2d0ca881a65983e939746">tsc2007.c</a></li>
+<li>TSC_ADDRESS&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea200e3259cb33bdfc7b78e114fa460a49">tsc2007.c</a></li>
+<li>TSC_SETTLE_MS&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea2319f8575d4a1f989a6a617c78745932">tsc2007.c</a></li>
+<li>TSC_SLEEP&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236eaf84c7eacd8183584b0ca637d83d5be79">tsc2007.c</a></li>
+<li>TSC_TIMEOUT_MS&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea35f4c12e90d5eed4e176f0ad6c0add10">tsc2007.c</a></li>
+<li>TSC_X&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea578566649445699fac1c5f69e4fa0723">tsc2007.c</a></li>
+<li>TSC_Y&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236eafe84a9b6abcc03389fe6750e2ab519f3">tsc2007.c</a></li>
+<li>TSC_Z1&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea42cb056d113bde0664fb6ead7dbdd5a1">tsc2007.c</a></li>
+<li>TSC_Z2&#160;:&#160;<a class="el" href="tsc2007_8c.html#a80eb948b70484a633e2f6bc323d7236ea4a535abb570f439c6d9d4595cf5a9b4d">tsc2007.c</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>VEHICLE_BIKE&#160;:&#160;<a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1aa185df69e7892897418df43e9c15fe23">obcp_games.h</a></li>
+<li>VEHICLE_CAR&#160;:&#160;<a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1a235204fedb16bae3ec64c63df2380609">obcp_games.h</a></li>
+<li>VEHICLE_TRUCK&#160;:&#160;<a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1aa2321578206a8c9ebe7ae94c968f2724">obcp_games.h</a></li>
+<li>VEHICLE_VAN&#160;:&#160;<a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1a0b5eff395105769b058b63b473d12533">obcp_games.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<map id="draw_calibration" name="draw_calibration">
+<area shape="rect" id="Node000001" title="Présenter la cible et l&#39;instruction de calibrage." alt="" coords="5,178,136,204"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="43,180,38,170,41,160,52,154,71,152,93,155,103,164,99,168,91,160,71,157,54,159,45,164,43,169,48,177"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="203,66,267,92"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,176,203,97,206,102,92,180"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="477,128,544,153"/>
+<area shape="poly" id="edge19_Node000001_Node000003" title=" " alt="" coords="136,188,272,181,351,173,429,162,464,153,465,158,430,167,351,179,272,186,137,193"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="344,128,420,153"/>
+<area shape="poly" id="edge20_Node000001_Node000010" title=" " alt="" coords="136,178,184,170,330,146,331,151,184,175,137,183"/>
+<area shape="rect" id="Node000012" href="$gfx_8c.html#a67be800d450e0519ef923669e4f354bc" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="197,253,273,278"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="101,201,195,245,193,250,99,206"/>
+<area shape="rect" id="Node000015" href="$input_8c.html#a2f510f95608bb16ffb5a612c656b7fee" title="Fournir un nom de contrôleur à l&#39;interface." alt="" coords="184,326,287,352"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="88,202,212,315,208,319,85,206"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="210,68,205,58,208,48,218,42,235,40,256,43,264,52,261,56,253,48,235,45,220,47,212,52,211,57,215,65"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="250,64,286,38,309,25,334,15,383,3,405,5,431,15,457,35,477,61,503,114,499,116,473,64,453,39,428,20,404,10,383,9,335,20,311,30,289,42,253,68"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="335,54,429,80"/>
+<area shape="poly" id="edge7_Node000002_Node000009" title=" " alt="" coords="267,74,321,69,321,75,268,79"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="268,89,339,120,337,125,265,94"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="489,129,484,119,486,110,496,103,511,101,528,104,536,113,532,116,526,109,511,106,498,108,491,113,489,119,493,126"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="592,178,723,204"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="545,149,608,171,606,176,543,154"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="632,180,627,170,630,160,640,154,657,152,678,155,686,164,683,168,675,160,657,157,642,159,634,164,633,169,637,177"/>
+<area shape="poly" id="edge8_Node000009_Node000003" title=" " alt="" coords="410,78,431,89,479,118,476,122,428,93,408,82"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="360,55,355,46,358,37,367,30,382,28,400,31,408,39,404,43,397,36,382,33,369,35,362,40,361,45,365,53"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="420,138,463,138,463,143,420,143"/>
+<area shape="poly" id="edge12_Node000010_Node000010" title=" " alt="" coords="360,129,355,119,358,110,367,103,382,101,400,104,408,113,404,116,397,109,382,106,369,108,362,113,361,119,365,126"/>
+<area shape="poly" id="edge18_Node000012_Node000005" title=" " alt="" coords="273,257,578,202,579,208,274,262"/>
+<area shape="poly" id="edge15_Node000012_Node000012" title=" " alt="" coords="210,254,205,245,208,235,218,229,235,226,256,230,264,238,261,242,253,235,235,232,220,234,212,238,211,244,215,252"/>
+<area shape="rect" id="Node000013" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="341,304,423,329"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="274,276,332,297,331,302,272,281"/>
+<area shape="poly" id="edge17_Node000013_Node000013" title=" " alt="" coords="360,305,355,295,358,286,367,279,382,277,400,280,408,289,404,292,397,285,382,282,369,284,362,289,361,295,365,302"/>
+<area shape="poly" id="edge22_Node000015_Node000015" title=" " alt="" coords="210,328,205,318,208,308,218,302,235,300,256,303,264,312,261,316,253,308,235,305,220,307,212,312,211,317,215,325"/>
+</map>

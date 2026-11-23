@@ -1,0 +1,13 @@
+<map id="dash" name="dash">
+<area shape="rect" id="Node000001" title="Calculer la partie visible d&#39;un marquage routier." alt="" coords="5,67,59,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="8,68,3,58,6,49,16,42,32,40,51,44,60,52,56,56,49,48,32,45,18,47,10,52,9,58,13,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="107,67,237,92"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="59,77,92,77,92,82,59,82"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="148,68,143,58,146,49,156,42,172,40,191,44,200,52,196,56,189,48,172,45,158,47,150,52,149,58,153,65"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="285,29,360,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="223,64,271,52,273,57,225,69"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="287,103,358,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="226,89,275,101,274,106,225,95"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="297,31,292,21,295,11,305,5,323,3,343,6,352,15,348,19,341,11,323,8,307,10,299,15,297,20,302,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="297,104,292,94,295,85,305,78,323,76,343,80,352,88,348,92,341,84,323,81,307,83,299,88,297,94,302,101"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="maze_finish" name="maze_finish">
+<area shape="rect" id="Node000001" title="Obtenir la cellule d&#39;arrivée commune aux cartes." alt="" coords="5,29,105,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="34,30,30,21,32,11,41,5,55,3,72,6,79,14,75,18,69,11,55,8,43,10,37,14,36,20,39,28"/>
+<area shape="rect" id="Node000002" href="$maze_8c.html#a0deb320c2dcb6bea105f878ebc712613" title="Convertir une cellule de carte en rectangle écran." alt="" coords="153,29,199,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,39,139,39,139,45,105,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="155,30,151,21,153,11,162,5,176,3,193,6,200,14,196,18,190,11,176,8,164,10,158,14,156,20,160,28"/>
+</map>

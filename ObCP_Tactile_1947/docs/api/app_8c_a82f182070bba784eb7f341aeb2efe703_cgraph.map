@@ -1,0 +1,13 @@
+<map id="centered_text" name="centered_text">
+<area shape="rect" id="Node000001" title="Centrer une chaîne dans la largeur du TFT." alt="" coords="5,67,117,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="37,68,32,58,35,49,45,42,61,40,81,44,89,52,86,56,78,48,61,45,47,47,39,52,38,58,42,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="165,67,241,92"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="117,77,151,77,151,82,117,82"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="183,68,179,58,181,49,189,42,203,40,220,43,227,52,223,55,217,48,203,45,192,47,185,52,184,58,188,65"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="289,29,356,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="241,65,275,54,277,59,242,70"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a483f913fa34cd8b2871e56fa7f7ed35c" title="Trouver les sept rangées d&#39;un caractère." alt="" coords="293,103,352,128"/>
+<area shape="poly" id="edge6_Node000002_Node000009" title=" " alt="" coords="242,88,281,100,279,105,241,93"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="302,30,298,21,300,12,309,5,323,3,339,6,346,14,342,18,336,11,323,8,311,10,305,14,303,20,307,28"/>
+<area shape="poly" id="edge7_Node000009_Node000009" title=" " alt="" coords="302,104,298,94,300,85,309,78,323,76,339,79,346,88,342,91,336,84,323,81,311,83,305,88,303,94,307,101"/>
+</map>

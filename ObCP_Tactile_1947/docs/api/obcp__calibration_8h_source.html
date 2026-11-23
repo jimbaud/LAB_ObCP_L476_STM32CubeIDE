@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Inc/obcp_calibration.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__calibration_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">obcp_calibration.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="obcp__calibration_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file obcp_calibration.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Transformation affine et assistant de calibrage résistif.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_input</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Trois contacts bruts définissent une base. Une quatrième cible indépendante vérifie la</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * transformation avant sauvegarde. Les deux profils, TSC2007 et STMPE610, sont stockés</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * sous forme de points pour reconstruire les coefficients au chargement.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef OBCP_CALIBRATION_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define OBCP_CALIBRATION_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/** @var TOUCH_CAL_TARGETS</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @brief Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__storage_8h.html">obcp_storage.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__touch_8h.html">obcp_touch.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">   28</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a> = 4, <span class="comment">/**&lt; Quatre cibles utilisateur dont une cible de contrôle. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">   29</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a> = 3, <span class="comment">/**&lt; Trois points définissant la transformation affine. */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">   30</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a> = 6, <span class="comment">/**&lt; Six observations proches exigées par cible. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">   31</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a> = 14, <span class="comment">/**&lt; Erreur de contrôle admise sur chaque axe, 14 pixels. */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/* Une transformation affine et les trois observations qui l&#39;ont définie. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @brief Transformation affine du brut résistif vers les pixels.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * Les trois observations suffisent à reconstruire les six coefficients. Seuls les points</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * sont encodés dans la flash.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structTouchCalibration.html">   41</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">   42</a></span>    <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">points</a>[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>]; <span class="comment">/**&lt; Trois observations brutes ayant défini le profil. */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">   43</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">x_from_x</a>; <span class="comment">/**&lt; Coefficient de X brut dans le calcul de l&#39;abscisse écran. */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">   44</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">x_from_y</a>; <span class="comment">/**&lt; Coefficient de Y brut dans le calcul de l&#39;abscisse écran. */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">   45</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">x_offset</a>; <span class="comment">/**&lt; Décalage de l&#39;abscisse écran, en pixels. */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">y_from_x</a>; <span class="comment">/**&lt; Coefficient de X brut dans le calcul de l&#39;ordonnée écran. */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">y_from_y</a>; <span class="comment">/**&lt; Coefficient de Y brut dans le calcul de l&#39;ordonnée écran. */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">y_offset</a>; <span class="comment">/**&lt; Décalage de l&#39;ordonnée écran, en pixels. */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">   49</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">valid</a>; <span class="comment">/**&lt; true après le calcul réussi d&#39;une base non dégénérée. */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a>;</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * @brief Profils des deux familles résistives.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * Le TSC2007 occupe la première place et le STMPE610 la seconde.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structTouchCalBook.html">   57</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">   58</a></span>    <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> <a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[2]; <span class="comment">/**&lt; Profils reconstruits depuis leurs observations brutes. */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} <a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a>;</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @brief Acquisition progressive des quatre cibles.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Un contact stable est moyenné puis validé au relâchement. Le quatrième contact contrôle</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * le candidat obtenu avec les trois premiers.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structTouchCalSession.html">   67</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">   68</a></span>    <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> <a class="code hl_variable" href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">candidate</a>; <span class="comment">/**&lt; Transformation construite et contrôlée pendant la session. */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">   69</a></span>    <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">observations</a>[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>]; <span class="comment">/**&lt; Trois observations moyennées pour l&#39;ajustement affine. */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">   70</a></span>    <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">anchor</a>; <span class="comment">/**&lt; Première position du contact actuellement stabilisé. */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">   71</a></span>    uint32_t <a class="code hl_variable" href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">sum_x</a>; <span class="comment">/**&lt; Somme des abscisses brutes du contact courant. */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">   72</a></span>    uint32_t <a class="code hl_variable" href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">sum_y</a>; <span class="comment">/**&lt; Somme des ordonnées brutes du contact courant. */</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">   73</a></span>    uint8_t <a class="code hl_variable" href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">target</a>; <span class="comment">/**&lt; Indice de la cible attendue, de 0 à 3. */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">   74</a></span>    uint8_t <a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a>; <span class="comment">/**&lt; Nombre de mesures stables du contact, de 0 à 6. */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">   75</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">wait_release</a>; <span class="comment">/**&lt; true quand le contact courant doit d&#39;abord être relâché. */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6">   76</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6">retry</a>; <span class="comment">/**&lt; true après un rejet, pour demander de recommencer les cibles. */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>} <a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a>;</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * @brief Événements de l’assistant de calibrage résistif.</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">   82</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">   83</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a>, <span class="comment">/**&lt; La session attend encore un événement utile. */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">   84</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">CAL_READY</a>, <span class="comment">/**&lt; Le doigt a été relâché, une nouvelle cible peut être acquise. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">   85</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">CAL_HELD</a>, <span class="comment">/**&lt; Les six mesures de la cible sont stabilisées, attendre le relâchement. */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">   86</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">CAL_ADVANCED</a>, <span class="comment">/**&lt; La session a validé une cible et avance à la suivante. */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">   87</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">CAL_RETRY</a>, <span class="comment">/**&lt; Les observations sont incohérentes, reprendre les cibles. */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">   88</a></span>    <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">CAL_COMPLETE</a>, <span class="comment">/**&lt; La quatrième cible confirme la transformation candidate. */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>} <a class="code hl_enumeration" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a>;</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a>[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a>];</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * @brief Calculer une transformation affine de trois points bruts.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * Le déterminant de deux vecteurs permet d&#39;inverser la base. Un déterminant trop petit</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> * rejette des observations alignées ou trop proches. Le candidat remplace cal seulement si</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * le calcul est admis.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @param[in,out] cal Transformation affine et observations de référence. Pointeur valide.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * @param[in] points Trois observations brutes, dans l’ordre des cibles de référence.</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @return true si une transformation exploitable est calculée.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a>(<a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal, <span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> points[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>]);<span class="comment"></span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * @brief Transformer un point brut en pixels paysage.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * Vérifie le profil et les bornes des conversions 12 bits, applique les deux expressions</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * affines puis borne les résultats à l&#39;écran.</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @param[in] cal Transformation affine et observations de référence, consulté sans</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> *   modification. Pointeur valide.</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> * @param[in] raw Observation physique ou point natif à interpréter.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> * @param[out] x Abscisse calculée. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @param[out] y Ordonnée calculée. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> * @return true si les coordonnées ont été calculées.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal, <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> raw, int16_t *x, int16_t *y);<span class="comment"></span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @brief Commencer une session en attendant le relâchement.</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * Le contact qui a ouvert la procédure est consommé. La première cible attend donc un</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * nouveau geste de l&#39;utilisateur.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * @param[in,out] session Session d’acquisition des quatre cibles. Pointeur valide.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#a3fe9be5a59e5451f5356831d3bef4065">touch_cal_start</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *session);<span class="comment"></span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"> * @brief Suspendre la stabilisation après une erreur de lecture.</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> * Les mesures partielles sont abandonnées et un relâchement sera demandé avant de</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> * poursuivre la même cible.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * @param[in,out] session Session d’acquisition des quatre cibles. Pointeur valide.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#afaf7a616015d8abe2840c4c3bd45c909">touch_cal_interrupt</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *session);<span class="comment"></span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> * @brief Faire avancer l&#39;acquisition d&#39;une cible résistive.</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> * Six mesures proches sont moyennées, puis validées au relâchement. Les trois premières</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> * cibles construisent la transformation. La quatrième vérifie l&#39;erreur et peut relancer</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * toute la session.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> * @param[in,out] session Session d’acquisition des quatre cibles. Pointeur valide.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> * @param[in] raw Observation physique ou point natif à interpréter.</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> * @return Événement de session indiquant attente, maintien, avance, reprise ou fin.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><a class="code hl_enumeration" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a> <a class="code hl_function" href="obcp__calibration_8h.html#afd77ba03905b087d81c53b24e9a9bffb">touch_cal_sample</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *session, <a class="code hl_struct" href="structRawTouch.html">RawTouch</a> raw);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"></span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> * @brief Consulter le profil valide d&#39;un contrôleur.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> * L&#39;adresse renvoyée appartient au livre fourni. Elle reste utilisable tant que ce livre</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment"> * existe et que son contenu n&#39;est pas remplacé.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * @param[in] book Livre des deux profils résistifs, consulté sans modification. Pointeur</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> *   valide.</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> * @param[in] controller Famille de contrôleur tactile.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * @return Pointeur constant sur le profil, ou NULL s&#39;il manque.</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *<a class="code hl_function" href="obcp__calibration_8h.html#a0aead2755c4df2b3a5c7729eca28441e">touch_cal_get</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_enumeration" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller);<span class="comment"></span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"> * @brief Remplacer le profil associé au contrôleur.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"> * Copie les points et coefficients en RAM. L&#39;écriture flash reste une action explicite de</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"> * touch_cal_save(). Un type non résistif est ignoré.</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"> * @param[in,out] book Livre des deux profils résistifs. Pointeur valide.</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment"> * @param[in] controller Famille de contrôleur tactile.</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment"> * @param[in] cal Transformation affine et observations de référence, consulté sans</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment"> *   modification. Pointeur valide.</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#ab7a1d11cb9192e434eaae069f4283d68">touch_cal_set</a>(<a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_enumeration" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller, <span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal);<span class="comment"></span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"> * @brief Charger et reconstruire les deux profils résistifs.</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> * Commence par un livre vide. Vérifie la version et l&#39;orientation du TFT, décode les</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * points little-endian puis recalcule les coefficients.</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * @param[in,out] book Livre des deux profils résistifs. Pointeur valide.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> * @param[in,out] storage Port de stockage et ses callbacks synchrones. Pointeur valide.</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> * @param[in] orientation Octet MADCTL auquel les observations persistantes sont associées.</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * @return Résultat du stockage ou STORE_INVALID pour une version ou orientation incompatible.</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><a class="code hl_enumeration" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> <a class="code hl_function" href="obcp__calibration_8h.html#ae6482abe8b966f9810c72676082a7004">touch_cal_load</a>(<a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_struct" href="structStorage.html">Storage</a> *storage, uint8_t orientation);<span class="comment"></span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"> * @brief Encoder puis enregistrer les deux profils.</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"> * Le format contient version, orientation et observations brutes. Un profil absent est</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment"> * encodé par des points nuls. Le service A/B fournit la validation et la résistance aux</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> * coupures.</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"> * @param[in] book Livre des deux profils résistifs, consulté sans modification. Pointeur</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> *   valide.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> * @param[in,out] storage Port de stockage et ses callbacks synchrones. Pointeur valide.</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"> * @param[in] orientation Octet MADCTL auquel les observations persistantes sont associées.</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"> * @return Résultat du service de sauvegarde.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><a class="code hl_enumeration" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> <a class="code hl_function" href="obcp__calibration_8h.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1">touch_cal_save</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_struct" href="structStorage.html">Storage</a> *storage, uint8_t orientation);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a042bbd7dd8ee4e02581c0b72c0b1f1e1"><div class="ttname"><a href="obcp__calibration_8h.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1">touch_cal_save</a></div><div class="ttdeci">StoreResult touch_cal_save(const TouchCalBook *book, Storage *storage, uint8_t orientation)</div><div class="ttdoc">Encoder puis enregistrer les deux profils.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00282">calibration.c:282</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a07a6b4182e37a11fb16d7ad74d49b98b"><div class="ttname"><a href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a></div><div class="ttdeci">bool touch_cal_fit(TouchCalibration *cal, const RawPoint points[CAL_FIT_COUNT])</div><div class="ttdoc">Calculer une transformation affine de trois points bruts.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00050">calibration.c:50</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a0aead2755c4df2b3a5c7729eca28441e"><div class="ttname"><a href="obcp__calibration_8h.html#a0aead2755c4df2b3a5c7729eca28441e">touch_cal_get</a></div><div class="ttdeci">const TouchCalibration * touch_cal_get(const TouchCalBook *book, TouchController controller)</div><div class="ttdoc">Consulter le profil valide d&#39;un contrôleur.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00225">calibration.c:225</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a3fe9be5a59e5451f5356831d3bef4065"><div class="ttname"><a href="obcp__calibration_8h.html#a3fe9be5a59e5451f5356831d3bef4065">touch_cal_start</a></div><div class="ttdeci">void touch_cal_start(TouchCalSession *session)</div><div class="ttdoc">Commencer une session en attendant le relâchement.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00125">calibration.c:125</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a></div><div class="ttdeci">@ CAL_FIT_COUNT</div><div class="ttdef"><b>Définition</b> <a href="#l00029">obcp_calibration.h:29</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a></div><div class="ttdeci">@ CAL_MAX_ERROR_PX</div><div class="ttdef"><b>Définition</b> <a href="#l00031">obcp_calibration.h:31</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a></div><div class="ttdeci">@ CAL_TARGET_COUNT</div><div class="ttdef"><b>Définition</b> <a href="#l00028">obcp_calibration.h:28</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a></div><div class="ttdeci">@ CAL_STABLE_SAMPLES</div><div class="ttdef"><b>Définition</b> <a href="#l00030">obcp_calibration.h:30</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a55395b89591ad780f239d936e5b580eb"><div class="ttname"><a href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a></div><div class="ttdeci">bool touch_cal_map(const TouchCalibration *cal, RawPoint raw, int16_t *x, int16_t *y)</div><div class="ttdoc">Transformer un point brut en pixels paysage.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00109">calibration.c:109</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_aa5907138b4354150cf84771e17f70a38"><div class="ttname"><a href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a></div><div class="ttdeci">const RawPoint TOUCH_CAL_TARGETS[CAL_TARGET_COUNT]</div><div class="ttdoc">Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00038">calibration.c:38</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab7a1d11cb9192e434eaae069f4283d68"><div class="ttname"><a href="obcp__calibration_8h.html#ab7a1d11cb9192e434eaae069f4283d68">touch_cal_set</a></div><div class="ttdeci">void touch_cal_set(TouchCalBook *book, TouchController controller, const TouchCalibration *cal)</div><div class="ttdoc">Remplacer le profil associé au contrôleur.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00237">calibration.c:237</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdf"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a></div><div class="ttdeci">TouchCalEvent</div><div class="ttdoc">Événements de l’assistant de calibrage résistif.</div><div class="ttdef"><b>Définition</b> <a href="#l00082">obcp_calibration.h:82</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">CAL_RETRY</a></div><div class="ttdeci">@ CAL_RETRY</div><div class="ttdef"><b>Définition</b> <a href="#l00087">obcp_calibration.h:87</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">CAL_HELD</a></div><div class="ttdeci">@ CAL_HELD</div><div class="ttdef"><b>Définition</b> <a href="#l00085">obcp_calibration.h:85</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">CAL_ADVANCED</a></div><div class="ttdeci">@ CAL_ADVANCED</div><div class="ttdef"><b>Définition</b> <a href="#l00086">obcp_calibration.h:86</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">CAL_READY</a></div><div class="ttdeci">@ CAL_READY</div><div class="ttdef"><b>Définition</b> <a href="#l00084">obcp_calibration.h:84</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a></div><div class="ttdeci">@ CAL_UNCHANGED</div><div class="ttdef"><b>Définition</b> <a href="#l00083">obcp_calibration.h:83</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">CAL_COMPLETE</a></div><div class="ttdeci">@ CAL_COMPLETE</div><div class="ttdef"><b>Définition</b> <a href="#l00088">obcp_calibration.h:88</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ae6482abe8b966f9810c72676082a7004"><div class="ttname"><a href="obcp__calibration_8h.html#ae6482abe8b966f9810c72676082a7004">touch_cal_load</a></div><div class="ttdeci">StoreResult touch_cal_load(TouchCalBook *book, Storage *storage, uint8_t orientation)</div><div class="ttdoc">Charger et reconstruire les deux profils résistifs.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00251">calibration.c:251</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_afaf7a616015d8abe2840c4c3bd45c909"><div class="ttname"><a href="obcp__calibration_8h.html#afaf7a616015d8abe2840c4c3bd45c909">touch_cal_interrupt</a></div><div class="ttdeci">void touch_cal_interrupt(TouchCalSession *session)</div><div class="ttdoc">Suspendre la stabilisation après une erreur de lecture.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00136">calibration.c:136</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_afd77ba03905b087d81c53b24e9a9bffb"><div class="ttname"><a href="obcp__calibration_8h.html#afd77ba03905b087d81c53b24e9a9bffb">touch_cal_sample</a></div><div class="ttdeci">TouchCalEvent touch_cal_sample(TouchCalSession *session, RawTouch raw)</div><div class="ttdoc">Faire avancer l&#39;acquisition d&#39;une cible résistive.</div><div class="ttdef"><b>Définition</b> <a href="calibration_8c_source.html#l00149">calibration.c:149</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html"><div class="ttname"><a href="obcp__storage_8h.html">obcp_storage.h</a></div><div class="ttdoc">Format d’objet A/B, CRC32 et validation transactionnelle.</div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a3d4adcc9309b0cf493361bdbd51996a9"><div class="ttname"><a href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a></div><div class="ttdeci">StoreResult</div><div class="ttdoc">Résultats communs aux lectures et écritures de stockage.</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00044">obcp_storage.h:44</a></div></div>
+<div class="ttc" id="aobcp__touch_8h_html"><div class="ttname"><a href="obcp__touch_8h.html">obcp_touch.h</a></div><div class="ttdoc">Reconnaissance des shields et façade tactile commune.</div></div>
+<div class="ttc" id="aobcp__touch_8h_html_a7c8fa54f263dc08df5b09123a9aa5188"><div class="ttname"><a href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a></div><div class="ttdeci">TouchController</div><div class="ttdoc">Contrôleurs tactiles reconnus sur les shields compatibles.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00023">obcp_touch.h:23</a></div></div>
+<div class="ttc" id="astructRawPoint_html"><div class="ttname"><a href="structRawPoint.html">RawPoint</a></div><div class="ttdoc">Position native avant calibrage et rotation.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00047">obcp_touch.h:47</a></div></div>
+<div class="ttc" id="astructRawTouch_html"><div class="ttname"><a href="structRawTouch.html">RawTouch</a></div><div class="ttdoc">Observation physique d’un contrôleur tactile.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00057">obcp_touch.h:57</a></div></div>
+<div class="ttc" id="astructStorage_html"><div class="ttname"><a href="structStorage.html">Storage</a></div><div class="ttdoc">Interface physique de stockage injectable dans les tests.</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00061">obcp_storage.h:61</a></div></div>
+<div class="ttc" id="astructTouchCalBook_html"><div class="ttname"><a href="structTouchCalBook.html">TouchCalBook</a></div><div class="ttdoc">Profils des deux familles résistives.</div><div class="ttdef"><b>Définition</b> <a href="#l00057">obcp_calibration.h:57</a></div></div>
+<div class="ttc" id="astructTouchCalBook_html_aa190f564463d011f841d16546cd8f3d1"><div class="ttname"><a href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">TouchCalBook::profile</a></div><div class="ttdeci">TouchCalibration profile[2]</div><div class="ttdef"><b>Définition</b> <a href="#l00058">obcp_calibration.h:58</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html"><div class="ttname"><a href="structTouchCalSession.html">TouchCalSession</a></div><div class="ttdoc">Acquisition progressive des quatre cibles.</div><div class="ttdef"><b>Définition</b> <a href="#l00067">obcp_calibration.h:67</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a13bde30386c0c0afd9d9b2629680e908"><div class="ttname"><a href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">TouchCalSession::samples</a></div><div class="ttdeci">uint8_t samples</div><div class="ttdef"><b>Définition</b> <a href="#l00074">obcp_calibration.h:74</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a2298e9f81ccde69d7c55f32a86863915"><div class="ttname"><a href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">TouchCalSession::candidate</a></div><div class="ttdeci">TouchCalibration candidate</div><div class="ttdef"><b>Définition</b> <a href="#l00068">obcp_calibration.h:68</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a298ccad8ffbef7a1bbcf9ce786bd3c50"><div class="ttname"><a href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">TouchCalSession::sum_y</a></div><div class="ttdeci">uint32_t sum_y</div><div class="ttdef"><b>Définition</b> <a href="#l00072">obcp_calibration.h:72</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a35891bf3d711c5ec9d01c33daeb4b1eb"><div class="ttname"><a href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">TouchCalSession::sum_x</a></div><div class="ttdeci">uint32_t sum_x</div><div class="ttdef"><b>Définition</b> <a href="#l00071">obcp_calibration.h:71</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a4eac17fa946897483ce7d79137207802"><div class="ttname"><a href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">TouchCalSession::anchor</a></div><div class="ttdeci">RawPoint anchor</div><div class="ttdef"><b>Définition</b> <a href="#l00070">obcp_calibration.h:70</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a6b2596124eb3c95df8404e76dd198207"><div class="ttname"><a href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">TouchCalSession::target</a></div><div class="ttdeci">uint8_t target</div><div class="ttdef"><b>Définition</b> <a href="#l00073">obcp_calibration.h:73</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a851069d9ce70b5cbdcdde755afa07c52"><div class="ttname"><a href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">TouchCalSession::observations</a></div><div class="ttdeci">RawPoint observations[CAL_FIT_COUNT]</div><div class="ttdef"><b>Définition</b> <a href="#l00069">obcp_calibration.h:69</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a98fb0cd026ca01dd6ea7dbe7e01f40a6"><div class="ttname"><a href="structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6">TouchCalSession::retry</a></div><div class="ttdeci">bool retry</div><div class="ttdef"><b>Définition</b> <a href="#l00076">obcp_calibration.h:76</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_aad26a359f0dd5fe9b2c01d13c252d882"><div class="ttname"><a href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">TouchCalSession::wait_release</a></div><div class="ttdeci">bool wait_release</div><div class="ttdef"><b>Définition</b> <a href="#l00075">obcp_calibration.h:75</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html"><div class="ttname"><a href="structTouchCalibration.html">TouchCalibration</a></div><div class="ttdoc">Transformation affine du brut résistif vers les pixels.</div><div class="ttdef"><b>Définition</b> <a href="#l00041">obcp_calibration.h:41</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a0253ef8d9c61d4ac2ec73df683e7840b"><div class="ttname"><a href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">TouchCalibration::y_from_x</a></div><div class="ttdeci">float y_from_x</div><div class="ttdef"><b>Définition</b> <a href="#l00046">obcp_calibration.h:46</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a3ba37e3771eb2bfe43a4d980e3ef3536"><div class="ttname"><a href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">TouchCalibration::points</a></div><div class="ttdeci">RawPoint points[CAL_FIT_COUNT]</div><div class="ttdef"><b>Définition</b> <a href="#l00042">obcp_calibration.h:42</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a623f60ff264bc13520f5cfa046826f02"><div class="ttname"><a href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">TouchCalibration::x_offset</a></div><div class="ttdeci">float x_offset</div><div class="ttdef"><b>Définition</b> <a href="#l00045">obcp_calibration.h:45</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a662dcf218135c95327d734a8c01a9850"><div class="ttname"><a href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">TouchCalibration::x_from_y</a></div><div class="ttdeci">float x_from_y</div><div class="ttdef"><b>Définition</b> <a href="#l00044">obcp_calibration.h:44</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_ab0a79633c4bd2bdaeeb9bc35f0aea28a"><div class="ttname"><a href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">TouchCalibration::x_from_x</a></div><div class="ttdeci">float x_from_x</div><div class="ttdef"><b>Définition</b> <a href="#l00043">obcp_calibration.h:43</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_abfda9bae3751f08a63b8abd09bcb3958"><div class="ttname"><a href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">TouchCalibration::valid</a></div><div class="ttdeci">bool valid</div><div class="ttdef"><b>Définition</b> <a href="#l00049">obcp_calibration.h:49</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_acae6d472488c70a0fbaa5364364e0a8e"><div class="ttname"><a href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">TouchCalibration::y_offset</a></div><div class="ttdeci">float y_offset</div><div class="ttdef"><b>Définition</b> <a href="#l00048">obcp_calibration.h:48</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_ad7e90c153dea16e297a531328456269f"><div class="ttname"><a href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">TouchCalibration::y_from_y</a></div><div class="ttdeci">float y_from_y</div><div class="ttdef"><b>Définition</b> <a href="#l00047">obcp_calibration.h:47</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__calibration_8h.html">obcp_calibration.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

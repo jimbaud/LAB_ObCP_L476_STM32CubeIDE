@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence de la structure App</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('structApp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure App</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>État complet des applications et de leur navigation.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe de collaboration de App:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structApp__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:a2f3528d61f57b96397cd819d8846098b" id="r_a2f3528d61f57b96397cd819d8846098b"><td class="memItemLeft"><a class="el" href="structDamage.html">Damage</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2f3528d61f57b96397cd819d8846098b">dirty</a></td></tr>
+<tr class="memitem:af2bc517a963d4c5e02740140c3e097f0" id="r_af2bc517a963d4c5e02740140c3e097f0"><td class="memItemLeft"><a class="el" href="structPaint.html">Paint</a>&#160;</td><td class="memItemRight"><a class="el" href="#af2bc517a963d4c5e02740140c3e097f0">paint</a></td></tr>
+<tr class="memitem:a579e931eb07d0e5111205dd01f8c8af5" id="r_a579e931eb07d0e5111205dd01f8c8af5"><td class="memItemLeft"><a class="el" href="structMaze.html">Maze</a>&#160;</td><td class="memItemRight"><a class="el" href="#a579e931eb07d0e5111205dd01f8c8af5">maze</a></td></tr>
+<tr class="memitem:aba6f7c8f11fc25e6df1a312eefb0132d" id="r_aba6f7c8f11fc25e6df1a312eefb0132d"><td class="memItemLeft"><a class="el" href="structBreakout.html">Breakout</a>&#160;</td><td class="memItemRight"><a class="el" href="#aba6f7c8f11fc25e6df1a312eefb0132d">breakout</a></td></tr>
+<tr class="memitem:a4d8f3fd528155ec13a203e836051ce98" id="r_a4d8f3fd528155ec13a203e836051ce98"><td class="memItemLeft"><a class="el" href="structRace.html">Race</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4d8f3fd528155ec13a203e836051ce98">race</a></td></tr>
+<tr class="memitem:a2fa8d6834ad062114ceafffd996afec0" id="r_a2fa8d6834ad062114ceafffd996afec0"><td class="memItemLeft"><a class="el" href="structAudio.html">Audio</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2fa8d6834ad062114ceafffd996afec0">audio</a></td></tr>
+<tr class="memitem:aac4a606cd28a6e30b0fc8ddd54f01e2e" id="r_aac4a606cd28a6e30b0fc8ddd54f01e2e"><td class="memItemLeft"><a class="el" href="structPatternBook.html">PatternBook</a>&#160;</td><td class="memItemRight"><a class="el" href="#aac4a606cd28a6e30b0fc8ddd54f01e2e">book</a></td></tr>
+<tr class="memitem:a05f0965e13b73bed8a340634ee92292c" id="r_a05f0965e13b73bed8a340634ee92292c"><td class="memItemLeft"><a class="el" href="structTouchCalBook.html">TouchCalBook</a>&#160;</td><td class="memItemRight"><a class="el" href="#a05f0965e13b73bed8a340634ee92292c">touch_cal</a></td></tr>
+<tr class="memitem:a18d02a61a239436b8c0925f1ee50026b" id="r_a18d02a61a239436b8c0925f1ee50026b"><td class="memItemLeft"><a class="el" href="structTouchCalSession.html">TouchCalSession</a>&#160;</td><td class="memItemRight"><a class="el" href="#a18d02a61a239436b8c0925f1ee50026b">touch_cal_session</a></td></tr>
+<tr class="memitem:ac9ef2133b86b2abb273f74b1f199d77e" id="r_ac9ef2133b86b2abb273f74b1f199d77e"><td class="memItemLeft"><a class="el" href="structTilt.html">Tilt</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac9ef2133b86b2abb273f74b1f199d77e">tilt</a></td></tr>
+<tr class="memitem:a59539ea9f6a08d57e628ce30d3561528" id="r_a59539ea9f6a08d57e628ce30d3561528"><td class="memItemLeft"><a class="el" href="structTiltGuide.html">TiltGuide</a>&#160;</td><td class="memItemRight"><a class="el" href="#a59539ea9f6a08d57e628ce30d3561528">tilt_guide</a></td></tr>
+<tr class="memitem:a7db9ed3e1ecc96e22f77fae99eaf088d" id="r_a7db9ed3e1ecc96e22f77fae99eaf088d"><td class="memItemLeft"><a class="el" href="structDiagnostics.html">Diagnostics</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7db9ed3e1ecc96e22f77fae99eaf088d">diag</a></td></tr>
+<tr class="memitem:a4ad168b4d89d344d196d6d62da4c9bdd" id="r_a4ad168b4d89d344d196d6d62da4c9bdd"><td class="memItemLeft"><a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438ed">Screen</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4ad168b4d89d344d196d6d62da4c9bdd">screen</a></td></tr>
+<tr class="memitem:afea9076a09f42fa3772d03f183263701" id="r_afea9076a09f42fa3772d03f183263701"><td class="memItemLeft"><a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438ed">Screen</a>&#160;</td><td class="memItemRight"><a class="el" href="#afea9076a09f42fa3772d03f183263701">splash_target</a></td></tr>
+<tr class="memitem:ad96eae21b37e576915c13888a568d600" id="r_ad96eae21b37e576915c13888a568d600"><td class="memItemLeft"><a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969">Modal</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad96eae21b37e576915c13888a568d600">modal</a></td></tr>
+<tr class="memitem:a08e05329df83e75c5cb84c2fbb64d120" id="r_a08e05329df83e75c5cb84c2fbb64d120"><td class="memItemLeft"><a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977">StoreJob</a>&#160;</td><td class="memItemRight"><a class="el" href="#a08e05329df83e75c5cb84c2fbb64d120">job</a></td></tr>
+<tr class="memitem:aa40ee18d5e90ed71265d76aa8f6f6ec9" id="r_aa40ee18d5e90ed71265d76aa8f6f6ec9"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#aa40ee18d5e90ed71265d76aa8f6f6ec9">notice</a></td></tr>
+<tr class="memitem:a0382df77be81e4fbb0e258277fde4473" id="r_a0382df77be81e4fbb0e258277fde4473"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0382df77be81e4fbb0e258277fde4473">slot</a></td></tr>
+<tr class="memitem:acd8b54e86eb5c854c2beba90adf7bbc5" id="r_acd8b54e86eb5c854c2beba90adf7bbc5"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#acd8b54e86eb5c854c2beba90adf7bbc5">track</a></td></tr>
+<tr class="memitem:a3ce4561bf42815ee00335d78ec06447c" id="r_a3ce4561bf42815ee00335d78ec06447c"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a3ce4561bf42815ee00335d78ec06447c">note</a></td></tr>
+<tr class="memitem:ac288fc2efa092e32c08f21eab6d84fc9" id="r_ac288fc2efa092e32c08f21eab6d84fc9"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac288fc2efa092e32c08f21eab6d84fc9">shown_step</a></td></tr>
+<tr class="memitem:a8a50f35ce3bc4fd06aa3113b1bffc0f6" id="r_a8a50f35ce3bc4fd06aa3113b1bffc0f6"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a8a50f35ce3bc4fd06aa3113b1bffc0f6">test_color</a></td></tr>
+<tr class="memitem:a970ad690f94fec7d5111221db8ffd2c4" id="r_a970ad690f94fec7d5111221db8ffd2c4"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a970ad690f94fec7d5111221db8ffd2c4">rgb</a> [3]</td></tr>
+<tr class="memitem:ac59f36da90561a84eb1181583561317f" id="r_ac59f36da90561a84eb1181583561317f"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ac59f36da90561a84eb1181583561317f">splash_ms</a></td></tr>
+<tr class="memitem:a09dc64848bb1d72cfc8afb1e96366893" id="r_a09dc64848bb1d72cfc8afb1e96366893"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a09dc64848bb1d72cfc8afb1e96366893">keys</a></td></tr>
+<tr class="memitem:afed077d472db6de55e9a2ff683ad1e7a" id="r_afed077d472db6de55e9a2ff683ad1e7a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afed077d472db6de55e9a2ff683ad1e7a">cal_can_cancel</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>État complet des applications et de leur navigation. </p>
+<p>Un seul <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a> appartient à <a class="el" href="board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle.">board.c</a>. Les écrans partagent le tactile, le filtre d’inclinaison, le moteur audio et le service de stockage. Aucune allocation dynamique n’est requise. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00107">107</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des champs</h2>
+<a id="a2fa8d6834ad062114ceafffd996afec0" name="a2fa8d6834ad062114ceafffd996afec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa8d6834ad062114ceafffd996afec0">&#9670;&#160;</a></span>audio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAudio.html">Audio</a> App::audio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Motif actif et états des oscillateurs audio. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00113">113</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="app_8c_source.html#l00631">request_store()</a>.</p>
+
+</div>
+</div>
+<a id="aac4a606cd28a6e30b0fc8ddd54f01e2e" name="aac4a606cd28a6e30b0fc8ddd54f01e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4a606cd28a6e30b0fc8ddd54f01e2e">&#9670;&#160;</a></span>book</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPatternBook.html">PatternBook</a> App::book</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Quatre motifs musicaux chargés ou sauvegardés en RAM. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00114">114</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, et <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>.</p>
+
+</div>
+</div>
+<a id="aba6f7c8f11fc25e6df1a312eefb0132d" name="aba6f7c8f11fc25e6df1a312eefb0132d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba6f7c8f11fc25e6df1a312eefb0132d">&#9670;&#160;</a></span>breakout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structBreakout.html">Breakout</a> App::breakout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Balle, raquette, masques de briques et phase du casse-briques. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00111">111</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l00568">game_level()</a>, <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="app_8c_source.html#l00549">game_phase()</a>.</p>
+
+</div>
+</div>
+<a id="afed077d472db6de55e9a2ff683ad1e7a" name="afed077d472db6de55e9a2ff683ad1e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed077d472db6de55e9a2ff683ad1e7a">&#9670;&#160;</a></span>cal_can_cancel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool App::cal_can_cancel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>true si un ancien profil permet de viser le bouton Annuler. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00133">133</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00534">app_force_touch_calibration()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, et <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>.</p>
+
+</div>
+</div>
+<a id="a7db9ed3e1ecc96e22f77fae99eaf088d" name="a7db9ed3e1ecc96e22f77fae99eaf088d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db9ed3e1ecc96e22f77fae99eaf088d">&#9670;&#160;</a></span>diag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDiagnostics.html">Diagnostics</a> App::diag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mesures et compteurs montrés au diagnostic. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00119">119</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="app_8c_source.html#l00962">settings_touch()</a>, <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a2f3528d61f57b96397cd819d8846098b" name="a2f3528d61f57b96397cd819d8846098b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3528d61f57b96397cd819d8846098b">&#9670;&#160;</a></span>dirty</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDamage.html">Damage</a> App::dirty</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rectangles modifiés en attente d'un prochain lot de rendu. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00108">108</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l00885">diag_next_pattern()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, <a class="el" href="app_8c_source.html#l00744">rgb_drag()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="app_8c_source.html#l00443">set_notice()</a>, <a class="el" href="app_8c_source.html#l00429">show_modal()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a08e05329df83e75c5cb84c2fbb64d120" name="a08e05329df83e75c5cb84c2fbb64d120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e05329df83e75c5cb84c2fbb64d120">&#9670;&#160;</a></span>job</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__app_8h.html#ab36a18901fda6c31ab849ae14ad9a977">StoreJob</a> App::job</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opération de stockage différée, ou JOB_NONE. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00123">123</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="app_8c_source.html#l00631">request_store()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a09dc64848bb1d72cfc8afb1e96366893" name="a09dc64848bb1d72cfc8afb1e96366893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09dc64848bb1d72cfc8afb1e96366893">&#9670;&#160;</a></span>keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool App::keys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>true lorsque la groovebox présente le clavier au lieu des pas. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00132">132</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a579e931eb07d0e5111205dd01f8c8af5" name="a579e931eb07d0e5111205dd01f8c8af5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579e931eb07d0e5111205dd01f8c8af5">&#9670;&#160;</a></span>maze</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMaze.html">Maze</a> App::maze</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Positions, vitesses, temps et phase du labyrinthe. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00110">110</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l00568">game_level()</a>, <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="app_8c_source.html#l00549">game_phase()</a>.</p>
+
+</div>
+</div>
+<a id="ad96eae21b37e576915c13888a568d600" name="ad96eae21b37e576915c13888a568d600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad96eae21b37e576915c13888a568d600">&#9670;&#160;</a></span>modal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__app_8h.html#a758b92baee413d1ca953ac8a6800e969">Modal</a> App::modal</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dialogue affiché au-dessus de l'écran courant. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00122">122</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, et <a class="el" href="app_8c_source.html#l00429">show_modal()</a>.</p>
+
+</div>
+</div>
+<a id="a3ce4561bf42815ee00335d78ec06447c" name="a3ce4561bf42815ee00335d78ec06447c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce4561bf42815ee00335d78ec06447c">&#9670;&#160;</a></span>note</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::note</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Hauteur de clavier sélectionnée de 1 à 8. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00127">127</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+
+</div>
+</div>
+<a id="aa40ee18d5e90ed71265d76aa8f6f6ec9" name="aa40ee18d5e90ed71265d76aa8f6f6ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40ee18d5e90ed71265d76aa8f6f6ec9">&#9670;&#160;</a></span>notice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* App::notice</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Message constant affiché dans le bandeau, ou NULL. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00124">124</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, et <a class="el" href="app_8c_source.html#l00443">set_notice()</a>.</p>
+
+</div>
+</div>
+<a id="af2bc517a963d4c5e02740140c3e097f0" name="af2bc517a963d4c5e02740140c3e097f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2bc517a963d4c5e02740140c3e097f0">&#9670;&#160;</a></span>paint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPaint.html">Paint</a> App::paint</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pixels indexés, palette, outils et état de modification du dessin. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00109">109</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01548">draw_paint()</a>, <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, et <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a4d8f3fd528155ec13a203e836051ce98" name="a4d8f3fd528155ec13a203e836051ce98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d8f3fd528155ec13a203e836051ce98">&#9670;&#160;</a></span>race</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRace.html">Race</a> App::race</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Joueur, trafic, objectif et animation de collision de la course. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00112">112</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l00568">game_level()</a>, <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, <a class="el" href="app_8c_source.html#l00549">game_phase()</a>, et <a class="el" href="app_8c_source.html#l00588">game_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a970ad690f94fec7d5111221db8ffd2c4" name="a970ad690f94fec7d5111221db8ffd2c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970ad690f94fec7d5111221db8ffd2c4">&#9670;&#160;</a></span>rgb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::rgb[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Composantes de travail rouge, vert et bleu, chacune de 0 à 255. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00130">130</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01791">draw_paint_editor()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, et <a class="el" href="app_8c_source.html#l00744">rgb_drag()</a>.</p>
+
+</div>
+</div>
+<a id="a4ad168b4d89d344d196d6d62da4c9bdd" name="a4ad168b4d89d344d196d6d62da4c9bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad168b4d89d344d196d6d62da4c9bdd">&#9670;&#160;</a></span>screen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438ed">Screen</a> App::screen</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Écran actuellement sélectionné. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00120">120</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, <a class="el" href="app_8c_source.html#l00568">game_level()</a>, <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, <a class="el" href="app_8c_source.html#l00549">game_phase()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="ac288fc2efa092e32c08f21eab6d84fc9" name="ac288fc2efa092e32c08f21eab6d84fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac288fc2efa092e32c08f21eab6d84fc9">&#9670;&#160;</a></span>shown_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::shown_step</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernier pas de séquenceur dessiné, pour invalider son ancienne case. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00128">128</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>.</p>
+
+</div>
+</div>
+<a id="a0382df77be81e4fbb0e258277fde4473" name="a0382df77be81e4fbb0e258277fde4473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0382df77be81e4fbb0e258277fde4473">&#9670;&#160;</a></span>slot</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::slot</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Emplacement choisi. Dessin de 0 à 1, motif de 0 à 3. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00125">125</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, et <a class="el" href="app_8c_source.html#l00631">request_store()</a>.</p>
+
+</div>
+</div>
+<a id="ac59f36da90561a84eb1181583561317f" name="ac59f36da90561a84eb1181583561317f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac59f36da90561a84eb1181583561317f">&#9670;&#160;</a></span>splash_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t App::splash_ms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Temps cumulé de l'accueil, en millisecondes de simulation. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00131">131</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, et <a class="el" href="app_8c_source.html#l01140">app_step()</a>.</p>
+
+</div>
+</div>
+<a id="afea9076a09f42fa3772d03f183263701" name="afea9076a09f42fa3772d03f183263701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea9076a09f42fa3772d03f183263701">&#9670;&#160;</a></span>splash_target</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__app_8h.html#a64e169b6e0f42914937270604cc438ed">Screen</a> App::splash_target</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Écran à ouvrir après l'accueil, menu ou procédure de démarrage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00121">121</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a8a50f35ce3bc4fd06aa3113b1bffc0f6" name="a8a50f35ce3bc4fd06aa3113b1bffc0f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a50f35ce3bc4fd06aa3113b1bffc0f6">&#9670;&#160;</a></span>test_color</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::test_color</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mire de diagnostic de 0 à 4. Zéro désigne les cibles. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00129">129</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l00885">diag_next_pattern()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="ac9ef2133b86b2abb273f74b1f199d77e" name="ac9ef2133b86b2abb273f74b1f199d77e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ef2133b86b2abb273f74b1f199d77e">&#9670;&#160;</a></span>tilt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTilt.html">Tilt</a> App::tilt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Neutre, filtre et commandes d'inclinaison communes aux jeux. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00117">117</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01451">draw_response()</a>, <a class="el" href="app_8c_source.html#l01427">draw_settings()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a59539ea9f6a08d57e628ce30d3561528" name="a59539ea9f6a08d57e628ce30d3561528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59539ea9f6a08d57e628ce30d3561528">&#9670;&#160;</a></span>tilt_guide</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTiltGuide.html">TiltGuide</a> App::tilt_guide</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Candidat de repère proposé par l'assistant droite puis bas. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00118">118</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a05f0965e13b73bed8a340634ee92292c" name="a05f0965e13b73bed8a340634ee92292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f0965e13b73bed8a340634ee92292c">&#9670;&#160;</a></span>touch_cal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchCalBook.html">TouchCalBook</a> App::touch_cal</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deux profils résistifs, un pour chaque famille prise en charge. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00115">115</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a18d02a61a239436b8c0925f1ee50026b" name="a18d02a61a239436b8c0925f1ee50026b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d02a61a239436b8c0925f1ee50026b">&#9670;&#160;</a></span>touch_cal_session</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchCalSession.html">TouchCalSession</a> App::touch_cal_session</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Progression du calibrage brut à quatre cibles. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00116">116</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="acd8b54e86eb5c854c2beba90adf7bbc5" name="acd8b54e86eb5c854c2beba90adf7bbc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd8b54e86eb5c854c2beba90adf7bbc5">&#9670;&#160;</a></span>track</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t App::track</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Piste musicale sélectionnée de 0 à 3. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00126">126</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>Core/Inc/<a class="el" href="obcp__app_8h_source.html">obcp_app.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="structApp.html">App</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

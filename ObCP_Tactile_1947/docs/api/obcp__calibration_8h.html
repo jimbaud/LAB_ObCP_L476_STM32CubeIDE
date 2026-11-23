@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_calibration.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__calibration_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_calibration.h<div class="ingroups"><a class="el" href="group__obcp__input.html">Entrées et transformations</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Transformation affine et assistant de calibrage résistif.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__touch_8h_source.html">obcp_touch.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_calibration.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h__incl.svg" width="307" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h__dep__incl.svg" width="474" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="obcp__calibration_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:TouchCalibration" id="r_TouchCalibration"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchCalibration.html">TouchCalibration</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation affine du brut résistif vers les pixels.  <a href="structTouchCalibration.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:TouchCalBook" id="r_TouchCalBook"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchCalBook.html">TouchCalBook</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Profils des deux familles résistives.  <a href="structTouchCalBook.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:TouchCalSession" id="r_TouchCalSession"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchCalSession.html">TouchCalSession</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquisition progressive des quatre cibles.  <a href="structTouchCalSession.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a45aea83b428467d1a23512d6aeb0a214" id="r_a45aea83b428467d1a23512d6aeb0a214"><td class="memItemLeft"><a class="el" href="#a45aea83b428467d1a23512d6aeb0a214">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a> = 4
+, <a class="el" href="#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a> = 3
+, <a class="el" href="#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a> = 6
+, <a class="el" href="#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a> = 14
+ }</td></tr>
+<tr class="memdesc:a45aea83b428467d1a23512d6aeb0a214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a45aea83b428467d1a23512d6aeb0a214">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:ab9ff66ce483b7b722d35399661ef2cdf" id="r_ab9ff66ce483b7b722d35399661ef2cdf"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a> { <br />
+&#160;&#160;<a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a>
+, <a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">CAL_READY</a>
+, <a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">CAL_HELD</a>
+, <a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">CAL_ADVANCED</a>
+, <br />
+&#160;&#160;<a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">CAL_RETRY</a>
+, <a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">CAL_COMPLETE</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ab9ff66ce483b7b722d35399661ef2cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Événements de l’assistant de calibrage résistif.  <a href="#ab9ff66ce483b7b722d35399661ef2cdf">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a07a6b4182e37a11fb16d7ad74d49b98b" id="r_a07a6b4182e37a11fb16d7ad74d49b98b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a> (<a class="el" href="structTouchCalibration.html">TouchCalibration</a> *cal, const <a class="el" href="structRawPoint.html">RawPoint</a> points[<a class="el" href="#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>])</td></tr>
+<tr class="memdesc:a07a6b4182e37a11fb16d7ad74d49b98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer une transformation affine de trois points bruts.  <br /></td></tr>
+<tr class="memitem:a55395b89591ad780f239d936e5b580eb" id="r_a55395b89591ad780f239d936e5b580eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a> (const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> *cal, <a class="el" href="structRawPoint.html">RawPoint</a> raw, int16_t *x, int16_t *y)</td></tr>
+<tr class="memdesc:a55395b89591ad780f239d936e5b580eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformer un point brut en pixels paysage.  <br /></td></tr>
+<tr class="memitem:a3fe9be5a59e5451f5356831d3bef4065" id="r_a3fe9be5a59e5451f5356831d3bef4065"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3fe9be5a59e5451f5356831d3bef4065">touch_cal_start</a> (<a class="el" href="structTouchCalSession.html">TouchCalSession</a> *session)</td></tr>
+<tr class="memdesc:a3fe9be5a59e5451f5356831d3bef4065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commencer une session en attendant le relâchement.  <br /></td></tr>
+<tr class="memitem:afaf7a616015d8abe2840c4c3bd45c909" id="r_afaf7a616015d8abe2840c4c3bd45c909"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afaf7a616015d8abe2840c4c3bd45c909">touch_cal_interrupt</a> (<a class="el" href="structTouchCalSession.html">TouchCalSession</a> *session)</td></tr>
+<tr class="memdesc:afaf7a616015d8abe2840c4c3bd45c909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspendre la stabilisation après une erreur de lecture.  <br /></td></tr>
+<tr class="memitem:afd77ba03905b087d81c53b24e9a9bffb" id="r_afd77ba03905b087d81c53b24e9a9bffb"><td class="memItemLeft"><a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a>&#160;</td><td class="memItemRight"><a class="el" href="#afd77ba03905b087d81c53b24e9a9bffb">touch_cal_sample</a> (<a class="el" href="structTouchCalSession.html">TouchCalSession</a> *session, <a class="el" href="structRawTouch.html">RawTouch</a> raw)</td></tr>
+<tr class="memdesc:afd77ba03905b087d81c53b24e9a9bffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faire avancer l'acquisition d'une cible résistive.  <br /></td></tr>
+<tr class="memitem:a0aead2755c4df2b3a5c7729eca28441e" id="r_a0aead2755c4df2b3a5c7729eca28441e"><td class="memItemLeft">const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a0aead2755c4df2b3a5c7729eca28441e">touch_cal_get</a> (const <a class="el" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller)</td></tr>
+<tr class="memdesc:a0aead2755c4df2b3a5c7729eca28441e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulter le profil valide d'un contrôleur.  <br /></td></tr>
+<tr class="memitem:ab7a1d11cb9192e434eaae069f4283d68" id="r_ab7a1d11cb9192e434eaae069f4283d68"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab7a1d11cb9192e434eaae069f4283d68">touch_cal_set</a> (<a class="el" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller, const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> *cal)</td></tr>
+<tr class="memdesc:ab7a1d11cb9192e434eaae069f4283d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplacer le profil associé au contrôleur.  <br /></td></tr>
+<tr class="memitem:ae6482abe8b966f9810c72676082a7004" id="r_ae6482abe8b966f9810c72676082a7004"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae6482abe8b966f9810c72676082a7004">touch_cal_load</a> (<a class="el" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="el" href="structStorage.html">Storage</a> *storage, uint8_t orientation)</td></tr>
+<tr class="memdesc:ae6482abe8b966f9810c72676082a7004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charger et reconstruire les deux profils résistifs.  <br /></td></tr>
+<tr class="memitem:a042bbd7dd8ee4e02581c0b72c0b1f1e1" id="r_a042bbd7dd8ee4e02581c0b72c0b1f1e1"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a042bbd7dd8ee4e02581c0b72c0b1f1e1">touch_cal_save</a> (const <a class="el" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="el" href="structStorage.html">Storage</a> *storage, uint8_t orientation)</td></tr>
+<tr class="memdesc:a042bbd7dd8ee4e02581c0b72c0b1f1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encoder puis enregistrer les deux profils.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa5907138b4354150cf84771e17f70a38" id="r_aa5907138b4354150cf84771e17f70a38"><td class="memItemLeft">const <a class="el" href="structRawPoint.html">RawPoint</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a> [<a class="el" href="#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a>]</td></tr>
+<tr class="memdesc:aa5907138b4354150cf84771e17f70a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Transformation affine et assistant de calibrage résistif. </p>
+<p>Trois contacts bruts définissent une base. Une quatrième cible indépendante vérifie la transformation avant sauvegarde. Les deux profils, TSC2007 et STMPE610, sont stockés sous forme de points pour reconstruire les coefficients au chargement.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__calibration_8h_source.html">obcp_calibration.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a45aea83b428467d1a23512d6aeb0a214" name="a45aea83b428467d1a23512d6aeb0a214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45aea83b428467d1a23512d6aeb0a214">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d" name="a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d"></a>CAL_TARGET_COUNT&#160;</td><td class="fielddoc"><p>Quatre cibles utilisateur dont une cible de contrôle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f" name="a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f"></a>CAL_FIT_COUNT&#160;</td><td class="fielddoc"><p>Trois points définissant la transformation affine. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f" name="a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f"></a>CAL_STABLE_SAMPLES&#160;</td><td class="fielddoc"><p>Six observations proches exigées par cible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc" name="a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc"></a>CAL_MAX_ERROR_PX&#160;</td><td class="fielddoc"><p>Erreur de contrôle admise sur chaque axe, 14 pixels. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__calibration_8h_source.html#l00027">27</a> du fichier <a class="el" href="obcp__calibration_8h_source.html">obcp_calibration.h</a>.</p>
+
+</div>
+</div>
+<a id="ab9ff66ce483b7b722d35399661ef2cdf" name="ab9ff66ce483b7b722d35399661ef2cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9ff66ce483b7b722d35399661ef2cdf">&#9670;&#160;</a></span>TouchCalEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Événements de l’assistant de calibrage résistif. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca" name="ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca"></a>CAL_UNCHANGED&#160;</td><td class="fielddoc"><p>La session attend encore un événement utile. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373" name="ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373"></a>CAL_READY&#160;</td><td class="fielddoc"><p>Le doigt a été relâché, une nouvelle cible peut être acquise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039" name="ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039"></a>CAL_HELD&#160;</td><td class="fielddoc"><p>Les six mesures de la cible sont stabilisées, attendre le relâchement. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9" name="ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9"></a>CAL_ADVANCED&#160;</td><td class="fielddoc"><p>La session a validé une cible et avance à la suivante. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a" name="ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a"></a>CAL_RETRY&#160;</td><td class="fielddoc"><p>Les observations sont incohérentes, reprendre les cibles. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2" name="ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2"></a>CAL_COMPLETE&#160;</td><td class="fielddoc"><p>La quatrième cible confirme la transformation candidate. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__calibration_8h_source.html#l00082">82</a> du fichier <a class="el" href="obcp__calibration_8h_source.html">obcp_calibration.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a07a6b4182e37a11fb16d7ad74d49b98b" name="a07a6b4182e37a11fb16d7ad74d49b98b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a6b4182e37a11fb16d7ad74d49b98b">&#9670;&#160;</a></span>touch_cal_fit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool touch_cal_fit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalibration.html">TouchCalibration</a> *</td>          <td class="paramname"><span class="paramname"><em>cal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structRawPoint.html">RawPoint</a></td>          <td class="paramname"><span class="paramname"><em>points</em></span>[CAL_FIT_COUNT]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculer une transformation affine de trois points bruts. </p>
+<p>Le déterminant de deux vecteurs permet d'inverser la base. Un déterminant trop petit rejette des observations alignées ou trop proches. Le candidat remplace cal seulement si le calcul est admis. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">cal</td><td>Transformation affine et observations de référence. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">points</td><td>Trois observations brutes, dans l’ordre des cibles de référence. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si une transformation exploitable est calculée. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00050">50</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00029">CAL_FIT_COUNT</a>, <a class="el" href="calibration_8c_source.html#l00028">CAL_MIN_DET</a>, <a class="el" href="calibration_8c_source.html#l00026">CAL_RAW_MAX</a>, <a class="el" href="obcp__calibration_8h_source.html#l00042">TouchCalibration::points</a>, <a class="el" href="calibration_8c_source.html#l00050">touch_cal_fit()</a>, <a class="el" href="calibration_8c_source.html#l00038">TOUCH_CAL_TARGETS</a>, <a class="el" href="obcp__calibration_8h_source.html#l00043">TouchCalibration::x_from_x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00044">TouchCalibration::x_from_y</a>, <a class="el" href="obcp__calibration_8h_source.html#l00045">TouchCalibration::x_offset</a>, <a class="el" href="obcp__calibration_8h_source.html#l00046">TouchCalibration::y_from_x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00047">TouchCalibration::y_from_y</a>, et <a class="el" href="obcp__calibration_8h_source.html#l00048">TouchCalibration::y_offset</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="calibration_8c_source.html#l00050">touch_cal_fit()</a>, <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>, et <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_a07a6b4182e37a11fb16d7ad74d49b98b_cgraph.svg" width="115" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0aead2755c4df2b3a5c7729eca28441e" name="a0aead2755c4df2b3a5c7729eca28441e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aead2755c4df2b3a5c7729eca28441e">&#9670;&#160;</a></span>touch_cal_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> * touch_cal_get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTouchCalBook.html">TouchCalBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a></td>          <td class="paramname"><span class="paramname"><em>controller</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consulter le profil valide d'un contrôleur. </p>
+<p>L'adresse renvoyée appartient au livre fourni. Elle reste utilisable tant que ce livre existe et que son contenu n'est pas remplacé. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">book</td><td>Livre des deux profils résistifs, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">controller</td><td>Famille de contrôleur tactile. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur constant sur le profil, ou NULL s'il manque. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00225">225</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00058">TouchCalBook::profile</a>, <a class="el" href="calibration_8c_source.html#l00208">profile_index()</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, et <a class="el" href="obcp__calibration_8h_source.html#l00049">TouchCalibration::valid</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_a0aead2755c4df2b3a5c7729eca28441e_cgraph.svg" width="278" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afaf7a616015d8abe2840c4c3bd45c909" name="afaf7a616015d8abe2840c4c3bd45c909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf7a616015d8abe2840c4c3bd45c909">&#9670;&#160;</a></span>touch_cal_interrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void touch_cal_interrupt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalSession.html">TouchCalSession</a> *</td>          <td class="paramname"><span class="paramname"><em>session</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suspendre la stabilisation après une erreur de lecture. </p>
+<p>Les mesures partielles sont abandonnées et un relâchement sera demandé avant de poursuivre la même cible. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">session</td><td>Session d’acquisition des quatre cibles. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00136">136</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00074">TouchCalSession::samples</a>, <a class="el" href="calibration_8c_source.html#l00136">touch_cal_interrupt()</a>, et <a class="el" href="obcp__calibration_8h_source.html#l00075">TouchCalSession::wait_release</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="calibration_8c_source.html#l00136">touch_cal_interrupt()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_afaf7a616015d8abe2840c4c3bd45c909_cgraph.svg" width="158" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae6482abe8b966f9810c72676082a7004" name="ae6482abe8b966f9810c72676082a7004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6482abe8b966f9810c72676082a7004">&#9670;&#160;</a></span>touch_cal_load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> touch_cal_load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalBook.html">TouchCalBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>orientation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charger et reconstruire les deux profils résistifs. </p>
+<p>Commence par un livre vide. Vérifie la version et l'orientation du TFT, décode les points little-endian puis recalcule les coefficients. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">book</td><td>Livre des deux profils résistifs. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">orientation</td><td>Octet MADCTL auquel les observations persistantes sont associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Résultat du stockage ou STORE_INVALID pour une version ou orientation incompatible. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00251">251</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00029">CAL_FIT_COUNT</a>, <a class="el" href="calibration_8c_source.html#l00032">CAL_VERSION</a>, <a class="el" href="calibration_8c_source.html#l00033">CAL_WIRE_BYTES</a>, <a class="el" href="obcp__calibration_8h_source.html#l00058">TouchCalBook::profile</a>, <a class="el" href="obcp__storage_8h_source.html#l00036">SAVE_TOUCH_CAL</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="calibration_8c_source.html#l00050">touch_cal_fit()</a>, <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, et <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, et <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_ae6482abe8b966f9810c72676082a7004_cgraph.svg" width="443" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a55395b89591ad780f239d936e5b580eb" name="a55395b89591ad780f239d936e5b580eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55395b89591ad780f239d936e5b580eb">&#9670;&#160;</a></span>touch_cal_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool touch_cal_map </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> *</td>          <td class="paramname"><span class="paramname"><em>cal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRawPoint.html">RawPoint</a></td>          <td class="paramname"><span class="paramname"><em>raw</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transformer un point brut en pixels paysage. </p>
+<p>Vérifie le profil et les bornes des conversions 12 bits, applique les deux expressions affines puis borne les résultats à l'écran. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cal</td><td>Transformation affine et observations de référence, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw</td><td>Observation physique ou point natif à interpréter. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Abscisse calculée. Pointeur de sortie valide. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Ordonnée calculée. Pointeur de sortie valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les coordonnées ont été calculées. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00109">109</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="calibration_8c_source.html#l00026">CAL_RAW_MAX</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="obcp__gfx_8h_source.html#l00029">LCD_WIDTH</a>, <a class="el" href="calibration_8c_source.html#l00092">pixel()</a>, <a class="el" href="calibration_8c_source.html#l00109">touch_cal_map()</a>, <a class="el" href="obcp__calibration_8h_source.html#l00049">TouchCalibration::valid</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00043">TouchCalibration::x_from_x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00044">TouchCalibration::x_from_y</a>, <a class="el" href="obcp__calibration_8h_source.html#l00045">TouchCalibration::x_offset</a>, <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>, <a class="el" href="obcp__calibration_8h_source.html#l00046">TouchCalibration::y_from_x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00047">TouchCalibration::y_from_y</a>, et <a class="el" href="obcp__calibration_8h_source.html#l00048">TouchCalibration::y_offset</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="calibration_8c_source.html#l00109">touch_cal_map()</a>, et <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_a55395b89591ad780f239d936e5b580eb_cgraph.svg" width="232" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afd77ba03905b087d81c53b24e9a9bffb" name="afd77ba03905b087d81c53b24e9a9bffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd77ba03905b087d81c53b24e9a9bffb">&#9670;&#160;</a></span>touch_cal_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a> touch_cal_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalSession.html">TouchCalSession</a> *</td>          <td class="paramname"><span class="paramname"><em>session</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRawTouch.html">RawTouch</a></td>          <td class="paramname"><span class="paramname"><em>raw</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faire avancer l'acquisition d'une cible résistive. </p>
+<p>Six mesures proches sont moyennées, puis validées au relâchement. Les trois premières cibles construisent la transformation. La quatrième vérifie l'erreur et peut relancer toute la session. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">session</td><td>Session d’acquisition des quatre cibles. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw</td><td>Observation physique ou point natif à interpréter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Événement de session indiquant attente, maintien, avance, reprise ou fin. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00149">149</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00070">TouchCalSession::anchor</a>, <a class="el" href="obcp__calibration_8h_source.html#l00086">CAL_ADVANCED</a>, <a class="el" href="obcp__calibration_8h_source.html#l00088">CAL_COMPLETE</a>, <a class="el" href="obcp__calibration_8h_source.html#l00029">CAL_FIT_COUNT</a>, <a class="el" href="obcp__calibration_8h_source.html#l00085">CAL_HELD</a>, <a class="el" href="calibration_8c_source.html#l00027">CAL_MAX_DRIFT</a>, <a class="el" href="obcp__calibration_8h_source.html#l00031">CAL_MAX_ERROR_PX</a>, <a class="el" href="obcp__calibration_8h_source.html#l00084">CAL_READY</a>, <a class="el" href="obcp__calibration_8h_source.html#l00087">CAL_RETRY</a>, <a class="el" href="obcp__calibration_8h_source.html#l00030">CAL_STABLE_SAMPLES</a>, <a class="el" href="obcp__calibration_8h_source.html#l00083">CAL_UNCHANGED</a>, <a class="el" href="obcp__calibration_8h_source.html#l00068">TouchCalSession::candidate</a>, <a class="el" href="obcp__touch_8h_source.html#l00061">RawTouch::down</a>, <a class="el" href="obcp__calibration_8h_source.html#l00069">TouchCalSession::observations</a>, <a class="el" href="obcp__touch_8h_source.html#l00058">RawTouch::point</a>, <a class="el" href="obcp__calibration_8h_source.html#l00076">TouchCalSession::retry</a>, <a class="el" href="obcp__calibration_8h_source.html#l00074">TouchCalSession::samples</a>, <a class="el" href="obcp__calibration_8h_source.html#l00071">TouchCalSession::sum_x</a>, <a class="el" href="obcp__calibration_8h_source.html#l00072">TouchCalSession::sum_y</a>, <a class="el" href="obcp__calibration_8h_source.html#l00073">TouchCalSession::target</a>, <a class="el" href="calibration_8c_source.html#l00050">touch_cal_fit()</a>, <a class="el" href="calibration_8c_source.html#l00109">touch_cal_map()</a>, <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>, <a class="el" href="calibration_8c_source.html#l00038">TOUCH_CAL_TARGETS</a>, <a class="el" href="obcp__calibration_8h_source.html#l00075">TouchCalSession::wait_release</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, et <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, et <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_afd77ba03905b087d81c53b24e9a9bffb_cgraph.svg" width="419" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a042bbd7dd8ee4e02581c0b72c0b1f1e1" name="a042bbd7dd8ee4e02581c0b72c0b1f1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042bbd7dd8ee4e02581c0b72c0b1f1e1">&#9670;&#160;</a></span>touch_cal_save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> touch_cal_save </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTouchCalBook.html">TouchCalBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>orientation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encoder puis enregistrer les deux profils. </p>
+<p>Le format contient version, orientation et observations brutes. Un profil absent est encodé par des points nuls. Le service A/B fournit la validation et la résistance aux coupures. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">book</td><td>Livre des deux profils résistifs, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">orientation</td><td>Octet MADCTL auquel les observations persistantes sont associées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Résultat du service de sauvegarde. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00282">282</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00029">CAL_FIT_COUNT</a>, <a class="el" href="calibration_8c_source.html#l00032">CAL_VERSION</a>, <a class="el" href="calibration_8c_source.html#l00033">CAL_WIRE_BYTES</a>, <a class="el" href="obcp__calibration_8h_source.html#l00042">TouchCalibration::points</a>, <a class="el" href="obcp__calibration_8h_source.html#l00058">TouchCalBook::profile</a>, <a class="el" href="obcp__storage_8h_source.html#l00036">SAVE_TOUCH_CAL</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, <a class="el" href="calibration_8c_source.html#l00282">touch_cal_save()</a>, <a class="el" href="obcp__calibration_8h_source.html#l00049">TouchCalibration::valid</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, et <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, et <a class="el" href="calibration_8c_source.html#l00282">touch_cal_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_a042bbd7dd8ee4e02581c0b72c0b1f1e1_cgraph.svg" width="100%" height="541"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab7a1d11cb9192e434eaae069f4283d68" name="ab7a1d11cb9192e434eaae069f4283d68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a1d11cb9192e434eaae069f4283d68">&#9670;&#160;</a></span>touch_cal_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void touch_cal_set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalBook.html">TouchCalBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a></td>          <td class="paramname"><span class="paramname"><em>controller</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structTouchCalibration.html">TouchCalibration</a> *</td>          <td class="paramname"><span class="paramname"><em>cal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remplacer le profil associé au contrôleur. </p>
+<p>Copie les points et coefficients en RAM. L'écriture flash reste une action explicite de <a class="el" href="#a042bbd7dd8ee4e02581c0b72c0b1f1e1" title="Encoder puis enregistrer les deux profils.">touch_cal_save()</a>. Un type non résistif est ignoré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">book</td><td>Livre des deux profils résistifs. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">controller</td><td>Famille de contrôleur tactile. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cal</td><td>Transformation affine et observations de référence, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00237">237</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__calibration_8h_source.html#l00058">TouchCalBook::profile</a>, <a class="el" href="calibration_8c_source.html#l00208">profile_index()</a>, et <a class="el" href="calibration_8c_source.html#l00237">touch_cal_set()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, et <a class="el" href="calibration_8c_source.html#l00237">touch_cal_set()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_ab7a1d11cb9192e434eaae069f4283d68_cgraph.svg" width="276" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3fe9be5a59e5451f5356831d3bef4065" name="a3fe9be5a59e5451f5356831d3bef4065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe9be5a59e5451f5356831d3bef4065">&#9670;&#160;</a></span>touch_cal_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void touch_cal_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchCalSession.html">TouchCalSession</a> *</td>          <td class="paramname"><span class="paramname"><em>session</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Commencer une session en attendant le relâchement. </p>
+<p>Le contact qui a ouvert la procédure est consommé. La première cible attend donc un nouveau geste de l'utilisateur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">session</td><td>Session d’acquisition des quatre cibles. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00125">125</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="calibration_8c_source.html#l00125">touch_cal_start()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, et <a class="el" href="calibration_8c_source.html#l00125">touch_cal_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__calibration_8h_a3fe9be5a59e5451f5356831d3bef4065_cgraph.svg" width="132" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="aa5907138b4354150cf84771e17f70a38" name="aa5907138b4354150cf84771e17f70a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5907138b4354150cf84771e17f70a38">&#9670;&#160;</a></span>TOUCH_CAL_TARGETS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structRawPoint.html">RawPoint</a> TOUCH_CAL_TARGETS[<a class="el" href="#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="calibration_8c_source.html#l00038">38</a> du fichier <a class="el" href="calibration_8c_source.html">calibration.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="calibration_8c_source.html#l00050">touch_cal_fit()</a>, et <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__calibration_8h.html">obcp_calibration.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

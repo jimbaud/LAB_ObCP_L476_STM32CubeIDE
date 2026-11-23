@@ -1,0 +1,39 @@
+<map id="pwm_audio_task" name="pwm_audio_task">
+<area shape="rect" id="Node000001" title="Produire au bon moment la moitié libre de l&#39;anneau." alt="" coords="5,375,137,400"/>
+<area shape="poly" id="edge12_Node000001_Node000001" title=" " alt="" coords="45,376,40,366,43,357,54,350,71,348,93,351,102,360,98,364,90,356,71,353,55,355,47,360,45,366,50,373"/>
+<area shape="rect" id="Node000002" href="$audio_8c.html#a322e6d421cd69759a8804f60029e20a2" title="Produire un bloc de rapports cycliques pour l&#39;audio." alt="" coords="185,128,267,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,373,207,164,212,166,83,376"/>
+<area shape="rect" id="Node000007" href="$pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d" title="Retrouver le handle DMA associé aux mises à jour de TIM1." alt="" coords="347,448,397,473"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="125,397,334,449,333,454,124,403"/>
+<area shape="rect" id="Node000008" href="$pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc" title="Préparer et lancer le timer avec son anneau circulaire." alt="" coords="200,349,252,375"/>
+<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="137,374,186,366,187,371,138,379"/>
+<area shape="rect" id="Node000012" href="$pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2" title="Arrêter le transport et revenir au niveau de repos." alt="" coords="201,475,251,500"/>
+<area shape="poly" id="edge21_Node000001_Node000012" title=" " alt="" coords="94,398,196,465,193,469,91,403"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="201,129,196,120,199,110,209,104,226,101,246,105,255,113,251,117,243,110,226,107,211,109,203,113,202,119,206,127"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#acbdf4b15a94eab4974511f04c62e002d" title="Déclencher les voix actives du pas courant." alt="" coords="329,103,415,128"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="266,131,315,122,316,128,267,136"/>
+<area shape="rect" id="Node000005" href="$audio_8c.html#a29ddc18385898064f49e0800665751b3" title="Calculer un échantillon d&#39;une voix et avancer son état." alt="" coords="319,29,425,55"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="238,126,271,96,313,64,322,58,325,63,316,68,274,100,242,130"/>
+<area shape="rect" id="Node000006" href="$audio_8c.html#a30adcb770ddbe0d08f3a4c0c76b2e527" title="Calculer une onde triangulaire à partir d&#39;une phase DDS." alt="" coords="477,92,549,117"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="267,142,343,145,386,143,429,137,475,121,477,126,430,142,387,148,343,150,267,148"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="348,104,343,94,346,85,356,78,372,76,392,80,400,88,396,92,389,84,372,81,357,83,350,88,348,94,353,101"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="348,30,343,21,346,11,356,5,372,3,392,6,400,15,396,18,389,11,372,8,357,10,350,15,348,20,353,28"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="405,52,430,64,474,84,472,89,428,68,403,57"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="489,93,484,84,487,74,497,68,513,65,533,69,541,77,538,81,530,74,513,71,499,73,491,77,490,83,494,91"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="348,449,343,440,346,430,356,424,372,421,392,425,400,433,396,437,389,430,372,427,357,429,350,433,348,439,353,447"/>
+<area shape="poly" id="edge16_Node000008_Node000007" title=" " alt="" coords="248,373,342,438,339,442,245,377"/>
+<area shape="rect" id="Node000009" href="$pwm__audio_8c.html#a9c4a4db95fad944941ab93f8e96ec11d" title="Relier PB1 à la sortie complémentaire TIM1_CH3N." alt="" coords="315,228,429,253"/>
+<area shape="poly" id="edge14_Node000008_Node000009" title=" " alt="" coords="234,347,266,307,288,283,313,263,321,257,324,262,316,267,292,287,270,310,238,351"/>
+<area shape="rect" id="Node000010" href="$pwm__audio_8c.html#a0bd95b14fa116f314b033e2ced0abd61" title="Mémoriser une erreur de transfert audio." alt="" coords="328,301,416,327"/>
+<area shape="poly" id="edge17_Node000008_Node000010" title=" " alt="" coords="251,351,319,329,320,334,253,356"/>
+<area shape="rect" id="Node000011" href="$pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997" title="Signaler une demi&#45;zone consommée par le DMA." alt="" coords="329,375,415,400"/>
+<area shape="poly" id="edge19_Node000008_Node000011" title=" " alt="" coords="253,364,316,375,315,380,252,369"/>
+<area shape="poly" id="edge15_Node000009_Node000009" title=" " alt="" coords="348,229,343,220,346,210,356,204,372,201,392,205,400,213,396,217,389,210,372,207,357,209,350,213,348,219,353,227"/>
+<area shape="poly" id="edge18_Node000010_Node000010" title=" " alt="" coords="348,302,343,293,346,283,356,277,372,275,392,278,400,287,396,290,389,283,372,280,357,282,350,287,348,292,353,300"/>
+<area shape="poly" id="edge20_Node000011_Node000011" title=" " alt="" coords="348,376,343,366,346,357,356,350,372,348,392,352,400,360,396,364,389,356,372,353,357,355,350,360,348,366,353,373"/>
+<area shape="poly" id="edge22_Node000012_Node000007" title=" " alt="" coords="251,480,332,465,333,470,252,485"/>
+<area shape="poly" id="edge25_Node000012_Node000012" title=" " alt="" coords="201,476,196,466,199,457,209,450,226,448,246,452,255,460,251,464,243,456,226,453,211,455,203,460,202,466,206,473"/>
+<area shape="rect" id="Node000013" href="$pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0" title="Placer PB1 à zéro en sortie GPIO." alt="" coords="329,521,415,547"/>
+<area shape="poly" id="edge23_Node000012_Node000013" title=" " alt="" coords="252,493,319,514,318,520,251,498"/>
+<area shape="poly" id="edge24_Node000013_Node000013" title=" " alt="" coords="348,522,343,513,346,503,356,497,372,495,392,498,400,507,396,510,389,503,372,500,357,502,350,507,348,512,353,520"/>
+</map>

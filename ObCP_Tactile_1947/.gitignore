@@ -1,0 +1,7 @@
+/build/
+/Debug/
+/Release/
+/.metadata/
+*.su
+*.d
+__pycache__/

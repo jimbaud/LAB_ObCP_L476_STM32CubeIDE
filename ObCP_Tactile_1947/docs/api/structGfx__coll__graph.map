@@ -1,0 +1,5 @@
+<map id="Gfx" name="Gfx">
+<area shape="rect" id="Node000001" title="Vue de dessin sur un tampon de bande RGB565." alt="" coords="8,101,53,127"/>
+<area shape="rect" id="Node000002" href="$structRect.html" title="Rectangle entier du repère écran." alt="" coords="5,5,56,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,45,33,101,28,101,28,45"/>
+</map>

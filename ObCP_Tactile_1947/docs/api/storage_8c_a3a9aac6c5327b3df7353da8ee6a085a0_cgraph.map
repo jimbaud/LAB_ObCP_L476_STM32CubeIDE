@@ -1,0 +1,19 @@
+<map id="active_copy" name="active_copy">
+<area shape="rect" id="Node000001" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="5,140,105,165"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="33,141,28,132,31,122,40,116,55,113,73,117,81,125,77,129,71,121,55,119,42,121,35,125,34,131,38,139"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a0052b460460767a33ed783dc2a5bf4fe" title="Valider l&#39;en&#45;tête, la longueur et le contenu d&#39;une copie." alt="" coords="153,103,223,128"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="100,137,140,126,141,131,102,142"/>
+<area shape="rect" id="Node000007" href="$storage_8c.html#a2396428e753d6782feb08c8595fd4dcc" title="Comparer deux générations avec débordement du compteur." alt="" coords="157,176,219,201"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="103,163,144,174,143,179,102,168"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="165,104,161,94,163,85,173,78,188,76,206,79,214,88,210,91,203,84,188,81,175,83,168,88,166,94,170,101"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a5aa66fb4259b7415431015f4ad208912" title="Calculer un CRC en relisant la flash par petits blocs." alt="" coords="288,29,367,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="208,100,269,64,281,58,283,63,272,68,210,105"/>
+<area shape="rect" id="Node000005" href="$storage_8c.html#aacbea3e66e42bc3c02264361bd29e60b" title="Décoder un entier little&#45;endian de quatre octets." alt="" coords="298,103,357,128"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="223,113,284,113,284,118,223,118"/>
+<area shape="rect" id="Node000006" href="$storage_8c.html#a5101ec40d60b123d4fbb34795966fa5f" title="Calculer le CRC32 d&#39;un bloc de données." alt="" coords="271,176,384,201"/>
+<area shape="poly" id="edge8_Node000002_Node000006" title=" " alt="" coords="214,126,291,167,289,172,212,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="304,30,299,21,301,11,311,5,327,3,347,6,355,15,351,18,344,11,327,8,313,10,306,15,304,20,308,28"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="304,104,299,94,301,85,311,78,327,76,347,80,355,88,351,92,344,84,327,81,313,83,306,88,304,94,308,101"/>
+<area shape="poly" id="edge9_Node000006_Node000006" title=" " alt="" coords="304,177,299,168,301,158,311,152,327,149,347,153,355,161,351,165,344,158,327,155,313,157,306,161,304,167,308,175"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="165,177,161,168,163,158,173,152,188,149,206,153,214,161,210,165,203,157,188,155,175,157,168,161,166,167,170,175"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="write_and_check" name="write_and_check">
+<area shape="rect" id="Node000001" title="Écrire un réglage et vérifier sa relecture." alt="" coords="5,67,136,92"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="45,68,39,58,42,49,53,42,71,40,92,43,101,52,97,56,90,48,71,45,55,47,46,52,44,58,49,65"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="184,29,271,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,64,170,53,171,58,125,69"/>
+<area shape="rect" id="Node000004" href="$accelerometer_8c.html#a87d3221052aacacfe425efbb3786c986" title="Écrire un registre de l&#39;accéléromètre." alt="" coords="186,103,269,128"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="127,89,173,100,172,105,126,95"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="204,30,199,21,201,11,211,5,227,3,247,6,255,15,251,18,244,11,227,8,213,10,206,15,204,20,208,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="319,67,417,92"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="272,51,307,60,306,66,270,56"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="344,68,339,58,342,49,352,42,368,40,387,44,396,52,392,56,385,48,368,45,354,47,346,52,345,58,349,65"/>
+<area shape="poly" id="edge7_Node000004_Node000003" title=" " alt="" coords="268,102,304,93,306,98,270,107"/>
+<area shape="poly" id="edge8_Node000004_Node000004" title=" " alt="" coords="204,104,199,94,201,85,211,78,227,76,247,80,255,88,251,92,244,84,227,81,213,83,206,88,204,94,208,101"/>
+</map>

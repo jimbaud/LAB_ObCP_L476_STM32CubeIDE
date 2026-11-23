@@ -1,0 +1,26 @@
+<map id="response_touch" name="response_touch">
+<area shape="rect" id="Node000001" title="Modifier séparément la réactivité X et Y." alt="" coords="5,169,129,195"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="38,171,32,161,36,151,48,145,67,143,91,146,101,155,98,159,89,151,67,148,49,150,40,155,38,160,43,168"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="508,168,611,193"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,168,83,136,104,94,135,52,154,34,176,20,210,6,240,3,270,9,306,19,376,47,440,84,495,124,536,157,532,161,492,128,437,89,373,52,304,24,269,14,240,9,211,11,179,24,157,38,139,56,108,97,87,138,75,170"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="187,59,296,84"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="80,167,121,131,176,93,187,87,190,92,179,98,124,136,83,171"/>
+<area shape="rect" id="Node000004" href="$app_8c.html#a67969f6aefea0fa5558ed6e2fae25eb5" title="Calculer le rectangle de le bouton de réduction de réactivité." alt="" coords="177,132,305,157"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="127,167,168,157,169,163,128,172"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a89aa646c135190d2337898a31510f1d5" title="Calculer le rectangle de le bouton d’augmentation de réactivité." alt="" coords="184,205,299,231"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="130,192,171,201,170,206,129,197"/>
+<area shape="rect" id="Node000006" href="$app_8c.html#a0cb9dece7d2a13ba953b0a606db86dc4" title="Calculer le rectangle de une barre de réactivité." alt="" coords="179,279,303,304"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="90,192,210,269,207,274,87,197"/>
+<area shape="rect" id="Node000007" href="$app_8c.html#a8a71fd897fb828a8a93919001d935512" title="Préparer un message temporaire pour l&#39;utilisateur." alt="" coords="197,352,286,377"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="79,193,120,248,179,315,212,342,208,346,175,318,116,251,75,196"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="534,169,528,160,531,150,542,143,559,141,580,145,589,153,586,157,578,150,559,147,544,149,535,153,534,159,538,166"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="214,60,208,50,211,40,222,34,241,32,264,35,274,44,270,48,262,40,241,37,224,39,215,44,213,50,218,57"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="214,133,208,124,211,114,222,107,241,105,264,109,274,117,270,121,262,114,241,111,224,113,215,117,213,123,218,130"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="214,207,208,197,211,187,222,181,241,179,264,182,274,190,270,195,262,187,241,184,224,186,215,191,213,196,218,204"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="214,280,208,270,211,260,222,254,241,252,264,255,274,264,270,268,262,260,241,257,224,259,215,264,213,270,218,277"/>
+<area shape="poly" id="edge16_Node000007_Node000007" title=" " alt="" coords="214,353,208,344,211,334,222,327,241,325,264,329,274,337,270,341,262,334,241,331,224,333,215,337,213,343,218,350"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="353,205,460,231"/>
+<area shape="poly" id="edge13_Node000007_Node000008" title=" " alt="" coords="259,350,304,315,382,239,385,243,307,319,262,354"/>
+<area shape="poly" id="edge15_Node000008_Node000002" title=" " alt="" coords="459,203,494,194,495,199,460,208"/>
+<area shape="poly" id="edge14_Node000008_Node000008" title=" " alt="" coords="381,206,376,197,378,187,389,181,407,179,428,182,437,191,433,194,425,187,407,184,391,186,383,190,381,196,386,204"/>
+</map>

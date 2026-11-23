@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/pwm_audio.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('pwm__audio_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier pwm_audio.c<div class="ingroups"><a class="el" href="group__obcp__audio.html">Synthèse et sortie musicale</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Transport des rapports cycliques par TIM1 et DMA circulaire.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__pwm_8h_source.html">obcp_pwm.h</a>&quot;</code><br />
+<code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;tim.h&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de pwm_audio.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c__incl.svg" width="383" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="pwm__audio_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a48966917a84e698fdb12989417563c51" id="r_a48966917a84e698fdb12989417563c51"><td class="memItemLeft"><a class="el" href="#a48966917a84e698fdb12989417563c51">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a> = 256
+, <a class="el" href="#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">COPY_GUARD</a> = 8
+ }</td></tr>
+<tr class="memdesc:a48966917a84e698fdb12989417563c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a48966917a84e698fdb12989417563c51">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0f01b939bb122d6d45bc4c21acdf280d" id="r_a0f01b939bb122d6d45bc4c21acdf280d"><td class="memItemLeft">static DMA_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a0f01b939bb122d6d45bc4c21acdf280d">dma</a> (void)</td></tr>
+<tr class="memdesc:a0f01b939bb122d6d45bc4c21acdf280d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrouver le handle DMA associé aux mises à jour de TIM1.  <br /></td></tr>
+<tr class="memitem:a2a420dbbcabdab6b076d86deba79f6a0" id="r_a2a420dbbcabdab6b076d86deba79f6a0"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a2a420dbbcabdab6b076d86deba79f6a0">drive_low</a> (void)</td></tr>
+<tr class="memdesc:a2a420dbbcabdab6b076d86deba79f6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placer PB1 à zéro en sortie GPIO.  <br /></td></tr>
+<tr class="memitem:a9c4a4db95fad944941ab93f8e96ec11d" id="r_a9c4a4db95fad944941ab93f8e96ec11d"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a9c4a4db95fad944941ab93f8e96ec11d">connect_timer</a> (void)</td></tr>
+<tr class="memdesc:a9c4a4db95fad944941ab93f8e96ec11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relier PB1 à la sortie complémentaire TIM1_CH3N.  <br /></td></tr>
+<tr class="memitem:abd53303a0a6c08e47b71a75b3b03ac58" id="r_abd53303a0a6c08e47b71a75b3b03ac58"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abd53303a0a6c08e47b71a75b3b03ac58">pwm_audio_init</a> (void)</td></tr>
+<tr class="memdesc:abd53303a0a6c08e47b71a75b3b03ac58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer l'état de repos de la sortie PWM.  <br /></td></tr>
+<tr class="memitem:ad5dad959ac49d3ef1422867f98b7f997" id="r_ad5dad959ac49d3ef1422867f98b7f997"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ad5dad959ac49d3ef1422867f98b7f997">half_done</a> (DMA_HandleTypeDef *handle)</td></tr>
+<tr class="memdesc:ad5dad959ac49d3ef1422867f98b7f997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signaler une demi-zone consommée par le DMA.  <br /></td></tr>
+<tr class="memitem:a0bd95b14fa116f314b033e2ced0abd61" id="r_a0bd95b14fa116f314b033e2ced0abd61"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a0bd95b14fa116f314b033e2ced0abd61">dma_fault</a> (DMA_HandleTypeDef *handle)</td></tr>
+<tr class="memdesc:a0bd95b14fa116f314b033e2ced0abd61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mémoriser une erreur de transfert audio.  <br /></td></tr>
+<tr class="memitem:a3117ca6352519be200106ca971c66acc" id="r_a3117ca6352519be200106ca971c66acc"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a3117ca6352519be200106ca971c66acc">start</a> (void)</td></tr>
+<tr class="memdesc:a3117ca6352519be200106ca971c66acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer et lancer le timer avec son anneau circulaire.  <br /></td></tr>
+<tr class="memitem:a1a127f3b18e168dd6cb368dfecb59ea2" id="r_a1a127f3b18e168dd6cb368dfecb59ea2"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a1a127f3b18e168dd6cb368dfecb59ea2">stop</a> (void)</td></tr>
+<tr class="memdesc:a1a127f3b18e168dd6cb368dfecb59ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrêter le transport et revenir au niveau de repos.  <br /></td></tr>
+<tr class="memitem:abb0b529e4ff7db5826343687e2df5266" id="r_abb0b529e4ff7db5826343687e2df5266"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abb0b529e4ff7db5826343687e2df5266">pwm_audio_task</a> (<a class="el" href="structAudio.html">Audio</a> *audio, bool needed)</td></tr>
+<tr class="memdesc:abb0b529e4ff7db5826343687e2df5266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produire au bon moment la moitié libre de l'anneau.  <br /></td></tr>
+<tr class="memitem:aa60d391d2311871c1b440c4aaa671516" id="r_aa60d391d2311871c1b440c4aaa671516"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aa60d391d2311871c1b440c4aaa671516">pwm_audio_missed</a> (void)</td></tr>
+<tr class="memdesc:aa60d391d2311871c1b440c4aaa671516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulter le nombre d'échéances ou erreurs audio.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8b20b697b7b0c98a490ef91e74469075" id="r_a8b20b697b7b0c98a490ef91e74469075"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a8b20b697b7b0c98a490ef91e74469075">ring</a> [2 *<a class="el" href="#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>]</td></tr>
+<tr class="memdesc:a8b20b697b7b0c98a490ef91e74469075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anneau DMA de deux fois 256 comparaisons uint16_t.  <br /></td></tr>
+<tr class="memitem:ac0e193dfffcba6c12719bad9eb592cc3" id="r_ac0e193dfffcba6c12719bad9eb592cc3"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0e193dfffcba6c12719bad9eb592cc3">staging</a> [<a class="el" href="#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>]</td></tr>
+<tr class="memdesc:ac0e193dfffcba6c12719bad9eb592cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demi-bloc de synthèse préparé avant sa copie dans ring.  <br /></td></tr>
+<tr class="memitem:a33ec7f90aafe42fea66197841d1c9dc1" id="r_a33ec7f90aafe42fea66197841d1c9dc1"><td class="memItemLeft">static volatile uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a></td></tr>
+<tr class="memdesc:a33ec7f90aafe42fea66197841d1c9dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compteur volatile de moitiés consommées, incrémenté par les callbacks DMA.  <br /></td></tr>
+<tr class="memitem:a2ccff338cee10f95ee6097691d6ccb21" id="r_a2ccff338cee10f95ee6097691d6ccb21"><td class="memItemLeft">static volatile bool&#160;</td><td class="memItemRight"><a class="el" href="#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a></td></tr>
+<tr class="memdesc:a2ccff338cee10f95ee6097691d6ccb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erreur volatile signalée en interruption et traitée par la boucle principale.  <br /></td></tr>
+<tr class="memitem:a237473b9d9e8e469d391b6759131ff2d" id="r_a237473b9d9e8e469d391b6759131ff2d"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a237473b9d9e8e469d391b6759131ff2d">served</a></td></tr>
+<tr class="memdesc:a237473b9d9e8e469d391b6759131ff2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dernière valeur de epoch dont la moitié libre a été traitée.  <br /></td></tr>
+<tr class="memitem:a65c507a39c827a48efda9a58dd950bac" id="r_a65c507a39c827a48efda9a58dd950bac"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a65c507a39c827a48efda9a58dd950bac">missed</a></td></tr>
+<tr class="memdesc:a65c507a39c827a48efda9a58dd950bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre cumulé d'échéances et incidents audio.  <br /></td></tr>
+<tr class="memitem:a36f7b6be7108281af77939ceaec42fd6" id="r_a36f7b6be7108281af77939ceaec42fd6"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a36f7b6be7108281af77939ceaec42fd6">running</a></td></tr>
+<tr class="memdesc:a36f7b6be7108281af77939ceaec42fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">true si le DMA et la sortie complémentaire du timer fonctionnent.  <br /></td></tr>
+<tr class="memitem:a53794d9466be19cb9c0b65f87090e237" id="r_a53794d9466be19cb9c0b65f87090e237"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a53794d9466be19cb9c0b65f87090e237">failed</a></td></tr>
+<tr class="memdesc:a53794d9466be19cb9c0b65f87090e237"><td class="mdescLeft">&#160;</td><td class="mdescRight">true si le démarrage doit rester suspendu jusqu'à une nouvelle demande audio.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Transport des rapports cycliques par TIM1 et DMA circulaire. </p>
+<p>Deux demi-tampons de 256 comparaisons alternent sur DMA1 canal 6. Les interruptions comptent les moitiés consommées. La synthèse reste dans la boucle principale et passe par staging avant une copie protégée vers la moitié libre.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a48966917a84e698fdb12989417563c51" name="a48966917a84e698fdb12989417563c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48966917a84e698fdb12989417563c51">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295" name="a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295"></a>HALF_SAMPLES&#160;</td><td class="fielddoc"><p>256 échantillons par moitié, soit 16,384 ms à 15 625 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7" name="a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7"></a>COPY_GUARD&#160;</td><td class="fielddoc"><p>Marge minimale de huit échantillons avant la reprise DMA. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00046">46</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a9c4a4db95fad944941ab93f8e96ec11d" name="a9c4a4db95fad944941ab93f8e96ec11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4a4db95fad944941ab93f8e96ec11d">&#9670;&#160;</a></span>connect_timer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void connect_timer </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Relier PB1 à la sortie complémentaire TIM1_CH3N. </p>
+<p>Le niveau PWM vient ensuite du timer et de son registre CCR3. Le changement de fonction alternative est réalisé une fois le transport préparé. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00091">91</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00091">connect_timer()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00091">connect_timer()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a9c4a4db95fad944941ab93f8e96ec11d_cgraph.svg" width="126" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0f01b939bb122d6d45bc4c21acdf280d" name="a0f01b939bb122d6d45bc4c21acdf280d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f01b939bb122d6d45bc4c21acdf280d">&#9670;&#160;</a></span>dma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DMA_HandleTypeDef * dma </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrouver le handle DMA associé aux mises à jour de TIM1. </p>
+<p>La liaison hdma de TIM1 est préparée par CubeMX. Ce handle porte aussi les callbacks de demi-transfert et de fin de transfert. </p><dl class="section return"><dt>Renvoie</dt><dd>Pointeur HAL du DMA TIM1_UP, éventuellement NULL avant configuration. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00064">64</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00064">dma()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00064">dma()</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a0f01b939bb122d6d45bc4c21acdf280d_cgraph.svg" width="62" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0bd95b14fa116f314b033e2ced0abd61" name="a0bd95b14fa116f314b033e2ced0abd61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd95b14fa116f314b033e2ced0abd61">&#9670;&#160;</a></span>dma_fault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dma_fault </td>
+          <td>(</td>
+          <td class="paramtype">DMA_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mémoriser une erreur de transfert audio. </p>
+<p>Le callback place un indicateur volatile. La tâche principale arrêtera ensuite le transport et comptabilisera l'erreur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">handle</td><td>Handle HAL du canal DMA à l’origine du callback. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Contexte interruption. Garder ce traitement court et sans opération flash. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00134">134</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00053">dma_error</a>, et <a class="el" href="pwm__audio_8c_source.html#l00134">dma_fault()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00134">dma_fault()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a0bd95b14fa116f314b033e2ced0abd61_cgraph.svg" width="99" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2a420dbbcabdab6b076d86deba79f6a0" name="a2a420dbbcabdab6b076d86deba79f6a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a420dbbcabdab6b076d86deba79f6a0">&#9670;&#160;</a></span>drive_low()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drive_low </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Placer PB1 à zéro en sortie GPIO. </p>
+<p>Précharge le niveau bas avant de choisir le mode GPIO. Ce chemin est utilisé au repos et avant l'arrêt du transport. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00075">75</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00075">drive_low()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00075">drive_low()</a>, <a class="el" href="pwm__audio_8c_source.html#l00107">pwm_audio_init()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a2a420dbbcabdab6b076d86deba79f6a0_cgraph.svg" width="96" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad5dad959ac49d3ef1422867f98b7f997" name="ad5dad959ac49d3ef1422867f98b7f997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5dad959ac49d3ef1422867f98b7f997">&#9670;&#160;</a></span>half_done()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void half_done </td>
+          <td>(</td>
+          <td class="paramtype">DMA_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signaler une demi-zone consommée par le DMA. </p>
+<p>Callback d'interruption très court. L'incrément de epoch permet à la boucle principale de savoir quelle moitié elle peut préparer. Aucune synthèse n'est faite ici. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">handle</td><td>Handle HAL du canal DMA à l’origine du callback. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Contexte interruption. Garder ce traitement court et sans opération flash. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00120">120</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00052">epoch</a>, et <a class="el" href="pwm__audio_8c_source.html#l00120">half_done()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00120">half_done()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_ad5dad959ac49d3ef1422867f98b7f997_cgraph.svg" width="98" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abd53303a0a6c08e47b71a75b3b03ac58" name="abd53303a0a6c08e47b71a75b3b03ac58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd53303a0a6c08e47b71a75b3b03ac58">&#9670;&#160;</a></span>pwm_audio_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pwm_audio_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer l'état de repos de la sortie PWM. </p>
+<p>L'initialisation démarre avec PB1 en GPIO bas. Le timer et le DMA seront lancés seulement quand l'application demandera de l'audio. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00107">107</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00075">drive_low()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00107">pwm_audio_init()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00107">pwm_audio_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_abd53303a0a6c08e47b71a75b3b03ac58_cgraph.svg" width="270" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa60d391d2311871c1b440c4aaa671516" name="aa60d391d2311871c1b440c4aaa671516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60d391d2311871c1b440c4aaa671516">&#9670;&#160;</a></span>pwm_audio_missed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t pwm_audio_missed </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consulter le nombre d'échéances ou erreurs audio. </p>
+<p>Ce compteur sert à qualifier le comportement lorsque l'écran et le tactile sollicitent aussi le processeur. </p><dl class="section return"><dt>Renvoie</dt><dd>Nombre cumulé d'événements audio manqués depuis le démarrage. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00258">258</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00054">missed</a>, et <a class="el" href="pwm__audio_8c_source.html#l00258">pwm_audio_missed()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00258">pwm_audio_missed()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_aa60d391d2311871c1b440c4aaa671516_cgraph.svg" width="162" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abb0b529e4ff7db5826343687e2df5266" name="abb0b529e4ff7db5826343687e2df5266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb0b529e4ff7db5826343687e2df5266">&#9670;&#160;</a></span>pwm_audio_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pwm_audio_task </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>audio</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>needed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Produire au bon moment la moitié libre de l'anneau. </p>
+<p>Compare epoch à served, synthétise dans staging puis relit le compteur DMA. La copie se fait seulement si le DMA utilise toujours l'autre moitié avec une marge de huit échantillons. Les échéances perdues sont comptées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">audio</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">needed</td><td>true si l’application demande actuellement une sortie audio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00203">203</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, <a class="el" href="pwm__audio_8c_source.html#l00048">COPY_GUARD</a>, <a class="el" href="pwm__audio_8c_source.html#l00064">dma()</a>, <a class="el" href="pwm__audio_8c_source.html#l00053">dma_error</a>, <a class="el" href="pwm__audio_8c_source.html#l00052">epoch</a>, <a class="el" href="pwm__audio_8c_source.html#l00055">failed</a>, <a class="el" href="pwm__audio_8c_source.html#l00047">HALF_SAMPLES</a>, <a class="el" href="pwm__audio_8c_source.html#l00054">missed</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, <a class="el" href="pwm__audio_8c_source.html#l00050">ring</a>, <a class="el" href="pwm__audio_8c_source.html#l00055">running</a>, <a class="el" href="pwm__audio_8c_source.html#l00054">served</a>, <a class="el" href="pwm__audio_8c_source.html#l00051">staging</a>, <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_abb0b529e4ff7db5826343687e2df5266_cgraph.svg" width="555" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3117ca6352519be200106ca971c66acc" name="a3117ca6352519be200106ca971c66acc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3117ca6352519be200106ca971c66acc">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Préparer et lancer le timer avec son anneau circulaire. </p>
+<p>Vérifie ARR et RCR, remplit l'anneau au centre de la PWM, branche les callbacks, démarre le DMA puis la sortie complémentaire et sa requête de mise à jour. </p><dl class="section return"><dt>Renvoie</dt><dd>true si les démarrages DMA et timer ont réussi. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00147">147</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__audio_8h_source.html#l00027">AUDIO_CENTER</a>, <a class="el" href="pwm__audio_8c_source.html#l00091">connect_timer()</a>, <a class="el" href="pwm__audio_8c_source.html#l00064">dma()</a>, <a class="el" href="pwm__audio_8c_source.html#l00053">dma_error</a>, <a class="el" href="pwm__audio_8c_source.html#l00134">dma_fault()</a>, <a class="el" href="pwm__audio_8c_source.html#l00052">epoch</a>, <a class="el" href="pwm__audio_8c_source.html#l00120">half_done()</a>, <a class="el" href="pwm__audio_8c_source.html#l00047">HALF_SAMPLES</a>, <a class="el" href="pwm__audio_8c_source.html#l00050">ring</a>, et <a class="el" href="pwm__audio_8c_source.html#l00054">served</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a3117ca6352519be200106ca971c66acc_cgraph.svg" width="226" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1a127f3b18e168dd6cb368dfecb59ea2" name="a1a127f3b18e168dd6cb368dfecb59ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a127f3b18e168dd6cb368dfecb59ea2">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stop </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Arrêter le transport et revenir au niveau de repos. </p>
+<p>Déconnecte d'abord PB1, désactive la requête DMA, arrête la sortie PWM puis interrompt le DMA. L'état running est remis à false. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00187">187</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="pwm__audio_8c_source.html#l00064">dma()</a>, <a class="el" href="pwm__audio_8c_source.html#l00075">drive_low()</a>, <a class="el" href="pwm__audio_8c_source.html#l00055">running</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="pwm__audio_8c_a1a127f3b18e168dd6cb368dfecb59ea2_cgraph.svg" width="195" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a2ccff338cee10f95ee6097691d6ccb21" name="a2ccff338cee10f95ee6097691d6ccb21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ccff338cee10f95ee6097691d6ccb21">&#9670;&#160;</a></span>dma_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool dma_error</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erreur volatile signalée en interruption et traitée par la boucle principale. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00053">53</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00134">dma_fault()</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+
+</div>
+</div>
+<a id="a33ec7f90aafe42fea66197841d1c9dc1" name="a33ec7f90aafe42fea66197841d1c9dc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ec7f90aafe42fea66197841d1c9dc1">&#9670;&#160;</a></span>epoch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t epoch</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compteur volatile de moitiés consommées, incrémenté par les callbacks DMA. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00052">52</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00120">half_done()</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+
+</div>
+</div>
+<a id="a53794d9466be19cb9c0b65f87090e237" name="a53794d9466be19cb9c0b65f87090e237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53794d9466be19cb9c0b65f87090e237">&#9670;&#160;</a></span>failed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool failed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true si le démarrage doit rester suspendu jusqu'à une nouvelle demande audio. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00055">55</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+
+</div>
+</div>
+<a id="a65c507a39c827a48efda9a58dd950bac" name="a65c507a39c827a48efda9a58dd950bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c507a39c827a48efda9a58dd950bac">&#9670;&#160;</a></span>missed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t missed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nombre cumulé d'échéances et incidents audio. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00054">54</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00258">pwm_audio_missed()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+
+</div>
+</div>
+<a id="a8b20b697b7b0c98a490ef91e74469075" name="a8b20b697b7b0c98a490ef91e74469075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b20b697b7b0c98a490ef91e74469075">&#9670;&#160;</a></span>ring</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t ring[2 *<a class="el" href="#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Anneau DMA de deux fois 256 comparaisons uint16_t. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00050">50</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+
+</div>
+</div>
+<a id="a36f7b6be7108281af77939ceaec42fd6" name="a36f7b6be7108281af77939ceaec42fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f7b6be7108281af77939ceaec42fd6">&#9670;&#160;</a></span>running</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool running</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true si le DMA et la sortie complémentaire du timer fonctionnent. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00055">55</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00187">stop()</a>.</p>
+
+</div>
+</div>
+<a id="a237473b9d9e8e469d391b6759131ff2d" name="a237473b9d9e8e469d391b6759131ff2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a237473b9d9e8e469d391b6759131ff2d">&#9670;&#160;</a></span>served</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t served</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dernière valeur de epoch dont la moitié libre a été traitée. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00054">54</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00147">start()</a>.</p>
+
+</div>
+</div>
+<a id="ac0e193dfffcba6c12719bad9eb592cc3" name="ac0e193dfffcba6c12719bad9eb592cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e193dfffcba6c12719bad9eb592cc3">&#9670;&#160;</a></span>staging</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t staging[<a class="el" href="#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Demi-bloc de synthèse préparé avant sa copie dans ring. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="pwm__audio_8c_source.html#l00051">51</a> du fichier <a class="el" href="pwm__audio_8c_source.html">pwm_audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="pwm__audio_8c.html">pwm_audio.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

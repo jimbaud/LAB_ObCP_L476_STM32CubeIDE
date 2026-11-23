@@ -1,0 +1,13 @@
+<map id="app_read_preferences" name="app_read_preferences">
+<area shape="rect" id="Node000001" title="Charger les deux valeurs de réactivité." alt="" coords="5,67,172,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="58,68,52,58,55,49,68,42,89,40,114,44,125,52,121,56,112,48,89,45,69,47,59,52,57,58,62,65"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a93e975a9edc0e30b07e9fdfaa4391ef2" title="Lire un objet dont la longueur exacte est connue." alt="" coords="220,67,327,92"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="172,77,206,77,206,82,172,82"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="247,68,242,58,245,49,256,42,273,40,295,43,304,52,300,56,292,48,273,45,257,47,249,52,247,58,252,65"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="380,29,480,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="326,64,366,54,367,60,327,69"/>
+<area shape="rect" id="Node000010" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="375,103,485,128"/>
+<area shape="poly" id="edge6_Node000002_Node000010" title=" " alt="" coords="327,89,362,97,361,102,326,94"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="404,31,398,21,401,11,412,5,430,3,451,6,460,15,457,19,449,11,430,8,414,10,406,15,404,20,408,28"/>
+<area shape="poly" id="edge7_Node000010_Node000010" title=" " alt="" coords="404,104,398,94,401,85,412,78,430,76,451,79,460,88,457,92,449,84,430,81,414,83,406,88,404,94,408,101"/>
+</map>

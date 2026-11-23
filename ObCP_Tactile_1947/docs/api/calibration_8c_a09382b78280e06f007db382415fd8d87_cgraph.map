@@ -1,0 +1,13 @@
+<map id="touch_cal_sample" name="touch_cal_sample">
+<area shape="rect" id="Node000001" title="Faire avancer l&#39;acquisition d&#39;une cible résistive." alt="" coords="5,67,144,92"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="45,68,39,58,42,49,55,42,75,40,99,44,109,52,106,56,97,48,75,45,56,47,46,52,44,58,50,65"/>
+<area shape="rect" id="Node000002" href="$calibration_8c.html#af0194f444b0eb34a49da19199ccccfee" title="Calculer une transformation affine de trois points bruts." alt="" coords="200,29,304,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,64,185,53,187,58,136,69"/>
+<area shape="rect" id="Node000003" href="$calibration_8c.html#a55395b89591ad780f239d936e5b580eb" title="Transformer un point brut en pixels paysage." alt="" coords="192,103,312,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="138,89,179,98,178,103,137,95"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="229,30,224,21,227,11,236,5,252,3,270,6,278,14,275,18,268,11,252,8,238,10,231,14,230,20,234,28"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="229,104,224,94,227,85,236,78,252,76,270,79,278,88,275,91,268,84,252,81,238,83,231,88,230,94,234,101"/>
+<area shape="rect" id="Node000004" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="360,103,413,128"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="312,113,346,113,346,118,312,118"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="364,104,359,94,362,85,371,78,387,76,405,79,413,88,409,91,402,84,387,81,373,83,366,88,364,94,368,101"/>
+</map>

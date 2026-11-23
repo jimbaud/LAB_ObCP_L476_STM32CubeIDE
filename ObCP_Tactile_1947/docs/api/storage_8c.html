@@ -1,0 +1,970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/storage.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('storage_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier storage.c<div class="ingroups"><a class="el" href="group__obcp__storage.html">Sauvegardes transactionnelles</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Format d’objet A/B, CRC32 et validation transactionnelle.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de storage.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c__incl.svg" width="311" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="storage_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:Slot" id="r_Slot"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structSlot.html">Slot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Géométrie des deux copies d’un objet. La seconde copie commence à base plus span.  <a href="structSlot.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Copy" id="r_Copy"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structCopy.html">Copy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Résultat d’inspection d’une copie flash. Un état invalide reste distinct d’une erreur physique de lecture.  <a href="structCopy.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a590c2b075eaedcdb9282e13be5217a68" id="r_a590c2b075eaedcdb9282e13be5217a68"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a590c2b075eaedcdb9282e13be5217a68">STORAGE_MAGIC</a>&#160;&#160;&#160;UINT32_C(0x4F424350)</td></tr>
+<tr class="memdesc:a590c2b075eaedcdb9282e13be5217a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature commune des en-têtes, valeur ASCII logique OBCP sur 32 bits.  <br /></td></tr>
+<tr class="memitem:a2055aa1bd9771109e3e19471ab8c3840" id="r_a2055aa1bd9771109e3e19471ab8c3840"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2055aa1bd9771109e3e19471ab8c3840">COMMIT_MAGIC</a>&#160;&#160;&#160;UINT64_C(0xA537F1C2694DB8E0)</td></tr>
+<tr class="memdesc:a2055aa1bd9771109e3e19471ab8c3840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marqueur 64 bits écrit seulement après relecture correcte de la nouvelle copie.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a3f2d3a3cc9c0d12ce30fcb4ee7918618" id="r_a3f2d3a3cc9c0d12ce30fcb4ee7918618"><td class="memItemLeft"><a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a688d2c26f77aabab5113fcf6dab67f1e">HEADER_BYTES</a> = 32
+, <a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a423b01ef06e470e6c1595612a920ac91">META_BYTES</a> = 24
+, <a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a> = 32 * 1024
+, <a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808">AXES_BASE</a> = 2 * OBCP_FLASH_PAGE
+, <br />
+&#160;&#160;<a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb">TOUCH_BASE</a> = 4 * OBCP_FLASH_PAGE
+, <a class="el" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">LEGACY_BASE</a> = 6 * OBCP_FLASH_PAGE
+<br />
+ }</td></tr>
+<tr class="memdesc:a3f2d3a3cc9c0d12ce30fcb4ee7918618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aacbea3e66e42bc3c02264361bd29e60b" id="r_aacbea3e66e42bc3c02264361bd29e60b"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aacbea3e66e42bc3c02264361bd29e60b">get32</a> (const uint8_t *p)</td></tr>
+<tr class="memdesc:aacbea3e66e42bc3c02264361bd29e60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Décoder un entier little-endian de quatre octets.  <br /></td></tr>
+<tr class="memitem:a06849388067b043b9b2812ea369aabac" id="r_a06849388067b043b9b2812ea369aabac"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a06849388067b043b9b2812ea369aabac">put32</a> (uint8_t *p, uint32_t value)</td></tr>
+<tr class="memdesc:a06849388067b043b9b2812ea369aabac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encoder un entier sur quatre octets little-endian.  <br /></td></tr>
+<tr class="memitem:a13239798b871b82e956686baa3b67adb" id="r_a13239798b871b82e956686baa3b67adb"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a13239798b871b82e956686baa3b67adb">crc_continue</a> (uint32_t crc, const uint8_t *data, size_t size)</td></tr>
+<tr class="memdesc:a13239798b871b82e956686baa3b67adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poursuivre le calcul bit à bit d'un CRC32.  <br /></td></tr>
+<tr class="memitem:a5101ec40d60b123d4fbb34795966fa5f" id="r_a5101ec40d60b123d4fbb34795966fa5f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a5101ec40d60b123d4fbb34795966fa5f">storage_crc32</a> (const void *data, size_t size)</td></tr>
+<tr class="memdesc:a5101ec40d60b123d4fbb34795966fa5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer le CRC32 d'un bloc de données.  <br /></td></tr>
+<tr class="memitem:a5aa66fb4259b7415431015f4ad208912" id="r_a5aa66fb4259b7415431015f4ad208912"><td class="memItemLeft">static <a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5aa66fb4259b7415431015f4ad208912">crc_flash</a> (<a class="el" href="structStorage.html">Storage</a> *s, uint32_t start, size_t size, uint32_t expected)</td></tr>
+<tr class="memdesc:a5aa66fb4259b7415431015f4ad208912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer un CRC en relisant la flash par petits blocs.  <br /></td></tr>
+<tr class="memitem:a0052b460460767a33ed783dc2a5bf4fe" id="r_a0052b460460767a33ed783dc2a5bf4fe"><td class="memItemLeft">static <a class="el" href="structCopy.html">Copy</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0052b460460767a33ed783dc2a5bf4fe">inspect</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, uint32_t offset)</td></tr>
+<tr class="memdesc:a0052b460460767a33ed783dc2a5bf4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valider l'en-tête, la longueur et le contenu d'une copie.  <br /></td></tr>
+<tr class="memitem:a2396428e753d6782feb08c8595fd4dcc" id="r_a2396428e753d6782feb08c8595fd4dcc"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a2396428e753d6782feb08c8595fd4dcc">newer</a> (uint32_t a, uint32_t b)</td></tr>
+<tr class="memdesc:a2396428e753d6782feb08c8595fd4dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparer deux générations avec débordement du compteur.  <br /></td></tr>
+<tr class="memitem:a3a9aac6c5327b3df7353da8ee6a085a0" id="r_a3a9aac6c5327b3df7353da8ee6a085a0"><td class="memItemLeft">static <a class="el" href="structCopy.html">Copy</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3a9aac6c5327b3df7353da8ee6a085a0">active_copy</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object)</td></tr>
+<tr class="memdesc:a3a9aac6c5327b3df7353da8ee6a085a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choisir la dernière copie valide d'un objet.  <br /></td></tr>
+<tr class="memitem:a6e534e2144670ed18c70f2292cc1b6fc" id="r_a6e534e2144670ed18c70f2292cc1b6fc"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a6e534e2144670ed18c70f2292cc1b6fc">valid_request</a> (<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, const void *data, size_t size)</td></tr>
+<tr class="memdesc:a6e534e2144670ed18c70f2292cc1b6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contrôler type d'objet, pointeur et longueur.  <br /></td></tr>
+<tr class="memitem:a93e975a9edc0e30b07e9fdfaa4391ef2" id="r_a93e975a9edc0e30b07e9fdfaa4391ef2"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a93e975a9edc0e30b07e9fdfaa4391ef2">storage_read</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, void *data, size_t size)</td></tr>
+<tr class="memdesc:a93e975a9edc0e30b07e9fdfaa4391ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un objet dont la longueur exacte est connue.  <br /></td></tr>
+<tr class="memitem:a14262c35a650194efb006701a81f4d17" id="r_a14262c35a650194efb006701a81f4d17"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a14262c35a650194efb006701a81f4d17">storage_read_sized</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, void *data, size_t capacity, size_t *actual)</td></tr>
+<tr class="memdesc:a14262c35a650194efb006701a81f4d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un objet en découvrant sa longueur de format.  <br /></td></tr>
+<tr class="memitem:acdb0d3d7df8fc923acd7743abdca12cf" id="r_acdb0d3d7df8fc923acd7743abdca12cf"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#acdb0d3d7df8fc923acd7743abdca12cf">storage_save</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, const void *data, size_t size)</td></tr>
+<tr class="memdesc:acdb0d3d7df8fc923acd7743abdca12cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire et valider la copie inactive d'un objet.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a12b8ee58f061f6419e0424e0ea866cc4" id="r_a12b8ee58f061f6419e0424e0ea866cc4"><td class="memItemLeft">static const <a class="el" href="structSlot.html">Slot</a>&#160;</td><td class="memItemRight"><a class="el" href="#a12b8ee58f061f6419e0424e0ea866cc4">slots</a> [<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1">SAVE_OBJECTS</a>]</td></tr>
+<tr class="memdesc:a12b8ee58f061f6419e0424e0ea866cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placement et taille des deux copies de chacun des six objets persistants.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Format d’objet A/B, CRC32 et validation transactionnelle. </p>
+<p>Chaque objet possède deux emplacements sur des pages distinctes. La génération et les CRC identifient la copie exploitable. Une nouvelle copie reçoit son marqueur final dans un double mot encore vierge après contrôle de toutes ses données.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a2055aa1bd9771109e3e19471ab8c3840" name="a2055aa1bd9771109e3e19471ab8c3840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2055aa1bd9771109e3e19471ab8c3840">&#9670;&#160;</a></span>COMMIT_MAGIC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMMIT_MAGIC&#160;&#160;&#160;UINT64_C(0xA537F1C2694DB8E0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marqueur 64 bits écrit seulement après relecture correcte de la nouvelle copie. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00038">38</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+
+</div>
+</div>
+<a id="a590c2b075eaedcdb9282e13be5217a68" name="a590c2b075eaedcdb9282e13be5217a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a590c2b075eaedcdb9282e13be5217a68">&#9670;&#160;</a></span>STORAGE_MAGIC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STORAGE_MAGIC&#160;&#160;&#160;UINT32_C(0x4F424350)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signature commune des en-têtes, valeur ASCII logique OBCP sur 32 bits. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00037">37</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a688d2c26f77aabab5113fcf6dab67f1e" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a688d2c26f77aabab5113fcf6dab67f1e"></a>HEADER_BYTES&#160;</td><td class="fielddoc"><p>En-tête complet de 32 octets, marqueur final inclus. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a423b01ef06e470e6c1595612a920ac91" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a423b01ef06e470e6c1595612a920ac91"></a>META_BYTES&#160;</td><td class="fielddoc"><p>24 octets de métadonnées écrits avant la validation finale. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7"></a>DRAW_COPY_BYTES&#160;</td><td class="fielddoc"><p>Capacité de 32 Kio pour une copie de dessin, en-tête inclus. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808"></a>AXES_BASE&#160;</td><td class="fielddoc"><p>Offset des deux pages A/B du repère des jeux. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb"></a>TOUCH_BASE&#160;</td><td class="fielddoc"><p>Offset des deux pages A/B du calibrage tactile. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1" name="a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1"></a>LEGACY_BASE&#160;</td><td class="fielddoc"><p>Début des objets historiques dont les adresses sont conservées. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00029">29</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a3a9aac6c5327b3df7353da8ee6a085a0" name="a3a9aac6c5327b3df7353da8ee6a085a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a9aac6c5327b3df7353da8ee6a085a0">&#9670;&#160;</a></span>active_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCopy.html">Copy</a> active_copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Choisir la dernière copie valide d'un objet. </p>
+<p>Inspecte A et B, puis compare leurs générations. Si aucune copie n'est valide, une erreur de lecture est conservée pour empêcher une écriture à l'aveugle. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Copie choisie avec son état de validation. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00214">214</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00044">Slot::base</a>, <a class="el" href="storage_8c_source.html#l00063">Copy::generation</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00199">newer()</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00047">slots</a>, <a class="el" href="storage_8c_source.html#l00045">Slot::span</a>, et <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a3a9aac6c5327b3df7353da8ee6a085a0_cgraph.svg" width="390" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a13239798b871b82e956686baa3b67adb" name="a13239798b871b82e956686baa3b67adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13239798b871b82e956686baa3b67adb">&#9670;&#160;</a></span>crc_continue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t crc_continue </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>crc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Poursuivre le calcul bit à bit d'un CRC32. </p>
+<p>Le registre courant traite chaque octet et huit décalages avec le polynôme réfléchi 0xEDB88320. La complémentation finale est laissée à l'appelant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">crc</td><td>Accumulateur CRC avant complément final. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Bloc source valide de size octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nouvel accumulateur de CRC avant complément final. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00106">106</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00106">crc_continue()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00106">crc_continue()</a>, <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, et <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a13239798b871b82e956686baa3b67adb_cgraph.svg" width="115" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5aa66fb4259b7415431015f4ad208912" name="a5aa66fb4259b7415431015f4ad208912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa66fb4259b7415431015f4ad208912">&#9670;&#160;</a></span>crc_flash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> crc_flash </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>expected</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer un CRC en relisant la flash par petits blocs. </p>
+<p>Un tampon de 128 octets borne la pile. Une erreur de lecture interrompt le calcul et reste distincte d'un CRC incorrect. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>Offset du premier octet à contrôler dans la réserve flash. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">expected</td><td>CRC de référence lu dans l’en-tête. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK, STORE_IO ou STORE_INVALID. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00140">140</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00106">crc_continue()</a>, <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, et <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a5aa66fb4259b7415431015f4ad208912_cgraph.svg" width="242" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aacbea3e66e42bc3c02264361bd29e60b" name="aacbea3e66e42bc3c02264361bd29e60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacbea3e66e42bc3c02264361bd29e60b">&#9670;&#160;</a></span>get32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get32 </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Décoder un entier little-endian de quatre octets. </p>
+<p>Les décalages explicites évitent de dépendre de l'alignement de l'adresse ou de l'endianness du processeur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>Adresse de quatre octets encodés en little-endian. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur entière recomposée sur 32 bits. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00077">77</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00077">get32()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00077">get32()</a>, et <a class="el" href="storage_8c_source.html#l00166">inspect()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_aacbea3e66e42bc3c02264361bd29e60b_cgraph.svg" width="70" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0052b460460767a33ed783dc2a5bf4fe" name="a0052b460460767a33ed783dc2a5bf4fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0052b460460767a33ed783dc2a5bf4fe">&#9670;&#160;</a></span>inspect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCopy.html">Copy</a> inspect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Valider l'en-tête, la longueur et le contenu d'une copie. </p>
+<p>Vérifie marqueur, signature, type, longueur admise et CRC d'en-tête, puis relit le CRC des données. La longueur de chaque copie est propre à sa version de format. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>Offset en octets depuis le début de la réserve flash. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Descripteur de copie avec validité, génération, longueur et éventuelle erreur de lecture. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00166">166</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00038">COMMIT_MAGIC</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, <a class="el" href="storage_8c_source.html#l00063">Copy::generation</a>, <a class="el" href="storage_8c_source.html#l00077">get32()</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00064">Copy::size</a>, <a class="el" href="storage_8c_source.html#l00047">slots</a>, <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>, <a class="el" href="storage_8c_source.html#l00037">STORAGE_MAGIC</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, et <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a0052b460460767a33ed783dc2a5bf4fe_cgraph.svg" width="394" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2396428e753d6782feb08c8595fd4dcc" name="a2396428e753d6782feb08c8595fd4dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2396428e753d6782feb08c8595fd4dcc">&#9670;&#160;</a></span>newer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool newer </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Comparer deux générations avec débordement du compteur. </p>
+<p>Une différence non nulle inférieure à la moitié de l'espace uint32_t désigne la génération plus récente. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Valeur numérique à comparer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Valeur numérique à comparer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si a suit b selon la comparaison modulaire. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00199">199</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00199">newer()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, et <a class="el" href="storage_8c_source.html#l00199">newer()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a2396428e753d6782feb08c8595fd4dcc_cgraph.svg" width="74" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a06849388067b043b9b2812ea369aabac" name="a06849388067b043b9b2812ea369aabac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06849388067b043b9b2812ea369aabac">&#9670;&#160;</a></span>put32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void put32 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encoder un entier sur quatre octets little-endian. </p>
+<p>Le format de sauvegarde garde le même ordre d'octets sur la cible et dans les tests PC. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">p</td><td>Adresse de quatre octets encodés en little-endian. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur à utiliser dans ce traitement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00089">89</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00089">put32()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00089">put32()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a06849388067b043b9b2812ea369aabac_cgraph.svg" width="70" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5101ec40d60b123d4fbb34795966fa5f" name="a5101ec40d60b123d4fbb34795966fa5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5101ec40d60b123d4fbb34795966fa5f">&#9670;&#160;</a></span>storage_crc32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t storage_crc32 </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculer le CRC32 d'un bloc de données. </p>
+<p>Initialise le registre à tous les bits à un et complémente le résultat. Les vecteurs de tests contrôlent notamment la chaîne 123456789. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Bloc source valide de size octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>CRC32 du bloc fourni. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00124">124</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00106">crc_continue()</a>, et <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a5101ec40d60b123d4fbb34795966fa5f_cgraph.svg" width="276" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a93e975a9edc0e30b07e9fdfaa4391ef2" name="a93e975a9edc0e30b07e9fdfaa4391ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e975a9edc0e30b07e9fdfaa4391ef2">&#9670;&#160;</a></span>storage_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire un objet dont la longueur exacte est connue. </p>
+<p>Sélectionne d'abord la copie récente valide, puis vérifie que sa longueur égale celle demandée avant de copier les octets vers l'appelant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tampon de destination valide. Sa capacité est donnée par size, capacity ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK, STORE_EMPTY si absent ou de longueur différente, STORE_IO ou STORE_INVALID. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00248">248</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00064">Copy::size</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="obcp__storage_8h_source.html#l00046">STORE_EMPTY</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, et <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a93e975a9edc0e30b07e9fdfaa4391ef2_cgraph.svg" width="394" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a14262c35a650194efb006701a81f4d17" name="a14262c35a650194efb006701a81f4d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14262c35a650194efb006701a81f4d17">&#9670;&#160;</a></span>storage_read_sized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_read_sized </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>capacity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>actual</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire un objet en découvrant sa longueur de format. </p>
+<p>Le tampon est donné avec sa capacité. La taille réellement enregistrée est fournie seulement au succès. Une copie trop grande est rejetée avant la copie des données. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tampon de destination valide. Sa capacité est donnée par size, capacity ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td>Capacité du tampon de destination en octets. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">actual</td><td>Longueur réelle enregistrée, écrite seulement au succès. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK, STORE_EMPTY, STORE_IO ou STORE_INVALID. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00272">272</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00064">Copy::size</a>, <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>, <a class="el" href="obcp__storage_8h_source.html#l00046">STORE_EMPTY</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="paint_8c_source.html#l00231">paint_load()</a>, et <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a14262c35a650194efb006701a81f4d17_cgraph.svg" width="435" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acdb0d3d7df8fc923acd7743abdca12cf" name="acdb0d3d7df8fc923acd7743abdca12cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb0d3d7df8fc923acd7743abdca12cf">&#9670;&#160;</a></span>storage_save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_save </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Écrire et valider la copie inactive d'un objet. </p>
+<p>Garde la copie active, efface l'autre, écrit l'en-tête incomplet et les données, relit les CRC puis programme le marqueur final. La génération active est reconnue même si la nouvelle longueur de format diffère. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Bloc source valide de size octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK au succès, STORE_IO en cas d'échec physique ou STORE_INVALID pour une requête hors contrat. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00301">301</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00044">Slot::base</a>, <a class="el" href="storage_8c_source.html#l00038">COMMIT_MAGIC</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, <a class="el" href="obcp__storage_8h_source.html#l00064">Storage::erase</a>, <a class="el" href="storage_8c_source.html#l00063">Copy::generation</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00031">META_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00065">Storage::program</a>, <a class="el" href="storage_8c_source.html#l00089">put32()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00047">slots</a>, <a class="el" href="storage_8c_source.html#l00045">Slot::span</a>, <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>, <a class="el" href="storage_8c_source.html#l00037">STORAGE_MAGIC</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="paint_8c_source.html#l00209">paint_save()</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, et <a class="el" href="calibration_8c_source.html#l00282">touch_cal_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_acdb0d3d7df8fc923acd7743abdca12cf_cgraph.svg" width="558" height="356"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6e534e2144670ed18c70f2292cc1b6fc" name="a6e534e2144670ed18c70f2292cc1b6fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e534e2144670ed18c70f2292cc1b6fc">&#9670;&#160;</a></span>valid_request()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool valid_request </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contrôler type d'objet, pointeur et longueur. </p>
+<p>Le numéro doit appartenir à la table et la charge utile tenir après les 32 octets d'en- tête dans une copie. Une taille nulle est rejetée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Tampon valide contenant size octets de données. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la requête tient dans le stockage attribué à l'objet. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00236">236</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00047">slots</a>, <a class="el" href="storage_8c_source.html#l00045">Slot::span</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="storage_8c_a6e534e2144670ed18c70f2292cc1b6fc_cgraph.svg" width="122" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a12b8ee58f061f6419e0424e0ea866cc4" name="a12b8ee58f061f6419e0424e0ea866cc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b8ee58f061f6419e0424e0ea866cc4">&#9670;&#160;</a></span>slots</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structSlot.html">Slot</a> slots[<a class="el" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1">SAVE_OBJECTS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                        = {</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1">SAVE_DRAW_1</a>] = {<a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">LEGACY_BASE</a>, <a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a>},</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9">SAVE_DRAW_2</a>] = {<a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">LEGACY_BASE</a> + 2 * <a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a>, <a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a>},</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a">SAVE_MUSIC</a>] = {<a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">LEGACY_BASE</a> + 4 * <a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a>, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a>},</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a>] = {<a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb">TOUCH_BASE</a>, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a>},</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258">SAVE_TILT_AXES</a>] = {<a class="code hl_enumvalue" href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808">AXES_BASE</a>, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a>},</div>
+<div class="line">    [<a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3">SAVE_PREFERENCES</a>] = {0, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a>},</div>
+<div class="line">}</div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a></div><div class="ttdeci">@ SAVE_TOUCH_CAL</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00036">obcp_storage.h:36</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3">SAVE_PREFERENCES</a></div><div class="ttdeci">@ SAVE_PREFERENCES</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00038">obcp_storage.h:38</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a">SAVE_MUSIC</a></div><div class="ttdeci">@ SAVE_MUSIC</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00035">obcp_storage.h:35</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9">SAVE_DRAW_2</a></div><div class="ttdeci">@ SAVE_DRAW_2</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00034">obcp_storage.h:34</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258">SAVE_TILT_AXES</a></div><div class="ttdeci">@ SAVE_TILT_AXES</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00037">obcp_storage.h:37</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1">SAVE_DRAW_1</a></div><div class="ttdeci">@ SAVE_DRAW_1</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00033">obcp_storage.h:33</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3"><div class="ttname"><a href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a></div><div class="ttdeci">@ OBCP_FLASH_PAGE</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00025">obcp_storage.h:25</a></div></div>
+<div class="ttc" id="astorage_8c_html_a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808"><div class="ttname"><a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a20edbc1dd54cd13c8dd06f49f2322808">AXES_BASE</a></div><div class="ttdeci">@ AXES_BASE</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00033">storage.c:33</a></div></div>
+<div class="ttc" id="astorage_8c_html_a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1"><div class="ttname"><a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a755b6162e064f3b55aef43fe4910b9a1">LEGACY_BASE</a></div><div class="ttdeci">@ LEGACY_BASE</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00035">storage.c:35</a></div></div>
+<div class="ttc" id="astorage_8c_html_a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb"><div class="ttname"><a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a82208853ace4bea4f7b01d2c5fc59cfb">TOUCH_BASE</a></div><div class="ttdeci">@ TOUCH_BASE</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00034">storage.c:34</a></div></div>
+<div class="ttc" id="astorage_8c_html_a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7"><div class="ttname"><a href="#a3f2d3a3cc9c0d12ce30fcb4ee7918618a9644daf22834a507b6ab407ccad8cbe7">DRAW_COPY_BYTES</a></div><div class="ttdeci">@ DRAW_COPY_BYTES</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00032">storage.c:32</a></div></div>
+</div><!-- fragment -->
+<p>Placement et taille des deux copies de chacun des six objets persistants. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00047">47</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="storage_8c.html">storage.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

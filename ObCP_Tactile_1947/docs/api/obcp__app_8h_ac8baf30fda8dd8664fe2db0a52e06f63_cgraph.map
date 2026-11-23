@@ -1,0 +1,16 @@
+<map id="app_init" name="app_init">
+<area shape="rect" id="Node000001" title="Initialiser les modèles et les valeurs de départ." alt="" coords="5,140,80,165"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="19,141,15,132,17,122,27,116,43,113,61,117,70,125,66,129,59,121,43,119,29,121,21,125,20,131,24,139"/>
+<area shape="rect" id="Node000002" href="$audio_8c.html#a2bd8da07b82ee027f3c11717ef60b552" title="Préparer un motif d&#39;exemple et les oscillateurs." alt="" coords="136,29,223,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="52,138,83,102,126,64,133,59,136,64,130,68,87,106,56,141"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="128,103,231,128"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="80,140,118,129,120,134,81,145"/>
+<area shape="rect" id="Node000004" href="$paint_8c.html#a5cd743883e0991ade0eab3d17f064616" title="Initialiser un canevas, une palette et le crayon." alt="" coords="138,176,221,201"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="81,160,125,172,124,177,80,165"/>
+<area shape="rect" id="Node000005" href="$input_8c.html#a7e3372c85c60ac5a47eda9c16957b430" title="Préparer le repère et les réactivités initiales." alt="" coords="145,249,213,275"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="62,164,153,239,150,243,58,168"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="156,30,151,21,154,11,163,5,179,3,198,6,206,14,202,18,195,11,179,8,165,10,158,15,157,20,161,28"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="156,104,151,94,154,85,163,78,179,76,198,79,206,88,202,91,195,84,179,81,165,83,158,88,157,94,161,101"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="156,177,151,168,154,158,163,152,179,149,198,153,206,161,202,165,195,157,179,155,165,157,158,161,157,167,161,175"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="156,250,151,241,154,231,163,225,179,223,198,226,206,234,202,238,195,231,179,228,165,230,158,235,157,240,161,248"/>
+</map>

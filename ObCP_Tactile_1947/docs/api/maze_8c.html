@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/maze.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('maze_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier maze.c<div class="ingroups"><a class="el" href="group__obcp__apps.html">Applications et navigation</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Cartes fixes, inertie et collisions du labyrinthe.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de maze.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c__incl.svg" width="174" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="maze_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad3f03d216f49d657eff0f2e2a70e8e90" id="r_ad3f03d216f49d657eff0f2e2a70e8e90"><td class="memItemLeft"><a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698">COLS</a> = 17
+, <a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f">ROWS</a> = 11
+, <a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90afd8331de7faa8b5fa5c0a0370f1c9342">TILE</a> = 16
+, <a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90adb45120aafd37a973140edee24708065">LEFT</a> = 24
+, <br />
+&#160;&#160;<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90a0ad44897a70fba309c24a5b6007de3e3">TOP</a> = 46
+, <a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90a8b0118a01b04ae0b85a5b0eab30dfb2f">BALL_RADIUS</a> = 5
+<br />
+ }</td></tr>
+<tr class="memdesc:ad3f03d216f49d657eff0f2e2a70e8e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#ad3f03d216f49d657eff0f2e2a70e8e90">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0deb320c2dcb6bea105f878ebc712613" id="r_a0deb320c2dcb6bea105f878ebc712613"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0deb320c2dcb6bea105f878ebc712613">cell</a> (int col, int row)</td></tr>
+<tr class="memdesc:a0deb320c2dcb6bea105f878ebc712613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir une cellule de carte en rectangle écran.  <br /></td></tr>
+<tr class="memitem:a7a77f9a29a63aff30842b2ad50da27ee" id="r_a7a77f9a29a63aff30842b2ad50da27ee"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7a77f9a29a63aff30842b2ad50da27ee">maze_start</a> (void)</td></tr>
+<tr class="memdesc:a7a77f9a29a63aff30842b2ad50da27ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir la cellule de départ commune aux cartes.  <br /></td></tr>
+<tr class="memitem:a2fa51f9d8a99a3c84f03c4e19faa0a33" id="r_a2fa51f9d8a99a3c84f03c4e19faa0a33"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2fa51f9d8a99a3c84f03c4e19faa0a33">maze_finish</a> (void)</td></tr>
+<tr class="memdesc:a2fa51f9d8a99a3c84f03c4e19faa0a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir la cellule d'arrivée commune aux cartes.  <br /></td></tr>
+<tr class="memitem:a5585d106d6056c8bf8a9aef2ceaeef9d" id="r_a5585d106d6056c8bf8a9aef2ceaeef9d"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a5585d106d6056c8bf8a9aef2ceaeef9d">clamp</a> (float v, float low, float high)</td></tr>
+<tr class="memdesc:a5585d106d6056c8bf8a9aef2ceaeef9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limiter une valeur flottante à un intervalle.  <br /></td></tr>
+<tr class="memitem:a5818043951867c9d06606bc34d8e91cb" id="r_a5818043951867c9d06606bc34d8e91cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5818043951867c9d06606bc34d8e91cb">maze_solid</a> (const <a class="el" href="structMaze.html">Maze</a> *m, float x, float y)</td></tr>
+<tr class="memdesc:a5818043951867c9d06606bc34d8e91cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier si le disque de la bille touche une zone interdite.  <br /></td></tr>
+<tr class="memitem:adbad92044d748de614a3262b38a1ef89" id="r_adbad92044d748de614a3262b38a1ef89"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#adbad92044d748de614a3262b38a1ef89">ball_bounds</a> (const <a class="el" href="structMaze.html">Maze</a> *m)</td></tr>
+<tr class="memdesc:adbad92044d748de614a3262b38a1ef89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'emprise de la bille pour le rendu.  <br /></td></tr>
+<tr class="memitem:a7dc6cbf39e39ac3f700d4e422eb9075e" id="r_a7dc6cbf39e39ac3f700d4e422eb9075e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7dc6cbf39e39ac3f700d4e422eb9075e">maze_init</a> (<a class="el" href="structMaze.html">Maze</a> *m, unsigned level)</td></tr>
+<tr class="memdesc:a7dc6cbf39e39ac3f700d4e422eb9075e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer un niveau à son point de départ.  <br /></td></tr>
+<tr class="memitem:a0470eb8bc1e9fdb99e57517747160be6" id="r_a0470eb8bc1e9fdb99e57517747160be6"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0470eb8bc1e9fdb99e57517747160be6">maze_seconds_left</a> (const <a class="el" href="structMaze.html">Maze</a> *m)</td></tr>
+<tr class="memdesc:a0470eb8bc1e9fdb99e57517747160be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir le temps restant en secondes affichables.  <br /></td></tr>
+<tr class="memitem:a8f155882cb040aaa1591303bf517a7d6" id="r_a8f155882cb040aaa1591303bf517a7d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f155882cb040aaa1591303bf517a7d6">maze_step</a> (<a class="el" href="structMaze.html">Maze</a> *m, float tilt_x, float tilt_y, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a8f155882cb040aaa1591303bf517a7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intégrer la physique et le temps sur vingt millisecondes.  <br /></td></tr>
+<tr class="memitem:adfc0527f385c1372e01cb6c405b8a7ea" id="r_adfc0527f385c1372e01cb6c405b8a7ea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adfc0527f385c1372e01cb6c405b8a7ea">maze_draw</a> (const <a class="el" href="structMaze.html">Maze</a> *m, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:adfc0527f385c1372e01cb6c405b8a7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner les murs, les cases spéciales et la bille.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a470f0c472f78d529ff5efa009668a13f" id="r_a470f0c472f78d529ff5efa009668a13f"><td class="memItemLeft">static const char&#160;</td><td class="memItemRight"><a class="el" href="#a470f0c472f78d529ff5efa009668a13f">maps</a> [<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>][<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f">ROWS</a>][<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698">COLS</a>+1]</td></tr>
+<tr class="memdesc:a470f0c472f78d529ff5efa009668a13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dix cartes fixes. Dièse signifie mur, S départ, G arrivée et point passage.  <br /></td></tr>
+<tr class="memitem:af3e24090d3128e7faef5ea693edb7312" id="r_af3e24090d3128e7faef5ea693edb7312"><td class="memItemLeft">static const uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af3e24090d3128e7faef5ea693edb7312">limits_ms</a> [<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td></tr>
+<tr class="memdesc:af3e24090d3128e7faef5ea693edb7312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temps maximum de chaque niveau, de 75 000 à 23 000 millisecondes.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Cartes fixes, inertie et collisions du labyrinthe. </p>
+<p>Les cartes utilisent des cases de 16 pixels. Le modèle conserve positions et vitesses en flottants, tandis que le dessin utilise des pixels entiers. Le temps progresse seulement dans GAME_RUN et la pause fige donc le compteur.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ad3f03d216f49d657eff0f2e2a70e8e90" name="ad3f03d216f49d657eff0f2e2a70e8e90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f03d216f49d657eff0f2e2a70e8e90">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698" name="ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698"></a>COLS&#160;</td><td class="fielddoc"><p>Nombre de colonnes de la carte de labyrinthe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f" name="ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f"></a>ROWS&#160;</td><td class="fielddoc"><p>Nombre de rangées de la carte de labyrinthe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90afd8331de7faa8b5fa5c0a0370f1c9342" name="ad3f03d216f49d657eff0f2e2a70e8e90afd8331de7faa8b5fa5c0a0370f1c9342"></a>TILE&#160;</td><td class="fielddoc"><p>Côté d’une case carrée en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90adb45120aafd37a973140edee24708065" name="ad3f03d216f49d657eff0f2e2a70e8e90adb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc"><p>Abscisse du bord gauche de l’aire de jeu, en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90a0ad44897a70fba309c24a5b6007de3e3" name="ad3f03d216f49d657eff0f2e2a70e8e90a0ad44897a70fba309c24a5b6007de3e3"></a>TOP&#160;</td><td class="fielddoc"><p>Ordonnée du bord supérieur de l’aire de jeu, en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad3f03d216f49d657eff0f2e2a70e8e90a8b0118a01b04ae0b85a5b0eab30dfb2f" name="ad3f03d216f49d657eff0f2e2a70e8e90a8b0118a01b04ae0b85a5b0eab30dfb2f"></a>BALL_RADIUS&#160;</td><td class="fielddoc"><p>Rayon de la bille en pixels. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00024">24</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="adbad92044d748de614a3262b38a1ef89" name="adbad92044d748de614a3262b38a1ef89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbad92044d748de614a3262b38a1ef89">&#9670;&#160;</a></span>ball_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> ball_bounds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer l'emprise de la bille pour le rendu. </p>
+<p>Le rayon et un pixel de bord sont inclus afin d'effacer complètement l'ancienne image. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle englobant la bille. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00249">249</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="maze_8c_source.html#l00030">BALL_RADIUS</a>, <a class="el" href="obcp__games_8h_source.html#l00046">Maze::x</a>, et <a class="el" href="obcp__games_8h_source.html#l00047">Maze::y</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_adbad92044d748de614a3262b38a1ef89_cgraph.svg" width="259" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0deb320c2dcb6bea105f878ebc712613" name="a0deb320c2dcb6bea105f878ebc712613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0deb320c2dcb6bea105f878ebc712613">&#9670;&#160;</a></span>cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> cell </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convertir une cellule de carte en rectangle écran. </p>
+<p>Ajoute les marges de la scène au produit de l'indice par la taille de tuile. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>Indice de colonne dans la carte. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">row</td><td>Indice de ligne dans la carte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la cellule, en pixels. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00177">177</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, et <a class="el" href="breakout_8c_source.html#l00026">TOP</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>, <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, et <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a0deb320c2dcb6bea105f878ebc712613_cgraph.svg" width="56" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5585d106d6056c8bf8a9aef2ceaeef9d" name="a5585d106d6056c8bf8a9aef2ceaeef9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5585d106d6056c8bf8a9aef2ceaeef9d">&#9670;&#160;</a></span>clamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float clamp </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Limiter une valeur flottante à un intervalle. </p>
+<p>Le même helper borne une vitesse ou trouve le point le plus proche sur une tuile murale. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>Valeur flottante à limiter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">low</td><td>Borne inférieure de saturation. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">high</td><td>Borne supérieure de saturation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur saturée entre low et high. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00205">205</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00205">clamp()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00205">clamp()</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a5585d106d6056c8bf8a9aef2ceaeef9d_cgraph.svg" width="74" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adfc0527f385c1372e01cb6c405b8a7ea" name="adfc0527f385c1372e01cb6c405b8a7ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc0527f385c1372e01cb6c405b8a7ea">&#9670;&#160;</a></span>maze_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessiner les murs, les cases spéciales et la bille. </p>
+<p>Les rangées hors de la bande sont sautées. Le niveau sélectionne la carte, tandis que les positions physiques ne sont jamais modifiées par ce rendu. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00331">331</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00030">BALL_RADIUS</a>, <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00034">maps</a>, <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="maze_8c_source.html#l00026">ROWS</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__games_8h_source.html#l00046">Maze::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00047">Maze::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_adfc0527f385c1372e01cb6c405b8a7ea_cgraph.svg" width="559" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2fa51f9d8a99a3c84f03c4e19faa0a33" name="a2fa51f9d8a99a3c84f03c4e19faa0a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa51f9d8a99a3c84f03c4e19faa0a33">&#9670;&#160;</a></span>maze_finish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> maze_finish </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir la cellule d'arrivée commune aux cartes. </p>
+<p>L'arrivée occupe la dernière case intérieure en bas à droite. Le test de victoire et le dessin lisent la même emprise. </p><dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la case d'arrivée. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00194">194</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, et <a class="el" href="maze_8c_source.html#l00026">ROWS</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a2fa51f9d8a99a3c84f03c4e19faa0a33_cgraph.svg" width="204" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7dc6cbf39e39ac3f700d4e422eb9075e" name="a7dc6cbf39e39ac3f700d4e422eb9075e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc6cbf39e39ac3f700d4e422eb9075e">&#9670;&#160;</a></span>maze_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer un niveau à son point de départ. </p>
+<p>Remet vitesses et temps à zéro. Un niveau hors plage revient à zéro et la phase initiale demande l'appui Jouer. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00261">261</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>, <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a7dc6cbf39e39ac3f700d4e422eb9075e_cgraph.svg" width="334" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0470eb8bc1e9fdb99e57517747160be6" name="a0470eb8bc1e9fdb99e57517747160be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0470eb8bc1e9fdb99e57517747160be6">&#9670;&#160;</a></span>maze_seconds_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t maze_seconds_left </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convertir le temps restant en secondes affichables. </p>
+<p>Arrondit vers le haut pour que la dernière seconde soit visible. La valeur est nulle dès que la limite du niveau est atteinte. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de secondes restantes, jamais négatif. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00274">274</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00050">Maze::elapsed_ms</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00166">limits_ms</a>, et <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a0470eb8bc1e9fdb99e57517747160be6_cgraph.svg" width="158" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5818043951867c9d06606bc34d8e91cb" name="a5818043951867c9d06606bc34d8e91cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5818043951867c9d06606bc34d8e91cb">&#9670;&#160;</a></span>maze_solid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool maze_solid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier si le disque de la bille touche une zone interdite. </p>
+<p>Limite les cases examinées à l'emprise du disque. Pour chaque mur, le point de rectangle le plus proche du centre permet de tester la distance au carré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la bille sortirait du plateau ou recouvrirait un mur. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00216">216</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00030">BALL_RADIUS</a>, <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="maze_8c_source.html#l00205">clamp()</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00034">maps</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, <a class="el" href="maze_8c_source.html#l00026">ROWS</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a5818043951867c9d06606bc34d8e91cb_cgraph.svg" width="218" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7a77f9a29a63aff30842b2ad50da27ee" name="a7a77f9a29a63aff30842b2ad50da27ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a77f9a29a63aff30842b2ad50da27ee">&#9670;&#160;</a></span>maze_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> maze_start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir la cellule de départ commune aux cartes. </p>
+<p>Le départ est placé dans la case intérieure de coordonnées colonne un et ligne un. </p><dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la case de départ. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00187">187</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00177">cell()</a>, et <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>, et <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a7a77f9a29a63aff30842b2ad50da27ee_cgraph.svg" width="199" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8f155882cb040aaa1591303bf517a7d6" name="a8f155882cb040aaa1591303bf517a7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f155882cb040aaa1591303bf517a7d6">&#9670;&#160;</a></span>maze_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intégrer la physique et le temps sur vingt millisecondes. </p>
+<p>Calcule les vitesses avec inertie, avance séparément X et Y pour permettre le glissement contre un mur, puis teste arrivée et expiration. Les emprises modifiées sont invalidées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_y</td><td>Commande écran Y, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00286">286</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="maze_8c_source.html#l00205">clamp()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__games_8h_source.html#l00050">Maze::elapsed_ms</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00166">limits_ms</a>, <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="obcp__games_8h_source.html#l00052">Maze::phase</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="obcp__games_8h_source.html#l00048">Maze::vx</a>, <a class="el" href="obcp__games_8h_source.html#l00049">Maze::vy</a>, <a class="el" href="obcp__games_8h_source.html#l00046">Maze::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00047">Maze::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="maze_8c_a8f155882cb040aaa1591303bf517a7d6_cgraph.svg" width="440" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="af3e24090d3128e7faef5ea693edb7312" name="af3e24090d3128e7faef5ea693edb7312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3e24090d3128e7faef5ea693edb7312">&#9670;&#160;</a></span>limits_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t limits_ms[<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                                = {</div>
+<div class="line">    75000, 68000, 62000, 56000, 50000, 44000, 38000, 32000, 27000, 23000</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Temps maximum de chaque niveau, de 75 000 à 23 000 millisecondes. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00166">166</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+
+</div>
+</div>
+<a id="a470f0c472f78d529ff5efa009668a13f" name="a470f0c472f78d529ff5efa009668a13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470f0c472f78d529ff5efa009668a13f">&#9670;&#160;</a></span>maps</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char maps[<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>][<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90a1e6722abe838b2aa003377bf9d24ad3f">ROWS</a>][<a class="el" href="#ad3f03d216f49d657eff0f2e2a70e8e90ae0ef4285be2af9213b94b78159459698">COLS</a>+1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dix cartes fixes. Dièse signifie mur, S départ, G arrivée et point passage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00034">34</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>, et <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="maze_8c.html">maze.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

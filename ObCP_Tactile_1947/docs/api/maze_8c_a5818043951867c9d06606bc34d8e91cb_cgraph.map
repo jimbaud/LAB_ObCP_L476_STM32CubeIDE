@@ -1,0 +1,10 @@
+<map id="maze_solid" name="maze_solid">
+<area shape="rect" id="Node000001" title="Vérifier si le disque de la bille touche une zone interdite." alt="" coords="5,67,101,92"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="32,68,27,58,30,49,39,42,53,40,71,43,78,52,74,55,68,48,53,45,41,47,34,52,33,58,36,65"/>
+<area shape="rect" id="Node000002" href="$maze_8c.html#a0deb320c2dcb6bea105f878ebc712613" title="Convertir une cellule de carte en rectangle écran." alt="" coords="158,29,203,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,64,144,50,146,55,98,69"/>
+<area shape="rect" id="Node000003" href="$maze_8c.html#a5585d106d6056c8bf8a9aef2ceaeef9d" title="Limiter une valeur flottante à un intervalle." alt="" coords="149,103,212,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="99,89,137,100,135,105,98,95"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="159,30,155,21,157,11,166,5,181,3,198,6,206,14,202,18,195,11,181,8,168,10,161,14,160,20,164,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="159,104,155,94,157,85,166,78,181,76,198,79,206,88,202,91,195,84,181,81,168,83,161,88,160,94,164,101"/>
+</map>

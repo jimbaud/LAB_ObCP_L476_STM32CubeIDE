@@ -1,0 +1,36 @@
+<map id="sample_button" name="sample_button">
+<area shape="rect" id="Node000001" title="Lire PC13 et transmettre un événement débouncé." alt="" coords="5,337,124,363"/>
+<area shape="poly" id="edge23_Node000001_Node000001" title=" " alt="" coords="37,339,31,329,34,319,46,313,65,311,87,314,97,323,94,327,85,319,65,316,47,318,38,323,36,328,41,336"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0535cf3a6d1eb77bdec793834d2d1cc0" title="Traiter le raccourci facultatif de SW1." alt="" coords="183,176,277,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,335,204,209,208,213,81,339"/>
+<area shape="rect" id="Node000018" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="198,337,262,363"/>
+<area shape="poly" id="edge11_Node000001_Node000018" title=" " alt="" coords="124,347,184,347,184,353,124,353"/>
+<area shape="rect" id="Node000028" href="$input_8c.html#a8043e16b40563dda56ba1c8b1c232abe" title="Transformer le niveau de SW1 en appui court ou long." alt="" coords="172,411,288,436"/>
+<area shape="poly" id="edge21_Node000001_Node000028" title=" " alt="" coords="95,360,189,403,187,407,93,365"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="202,177,196,168,200,158,211,152,230,149,253,153,262,161,259,165,250,158,230,155,213,157,204,161,202,167,207,174"/>
+<area shape="rect" id="Node000003" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="363,29,449,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="237,174,274,122,302,91,334,64,349,56,352,60,338,68,306,95,278,125,241,178"/>
+<area shape="rect" id="Node000015" href="$app_8c.html#a986ea06869687503157d791cf9fe47b0" title="Passer à la mire suivante." alt="" coords="336,103,476,128"/>
+<area shape="poly" id="edge5_Node000002_Node000015" title=" " alt="" coords="255,174,335,137,352,130,354,135,337,142,257,178"/>
+<area shape="rect" id="Node000016" href="$app_8c.html#a23824b732b554d96856b6361f1f032f3" title="Ouvrir ou fermer une boîte de dialogue." alt="" coords="354,176,458,201"/>
+<area shape="poly" id="edge7_Node000002_Node000016" title=" " alt="" coords="278,186,340,186,340,191,278,191"/>
+<area shape="rect" id="Node000017" href="$input_8c.html#a4a62d2bd3618bf965844b00af3b4141c" title="Classer le type de tactile." alt="" coords="345,249,467,275"/>
+<area shape="poly" id="edge9_Node000002_Node000017" title=" " alt="" coords="263,199,363,241,361,246,260,204"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="381,31,375,21,378,11,389,5,406,3,427,6,436,15,432,19,424,11,406,8,391,10,382,15,381,20,385,28"/>
+<area shape="poly" id="edge6_Node000015_Node000015" title=" " alt="" coords="381,104,375,94,378,85,389,78,406,76,427,80,436,88,432,92,424,84,406,81,391,83,382,88,381,94,385,101"/>
+<area shape="poly" id="edge8_Node000016_Node000016" title=" " alt="" coords="381,177,375,168,378,158,389,152,406,149,427,153,436,161,432,165,424,158,406,155,391,157,382,161,381,167,385,175"/>
+<area shape="poly" id="edge10_Node000017_Node000017" title=" " alt="" coords="381,251,375,241,378,231,389,225,406,223,427,226,436,235,432,239,424,231,406,228,391,230,382,235,381,240,385,248"/>
+<area shape="poly" id="edge12_Node000018_Node000018" title=" " alt="" coords="202,339,196,329,200,319,211,313,230,311,253,314,262,323,259,327,250,319,230,316,213,318,204,323,202,328,207,336"/>
+<area shape="rect" id="Node000019" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="524,375,591,400"/>
+<area shape="poly" id="edge13_Node000018_Node000019" title=" " alt="" coords="262,340,305,332,359,326,418,326,477,335,506,348,531,364,528,368,503,352,475,341,418,331,359,331,305,337,263,345"/>
+<area shape="rect" id="Node000025" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="359,375,453,400"/>
+<area shape="poly" id="edge15_Node000018_Node000025" title=" " alt="" coords="263,354,346,372,344,377,262,359"/>
+<area shape="rect" id="Node000026" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="368,448,444,473"/>
+<area shape="poly" id="edge18_Node000018_Node000026" title=" " alt="" coords="263,359,289,372,314,390,338,411,376,438,373,442,334,415,311,395,287,376,261,364"/>
+<area shape="poly" id="edge14_Node000019_Node000019" title=" " alt="" coords="532,376,527,366,530,357,540,350,557,348,578,352,587,360,583,364,575,356,557,353,542,355,534,360,532,366,537,373"/>
+<area shape="poly" id="edge16_Node000025_Node000019" title=" " alt="" coords="454,385,510,385,510,390,454,390"/>
+<area shape="poly" id="edge17_Node000025_Node000025" title=" " alt="" coords="381,376,375,366,378,357,389,350,406,348,427,352,436,360,432,364,424,356,406,353,391,355,382,360,381,366,385,373"/>
+<area shape="poly" id="edge19_Node000026_Node000019" title=" " alt="" coords="432,446,516,404,519,409,434,450"/>
+<area shape="poly" id="edge20_Node000026_Node000026" title=" " alt="" coords="381,449,375,440,378,430,389,424,406,421,427,425,436,433,432,437,424,430,406,427,391,429,382,433,381,439,385,447"/>
+<area shape="poly" id="edge22_Node000028_Node000028" title=" " alt="" coords="202,412,196,402,200,393,211,386,230,384,253,387,262,396,259,400,250,392,230,389,213,391,204,396,202,402,207,409"/>
+</map>

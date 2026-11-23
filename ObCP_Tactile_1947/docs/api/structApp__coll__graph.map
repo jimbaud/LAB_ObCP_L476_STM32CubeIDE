@@ -1,0 +1,44 @@
+<map id="App" name="App">
+<area shape="rect" id="Node000001" title="État complet des applications et de leur navigation." alt="" coords="743,318,789,343"/>
+<area shape="rect" id="Node000002" href="$structDamage.html" title="Liste bornée des rectangles à recomposer." alt="" coords="464,25,541,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="555,26,595,24,640,28,683,40,703,51,721,65,733,84,744,113,757,187,764,263,767,318,762,318,759,264,752,188,739,115,729,87,717,68,700,55,681,45,639,33,595,30,555,32"/>
+<area shape="rect" id="Node000003" href="$structRect.html" title="Rectangle entier du repère écran." alt="" coords="225,25,276,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,35,464,35,464,40,290,40"/>
+<area shape="rect" id="Node000004" href="$structPaint.html" title="Canevas et état des outils de dessin." alt="" coords="475,78,530,103"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="544,88,643,95,689,103,720,118,731,133,740,156,754,213,766,317,761,318,748,214,735,157,727,136,717,122,688,108,642,100,543,93"/>
+<area shape="rect" id="Node000005" href="$structPaintImage.html" title="Format contigu des pixels et métadonnées du dessin." alt="" coords="203,78,298,103"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="312,88,475,88,475,93,312,93"/>
+<area shape="rect" id="Node000006" href="$structMaze.html" title="État physique et temporel du labyrinthe." alt="" coords="474,131,531,157"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="545,142,643,149,689,157,720,171,735,187,747,206,761,247,767,287,768,318,763,318,762,288,756,249,742,209,731,191,717,175,688,162,643,154,545,147"/>
+<area shape="rect" id="Node000007" href="$structBreakout.html" title="Balle, raquette et briques du casse&#45;briques." alt="" coords="463,185,543,210"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="556,196,649,204,691,212,720,224,740,246,753,271,766,317,760,319,748,273,736,249,717,229,690,217,648,209,556,201"/>
+<area shape="rect" id="Node000008" href="$structRace.html" title="État de la route, du joueur et de la progression." alt="" coords="475,235,530,261"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="544,245,627,253,675,264,720,282,742,298,758,316,754,320,738,302,717,286,673,269,627,258,543,250"/>
+<area shape="rect" id="Node000009" href="$structRival.html" title="Adversaire occupant une voie de la course." alt="" coords="223,186,278,211"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="292,204,476,240,475,245,291,209"/>
+<area shape="rect" id="Node000010" href="$structAudio.html" title="Séquenceur et synthèse partagés par la groovebox et le diagnostic." alt="" coords="473,345,532,370"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="546,360,627,364,673,362,718,353,745,341,747,346,719,359,673,367,627,370,546,366"/>
+<area shape="rect" id="Node000011" href="$structPattern.html" title="Motif musical de quatre pistes et seize pas." alt="" coords="217,266,285,291"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="299,293,341,307,474,347,472,352,339,312,297,298"/>
+<area shape="rect" id="Node000013" href="$structPatternBook.html" title="Quatre emplacements de motifs musicaux." alt="" coords="452,289,553,314"/>
+<area shape="poly" id="edge13_Node000013_Node000011" title=" " alt="" coords="298,274,354,274,414,279,454,286,453,291,413,284,353,280,298,280"/>
+<area shape="rect" id="Node000012" href="$structVoice.html" title="État d’une voix de synthèse DDS et de son enveloppe." alt="" coords="222,346,279,371"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="293,356,473,355,473,360,293,361"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="567,306,743,326,742,331,567,311"/>
+<area shape="rect" id="Node000014" href="$structTouchCalBook.html" title="Profils des deux familles résistives." alt="" coords="446,398,559,423"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="573,418,608,419,646,416,683,408,717,394,731,383,742,370,757,342,762,345,747,373,735,387,720,398,684,413,646,421,608,424,573,423"/>
+<area shape="rect" id="Node000015" href="$structTouchCalibration.html" title="Transformation affine du brut résistif vers les pixels." alt="" coords="185,417,316,442"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="330,421,446,412,446,417,330,426"/>
+<area shape="rect" id="Node000017" href="$structTouchCalSession.html" title="Acquisition progressive des quatre cibles." alt="" coords="437,453,568,478"/>
+<area shape="poly" id="edge18_Node000017_Node000015" title=" " alt="" coords="313,443,340,448,437,459,437,464,340,453,312,448"/>
+<area shape="rect" id="Node000016" href="$structRawPoint.html" title="Position native avant calibrage et rotation." alt="" coords="5,475,88,501"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="100,470,205,440,206,445,102,475"/>
+<area shape="poly" id="edge19_Node000017_Node000016" title=" " alt="" coords="102,489,185,493,251,496,316,493,440,475,441,481,316,499,251,501,185,499,102,495"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="582,477,616,478,652,474,686,465,717,449,738,425,751,396,758,367,761,343,767,344,764,368,756,398,742,428,720,453,688,470,653,480,616,483,582,482"/>
+<area shape="rect" id="Node000018" href="$structTilt.html" title="Neutre, filtre et commande d’inclinaison." alt="" coords="481,505,524,530"/>
+<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="538,525,578,532,626,535,674,529,697,520,717,507,726,496,734,479,747,432,761,343,766,344,752,433,739,481,730,499,720,511,699,525,676,534,626,541,578,538,537,530"/>
+<area shape="rect" id="Node000019" href="$structTiltGuide.html" title="Candidat de repère de l’assistant d’axes." alt="" coords="462,558,543,583"/>
+<area shape="poly" id="edge21_Node000001_Node000019" title=" " alt="" coords="557,584,597,591,639,592,681,584,700,576,717,565,728,549,738,525,751,461,762,343,767,344,756,461,743,527,733,552,721,569,702,581,682,590,639,597,596,596,557,589"/>
+<area shape="rect" id="Node000020" href="$structDiagnostics.html" title="Valeurs présentées dans les pages de réglage." alt="" coords="453,611,552,637"/>
+<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="554,638,594,645,637,648,680,641,699,633,717,621,731,601,741,570,755,488,761,403,762,343,767,344,766,404,760,489,747,571,735,603,721,625,702,637,681,646,638,653,593,651,553,643"/>
+</map>

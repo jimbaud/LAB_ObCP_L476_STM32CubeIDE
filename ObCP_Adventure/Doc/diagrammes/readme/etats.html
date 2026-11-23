@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Les états du jeu (OaState) et leurs passages</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 940px; height: 548px; padding: 0; }
+  .etat { position: absolute; width: 160px; min-height: 66px; border: 1.5px solid var(--c, var(--bord));
+          background: var(--c-fond, var(--fond)); border-radius: 10px; padding: 6px 9px 7px; }
+  .etat h3 { font-size: 13.4px; font-weight: 650; line-height: 1.2; display: flex; justify-content: space-between;
+             align-items: baseline; white-space: nowrap; }
+  .etat h3 code { font-size: 11.5px; font-weight: 600; color: var(--c, var(--discret)); }
+  .etat p { font-size: 11.3px; line-height: 1.33; color: var(--discret); margin-top: 3px; }
+  .groupe { position: absolute; left: 16px; top: 44px; width: 188px; height: 486px; border: 1.5px dashed var(--bord);
+            border-radius: 12px; background: var(--fond-doux); }
+  .zone { position: absolute; left: 280px; top: 226px; width: 644px; height: 304px;
+          border: 1.5px dashed color-mix(in srgb, var(--vert) 60%, transparent); border-radius: 12px; }
+  .titre-zone { position: absolute; font-size: 11.3px; font-weight: 650; letter-spacing: .04em; color: var(--discret); white-space: nowrap; }
+  .legende { position: absolute; left: 744px; top: 72px; width: 176px; font-size: 11.3px; line-height: 1.42; color: var(--discret); }
+  .legende b { color: var(--texte); font-weight: 600; }
+  .legende .trait { display: inline-block; width: 26px; height: 0; border-top: 2px solid var(--discret); vertical-align: middle; margin-right: 5px; }
+  .legende .trait.tirets { border-top-style: dashed; }
+  .titre-fig { position: absolute; left: 16px; top: 13px; font-size: 13px; font-weight: 650; }
+  .titre-fig code { font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="titre-fig">États du jeu (<code>OaState</code>, champ <code>game.state</code>) et passages de l'un à l'autre</div>
+
+  <div class="groupe"></div>
+  <div class="titre-zone" style="left:30px;top:54px">ÉCRANS D'INTERFACE</div>
+  <div class="etat ambre" id="e7" style="left:30px;top:78px"><h3>RÉGLAGES <code>7</code></h3><p>trois onglets ; ANNULER ou ENREGISTRER ramène au menu</p></div>
+  <div class="etat ambre" id="e9" style="left:30px;top:232px"><h3>ÉTALONNAGE <code>9</code></h3><p>cinq croix ou neutre ; revient à l'écran de départ (réussite, annulation, délai)</p></div>
+  <div class="etat ambre" id="e8" style="left:30px;top:414px"><h3>DIAGNOSTIC <code>8</code></h3><p>aussi au démarrage si le tactile n'est pas identifié ; MENU pour revenir</p></div>
+
+  <div class="etat bleu" id="e0" style="left:300px;top:78px"><h3>MENU <code>0</code></h3><p>une partie interrompue y reste en mémoire</p></div>
+  <div class="etat violet" id="e2" style="left:522px;top:78px"><h3>PAUSE <code>2</code></h3><p>REPRENDRE, ou MENU PRINCIPAL (partie gardée)</p></div>
+  <div class="legende">
+    <b>Seul l'état PARTIE fait avancer le monde</b> : ailleurs, ennemis, plateformes et animations restent figés.<br>
+    <span class="trait"></span>aller &nbsp; <span class="trait tirets"></span>retour<br>
+    Le numéro est la valeur <code>state</code> de la ligne de mesures de la console.
+  </div>
+
+  <div class="zone"></div>
+  <div class="titre-zone" style="right:30px;top:236px;color:var(--vert)">PARTIE EN COURS · PAS DE 1/60 s</div>
+  <div class="etat vert" id="e1" style="left:300px;top:264px"><h3>PARTIE <code>1</code></h3><p>physique, objets, ennemis, caméra, sortie</p></div>
+  <div class="etat" id="e4" style="left:522px;top:264px"><h3>NIVEAU TERMINÉ <code>4</code></h3><p>+1 000 points, sauvegarde ; niveau suivant après 1,5 s</p></div>
+  <div class="etat" id="e6" style="left:744px;top:264px"><h3>VICTOIRE <code>6</code></h3><p>après le niveau 10 ; toucher l'écran : menu</p></div>
+  <div class="etat rouge" id="e3" style="left:300px;top:434px"><h3>PERTE D'UNE VIE <code>3</code></h3><p>retour au point de reprise après 1 s</p></div>
+  <div class="etat rouge" id="e5" style="left:522px;top:434px"><h3>PARTIE TERMINÉE <code>5</code></h3><p>plus de vie ; toucher l'écran : menu, trois vies</p></div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const fig = document.getElementById("figure");
+  const svg = calque(fig);
+  const P = (id, cote, dx = 0, dy = 0) => ancre(document.getElementById(id), cote, fig, [dx, dy]);
+  const trace = (points, couleur, tirets) => {
+    const c = document.createElementNS(SVG, "path");
+    c.setAttribute("d", chemin_arrondi(points, 9));
+    c.setAttribute("style", "fill:none;stroke:" + couleur + ";stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" +
+                   (tirets ? ";stroke-dasharray:5 4" : ""));
+    c.setAttribute("marker-end", "url(#" + marqueur(svg, couleur, 10) + ")");
+    svg.appendChild(c);
+  };
+  const etiquette = (x, y, texte, couleur, ancre_texte) => {
+    const g = document.createElementNS(SVG, "g");
+    const fond = document.createElementNS(SVG, "rect");
+    fond.setAttribute("class", "etiquette-fond");
+    g.appendChild(fond);
+    const t = document.createElementNS(SVG, "text");
+    t.setAttribute("text-anchor", ancre_texte || "middle");
+    t.setAttribute("style", "fill:" + couleur + ";font-size:11.3px;font-weight:600");
+    String(texte).split("\n").forEach((ligne, i, tout) => {
+      const s = document.createElementNS(SVG, "tspan");
+      s.setAttribute("x", x);
+      s.setAttribute("y", y + (i - (tout.length - 1) / 2) * 13.5 + 4);
+      s.textContent = ligne;
+      t.appendChild(s);
+    });
+    g.appendChild(t);
+    svg.appendChild(g);
+    const bb = t.getBBox();
+    fond.setAttribute("x", bb.x - 4); fond.setAttribute("y", bb.y - 1);
+    fond.setAttribute("width", bb.width + 8); fond.setAttribute("height", bb.height + 2); fond.setAttribute("rx", 4);
+  };
+  const bleu = "var(--bleu)", vert = "var(--vert)", rouge = "var(--rouge)", violet = "var(--violet)", ambre = "var(--ambre)";
+
+  // Menu <-> réglages
+  const ym = P("e0", "gauche")[1];
+  let a = [P("e0", "gauche")[0], ym - 10], b = [P("e7", "droite")[0], ym - 10];
+  trace([a, b], ambre);
+  etiquette((a[0] + b[0]) / 2, a[1] - 13, "RÉGLAGES", ambre);
+  a = [P("e7", "droite")[0], ym + 10]; b = [P("e0", "gauche")[0], ym + 10];
+  trace([a, b], ambre, true);
+  etiquette((a[0] + b[0]) / 2, a[1] + 21, "ANNULER,\nENREGISTRER", ambre);
+  // Étalonnage : depuis les réglages, le diagnostic et le menu (appui long)
+  trace([P("e7", "bas"), P("e9", "haut")], ambre);
+  etiquette(P("e7", "bas")[0] + 6, (P("e7", "bas")[1] + P("e9", "haut")[1]) / 2, "ÉCRAN, NEUTRE", ambre, "start");
+  trace([P("e8", "haut"), P("e9", "bas")], ambre);
+  etiquette(P("e8", "haut")[0] + 6, (P("e8", "haut")[1] + P("e9", "bas")[1]) / 2, "CALIBRER", ambre, "start");
+  const bas_menu = P("e0", "bas")[1];
+  let d = P("e9", "droite");
+  trace([[316, bas_menu], [316, 172], [236, 172], [236, d[1]], d], ambre);
+  etiquette(228, (172 + d[1]) / 2 + 6, "appui\nlong\n1,5 s", ambre, "end");
+  d = P("e8", "droite");
+  trace([[330, bas_menu], [330, 186], [250, 186], [250, d[1]], d], ambre);
+  etiquette(243, d[1] + 25, "ÉCRAN /\nDIAGNOSTIC", ambre);
+
+  // Menu, partie, pause
+  a = P("e0", "bas"); b = P("e1", "haut");
+  trace([a, b], bleu);
+  etiquette(a[0] + 7, 165, "NOUVELLE PARTIE,\nCONTINUER", bleu, "start");
+  const haut_partie = P("e1", "haut")[1], bas_pause = P("e2", "bas")[1];
+  trace([[440, haut_partie], [440, 206], [590, 206], [590, bas_pause]], violet);
+  etiquette(515, 206 + 13, "toucher hors des boutons", violet);
+  trace([[570, bas_pause], [570, 190], [420, 190], [420, haut_partie]], violet, true);
+  etiquette(532, 177, "REPRENDRE", violet);
+  a = [P("e2", "gauche")[0], ym]; b = [P("e0", "droite")[0], ym];
+  trace([a, b], violet, true);
+  etiquette((a[0] + b[0]) / 2, ym - 24, "MENU\nPRINCIPAL", violet);
+
+  // Partie, fin de niveau, victoire
+  const yp = P("e1", "droite")[1];
+  trace([[P("e1", "droite")[0], yp - 9], [P("e4", "gauche")[0], yp - 9]], vert);
+  etiquette((P("e1", "droite")[0] + P("e4", "gauche")[0]) / 2, yp - 22, "sortie", vert);
+  trace([[P("e4", "gauche")[0], yp + 9], [P("e1", "droite")[0], yp + 9]], vert, true);
+  trace([[P("e4", "droite")[0], yp], [P("e6", "gauche")[0], yp]], vert);
+  // Partie, perte d'une vie, partie terminée
+  trace([P("e1", "bas", -24), P("e3", "haut", -24)], rouge);
+  etiquette(P("e1", "bas", -24)[0] - 8, (P("e1", "bas")[1] + P("e3", "haut")[1]) / 2, "coup, pics,\neau, chute", rouge, "end");
+  trace([P("e3", "haut", 24), P("e1", "bas", 24)], rouge, true);
+  trace([P("e3", "droite"), P("e5", "gauche")], rouge);
+});
+</script>
+</body>
+</html>

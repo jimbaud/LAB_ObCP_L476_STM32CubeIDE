@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['paddle_0',['paddle',['../structBreakout.html#a95018591de7145dc42f821b2b5d566d2',1,'Breakout']]],
+  ['paddle_5fwidth_1',['paddle_width',['../struct_0fstruct_0e_8levels.html#ab1dac59d56e82d924b14918493790890',1,'[struct].levels']]],
+  ['paint_2',['paint',['../structApp.html#af2bc517a963d4c5e02740140c3e097f0',1,'App']]],
+  ['paint_5fcanvas_3',['paint_canvas',['../app_8c.html#a6efaf593ca2075c49bd72183e986c52f',1,'app.c']]],
+  ['paint_5fdiameters_4',['PAINT_DIAMETERS',['../obcp__paint_8h.html#a24cbac08ace651d1aebd3bb1b811fa01',1,'PAINT_DIAMETERS:&#160;paint.c'],['../paint_8c.html#a24cbac08ace651d1aebd3bb1b811fa01',1,'PAINT_DIAMETERS:&#160;paint.c']]],
+  ['paint_5fpalette_5',['PAINT_PALETTE',['../obcp__paint_8h.html#a283a8f89e451082b1c8f1b2bf13e4675',1,'PAINT_PALETTE:&#160;paint.c'],['../paint_8c.html#a283a8f89e451082b1c8f1b2bf13e4675',1,'PAINT_PALETTE:&#160;paint.c']]],
+  ['palette_6',['palette',['../structPaint.html#a27b6588eefc8baf2da91871989999730',1,'Paint::palette'],['../logo_8c.html#ad3840d9b6161485e3790c87dfa32e139',1,'palette:&#160;logo.c']]],
+  ['pattern_7',['pattern',['../structPatternBook.html#aa45aeb26c297ddbd27ca3943e2f982db',1,'PatternBook::pattern'],['../structAudio.html#a529ebec34e51e982a152c7699c83f485',1,'Audio::pattern']]],
+  ['pause_5fbtn_8',['pause_btn',['../app_8c.html#a5bb8485d34ec111165885abedd868ca9',1,'app.c']]],
+  ['phase_9',['phase',['../structVoice.html#a186729f7308d5936b442505b893fe52f',1,'Voice::phase'],['../structMaze.html#ae564c90d514711236d74a2db6eb2fbc3',1,'Maze::phase'],['../structBreakout.html#a2edd1032cb5754e77a704496a2f7c718',1,'Breakout::phase'],['../structRace.html#a6fd644ba426be533846ddbd92fe1e4d3',1,'Race::phase'],['../structTiltGuide.html#a6f5dc0471814d9c4f102fb93c937828e',1,'TiltGuide::phase']]],
+  ['pitches_10',['pitches',['../audio_8c.html#adbccb58977f447055e455d193aa18585',1,'audio.c']]],
+  ['pixels_11',['pixels',['../structGfx.html#a5b0118c824cd8d06c125b45d54e37005',1,'Gfx::pixels'],['../structRenderer.html#ae8f12c24d8e8eb8892d2e68891bbcad4',1,'Renderer::pixels'],['../structPaintImage.html#a79ff6a6feca1f892943de107542d878a',1,'PaintImage::pixels']]],
+  ['pixels_5fper_5fsecond_12',['pixels_per_second',['../structDiagnostics.html#a7bb982879a1d530f124e487d79812b5d',1,'Diagnostics::pixels_per_second'],['../struct_0fstruct_0e_8obcp__live.html#ab0b04de7979a7e429968583b2ba46b5f',1,'[struct].obcp_live::pixels_per_second']]],
+  ['play_5fbtn_13',['play_btn',['../app_8c.html#a805c3a02546550c661a3cf1775164c41',1,'app.c']]],
+  ['player_5fx_14',['player_x',['../structRace.html#af7685447c527ca82a1394c58e0268513',1,'Race']]],
+  ['playing_15',['playing',['../structAudio.html#a99c1b67f09d1324d25194f41a254d1c8',1,'Audio']]],
+  ['point_16',['point',['../structRawTouch.html#a197c80011658ee08599f5c6d45974b3f',1,'RawTouch']]],
+  ['points_17',['points',['../structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536',1,'TouchCalibration']]],
+  ['poll_18',['poll',['../structDisplayPort.html#a2f17ffff748f769bf9960484da31472f',1,'DisplayPort']]],
+  ['port_19',['port',['../structRenderer.html#aa44458a17a52b9282499cb466a1b0f98',1,'Renderer']]],
+  ['present_20',['present',['../structPatternBook.html#a4521d086f10329fef6e36be0a533f2ff',1,'PatternBook']]],
+  ['pressed_5fat_21',['pressed_at',['../structButtonState.html#ac634e58ad533c2e43031b28fa93cc601',1,'ButtonState']]],
+  ['profile_22',['profile',['../structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1',1,'TouchCalBook']]],
+  ['program_23',['program',['../structStorage.html#ae9d3902e556695a0b3c5111bf45ab13b',1,'Storage']]]
+];

@@ -1,0 +1,33 @@
+<map id="app_button" name="app_button">
+<area shape="rect" id="Node000001" title="Traiter le raccourci facultatif de SW1." alt="" coords="5,140,100,165"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="25,141,19,132,22,122,34,116,53,113,75,117,85,125,82,129,73,122,53,119,35,121,26,125,24,131,29,138"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="175,176,261,201"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="101,160,162,174,161,179,100,165"/>
+<area shape="rect" id="Node000014" href="$app_8c.html#a986ea06869687503157d791cf9fe47b0" title="Passer à la mire suivante." alt="" coords="148,29,288,55"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="63,138,98,102,147,64,158,58,160,62,149,68,101,106,67,142"/>
+<area shape="rect" id="Node000015" href="$app_8c.html#a23824b732b554d96856b6361f1f032f3" title="Ouvrir ou fermer une boîte de dialogue." alt="" coords="166,103,270,128"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="100,139,152,127,153,133,101,145"/>
+<area shape="rect" id="Node000016" href="$input_8c.html#a4a62d2bd3618bf965844b00af3b4141c" title="Classer le type de tactile." alt="" coords="157,249,279,275"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="75,163,188,239,185,244,72,168"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="190,177,184,168,188,158,199,152,218,149,241,153,250,161,247,165,238,158,218,155,201,157,192,161,190,167,195,174"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="356,103,449,128"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="247,173,335,137,352,130,354,135,337,142,249,178"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="351,29,454,55"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="240,174,263,157,286,138,300,118,308,100,317,82,334,64,341,59,344,63,338,68,322,85,313,102,305,121,290,141,267,162,243,178"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="336,176,469,201"/>
+<area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="261,186,322,186,322,191,261,191"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="347,249,459,275"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="258,199,289,210,362,241,360,246,287,215,256,204"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="342,323,463,348"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="262,196,290,211,307,229,316,247,324,266,338,286,370,313,367,317,334,289,319,268,311,249,303,232,286,215,260,201"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="372,104,366,94,369,85,382,78,403,76,428,80,439,88,435,92,426,84,403,81,383,83,373,88,371,94,376,101"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="372,31,366,21,369,11,382,5,403,3,428,6,439,15,435,19,426,11,403,8,383,10,373,15,371,20,376,28"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="372,177,366,168,369,158,382,152,403,149,428,153,439,162,435,166,426,158,403,155,383,157,373,161,371,167,376,174"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="372,251,366,241,369,231,382,225,403,223,428,226,439,235,435,239,426,231,403,228,383,230,373,235,371,240,376,248"/>
+<area shape="poly" id="edge13_Node000013_Node000013" title=" " alt="" coords="372,324,366,314,369,305,382,298,403,296,428,300,439,308,435,312,426,304,403,301,383,303,373,308,371,314,376,321"/>
+<area shape="poly" id="edge15_Node000014_Node000004" title=" " alt="" coords="288,39,337,39,337,45,288,45"/>
+<area shape="poly" id="edge16_Node000014_Node000014" title=" " alt="" coords="190,31,184,21,188,11,199,5,218,3,241,6,250,15,247,19,238,11,218,8,201,10,192,15,190,20,195,28"/>
+<area shape="poly" id="edge18_Node000015_Node000004" title=" " alt="" coords="247,100,335,64,352,57,354,62,337,68,249,105"/>
+<area shape="poly" id="edge19_Node000015_Node000015" title=" " alt="" coords="190,104,184,94,188,85,199,78,218,76,241,79,250,88,247,92,238,84,218,81,201,83,192,88,190,94,195,101"/>
+<area shape="poly" id="edge21_Node000016_Node000016" title=" " alt="" coords="190,251,184,241,188,231,199,225,218,223,241,226,250,235,247,239,238,231,218,228,201,230,192,235,190,240,195,248"/>
+</map>

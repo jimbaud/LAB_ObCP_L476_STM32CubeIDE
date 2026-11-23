@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Affichage par bandes, empreintes et DMA</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 20px 24px 18px; }
+  .titre-col { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--discret); margin-bottom: 9px; }
+  .memoires { display: grid; grid-template-columns: 1fr 1fr 1fr 1.05fr; gap: 12px; margin-bottom: 22px; }
+  .m { border-radius: 10px; padding: 7px 11px 8px; border: 1.5px solid var(--c); background: var(--c-fond); }
+  .m h4 { font-size: 13px; font-weight: 650; }
+  .m h4 code { font-size: 12px; }
+  .m p { font-size: 11.8px; color: var(--discret); line-height: 1.38; margin-top: 2px; }
+  .m .taille { float: right; font-family: "DejaVu Sans Mono", monospace; font-size: 11.5px; font-weight: 700; color: var(--c); }
+  .m.barre { border-style: dashed; }
+  .chaine { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: 26px; }
+  .e { border: 1.5px solid var(--bord); background: var(--fond); border-radius: 9px; padding: 7px 9px 8px; box-shadow: var(--ombre); }
+  .e .n { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 700;
+          color: var(--fond); background: var(--c, var(--discret)); margin-right: 5px; }
+  .e h4 { font-size: 12.6px; font-weight: 650; display: flex; align-items: center; }
+  .e p { font-size: 11.4px; color: var(--discret); line-height: 1.36; margin-top: 4px; }
+  .e p code { font-size: 10.6px; color: var(--texte); }
+  .frise { margin-top: 44px; display: grid; grid-template-columns: 64px 1fr; row-gap: 7px; align-items: center; }
+  .frise .lib { font-size: 12px; font-weight: 650; color: var(--discret); }
+  .piste { position: relative; height: 26px; border-radius: 6px; background: var(--fond-doux); border: 1px solid var(--bord); }
+  .seg { position: absolute; top: 3px; bottom: 3px; border-radius: 4px; font-size: 10.8px; font-weight: 600; display: grid;
+         place-items: center; color: var(--texte); background: var(--c-fond); border: 1px solid var(--c); white-space: nowrap; }
+  .chiffres { margin-top: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .chiffres div { font-size: 12.2px; color: var(--discret); line-height: 1.42; border-left: 3px solid var(--c); padding-left: 9px; }
+  .chiffres b { color: var(--texte); font-weight: 650; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="titre-col">LA MÉMOIRE UTILISÉE PAR L'AFFICHAGE</div>
+  <div class="memoires">
+    <div class="m vert"><span class="taille">≈ 4,3 Ko</span><h4>État figé <code>view</code></h4><p>copie de <code>game</code> au début de chaque image&nbsp;: toutes ses bandes montrent le même instant</p></div>
+    <div class="m bleu"><span class="taille">5 120 o</span><h4>Bande <code>band[]</code></h4><p>320 × 8 pixels RGB565 composés par le processeur</p></div>
+    <div class="m violet"><span class="taille">5 120 o</span><h4>Envoi <code>transmit[]</code></h4><p>octet de poids fort d'abord&nbsp;; appartient au DMA pendant l'envoi</p></div>
+    <div class="m rouge barre"><span class="taille">150 Ko</span><h4>Image entière</h4><p>320 × 240 × 2 octets&nbsp;: plus que la RAM du STM32L476 (128 Ko). Elle n'existe pas.</p></div>
+  </div>
+
+  <div class="titre-col">POUR CHACUNE DES 30 BANDES D'UNE IMAGE (AU PLUS 30 IMAGES PAR SECONDE)</div>
+  <div class="chaine">
+    <div class="e" id="e1" style="--c:var(--vert)"><h4><span class="n">1</span>Figer</h4><p>début d'image&nbsp;: <code>view = game</code>&nbsp;; la physique continue sur <code>game</code></p></div>
+    <div class="e" id="e2" style="--c:var(--bleu)"><h4><span class="n">2</span>Composer</h4><p><code>oa_render_band()</code> dessine 8 lignes&nbsp;: décor, objets, texte</p></div>
+    <div class="e" id="e3" style="--c:var(--bleu)"><h4><span class="n">3</span>Comparer</h4><p>empreinte de chacun des 10 blocs de 32 × 8 avec celle déjà à l'écran</p></div>
+    <div class="e" id="e4" style="--c:var(--violet)"><h4><span class="n">4</span>Copier</h4><p>les blocs modifiés contigus dans <code>transmit[]</code>&nbsp;; rien si tout est identique</p></div>
+    <div class="e" id="e5" style="--c:var(--violet)"><h4><span class="n">5</span>Envoyer</h4><p>fenêtre CASET, PASET, RAMWR puis <b>DMA SPI1</b>&nbsp;; la boucle repart aussitôt</p></div>
+    <div class="e" id="e6" style="--c:var(--orange)"><h4><span class="n">6</span>Valider</h4><p>fin du DMA (interruption)&nbsp;: écran libéré, empreintes enregistrées</p></div>
+  </div>
+
+  <div class="frise">
+    <div class="lib">CPU</div>
+    <div class="piste">
+      <div class="seg" style="--c:var(--bleu);--c-fond:var(--bleu-fond);left:1%;width:13%">bande 1&nbsp;: 2 · 3 · 4</div>
+      <div class="seg" style="--c:var(--bleu);--c-fond:var(--bleu-fond);left:15%;width:13%">bande 2&nbsp;: 2 · 3</div>
+      <div class="seg" style="--c:var(--vert);--c-fond:var(--vert-fond);left:29%;width:14%">tactile, physique…</div>
+      <div class="seg" style="--c:var(--bleu);--c-fond:var(--bleu-fond);left:44%;width:6%">4</div>
+      <div class="seg" style="--c:var(--bleu);--c-fond:var(--bleu-fond);left:51%;width:11%">bande 3&nbsp;: 2 · 3</div>
+      <div class="seg" style="--c:var(--vert);--c-fond:var(--vert-fond);left:63%;width:9.5%">capteurs…</div>
+      <div class="seg" style="--c:var(--bleu);--c-fond:var(--bleu-fond);left:73.5%;width:5%">4</div>
+      <div class="seg" style="--c:var(--vert);--c-fond:var(--vert-fond);left:79.5%;width:19.5%">physique, sauvegarde…</div>
+    </div>
+    <div class="lib">DMA</div>
+    <div class="piste">
+      <div class="seg" style="--c:var(--violet);--c-fond:var(--violet-fond);left:14.5%;width:29%">envoi de la bande 1 (5)</div>
+      <div class="seg" style="--c:var(--violet);--c-fond:var(--violet-fond);left:50.5%;width:22.5%">envoi de la bande 2</div>
+      <div class="seg" style="--c:var(--violet);--c-fond:var(--violet-fond);left:79%;width:19%">envoi de la bande 3</div>
+    </div>
+  </div>
+
+  <div class="chiffres">
+    <div style="--c:var(--violet)"><b>Le DMA ne dessine pas</b>&nbsp;: il transporte les octets préparés par le processeur. L'étape 4 attend que <code>transmit[]</code> soit libre.</div>
+    <div style="--c:var(--bleu)"><b>À 10 MHz</b>, l'écran entier demande au moins 122,9 ms&nbsp;; une scène peu changée, beaucoup moins.</div>
+    <div style="--c:var(--orange)"><b>Le bus partagé</b>&nbsp;: le tactile STMPE610 (SPI1) attend la fin du DMA&nbsp;; une panne de DMA fait tout redessiner.</div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  for (let i = 1; i < 6; i++)
+    relier("#e" + i, "#e" + (i + 1), { de: "droite", vers: "gauche", couleur: "var(--discret)", epaisseur: 1.8, taille_fleche: 9 });
+  relier("#e6", "#e2", { de: "bas", vers: "bas", couleur: "var(--orange)", forme: "courbe", tension: 34, epaisseur: 1.8,
+                         texte: "bande suivante (30 par image)", decalage_de: [0, 2], decalage_vers: [0, 2] });
+});
+</script>
+</body>
+</html>

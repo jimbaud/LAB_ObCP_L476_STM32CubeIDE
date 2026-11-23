@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Src/obcp/calibration.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('calibration_8c_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">calibration.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="calibration_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file calibration.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Transformation affine et assistant de calibrage résistif.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_input</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Trois contacts bruts définissent une base. Une quatrième cible indépendante vérifie la</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * transformation avant sauvegarde. Les deux profils, TSC2007 et STMPE610, sont stockés</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * sous forme de points pour reconstruire les coefficients au chargement.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/** @var TOUCH_CAL_TARGETS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__calibration_8h.html">obcp_calibration.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__gfx_8h.html">obcp_gfx.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/** @brief Constantes privées de ce module, avec leurs unités. */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">   26</a></span>    <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a> = 4095, <span class="comment">/**&lt; Plus grande valeur d’une conversion sur 12 bits. */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">   27</a></span>    <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">CAL_MAX_DRIFT</a> = 52, <span class="comment">/**&lt; Écart brut maximal autour de l’ancre pendant une acquisition. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">   28</a></span>    <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">CAL_MIN_DET</a> = 160000, <span class="comment">/**&lt; Déterminant minimal en valeur absolue pour accepter la base brute. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};<span class="comment"></span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/** @brief Constantes privées de ce module, avec leurs unités. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">   32</a></span>    <a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">CAL_VERSION</a> = 1, <span class="comment">/**&lt; Version du format des profils résistifs. */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">   33</a></span>    <a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">CAL_WIRE_BYTES</a> = 2 + 2 * <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a> * 4, <span class="comment">/**&lt; 26 octets pour version, orientation et deux jeux de trois points. */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/* Les trois premières cibles définissent deux vecteurs dans le repère</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * brut. La quatrième fournit une vérification indépendante. */</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">   38</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a>[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a>] = {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {26, 60}, {<a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a> - 27, 60},</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {26, <a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a> - 27}, {<a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a> - 27, <a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a> - 27}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Calculer une transformation affine de trois points bruts.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * Le déterminant de deux vecteurs permet d&#39;inverser la base. Un déterminant trop petit</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * rejette des observations alignées ou trop proches. Le candidat remplace cal seulement si</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * le calcul est admis.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">   50</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a>(<a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal, <span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> p[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>])</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>; ++i) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">if</span> (p[i].x &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a> || p[i].y &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a>) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    int32_t dx1 = (int32_t)p[1].x - p[0].x, dy1 = (int32_t)p[1].y - p[0].y;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    int32_t dx2 = (int32_t)p[2].x - p[0].x, dy2 = (int32_t)p[2].y - p[0].y;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">/* Le déterminant mesure l’aire orientée des deux vecteurs. Près de zéro, l’inversion amplifierait les erreurs. */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    int32_t det = dx1 * dy2 - dx2 * dy1;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (det &gt; -<a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">CAL_MIN_DET</a> &amp;&amp; det &lt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">CAL_MIN_DET</a>) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">/* Inverser la base (P1 - P0, P2 - P0) et passer de cette base</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     * aux pixels. Un déterminant négatif représente un axe inversé. */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> *target = <a class="code hl_variable" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">float</span> sx = (float)(target[1].x - target[0].x) / (float)det;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">float</span> sy = (float)(target[2].y - target[0].y) / (float)det;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> fit = {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        .x_from_x = sx * (float)dy2, .x_from_y = -sx * (<span class="keywordtype">float</span>)dx2,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        .y_from_x = -sy * (float)dy1, .y_from_y = sy * (<span class="keywordtype">float</span>)dx1,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        .valid = <span class="keyword">true</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    fit.<a class="code hl_variable" href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">x_offset</a> = (float)target[0].x - fit.<a class="code hl_variable" href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">x_from_x</a> * p[0].x - fit.<a class="code hl_variable" href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">x_from_y</a> * p[0].y;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    fit.<a class="code hl_variable" href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">y_offset</a> = (float)target[0].y - fit.<a class="code hl_variable" href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">y_from_x</a> * p[0].x - fit.<a class="code hl_variable" href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">y_from_y</a> * p[0].y;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    memcpy(fit.<a class="code hl_variable" href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">points</a>, p, <span class="keyword">sizeof</span>(fit.<a class="code hl_variable" href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">points</a>));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">/* Publier le résultat seulement après validation. Une tentative refusée conserve le précédent profil. */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    *cal = fit;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * @brief Arrondir et borner une coordonnée calculée.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> * Les valeurs sous zéro et au-delà du dernier pixel sont saturées. L&#39;ajout de 0,5 réalise</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * l&#39;arrondi avant la conversion en entier.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * @param[in] value Valeur à utiliser dans ce traitement.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * @param[in] maximum Dernière coordonnée admise dans le résultat.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * @return Coordonnée comprise entre zéro et maximum.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b">   92</a></span><span class="keyword">static</span> int16_t <a class="code hl_function" href="calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b">pixel</a>(<span class="keywordtype">float</span> value, <span class="keywordtype">int</span> maximum)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">if</span> (value &lt;= 0.0f) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">if</span> (value &gt;= (<span class="keywordtype">float</span>)maximum) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">return</span> (int16_t)maximum;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> (int16_t)(value + 0.5f);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * Transformer un point brut en pixels paysage.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * Vérifie le profil et les bornes des conversions 12 bits, applique les deux expressions</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * affines puis borne les résultats à l&#39;écran.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">  109</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal, <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> raw, int16_t *x, int16_t *y)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span> (cal == NULL || !cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">valid</a> || raw.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a> || raw.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a>) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    *x = <a class="code hl_function" href="calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b">pixel</a>(cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">x_from_x</a> * raw.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> + cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">x_from_y</a> * raw.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> + cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">x_offset</a>, <a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a> - 1);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    *y = <a class="code hl_function" href="calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b">pixel</a>(cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">y_from_x</a> * raw.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> + cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">y_from_y</a> * raw.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> + cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">y_offset</a>, <a class="code hl_enumvalue" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a> - 1);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * Commencer une session en attendant le relâchement.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * Le contact qui a ouvert la procédure est consommé. La première cible attend donc un</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> * nouveau geste de l&#39;utilisateur.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a3fe9be5a59e5451f5356831d3bef4065">  125</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#a3fe9be5a59e5451f5356831d3bef4065">touch_cal_start</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *session)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>{</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    *session = (<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a>){.wait_release = <span class="keyword">true</span>};</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> * Suspendre la stabilisation après une erreur de lecture.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> * Les mesures partielles sont abandonnées et un relâchement sera demandé avant de</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> * poursuivre la même cible.</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#afaf7a616015d8abe2840c4c3bd45c909">  136</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#afaf7a616015d8abe2840c4c3bd45c909">touch_cal_interrupt</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *session)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>{</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    session-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> = 0;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    session-&gt;<a class="code hl_variable" href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">wait_release</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> * Faire avancer l&#39;acquisition d&#39;une cible résistive.</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"> * Six mesures proches sont moyennées, puis validées au relâchement. Les trois premières</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> * cibles construisent la transformation. La quatrième vérifie l&#39;erreur et peut relancer</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> * toute la session.</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#afd77ba03905b087d81c53b24e9a9bffb">  149</a></span><a class="code hl_enumeration" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a> <a class="code hl_function" href="obcp__calibration_8h.html#afd77ba03905b087d81c53b24e9a9bffb">touch_cal_sample</a>(<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a> *s, <a class="code hl_struct" href="structRawTouch.html">RawTouch</a> raw)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">if</span> (s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">wait_release</a>) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">wait_release</a> = raw.<a class="code hl_variable" href="structRawTouch.html#afa040ceb08388ca3f58bedc0ccd4208f">down</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">return</span> raw.<a class="code hl_variable" href="structRawTouch.html#afa040ceb08388ca3f58bedc0ccd4208f">down</a> ? <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a> : <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">CAL_READY</a>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">if</span> (raw.<a class="code hl_variable" href="structRawTouch.html#afa040ceb08388ca3f58bedc0ccd4208f">down</a>) {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">if</span> (s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> &gt;= <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a>) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> == 0U || abs((<span class="keywordtype">int</span>)raw.<a class="code hl_variable" href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">point</a>.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> - s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">anchor</a>.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a>) &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">CAL_MAX_DRIFT</a> ||</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            abs((<span class="keywordtype">int</span>)raw.<a class="code hl_variable" href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">point</a>.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> - s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">anchor</a>.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a>) &gt; <a class="code hl_enumvalue" href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">CAL_MAX_DRIFT</a>) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="comment">/* Un déplacement important recommence la moyenne sur la même cible, sans valider un point instable. */</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">anchor</a> = raw.<a class="code hl_variable" href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">point</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">sum_x</a> = s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">sum_y</a> = 0;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> = 0;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">sum_x</a> += raw.<a class="code hl_variable" href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">point</a>.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">sum_y</a> += raw.<a class="code hl_variable" href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">point</a>.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">return</span> ++s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> == <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a> ? <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">CAL_HELD</a> : <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="comment">/* Passer à la cible suivante au relâchement. Un contact bref ou</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     * instable laisse la cible en attente. */</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordtype">bool</span> held = s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> == <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">samples</a> = 0;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">if</span> (!held) {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> p = {(uint16_t)(s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">sum_x</a> / <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a>),</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                  (uint16_t)(s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">sum_y</a> / <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a>)};</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">target</a> &lt; <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">observations</a>[s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">target</a>++] = p;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6">retry</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span> (s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">target</a> &lt; <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a> || <a class="code hl_function" href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a>(&amp;s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">candidate</a>, s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">observations</a>)) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">CAL_ADVANCED</a>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="comment">/* Cette quatrième cible n’a participé à aucun coefficient. Son erreur constitue un contrôle indépendant. */</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> expected = <a class="code hl_variable" href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a>[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>];</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        int16_t x, y;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a>(&amp;s-&gt;<a class="code hl_variable" href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">candidate</a>, p, &amp;x, &amp;y) &amp;&amp;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            abs((<span class="keywordtype">int</span>)x - expected.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a>) &lt;= <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a> &amp;&amp;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            abs((<span class="keywordtype">int</span>)y - expected.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a>) &lt;= <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a>) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">CAL_COMPLETE</a>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    *s = (<a class="code hl_struct" href="structTouchCalSession.html">TouchCalSession</a>){.retry = <span class="keyword">true</span>};</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">CAL_RETRY</a>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
+</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment"></span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> * @brief Associer un contrôleur résistif à sa place dans le livre.</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"> * Le TSC2007 et le STMPE610 ont chacun un profil. Le capacitif utilise déjà des</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"> * coordonnées natives et n&#39;occupe pas de profil résistif.</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment"> * @param[in] controller Famille de contrôleur tactile.</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"> * @return Zéro pour TSC2007, un pour STMPE610, moins un sinon.</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00208" data-start="{" data-end="}">
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="calibration_8c.html#a835c2a46780f0da559cf58d9e6209057">  208</a></span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="calibration_8c.html#a835c2a46780f0da559cf58d9e6209057">profile_index</a>(<a class="code hl_enumeration" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>{</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">if</span> (controller == <a class="code hl_enumvalue" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188aa952098d393d7710e14583ad91482ad6">TOUCH_CTRL_TSC2007</a>) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">if</span> (controller == <a class="code hl_enumvalue" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188a83bfb4782276682e4cd553252f400889">TOUCH_CTRL_STMPE610</a>) {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>}</div>
+</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"> * Consulter le profil valide d&#39;un contrôleur.</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * L&#39;adresse renvoyée appartient au livre fourni. Elle reste utilisable tant que ce livre</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> * existe et que son contenu n&#39;est pas remplacé.</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a0aead2755c4df2b3a5c7729eca28441e">  225</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *<a class="code hl_function" href="obcp__calibration_8h.html#a0aead2755c4df2b3a5c7729eca28441e">touch_cal_get</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_enumeration" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller)</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>{</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">int</span> i = <a class="code hl_function" href="calibration_8c.html#a835c2a46780f0da559cf58d9e6209057">profile_index</a>(controller);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">return</span> i &gt;= 0 &amp;&amp; book-&gt;<a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[i].<a class="code hl_variable" href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">valid</a> ? &amp;book-&gt;<a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[i] : NULL;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>}</div>
+</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment"> * Remplacer le profil associé au contrôleur.</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment"> * Copie les points et coefficients en RAM. L&#39;écriture flash reste une action explicite de</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment"> * touch_cal_save(). Un type non résistif est ignoré.</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ab7a1d11cb9192e434eaae069f4283d68">  237</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__calibration_8h.html#ab7a1d11cb9192e434eaae069f4283d68">touch_cal_set</a>(<a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_enumeration" href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a> controller, <span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal)</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>{</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">int</span> i = <a class="code hl_function" href="calibration_8c.html#a835c2a46780f0da559cf58d9e6209057">profile_index</a>(controller);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">if</span> (i &gt;= 0) {</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        book-&gt;<a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[i] = *cal;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}</div>
+</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment"> * Charger et reconstruire les deux profils résistifs.</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment"> * Commence par un livre vide. Vérifie la version et l&#39;orientation du TFT, décode les</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment"> * points little-endian puis recalcule les coefficients.</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00251" data-start="{" data-end="}">
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#ae6482abe8b966f9810c72676082a7004">  251</a></span><a class="code hl_enumeration" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> <a class="code hl_function" href="obcp__calibration_8h.html#ae6482abe8b966f9810c72676082a7004">touch_cal_load</a>(<a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_struct" href="structStorage.html">Storage</a> *storage, uint8_t orientation)</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>{</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    *book = (<a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a>){0};</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    uint8_t data[<a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">CAL_WIRE_BYTES</a>];</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <a class="code hl_enumeration" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> result = <a class="code hl_function" href="obcp__storage_8h.html#a93e975a9edc0e30b07e9fdfaa4391ef2">storage_read</a>(storage, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a>, data, <span class="keyword">sizeof</span>(data));</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">if</span> (result != <a class="code hl_enumvalue" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5">STORE_OK</a>) {</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">if</span> (data[0] != <a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">CAL_VERSION</a> || data[1] != orientation) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c">STORE_INVALID</a>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keyword">const</span> uint8_t *read = data + 2;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 2U; ++i) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> p[<a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>];</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> j = 0; j &lt; <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>; ++j) {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            p[j].<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> = (uint16_t)(read[0] | (uint16_t)read[1] &lt;&lt; 8);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            p[j].<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> = (uint16_t)(read[2] | (uint16_t)read[3] &lt;&lt; 8);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            read += 4;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        }</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        (void)<a class="code hl_function" href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a>(&amp;book-&gt;<a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[i], p);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5">STORE_OK</a>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>}</div>
+</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment"> * Encoder puis enregistrer les deux profils.</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment"> * Le format contient version, orientation et observations brutes. Un profil absent est</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment"> * encodé par des points nuls. Le service A/B fournit la validation et la résistance aux</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment"> * coupures.</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00282" data-start="{" data-end="}">
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="obcp__calibration_8h.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1">  282</a></span><a class="code hl_enumeration" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> <a class="code hl_function" href="obcp__calibration_8h.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1">touch_cal_save</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalBook.html">TouchCalBook</a> *book, <a class="code hl_struct" href="structStorage.html">Storage</a> *storage, uint8_t orientation)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>{</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="comment">/* Encoder les observations en little-endian, indépendamment du</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment">     * remplissage des structures C et du format des flottants. */</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    uint8_t data[<a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">CAL_WIRE_BYTES</a>] = {<a class="code hl_enumvalue" href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">CAL_VERSION</a>, orientation};</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    uint8_t *write = data + 2;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 2U; ++i) {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structTouchCalibration.html">TouchCalibration</a> *cal = &amp;book-&gt;<a class="code hl_variable" href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">profile</a>[i];</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> j = 0; j &lt; <a class="code hl_enumvalue" href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a>; ++j) {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">if</span> (cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">valid</a>) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> p = cal-&gt;<a class="code hl_variable" href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">points</a>[j];</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                write[0] = (uint8_t)p.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                write[1] = (uint8_t)(p.<a class="code hl_variable" href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">x</a> &gt;&gt; 8);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                write[2] = (uint8_t)p.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a>;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                write[3] = (uint8_t)(p.<a class="code hl_variable" href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">y</a> &gt;&gt; 8);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            }</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            write += 4;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    }</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="obcp__storage_8h.html#acdb0d3d7df8fc923acd7743abdca12cf">storage_save</a>(storage, <a class="code hl_enumvalue" href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a>, data, <span class="keyword">sizeof</span>(data));</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>}</div>
+</div>
+<div class="ttc" id="acalibration_8c_html_a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724"><div class="ttname"><a href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda6eee08ad25dc2054fd71b943a3675724">CAL_RAW_MAX</a></div><div class="ttdeci">@ CAL_RAW_MAX</div><div class="ttdef"><b>Définition</b> <a href="#l00026">calibration.c:26</a></div></div>
+<div class="ttc" id="acalibration_8c_html_a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d"><div class="ttname"><a href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0dda932a6f12a1ef7df719644b50adf6d22d">CAL_MAX_DRIFT</a></div><div class="ttdeci">@ CAL_MAX_DRIFT</div><div class="ttdef"><b>Définition</b> <a href="#l00027">calibration.c:27</a></div></div>
+<div class="ttc" id="acalibration_8c_html_a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb"><div class="ttname"><a href="calibration_8c.html#a39a8f2a84f82cc09fee8af3e22c5b0ddaf3368d31aa03b0a6287c69ffd82356cb">CAL_MIN_DET</a></div><div class="ttdeci">@ CAL_MIN_DET</div><div class="ttdef"><b>Définition</b> <a href="#l00028">calibration.c:28</a></div></div>
+<div class="ttc" id="acalibration_8c_html_a835c2a46780f0da559cf58d9e6209057"><div class="ttname"><a href="calibration_8c.html#a835c2a46780f0da559cf58d9e6209057">profile_index</a></div><div class="ttdeci">static int profile_index(TouchController controller)</div><div class="ttdoc">Associer un contrôleur résistif à sa place dans le livre.</div><div class="ttdef"><b>Définition</b> <a href="#l00208">calibration.c:208</a></div></div>
+<div class="ttc" id="acalibration_8c_html_ab1a93e6b2b7e960bd7f65fdc1d84f35b"><div class="ttname"><a href="calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b">pixel</a></div><div class="ttdeci">static int16_t pixel(float value, int maximum)</div><div class="ttdoc">Arrondir et borner une coordonnée calculée.</div><div class="ttdef"><b>Définition</b> <a href="#l00092">calibration.c:92</a></div></div>
+<div class="ttc" id="acalibration_8c_html_afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3"><div class="ttname"><a href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38ae921a8ecf62ebfaf46097e3615b1a3b3">CAL_VERSION</a></div><div class="ttdeci">@ CAL_VERSION</div><div class="ttdef"><b>Définition</b> <a href="#l00032">calibration.c:32</a></div></div>
+<div class="ttc" id="acalibration_8c_html_afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410"><div class="ttname"><a href="calibration_8c.html#afc809a0304dedb2ee37823685a106d38af94ea0991990eae82e88a6e25949c410">CAL_WIRE_BYTES</a></div><div class="ttdeci">@ CAL_WIRE_BYTES</div><div class="ttdef"><b>Définition</b> <a href="#l00033">calibration.c:33</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html"><div class="ttname"><a href="obcp__calibration_8h.html">obcp_calibration.h</a></div><div class="ttdoc">Transformation affine et assistant de calibrage résistif.</div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a042bbd7dd8ee4e02581c0b72c0b1f1e1"><div class="ttname"><a href="obcp__calibration_8h.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1">touch_cal_save</a></div><div class="ttdeci">StoreResult touch_cal_save(const TouchCalBook *book, Storage *storage, uint8_t orientation)</div><div class="ttdoc">Encoder puis enregistrer les deux profils.</div><div class="ttdef"><b>Définition</b> <a href="#l00282">calibration.c:282</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a07a6b4182e37a11fb16d7ad74d49b98b"><div class="ttname"><a href="obcp__calibration_8h.html#a07a6b4182e37a11fb16d7ad74d49b98b">touch_cal_fit</a></div><div class="ttdeci">bool touch_cal_fit(TouchCalibration *cal, const RawPoint points[CAL_FIT_COUNT])</div><div class="ttdoc">Calculer une transformation affine de trois points bruts.</div><div class="ttdef"><b>Définition</b> <a href="#l00050">calibration.c:50</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a0aead2755c4df2b3a5c7729eca28441e"><div class="ttname"><a href="obcp__calibration_8h.html#a0aead2755c4df2b3a5c7729eca28441e">touch_cal_get</a></div><div class="ttdeci">const TouchCalibration * touch_cal_get(const TouchCalBook *book, TouchController controller)</div><div class="ttdoc">Consulter le profil valide d&#39;un contrôleur.</div><div class="ttdef"><b>Définition</b> <a href="#l00225">calibration.c:225</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a3fe9be5a59e5451f5356831d3bef4065"><div class="ttname"><a href="obcp__calibration_8h.html#a3fe9be5a59e5451f5356831d3bef4065">touch_cal_start</a></div><div class="ttdeci">void touch_cal_start(TouchCalSession *session)</div><div class="ttdoc">Commencer une session en attendant le relâchement.</div><div class="ttdef"><b>Définition</b> <a href="#l00125">calibration.c:125</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a0aa46c69ebde6c7566c95e41aee8965f">CAL_FIT_COUNT</a></div><div class="ttdeci">@ CAL_FIT_COUNT</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00029">obcp_calibration.h:29</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214a6b26170c72039bc3f798d891b4dd0dbc">CAL_MAX_ERROR_PX</a></div><div class="ttdeci">@ CAL_MAX_ERROR_PX</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00031">obcp_calibration.h:31</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab01efdd44bfb45061bcaca64e614f68d">CAL_TARGET_COUNT</a></div><div class="ttdeci">@ CAL_TARGET_COUNT</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00028">obcp_calibration.h:28</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f"><div class="ttname"><a href="obcp__calibration_8h.html#a45aea83b428467d1a23512d6aeb0a214ab03c6c108580e26a60b06b6436dcb23f">CAL_STABLE_SAMPLES</a></div><div class="ttdeci">@ CAL_STABLE_SAMPLES</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00030">obcp_calibration.h:30</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_a55395b89591ad780f239d936e5b580eb"><div class="ttname"><a href="obcp__calibration_8h.html#a55395b89591ad780f239d936e5b580eb">touch_cal_map</a></div><div class="ttdeci">bool touch_cal_map(const TouchCalibration *cal, RawPoint raw, int16_t *x, int16_t *y)</div><div class="ttdoc">Transformer un point brut en pixels paysage.</div><div class="ttdef"><b>Définition</b> <a href="#l00109">calibration.c:109</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_aa5907138b4354150cf84771e17f70a38"><div class="ttname"><a href="obcp__calibration_8h.html#aa5907138b4354150cf84771e17f70a38">TOUCH_CAL_TARGETS</a></div><div class="ttdeci">const RawPoint TOUCH_CAL_TARGETS[CAL_TARGET_COUNT]</div><div class="ttdoc">Quatre cibles écran de référence. Les trois premières ajustent et la quatrième contrôle.</div><div class="ttdef"><b>Définition</b> <a href="#l00038">calibration.c:38</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab7a1d11cb9192e434eaae069f4283d68"><div class="ttname"><a href="obcp__calibration_8h.html#ab7a1d11cb9192e434eaae069f4283d68">touch_cal_set</a></div><div class="ttdeci">void touch_cal_set(TouchCalBook *book, TouchController controller, const TouchCalibration *cal)</div><div class="ttdoc">Remplacer le profil associé au contrôleur.</div><div class="ttdef"><b>Définition</b> <a href="#l00237">calibration.c:237</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdf"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdf">TouchCalEvent</a></div><div class="ttdeci">TouchCalEvent</div><div class="ttdoc">Événements de l’assistant de calibrage résistif.</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00082">obcp_calibration.h:82</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa118a00c8083ef0eb4b52754c0486377a">CAL_RETRY</a></div><div class="ttdeci">@ CAL_RETRY</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00087">obcp_calibration.h:87</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa4404afaf825ccfff47a1b5e6c6dc8039">CAL_HELD</a></div><div class="ttdeci">@ CAL_HELD</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00085">obcp_calibration.h:85</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61c1e28051021b050c8835b2cc0b8cc9">CAL_ADVANCED</a></div><div class="ttdeci">@ CAL_ADVANCED</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00086">obcp_calibration.h:86</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa61cc34df20ef929f1c028d4e517a5373">CAL_READY</a></div><div class="ttdeci">@ CAL_READY</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00084">obcp_calibration.h:84</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfa8cf2bdb3718af53e53b1bf23b73c72ca">CAL_UNCHANGED</a></div><div class="ttdeci">@ CAL_UNCHANGED</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00083">obcp_calibration.h:83</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2"><div class="ttname"><a href="obcp__calibration_8h.html#ab9ff66ce483b7b722d35399661ef2cdfab623b93c587316acc0b6fe1cae63b5c2">CAL_COMPLETE</a></div><div class="ttdeci">@ CAL_COMPLETE</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00088">obcp_calibration.h:88</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_ae6482abe8b966f9810c72676082a7004"><div class="ttname"><a href="obcp__calibration_8h.html#ae6482abe8b966f9810c72676082a7004">touch_cal_load</a></div><div class="ttdeci">StoreResult touch_cal_load(TouchCalBook *book, Storage *storage, uint8_t orientation)</div><div class="ttdoc">Charger et reconstruire les deux profils résistifs.</div><div class="ttdef"><b>Définition</b> <a href="#l00251">calibration.c:251</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_afaf7a616015d8abe2840c4c3bd45c909"><div class="ttname"><a href="obcp__calibration_8h.html#afaf7a616015d8abe2840c4c3bd45c909">touch_cal_interrupt</a></div><div class="ttdeci">void touch_cal_interrupt(TouchCalSession *session)</div><div class="ttdoc">Suspendre la stabilisation après une erreur de lecture.</div><div class="ttdef"><b>Définition</b> <a href="#l00136">calibration.c:136</a></div></div>
+<div class="ttc" id="aobcp__calibration_8h_html_afd77ba03905b087d81c53b24e9a9bffb"><div class="ttname"><a href="obcp__calibration_8h.html#afd77ba03905b087d81c53b24e9a9bffb">touch_cal_sample</a></div><div class="ttdeci">TouchCalEvent touch_cal_sample(TouchCalSession *session, RawTouch raw)</div><div class="ttdoc">Faire avancer l&#39;acquisition d&#39;une cible résistive.</div><div class="ttdef"><b>Définition</b> <a href="#l00149">calibration.c:149</a></div></div>
+<div class="ttc" id="aobcp__gfx_8h_html"><div class="ttname"><a href="obcp__gfx_8h.html">obcp_gfx.h</a></div><div class="ttdoc">Géométrie, primitives RGB565 et rendu par bandes DMA.</div></div>
+<div class="ttc" id="aobcp__gfx_8h_html_a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef"><div class="ttname"><a href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa410011fc15dd20a8c3a916f21bafeef">LCD_WIDTH</a></div><div class="ttdeci">@ LCD_WIDTH</div><div class="ttdef"><b>Définition</b> <a href="obcp__gfx_8h_source.html#l00029">obcp_gfx.h:29</a></div></div>
+<div class="ttc" id="aobcp__gfx_8h_html_a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16"><div class="ttname"><a href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a></div><div class="ttdeci">@ LCD_HEIGHT</div><div class="ttdef"><b>Définition</b> <a href="obcp__gfx_8h_source.html#l00030">obcp_gfx.h:30</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986"><div class="ttname"><a href="obcp__storage_8h.html#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a></div><div class="ttdeci">@ SAVE_TOUCH_CAL</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00036">obcp_storage.h:36</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a3d4adcc9309b0cf493361bdbd51996a9"><div class="ttname"><a href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a></div><div class="ttdeci">StoreResult</div><div class="ttdoc">Résultats communs aux lectures et écritures de stockage.</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00044">obcp_storage.h:44</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5"><div class="ttname"><a href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5">STORE_OK</a></div><div class="ttdeci">@ STORE_OK</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00045">obcp_storage.h:45</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c"><div class="ttname"><a href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c">STORE_INVALID</a></div><div class="ttdeci">@ STORE_INVALID</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00048">obcp_storage.h:48</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a93e975a9edc0e30b07e9fdfaa4391ef2"><div class="ttname"><a href="obcp__storage_8h.html#a93e975a9edc0e30b07e9fdfaa4391ef2">storage_read</a></div><div class="ttdeci">StoreResult storage_read(Storage *s, SaveObject object, void *data, size_t size)</div><div class="ttdoc">Lire un objet dont la longueur exacte est connue.</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00248">storage.c:248</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_acdb0d3d7df8fc923acd7743abdca12cf"><div class="ttname"><a href="obcp__storage_8h.html#acdb0d3d7df8fc923acd7743abdca12cf">storage_save</a></div><div class="ttdeci">StoreResult storage_save(Storage *s, SaveObject object, const void *data, size_t size)</div><div class="ttdoc">Écrire et valider la copie inactive d&#39;un objet.</div><div class="ttdef"><b>Définition</b> <a href="storage_8c_source.html#l00301">storage.c:301</a></div></div>
+<div class="ttc" id="aobcp__touch_8h_html_a7c8fa54f263dc08df5b09123a9aa5188"><div class="ttname"><a href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188">TouchController</a></div><div class="ttdeci">TouchController</div><div class="ttdoc">Contrôleurs tactiles reconnus sur les shields compatibles.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00023">obcp_touch.h:23</a></div></div>
+<div class="ttc" id="aobcp__touch_8h_html_a7c8fa54f263dc08df5b09123a9aa5188a83bfb4782276682e4cd553252f400889"><div class="ttname"><a href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188a83bfb4782276682e4cd553252f400889">TOUCH_CTRL_STMPE610</a></div><div class="ttdeci">@ TOUCH_CTRL_STMPE610</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00026">obcp_touch.h:26</a></div></div>
+<div class="ttc" id="aobcp__touch_8h_html_a7c8fa54f263dc08df5b09123a9aa5188aa952098d393d7710e14583ad91482ad6"><div class="ttname"><a href="obcp__touch_8h.html#a7c8fa54f263dc08df5b09123a9aa5188aa952098d393d7710e14583ad91482ad6">TOUCH_CTRL_TSC2007</a></div><div class="ttdeci">@ TOUCH_CTRL_TSC2007</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00027">obcp_touch.h:27</a></div></div>
+<div class="ttc" id="astructRawPoint_html"><div class="ttname"><a href="structRawPoint.html">RawPoint</a></div><div class="ttdoc">Position native avant calibrage et rotation.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00047">obcp_touch.h:47</a></div></div>
+<div class="ttc" id="astructRawPoint_html_a782e949c98b8729858e9762ceeaa40fe"><div class="ttname"><a href="structRawPoint.html#a782e949c98b8729858e9762ceeaa40fe">RawPoint::y</a></div><div class="ttdeci">uint16_t y</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00049">obcp_touch.h:49</a></div></div>
+<div class="ttc" id="astructRawPoint_html_aa6f11a998e6db5b8716fe1359d3443a4"><div class="ttname"><a href="structRawPoint.html#aa6f11a998e6db5b8716fe1359d3443a4">RawPoint::x</a></div><div class="ttdeci">uint16_t x</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00048">obcp_touch.h:48</a></div></div>
+<div class="ttc" id="astructRawTouch_html"><div class="ttname"><a href="structRawTouch.html">RawTouch</a></div><div class="ttdoc">Observation physique d’un contrôleur tactile.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00057">obcp_touch.h:57</a></div></div>
+<div class="ttc" id="astructRawTouch_html_a197c80011658ee08599f5c6d45974b3f"><div class="ttname"><a href="structRawTouch.html#a197c80011658ee08599f5c6d45974b3f">RawTouch::point</a></div><div class="ttdeci">RawPoint point</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00058">obcp_touch.h:58</a></div></div>
+<div class="ttc" id="astructRawTouch_html_afa040ceb08388ca3f58bedc0ccd4208f"><div class="ttname"><a href="structRawTouch.html#afa040ceb08388ca3f58bedc0ccd4208f">RawTouch::down</a></div><div class="ttdeci">bool down</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00061">obcp_touch.h:61</a></div></div>
+<div class="ttc" id="astructStorage_html"><div class="ttname"><a href="structStorage.html">Storage</a></div><div class="ttdoc">Interface physique de stockage injectable dans les tests.</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00061">obcp_storage.h:61</a></div></div>
+<div class="ttc" id="astructTouchCalBook_html"><div class="ttname"><a href="structTouchCalBook.html">TouchCalBook</a></div><div class="ttdoc">Profils des deux familles résistives.</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00057">obcp_calibration.h:57</a></div></div>
+<div class="ttc" id="astructTouchCalBook_html_aa190f564463d011f841d16546cd8f3d1"><div class="ttname"><a href="structTouchCalBook.html#aa190f564463d011f841d16546cd8f3d1">TouchCalBook::profile</a></div><div class="ttdeci">TouchCalibration profile[2]</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00058">obcp_calibration.h:58</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html"><div class="ttname"><a href="structTouchCalSession.html">TouchCalSession</a></div><div class="ttdoc">Acquisition progressive des quatre cibles.</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00067">obcp_calibration.h:67</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a13bde30386c0c0afd9d9b2629680e908"><div class="ttname"><a href="structTouchCalSession.html#a13bde30386c0c0afd9d9b2629680e908">TouchCalSession::samples</a></div><div class="ttdeci">uint8_t samples</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00074">obcp_calibration.h:74</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a2298e9f81ccde69d7c55f32a86863915"><div class="ttname"><a href="structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915">TouchCalSession::candidate</a></div><div class="ttdeci">TouchCalibration candidate</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00068">obcp_calibration.h:68</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a298ccad8ffbef7a1bbcf9ce786bd3c50"><div class="ttname"><a href="structTouchCalSession.html#a298ccad8ffbef7a1bbcf9ce786bd3c50">TouchCalSession::sum_y</a></div><div class="ttdeci">uint32_t sum_y</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00072">obcp_calibration.h:72</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a35891bf3d711c5ec9d01c33daeb4b1eb"><div class="ttname"><a href="structTouchCalSession.html#a35891bf3d711c5ec9d01c33daeb4b1eb">TouchCalSession::sum_x</a></div><div class="ttdeci">uint32_t sum_x</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00071">obcp_calibration.h:71</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a4eac17fa946897483ce7d79137207802"><div class="ttname"><a href="structTouchCalSession.html#a4eac17fa946897483ce7d79137207802">TouchCalSession::anchor</a></div><div class="ttdeci">RawPoint anchor</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00070">obcp_calibration.h:70</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a6b2596124eb3c95df8404e76dd198207"><div class="ttname"><a href="structTouchCalSession.html#a6b2596124eb3c95df8404e76dd198207">TouchCalSession::target</a></div><div class="ttdeci">uint8_t target</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00073">obcp_calibration.h:73</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a851069d9ce70b5cbdcdde755afa07c52"><div class="ttname"><a href="structTouchCalSession.html#a851069d9ce70b5cbdcdde755afa07c52">TouchCalSession::observations</a></div><div class="ttdeci">RawPoint observations[CAL_FIT_COUNT]</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00069">obcp_calibration.h:69</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_a98fb0cd026ca01dd6ea7dbe7e01f40a6"><div class="ttname"><a href="structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6">TouchCalSession::retry</a></div><div class="ttdeci">bool retry</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00076">obcp_calibration.h:76</a></div></div>
+<div class="ttc" id="astructTouchCalSession_html_aad26a359f0dd5fe9b2c01d13c252d882"><div class="ttname"><a href="structTouchCalSession.html#aad26a359f0dd5fe9b2c01d13c252d882">TouchCalSession::wait_release</a></div><div class="ttdeci">bool wait_release</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00075">obcp_calibration.h:75</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html"><div class="ttname"><a href="structTouchCalibration.html">TouchCalibration</a></div><div class="ttdoc">Transformation affine du brut résistif vers les pixels.</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00041">obcp_calibration.h:41</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a0253ef8d9c61d4ac2ec73df683e7840b"><div class="ttname"><a href="structTouchCalibration.html#a0253ef8d9c61d4ac2ec73df683e7840b">TouchCalibration::y_from_x</a></div><div class="ttdeci">float y_from_x</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00046">obcp_calibration.h:46</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a3ba37e3771eb2bfe43a4d980e3ef3536"><div class="ttname"><a href="structTouchCalibration.html#a3ba37e3771eb2bfe43a4d980e3ef3536">TouchCalibration::points</a></div><div class="ttdeci">RawPoint points[CAL_FIT_COUNT]</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00042">obcp_calibration.h:42</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a623f60ff264bc13520f5cfa046826f02"><div class="ttname"><a href="structTouchCalibration.html#a623f60ff264bc13520f5cfa046826f02">TouchCalibration::x_offset</a></div><div class="ttdeci">float x_offset</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00045">obcp_calibration.h:45</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_a662dcf218135c95327d734a8c01a9850"><div class="ttname"><a href="structTouchCalibration.html#a662dcf218135c95327d734a8c01a9850">TouchCalibration::x_from_y</a></div><div class="ttdeci">float x_from_y</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00044">obcp_calibration.h:44</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_ab0a79633c4bd2bdaeeb9bc35f0aea28a"><div class="ttname"><a href="structTouchCalibration.html#ab0a79633c4bd2bdaeeb9bc35f0aea28a">TouchCalibration::x_from_x</a></div><div class="ttdeci">float x_from_x</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00043">obcp_calibration.h:43</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_abfda9bae3751f08a63b8abd09bcb3958"><div class="ttname"><a href="structTouchCalibration.html#abfda9bae3751f08a63b8abd09bcb3958">TouchCalibration::valid</a></div><div class="ttdeci">bool valid</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00049">obcp_calibration.h:49</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_acae6d472488c70a0fbaa5364364e0a8e"><div class="ttname"><a href="structTouchCalibration.html#acae6d472488c70a0fbaa5364364e0a8e">TouchCalibration::y_offset</a></div><div class="ttdeci">float y_offset</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00048">obcp_calibration.h:48</a></div></div>
+<div class="ttc" id="astructTouchCalibration_html_ad7e90c153dea16e297a531328456269f"><div class="ttname"><a href="structTouchCalibration.html#ad7e90c153dea16e297a531328456269f">TouchCalibration::y_from_y</a></div><div class="ttdeci">float y_from_y</div><div class="ttdef"><b>Définition</b> <a href="obcp__calibration_8h_source.html#l00047">obcp_calibration.h:47</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="calibration_8c.html">calibration.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

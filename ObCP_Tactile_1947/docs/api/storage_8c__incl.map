@@ -1,0 +1,13 @@
+<map id="Core/Src/obcp/storage.c" name="Core/Src/obcp/storage.c">
+<area shape="rect" id="Node000001" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="122,5,297,31"/>
+<area shape="rect" id="Node000002" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="89,79,210,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,33,170,70,166,66,197,29"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="234,79,305,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="221,29,253,66,249,70,217,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,106,76,146,73,142,131,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="112,152,187,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="152,104,152,138,147,138,147,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="211,152,282,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="167,102,221,141,218,146,163,106"/>
+</map>

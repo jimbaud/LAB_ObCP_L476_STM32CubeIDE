@@ -1,0 +1,40 @@
+<map id="maze_step" name="maze_step">
+<area shape="rect" id="Node000001" title="Intégrer la physique et le temps sur vingt millisecondes." alt="" coords="5,228,99,253"/>
+<area shape="poly" id="edge24_Node000001_Node000001" title=" " alt="" coords="27,229,21,220,24,210,35,204,52,201,73,205,82,213,78,217,70,210,52,207,37,209,28,213,27,219,31,227"/>
+<area shape="rect" id="Node000002" href="$breakout_8c.html#aab0a6fda4dafb6c7a34e3d239882e229" title="Calculer l&#39;ancienne ou la nouvelle emprise de balle." alt="" coords="151,29,251,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,227,87,157,112,113,145,72,159,60,163,64,149,76,117,116,91,159,60,229"/>
+<area shape="rect" id="Node000003" href="$maze_8c.html#a5585d106d6056c8bf8a9aef2ceaeef9d" title="Limiter une valeur flottante à un intervalle." alt="" coords="338,80,401,105"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="56,227,88,171,114,141,145,116,190,97,238,87,284,84,324,85,324,91,284,90,239,93,192,102,148,120,117,144,92,174,61,229"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="148,353,255,379"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="70,252,177,343,173,347,67,256"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="318,279,421,304"/>
+<area shape="poly" id="edge15_Node000001_Node000005" title=" " alt="" coords="98,251,147,262,229,275,304,283,303,289,228,280,146,267,97,256"/>
+<area shape="rect" id="Node000011" href="$maze_8c.html#a2fa51f9d8a99a3c84f03c4e19faa0a33" title="Obtenir la cellule d&#39;arrivée commune aux cartes." alt="" coords="151,228,251,253"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="99,238,137,238,137,243,99,243"/>
+<area shape="rect" id="Node000013" href="$maze_8c.html#a5818043951867c9d06606bc34d8e91cb" title="Vérifier si le disque de la bille touche une zone interdite." alt="" coords="153,155,249,180"/>
+<area shape="poly" id="edge20_Node000001_Node000013" title=" " alt="" coords="75,226,145,189,157,183,159,188,148,194,78,230"/>
+<area shape="rect" id="Node000014" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="147,427,256,452"/>
+<area shape="poly" id="edge25_Node000001_Node000014" title=" " alt="" coords="62,252,96,313,149,388,176,416,172,420,145,392,92,316,57,255"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="176,31,171,21,174,11,184,5,201,3,222,6,231,15,227,19,219,11,201,8,186,10,178,15,176,20,181,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="341,81,335,72,338,62,350,56,369,53,392,57,402,65,399,69,390,62,369,59,352,61,343,65,341,71,346,78"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="176,355,171,345,174,335,184,329,201,327,222,330,231,339,227,343,219,335,201,332,186,334,178,339,176,344,181,352"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="225,351,303,313,318,307,320,311,305,318,228,356"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="304,352,435,377"/>
+<area shape="poly" id="edge9_Node000004_Node000006" title=" " alt="" coords="255,363,290,363,290,368,255,368"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="324,425,415,451"/>
+<area shape="poly" id="edge11_Node000004_Node000009" title=" " alt="" coords="233,376,327,417,325,422,231,381"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="326,499,413,524"/>
+<area shape="poly" id="edge13_Node000004_Node000010" title=" " alt="" coords="240,377,258,388,274,407,284,424,292,442,306,462,338,489,334,493,302,465,287,445,279,427,270,410,254,392,237,381"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="341,280,335,270,338,261,350,254,369,252,392,255,402,264,399,268,390,260,369,257,352,259,343,264,341,270,346,277"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="341,353,335,344,338,334,350,328,369,325,392,329,402,337,399,341,390,334,369,331,352,333,343,337,341,343,346,350"/>
+<area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="341,427,335,417,338,407,350,401,369,399,392,402,402,411,399,415,390,407,369,404,352,406,343,411,341,416,346,424"/>
+<area shape="poly" id="edge14_Node000010_Node000010" title=" " alt="" coords="341,500,335,490,338,481,350,474,369,472,392,475,402,484,399,488,390,480,369,477,352,479,343,484,341,490,346,497"/>
+<area shape="poly" id="edge19_Node000011_Node000011" title=" " alt="" coords="176,229,171,220,174,210,184,204,201,201,222,205,231,213,227,217,219,210,201,207,186,209,178,213,176,219,181,227"/>
+<area shape="rect" id="Node000012" href="$maze_8c.html#a0deb320c2dcb6bea105f878ebc712613" title="Convertir une cellule de carte en rectangle écran." alt="" coords="347,180,392,205"/>
+<area shape="poly" id="edge17_Node000011_Node000012" title=" " alt="" coords="246,225,333,200,334,205,247,230"/>
+<area shape="poly" id="edge18_Node000012_Node000012" title=" " alt="" coords="344,184,336,174,337,163,349,156,369,153,395,158,402,164,403,171,398,172,397,167,393,163,369,159,351,161,342,166,341,172,348,180"/>
+<area shape="poly" id="edge22_Node000013_Node000003" title=" " alt="" coords="230,152,326,109,329,113,232,157"/>
+<area shape="poly" id="edge21_Node000013_Node000012" title=" " alt="" coords="250,172,334,185,333,190,249,177"/>
+<area shape="poly" id="edge23_Node000013_Node000013" title=" " alt="" coords="176,156,171,146,174,137,184,130,201,128,222,132,231,140,227,144,219,136,201,133,186,135,178,140,176,146,181,153"/>
+<area shape="poly" id="edge26_Node000014_Node000014" title=" " alt="" coords="176,428,171,418,174,409,184,402,201,400,222,404,231,412,227,416,219,408,201,405,186,407,178,412,176,418,181,425"/>
+</map>

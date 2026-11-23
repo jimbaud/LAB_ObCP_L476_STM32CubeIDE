@@ -1,0 +1,40 @@
+<map id="Core/Inc/obcp_gfx.h" name="Core/Inc/obcp_gfx.h">
+<area shape="rect" id="Node000001" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="1085,5,1236,31"/>
+<area shape="rect" id="Node000002" href="$obcp__games_8h.html" title="Modèles, niveaux et commandes des trois jeux à inclinaison." alt="" coords="390,79,563,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1072,31,564,84,563,78,1071,26"/>
+<area shape="rect" id="Node000009" href="$obcp__logo_8h.html" title="Ressource graphique SUPMICROTECH compressée par lignes." alt="" coords="803,79,961,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1103,37,928,81,926,76,1102,31"/>
+<area shape="rect" id="Node000011" href="$obcp__paint_8h.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="985,79,1147,104"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1136,41,1083,81,1080,76,1133,37"/>
+<area shape="rect" id="Node000013" href="$obcp__panel_8h.html" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="1173,79,1338,104"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="1188,37,1241,76,1238,81,1185,41"/>
+<area shape="rect" id="Node000017" href="$calibration_8c.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="1362,79,1557,104"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="1223,31,1412,76,1410,81,1221,36"/>
+<area shape="rect" id="Node000018" href="$gfx_8c.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="1581,79,1727,104"/>
+<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="1250,29,1581,77,1580,82,1249,35"/>
+<area shape="rect" id="Node000003" href="$obcp__app_8h.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="629,159,783,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="524,106,673,157,672,162,522,111"/>
+<area shape="rect" id="Node000006" href="$breakout_8c.html" title="Physique et dessin du casse&#45;briques à dix niveaux." alt="" coords="5,159,188,185"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="409,109,153,162,151,157,408,104"/>
+<area shape="rect" id="Node000007" href="$maze_8c.html" title="Cartes fixes, inertie et collisions du labyrinthe." alt="" coords="213,159,375,185"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="438,112,322,162,320,157,436,107"/>
+<area shape="rect" id="Node000008" href="$race_8c.html" title="Trafic, conduite, collisions et éclat de bande dessinée." alt="" coords="399,159,554,185"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="479,118,479,159,474,159,474,118"/>
+<area shape="rect" id="Node000004" href="$app_8c.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="573,240,724,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="692,197,659,241,655,238,687,194"/>
+<area shape="rect" id="Node000005" href="$board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle." alt="" coords="1218,240,1381,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="770,185,796,189,1025,221,1218,241,1218,247,1024,226,795,195,769,190"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="790,104,686,122,644,136,619,154,613,163,612,174,616,197,628,220,641,238,636,241,623,223,611,199,606,174,608,162,615,150,642,131,685,117,789,99"/>
+<area shape="rect" id="Node000010" href="$logo_8c.html" title="Ressource graphique SUPMICROTECH compressée par lignes." alt="" coords="807,159,962,185"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="886,118,887,159,882,159,880,118"/>
+<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="1001,110,759,162,758,157,1000,104"/>
+<area shape="rect" id="Node000012" href="$paint_8c.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="987,159,1145,185"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="1069,118,1069,159,1063,159,1063,118"/>
+<area shape="poly" id="edge15_Node000013_Node000005" title=" " alt="" coords="1352,102,1745,150,1752,161,1755,172,1752,183,1745,194,1727,204,1694,213,1599,229,1381,249,1381,244,1599,223,1693,208,1725,199,1742,190,1747,181,1749,172,1747,163,1742,154,1351,107"/>
+<area shape="rect" id="Node000014" href="$ili9341_8c.html" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="1170,159,1341,185"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="1258,118,1258,159,1253,159,1253,118"/>
+<area shape="rect" id="Node000015" href="$stmpe610_8c.html" title="Tactile résistif historique sur le bus SPI1 partagé." alt="" coords="1365,159,1556,185"/>
+<area shape="poly" id="edge17_Node000013_Node000015" title=" " alt="" coords="1299,106,1432,157,1430,162,1297,111"/>
+<area shape="rect" id="Node000016" href="$touch__port_8c.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="1580,152,1731,192"/>
+<area shape="poly" id="edge18_Node000013_Node000016" title=" " alt="" coords="1332,104,1569,149,1580,152,1579,157,1568,155,1331,109"/>
+</map>

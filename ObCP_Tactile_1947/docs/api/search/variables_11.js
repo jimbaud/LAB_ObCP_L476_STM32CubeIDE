@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['race_0',['race',['../structApp.html#a4d8f3fd528155ec13a203e836051ce98',1,'App']]],
+  ['raw_1',['raw',['../structButtonState.html#a0052018c3269305eda701395f4a46a6a',1,'ButtonState']]],
+  ['raw_5fx_2',['raw_x',['../structDiagnostics.html#a84bb0d1e4b52f39280169521a217ef70',1,'Diagnostics']]],
+  ['raw_5fy_3',['raw_y',['../structDiagnostics.html#a5809b65968fce4464d3ba7d2e7c6bbc6',1,'Diagnostics']]],
+  ['read_4',['read',['../structStorage.html#acc57389cfc1c5309a62d6d90736cee1e',1,'Storage']]],
+  ['read_5ferror_5',['read_error',['../structCopy.html#a3c70795e2ee190f61784056cb723a2b2',1,'Copy']]],
+  ['remaining_6',['remaining',['../structVoice.html#a50ceb429fc1d2e62f8b24c84050dee86',1,'Voice']]],
+  ['renderer_7',['renderer',['../board_8c.html#a96120bdea31dc797b1f3acbb8cf5a322',1,'board.c']]],
+  ['response_5fx_8',['response_x',['../structTilt.html#a07eb1e60ea8f3987e67e69f750089d51',1,'Tilt']]],
+  ['response_5fy_9',['response_y',['../structTilt.html#a8b7e833c2834356ccc734622767dbcb1',1,'Tilt']]],
+  ['retry_10',['retry',['../structTouchCalSession.html#a98fb0cd026ca01dd6ea7dbe7e01f40a6',1,'TouchCalSession']]],
+  ['rgb_11',['rgb',['../structApp.html#a970ad690f94fec7d5111221db8ffd2c4',1,'App']]],
+  ['right_12',['right',['../structTiltGuide.html#a8bc27aa839abf78ba8264b17cb838ccc',1,'TiltGuide']]],
+  ['ring_13',['ring',['../pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075',1,'pwm_audio.c']]],
+  ['rival_14',['rival',['../structRace.html#ad6162e9c59fb5acf459143e3bd59f2e3',1,'Race']]],
+  ['road_15',['road',['../race_8c.html#ad8569863f56dcc29e01f31d3b8301902',1,'race.c']]],
+  ['rows_16',['rows',['../structRenderer.html#ac5b72f2409c4cd92b5e0f1f04dae7f46',1,'Renderer::rows'],['../struct_0fstruct_0e_8symbols.html#a801c7ab8a4d883faf7f55cc4047c6cf6',1,'[struct].symbols::rows'],['../logo_8c.html#a07b60cb8f3258ec6bee9bf998448f0cd',1,'rows:&#160;logo.c']]],
+  ['running_17',['running',['../pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6',1,'pwm_audio.c']]],
+  ['runs_18',['runs',['../logo_8c.html#ad34a612c5675b14cbdffea2c071c4701',1,'logo.c']]]
+];

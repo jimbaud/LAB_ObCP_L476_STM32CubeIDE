@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Inc/accelerometer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('accelerometer_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">accelerometer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="accelerometer_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file accelerometer.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Mesures XYZ cohérentes sur le SPI3 de la carte.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_drivers</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Le capteur est reconnu par WHO_AM_I, puis configuré à 100 Hz et ±2 g. Le pilote conserve</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * un pointeur vers la HAL et convertit les six octets XYZ en accélérations exprimées en g.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * Appels synchrones depuis la boucle principale.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef ACCELEROMETER_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define ACCELEROMETER_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;main.h&quot;</span>           <span class="comment">/* SPI_HandleTypeDef (HAL) et étiquettes ACC_CS */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @brief Identités de capteur reconnues par WHO_AM_I.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">   24</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">   25</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">ACCEL_NONE</a> = 0, <span class="comment">/**&lt; Aucun capteur compatible configuré. */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143abec7b71051b642c4fe002e292aee2b69">   26</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143abec7b71051b642c4fe002e292aee2b69">ACCEL_LIS3DH</a>, <span class="comment">/**&lt; WHO_AM_I vaut 0x33, sensibilité haute résolution du LIS3DH. */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143a6cdea7491e1ea850657ca0fe40e59bd1">   27</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143a6cdea7491e1ea850657ca0fe40e59bd1">ACCEL_LIS3DSH</a>, <span class="comment">/**&lt; WHO_AM_I vaut 0x3F, sensibilité du LIS3DSH. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <a class="code hl_enumeration" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a>;</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @brief Indices des trois axes bruts pour leur étalonnage.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">   33</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a014bd8f2ad19525dee2de60374de04eb">   34</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a014bd8f2ad19525dee2de60374de04eb">ACCEL_AXIS_X</a> = 0, <span class="comment">/**&lt; Axe brut X, indice zéro. */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a907b48bf3bb7df1fb92f7fd2cd4d52d3">   35</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a907b48bf3bb7df1fb92f7fd2cd4d52d3">ACCEL_AXIS_Y</a>, <span class="comment">/**&lt; Axe brut Y, indice un. */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a7325f28986e84a06c2f4d0ff655a3088">   36</a></span>    <a class="code hl_enumvalue" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a7325f28986e84a06c2f4d0ff655a3088">ACCEL_AXIS_Z</a>, <span class="comment">/**&lt; Axe brut Z, indice deux. */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <a class="code hl_enumeration" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">accel_axis_t</a>;</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @brief Accélération XYZ dans le repère du capteur.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Une carte immobile mesure la pesanteur. Le module de jeu enlève ensuite son neutre aux</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * deux axes utiles.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structaccel__g__t.html">   45</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structaccel__g__t.html#ad25ce0b7ca9eaad3188593fc4da7da0c">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structaccel__g__t.html#ad25ce0b7ca9eaad3188593fc4da7da0c">x</a>; <span class="comment">/**&lt; Accélération selon l&#39;axe X brut, en g. */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structaccel__g__t.html#a07c57022ed8c8f53ea88aa847ec26215">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structaccel__g__t.html#a07c57022ed8c8f53ea88aa847ec26215">y</a>; <span class="comment">/**&lt; Accélération selon l&#39;axe Y brut, en g. */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structaccel__g__t.html#a22008ca8579b72327bb2760cc251eb9e">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structaccel__g__t.html#a22008ca8579b72327bb2760cc251eb9e">z</a>; <span class="comment">/**&lt; Accélération selon l&#39;axe Z brut, en g. */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>} <a class="code hl_struct" href="structaccel__g__t.html">accel_g_t</a>;</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"></span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * @brief Reconnaître et configurer le composant connecté.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * Mémorise le bus, lit WHO_AM_I puis choisit les registres et la sensibilité LIS3DH ou</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * LIS3DSH. Une erreur de configuration ramène le pilote à ACCEL_NONE.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * @param[in,out] hspi Handle HAL du bus SPI déjà initialisé. Pointeur valide.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * @return Type reconnu et configuré, ou ACCEL_NONE en cas d&#39;échec.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><a class="code hl_enumeration" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a> <a class="code hl_function" href="accelerometer_8h.html#a557c12ae54926838b046bd0af05c62f8">accel_init</a>(SPI_HandleTypeDef *hspi);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @brief Consulter l&#39;identité mémorisée du capteur.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Cette interrogation lit seulement l&#39;état logiciel. Elle ne déclenche pas de transaction</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * SPI.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * @return Dernier type enregistré par accel_init().</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><a class="code hl_enumeration" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a> <a class="code hl_function" href="accelerometer_8h.html#ac06e98d7d80719541c11c6e131c29031">accel_chip</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * @brief Obtenir un nom lisible du capteur.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * Le texte appartient au programme en flash. L&#39;appelant peut l&#39;afficher et ne doit pas</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * tenter de le modifier ou de le libérer.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * @return Chaîne constante LIS3DH, LIS3DSH ou none.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="accelerometer_8h.html#ad4e3cb98edb8d4f252e5de0b69b8cb10">accel_chip_name</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * @brief Lire les trois axes dans une même rafale.</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> * BDU protège la cohérence des registres pendant leur lecture. Chaque paire little-endian</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * est recomposée en entier signé sur 16 bits.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * @param[out] raw Tableau valide de trois entiers signés pour X, Y et Z bruts.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * @return true si les six octets sont lus, false si le capteur est absent ou si le SPI échoue.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">bool</span> <a class="code hl_function" href="accelerometer_8h.html#a6694cbf7c5cc36d21274e49edd09d803">accel_read_raw</a>(int16_t raw[3]);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * @brief Convertir la mesure XYZ en g.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * Applique successivement la sensibilité en mg par unité brute, le décalage et l&#39;échelle</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * d&#39;étalonnage, puis la division par 1000. Cette correction de capteur précède le neutre</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * des jeux.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * @param[out] g Structure de résultat XYZ valide, à remplir en g.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * @return true si une mesure valide a été acquise.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">bool</span> <a class="code hl_function" href="accelerometer_8h.html#ab2a68c82c3404d6027308e1f4163de25">accel_read</a>(<a class="code hl_struct" href="structaccel__g__t.html">accel_g_t</a> *g);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @brief Lire une indication de température du capteur.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> * La formule utilise l&#39;octet signé et le décalage de 25 °C du modèle. Cette indication</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * sert à observer une variation du capteur. L&#39;application tactile ne l&#39;utilise pas pour</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * piloter les jeux.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @param[out] celsius Pointeur valide recevant l’indication entière en degrés Celsius.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * @return true si le registre du capteur reconnu a été lu.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">bool</span> <a class="code hl_function" href="accelerometer_8h.html#aacf3b9c2f101e3e41dcfa9267aec6dcc">accel_read_temperature</a>(<span class="keywordtype">int</span> *celsius);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> * @brief Étalonner un axe à partir de deux mesures opposées.</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> * Les mesures de référence correspondent à −1 g et +1 g en mg. Le milieu donne le décalage</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * et leur différence donne l&#39;échelle. Un axe invalide ou un intervalle inversé est ignoré.</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> * @param[in] axis Axe brut X, Y ou Z à étalonner.</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * @param[in] min_mg Mesure d’étalonnage quand l’axe voit −1 g, exprimée en mg.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @param[in] max_mg Mesure d’étalonnage quand l’axe voit +1 g, en mg, supérieure à min_mg.</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keywordtype">void</span> <a class="code hl_function" href="accelerometer_8h.html#a29d46b1a87a0a4fc33c863580aedcd9c">accel_set_calibration</a>(<a class="code hl_enumeration" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">accel_axis_t</a> axis, <span class="keywordtype">float</span> min_mg, <span class="keywordtype">float</span> max_mg);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#endif </span><span class="comment">/* ACCELEROMETER_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aaccelerometer_8h_html_a29d46b1a87a0a4fc33c863580aedcd9c"><div class="ttname"><a href="accelerometer_8h.html#a29d46b1a87a0a4fc33c863580aedcd9c">accel_set_calibration</a></div><div class="ttdeci">void accel_set_calibration(accel_axis_t axis, float min_mg, float max_mg)</div><div class="ttdoc">Étalonner un axe à partir de deux mesures opposées.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00454">accelerometer.c:454</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a3f61dda4cc42aa064ca2654a14787143"><div class="ttname"><a href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a></div><div class="ttdeci">accel_chip_t</div><div class="ttdoc">Identités de capteur reconnues par WHO_AM_I.</div><div class="ttdef"><b>Définition</b> <a href="#l00024">accelerometer.h:24</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a3f61dda4cc42aa064ca2654a14787143a6cdea7491e1ea850657ca0fe40e59bd1"><div class="ttname"><a href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143a6cdea7491e1ea850657ca0fe40e59bd1">ACCEL_LIS3DSH</a></div><div class="ttdeci">@ ACCEL_LIS3DSH</div><div class="ttdef"><b>Définition</b> <a href="#l00027">accelerometer.h:27</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a3f61dda4cc42aa064ca2654a14787143abec7b71051b642c4fe002e292aee2b69"><div class="ttname"><a href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143abec7b71051b642c4fe002e292aee2b69">ACCEL_LIS3DH</a></div><div class="ttdeci">@ ACCEL_LIS3DH</div><div class="ttdef"><b>Définition</b> <a href="#l00026">accelerometer.h:26</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee"><div class="ttname"><a href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">ACCEL_NONE</a></div><div class="ttdeci">@ ACCEL_NONE</div><div class="ttdef"><b>Définition</b> <a href="#l00025">accelerometer.h:25</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a557c12ae54926838b046bd0af05c62f8"><div class="ttname"><a href="accelerometer_8h.html#a557c12ae54926838b046bd0af05c62f8">accel_init</a></div><div class="ttdeci">accel_chip_t accel_init(SPI_HandleTypeDef *hspi)</div><div class="ttdoc">Reconnaître et configurer le composant connecté.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00284">accelerometer.c:284</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a6694cbf7c5cc36d21274e49edd09d803"><div class="ttname"><a href="accelerometer_8h.html#a6694cbf7c5cc36d21274e49edd09d803">accel_read_raw</a></div><div class="ttdeci">bool accel_read_raw(int16_t raw[3])</div><div class="ttdoc">Lire les trois axes dans une même rafale.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00365">accelerometer.c:365</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a8f6b55abc365d0d8a274b0e570f3c829"><div class="ttname"><a href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">accel_axis_t</a></div><div class="ttdeci">accel_axis_t</div><div class="ttdoc">Indices des trois axes bruts pour leur étalonnage.</div><div class="ttdef"><b>Définition</b> <a href="#l00033">accelerometer.h:33</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a8f6b55abc365d0d8a274b0e570f3c829a014bd8f2ad19525dee2de60374de04eb"><div class="ttname"><a href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a014bd8f2ad19525dee2de60374de04eb">ACCEL_AXIS_X</a></div><div class="ttdeci">@ ACCEL_AXIS_X</div><div class="ttdef"><b>Définition</b> <a href="#l00034">accelerometer.h:34</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a8f6b55abc365d0d8a274b0e570f3c829a7325f28986e84a06c2f4d0ff655a3088"><div class="ttname"><a href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a7325f28986e84a06c2f4d0ff655a3088">ACCEL_AXIS_Z</a></div><div class="ttdeci">@ ACCEL_AXIS_Z</div><div class="ttdef"><b>Définition</b> <a href="#l00036">accelerometer.h:36</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_a8f6b55abc365d0d8a274b0e570f3c829a907b48bf3bb7df1fb92f7fd2cd4d52d3"><div class="ttname"><a href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829a907b48bf3bb7df1fb92f7fd2cd4d52d3">ACCEL_AXIS_Y</a></div><div class="ttdeci">@ ACCEL_AXIS_Y</div><div class="ttdef"><b>Définition</b> <a href="#l00035">accelerometer.h:35</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_aacf3b9c2f101e3e41dcfa9267aec6dcc"><div class="ttname"><a href="accelerometer_8h.html#aacf3b9c2f101e3e41dcfa9267aec6dcc">accel_read_temperature</a></div><div class="ttdeci">bool accel_read_temperature(int *celsius)</div><div class="ttdoc">Lire une indication de température du capteur.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00419">accelerometer.c:419</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_ab2a68c82c3404d6027308e1f4163de25"><div class="ttname"><a href="accelerometer_8h.html#ab2a68c82c3404d6027308e1f4163de25">accel_read</a></div><div class="ttdeci">bool accel_read(accel_g_t *g)</div><div class="ttdoc">Convertir la mesure XYZ en g.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00390">accelerometer.c:390</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_ac06e98d7d80719541c11c6e131c29031"><div class="ttname"><a href="accelerometer_8h.html#ac06e98d7d80719541c11c6e131c29031">accel_chip</a></div><div class="ttdeci">accel_chip_t accel_chip(void)</div><div class="ttdoc">Consulter l&#39;identité mémorisée du capteur.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00335">accelerometer.c:335</a></div></div>
+<div class="ttc" id="aaccelerometer_8h_html_ad4e3cb98edb8d4f252e5de0b69b8cb10"><div class="ttname"><a href="accelerometer_8h.html#ad4e3cb98edb8d4f252e5de0b69b8cb10">accel_chip_name</a></div><div class="ttdeci">const char * accel_chip_name(void)</div><div class="ttdoc">Obtenir un nom lisible du capteur.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00347">accelerometer.c:347</a></div></div>
+<div class="ttc" id="astructaccel__g__t_html"><div class="ttname"><a href="structaccel__g__t.html">accel_g_t</a></div><div class="ttdoc">Accélération XYZ dans le repère du capteur.</div><div class="ttdef"><b>Définition</b> <a href="#l00045">accelerometer.h:45</a></div></div>
+<div class="ttc" id="astructaccel__g__t_html_a07c57022ed8c8f53ea88aa847ec26215"><div class="ttname"><a href="structaccel__g__t.html#a07c57022ed8c8f53ea88aa847ec26215">accel_g_t::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Définition</b> <a href="#l00047">accelerometer.h:47</a></div></div>
+<div class="ttc" id="astructaccel__g__t_html_a22008ca8579b72327bb2760cc251eb9e"><div class="ttname"><a href="structaccel__g__t.html#a22008ca8579b72327bb2760cc251eb9e">accel_g_t::z</a></div><div class="ttdeci">float z</div><div class="ttdef"><b>Définition</b> <a href="#l00048">accelerometer.h:48</a></div></div>
+<div class="ttc" id="astructaccel__g__t_html_ad25ce0b7ca9eaad3188593fc4da7da0c"><div class="ttname"><a href="structaccel__g__t.html#ad25ce0b7ca9eaad3188593fc4da7da0c">accel_g_t::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Définition</b> <a href="#l00046">accelerometer.h:46</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="accelerometer_8h.html">accelerometer.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

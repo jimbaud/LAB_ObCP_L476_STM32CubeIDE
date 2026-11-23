@@ -1,0 +1,48 @@
+<map id="draw_diag" name="draw_diag">
+<area shape="rect" id="Node000001" title="Présenter les identités, cibles et compteurs de la carte." alt="" coords="5,282,95,307"/>
+<area shape="poly" id="edge18_Node000001_Node000001" title=" " alt="" coords="24,283,19,273,22,264,32,257,50,255,71,259,80,267,76,271,69,263,50,260,34,262,26,267,24,273,29,280"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="333,143,397,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,279,141,236,236,196,319,167,321,172,238,201,144,241,71,284"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="609,144,676,170"/>
+<area shape="poly" id="edge24_Node000001_Node000003" title=" " alt="" coords="51,281,60,245,76,197,103,147,120,124,141,104,195,65,245,36,294,16,344,5,394,4,446,12,502,29,563,55,585,70,605,90,632,131,627,134,601,93,582,74,560,59,500,34,445,17,393,9,344,10,296,21,248,41,197,70,144,108,124,128,107,150,81,200,65,247,56,282"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="476,244,552,270"/>
+<area shape="poly" id="edge25_Node000001_Node000010" title=" " alt="" coords="95,286,142,281,462,257,463,263,143,286,95,292"/>
+<area shape="rect" id="Node000012" href="$app_8c.html#a0f950de9cae6fccdb7f01515e72582fc" title="Composer le bandeau de navigation d&#39;un écran." alt="" coords="162,143,245,168"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="58,280,92,236,141,186,160,173,163,177,144,190,96,239,62,283"/>
+<area shape="rect" id="Node000013" href="$gfx_8c.html#a67be800d450e0519ef923669e4f354bc" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="165,319,241,344"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="96,303,153,317,152,322,94,308"/>
+<area shape="rect" id="Node000016" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="147,392,259,418"/>
+<area shape="poly" id="edge26_Node000001_Node000016" title=" " alt="" coords="70,305,175,382,172,386,67,309"/>
+<area shape="rect" id="Node000018" href="$input_8c.html#a2f510f95608bb16ffb5a612c656b7fee" title="Fournir un nom de contrôleur à l&#39;interface." alt="" coords="152,466,255,491"/>
+<area shape="poly" id="edge30_Node000001_Node000018" title=" " alt="" coords="61,306,94,362,145,429,174,455,170,459,141,432,90,365,56,309"/>
+<area shape="rect" id="Node000019" href="$input_8c.html#a4a62d2bd3618bf965844b00af3b4141c" title="Classer le type de tactile." alt="" coords="143,539,264,564"/>
+<area shape="poly" id="edge32_Node000001_Node000019" title=" " alt="" coords="57,306,86,393,112,449,145,502,172,529,169,533,141,505,107,452,81,395,52,308"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="340,144,335,135,338,125,348,119,365,116,386,120,394,128,391,132,383,125,365,122,350,124,342,128,341,134,345,142"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="398,153,596,154,596,160,398,159"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="467,119,561,144"/>
+<area shape="poly" id="edge7_Node000002_Node000009" title=" " alt="" coords="397,148,452,139,453,144,398,153"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="390,166,420,186,487,234,484,238,417,190,387,171"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="621,145,616,136,618,126,628,120,643,118,660,121,668,129,664,133,658,126,643,123,630,125,623,130,621,135,625,143"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="724,232,855,258"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="667,168,757,223,754,228,664,172"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="764,234,759,224,762,214,772,208,789,206,810,209,818,218,815,222,807,214,789,211,774,213,766,218,765,223,769,231"/>
+<area shape="poly" id="edge8_Node000009_Node000003" title=" " alt="" coords="562,138,597,145,596,151,561,144"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="492,120,487,111,490,101,499,95,514,92,532,96,540,104,536,108,529,100,514,98,501,100,494,104,493,110,497,118"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="530,242,613,176,616,180,533,246"/>
+<area shape="poly" id="edge12_Node000010_Node000010" title=" " alt="" coords="492,245,487,236,490,226,499,220,514,218,532,221,540,229,536,233,529,226,514,223,501,225,494,230,493,235,497,243"/>
+<area shape="poly" id="edge14_Node000012_Node000002" title=" " alt="" coords="245,153,319,153,319,158,245,158"/>
+<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="225,141,285,111,369,80,417,70,466,65,515,67,562,80,599,103,626,131,622,135,595,107,560,85,514,73,466,70,417,75,370,85,287,116,227,145"/>
+<area shape="poly" id="edge17_Node000012_Node000010" title=" " alt="" coords="245,166,464,238,462,243,243,171"/>
+<area shape="poly" id="edge15_Node000012_Node000012" title=" " alt="" coords="178,144,172,135,175,125,186,119,203,116,224,120,233,128,230,132,222,125,203,122,188,124,179,128,178,134,182,142"/>
+<area shape="poly" id="edge23_Node000013_Node000005" title=" " alt="" coords="241,324,561,278,710,255,711,260,562,284,242,329"/>
+<area shape="poly" id="edge20_Node000013_Node000013" title=" " alt="" coords="178,320,172,311,175,301,186,295,203,292,224,296,233,304,230,308,222,301,203,298,188,300,179,304,178,310,182,318"/>
+<area shape="rect" id="Node000014" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="325,370,406,395"/>
+<area shape="poly" id="edge21_Node000013_Node000014" title=" " alt="" coords="242,341,312,363,311,368,241,346"/>
+<area shape="poly" id="edge22_Node000014_Node000014" title=" " alt="" coords="340,371,335,361,338,352,348,345,365,343,386,347,394,355,391,359,383,351,365,348,350,350,342,355,341,361,345,368"/>
+<area shape="poly" id="edge29_Node000016_Node000016" title=" " alt="" coords="178,394,172,384,175,374,186,368,203,366,224,369,233,378,230,382,222,374,203,371,188,373,179,378,178,383,182,391"/>
+<area shape="rect" id="Node000017" href="$calibration_8c.html#a835c2a46780f0da559cf58d9e6209057" title="Associer un contrôleur résistif à sa place dans le livre." alt="" coords="312,443,419,468"/>
+<area shape="poly" id="edge27_Node000016_Node000017" title=" " alt="" coords="246,415,312,436,310,441,244,420"/>
+<area shape="poly" id="edge28_Node000017_Node000017" title=" " alt="" coords="340,444,335,435,338,425,348,419,365,416,386,420,394,428,391,432,383,425,365,422,350,424,342,428,341,434,345,442"/>
+<area shape="poly" id="edge31_Node000018_Node000018" title=" " alt="" coords="178,467,172,457,175,448,186,441,203,439,224,443,233,451,230,455,222,447,203,444,188,446,179,451,178,457,182,464"/>
+<area shape="poly" id="edge33_Node000019_Node000019" title=" " alt="" coords="178,540,172,531,175,521,186,515,203,512,224,516,233,524,230,528,222,521,203,518,188,520,179,524,178,530,182,538"/>
+</map>

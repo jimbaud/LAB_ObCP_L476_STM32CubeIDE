@@ -1,0 +1,24 @@
+ObCP tactile 0.4.1 — STM32CubeMX 6.11.1, génération des sources sur copie
+Base HAL/CMSIS STM32CubeL4 V1.18.1, reprise du projet livré.
+config load <copie>/ObCP_Tactile_1947.ioc
+generate code <copie>/Core
+exit
+Code succesfully generated under <copie>/Core
+Sources Core identiques après normalisation LF/CRLF, commentaires USER CODE inclus.
+Modules utilisateur, .project, .cproject, .ioc et linker conservés.
+
+<toolchain>/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld: warning: build/Release/ObCP_Tactile_1947.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+  76816	    144	  51448	 128408	  1f598	build/Release/ObCP_Tactile_1947.elf
+
+HEX 0x08000000 à 0x08012ca7, 76960 octets en banque 1.
+Bilan 0 écart(s).
+Release — HEX et BIN identiques après régénération
+
+<toolchain>/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld: warning: build/Debug/ObCP_Tactile_1947.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+ 108852	    148	  51452	 160452	  272c4	build/Debug/ObCP_Tactile_1947.elf
+
+HEX 0x08000000 à 0x0801a9cf, 109000 octets en banque 1.
+Bilan 0 écart(s).
+Debug — HEX et BIN identiques après régénération

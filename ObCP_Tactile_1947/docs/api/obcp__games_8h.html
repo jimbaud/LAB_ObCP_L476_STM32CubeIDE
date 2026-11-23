@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_games.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__games_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_games.h<div class="ingroups"><a class="el" href="group__obcp__apps.html">Applications et navigation</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Modèles, niveaux et commandes des trois jeux à inclinaison.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_games.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h__incl.svg" width="288" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h__dep__incl.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="obcp__games_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:Maze" id="r_Maze"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structMaze.html">Maze</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">État physique et temporel du labyrinthe.  <a href="structMaze.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Breakout" id="r_Breakout"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structBreakout.html">Breakout</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Balle, raquette et briques du casse-briques.  <a href="structBreakout.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Rival" id="r_Rival"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structRival.html">Rival</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adversaire occupant une voie de la course.  <a href="structRival.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Race" id="r_Race"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structRace.html">Race</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">État de la route, du joueur et de la progression.  <a href="structRace.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ac1385d88feb69e5d627b16cb8feaa957" id="r_ac1385d88feb69e5d627b16cb8feaa957"><td class="memItemLeft"><a class="el" href="#ac1385d88feb69e5d627b16cb8feaa957">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#ac1385d88feb69e5d627b16cb8feaa957a2aa6c82e4774ddfb3a01930f6d04d154">GAME_STEP_MS</a> = 20
+, <a class="el" href="#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a> = 10
+, <a class="el" href="#ac1385d88feb69e5d627b16cb8feaa957a8d4cb1fa56c791168a774a50eb684625">RACE_CARS</a> = 6
+ }</td></tr>
+<tr class="memdesc:ac1385d88feb69e5d627b16cb8feaa957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#ac1385d88feb69e5d627b16cb8feaa957">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a896617de6e1c82953f407789633057d8" id="r_a896617de6e1c82953f407789633057d8"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a896617de6e1c82953f407789633057d8">GamePhase</a> { <br />
+&#160;&#160;<a class="el" href="#a896617de6e1c82953f407789633057d8ae160771beb5329d0e3de02f1802ab291">GAME_READY</a>
+, <a class="el" href="#a896617de6e1c82953f407789633057d8ae3d2544aa751d1f73420151551ce2a98">GAME_RUN</a>
+, <a class="el" href="#a896617de6e1c82953f407789633057d8a72e4d6b6330e75a9576d766115f4f513">GAME_PAUSE</a>
+, <a class="el" href="#a896617de6e1c82953f407789633057d8a31fcc94800fd6d897c76e7c37da13c40">GAME_WON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a896617de6e1c82953f407789633057d8a09882f267ff79e730df61f433a78b628">GAME_LOST</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a896617de6e1c82953f407789633057d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phases de jeu partagées par les trois modèles.  <a href="#a896617de6e1c82953f407789633057d8">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a0d093d9aaa5424deec47d46d2b3c9df1" id="r_a0d093d9aaa5424deec47d46d2b3c9df1"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1">Vehicle</a> { <a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1a235204fedb16bae3ec64c63df2380609">VEHICLE_CAR</a>
+, <a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1aa185df69e7892897418df43e9c15fe23">VEHICLE_BIKE</a>
+, <a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1a0b5eff395105769b058b63b473d12533">VEHICLE_VAN</a>
+, <a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1aa2321578206a8c9ebe7ae94c968f2724">VEHICLE_TRUCK</a>
+ }</td></tr>
+<tr class="memdesc:a0d093d9aaa5424deec47d46d2b3c9df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types de véhicules admis par les niveaux de course.  <a href="#a0d093d9aaa5424deec47d46d2b3c9df1">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7dc6cbf39e39ac3f700d4e422eb9075e" id="r_a7dc6cbf39e39ac3f700d4e422eb9075e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7dc6cbf39e39ac3f700d4e422eb9075e">maze_init</a> (<a class="el" href="structMaze.html">Maze</a> *m, unsigned level)</td></tr>
+<tr class="memdesc:a7dc6cbf39e39ac3f700d4e422eb9075e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer un niveau à son point de départ.  <br /></td></tr>
+<tr class="memitem:a8f155882cb040aaa1591303bf517a7d6" id="r_a8f155882cb040aaa1591303bf517a7d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f155882cb040aaa1591303bf517a7d6">maze_step</a> (<a class="el" href="structMaze.html">Maze</a> *m, float tilt_x, float tilt_y, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a8f155882cb040aaa1591303bf517a7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intégrer la physique et le temps sur vingt millisecondes.  <br /></td></tr>
+<tr class="memitem:adfc0527f385c1372e01cb6c405b8a7ea" id="r_adfc0527f385c1372e01cb6c405b8a7ea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adfc0527f385c1372e01cb6c405b8a7ea">maze_draw</a> (const <a class="el" href="structMaze.html">Maze</a> *m, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:adfc0527f385c1372e01cb6c405b8a7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner les murs, les cases spéciales et la bille.  <br /></td></tr>
+<tr class="memitem:a7a77f9a29a63aff30842b2ad50da27ee" id="r_a7a77f9a29a63aff30842b2ad50da27ee"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7a77f9a29a63aff30842b2ad50da27ee">maze_start</a> (void)</td></tr>
+<tr class="memdesc:a7a77f9a29a63aff30842b2ad50da27ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir la cellule de départ commune aux cartes.  <br /></td></tr>
+<tr class="memitem:a2fa51f9d8a99a3c84f03c4e19faa0a33" id="r_a2fa51f9d8a99a3c84f03c4e19faa0a33"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2fa51f9d8a99a3c84f03c4e19faa0a33">maze_finish</a> (void)</td></tr>
+<tr class="memdesc:a2fa51f9d8a99a3c84f03c4e19faa0a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir la cellule d'arrivée commune aux cartes.  <br /></td></tr>
+<tr class="memitem:a5818043951867c9d06606bc34d8e91cb" id="r_a5818043951867c9d06606bc34d8e91cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5818043951867c9d06606bc34d8e91cb">maze_solid</a> (const <a class="el" href="structMaze.html">Maze</a> *m, float x, float y)</td></tr>
+<tr class="memdesc:a5818043951867c9d06606bc34d8e91cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier si le disque de la bille touche une zone interdite.  <br /></td></tr>
+<tr class="memitem:a0470eb8bc1e9fdb99e57517747160be6" id="r_a0470eb8bc1e9fdb99e57517747160be6"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0470eb8bc1e9fdb99e57517747160be6">maze_seconds_left</a> (const <a class="el" href="structMaze.html">Maze</a> *m)</td></tr>
+<tr class="memdesc:a0470eb8bc1e9fdb99e57517747160be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir le temps restant en secondes affichables.  <br /></td></tr>
+<tr class="memitem:a78b7d8c01ca12fa617b3772d6d963082" id="r_a78b7d8c01ca12fa617b3772d6d963082"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78b7d8c01ca12fa617b3772d6d963082">breakout_init</a> (<a class="el" href="structBreakout.html">Breakout</a> *b, unsigned level)</td></tr>
+<tr class="memdesc:a78b7d8c01ca12fa617b3772d6d963082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer les positions et les briques d'un niveau.  <br /></td></tr>
+<tr class="memitem:af7d2616ab126daefbe136d28fafe0bcf" id="r_af7d2616ab126daefbe136d28fafe0bcf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af7d2616ab126daefbe136d28fafe0bcf">breakout_step</a> (<a class="el" href="structBreakout.html">Breakout</a> *b, float tilt_x, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:af7d2616ab126daefbe136d28fafe0bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer une simulation de vingt millisecondes.  <br /></td></tr>
+<tr class="memitem:a8f6c9d6f6f06944b692d9c96dcf61a06" id="r_a8f6c9d6f6f06944b692d9c96dcf61a06"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f6c9d6f6f06944b692d9c96dcf61a06">breakout_draw</a> (const <a class="el" href="structBreakout.html">Breakout</a> *b, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:a8f6c9d6f6f06944b692d9c96dcf61a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomposer les briques, la raquette et la balle.  <br /></td></tr>
+<tr class="memitem:a725b2159591771f868aac2dcbdc6947a" id="r_a725b2159591771f868aac2dcbdc6947a"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a725b2159591771f868aac2dcbdc6947a">breakout_brick</a> (unsigned i)</td></tr>
+<tr class="memdesc:a725b2159591771f868aac2dcbdc6947a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'emprise d'une brique.  <br /></td></tr>
+<tr class="memitem:ad76ba4b12108d007c0d2ce44bd645719" id="r_ad76ba4b12108d007c0d2ce44bd645719"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad76ba4b12108d007c0d2ce44bd645719">race_init</a> (<a class="el" href="structRace.html">Race</a> *r, unsigned level)</td></tr>
+<tr class="memdesc:ad76ba4b12108d007c0d2ce44bd645719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer une course et son générateur déterministe.  <br /></td></tr>
+<tr class="memitem:aadd5d2edbc68622ecebb4548fe099821" id="r_aadd5d2edbc68622ecebb4548fe099821"><td class="memItemLeft">unsigned&#160;</td><td class="memItemRight"><a class="el" href="#aadd5d2edbc68622ecebb4548fe099821">race_goal</a> (const <a class="el" href="structRace.html">Race</a> *r)</td></tr>
+<tr class="memdesc:aadd5d2edbc68622ecebb4548fe099821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire l'objectif de dépassements du niveau.  <br /></td></tr>
+<tr class="memitem:a04385f55744a2f6bba48c4f9ad04353d" id="r_a04385f55744a2f6bba48c4f9ad04353d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a04385f55744a2f6bba48c4f9ad04353d">race_step</a> (<a class="el" href="structRace.html">Race</a> *r, float tilt_x, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a04385f55744a2f6bba48c4f9ad04353d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer direction, trafic et état de collision.  <br /></td></tr>
+<tr class="memitem:a370172bedebc8c9d1a54127769acfd5b" id="r_a370172bedebc8c9d1a54127769acfd5b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a370172bedebc8c9d1a54127769acfd5b">race_draw</a> (const <a class="el" href="structRace.html">Race</a> *r, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:a370172bedebc8c9d1a54127769acfd5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomposer route, véhicules et collision.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Modèles, niveaux et commandes des trois jeux à inclinaison. </p>
+<p>Les trois modèles partagent <a class="el" href="#a896617de6e1c82953f407789633057d8" title="Phases de jeu partagées par les trois modèles.">GamePhase</a> et un pas de 20 ms. Le labyrinthe utilise une carte de cases, le casse-briques des masques de briques et la course un tableau d'adversaires. Les positions sont flottantes, le rendu emploie des pixels entiers. GAME_PAUSE fige la simulation. La course possède aussi un bref état de collision.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ac1385d88feb69e5d627b16cb8feaa957" name="ac1385d88feb69e5d627b16cb8feaa957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1385d88feb69e5d627b16cb8feaa957">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ac1385d88feb69e5d627b16cb8feaa957a2aa6c82e4774ddfb3a01930f6d04d154" name="ac1385d88feb69e5d627b16cb8feaa957a2aa6c82e4774ddfb3a01930f6d04d154"></a>GAME_STEP_MS&#160;</td><td class="fielddoc"><p>Pas de simulation de vingt millisecondes, soit 50 pas par seconde. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e" name="ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e"></a>GAME_LEVELS&#160;</td><td class="fielddoc"><p>Dix niveaux par jeu, indices de zéro à neuf. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac1385d88feb69e5d627b16cb8feaa957a8d4cb1fa56c791168a774a50eb684625" name="ac1385d88feb69e5d627b16cb8feaa957a8d4cb1fa56c791168a774a50eb684625"></a>RACE_CARS&#160;</td><td class="fielddoc"><p>Six places d'adversaires au maximum dans la course. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__games_8h_source.html#l00023">23</a> du fichier <a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>.</p>
+
+</div>
+</div>
+<a id="a896617de6e1c82953f407789633057d8" name="a896617de6e1c82953f407789633057d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a896617de6e1c82953f407789633057d8">&#9670;&#160;</a></span>GamePhase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a896617de6e1c82953f407789633057d8">GamePhase</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Phases de jeu partagées par les trois modèles. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a896617de6e1c82953f407789633057d8ae160771beb5329d0e3de02f1802ab291" name="a896617de6e1c82953f407789633057d8ae160771beb5329d0e3de02f1802ab291"></a>GAME_READY&#160;</td><td class="fielddoc"><p>Positions préparées, attente du bouton Jouer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a896617de6e1c82953f407789633057d8ae3d2544aa751d1f73420151551ce2a98" name="a896617de6e1c82953f407789633057d8ae3d2544aa751d1f73420151551ce2a98"></a>GAME_RUN&#160;</td><td class="fielddoc"><p>Simulation active à pas fixes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a896617de6e1c82953f407789633057d8a72e4d6b6330e75a9576d766115f4f513" name="a896617de6e1c82953f407789633057d8a72e4d6b6330e75a9576d766115f4f513"></a>GAME_PAUSE&#160;</td><td class="fielddoc"><p>Simulation et chronomètre suspendus. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a896617de6e1c82953f407789633057d8a31fcc94800fd6d897c76e7c37da13c40" name="a896617de6e1c82953f407789633057d8a31fcc94800fd6d897c76e7c37da13c40"></a>GAME_WON&#160;</td><td class="fielddoc"><p>Objectif atteint, proposition du niveau suivant. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a896617de6e1c82953f407789633057d8a09882f267ff79e730df61f433a78b628" name="a896617de6e1c82953f407789633057d8a09882f267ff79e730df61f433a78b628"></a>GAME_LOST&#160;</td><td class="fielddoc"><p>Temps expiré, balle perdue ou collision. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__games_8h_source.html#l00031">31</a> du fichier <a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>.</p>
+
+</div>
+</div>
+<a id="a0d093d9aaa5424deec47d46d2b3c9df1" name="a0d093d9aaa5424deec47d46d2b3c9df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d093d9aaa5424deec47d46d2b3c9df1">&#9670;&#160;</a></span>Vehicle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a0d093d9aaa5424deec47d46d2b3c9df1">Vehicle</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Types de véhicules admis par les niveaux de course. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a0d093d9aaa5424deec47d46d2b3c9df1a235204fedb16bae3ec64c63df2380609" name="a0d093d9aaa5424deec47d46d2b3c9df1a235204fedb16bae3ec64c63df2380609"></a>VEHICLE_CAR&#160;</td><td class="fielddoc"><p>Voiture, emprise 29 × 32 pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d093d9aaa5424deec47d46d2b3c9df1aa185df69e7892897418df43e9c15fe23" name="a0d093d9aaa5424deec47d46d2b3c9df1aa185df69e7892897418df43e9c15fe23"></a>VEHICLE_BIKE&#160;</td><td class="fielddoc"><p>Moto étroite, emprise 15 × 27 pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d093d9aaa5424deec47d46d2b3c9df1a0b5eff395105769b058b63b473d12533" name="a0d093d9aaa5424deec47d46d2b3c9df1a0b5eff395105769b058b63b473d12533"></a>VEHICLE_VAN&#160;</td><td class="fielddoc"><p>Fourgonnette, emprise 35 × 44 pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0d093d9aaa5424deec47d46d2b3c9df1aa2321578206a8c9ebe7ae94c968f2724" name="a0d093d9aaa5424deec47d46d2b3c9df1aa2321578206a8c9ebe7ae94c968f2724"></a>VEHICLE_TRUCK&#160;</td><td class="fielddoc"><p>Camion, emprise 43 × 56 pixels. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__games_8h_source.html#l00187">187</a> du fichier <a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a725b2159591771f868aac2dcbdc6947a" name="a725b2159591771f868aac2dcbdc6947a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725b2159591771f868aac2dcbdc6947a">&#9670;&#160;</a></span>breakout_brick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> breakout_brick </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculer l'emprise d'une brique. </p>
+<p>L'indice va de 0 à 31. Le quotient et le reste de la division par huit donnent la rangée et la colonne. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice de l’élément dans la table de géométrie décrite ci-dessus. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la brique, en pixels. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00054">54</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, et <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a725b2159591771f868aac2dcbdc6947a_cgraph.svg" width="130" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8f6c9d6f6f06944b692d9c96dcf61a06" name="a8f6c9d6f6f06944b692d9c96dcf61a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6c9d6f6f06944b692d9c96dcf61a06">&#9670;&#160;</a></span>breakout_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recomposer les briques, la raquette et la balle. </p>
+<p>Le modèle est lu sans modifier la simulation. Les briques renforcées reçoivent un cadre clair. Le clipping des primitives limite le travail à la bande demandée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00208">208</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="obcp__games_8h_source.html#l00136">Breakout::bricks</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__games_8h_source.html#l00137">Breakout::hard_bricks</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="breakout_8c_source.html#l00025">RIGHT</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__games_8h_source.html#l00131">Breakout::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, et <a class="el" href="app_8c_source.html#l01487">draw_game()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a8f6c9d6f6f06944b692d9c96dcf61a06_cgraph.svg" width="606" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a78b7d8c01ca12fa617b3772d6d963082" name="a78b7d8c01ca12fa617b3772d6d963082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b7d8c01ca12fa617b3772d6d963082">&#9670;&#160;</a></span>breakout_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer les positions et les briques d'un niveau. </p>
+<p>Un indice hors plage revient au premier niveau. L'état est prêt à jouer, avec les masques, dimensions et vitesses choisis dans la table constante. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00095">95</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00095">breakout_init()</a>, <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, et <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00095">breakout_init()</a>, et <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a78b7d8c01ca12fa617b3772d6d963082_cgraph.svg" width="118" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af7d2616ab126daefbe136d28fafe0bcf" name="af7d2616ab126daefbe136d28fafe0bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7d2616ab126daefbe136d28fafe0bcf">&#9670;&#160;</a></span>breakout_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer une simulation de vingt millisecondes. </p>
+<p>Seule GAME_RUN avance. La raquette rejoint 75 % de l'écart à sa cible, puis la balle fait trois sous-pas. Les anciennes et nouvelles emprises sont invalidées. Une balle sortie ou un masque vide termine le niveau. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00169">169</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="obcp__games_8h_source.html#l00136">Breakout::bricks</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="obcp__games_8h_source.html#l00139">Breakout::level</a>, <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="obcp__games_8h_source.html#l00135">Breakout::paddle</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, <a class="el" href="obcp__games_8h_source.html#l00140">Breakout::phase</a>, <a class="el" href="breakout_8c_source.html#l00025">RIGHT</a>, et <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_af7d2616ab126daefbe136d28fafe0bcf_cgraph.svg" width="639" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adfc0527f385c1372e01cb6c405b8a7ea" name="adfc0527f385c1372e01cb6c405b8a7ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc0527f385c1372e01cb6c405b8a7ea">&#9670;&#160;</a></span>maze_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessiner les murs, les cases spéciales et la bille. </p>
+<p>Les rangées hors de la bande sont sautées. Le niveau sélectionne la carte, tandis que les positions physiques ne sont jamais modifiées par ce rendu. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00331">331</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00030">BALL_RADIUS</a>, <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00034">maps</a>, <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="maze_8c_source.html#l00026">ROWS</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__games_8h_source.html#l00046">Maze::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00047">Maze::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="maze_8c_source.html#l00331">maze_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_adfc0527f385c1372e01cb6c405b8a7ea_cgraph.svg" width="559" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2fa51f9d8a99a3c84f03c4e19faa0a33" name="a2fa51f9d8a99a3c84f03c4e19faa0a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa51f9d8a99a3c84f03c4e19faa0a33">&#9670;&#160;</a></span>maze_finish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> maze_finish </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir la cellule d'arrivée commune aux cartes. </p>
+<p>L'arrivée occupe la dernière case intérieure en bas à droite. Le test de victoire et le dessin lisent la même emprise. </p><dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la case d'arrivée. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00194">194</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, et <a class="el" href="maze_8c_source.html#l00026">ROWS</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a2fa51f9d8a99a3c84f03c4e19faa0a33_cgraph.svg" width="204" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7dc6cbf39e39ac3f700d4e422eb9075e" name="a7dc6cbf39e39ac3f700d4e422eb9075e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc6cbf39e39ac3f700d4e422eb9075e">&#9670;&#160;</a></span>maze_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer un niveau à son point de départ. </p>
+<p>Remet vitesses et temps à zéro. Un niveau hors plage revient à zéro et la phase initiale demande l'appui Jouer. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00261">261</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>, <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a7dc6cbf39e39ac3f700d4e422eb9075e_cgraph.svg" width="334" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0470eb8bc1e9fdb99e57517747160be6" name="a0470eb8bc1e9fdb99e57517747160be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0470eb8bc1e9fdb99e57517747160be6">&#9670;&#160;</a></span>maze_seconds_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t maze_seconds_left </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convertir le temps restant en secondes affichables. </p>
+<p>Arrondit vers le haut pour que la dernière seconde soit visible. La valeur est nulle dès que la limite du niveau est atteinte. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de secondes restantes, jamais négatif. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00274">274</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00050">Maze::elapsed_ms</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00166">limits_ms</a>, et <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a0470eb8bc1e9fdb99e57517747160be6_cgraph.svg" width="158" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5818043951867c9d06606bc34d8e91cb" name="a5818043951867c9d06606bc34d8e91cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5818043951867c9d06606bc34d8e91cb">&#9670;&#160;</a></span>maze_solid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool maze_solid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier si le disque de la bille touche une zone interdite. </p>
+<p>Limite les cases examinées à l'emprise du disque. Pour chaque mur, le point de rectangle le plus proche du centre permet de tester la distance au carré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la bille sortirait du plateau ou recouvrirait un mur. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00216">216</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00030">BALL_RADIUS</a>, <a class="el" href="maze_8c_source.html#l00177">cell()</a>, <a class="el" href="maze_8c_source.html#l00205">clamp()</a>, <a class="el" href="maze_8c_source.html#l00025">COLS</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00034">maps</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, <a class="el" href="maze_8c_source.html#l00026">ROWS</a>, <a class="el" href="maze_8c_source.html#l00027">TILE</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a5818043951867c9d06606bc34d8e91cb_cgraph.svg" width="218" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7a77f9a29a63aff30842b2ad50da27ee" name="a7a77f9a29a63aff30842b2ad50da27ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a77f9a29a63aff30842b2ad50da27ee">&#9670;&#160;</a></span>maze_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> maze_start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir la cellule de départ commune aux cartes. </p>
+<p>Le départ est placé dans la case intérieure de coordonnées colonne un et ligne un. </p><dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la case de départ. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00187">187</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="maze_8c_source.html#l00177">cell()</a>, et <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="maze_8c_source.html#l00261">maze_init()</a>, et <a class="el" href="maze_8c_source.html#l00187">maze_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a7a77f9a29a63aff30842b2ad50da27ee_cgraph.svg" width="199" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8f155882cb040aaa1591303bf517a7d6" name="a8f155882cb040aaa1591303bf517a7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f155882cb040aaa1591303bf517a7d6">&#9670;&#160;</a></span>maze_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maze_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMaze.html">Maze</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intégrer la physique et le temps sur vingt millisecondes. </p>
+<p>Calcule les vitesses avec inertie, avance séparément X et Y pour permettre le glissement contre un mur, puis teste arrivée et expiration. Les emprises modifiées sont invalidées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">m</td><td>État physique et temporel du labyrinthe. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_y</td><td>Commande écran Y, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="maze_8c_source.html#l00286">286</a> du fichier <a class="el" href="maze_8c_source.html">maze.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="maze_8c_source.html#l00205">clamp()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__games_8h_source.html#l00050">Maze::elapsed_ms</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="obcp__games_8h_source.html#l00051">Maze::level</a>, <a class="el" href="maze_8c_source.html#l00166">limits_ms</a>, <a class="el" href="maze_8c_source.html#l00194">maze_finish()</a>, <a class="el" href="maze_8c_source.html#l00216">maze_solid()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="obcp__games_8h_source.html#l00052">Maze::phase</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="obcp__games_8h_source.html#l00048">Maze::vx</a>, <a class="el" href="obcp__games_8h_source.html#l00049">Maze::vy</a>, <a class="el" href="obcp__games_8h_source.html#l00046">Maze::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00047">Maze::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a8f155882cb040aaa1591303bf517a7d6_cgraph.svg" width="440" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a370172bedebc8c9d1a54127769acfd5b" name="a370172bedebc8c9d1a54127769acfd5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370172bedebc8c9d1a54127769acfd5b">&#9670;&#160;</a></span>race_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recomposer route, véhicules et collision. </p>
+<p>Le fond et les marquages sont reconstruits avant les adversaires et le joueur. Le BOUM est superposé si son compteur est encore positif. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00314">314</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00202">Rival::active</a>, <a class="el" href="race_8c_source.html#l00061">car_box()</a>, <a class="el" href="obcp__games_8h_source.html#l00220">Race::crash_ms</a>, <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="race_8c_source.html#l00033">HERO_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00203">Rival::kind</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="obcp__gfx_8h_source.html#l00029">LCD_WIDTH</a>, <a class="el" href="obcp__games_8h_source.html#l00213">Race::player_x</a>, <a class="el" href="obcp__games_8h_source.html#l00026">RACE_CARS</a>, <a class="el" href="race_8c_source.html#l00314">race_draw()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>, <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>, <a class="el" href="race_8c_source.html#l00030">ROAD_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00214">Race::scroll</a>, et <a class="el" href="obcp__games_8h_source.html#l00188">VEHICLE_CAR</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a370172bedebc8c9d1a54127769acfd5b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aadd5d2edbc68622ecebb4548fe099821" name="aadd5d2edbc68622ecebb4548fe099821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd5d2edbc68622ecebb4548fe099821">&#9670;&#160;</a></span>race_goal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned race_goal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire l'objectif de dépassements du niveau. </p>
+<p>Le premier niveau vise 50 véhicules et le dernier 300. Les paramètres sont constants et n'occupent pas de stockage persistant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de véhicules à dépasser pour gagner le niveau. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00136">136</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00219">Race::level</a>, <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, et <a class="el" href="race_8c_source.html#l00136">race_goal()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="race_8c_source.html#l00136">race_goal()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_aadd5d2edbc68622ecebb4548fe099821_cgraph.svg" width="96" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad76ba4b12108d007c0d2ce44bd645719" name="ad76ba4b12108d007c0d2ce44bd645719"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76ba4b12108d007c0d2ce44bd645719">&#9670;&#160;</a></span>race_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer une course et son générateur déterministe. </p>
+<p>Place le joueur au centre, deux véhicules de départ sur les côtés et l'objectif du niveau. Un indice hors plage choisit le niveau zéro. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00121">121</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, <a class="el" href="race_8c_source.html#l00121">race_init()</a>, et <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="race_8c_source.html#l00121">race_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_ad76ba4b12108d007c0d2ce44bd645719_cgraph.svg" width="90" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a04385f55744a2f6bba48c4f9ad04353d" name="a04385f55744a2f6bba48c4f9ad04353d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04385f55744a2f6bba48c4f9ad04353d">&#9670;&#160;</a></span>race_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer direction, trafic et état de collision. </p>
+<p>En course, déplace le joueur, les marquages et les adversaires. Une collision précède la validation du score gagnant. Après une collision, seul le compteur de BOUM continue jusqu'au bilan. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00175">175</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00202">Rival::active</a>, <a class="el" href="race_8c_source.html#l00061">car_box()</a>, <a class="el" href="race_8c_source.html#l00031">CAR_W</a>, <a class="el" href="obcp__games_8h_source.html#l00220">Race::crash_ms</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="race_8c_source.html#l00033">HERO_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00221">Race::impact_x</a>, <a class="el" href="obcp__games_8h_source.html#l00222">Race::impact_y</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="obcp__games_8h_source.html#l00219">Race::level</a>, <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="obcp__games_8h_source.html#l00223">Race::phase</a>, <a class="el" href="obcp__games_8h_source.html#l00213">Race::player_x</a>, <a class="el" href="obcp__games_8h_source.html#l00026">RACE_CARS</a>, <a class="el" href="race_8c_source.html#l00136">race_goal()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>, <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>, <a class="el" href="obcp__games_8h_source.html#l00217">Race::score</a>, <a class="el" href="obcp__games_8h_source.html#l00214">Race::scroll</a>, <a class="el" href="race_8c_source.html#l00148">spawn()</a>, <a class="el" href="obcp__games_8h_source.html#l00215">Race::spawn_ms</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__games_8h_source.html#l00200">Rival::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__games_8h_a04385f55744a2f6bba48c4f9ad04353d_cgraph.svg" width="591" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__games_8h.html">obcp_games.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<map id="logo_draw" name="logo_draw">
+<area shape="rect" id="Node000001" title="Décompresser les lignes visibles du logo dans une bande." alt="" coords="5,103,95,128"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="28,104,24,94,26,85,35,78,50,76,67,79,75,88,71,91,65,84,50,81,37,83,31,88,29,94,33,101"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="143,103,209,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,113,129,113,129,118,95,118"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="154,104,150,94,152,85,161,78,176,76,193,79,201,88,197,91,191,84,176,81,163,83,157,88,155,94,159,101"/>
+<area shape="rect" id="Node000003" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="296,29,349,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="194,100,256,64,282,53,284,57,259,68,197,105"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="257,103,388,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="210,113,244,113,244,118,210,118"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="279,176,366,201"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="204,126,285,167,283,172,201,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="298,31,293,21,295,11,306,5,323,3,343,6,352,15,348,18,340,11,323,8,307,10,300,15,298,20,302,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="298,104,293,94,295,85,306,78,323,76,343,80,352,88,348,92,340,84,323,81,307,83,300,88,298,94,302,101"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="298,177,293,168,295,158,306,152,323,149,343,153,352,161,348,165,340,158,323,155,307,157,300,161,298,167,302,175"/>
+</map>

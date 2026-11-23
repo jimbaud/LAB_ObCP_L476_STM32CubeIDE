@@ -1,0 +1,7 @@
+<map id="poll_band" name="poll_band">
+<area shape="rect" id="Node000001" title="Consulter le transfert et surveiller son délai maximal." alt="" coords="5,29,91,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="25,30,20,21,23,11,32,5,48,3,66,6,74,14,71,18,64,11,48,8,34,10,27,14,26,20,30,28"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="139,29,225,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="91,39,125,39,125,45,91,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="159,30,154,21,157,11,166,5,182,3,200,6,208,14,205,18,198,11,182,8,168,10,161,14,160,20,164,28"/>
+</map>

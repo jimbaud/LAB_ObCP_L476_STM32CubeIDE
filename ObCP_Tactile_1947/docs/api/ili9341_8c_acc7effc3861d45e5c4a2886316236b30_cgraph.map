@@ -1,0 +1,15 @@
+<map id="window" name="window">
+<area shape="rect" id="Node000001" title="Définir un intervalle de colonnes ou de lignes du TFT." alt="" coords="5,29,77,55"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="20,30,15,21,18,11,27,5,41,3,59,6,66,14,62,18,56,11,41,8,29,10,22,14,21,20,24,28"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="125,29,212,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,39,112,39,112,45,77,45"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="147,30,143,21,145,11,154,5,169,3,186,6,194,14,190,18,183,11,169,8,156,10,149,14,148,20,152,28"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#ae22b3a371df97ab3f610d8ef2c2e5835" title="Émettre une commande en plaçant D/C à zéro." alt="" coords="260,29,391,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,47,246,48,246,54,212,53"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="439,55,525,80"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="210,52,260,63,347,69,425,68,425,74,346,75,260,69,208,57"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="259,36,226,36,226,31,259,30"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="299,31,294,21,297,11,308,5,325,3,347,6,356,15,352,19,344,11,325,8,309,10,301,15,299,20,304,28"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="392,50,425,56,424,61,391,55"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="456,56,450,46,453,37,464,30,482,28,503,31,512,40,509,44,501,36,482,33,466,35,458,40,456,46,460,53"/>
+</map>

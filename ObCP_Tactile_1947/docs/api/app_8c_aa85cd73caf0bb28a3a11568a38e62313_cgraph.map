@@ -1,0 +1,46 @@
+<map id="draw_paint_editor" name="draw_paint_editor">
+<area shape="rect" id="Node000001" title="Composer les dialogues de palette, RVB et diamètre." alt="" coords="5,293,144,319"/>
+<area shape="poly" id="edge17_Node000001_Node000001" title=" " alt="" coords="46,295,40,285,43,275,55,269,75,267,98,270,108,279,105,283,96,275,75,272,57,274,47,279,45,284,51,292"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a59532cffffde6f411d36493ef5c638a5" title="Calculer le rectangle de un diamètre de crayon." alt="" coords="192,29,299,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,292,91,252,114,194,147,131,190,72,204,60,207,64,194,76,151,134,119,197,96,254,82,294"/>
+<area shape="rect" id="Node000003" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="213,205,277,231"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="99,291,206,235,209,240,102,296"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="489,205,556,231"/>
+<area shape="poly" id="edge23_Node000001_Node000004" title=" " alt="" coords="78,292,93,260,116,218,149,175,169,156,191,140,256,104,285,93,314,87,343,86,374,91,407,100,443,116,465,131,485,151,512,192,507,194,481,154,462,135,440,120,405,105,373,96,343,92,315,93,287,98,258,109,193,144,172,160,153,179,121,221,98,263,83,294"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="347,280,441,305"/>
+<area shape="poly" id="edge24_Node000001_Node000010" title=" " alt="" coords="144,296,192,293,333,290,333,295,192,298,144,302"/>
+<area shape="rect" id="Node000011" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="356,155,432,180"/>
+<area shape="poly" id="edge25_Node000001_Node000011" title=" " alt="" coords="80,292,95,264,119,228,151,193,191,166,229,154,269,149,308,150,343,154,342,159,308,155,269,154,230,159,193,171,155,197,123,232,100,266,84,294"/>
+<area shape="rect" id="Node000013" href="$app_8c.html#abfc45f9535ba98c1252c0f5d2545fb2c" title="Calculer le rectangle de une case de la palette." alt="" coords="194,331,297,356"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="134,316,181,327,180,332,133,321"/>
+<area shape="rect" id="Node000014" href="$gfx_8c.html#a67be800d450e0519ef923669e4f354bc" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="207,404,283,429"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="97,316,215,394,212,399,94,321"/>
+<area shape="rect" id="Node000017" href="$app_8c.html#a4d8725f19b350db6b1f56269fb7f9790" title="Calculer le rectangle de le bouton de réduction RVB." alt="" coords="200,477,291,503"/>
+<area shape="poly" id="edge26_Node000001_Node000017" title=" " alt="" coords="88,317,133,372,194,440,221,466,217,470,190,444,129,375,84,321"/>
+<area shape="rect" id="Node000018" href="$app_8c.html#a701410511a3782afb46c4a88ca2df02e" title="Calculer le rectangle de le bouton d’augmentation RVB." alt="" coords="207,551,284,576"/>
+<area shape="poly" id="edge28_Node000001_Node000018" title=" " alt="" coords="84,318,125,404,157,460,194,514,219,540,215,543,190,517,152,463,120,406,79,320"/>
+<area shape="rect" id="Node000019" href="$app_8c.html#aaaffe6685e48b1bca4579c11bb5bf62e" title="Calculer le rectangle de une barre de composante RVB." alt="" coords="202,624,289,649"/>
+<area shape="poly" id="edge30_Node000001_Node000019" title=" " alt="" coords="82,318,95,365,118,433,151,512,194,587,218,613,214,617,190,590,146,514,113,435,90,366,77,320"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="220,31,215,21,218,11,228,5,245,3,266,6,274,15,271,18,263,11,245,8,230,10,222,15,221,20,225,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="220,207,215,197,218,187,228,181,245,179,266,182,274,191,271,194,263,187,245,184,230,186,222,191,221,196,225,204"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="278,215,476,215,476,221,278,221"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="273,229,357,271,354,276,271,233"/>
+<area shape="poly" id="edge12_Node000003_Node000011" title=" " alt="" coords="277,205,342,182,344,187,279,210"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="501,206,496,197,498,187,508,181,523,179,540,182,548,190,544,194,538,187,523,184,510,186,503,190,501,196,505,204"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="604,268,735,293"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="554,228,627,260,625,265,552,233"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="644,269,639,260,642,250,652,244,669,241,690,245,698,253,695,257,687,250,669,247,654,249,646,253,645,259,649,267"/>
+<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="416,277,487,235,489,240,419,282"/>
+<area shape="poly" id="edge11_Node000010_Node000010" title=" " alt="" coords="372,281,367,272,370,262,379,256,394,253,412,257,420,265,416,269,409,261,394,259,381,261,374,265,373,271,377,279"/>
+<area shape="poly" id="edge13_Node000011_Node000004" title=" " alt="" coords="428,178,478,198,476,203,426,183"/>
+<area shape="poly" id="edge14_Node000011_Node000011" title=" " alt="" coords="372,156,367,146,370,137,379,130,394,128,412,131,420,140,416,143,409,136,394,133,381,135,374,140,373,146,377,153"/>
+<area shape="poly" id="edge16_Node000013_Node000013" title=" " alt="" coords="220,332,215,322,218,313,228,306,245,304,266,308,274,316,271,320,263,312,245,309,230,311,222,316,221,322,225,329"/>
+<area shape="poly" id="edge22_Node000014_Node000006" title=" " alt="" coords="270,401,346,368,479,325,598,294,599,299,480,330,348,372,272,406"/>
+<area shape="poly" id="edge19_Node000014_Node000014" title=" " alt="" coords="220,405,215,396,218,386,228,380,245,377,266,381,274,389,271,393,263,386,245,383,230,385,222,389,221,395,225,403"/>
+<area shape="rect" id="Node000015" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="353,405,435,431"/>
+<area shape="poly" id="edge20_Node000014_Node000015" title=" " alt="" coords="284,414,340,415,339,420,283,420"/>
+<area shape="poly" id="edge21_Node000015_Node000015" title=" " alt="" coords="372,406,367,397,370,387,379,381,394,379,412,382,420,390,416,394,409,387,394,384,381,386,374,390,373,396,377,404"/>
+<area shape="poly" id="edge27_Node000017_Node000017" title=" " alt="" coords="220,479,215,469,218,459,228,453,245,451,266,454,274,463,271,466,263,459,245,456,230,458,222,463,221,468,225,476"/>
+<area shape="poly" id="edge29_Node000018_Node000018" title=" " alt="" coords="220,552,215,542,218,533,228,526,245,524,266,528,274,536,271,540,263,532,245,529,230,531,222,536,221,542,225,549"/>
+<area shape="poly" id="edge31_Node000019_Node000019" title=" " alt="" coords="220,625,215,616,218,606,228,600,245,597,266,601,274,609,271,613,263,606,245,603,230,605,222,609,221,615,225,623"/>
+</map>

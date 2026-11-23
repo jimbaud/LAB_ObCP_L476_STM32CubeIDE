@@ -1,0 +1,19 @@
+<map id="gfx_text" name="gfx_text">
+<area shape="rect" id="Node000001" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="5,140,81,165"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="23,141,19,132,21,122,29,116,43,113,60,117,67,125,63,129,57,121,43,119,32,121,25,125,24,131,28,139"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="129,103,196,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,138,115,127,117,132,82,143"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a483f913fa34cd8b2871e56fa7f7ed35c" title="Trouver les sept rangées d&#39;un caractère." alt="" coords="133,176,192,201"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="82,162,121,173,119,178,81,167"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="142,104,138,94,140,85,149,78,163,76,179,79,186,88,182,91,176,84,163,81,151,83,145,88,143,94,147,101"/>
+<area shape="rect" id="Node000003" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="283,29,336,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="181,100,243,64,269,53,271,57,245,68,184,105"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="244,103,375,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="196,113,230,113,230,118,196,118"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="266,176,353,201"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="190,126,272,167,270,172,188,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="284,31,279,21,282,11,292,5,309,3,330,6,338,15,335,18,327,11,309,8,294,10,286,15,285,20,289,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="284,104,279,94,282,85,292,78,309,76,330,80,338,88,335,92,327,84,309,81,294,83,286,88,285,94,289,101"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="284,177,279,168,282,158,292,152,309,149,330,153,338,161,335,165,327,158,309,155,294,157,286,161,285,167,289,175"/>
+<area shape="poly" id="edge11_Node000008_Node000008" title=" " alt="" coords="142,177,138,168,140,158,149,152,163,149,179,153,186,161,182,165,176,157,163,155,151,157,145,161,143,167,147,175"/>
+</map>

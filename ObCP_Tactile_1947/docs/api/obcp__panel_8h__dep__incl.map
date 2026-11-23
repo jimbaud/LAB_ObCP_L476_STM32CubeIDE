@@ -1,0 +1,11 @@
+<map id="Core/Inc/obcp_panel.h" name="Core/Inc/obcp_panel.h">
+<area shape="rect" id="Node000001" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="297,5,463,31"/>
+<area shape="rect" id="Node000002" href="$board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle." alt="" coords="5,86,168,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,37,130,89,129,83,324,32"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="192,86,363,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="355,41,294,88,291,84,352,37"/>
+<area shape="rect" id="Node000004" href="$stmpe610_8c.html" title="Tactile résistif historique sur le bus SPI1 partagé." alt="" coords="387,86,578,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="408,37,469,84,466,88,405,41"/>
+<area shape="rect" id="Node000005" href="$touch__port_8c.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="602,79,753,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="437,31,607,76,605,81,436,37"/>
+</map>

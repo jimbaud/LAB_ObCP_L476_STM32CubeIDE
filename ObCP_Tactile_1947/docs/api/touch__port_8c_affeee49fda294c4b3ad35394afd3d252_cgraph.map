@@ -1,0 +1,36 @@
+<map id="touch_probe" name="touch_probe">
+<area shape="rect" id="Node000001" title="Reconnaître le contrôleur tactile présent." alt="" coords="5,140,108,165"/>
+<area shape="poly" id="edge17_Node000001_Node000001" title=" " alt="" coords="29,141,24,132,27,122,38,116,57,113,79,117,89,125,85,129,77,122,57,119,40,121,31,125,29,131,34,138"/>
+<area shape="rect" id="Node000002" href="$ft6206_8c.html#a3a5f95d585500c81e898a25110a58dce" title="Vérifier l&#39;identifiant de famille du tactile capacitif." alt="" coords="168,41,275,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,137,186,72,189,76,81,142"/>
+<area shape="rect" id="Node000005" href="$ili9341_8c.html#a0d40bfce0038207f484c4112427c3f35" title="Vérifier si SPI1 peut servir le tactile résistif." alt="" coords="335,103,469,128"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="108,144,156,138,320,121,321,126,156,143,109,149"/>
+<area shape="rect" id="Node000006" href="$stmpe610_8c.html#a065ad8a07d9276aaa719b079bc9e65f9" title="Reconnaître 0x0811 et configurer le tactile." alt="" coords="156,177,287,203"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="109,162,152,172,151,177,108,167"/>
+<area shape="rect" id="Node000012" href="$tsc2007_8c.html#a2433cdb5ff2732267b44ae72cac1086b" title="Tester le protocole de conversion du TSC2007." alt="" coords="163,375,280,400"/>
+<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="69,164,205,361,201,364,65,167"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="194,43,188,33,191,23,203,17,221,15,244,18,253,27,250,31,241,23,221,20,204,22,195,27,194,32,199,40"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="359,29,445,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="275,48,345,43,345,48,275,53"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="376,31,370,21,373,11,384,5,402,3,423,6,432,15,429,19,421,11,402,8,386,10,378,15,376,20,380,28"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="376,104,370,94,373,85,384,78,402,76,423,79,432,88,429,92,421,84,402,81,386,83,378,88,376,94,380,101"/>
+<area shape="poly" id="edge12_Node000006_Node000005" title=" " alt="" coords="248,175,334,137,350,130,352,135,336,142,251,180"/>
+<area shape="poly" id="edge16_Node000006_Node000006" title=" " alt="" coords="194,179,188,169,191,159,203,153,221,151,244,154,253,163,250,167,241,159,221,156,204,158,195,163,194,168,199,176"/>
+<area shape="rect" id="Node000007" href="$stmpe610_8c.html#a7d3da9ac06dab82d5692231cf1b51980" title="Appliquer les réglages ADC et FIFO du tactile." alt="" coords="359,176,445,201"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="287,187,345,186,345,192,287,192"/>
+<area shape="rect" id="Node000008" href="$stmpe610_8c.html#a0b9d51b399b8a78f4f217917a02d89ae" title="Lire un registre STMPE610 avec son octet factice." alt="" coords="517,201,596,227"/>
+<area shape="poly" id="edge13_Node000006_Node000008" title=" " alt="" coords="275,200,335,210,424,215,503,214,503,219,424,220,334,215,274,205"/>
+<area shape="rect" id="Node000011" href="$stmpe610_8c.html#a90ec26e81c172681bbdd6a36bd37b332" title="Changer temporairement fréquence et phase du SPI1." alt="" coords="368,301,436,327"/>
+<area shape="poly" id="edge14_Node000006_Node000011" title=" " alt="" coords="243,201,373,291,370,296,240,205"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="376,177,370,168,373,158,384,152,402,149,423,153,432,161,429,165,421,158,402,155,386,157,378,161,376,167,380,175"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="446,193,504,203,503,208,445,198"/>
+<area shape="poly" id="edge11_Node000008_Node000008" title=" " alt="" coords="531,203,525,193,528,183,539,177,557,175,578,178,587,187,583,191,576,183,557,180,541,182,532,187,530,192,535,200"/>
+<area shape="poly" id="edge15_Node000011_Node000011" title=" " alt="" coords="376,303,370,293,373,283,384,277,402,275,423,278,432,287,429,291,421,283,402,280,386,282,378,287,376,292,380,300"/>
+<area shape="poly" id="edge23_Node000012_Node000012" title=" " alt="" coords="194,376,188,366,191,357,203,350,221,348,244,351,253,360,250,364,241,356,221,353,204,355,195,360,194,366,199,373"/>
+<area shape="rect" id="Node000013" href="$tsc2007_8c.html#aa1853d96a590fa721dc9594af0eec3dc" title="Décoder une conversion 12 bits reçue sur I²C." alt="" coords="337,375,467,400"/>
+<area shape="poly" id="edge19_Node000012_Node000013" title=" " alt="" coords="280,385,323,385,323,390,280,390"/>
+<area shape="rect" id="Node000014" href="$tsc2007_8c.html#acb702898e283f4c0435744fd2b224855" title="Envoyer une commande de conversion TSC2007." alt="" coords="339,448,465,473"/>
+<area shape="poly" id="edge21_Node000012_Node000014" title=" " alt="" coords="255,398,358,440,356,445,253,403"/>
+<area shape="poly" id="edge20_Node000013_Node000013" title=" " alt="" coords="376,376,370,366,373,357,384,350,402,348,423,351,432,360,429,364,421,356,402,353,386,355,378,360,376,366,380,373"/>
+<area shape="poly" id="edge22_Node000014_Node000014" title=" " alt="" coords="376,449,370,440,373,430,384,424,402,421,423,425,432,433,429,437,421,430,402,427,386,429,378,433,376,439,380,447"/>
+</map>

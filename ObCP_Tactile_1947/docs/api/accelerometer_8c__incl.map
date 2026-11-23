@@ -1,0 +1,13 @@
+<map id="Core/Src/obcp/accelerometer.c" name="Core/Src/obcp/accelerometer.c">
+<area shape="rect" id="Node000001" title="Pilote de l&#39;accéléromètre LIS3DH (ou LIS3DSH) sur SPI3 (voir accelerometer.h)." alt="" coords="101,5,320,31"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8h.html" title="Mesures XYZ cohérentes sur le SPI3 de la carte." alt="" coords="85,79,211,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,33,169,70,165,66,198,29"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="236,79,311,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="223,29,256,66,252,70,219,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,106,76,146,73,142,130,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,152,183,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="151,104,151,138,145,138,145,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="208,152,275,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="165,102,217,141,214,146,161,106"/>
+</map>

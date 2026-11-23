@@ -1,0 +1,33 @@
+<map id="game_touch" name="game_touch">
+<area shape="rect" id="Node000001" title="Traiter Jouer, Pause, Rejouer et Menu principal." alt="" coords="5,264,108,289"/>
+<area shape="poly" id="edge19_Node000001_Node000001" title=" " alt="" coords="31,265,26,256,28,246,39,240,57,237,78,241,87,249,83,253,75,246,57,243,41,245,33,249,31,255,36,263"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="168,176,253,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,261,174,206,177,210,82,266"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="329,29,431,55"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="62,262,96,204,123,169,154,137,193,110,235,88,316,56,318,61,237,92,196,115,158,141,127,172,101,207,67,265"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="313,323,447,348"/>
+<area shape="poly" id="edge16_Node000001_Node000005" title=" " alt="" coords="108,263,183,255,225,256,266,263,305,283,351,312,348,317,302,288,264,269,224,261,183,260,108,268"/>
+<area shape="rect" id="Node000014" href="$app_8c.html#ac4dc2dda0817dd9c726d820a006aa9c4" title="Lire l&#39;indice du niveau du jeu actif." alt="" coords="161,301,260,327"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="109,287,149,296,148,302,108,292"/>
+<area shape="rect" id="Node000015" href="$app_8c.html#a5155e774b200cee83118f8342166aaa6" title="Trouver la phase du jeu actuellement ouvert." alt="" coords="158,375,263,400"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="77,287,182,364,179,369,74,292"/>
+<area shape="rect" id="Node000016" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="156,448,265,473"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="68,288,105,343,158,411,184,437,181,440,154,414,100,346,64,291"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="185,177,180,168,182,158,193,152,211,149,232,153,241,161,237,165,229,158,211,155,195,157,187,161,185,167,190,175"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="333,103,427,128"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="236,173,312,137,328,130,330,135,314,142,238,178"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="217,174,254,121,281,91,312,64,321,58,323,63,315,68,284,95,258,125,222,177"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="239,199,267,219,283,236,292,252,301,268,315,285,348,313,345,317,311,289,297,271,287,255,278,239,264,223,236,204"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="324,176,436,201"/>
+<area shape="poly" id="edge9_Node000002_Node000011" title=" " alt="" coords="254,186,310,186,310,191,254,191"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="319,249,441,275"/>
+<area shape="poly" id="edge11_Node000002_Node000013" title=" " alt="" coords="242,199,338,241,336,246,240,204"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="352,104,346,94,349,85,361,78,380,76,403,79,413,88,409,92,401,84,380,81,362,83,353,88,351,94,356,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="352,31,346,21,349,11,361,5,380,3,403,6,413,15,409,19,401,11,380,8,362,10,353,15,351,20,356,28"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="352,324,346,314,349,305,361,298,380,296,403,299,413,308,409,312,401,304,380,301,362,303,353,308,351,314,356,321"/>
+<area shape="poly" id="edge10_Node000011_Node000011" title=" " alt="" coords="352,177,346,168,349,158,361,152,380,149,403,153,413,161,409,165,401,158,380,155,362,157,353,161,351,167,356,174"/>
+<area shape="poly" id="edge12_Node000013_Node000013" title=" " alt="" coords="352,251,346,241,349,231,361,225,380,223,403,226,413,235,409,239,401,231,380,228,362,230,353,235,351,240,356,248"/>
+<area shape="poly" id="edge15_Node000014_Node000014" title=" " alt="" coords="185,303,180,293,182,283,193,277,211,275,232,278,241,287,237,291,229,283,211,280,195,282,187,287,185,292,190,300"/>
+<area shape="poly" id="edge18_Node000015_Node000015" title=" " alt="" coords="185,376,180,366,182,357,193,350,211,348,232,351,241,360,237,364,229,356,211,353,195,355,187,360,185,366,190,373"/>
+<area shape="poly" id="edge21_Node000016_Node000016" title=" " alt="" coords="185,449,180,440,182,430,193,424,211,421,232,425,241,433,237,437,229,430,211,427,195,429,187,433,185,439,190,447"/>
+</map>

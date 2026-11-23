@@ -1,0 +1,39 @@
+<map id="Core/Inc/obcp_app.h" name="Core/Inc/obcp_app.h">
+<area shape="rect" id="Node000001" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="208,5,361,31"/>
+<area shape="rect" id="Node000002" href="$obcp__audio_8h.html" title="Synthèse numérique et séquenceur musical sans accès matériel." alt="" coords="5,152,113,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,30,105,48,62,63,36,80,30,94,31,109,45,139,40,141,26,110,25,93,32,77,60,58,104,43,207,25"/>
+<area shape="rect" id="Node000006" href="$obcp__calibration_8h.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="367,79,509,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="310,28,402,70,400,75,308,33"/>
+<area shape="rect" id="Node000007" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="256,152,377,177"/>
+<area shape="poly" id="edge25_Node000001_Node000007" title=" " alt="" coords="292,30,307,78,317,138,312,138,302,79,287,32"/>
+<area shape="rect" id="Node000009" href="$obcp__games_8h.html" title="Modèles, niveaux et commandes des trois jeux à inclinaison." alt="" coords="47,79,163,104"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="257,33,148,76,146,71,255,28"/>
+<area shape="rect" id="Node000011" href="$obcp__input_8h.html" title="Filtrage du contact, de SW1 et de l’inclinaison." alt="" coords="533,79,639,104"/>
+<area shape="poly" id="edge18_Node000001_Node000011" title=" " alt="" coords="334,28,525,73,524,78,332,33"/>
+<area shape="rect" id="Node000012" href="$obcp__paint_8h.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="187,79,292,104"/>
+<area shape="poly" id="edge22_Node000001_Node000012" title=" " alt="" coords="279,32,256,69,252,66,275,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="261,225,343,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,175,251,219,249,224,98,180"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="147,225,222,251"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="81,175,154,216,151,221,78,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="368,225,439,251"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="114,174,355,223,354,228,113,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="420,106,349,147,347,143,417,102"/>
+<area shape="rect" id="Node000008" href="$obcp__touch_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="401,152,509,177"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="443,104,452,138,447,140,438,105"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="317,178,310,212,305,211,312,177"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="297,180,219,221,217,216,294,175"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="332,175,380,214,377,219,329,179"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="432,180,340,222,338,217,430,175"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="449,179,422,216,418,213,445,176"/>
+<area shape="rect" id="Node000010" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="138,152,231,177"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="119,102,163,141,160,145,116,106"/>
+<area shape="poly" id="edge15_Node000010_Node000003" title=" " alt="" coords="205,175,272,216,270,220,202,180"/>
+<area shape="poly" id="edge16_Node000010_Node000004" title=" " alt="" coords="187,178,187,212,182,212,182,178"/>
+<area shape="poly" id="edge17_Node000010_Node000005" title=" " alt="" coords="221,175,356,218,354,224,219,180"/>
+<area shape="poly" id="edge20_Node000011_Node000003" title=" " alt="" coords="583,106,560,142,544,162,523,180,458,201,358,226,356,221,456,196,521,175,540,159,556,139,578,103"/>
+<area shape="poly" id="edge21_Node000011_Node000005" title=" " alt="" coords="589,104,586,140,579,161,568,179,543,201,513,216,453,234,452,229,511,212,540,196,564,176,575,159,581,139,584,104"/>
+<area shape="poly" id="edge19_Node000011_Node000008" title=" " alt="" coords="566,106,490,148,487,143,564,102"/>
+<area shape="poly" id="edge24_Node000012_Node000007" title=" " alt="" coords="254,102,296,141,292,144,250,106"/>
+<area shape="poly" id="edge23_Node000012_Node000010" title=" " alt="" coords="232,106,204,143,200,140,228,103"/>
+</map>

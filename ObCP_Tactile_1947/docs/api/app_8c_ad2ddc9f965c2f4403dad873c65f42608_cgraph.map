@@ -1,0 +1,22 @@
+<map id="app_start_splash" name="app_start_splash">
+<area shape="rect" id="Node000001" title="Afficher l&#39;accueil en conservant sa destination." alt="" coords="5,176,137,201"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="45,177,40,168,43,158,54,152,71,149,93,153,102,161,98,165,90,158,71,155,55,157,47,161,45,167,50,175"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="185,176,271,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,186,172,186,172,191,138,191"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="202,177,196,168,199,158,210,152,228,149,249,153,258,161,255,165,247,158,228,155,212,157,204,161,202,167,206,175"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="339,29,432,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="233,175,264,122,288,91,317,64,325,59,328,63,320,68,292,95,269,125,238,177"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="334,103,437,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="249,174,318,137,333,130,335,135,320,142,251,178"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="319,176,452,201"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="271,186,305,186,305,191,271,191"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="329,249,441,275"/>
+<area shape="poly" id="edge9_Node000002_Node000011" title=" " alt="" coords="257,199,346,241,343,246,255,204"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="325,323,446,348"/>
+<area shape="poly" id="edge11_Node000002_Node000013" title=" " alt="" coords="242,200,276,239,320,284,356,312,352,317,317,288,272,243,238,204"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="359,31,353,21,356,11,367,5,385,3,407,6,416,15,413,19,405,11,385,8,369,10,360,15,359,20,363,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="359,104,353,94,356,85,367,78,385,76,407,79,416,88,413,92,405,84,385,81,369,83,360,88,359,94,363,101"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="359,177,353,168,356,158,367,152,385,149,407,153,416,161,413,165,405,158,385,155,369,157,360,161,359,167,363,175"/>
+<area shape="poly" id="edge10_Node000011_Node000011" title=" " alt="" coords="359,251,353,241,356,231,367,225,385,223,407,226,416,235,413,239,405,231,385,228,369,230,360,235,359,240,363,248"/>
+<area shape="poly" id="edge12_Node000013_Node000013" title=" " alt="" coords="359,324,353,314,356,305,367,298,385,296,407,299,416,308,413,312,405,304,385,301,369,303,360,308,359,314,363,321"/>
+</map>

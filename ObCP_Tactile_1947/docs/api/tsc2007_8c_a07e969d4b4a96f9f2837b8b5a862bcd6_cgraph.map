@@ -1,0 +1,14 @@
+<map id="tsc2007_sample" name="tsc2007_sample">
+<area shape="rect" id="Node000001" title="Avancer d&#39;une étape dans l&#39;observation résistive." alt="" coords="5,80,133,105"/>
+<area shape="poly" id="edge8_Node000001_Node000001" title=" " alt="" coords="40,81,34,72,37,62,49,56,69,53,94,57,104,66,100,70,91,62,69,59,51,61,41,65,39,71,44,78"/>
+<area shape="rect" id="Node000002" href="$tsc2007_8c.html#af1bd29e84d5e9bf52ebdec4572048cb3" title="Finaliser une observation et demander le sommeil ADC." alt="" coords="217,29,275,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,77,204,51,205,56,115,82"/>
+<area shape="rect" id="Node000003" href="$tsc2007_8c.html#acb702898e283f4c0435744fd2b224855" title="Envoyer une commande de conversion TSC2007." alt="" coords="359,55,484,80"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="133,85,345,70,345,75,134,91"/>
+<area shape="rect" id="Node000007" href="$tsc2007_8c.html#aa1853d96a590fa721dc9594af0eec3dc" title="Décoder une conversion 12 bits reçue sur I²C." alt="" coords="181,155,311,180"/>
+<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="102,103,204,147,202,152,100,108"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="217,31,211,21,214,11,226,5,246,3,270,6,280,15,276,19,268,11,246,8,228,10,218,15,216,20,222,28"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="275,43,345,54,345,59,274,49"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="392,56,386,46,390,37,402,30,421,28,445,32,455,40,452,44,443,36,421,33,403,35,394,40,392,46,397,53"/>
+<area shape="poly" id="edge6_Node000007_Node000007" title=" " alt="" coords="217,156,211,146,214,137,226,130,246,128,270,132,280,140,276,144,268,136,246,133,228,135,218,140,216,146,222,153"/>
+</map>

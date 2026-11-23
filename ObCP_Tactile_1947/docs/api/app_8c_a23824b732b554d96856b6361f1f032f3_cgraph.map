@@ -1,0 +1,7 @@
+<map id="show_modal" name="show_modal">
+<area shape="rect" id="Node000001" title="Ouvrir ou fermer une boîte de dialogue." alt="" coords="5,29,109,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="32,31,27,21,30,11,40,5,57,3,78,6,87,15,83,19,75,11,57,8,42,10,34,15,32,20,37,28"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="157,29,260,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,39,144,39,144,45,109,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="183,31,178,21,181,11,191,5,209,3,229,6,238,15,234,19,227,11,209,8,193,10,185,15,183,20,188,28"/>
+</map>

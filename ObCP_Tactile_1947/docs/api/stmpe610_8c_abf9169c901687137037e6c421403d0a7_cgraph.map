@@ -1,0 +1,17 @@
+<map id="read_points" name="read_points">
+<area shape="rect" id="Node000001" title="Lire un lot FIFO et retenir son observation récente." alt="" coords="5,67,104,92"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="31,68,26,58,29,49,39,42,55,40,74,44,82,52,78,56,71,48,55,45,40,47,33,52,31,58,36,65"/>
+<area shape="rect" id="Node000002" href="$stmpe610_8c.html#a26ba78ab1b0470b14784543dfb802299" title="Vider la file de points du STMPE610." alt="" coords="152,36,235,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,66,138,58,139,63,105,71"/>
+<area shape="rect" id="Node000005" href="$stmpe610_8c.html#a0b9d51b399b8a78f4f217917a02d89ae" title="Lire un registre STMPE610 avec son octet factice." alt="" coords="285,103,363,128"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="105,83,271,106,271,111,104,88"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="171,37,166,28,169,18,178,12,193,9,211,13,219,21,215,25,209,17,193,15,180,17,173,21,172,27,176,35"/>
+<area shape="rect" id="Node000003" href="$stmpe610_8c.html#a84193a8dd68efdb7eae21a932dee1ea3" title="Écrire un registre STMPE610." alt="" coords="283,29,365,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="235,44,269,42,269,47,235,49"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="301,30,297,21,299,11,309,5,324,3,342,6,350,14,346,18,339,11,324,8,311,10,304,14,302,20,306,28"/>
+<area shape="rect" id="Node000004" href="$stmpe610_8c.html#a1a6c235ce788ea4ccfa5228135e6d573" title="Échanger un message sous la sélection tactile D8." alt="" coords="413,67,508,92"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="366,51,401,60,400,65,365,56"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="437,68,433,58,435,49,445,42,461,40,479,43,488,52,484,55,477,48,461,45,447,47,439,52,438,58,442,65"/>
+<area shape="poly" id="edge10_Node000005_Node000004" title=" " alt="" coords="363,103,399,93,401,98,364,108"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="301,104,297,94,299,85,309,78,324,76,342,79,350,88,346,91,339,84,324,81,311,83,304,88,302,94,306,101"/>
+</map>

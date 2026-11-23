@@ -1,0 +1,7 @@
+<map id="diag_next_pattern" name="diag_next_pattern">
+<area shape="rect" id="Node000001" title="Passer à la mire suivante." alt="" coords="5,29,145,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="47,31,41,21,44,11,56,5,75,3,98,6,108,15,105,19,96,11,75,8,58,10,49,15,47,20,52,28"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="193,29,296,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,39,180,39,180,45,145,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="217,31,211,21,214,11,225,5,245,3,268,6,278,15,274,19,265,11,245,8,227,10,218,15,216,20,221,28"/>
+</map>

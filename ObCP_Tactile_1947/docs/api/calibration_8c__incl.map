@@ -1,0 +1,26 @@
+<map id="Core/Src/obcp/calibration.c" name="Core/Src/obcp/calibration.c">
+<area shape="rect" id="Node000001" title="Transformation affine et assistant de calibrage résistif." alt="" coords="257,5,451,31"/>
+<area shape="rect" id="Node000002" href="$obcp__calibration_8h.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="127,79,269,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="330,33,237,75,235,70,328,28"/>
+<area shape="rect" id="Node000008" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="283,152,377,177"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="355,32,337,139,332,138,349,31"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="356,79,427,104"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="363,30,381,65,377,68,358,32"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="451,79,521,104"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="376,28,454,70,451,74,374,33"/>
+<area shape="rect" id="Node000003" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="137,152,259,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,104,201,138,195,138,195,104"/>
+<area shape="rect" id="Node000007" href="$obcp__touch_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="5,152,113,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="177,106,95,148,93,143,175,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="63,225,146,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="185,179,132,219,129,215,181,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,225,358,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="219,175,290,216,288,221,216,180"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="171,225,241,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="202,177,206,212,201,212,197,178"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="69,176,92,212,88,215,65,179"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="84,175,171,217,169,222,82,180"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="295,180,155,224,153,219,293,175"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="331,178,327,212,321,211,326,177"/>
+<area shape="poly" id="edge12_Node000008_Node000006" title=" " alt="" coords="311,180,239,221,237,216,309,175"/>
+</map>

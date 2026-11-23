@@ -1,0 +1,1031 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_input.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__input_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_input.h<div class="ingroups"><a class="el" href="group__obcp__input.html">Entrées et transformations</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Filtrage du contact, de SW1 et de l’inclinaison.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__touch_8h_source.html">obcp_touch.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_input.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h__incl.svg" width="210" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h__dep__incl.svg" width="436" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="obcp__input_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:TouchEvent" id="r_TouchEvent"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchEvent.html">TouchEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Événement de contact en coordonnées écran.  <a href="structTouchEvent.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:TouchState" id="r_TouchState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchState.html">TouchState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dernier contact accepté pour détecter une transition.  <a href="structTouchState.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:ResistiveFilter" id="r_ResistiveFilter"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structResistiveFilter.html">ResistiveFilter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirmation des fronts et médiane résistive.  <a href="structResistiveFilter.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:TouchBoot" id="r_TouchBoot"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTouchBoot.html">TouchBoot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détection d’un doigt maintenu dès le reset.  <a href="structTouchBoot.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:ButtonState" id="r_ButtonState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structButtonState.html">ButtonState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mémoire de l’anti-rebond de SW1.  <a href="structButtonState.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:Tilt" id="r_Tilt"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTilt.html">Tilt</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neutre, filtre et commande d’inclinaison.  <a href="structTilt.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:TiltGuide" id="r_TiltGuide"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structTiltGuide.html">TiltGuide</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Candidat de repère de l’assistant d’axes.  <a href="structTiltGuide.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a511a39ea3e1f2d22e7242fde5d664baa" id="r_a511a39ea3e1f2d22e7242fde5d664baa"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baa">TouchKind</a> { <a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee">TOUCH_NONE</a>
+, <a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5">TOUCH_DOWN</a>
+, <a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93">TOUCH_MOVE</a>
+, <a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3">TOUCH_UP</a>
+ }</td></tr>
+<tr class="memdesc:a511a39ea3e1f2d22e7242fde5d664baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Événements construits à partir des contacts successifs.  <a href="#a511a39ea3e1f2d22e7242fde5d664baa">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a3087c1bb11c8452942725d361a4b4f6f" id="r_a3087c1bb11c8452942725d361a4b4f6f"><td class="memItemLeft"><a class="el" href="#a3087c1bb11c8452942725d361a4b4f6f">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2">TOUCH_BOOT_HOLD_MS</a> = 1300
+ }</td></tr>
+<tr class="memdesc:a3087c1bb11c8452942725d361a4b4f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a3087c1bb11c8452942725d361a4b4f6f">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a44f93610b8c91925d51091a9408e9a34" id="r_a44f93610b8c91925d51091a9408e9a34"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a> { <a class="el" href="#a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993">BOOT_TOUCH_NONE</a>
+, <a class="el" href="#a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971">BOOT_TOUCH_USED</a>
+, <a class="el" href="#a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566">BOOT_TOUCH_CALIBRATE</a>
+ }</td></tr>
+<tr class="memdesc:a44f93610b8c91925d51091a9408e9a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Résultat du raccourci tactile de démarrage.  <a href="#a44f93610b8c91925d51091a9408e9a34">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a9604a242fdb8713992f97faec0f7e9f5" id="r_a9604a242fdb8713992f97faec0f7e9f5"><td class="memItemLeft"><a class="el" href="#a9604a242fdb8713992f97faec0f7e9f5">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1">BUTTON_DEBOUNCE_MS</a> = 28
+, <a class="el" href="#a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652">BUTTON_HOLD_MS</a> = 900
+ }</td></tr>
+<tr class="memdesc:a9604a242fdb8713992f97faec0f7e9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a9604a242fdb8713992f97faec0f7e9f5">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a0c77398f416844d1f79e0a06ff20d0db" id="r_a0c77398f416844d1f79e0a06ff20d0db"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a> { <a class="el" href="#a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d">BUTTON_NONE</a>
+, <a class="el" href="#a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121">BUTTON_SHORT</a>
+, <a class="el" href="#a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f">BUTTON_LONG</a>
+ }</td></tr>
+<tr class="memdesc:a0c77398f416844d1f79e0a06ff20d0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Événements déjà débouncés du bouton utilisateur.  <a href="#a0c77398f416844d1f79e0a06ff20d0db">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a4c611924ba715fef9ac913886c2fb16e" id="r_a4c611924ba715fef9ac913886c2fb16e"><td class="memItemLeft"><a class="el" href="#a4c611924ba715fef9ac913886c2fb16e">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">TILT_SWAP_XY</a> = 1
+, <a class="el" href="#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">TILT_INVERT_X</a> = 2
+, <a class="el" href="#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">TILT_INVERT_Y</a> = 4
+, <a class="el" href="#a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8">TILT_AXES_MASK</a> = TILT_SWAP_XY | TILT_INVERT_X | TILT_INVERT_Y
+ }</td></tr>
+<tr class="memdesc:a4c611924ba715fef9ac913886c2fb16e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a4c611924ba715fef9ac913886c2fb16e">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a5dc955a03524c937af92507c1f0b5764" id="r_a5dc955a03524c937af92507c1f0b5764"><td class="memItemLeft"><a class="el" href="#a5dc955a03524c937af92507c1f0b5764">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463">TILT_RESPONSE_MIN</a> = 1
+, <a class="el" href="#a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0">TILT_RESPONSE_MAX</a> = 10
+, <a class="el" href="#a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672">TILT_RESPONSE_DEFAULT</a> = 6
+ }</td></tr>
+<tr class="memdesc:a5dc955a03524c937af92507c1f0b5764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a5dc955a03524c937af92507c1f0b5764">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:abfe860beb2aef358e5e0966a0d13aeac" id="r_abfe860beb2aef358e5e0966a0d13aeac"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#abfe860beb2aef358e5e0966a0d13aeac">TiltGuidePhase</a> { <br />
+&#160;&#160;<a class="el" href="#abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e">TILT_GUIDE_INTRO</a>
+, <a class="el" href="#abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46">TILT_GUIDE_NEUTRAL</a>
+, <a class="el" href="#abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4">TILT_GUIDE_RIGHT</a>
+, <a class="el" href="#abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359">TILT_GUIDE_FLAT</a>
+, <br />
+&#160;&#160;<a class="el" href="#abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9">TILT_GUIDE_DOWN</a>
+, <a class="el" href="#abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278">TILT_GUIDE_PREVIEW</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:abfe860beb2aef358e5e0966a0d13aeac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Étapes de reconnaissance du repère de l’écran.  <a href="#abfe860beb2aef358e5e0966a0d13aeac">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a34a8b4770c6c8a0bdd63b495ee696f1a" id="r_a34a8b4770c6c8a0bdd63b495ee696f1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a34a8b4770c6c8a0bdd63b495ee696f1a">touch_landscape</a> (uint16_t raw_x, uint16_t raw_y, bool flipped, int16_t *x, int16_t *y)</td></tr>
+<tr class="memdesc:a34a8b4770c6c8a0bdd63b495ee696f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passer des coordonnées natives capacitives au paysage.  <br /></td></tr>
+<tr class="memitem:ad1e83c87b38461e0c8c4e5cfd286b066" id="r_ad1e83c87b38461e0c8c4e5cfd286b066"><td class="memItemLeft"><a class="el" href="structTouchEvent.html">TouchEvent</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad1e83c87b38461e0c8c4e5cfd286b066">touch_update</a> (<a class="el" href="structTouchState.html">TouchState</a> *s, bool down, int16_t x, int16_t y)</td></tr>
+<tr class="memdesc:ad1e83c87b38461e0c8c4e5cfd286b066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produire un événement à partir du contact et de sa position.  <br /></td></tr>
+<tr class="memitem:a27eb6c5a2ccc3c617c30f25ee02cb27b" id="r_a27eb6c5a2ccc3c617c30f25ee02cb27b"><td class="memItemLeft"><a class="el" href="structRawTouch.html">RawTouch</a>&#160;</td><td class="memItemRight"><a class="el" href="#a27eb6c5a2ccc3c617c30f25ee02cb27b">touch_filter</a> (<a class="el" href="structResistiveFilter.html">ResistiveFilter</a> *filter, <a class="el" href="structRawTouch.html">RawTouch</a> raw)</td></tr>
+<tr class="memdesc:a27eb6c5a2ccc3c617c30f25ee02cb27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stabiliser un contact résistif et ses coordonnées.  <br /></td></tr>
+<tr class="memitem:aa870f7f3df6226272847a7d8cb195ae4" id="r_aa870f7f3df6226272847a7d8cb195ae4"><td class="memItemLeft"><a class="el" href="#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa870f7f3df6226272847a7d8cb195ae4">touch_boot_sample</a> (<a class="el" href="structTouchBoot.html">TouchBoot</a> *boot, bool down, uint32_t now)</td></tr>
+<tr class="memdesc:aa870f7f3df6226272847a7d8cb195ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnaître le maintien tactile demandé au reset.  <br /></td></tr>
+<tr class="memitem:a0604027c7eb9dd91729176c2123acaba" id="r_a0604027c7eb9dd91729176c2123acaba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0604027c7eb9dd91729176c2123acaba">button_init</a> (<a class="el" href="structButtonState.html">ButtonState</a> *b, bool pressed, uint32_t now)</td></tr>
+<tr class="memdesc:a0604027c7eb9dd91729176c2123acaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser l'anti-rebond de SW1.  <br /></td></tr>
+<tr class="memitem:a8043e16b40563dda56ba1c8b1c232abe" id="r_a8043e16b40563dda56ba1c8b1c232abe"><td class="memItemLeft"><a class="el" href="#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8043e16b40563dda56ba1c8b1c232abe">button_update</a> (<a class="el" href="structButtonState.html">ButtonState</a> *b, bool pressed, uint32_t now)</td></tr>
+<tr class="memdesc:a8043e16b40563dda56ba1c8b1c232abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformer le niveau de SW1 en appui court ou long.  <br /></td></tr>
+<tr class="memitem:a7e3372c85c60ac5a47eda9c16957b430" id="r_a7e3372c85c60ac5a47eda9c16957b430"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7e3372c85c60ac5a47eda9c16957b430">tilt_init</a> (<a class="el" href="structTilt.html">Tilt</a> *t)</td></tr>
+<tr class="memdesc:a7e3372c85c60ac5a47eda9c16957b430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer le repère et les réactivités initiales.  <br /></td></tr>
+<tr class="memitem:a035be4c19850a5bb98d248f9bd52c9d0" id="r_a035be4c19850a5bb98d248f9bd52c9d0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a035be4c19850a5bb98d248f9bd52c9d0">tilt_recenter</a> (<a class="el" href="structTilt.html">Tilt</a> *t)</td></tr>
+<tr class="memdesc:a035be4c19850a5bb98d248f9bd52c9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recommencer la mesure de la pose de repos.  <br /></td></tr>
+<tr class="memitem:ac0691e834e079d589012e5e94994b134" id="r_ac0691e834e079d589012e5e94994b134"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0691e834e079d589012e5e94994b134">tilt_sample</a> (<a class="el" href="structTilt.html">Tilt</a> *t, bool valid, float g_x, float g_y, float g_z)</td></tr>
+<tr class="memdesc:ac0691e834e079d589012e5e94994b134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valider, recentrer et filtrer une mesure XYZ.  <br /></td></tr>
+<tr class="memitem:a305a6f59b5ab0c60e06ea1a3f53f5084" id="r_a305a6f59b5ab0c60e06ea1a3f53f5084"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a305a6f59b5ab0c60e06ea1a3f53f5084">tilt_project</a> (const <a class="el" href="structTilt.html">Tilt</a> *t, uint8_t axes, float *x, float *y)</td></tr>
+<tr class="memdesc:a305a6f59b5ab0c60e06ea1a3f53f5084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projeter le filtre brut dans un repère écran choisi.  <br /></td></tr>
+<tr class="memitem:a36641f3ddd29be3bcfaf3e1927216c48" id="r_a36641f3ddd29be3bcfaf3e1927216c48"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a36641f3ddd29be3bcfaf3e1927216c48">tilt_guide_start</a> (<a class="el" href="structTiltGuide.html">TiltGuide</a> *guide, <a class="el" href="structTilt.html">Tilt</a> *tilt)</td></tr>
+<tr class="memdesc:a36641f3ddd29be3bcfaf3e1927216c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commencer l'assistant d'orientation.  <br /></td></tr>
+<tr class="memitem:aabcef0e5b49c452670bc4a22ce5eeeb7" id="r_aabcef0e5b49c452670bc4a22ce5eeeb7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aabcef0e5b49c452670bc4a22ce5eeeb7">tilt_guide_sample</a> (<a class="el" href="structTiltGuide.html">TiltGuide</a> *guide, const <a class="el" href="structTilt.html">Tilt</a> *tilt)</td></tr>
+<tr class="memdesc:aabcef0e5b49c452670bc4a22ce5eeeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faire avancer la reconnaissance droite puis bas.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Filtrage du contact, de SW1 et de l’inclinaison. </p>
+<p>Les pilotes livrent des états physiques. Ce module construit les événements DOWN, MOVE et UP, rejette les oscillations et exprime les commandes de jeu dans le repère de l’écran. Les temps sont en millisecondes et les accélérations en g.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a9604a242fdb8713992f97faec0f7e9f5" name="a9604a242fdb8713992f97faec0f7e9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9604a242fdb8713992f97faec0f7e9f5">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1" name="a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1"></a>BUTTON_DEBOUNCE_MS&#160;</td><td class="fielddoc"><p>Stabilité minimale de SW1, 28 millisecondes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652" name="a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652"></a>BUTTON_HOLD_MS&#160;</td><td class="fielddoc"><p>Seuil d'appui long de SW1, 900 millisecondes. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00145">145</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c611924ba715fef9ac913886c2fb16e" name="a4c611924ba715fef9ac913886c2fb16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c611924ba715fef9ac913886c2fb16e">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd" name="a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd"></a>TILT_SWAP_XY&#160;</td><td class="fielddoc"><p>Bit zéro, permuter les axes bruts pour le repère écran. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4" name="a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4"></a>TILT_INVERT_X&#160;</td><td class="fielddoc"><p>Bit un, inverser le signe de l'axe écran X. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259" name="a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259"></a>TILT_INVERT_Y&#160;</td><td class="fielddoc"><p>Bit deux, inverser le signe de l'axe écran Y. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8" name="a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8"></a>TILT_AXES_MASK&#160;</td><td class="fielddoc"><p>Masque des trois seuls bits de repère admis. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00219">219</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a5dc955a03524c937af92507c1f0b5764" name="a5dc955a03524c937af92507c1f0b5764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc955a03524c937af92507c1f0b5764">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463" name="a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463"></a>TILT_RESPONSE_MIN&#160;</td><td class="fielddoc"><p>Réactivité minimale, un sur dix. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0" name="a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0"></a>TILT_RESPONSE_MAX&#160;</td><td class="fielddoc"><p>Réactivité maximale, dix sur dix. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672" name="a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672"></a>TILT_RESPONSE_DEFAULT&#160;</td><td class="fielddoc"><p>Réactivité initiale de six sur dix pour chaque axe. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00228">228</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a3087c1bb11c8452942725d361a4b4f6f" name="a3087c1bb11c8452942725d361a4b4f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3087c1bb11c8452942725d361a4b4f6f">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2" name="a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2"></a>TOUCH_BOOT_HOLD_MS&#160;</td><td class="fielddoc"><p>Seuil du raccourci de démarrage, 1 300 millisecondes. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00109">109</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a44f93610b8c91925d51091a9408e9a34" name="a44f93610b8c91925d51091a9408e9a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f93610b8c91925d51091a9408e9a34">&#9670;&#160;</a></span>BootTouchEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Résultat du raccourci tactile de démarrage. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993" name="a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993"></a>BOOT_TOUCH_NONE&#160;</td><td class="fielddoc"><p>Pas de commande de démarrage à traiter. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971" name="a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971"></a>BOOT_TOUCH_USED&#160;</td><td class="fielddoc"><p>Contact de démarrage consommé sans événement écran. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566" name="a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566"></a>BOOT_TOUCH_CALIBRATE&#160;</td><td class="fielddoc"><p>Maintien assez long pour ouvrir le calibrage brut. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00125">125</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a0c77398f416844d1f79e0a06ff20d0db" name="a0c77398f416844d1f79e0a06ff20d0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c77398f416844d1f79e0a06ff20d0db">&#9670;&#160;</a></span>ButtonEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Événements déjà débouncés du bouton utilisateur. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d" name="a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d"></a>BUTTON_NONE&#160;</td><td class="fielddoc"><p>Aucun nouvel événement de SW1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121" name="a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121"></a>BUTTON_SHORT&#160;</td><td class="fielddoc"><p>Appui validé au relâchement avant le seuil long. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f" name="a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f"></a>BUTTON_LONG&#160;</td><td class="fielddoc"><p>Appui ayant franchi le seuil long, émis une seule fois. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00152">152</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="abfe860beb2aef358e5e0966a0d13aeac" name="abfe860beb2aef358e5e0966a0d13aeac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe860beb2aef358e5e0966a0d13aeac">&#9670;&#160;</a></span>TiltGuidePhase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#abfe860beb2aef358e5e0966a0d13aeac">TiltGuidePhase</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Étapes de reconnaissance du repère de l’écran. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e" name="abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e"></a>TILT_GUIDE_INTRO&#160;</td><td class="fielddoc"><p>Attente de Mesurer avec la carte posée à plat. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46" name="abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46"></a>TILT_GUIDE_NEUTRAL&#160;</td><td class="fielddoc"><p>Acquisition du neutre avant les inclinaisons. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4" name="abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4"></a>TILT_GUIDE_RIGHT&#160;</td><td class="fielddoc"><p>Reconnaissance du bord droit abaissé. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359" name="abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359"></a>TILT_GUIDE_FLAT&#160;</td><td class="fielddoc"><p>Retour à plat entre les deux gestes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9" name="abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9"></a>TILT_GUIDE_DOWN&#160;</td><td class="fielddoc"><p>Reconnaissance du bord inférieur abaissé sur l'autre axe. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278" name="abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278"></a>TILT_GUIDE_PREVIEW&#160;</td><td class="fielddoc"><p>Aperçu des bits proposés avant validation. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00281">281</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a id="a511a39ea3e1f2d22e7242fde5d664baa" name="a511a39ea3e1f2d22e7242fde5d664baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511a39ea3e1f2d22e7242fde5d664baa">&#9670;&#160;</a></span>TouchKind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a511a39ea3e1f2d22e7242fde5d664baa">TouchKind</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Événements construits à partir des contacts successifs. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee" name="a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee"></a>TOUCH_NONE&#160;</td><td class="fielddoc"><p>Aucun changement par rapport au contact précédent. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5" name="a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5"></a>TOUCH_DOWN&#160;</td><td class="fielddoc"><p>Premier contact validé. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93" name="a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93"></a>TOUCH_MOVE&#160;</td><td class="fielddoc"><p>Contact maintenu dont la position a changé. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3" name="a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3"></a>TOUCH_UP&#160;</td><td class="fielddoc"><p>Disparition validée du contact précédent. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__input_8h_source.html#l00024">24</a> du fichier <a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a0604027c7eb9dd91729176c2123acaba" name="a0604027c7eb9dd91729176c2123acaba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0604027c7eb9dd91729176c2123acaba">&#9670;&#160;</a></span>button_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonState.html">ButtonState</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>pressed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser l'anti-rebond de SW1. </p>
+<p>Un bouton déjà appuyé au démarrage est considéré consommé pour éviter de déclencher une commande après la procédure de démarrage. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>Mémoire de stabilité et de durée du bouton. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pressed</td><td>État logique appuyé, après conversion du GPIO actif bas. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00176">176</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="input_8c_source.html#l00176">button_init()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="input_8c_source.html#l00176">button_init()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a0604027c7eb9dd91729176c2123acaba_cgraph.svg" width="103" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8043e16b40563dda56ba1c8b1c232abe" name="a8043e16b40563dda56ba1c8b1c232abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8043e16b40563dda56ba1c8b1c232abe">&#9670;&#160;</a></span>button_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a> button_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structButtonState.html">ButtonState</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>pressed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transformer le niveau de SW1 en appui court ou long. </p>
+<p>Valide un changement après 28 ms. Le court est émis au relâchement, le long après 900 ms et une seule fois. Les différences de ticks non signés tolèrent leur débordement. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>Mémoire de stabilité et de durée du bouton. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pressed</td><td>État logique appuyé, après conversion du GPIO actif bas. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>BUTTON_NONE, BUTTON_SHORT ou BUTTON_LONG. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00187">187</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00146">BUTTON_DEBOUNCE_MS</a>, <a class="el" href="obcp__input_8h_source.html#l00147">BUTTON_HOLD_MS</a>, <a class="el" href="obcp__input_8h_source.html#l00155">BUTTON_LONG</a>, <a class="el" href="obcp__input_8h_source.html#l00153">BUTTON_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00154">BUTTON_SHORT</a>, <a class="el" href="input_8c_source.html#l00187">button_update()</a>, <a class="el" href="obcp__input_8h_source.html#l00166">ButtonState::changed_at</a>, <a class="el" href="obcp__input_8h_source.html#l00165">ButtonState::consumed</a>, <a class="el" href="obcp__input_8h_source.html#l00167">ButtonState::pressed_at</a>, <a class="el" href="obcp__input_8h_source.html#l00163">ButtonState::raw</a>, et <a class="el" href="obcp__input_8h_source.html#l00164">ButtonState::stable</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="input_8c_source.html#l00187">button_update()</a>, et <a class="el" href="board_8c_source.html#l00397">sample_button()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a8043e16b40563dda56ba1c8b1c232abe_cgraph.svg" width="127" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aabcef0e5b49c452670bc4a22ce5eeeb7" name="aabcef0e5b49c452670bc4a22ce5eeeb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabcef0e5b49c452670bc4a22ce5eeeb7">&#9670;&#160;</a></span>tilt_guide_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tilt_guide_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTiltGuide.html">TiltGuide</a> *</td>          <td class="paramname"><span class="paramname"><em>guide</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>tilt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faire avancer la reconnaissance droite puis bas. </p>
+<p>Après le neutre, le guide valide une inclinaison à droite, exige le retour à plat, puis exige l'autre axe pour le bas. Les signes et la permutation sont déduits des poses stabilisées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">guide</td><td>Progression et candidat de l’assistant d’orientation. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt</td><td>Référence, filtre et commandes de l’accéléromètre, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'instruction a changé et nécessite un rafraîchissement complet. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00417">417</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="input_8c_source.html#l00360">amplitude()</a>, <a class="el" href="obcp__input_8h_source.html#l00300">TiltGuide::axes</a>, <a class="el" href="obcp__input_8h_source.html#l00212">Tilt::calibrated</a>, <a class="el" href="input_8c_source.html#l00374">direction()</a>, <a class="el" href="obcp__input_8h_source.html#l00204">Tilt::filtered_x</a>, <a class="el" href="obcp__input_8h_source.html#l00205">Tilt::filtered_y</a>, <a class="el" href="obcp__input_8h_source.html#l00296">TiltGuide::phase</a>, <a class="el" href="obcp__input_8h_source.html#l00298">TiltGuide::right</a>, <a class="el" href="obcp__input_8h_source.html#l00299">TiltGuide::stable</a>, <a class="el" href="input_8c_source.html#l00397">stable_pose()</a>, <a class="el" href="obcp__input_8h_source.html#l00286">TILT_GUIDE_DOWN</a>, <a class="el" href="obcp__input_8h_source.html#l00285">TILT_GUIDE_FLAT</a>, <a class="el" href="obcp__input_8h_source.html#l00283">TILT_GUIDE_NEUTRAL</a>, <a class="el" href="obcp__input_8h_source.html#l00287">TILT_GUIDE_PREVIEW</a>, <a class="el" href="obcp__input_8h_source.html#l00284">TILT_GUIDE_RIGHT</a>, <a class="el" href="input_8c_source.html#l00417">tilt_guide_sample()</a>, <a class="el" href="obcp__input_8h_source.html#l00221">TILT_INVERT_X</a>, <a class="el" href="obcp__input_8h_source.html#l00222">TILT_INVERT_Y</a>, <a class="el" href="obcp__input_8h_source.html#l00220">TILT_SWAP_XY</a>, et <a class="el" href="obcp__input_8h_source.html#l00213">Tilt::valid</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="input_8c_source.html#l00417">tilt_guide_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_aabcef0e5b49c452670bc4a22ce5eeeb7_cgraph.svg" width="434" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a36641f3ddd29be3bcfaf3e1927216c48" name="a36641f3ddd29be3bcfaf3e1927216c48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36641f3ddd29be3bcfaf3e1927216c48">&#9670;&#160;</a></span>tilt_guide_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tilt_guide_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTiltGuide.html">TiltGuide</a> *</td>          <td class="paramname"><span class="paramname"><em>guide</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>tilt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Commencer l'assistant d'orientation. </p>
+<p>Réinitialise le guide en phase de neutre et relance le recentrage. Le repère actuellement actif est gardé jusqu'à la sauvegarde du candidat. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">guide</td><td>Progression et candidat de l’assistant d’orientation. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">tilt</td><td>Référence, filtre et commandes de l’accéléromètre. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00346">346</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00283">TILT_GUIDE_NEUTRAL</a>, <a class="el" href="input_8c_source.html#l00346">tilt_guide_start()</a>, et <a class="el" href="input_8c_source.html#l00232">tilt_recenter()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="input_8c_source.html#l00346">tilt_guide_start()</a>, et <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a36641f3ddd29be3bcfaf3e1927216c48_cgraph.svg" width="280" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7e3372c85c60ac5a47eda9c16957b430" name="a7e3372c85c60ac5a47eda9c16957b430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e3372c85c60ac5a47eda9c16957b430">&#9670;&#160;</a></span>tilt_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tilt_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer le repère et les réactivités initiales. </p>
+<p>Les signes et la permutation viennent de <a class="el" href="obcp__config_8h.html" title="Valeurs initiales de repère pour le montage ObCP.">obcp_config.h</a>. La réactivité initiale est six sur dix pour chaque axe. Le neutre sera acquis par <a class="el" href="#ac0691e834e079d589012e5e94994b134" title="Valider, recentrer et filtrer une mesure XYZ.">tilt_sample()</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">t</td><td>Référence, filtre et commandes de l’accéléromètre, à initialiser par cet appel. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00218">218</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__config_8h_source.html#l00036">OBCP_TILT_SIGN_X</a>, <a class="el" href="obcp__config_8h_source.html#l00037">OBCP_TILT_SIGN_Y</a>, <a class="el" href="obcp__config_8h_source.html#l00035">OBCP_TILT_SWAP_XY</a>, <a class="el" href="input_8c_source.html#l00218">tilt_init()</a>, <a class="el" href="obcp__input_8h_source.html#l00221">TILT_INVERT_X</a>, <a class="el" href="obcp__input_8h_source.html#l00222">TILT_INVERT_Y</a>, <a class="el" href="obcp__input_8h_source.html#l00231">TILT_RESPONSE_DEFAULT</a>, et <a class="el" href="obcp__input_8h_source.html#l00220">TILT_SWAP_XY</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, et <a class="el" href="input_8c_source.html#l00218">tilt_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a7e3372c85c60ac5a47eda9c16957b430_cgraph.svg" width="79" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a305a6f59b5ab0c60e06ea1a3f53f5084" name="a305a6f59b5ab0c60e06ea1a3f53f5084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a305a6f59b5ab0c60e06ea1a3f53f5084">&#9670;&#160;</a></span>tilt_project()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tilt_project </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>axes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Projeter le filtre brut dans un repère écran choisi. </p>
+<p>Permute les composantes, applique leurs signes, la zone morte puis les gains X/Y. Un capteur non prêt donne deux commandes nulles. L'aperçu peut ainsi essayer le repère proposé avant sa validation. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>Référence, filtre et commandes de l’accéléromètre, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axes</td><td>Masque de permutation et de signes TILT_AXES_MASK. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Commande horizontale normalisée entre −1 et +1. Pointeur de sortie valide. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Commande verticale normalisée entre −1 et +1. Pointeur de sortie valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00283">283</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00212">Tilt::calibrated</a>, <a class="el" href="input_8c_source.html#l00245">clamp_command()</a>, <a class="el" href="obcp__input_8h_source.html#l00204">Tilt::filtered_x</a>, <a class="el" href="obcp__input_8h_source.html#l00205">Tilt::filtered_y</a>, <a class="el" href="input_8c_source.html#l00264">normalize()</a>, <a class="el" href="obcp__input_8h_source.html#l00210">Tilt::response_x</a>, <a class="el" href="obcp__input_8h_source.html#l00211">Tilt::response_y</a>, <a class="el" href="obcp__input_8h_source.html#l00221">TILT_INVERT_X</a>, <a class="el" href="obcp__input_8h_source.html#l00222">TILT_INVERT_Y</a>, <a class="el" href="input_8c_source.html#l00283">tilt_project()</a>, <a class="el" href="obcp__input_8h_source.html#l00220">TILT_SWAP_XY</a>, et <a class="el" href="obcp__input_8h_source.html#l00213">Tilt::valid</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="input_8c_source.html#l00283">tilt_project()</a>, et <a class="el" href="input_8c_source.html#l00308">tilt_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a305a6f59b5ab0c60e06ea1a3f53f5084_cgraph.svg" width="420" height="98"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a035be4c19850a5bb98d248f9bd52c9d0" name="a035be4c19850a5bb98d248f9bd52c9d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a035be4c19850a5bb98d248f9bd52c9d0">&#9670;&#160;</a></span>tilt_recenter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tilt_recenter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recommencer la mesure de la pose de repos. </p>
+<p>Efface sommes, compteurs et états du filtre, tout en conservant le repère et les deux réglages de réactivité. Les 32 prochaines mesures valides établiront le neutre. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>Référence, filtre et commandes de l’accéléromètre. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00232">232</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00209">Tilt::axes</a>, <a class="el" href="obcp__input_8h_source.html#l00210">Tilt::response_x</a>, <a class="el" href="obcp__input_8h_source.html#l00211">Tilt::response_y</a>, et <a class="el" href="input_8c_source.html#l00232">tilt_recenter()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="input_8c_source.html#l00346">tilt_guide_start()</a>, et <a class="el" href="input_8c_source.html#l00232">tilt_recenter()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a035be4c19850a5bb98d248f9bd52c9d0_cgraph.svg" width="112" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac0691e834e079d589012e5e94994b134" name="ac0691e834e079d589012e5e94994b134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0691e834e079d589012e5e94994b134">&#9670;&#160;</a></span>tilt_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tilt_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTilt.html">Tilt</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>valid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>g_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>g_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>g_z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valider, recentrer et filtrer une mesure XYZ. </p>
+<p>Contrôle l'ordre de grandeur de la norme. Les 32 premières mesures valides définissent le neutre. Le filtre IIR suit ensuite les écarts, avec le coefficient propre au bon axe écran. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">t</td><td>Référence, filtre et commandes de l’accéléromètre. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">valid</td><td>true si la transaction du capteur a réussi. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_x</td><td>Mesure X brute exprimée en g. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_y</td><td>Mesure Y brute exprimée en g. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_z</td><td>Mesure Z brute exprimée en g. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00308">308</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00209">Tilt::axes</a>, <a class="el" href="obcp__input_8h_source.html#l00212">Tilt::calibrated</a>, <a class="el" href="obcp__input_8h_source.html#l00204">Tilt::filtered_x</a>, <a class="el" href="obcp__input_8h_source.html#l00205">Tilt::filtered_y</a>, <a class="el" href="obcp__input_8h_source.html#l00208">Tilt::neutral_count</a>, <a class="el" href="obcp__input_8h_source.html#l00210">Tilt::response_x</a>, <a class="el" href="obcp__input_8h_source.html#l00211">Tilt::response_y</a>, <a class="el" href="obcp__input_8h_source.html#l00202">Tilt::sum_x</a>, <a class="el" href="obcp__input_8h_source.html#l00203">Tilt::sum_y</a>, <a class="el" href="input_8c_source.html#l00283">tilt_project()</a>, <a class="el" href="input_8c_source.html#l00308">tilt_sample()</a>, <a class="el" href="obcp__input_8h_source.html#l00220">TILT_SWAP_XY</a>, <a class="el" href="obcp__input_8h_source.html#l00213">Tilt::valid</a>, <a class="el" href="obcp__input_8h_source.html#l00206">Tilt::x</a>, <a class="el" href="obcp__input_8h_source.html#l00207">Tilt::y</a>, <a class="el" href="obcp__input_8h_source.html#l00200">Tilt::zero_x</a>, et <a class="el" href="obcp__input_8h_source.html#l00201">Tilt::zero_y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="input_8c_source.html#l00308">tilt_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_ac0691e834e079d589012e5e94994b134_cgraph.svg" width="563" height="98"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa870f7f3df6226272847a7d8cb195ae4" name="aa870f7f3df6226272847a7d8cb195ae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa870f7f3df6226272847a7d8cb195ae4">&#9670;&#160;</a></span>touch_boot_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a> touch_boot_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchBoot.html">TouchBoot</a> *</td>          <td class="paramname"><span class="paramname"><em>boot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>down</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reconnaître le maintien tactile demandé au reset. </p>
+<p>Le premier contact arme une mesure de durée. Un relâchement précoce consomme le geste. Au seuil de 1,3 s, l'événement de calibrage est émis une seule fois. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">boot</td><td>Mémoire du contact maintenu au démarrage. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">down</td><td>Présence physique ou filtrée d’un contact. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Événement absent, geste consommé ou ouverture du calibrage de secours. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00148">148</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00119">TouchBoot::armed</a>, <a class="el" href="obcp__input_8h_source.html#l00128">BOOT_TOUCH_CALIBRATE</a>, <a class="el" href="obcp__input_8h_source.html#l00126">BOOT_TOUCH_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00127">BOOT_TOUCH_USED</a>, <a class="el" href="obcp__input_8h_source.html#l00120">TouchBoot::held</a>, <a class="el" href="obcp__input_8h_source.html#l00118">TouchBoot::since</a>, <a class="el" href="obcp__input_8h_source.html#l00110">TOUCH_BOOT_HOLD_MS</a>, et <a class="el" href="input_8c_source.html#l00148">touch_boot_sample()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="input_8c_source.html#l00148">touch_boot_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_aa870f7f3df6226272847a7d8cb195ae4_cgraph.svg" width="160" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a27eb6c5a2ccc3c617c30f25ee02cb27b" name="a27eb6c5a2ccc3c617c30f25ee02cb27b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27eb6c5a2ccc3c617c30f25ee02cb27b">&#9670;&#160;</a></span>touch_filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRawTouch.html">RawTouch</a> touch_filter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structResistiveFilter.html">ResistiveFilter</a> *</td>          <td class="paramname"><span class="paramname"><em>filter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRawTouch.html">RawTouch</a></td>          <td class="paramname"><span class="paramname"><em>raw</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stabiliser un contact résistif et ses coordonnées. </p>
+<p>Deux mesures confirment les fronts. Une histoire de trois points permet ensuite une médiane par axe. Le filtre conserve son état d'un appel au suivant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">filter</td><td>Historique et état de validation du contact résistif. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw</td><td>Observation physique ou point natif à interpréter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Dernière observation acceptée par le filtre. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00112">112</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00092">ResistiveFilter::changing</a>, <a class="el" href="obcp__input_8h_source.html#l00088">ResistiveFilter::current</a>, <a class="el" href="obcp__touch_8h_source.html#l00061">RawTouch::down</a>, <a class="el" href="obcp__input_8h_source.html#l00089">ResistiveFilter::history</a>, <a class="el" href="input_8c_source.html#l00099">median()</a>, <a class="el" href="obcp__input_8h_source.html#l00091">ResistiveFilter::next</a>, <a class="el" href="obcp__touch_8h_source.html#l00058">RawTouch::point</a>, <a class="el" href="input_8c_source.html#l00112">touch_filter()</a>, <a class="el" href="obcp__input_8h_source.html#l00090">ResistiveFilter::used</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, et <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="input_8c_source.html#l00112">touch_filter()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a27eb6c5a2ccc3c617c30f25ee02cb27b_cgraph.svg" width="224" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a34a8b4770c6c8a0bdd63b495ee696f1a" name="a34a8b4770c6c8a0bdd63b495ee696f1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a8b4770c6c8a0bdd63b495ee696f1a">&#9670;&#160;</a></span>touch_landscape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool touch_landscape </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>raw_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>raw_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>flipped</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passer des coordonnées natives capacitives au paysage. </p>
+<p>Vérifie les plages portrait du FT62xx, puis applique la rotation et éventuellement le demi-tour choisi dans la configuration. Les sorties sont des pixels du TFT. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw_x</td><td>Abscisse native capacitive, de zéro à 239. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw_y</td><td>Ordonnée native capacitive, de zéro à 319. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flipped</td><td>true pour ajouter un demi-tour au tactile capacitif. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Abscisse calculée. Pointeur de sortie valide. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Ordonnée calculée. Pointeur de sortie valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les coordonnées brutes appartiennent à la dalle attendue. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00023">23</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="input_8c_source.html#l00023">touch_landscape()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="input_8c_source.html#l00023">touch_landscape()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_a34a8b4770c6c8a0bdd63b495ee696f1a_cgraph.svg" width="142" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad1e83c87b38461e0c8c4e5cfd286b066" name="ad1e83c87b38461e0c8c4e5cfd286b066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e83c87b38461e0c8c4e5cfd286b066">&#9670;&#160;</a></span>touch_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchEvent.html">TouchEvent</a> touch_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTouchState.html">TouchState</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>down</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Produire un événement à partir du contact et de sa position. </p>
+<p>Compare l'état reçu au précédent. Le premier appui donne DOWN, un changement de position donne MOVE et la disparition du contact donne UP. L'état mémorisé est mis à jour. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Dernier état de contact utilisé pour détecter les transitions. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">down</td><td>Présence physique ou filtrée d’un contact. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Événement de transition ou TOUCH_NONE si rien n'a changé. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="input_8c_source.html#l00044">44</a> du fichier <a class="el" href="input_8c_source.html">input.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__input_8h_source.html#l00047">TouchState::down</a>, <a class="el" href="obcp__input_8h_source.html#l00026">TOUCH_DOWN</a>, <a class="el" href="obcp__input_8h_source.html#l00027">TOUCH_MOVE</a>, <a class="el" href="obcp__input_8h_source.html#l00025">TOUCH_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00028">TOUCH_UP</a>, <a class="el" href="input_8c_source.html#l00044">touch_update()</a>, <a class="el" href="obcp__input_8h_source.html#l00048">TouchState::x</a>, et <a class="el" href="obcp__input_8h_source.html#l00049">TouchState::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="input_8c_source.html#l00044">touch_update()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__input_8h_ad1e83c87b38461e0c8c4e5cfd286b066_cgraph.svg" width="122" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__input_8h.html">obcp_input.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

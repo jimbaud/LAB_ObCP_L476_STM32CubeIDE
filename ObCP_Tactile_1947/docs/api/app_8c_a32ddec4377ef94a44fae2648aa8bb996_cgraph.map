@@ -1,0 +1,20 @@
+<map id="request_store" name="request_store">
+<area shape="rect" id="Node000001" title="Différer une lecture ou une écriture d&#39;objet." alt="" coords="5,103,116,128"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="35,104,30,94,33,85,43,78,61,76,81,80,90,88,86,92,79,84,61,81,45,83,37,88,35,94,40,101"/>
+<area shape="rect" id="Node000002" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="164,29,257,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,100,170,59,172,63,89,105"/>
+<area shape="rect" id="Node000003" href="$app_8c.html#a8a71fd897fb828a8a93919001d935512" title="Préparer un message temporaire pour l&#39;utilisateur." alt="" coords="166,103,255,128"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="116,113,152,113,152,118,116,118"/>
+<area shape="rect" id="Node000011" href="$app_8c.html#a23824b732b554d96856b6361f1f032f3" title="Ouvrir ou fermer une boîte de dialogue." alt="" coords="307,169,411,195"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="112,125,165,138,294,166,292,171,163,143,111,131"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="186,31,181,21,183,11,194,5,211,3,231,6,240,15,236,18,228,11,211,8,195,10,188,15,186,20,190,28"/>
+<area shape="poly" id="edge9_Node000003_Node000003" title=" " alt="" coords="186,104,181,94,183,85,194,78,211,76,231,80,240,88,236,92,228,84,211,81,195,83,188,88,186,94,190,101"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="305,96,412,121"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="255,111,291,109,292,114,256,116"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="334,97,329,88,331,78,342,72,359,69,379,73,388,81,384,85,376,78,359,75,343,77,336,81,334,87,338,95"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="460,133,563,159"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="412,119,447,128,446,133,411,124"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="486,135,480,125,483,115,494,109,511,107,532,110,541,119,538,123,530,115,511,112,496,114,487,119,486,124,490,132"/>
+<area shape="poly" id="edge11_Node000011_Node000005" title=" " alt="" coords="410,167,446,159,447,164,411,172"/>
+<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="334,171,329,161,331,151,342,145,359,143,379,146,388,155,384,158,376,151,359,148,343,150,336,155,334,160,338,168"/>
+</map>

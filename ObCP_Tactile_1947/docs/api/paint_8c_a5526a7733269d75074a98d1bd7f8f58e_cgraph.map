@@ -1,0 +1,23 @@
+<map id="paint_draw" name="paint_draw">
+<area shape="rect" id="Node000001" title="Convertir les indices du canevas vers RGB565." alt="" coords="5,103,100,128"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="26,104,20,94,23,85,34,78,53,76,75,79,84,88,81,92,72,84,53,81,36,83,27,88,25,94,30,101"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="173,29,254,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,100,147,64,162,57,164,62,149,68,78,105"/>
+<area shape="rect" id="Node000004" href="$paint_8c.html#a2517a430f57deb1a48e8476a8d3dc51b" title="Lire l&#39;indice de couleur d&#39;un pixel." alt="" coords="172,103,255,128"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="100,113,159,113,159,118,100,118"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="148,176,279,201"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="83,126,173,168,171,173,80,131"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="186,31,181,21,184,11,195,5,213,3,235,6,245,15,241,19,233,11,213,8,197,10,188,15,186,20,191,28"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="327,48,436,73"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="255,44,313,50,313,56,254,49"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="353,49,347,40,350,30,362,24,381,21,404,25,414,33,411,37,402,30,381,27,364,29,355,33,353,39,358,46"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="252,100,328,75,329,80,254,105"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="186,104,181,94,184,85,195,78,213,76,235,79,245,88,241,92,233,84,213,81,197,83,188,88,186,94,191,101"/>
+<area shape="poly" id="edge14_Node000005_Node000005" title=" " alt="" coords="186,177,181,168,184,158,195,152,213,149,235,153,245,161,241,165,233,158,213,155,197,157,188,161,186,167,191,175"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="344,139,419,164"/>
+<area shape="poly" id="edge10_Node000005_Node000006" title=" " alt="" coords="271,173,330,160,331,165,272,179"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="346,212,417,237"/>
+<area shape="poly" id="edge12_Node000005_Node000007" title=" " alt="" coords="274,199,333,212,332,217,272,204"/>
+<area shape="poly" id="edge11_Node000006_Node000006" title=" " alt="" coords="353,140,347,130,350,121,362,114,381,112,404,115,414,124,411,128,402,120,381,117,364,119,355,124,353,130,358,137"/>
+<area shape="poly" id="edge13_Node000007_Node000007" title=" " alt="" coords="353,213,347,204,350,194,362,188,381,185,404,189,414,197,411,201,402,194,381,191,364,193,355,197,353,203,358,210"/>
+</map>

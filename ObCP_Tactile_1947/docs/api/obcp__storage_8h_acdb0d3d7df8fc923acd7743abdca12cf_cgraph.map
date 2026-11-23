@@ -1,0 +1,28 @@
+<map id="storage_save" name="storage_save">
+<area shape="rect" id="Node000001" title="Écrire et valider la copie inactive d&#39;un objet." alt="" coords="5,152,115,177"/>
+<area shape="poly" id="edge16_Node000001_Node000001" title=" " alt="" coords="33,153,28,144,31,134,42,128,60,125,82,129,91,137,87,141,79,134,60,131,44,133,35,137,33,143,38,151"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="168,76,268,101"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,150,177,105,179,110,89,154"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a0052b460460767a33ed783dc2a5bf4fe" title="Valider l&#39;en&#45;tête, la longueur et le contenu d&#39;une copie." alt="" coords="321,127,391,152"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="115,157,307,141,308,146,115,163"/>
+<area shape="rect" id="Node000004" href="$storage_8c.html#a5aa66fb4259b7415431015f4ad208912" title="Calculer un CRC en relisant la flash par petits blocs." alt="" coords="456,29,535,55"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="65,150,100,94,128,63,161,37,196,21,233,11,272,6,310,5,383,12,443,24,442,29,382,17,310,10,272,11,234,16,198,26,164,42,131,67,104,97,70,153"/>
+<area shape="rect" id="Node000007" href="$storage_8c.html#a5101ec40d60b123d4fbb34795966fa5f" title="Calculer le CRC32 d&#39;un bloc de données." alt="" coords="439,152,552,177"/>
+<area shape="poly" id="edge15_Node000001_Node000007" title=" " alt="" coords="115,162,425,162,425,167,115,167"/>
+<area shape="rect" id="Node000009" href="$storage_8c.html#a06849388067b043b9b2812ea369aabac" title="Encoder un entier sur quatre octets little&#45;endian." alt="" coords="189,252,247,277"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="83,175,187,242,184,247,80,180"/>
+<area shape="rect" id="Node000010" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="163,325,273,351"/>
+<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="73,176,111,227,165,288,193,315,189,318,161,292,107,230,69,179"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="195,77,190,68,192,58,202,52,218,49,237,53,245,61,241,65,234,57,218,55,204,57,197,61,195,67,199,75"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="254,99,309,120,307,124,253,104"/>
+<area shape="rect" id="Node000008" href="$storage_8c.html#a2396428e753d6782feb08c8595fd4dcc" title="Comparer deux générations avec débordement du compteur." alt="" coords="325,53,387,79"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="268,78,310,71,311,76,269,83"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="333,128,328,118,330,109,340,102,356,100,375,103,383,112,379,115,372,108,356,105,342,107,335,112,333,118,337,125"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="374,124,463,60,467,65,377,129"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="391,143,426,149,425,155,390,148"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="472,30,467,21,469,11,479,5,495,3,515,6,523,15,519,18,512,11,495,8,481,10,474,15,472,20,476,28"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="472,153,467,144,469,134,479,128,495,125,515,129,523,137,519,141,512,134,495,131,481,133,474,137,472,143,476,151"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="333,54,328,45,330,35,340,29,356,27,375,30,383,38,379,42,372,35,356,32,342,34,335,39,333,44,337,52"/>
+<area shape="poly" id="edge14_Node000009_Node000009" title=" " alt="" coords="195,253,190,244,192,234,202,228,218,225,237,229,245,237,241,241,234,233,218,231,204,233,197,237,195,243,199,251"/>
+<area shape="poly" id="edge18_Node000010_Node000010" title=" " alt="" coords="195,326,190,317,192,307,202,301,218,299,237,302,245,310,241,314,234,307,218,304,204,306,197,311,195,316,199,324"/>
+</map>

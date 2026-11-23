@@ -1,0 +1,10 @@
+<map id="rect_intersection" name="rect_intersection">
+<area shape="rect" id="Node000001" title="Trouver la surface commune à deux rectangles." alt="" coords="5,67,136,92"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="45,68,40,58,43,49,53,42,71,40,91,44,100,52,96,56,89,48,71,45,55,47,47,52,45,58,50,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="184,29,259,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,64,170,52,171,57,123,69"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="186,103,257,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="125,89,173,101,172,106,124,95"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="196,31,191,21,194,11,204,5,221,3,242,6,251,15,247,19,239,11,221,8,206,10,198,15,196,20,201,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="196,104,191,94,194,85,204,78,221,76,242,80,251,88,247,92,239,84,221,81,206,83,198,88,196,94,201,101"/>
+</map>

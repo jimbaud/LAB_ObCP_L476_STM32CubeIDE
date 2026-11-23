@@ -1,0 +1,817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/ili9341.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('ili9341_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier ili9341.c<div class="ingroups"><a class="el" href="group__obcp__drivers.html">Pilotes de périphériques</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Commandes du TFT ILI9341 et transport SPI1 DMA.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__panel_8h_source.html">obcp_panel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__config_8h_source.html">obcp_config.h</a>&quot;</code><br />
+<code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;spi.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de ili9341.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c__incl.svg" width="423" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="ili9341_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a511ccce61ae8578fcfe003b5d53b8d4d" id="r_a511ccce61ae8578fcfe003b5d53b8d4d"><td class="memItemLeft"><a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4d">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4dab0266ba653487325a8c339b3d9766efc">CMD_SWRESET</a> = 0x01
+, <a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4dae592d7b268b736371657b3200c1c576b">CMD_SLEEP_OUT</a> = 0x11
+, <a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4da978c73e59b798975d1c9ccb3cd898446">CMD_DISPLAY_ON</a> = 0x29
+, <a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4dabba7100ff1e94786aa97198d9fe28b11">CMD_COLUMN</a> = 0x2A
+, <br />
+&#160;&#160;<a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4daaabc4b67c45b2c460f0c935396313c1d">CMD_PAGE</a> = 0x2B
+, <a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4da5a6494ed72ceb38fddc83b17c38bb72d">CMD_RAM_WRITE</a> = 0x2C
+, <a class="el" href="#a511ccce61ae8578fcfe003b5d53b8d4da0529ec0cfd48a36e76ee2278962bd941">CMD_READ_ID</a> = 0xD3
+<br />
+ }</td></tr>
+<tr class="memdesc:a511ccce61ae8578fcfe003b5d53b8d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a511ccce61ae8578fcfe003b5d53b8d4d">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a32b5321d4f8a809fc69ed1b2eef60042" id="r_a32b5321d4f8a809fc69ed1b2eef60042"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a32b5321d4f8a809fc69ed1b2eef60042">select_lcd</a> (GPIO_PinState level)</td></tr>
+<tr class="memdesc:a32b5321d4f8a809fc69ed1b2eef60042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appliquer le niveau logique de sélection du TFT.  <br /></td></tr>
+<tr class="memitem:ae22b3a371df97ab3f610d8ef2c2e5835" id="r_ae22b3a371df97ab3f610d8ef2c2e5835"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ae22b3a371df97ab3f610d8ef2c2e5835">begin_command</a> (uint8_t command)</td></tr>
+<tr class="memdesc:ae22b3a371df97ab3f610d8ef2c2e5835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Émettre une commande en plaçant D/C à zéro.  <br /></td></tr>
+<tr class="memitem:a03e2b7f6c8de9f421c0fcf7639646eb6" id="r_a03e2b7f6c8de9f421c0fcf7639646eb6"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a03e2b7f6c8de9f421c0fcf7639646eb6">command</a> (uint8_t code, const uint8_t *params, uint16_t count)</td></tr>
+<tr class="memdesc:a03e2b7f6c8de9f421c0fcf7639646eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoyer une commande avec ses paramètres puis libérer CS.  <br /></td></tr>
+<tr class="memitem:a87da3a1b604d0e0838af1788c69a313c" id="r_a87da3a1b604d0e0838af1788c69a313c"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a87da3a1b604d0e0838af1788c69a313c">read_id</a> (void)</td></tr>
+<tr class="memdesc:a87da3a1b604d0e0838af1788c69a313c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire le code du contrôleur TFT à une fréquence réduite.  <br /></td></tr>
+<tr class="memitem:aa4256c91a09012182695cfa6b6fc0e5c" id="r_aa4256c91a09012182695cfa6b6fc0e5c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa4256c91a09012182695cfa6b6fc0e5c">lcd_init</a> (uint16_t *id)</td></tr>
+<tr class="memdesc:aa4256c91a09012182695cfa6b6fc0e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser le TFT en paysage RGB565.  <br /></td></tr>
+<tr class="memitem:acc7effc3861d45e5c4a2886316236b30" id="r_acc7effc3861d45e5c4a2886316236b30"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#acc7effc3861d45e5c4a2886316236b30">window</a> (uint8_t cmd, int start, int end)</td></tr>
+<tr class="memdesc:acc7effc3861d45e5c4a2886316236b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définir un intervalle de colonnes ou de lignes du TFT.  <br /></td></tr>
+<tr class="memitem:ae8787b81e99ca0fad8ceece33fb7fb50" id="r_ae8787b81e99ca0fad8ceece33fb7fb50"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ae8787b81e99ca0fad8ceece33fb7fb50">send_band</a> (void *context, <a class="el" href="structRect.html">Rect</a> r, const uint8_t *data, uint16_t count)</td></tr>
+<tr class="memdesc:ae8787b81e99ca0fad8ceece33fb7fb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commencer le transfert DMA des pixels d'un rectangle.  <br /></td></tr>
+<tr class="memitem:ad070d09996f9cf07063ebf4234ef3692" id="r_ad070d09996f9cf07063ebf4234ef3692"><td class="memItemLeft">static <a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad070d09996f9cf07063ebf4234ef3692">poll_band</a> (void *context)</td></tr>
+<tr class="memdesc:ad070d09996f9cf07063ebf4234ef3692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulter le transfert et surveiller son délai maximal.  <br /></td></tr>
+<tr class="memitem:a9cd53abfd0e65e8ceca404c5e47d2d1a" id="r_a9cd53abfd0e65e8ceca404c5e47d2d1a"><td class="memItemLeft"><a class="el" href="structDisplayPort.html">DisplayPort</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9cd53abfd0e65e8ceca404c5e47d2d1a">lcd_port</a> (void)</td></tr>
+<tr class="memdesc:a9cd53abfd0e65e8ceca404c5e47d2d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposer les callbacks de transport à <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a>.  <br /></td></tr>
+<tr class="memitem:a0d40bfce0038207f484c4112427c3f35" id="r_a0d40bfce0038207f484c4112427c3f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0d40bfce0038207f484c4112427c3f35">lcd_spi_available</a> (void)</td></tr>
+<tr class="memdesc:a0d40bfce0038207f484c4112427c3f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier si SPI1 peut servir le tactile résistif.  <br /></td></tr>
+<tr class="memitem:a3645fbe82975192cc35826a44559bd7b" id="r_a3645fbe82975192cc35826a44559bd7b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3645fbe82975192cc35826a44559bd7b">HAL_SPI_TxCpltCallback</a> (SPI_HandleTypeDef *spi)</td></tr>
+<tr class="memdesc:a3645fbe82975192cc35826a44559bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminer une bande après l'interruption DMA SPI.  <br /></td></tr>
+<tr class="memitem:abe6306f24b018622fd7382215b35590c" id="r_abe6306f24b018622fd7382215b35590c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abe6306f24b018622fd7382215b35590c">HAL_SPI_ErrorCallback</a> (SPI_HandleTypeDef *spi)</td></tr>
+<tr class="memdesc:abe6306f24b018622fd7382215b35590c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publier une erreur du transport SPI1.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac66c3af07a7643444c183fa00291ad5e" id="r_ac66c3af07a7643444c183fa00291ad5e"><td class="memItemLeft">static volatile <a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac66c3af07a7643444c183fa00291ad5e">state</a> = <a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3ba032a83fd0b595f39aa27015010d03f28">TRANSFER_DONE</a></td></tr>
+<tr class="memdesc:ac66c3af07a7643444c183fa00291ad5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">État volatile du transfert, partagé entre la boucle et les callbacks SPI.  <br /></td></tr>
+<tr class="memitem:a31ed505d40f52d42fbf22812dd81b22e" id="r_a31ed505d40f52d42fbf22812dd81b22e"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a31ed505d40f52d42fbf22812dd81b22e">started_ms</a></td></tr>
+<tr class="memdesc:a31ed505d40f52d42fbf22812dd81b22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick du départ DMA pour détecter une bande bloquée plus de 50 ms.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Commandes du TFT ILI9341 et transport SPI1 DMA. </p>
+<p>Le TFT utilise CS sur D10 et D/C sur D9. L’initialisation et les petites commandes sont synchrones. Les pixels sont transmis par DMA1 canal 3. Le STMPE610 peut emprunter SPI1 uniquement entre ces bandes.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a511ccce61ae8578fcfe003b5d53b8d4d" name="a511ccce61ae8578fcfe003b5d53b8d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511ccce61ae8578fcfe003b5d53b8d4d">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4dab0266ba653487325a8c339b3d9766efc" name="a511ccce61ae8578fcfe003b5d53b8d4dab0266ba653487325a8c339b3d9766efc"></a>CMD_SWRESET&#160;</td><td class="fielddoc"><p>Commande ILI9341 de réinitialisation logicielle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4dae592d7b268b736371657b3200c1c576b" name="a511ccce61ae8578fcfe003b5d53b8d4dae592d7b268b736371657b3200c1c576b"></a>CMD_SLEEP_OUT&#160;</td><td class="fielddoc"><p>Commande de sortie du mode sommeil. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4da978c73e59b798975d1c9ccb3cd898446" name="a511ccce61ae8578fcfe003b5d53b8d4da978c73e59b798975d1c9ccb3cd898446"></a>CMD_DISPLAY_ON&#160;</td><td class="fielddoc"><p>Commande d’activation de l’affichage. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4dabba7100ff1e94786aa97198d9fe28b11" name="a511ccce61ae8578fcfe003b5d53b8d4dabba7100ff1e94786aa97198d9fe28b11"></a>CMD_COLUMN&#160;</td><td class="fielddoc"><p>Commande de définition des colonnes de la fenêtre. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4daaabc4b67c45b2c460f0c935396313c1d" name="a511ccce61ae8578fcfe003b5d53b8d4daaabc4b67c45b2c460f0c935396313c1d"></a>CMD_PAGE&#160;</td><td class="fielddoc"><p>Commande de définition des lignes de la fenêtre. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4da5a6494ed72ceb38fddc83b17c38bb72d" name="a511ccce61ae8578fcfe003b5d53b8d4da5a6494ed72ceb38fddc83b17c38bb72d"></a>CMD_RAM_WRITE&#160;</td><td class="fielddoc"><p>Commande précédant les octets RGB565 de la fenêtre. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a511ccce61ae8578fcfe003b5d53b8d4da0529ec0cfd48a36e76ee2278962bd941" name="a511ccce61ae8578fcfe003b5d53b8d4da0529ec0cfd48a36e76ee2278962bd941"></a>CMD_READ_ID&#160;</td><td class="fielddoc"><p>Commande de lecture de l’identifiant du contrôleur TFT. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00030">30</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="ae22b3a371df97ab3f610d8ef2c2e5835" name="ae22b3a371df97ab3f610d8ef2c2e5835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22b3a371df97ab3f610d8ef2c2e5835">&#9670;&#160;</a></span>begin_command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool begin_command </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Émettre une commande en plaçant D/C à zéro. </p>
+<p>CS passe bas, l'octet de commande est envoyé puis D/C repasse haut pour les paramètres. La désélection reste à la charge du code appelant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>Octet de commande du protocole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'octet de commande a été envoyé. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00064">64</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, et <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_ae22b3a371df97ab3f610d8ef2c2e5835_cgraph.svg" width="411" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a03e2b7f6c8de9f421c0fcf7639646eb6" name="a03e2b7f6c8de9f421c0fcf7639646eb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e2b7f6c8de9f421c0fcf7639646eb6">&#9670;&#160;</a></span>command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool command </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>code</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Envoyer une commande avec ses paramètres puis libérer CS. </p>
+<p>Le message complet reste sélectionné et utilise un délai HAL limité. count peut être nul lorsqu'une commande ne demande aucun paramètre. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>Code de commande ILI9341. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>Paramètres de la commande, count octets. NULL est permis si count vaut zéro. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>Nombre d’octets de l’opération ou de la transaction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si commande et paramètres ont été transmis. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00084">84</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, et <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, <a class="el" href="tsc2007_8c_source.html#l00051">send_command()</a>, et <a class="el" href="ili9341_8c_source.html#l00166">window()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a03e2b7f6c8de9f421c0fcf7639646eb6_cgraph.svg" width="411" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abe6306f24b018622fd7382215b35590c" name="abe6306f24b018622fd7382215b35590c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6306f24b018622fd7382215b35590c">&#9670;&#160;</a></span>HAL_SPI_ErrorCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_SPI_ErrorCallback </td>
+          <td>(</td>
+          <td class="paramtype">SPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>spi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publier une erreur du transport SPI1. </p>
+<p>Libère CS pour sortir proprement de la transaction. Le moteur de rendu traitera l'état ERROR lors d'une itération suivante. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">spi</td><td>Handle HAL du bus SPI déjà initialisé. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Contexte interruption. Garder ce traitement court et sans opération flash. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00274">274</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00274">HAL_SPI_ErrorCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00216">TRANSFER_ERROR</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00274">HAL_SPI_ErrorCallback()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_abe6306f24b018622fd7382215b35590c_cgraph.svg" width="315" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3645fbe82975192cc35826a44559bd7b" name="a3645fbe82975192cc35826a44559bd7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3645fbe82975192cc35826a44559bd7b">&#9670;&#160;</a></span>HAL_SPI_TxCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_SPI_TxCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">SPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>spi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminer une bande après l'interruption DMA SPI. </p>
+<p>Pour SPI1, désélectionne le TFT et publie DONE. Aucun dessin n'est effectué dans l'interruption. Les autres handles sont ignorés. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">spi</td><td>Handle HAL du bus SPI déjà initialisé. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Contexte interruption. Garder ce traitement court et sans opération flash. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00258">258</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00258">HAL_SPI_TxCpltCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00215">TRANSFER_DONE</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00258">HAL_SPI_TxCpltCallback()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a3645fbe82975192cc35826a44559bd7b_cgraph.svg" width="326" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa4256c91a09012182695cfa6b6fc0e5c" name="aa4256c91a09012182695cfa6b6fc0e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4256c91a09012182695cfa6b6fc0e5c">&#9670;&#160;</a></span>lcd_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcd_init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser le TFT en paysage RGB565. </p>
+<p>Lit l'identifiant, applique la séquence d'alimentation et de gamma, choisit MADCTL et sort le contrôleur du sommeil. Cette étape unique peut utiliser les délais requis au démarrage. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">id</td><td>Pointeur valide recevant l’identifiant lu du composant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les échanges d'initialisation ont réussi. L'identifiant est fourni séparément. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00124">124</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00033">CMD_DISPLAY_ON</a>, <a class="el" href="ili9341_8c_source.html#l00032">CMD_SLEEP_OUT</a>, <a class="el" href="ili9341_8c_source.html#l00031">CMD_SWRESET</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, <a class="el" href="obcp__config_8h_source.html#l00038">OBCP_LCD_MADCTL</a>, et <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_aa4256c91a09012182695cfa6b6fc0e5c_cgraph.svg" width="528" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9cd53abfd0e65e8ceca404c5e47d2d1a" name="a9cd53abfd0e65e8ceca404c5e47d2d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd53abfd0e65e8ceca404c5e47d2d1a">&#9670;&#160;</a></span>lcd_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDisplayPort.html">DisplayPort</a> lcd_port </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exposer les callbacks de transport à <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a>. </p>
+<p>Le moteur graphique n'a ainsi pas besoin de connaître SPI1 ni la HAL. Le contexte opaque est inutilisé par ce port unique. </p><dl class="section return"><dt>Renvoie</dt><dd>Interface d'envoi et de consultation du TFT. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00233">233</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a9cd53abfd0e65e8ceca404c5e47d2d1a_cgraph.svg" width="539" height="246"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0d40bfce0038207f484c4112427c3f35" name="a0d40bfce0038207f484c4112427c3f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d40bfce0038207f484c4112427c3f35">&#9670;&#160;</a></span>lcd_spi_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcd_spi_available </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier si SPI1 peut servir le tactile résistif. </p>
+<p>Le transport ne doit plus être BUSY, la HAL doit être prête et le bit matériel BSY doit être effacé. </p><dl class="section return"><dt>Renvoie</dt><dd>true si le STMPE610 peut emprunter le bus. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00244">244</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00214">TRANSFER_BUSY</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>, et <a class="el" href="touch__port_8c_source.html#l00023">touch_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a0d40bfce0038207f484c4112427c3f35_cgraph.svg" width="146" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad070d09996f9cf07063ebf4234ef3692" name="ad070d09996f9cf07063ebf4234ef3692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad070d09996f9cf07063ebf4234ef3692">&#9670;&#160;</a></span>poll_band()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a> poll_band </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>context</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Consulter le transfert et surveiller son délai maximal. </p>
+<p>Un transfert qui dépasse 50 ms est interrompu et libère CS. <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a> pourra demander une image complète pour reprendre un écran cohérent. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>Contexte opaque transmis sans allocation. Le port physique peut ne pas l’utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>État BUSY, DONE ou ERROR du transport. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00216">216</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>, <a class="el" href="ili9341_8c_source.html#l00041">started_ms</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, <a class="el" href="obcp__gfx_8h_source.html#l00214">TRANSFER_BUSY</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00216">TRANSFER_ERROR</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, et <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_ad070d09996f9cf07063ebf4234ef3692_cgraph.svg" width="231" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a87da3a1b604d0e0838af1788c69a313c" name="a87da3a1b604d0e0838af1788c69a313c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87da3a1b604d0e0838af1788c69a313c">&#9670;&#160;</a></span>read_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t read_id </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire le code du contrôleur TFT à une fréquence réduite. </p>
+<p>Sauvegarde le prescaler SPI1, le réduit pour la lecture de D3 puis rétablit sa valeur. Les octets d'identité sont recomposés dans l'ordre du protocole. </p><dl class="section return"><dt>Renvoie</dt><dd>Identifiant sur 16 bits, ou zéro si l'échange échoue. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00101">101</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00037">CMD_READ_ID</a>, <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>, et <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, et <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a87da3a1b604d0e0838af1788c69a313c_cgraph.svg" width="530" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a32b5321d4f8a809fc69ed1b2eef60042" name="a32b5321d4f8a809fc69ed1b2eef60042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b5321d4f8a809fc69ed1b2eef60042">&#9670;&#160;</a></span>select_lcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void select_lcd </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_PinState</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appliquer le niveau logique de sélection du TFT. </p>
+<p>Le périphérique est sélectionné quand CS vaut zéro. Une sélection basse doit couvrir la commande et tous les octets de sa bande. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00051">51</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, <a class="el" href="ili9341_8c_source.html#l00274">HAL_SPI_ErrorCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00258">HAL_SPI_TxCpltCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>, <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_a32b5321d4f8a809fc69ed1b2eef60042_cgraph.svg" width="98" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae8787b81e99ca0fad8ceece33fb7fb50" name="ae8787b81e99ca0fad8ceece33fb7fb50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8787b81e99ca0fad8ceece33fb7fb50">&#9670;&#160;</a></span>send_band()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool send_band </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Commencer le transfert DMA des pixels d'un rectangle. </p>
+<p>Définit la fenêtre et RAM_WRITE, puis garde CS actif jusqu'au callback de fin. Le tampon fourni doit rester intact tant que le transport est BUSY. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>Contexte opaque transmis sans allocation. Le port physique peut ne pas l’utiliser. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Rectangle écran, avec bord droit et bas exclus. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Tampon valide pour la longueur demandée par size, len ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>Nombre d’octets de l’opération ou de la transaction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le DMA prend effectivement la propriété du tampon. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00185">185</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00064">begin_command()</a>, <a class="el" href="ili9341_8c_source.html#l00034">CMD_COLUMN</a>, <a class="el" href="ili9341_8c_source.html#l00035">CMD_PAGE</a>, <a class="el" href="ili9341_8c_source.html#l00036">CMD_RAM_WRITE</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="ili9341_8c_source.html#l00051">select_lcd()</a>, <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>, <a class="el" href="ili9341_8c_source.html#l00041">started_ms</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, <a class="el" href="obcp__gfx_8h_source.html#l00214">TRANSFER_BUSY</a>, <a class="el" href="obcp__gfx_8h_source.html#l00216">TRANSFER_ERROR</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="ili9341_8c_source.html#l00166">window()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_ae8787b81e99ca0fad8ceece33fb7fb50_cgraph.svg" width="551" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acc7effc3861d45e5c4a2886316236b30" name="acc7effc3861d45e5c4a2886316236b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7effc3861d45e5c4a2886316236b30">&#9670;&#160;</a></span>window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool window </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Définir un intervalle de colonnes ou de lignes du TFT. </p>
+<p>Le protocole du contrôleur reçoit début et fin inclus sur deux octets chacun. L'appelant transforme donc une largeur en dernière coordonnée moins un. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>Commande de fenêtre de colonnes ou de pages. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>Première coordonnée incluse de la fenêtre. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">end</td><td>Dernière coordonnée incluse du protocole ILI9341. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la commande de fenêtre est transmise. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00166">166</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, et <a class="el" href="ili9341_8c_source.html#l00166">window()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>, et <a class="el" href="ili9341_8c_source.html#l00166">window()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ili9341_8c_acc7effc3861d45e5c4a2886316236b30_cgraph.svg" width="531" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a31ed505d40f52d42fbf22812dd81b22e" name="a31ed505d40f52d42fbf22812dd81b22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ed505d40f52d42fbf22812dd81b22e">&#9670;&#160;</a></span>started_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t started_ms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick du départ DMA pour détecter une bande bloquée plus de 50 ms. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00041">41</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+
+</div>
+</div>
+<a id="ac66c3af07a7643444c183fa00291ad5e" name="ac66c3af07a7643444c183fa00291ad5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66c3af07a7643444c183fa00291ad5e">&#9670;&#160;</a></span>state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a> state = <a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3ba032a83fd0b595f39aa27015010d03f28">TRANSFER_DONE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>État volatile du transfert, partagé entre la boucle et les callbacks SPI. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00040">40</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00274">HAL_SPI_ErrorCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00258">HAL_SPI_TxCpltCallback()</a>, <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="ili9341_8c.html">ili9341.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

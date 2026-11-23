@@ -1,0 +1,10 @@
+<map id="accel_read" name="accel_read">
+<area shape="rect" id="Node000001" title="Convertir la mesure XYZ en g." alt="" coords="5,29,97,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="25,31,20,21,23,11,34,5,51,3,73,6,82,15,78,19,70,11,51,8,35,10,27,15,25,20,30,28"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a6694cbf7c5cc36d21274e49edd09d803" title="Lire les trois axes dans une même rafale." alt="" coords="145,29,268,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="98,39,131,39,131,45,98,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="181,31,176,21,178,11,189,5,207,3,228,6,237,15,233,19,225,11,207,8,191,10,183,15,181,20,186,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="316,29,403,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="268,39,302,39,302,45,268,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="334,31,328,21,331,11,342,5,359,3,380,6,389,15,386,19,378,11,359,8,344,10,335,15,334,20,338,28"/>
+</map>

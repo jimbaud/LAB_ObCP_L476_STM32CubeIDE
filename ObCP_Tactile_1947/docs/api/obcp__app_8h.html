@@ -1,0 +1,1004 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_app.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__app_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_app.h<div class="ingroups"><a class="el" href="group__obcp__apps.html">Applications et navigation</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Écrans, commandes tactiles et requêtes de sauvegarde.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__audio_8h_source.html">obcp_audio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__calibration_8h_source.html">obcp_calibration.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__input_8h_source.html">obcp_input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__paint_8h_source.html">obcp_paint.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_app.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h__incl.svg" width="644" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h__dep__incl.svg" width="350" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="obcp__app_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:Diagnostics" id="r_Diagnostics"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structDiagnostics.html">Diagnostics</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valeurs présentées dans les pages de réglage.  <a href="structDiagnostics.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:App" id="r_App"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structApp.html">App</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">État complet des applications et de leur navigation.  <a href="structApp.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a64e169b6e0f42914937270604cc438ed" id="r_a64e169b6e0f42914937270604cc438ed"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a64e169b6e0f42914937270604cc438ed">Screen</a> { <br />
+&#160;&#160;<a class="el" href="#a64e169b6e0f42914937270604cc438edaa384e8d7c0f417df6b5b64f547952d52">SCREEN_MENU</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda1608bbd49696a31812d54a6e4e7bba02">SCREEN_PAINT</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda4e028acf0eff971563f2f0cf3f171bed">SCREEN_GROOVE</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda4baffe4c4fd877b42a7c3427710df0df">SCREEN_MAZE</a>
+, <br />
+&#160;&#160;<a class="el" href="#a64e169b6e0f42914937270604cc438eda238a74a1319cc8613e8e5d790c14fced">SCREEN_BREAKOUT</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438edafaf96b2bcb26e5a890b0e31101562873">SCREEN_RACE</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda6fcb85d9f038bd440753c164469342dc">SCREEN_SETTINGS</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda0329ee282bfc1d06fcab2f78af7f9631">SCREEN_DIAG</a>
+, <br />
+&#160;&#160;<a class="el" href="#a64e169b6e0f42914937270604cc438eda9c8a4d6fdb893bd6db34636a0057547b">SCREEN_TOUCH_CAL</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda95b3e9a6e9a29a5ef0e9ed843923a777">SCREEN_TILT</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438eda19e7083eb5ab2251aa2be6c937332be4">SCREEN_RESPONSE</a>
+, <a class="el" href="#a64e169b6e0f42914937270604cc438edad1090b9d88829fd8203a08876f84df29">SCREEN_SPLASH</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a64e169b6e0f42914937270604cc438ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pages accessibles dans la machine de navigation.  <a href="#a64e169b6e0f42914937270604cc438ed">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a758b92baee413d1ca953ac8a6800e969" id="r_a758b92baee413d1ca953ac8a6800e969"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a758b92baee413d1ca953ac8a6800e969">Modal</a> { <br />
+&#160;&#160;<a class="el" href="#a758b92baee413d1ca953ac8a6800e969a48f226f36114a1aa0b26a8f14290d96f">MODAL_NONE</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969a5cfca70af541298d5c03685e21216191">MODAL_COLORS</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969a32120490b89375044e8495e7cc46d0b0">MODAL_DRAW_SAVE</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969a7ce8da64f4b84c77a8726e36674e8221">MODAL_DRAW_OPEN</a>
+, <br />
+&#160;&#160;<a class="el" href="#a758b92baee413d1ca953ac8a6800e969a1e66370ddd8c3b579c340b2f05bd2c06">MODAL_DRAW_CLEAR</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969a8179203e8bf01f11083ef7e243b2c58b">MODAL_DRAW_LEAVE</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969a4a9a2b44092666d3852614a1a29ca290">MODAL_MUSIC_SAVE</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969ac91ae8261cc8d27e6b35e8dc8c942efb">MODAL_MUSIC_OPEN</a>
+, <br />
+&#160;&#160;<a class="el" href="#a758b92baee413d1ca953ac8a6800e969a0cc78513a6dbe85f11f84feaa472dfb3">MODAL_BRUSH</a>
+, <a class="el" href="#a758b92baee413d1ca953ac8a6800e969ad71581da320e05c3d82a300a530a3007">MODAL_RGB</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a758b92baee413d1ca953ac8a6800e969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dialogue superposé à une application.  <a href="#a758b92baee413d1ca953ac8a6800e969">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:ab36a18901fda6c31ab849ae14ad9a977" id="r_ab36a18901fda6c31ab849ae14ad9a977"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977">StoreJob</a> { <br />
+&#160;&#160;<a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977ad96fbdb75d9748271cb20bee5a6657ff">JOB_NONE</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977a8c84b8d9b54a10b1fa2ea69bae3144b7">JOB_DRAW_SAVE</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977a01929a591b541fed45cbb333e776ece6">JOB_DRAW_OPEN</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977a68c5924d5335a157b9b9ddab9dca61e1">JOB_MUSIC_SAVE</a>
+, <br />
+&#160;&#160;<a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977a51d4cc743264f4a5c0cf250456c3a67d">JOB_MUSIC_OPEN</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977a246ac737e1a751cb9d9e3c9b1848915f">JOB_TOUCH_CAL_SAVE</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977abfc834be365be79d4fc80e3d86eaefdd">JOB_TILT_SAVE</a>
+, <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977aa714f1fd6dda160db875a94d1a47b8a9">JOB_PREFERENCES_SAVE</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ab36a18901fda6c31ab849ae14ad9a977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande de stockage à exécuter après son message d’attente.  <a href="#ab36a18901fda6c31ab849ae14ad9a977">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac8baf30fda8dd8664fe2db0a52e06f63" id="r_ac8baf30fda8dd8664fe2db0a52e06f63"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac8baf30fda8dd8664fe2db0a52e06f63">app_init</a> (<a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:ac8baf30fda8dd8664fe2db0a52e06f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser les modèles et les valeurs de départ.  <br /></td></tr>
+<tr class="memitem:a0111373e9f54795946a9fd5e7af8424b" id="r_a0111373e9f54795946a9fd5e7af8424b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0111373e9f54795946a9fd5e7af8424b">app_open</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="#a64e169b6e0f42914937270604cc438ed">Screen</a> screen)</td></tr>
+<tr class="memdesc:a0111373e9f54795946a9fd5e7af8424b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectuer une transition vers un autre écran.  <br /></td></tr>
+<tr class="memitem:ad2ddc9f965c2f4403dad873c65f42608" id="r_ad2ddc9f965c2f4403dad873c65f42608"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad2ddc9f965c2f4403dad873c65f42608">app_start_splash</a> (<a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:ad2ddc9f965c2f4403dad873c65f42608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afficher l'accueil en conservant sa destination.  <br /></td></tr>
+<tr class="memitem:a07d30a6e22f50d9a0276d1a81d43f17b" id="r_a07d30a6e22f50d9a0276d1a81d43f17b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07d30a6e22f50d9a0276d1a81d43f17b">app_force_touch_calibration</a> (<a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:a07d30a6e22f50d9a0276d1a81d43f17b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ouvrir le calibrage résistif de secours.  <br /></td></tr>
+<tr class="memitem:aab9fab7a8a8f803ccd24b16db1454724" id="r_aab9fab7a8a8f803ccd24b16db1454724"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab9fab7a8a8f803ccd24b16db1454724">app_touch</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structTouchEvent.html">TouchEvent</a> touch)</td></tr>
+<tr class="memdesc:aab9fab7a8a8f803ccd24b16db1454724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribuer un événement tactile à l'écran approprié.  <br /></td></tr>
+<tr class="memitem:af30588f5bdd9ce50ab12c67c7cc1083c" id="r_af30588f5bdd9ce50ab12c67c7cc1083c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af30588f5bdd9ce50ab12c67c7cc1083c">app_calibration_sample</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structRawTouch.html">RawTouch</a> sample)</td></tr>
+<tr class="memdesc:af30588f5bdd9ce50ab12c67c7cc1083c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmettre une observation brute au calibrage.  <br /></td></tr>
+<tr class="memitem:a0535cf3a6d1eb77bdec793834d2d1cc0" id="r_a0535cf3a6d1eb77bdec793834d2d1cc0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0535cf3a6d1eb77bdec793834d2d1cc0">app_button</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a> event)</td></tr>
+<tr class="memdesc:a0535cf3a6d1eb77bdec793834d2d1cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traiter le raccourci facultatif de SW1.  <br /></td></tr>
+<tr class="memitem:a11d926c742668db89d39a87e43d503f6" id="r_a11d926c742668db89d39a87e43d503f6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a11d926c742668db89d39a87e43d503f6">app_step</a> (<a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:a11d926c742668db89d39a87e43d503f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer les états temporels de vingt millisecondes.  <br /></td></tr>
+<tr class="memitem:aa35fcb6a48ee45eca0a326af27613d0a" id="r_aa35fcb6a48ee45eca0a326af27613d0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa35fcb6a48ee45eca0a326af27613d0a">app_render</a> (const void *context, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:aa35fcb6a48ee45eca0a326af27613d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomposer une bande RGB565 à partir de l'état <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a>.  <br /></td></tr>
+<tr class="memitem:a0b5dff93813c759e55d49a8ee0fabf7d" id="r_a0b5dff93813c759e55d49a8ee0fabf7d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0b5dff93813c759e55d49a8ee0fabf7d">app_wants_audio</a> (const <a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:a0b5dff93813c759e55d49a8ee0fabf7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indiquer si le transport PWM doit fonctionner.  <br /></td></tr>
+<tr class="memitem:abfbab0044c7c82895f8abd03bf4078e4" id="r_abfbab0044c7c82895f8abd03bf4078e4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abfbab0044c7c82895f8abd03bf4078e4">app_read_book</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structStorage.html">Storage</a> *storage)</td></tr>
+<tr class="memdesc:abfbab0044c7c82895f8abd03bf4078e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charger le livre des quatre motifs au démarrage.  <br /></td></tr>
+<tr class="memitem:aa2a559b24bbd617413599ecffacf1545" id="r_aa2a559b24bbd617413599ecffacf1545"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa2a559b24bbd617413599ecffacf1545">app_read_calibration</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structStorage.html">Storage</a> *storage)</td></tr>
+<tr class="memdesc:aa2a559b24bbd617413599ecffacf1545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charger les profils des deux tactiles résistifs.  <br /></td></tr>
+<tr class="memitem:aac47a8410ad43f653db102ae215f8f55" id="r_aac47a8410ad43f653db102ae215f8f55"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac47a8410ad43f653db102ae215f8f55">app_read_axes</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structStorage.html">Storage</a> *storage)</td></tr>
+<tr class="memdesc:aac47a8410ad43f653db102ae215f8f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charger le repère des jeux depuis la flash.  <br /></td></tr>
+<tr class="memitem:ad323fee25d71ef3a1e53397c000546ed" id="r_ad323fee25d71ef3a1e53397c000546ed"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad323fee25d71ef3a1e53397c000546ed">app_read_preferences</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structStorage.html">Storage</a> *storage)</td></tr>
+<tr class="memdesc:ad323fee25d71ef3a1e53397c000546ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charger les deux valeurs de réactivité.  <br /></td></tr>
+<tr class="memitem:a740baa06a6811e4e02ef495080c5c7be" id="r_a740baa06a6811e4e02ef495080c5c7be"><td class="memItemLeft"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a740baa06a6811e4e02ef495080c5c7be">app_store_task</a> (<a class="el" href="structApp.html">App</a> *a, <a class="el" href="structStorage.html">Storage</a> *storage)</td></tr>
+<tr class="memdesc:a740baa06a6811e4e02ef495080c5c7be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exécuter la requête de stockage en attente.  <br /></td></tr>
+<tr class="memitem:a5d21457401324fca1be7f222ad24eb6f" id="r_a5d21457401324fca1be7f222ad24eb6f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d21457401324fca1be7f222ad24eb6f">app_diag_refresh</a> (<a class="el" href="structApp.html">App</a> *a)</td></tr>
+<tr class="memdesc:a5d21457401324fca1be7f222ad24eb6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalider les valeurs de diagnostic qui évoluent.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Écrans, commandes tactiles et requêtes de sauvegarde. </p>
+<p><a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a> réunit les modèles en RAM. Les événements modifient ces modèles et invalident des rectangles. Le dessin reçoit ensuite une bande RGB565. Les accès physiques à la flash sont différés vers <a class="el" href="board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle.">board.c</a> pour laisser afficher leur état.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a758b92baee413d1ca953ac8a6800e969" name="a758b92baee413d1ca953ac8a6800e969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758b92baee413d1ca953ac8a6800e969">&#9670;&#160;</a></span>Modal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a758b92baee413d1ca953ac8a6800e969">Modal</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dialogue superposé à une application. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a48f226f36114a1aa0b26a8f14290d96f" name="a758b92baee413d1ca953ac8a6800e969a48f226f36114a1aa0b26a8f14290d96f"></a>MODAL_NONE&#160;</td><td class="fielddoc"><p>Aucun dialogue superposé. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a5cfca70af541298d5c03685e21216191" name="a758b92baee413d1ca953ac8a6800e969a5cfca70af541298d5c03685e21216191"></a>MODAL_COLORS&#160;</td><td class="fielddoc"><p>Choix d'une des seize cases de palette. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a32120490b89375044e8495e7cc46d0b0" name="a758b92baee413d1ca953ac8a6800e969a32120490b89375044e8495e7cc46d0b0"></a>MODAL_DRAW_SAVE&#160;</td><td class="fielddoc"><p>Choix de l'emplacement de sauvegarde du dessin. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a7ce8da64f4b84c77a8726e36674e8221" name="a758b92baee413d1ca953ac8a6800e969a7ce8da64f4b84c77a8726e36674e8221"></a>MODAL_DRAW_OPEN&#160;</td><td class="fielddoc"><p>Choix du dessin à relire. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a1e66370ddd8c3b579c340b2f05bd2c06" name="a758b92baee413d1ca953ac8a6800e969a1e66370ddd8c3b579c340b2f05bd2c06"></a>MODAL_DRAW_CLEAR&#160;</td><td class="fielddoc"><p>Confirmation d'effacement du canevas. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a8179203e8bf01f11083ef7e243b2c58b" name="a758b92baee413d1ca953ac8a6800e969a8179203e8bf01f11083ef7e243b2c58b"></a>MODAL_DRAW_LEAVE&#160;</td><td class="fielddoc"><p>Confirmation de sortie avec un dessin modifié. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a4a9a2b44092666d3852614a1a29ca290" name="a758b92baee413d1ca953ac8a6800e969a4a9a2b44092666d3852614a1a29ca290"></a>MODAL_MUSIC_SAVE&#160;</td><td class="fielddoc"><p>Choix de l'emplacement du motif à enregistrer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969ac91ae8261cc8d27e6b35e8dc8c942efb" name="a758b92baee413d1ca953ac8a6800e969ac91ae8261cc8d27e6b35e8dc8c942efb"></a>MODAL_MUSIC_OPEN&#160;</td><td class="fielddoc"><p>Choix du motif à relire. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969a0cc78513a6dbe85f11f84feaa472dfb3" name="a758b92baee413d1ca953ac8a6800e969a0cc78513a6dbe85f11f84feaa472dfb3"></a>MODAL_BRUSH&#160;</td><td class="fielddoc"><p>Sélection du diamètre de crayon ou de gomme. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758b92baee413d1ca953ac8a6800e969ad71581da320e05c3d82a300a530a3007" name="a758b92baee413d1ca953ac8a6800e969ad71581da320e05c3d82a300a530a3007"></a>MODAL_RGB&#160;</td><td class="fielddoc"><p>Édition des trois composantes de la case de palette. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00045">45</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+</div>
+</div>
+<a id="a64e169b6e0f42914937270604cc438ed" name="a64e169b6e0f42914937270604cc438ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64e169b6e0f42914937270604cc438ed">&#9670;&#160;</a></span>Screen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a64e169b6e0f42914937270604cc438ed">Screen</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pages accessibles dans la machine de navigation. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438edaa384e8d7c0f417df6b5b64f547952d52" name="a64e169b6e0f42914937270604cc438edaa384e8d7c0f417df6b5b64f547952d52"></a>SCREEN_MENU&#160;</td><td class="fielddoc"><p>Lanceur des six applications et paramètres. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda1608bbd49696a31812d54a6e4e7bba02" name="a64e169b6e0f42914937270604cc438eda1608bbd49696a31812d54a6e4e7bba02"></a>SCREEN_PAINT&#160;</td><td class="fielddoc"><p>Canevas et outils de dessin. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda4e028acf0eff971563f2f0cf3f171bed" name="a64e169b6e0f42914937270604cc438eda4e028acf0eff971563f2f0cf3f171bed"></a>SCREEN_GROOVE&#160;</td><td class="fielddoc"><p>Grille musicale ou clavier. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda4baffe4c4fd877b42a7c3427710df0df" name="a64e169b6e0f42914937270604cc438eda4baffe4c4fd877b42a7c3427710df0df"></a>SCREEN_MAZE&#160;</td><td class="fielddoc"><p>Labyrinthe piloté sur deux axes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda238a74a1319cc8613e8e5d790c14fced" name="a64e169b6e0f42914937270604cc438eda238a74a1319cc8613e8e5d790c14fced"></a>SCREEN_BREAKOUT&#160;</td><td class="fielddoc"><p>Casse-briques piloté sur X. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438edafaf96b2bcb26e5a890b0e31101562873" name="a64e169b6e0f42914937270604cc438edafaf96b2bcb26e5a890b0e31101562873"></a>SCREEN_RACE&#160;</td><td class="fielddoc"><p>Course à trois voies pilotée sur X. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda6fcb85d9f038bd440753c164469342dc" name="a64e169b6e0f42914937270604cc438eda6fcb85d9f038bd440753c164469342dc"></a>SCREEN_SETTINGS&#160;</td><td class="fielddoc"><p>Page d'accès aux quatre rubriques de réglage. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda0329ee282bfc1d06fcab2f78af7f9631" name="a64e169b6e0f42914937270604cc438eda0329ee282bfc1d06fcab2f78af7f9631"></a>SCREEN_DIAG&#160;</td><td class="fielddoc"><p>Identités, mesures, cibles, mires et note audio. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda9c8a4d6fdb893bd6db34636a0057547b" name="a64e169b6e0f42914937270604cc438eda9c8a4d6fdb893bd6db34636a0057547b"></a>SCREEN_TOUCH_CAL&#160;</td><td class="fielddoc"><p>Acquisition brute des quatre cibles résistives. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda95b3e9a6e9a29a5ef0e9ed843923a777" name="a64e169b6e0f42914937270604cc438eda95b3e9a6e9a29a5ef0e9ed843923a777"></a>SCREEN_TILT&#160;</td><td class="fielddoc"><p>Assistant d'orientation droite puis bas. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438eda19e7083eb5ab2251aa2be6c937332be4" name="a64e169b6e0f42914937270604cc438eda19e7083eb5ab2251aa2be6c937332be4"></a>SCREEN_RESPONSE&#160;</td><td class="fielddoc"><p>Réglage des réactivités X et Y. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a64e169b6e0f42914937270604cc438edad1090b9d88829fd8203a08876f84df29" name="a64e169b6e0f42914937270604cc438edad1090b9d88829fd8203a08876f84df29"></a>SCREEN_SPLASH&#160;</td><td class="fielddoc"><p>Accueil SUPMICROTECH temporisé au démarrage. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00027">27</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+</div>
+</div>
+<a id="ab36a18901fda6c31ab849ae14ad9a977" name="ab36a18901fda6c31ab849ae14ad9a977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab36a18901fda6c31ab849ae14ad9a977">&#9670;&#160;</a></span>StoreJob</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ab36a18901fda6c31ab849ae14ad9a977">StoreJob</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Demande de stockage à exécuter après son message d’attente. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977ad96fbdb75d9748271cb20bee5a6657ff" name="ab36a18901fda6c31ab849ae14ad9a977ad96fbdb75d9748271cb20bee5a6657ff"></a>JOB_NONE&#160;</td><td class="fielddoc"><p>Aucun travail de stockage en attente. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977a8c84b8d9b54a10b1fa2ea69bae3144b7" name="ab36a18901fda6c31ab849ae14ad9a977a8c84b8d9b54a10b1fa2ea69bae3144b7"></a>JOB_DRAW_SAVE&#160;</td><td class="fielddoc"><p>Écrire le dessin et sa palette. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977a01929a591b541fed45cbb333e776ece6" name="ab36a18901fda6c31ab849ae14ad9a977a01929a591b541fed45cbb333e776ece6"></a>JOB_DRAW_OPEN&#160;</td><td class="fielddoc"><p>Relire un dessin et son format. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977a68c5924d5335a157b9b9ddab9dca61e1" name="ab36a18901fda6c31ab849ae14ad9a977a68c5924d5335a157b9b9ddab9dca61e1"></a>JOB_MUSIC_SAVE&#160;</td><td class="fielddoc"><p>Écrire le livre avec le motif courant. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977a51d4cc743264f4a5c0cf250456c3a67d" name="ab36a18901fda6c31ab849ae14ad9a977a51d4cc743264f4a5c0cf250456c3a67d"></a>JOB_MUSIC_OPEN&#160;</td><td class="fielddoc"><p>Rappeler un motif du livre en RAM. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977a246ac737e1a751cb9d9e3c9b1848915f" name="ab36a18901fda6c31ab849ae14ad9a977a246ac737e1a751cb9d9e3c9b1848915f"></a>JOB_TOUCH_CAL_SAVE&#160;</td><td class="fielddoc"><p>Écrire les deux profils résistifs. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977abfc834be365be79d4fc80e3d86eaefdd" name="ab36a18901fda6c31ab849ae14ad9a977abfc834be365be79d4fc80e3d86eaefdd"></a>JOB_TILT_SAVE&#160;</td><td class="fielddoc"><p>Écrire les bits d'orientation des jeux. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab36a18901fda6c31ab849ae14ad9a977aa714f1fd6dda160db875a94d1a47b8a9" name="ab36a18901fda6c31ab849ae14ad9a977aa714f1fd6dda160db875a94d1a47b8a9"></a>JOB_PREFERENCES_SAVE&#160;</td><td class="fielddoc"><p>Écrire les deux réactivités X et Y. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__app_8h_source.html#l00061">61</a> du fichier <a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a0535cf3a6d1eb77bdec793834d2d1cc0" name="a0535cf3a6d1eb77bdec793834d2d1cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0535cf3a6d1eb77bdec793834d2d1cc0">&#9670;&#160;</a></span>app_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_button </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a></td>          <td class="paramname"><span class="paramname"><em>event</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traiter le raccourci facultatif de SW1. </p>
+<p>Cette entrée reçoit déjà un événement débouncé. Elle change la mire, ouvre un diagnostic ou revient au menu selon l'écran. Les commandes tactiles couvrent l'usage avec le shield monté. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Événement validé du bouton utilisateur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01112">1112</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="obcp__input_8h_source.html#l00155">BUTTON_LONG</a>, <a class="el" href="obcp__input_8h_source.html#l00153">BUTTON_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00154">BUTTON_SHORT</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="app_8c_source.html#l00885">diag_next_pattern()</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00051">MODAL_DRAW_LEAVE</a>, <a class="el" href="obcp__paint_8h_source.html#l00061">Paint::modified</a>, <a class="el" href="obcp__app_8h_source.html#l00109">App::paint</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00029">SCREEN_PAINT</a>, <a class="el" href="obcp__app_8h_source.html#l00034">SCREEN_SETTINGS</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="app_8c_source.html#l00429">show_modal()</a>, <a class="el" href="obcp__app_8h_source.html#l00092">Diagnostics::touch_controller</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, et <a class="el" href="input_8c_source.html#l00068">touch_resistive()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, et <a class="el" href="board_8c_source.html#l00397">sample_button()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a0535cf3a6d1eb77bdec793834d2d1cc0_cgraph.svg" width="475" height="354"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af30588f5bdd9ce50ab12c67c7cc1083c" name="af30588f5bdd9ce50ab12c67c7cc1083c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af30588f5bdd9ce50ab12c67c7cc1083c">&#9670;&#160;</a></span>app_calibration_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_calibration_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRawTouch.html">RawTouch</a></td>          <td class="paramname"><span class="paramname"><em>sample</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmettre une observation brute au calibrage. </p>
+<p>Le contact ayant ouvert l'assistant doit d'abord être relâché. Une session complète met son candidat en RAM et demande sa sauvegarde. Un ancien profil permet l'annulation lors d'une entrée normale. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sample</td><td>Observation brute tactile, à remplir ou à interpréter selon le pilote. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01081">1081</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="obcp__app_8h_source.html#l00133">App::cal_can_cancel</a>, <a class="el" href="app_8c_source.html#l00158">cal_cancel</a>, <a class="el" href="obcp__calibration_8h_source.html#l00088">CAL_COMPLETE</a>, <a class="el" href="obcp__calibration_8h_source.html#l00083">CAL_UNCHANGED</a>, <a class="el" href="obcp__calibration_8h_source.html#l00068">TouchCalSession::candidate</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__touch_8h_source.html#l00061">RawTouch::down</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00067">JOB_TOUCH_CAL_SAVE</a>, <a class="el" href="obcp__touch_8h_source.html#l00058">RawTouch::point</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="obcp__calibration_8h_source.html#l00074">TouchCalSession::samples</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00034">SCREEN_SETTINGS</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, <a class="el" href="calibration_8c_source.html#l00109">touch_cal_map()</a>, <a class="el" href="calibration_8c_source.html#l00149">touch_cal_sample()</a>, <a class="el" href="obcp__app_8h_source.html#l00116">App::touch_cal_session</a>, <a class="el" href="calibration_8c_source.html#l00237">touch_cal_set()</a>, <a class="el" href="obcp__app_8h_source.html#l00092">Diagnostics::touch_controller</a>, et <a class="el" href="obcp__calibration_8h_source.html#l00075">TouchCalSession::wait_release</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_af30588f5bdd9ce50ab12c67c7cc1083c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5d21457401324fca1be7f222ad24eb6f" name="a5d21457401324fca1be7f222ad24eb6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d21457401324fca1be7f222ad24eb6f">&#9670;&#160;</a></span>app_diag_refresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_diag_refresh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invalider les valeurs de diagnostic qui évoluent. </p>
+<p>Les zones des mesures, de l'aperçu d'axes ou de la réponse sont ajoutées aux rectangles en attente. Les éléments fixes restent hors de cette invalidation périodique. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01323">1323</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00038">SCREEN_RESPONSE</a>, <a class="el" href="obcp__app_8h_source.html#l00037">SCREEN_TILT</a>, <a class="el" href="obcp__app_8h_source.html#l00129">App::test_color</a>, et <a class="el" href="app_8c_source.html#l00159">tilt_pad</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a5d21457401324fca1be7f222ad24eb6f_cgraph.svg" width="479" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a07d30a6e22f50d9a0276d1a81d43f17b" name="a07d30a6e22f50d9a0276d1a81d43f17b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d30a6e22f50d9a0276d1a81d43f17b">&#9670;&#160;</a></span>app_force_touch_calibration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_force_touch_calibration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ouvrir le calibrage résistif de secours. </p>
+<p>Le bouton d'annulation fondé sur l'ancien profil est désactivé car ce profil peut justement être erroné. Les cibles seront traitées dans le repère brut. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l00534">534</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00534">app_force_touch_calibration()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="obcp__app_8h_source.html#l00133">App::cal_can_cancel</a>, et <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00534">app_force_touch_calibration()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a07d30a6e22f50d9a0276d1a81d43f17b_cgraph.svg" width="531" height="354"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac8baf30fda8dd8664fe2db0a52e06f63" name="ac8baf30fda8dd8664fe2db0a52e06f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8baf30fda8dd8664fe2db0a52e06f63">&#9670;&#160;</a></span>app_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser les modèles et les valeurs de départ. </p>
+<p>Met les états à zéro, prépare le crayon et la palette, initialise l'audio et les axes, puis demande une image complète. La lecture des objets persistants est une étape séparée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>Contexte des applications en RAM, à initialiser par cet appel. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l00456">456</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__app_8h_source.html#l00097">Diagnostics::accel_name</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="audio_8c_source.html#l00105">audio_init()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__app_8h_source.html#l00127">App::note</a>, <a class="el" href="obcp__app_8h_source.html#l00109">App::paint</a>, <a class="el" href="paint_8c_source.html#l00045">paint_init()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, et <a class="el" href="input_8c_source.html#l00218">tilt_init()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_ac8baf30fda8dd8664fe2db0a52e06f63_cgraph.svg" width="236" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0111373e9f54795946a9fd5e7af8424b" name="a0111373e9f54795946a9fd5e7af8424b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0111373e9f54795946a9fd5e7af8424b">&#9670;&#160;</a></span>app_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a64e169b6e0f42914937270604cc438ed">Screen</a></td>          <td class="paramname"><span class="paramname"><em>screen</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Effectuer une transition vers un autre écran. </p>
+<p>Arrête les voix, ferme les dialogues et annule les gestes en cours. Prépare le jeu ou l'assistant demandé, puis invalide l'écran. Les objets de dessin et les réglages restent dans <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">screen</td><td>Écran de destination. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l00508">508</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="audio_8c_source.html#l00147">audio_stop()</a>, <a class="el" href="obcp__app_8h_source.html#l00133">App::cal_can_cancel</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, <a class="el" href="obcp__app_8h_source.html#l00093">Diagnostics::hits</a>, <a class="el" href="obcp__app_8h_source.html#l00132">App::keys</a>, <a class="el" href="obcp__app_8h_source.html#l00122">App::modal</a>, <a class="el" href="obcp__app_8h_source.html#l00046">MODAL_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00124">App::notice</a>, <a class="el" href="obcp__app_8h_source.html#l00109">App::paint</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00037">SCREEN_TILT</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="obcp__paint_8h_source.html#l00060">Paint::stroke</a>, <a class="el" href="obcp__app_8h_source.html#l00129">App::test_color</a>, <a class="el" href="obcp__app_8h_source.html#l00118">App::tilt_guide</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, <a class="el" href="obcp__app_8h_source.html#l00116">App::touch_cal_session</a>, <a class="el" href="calibration_8c_source.html#l00125">touch_cal_start()</a>, et <a class="el" href="obcp__app_8h_source.html#l00092">Diagnostics::touch_controller</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00534">app_force_touch_calibration()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, et <a class="el" href="app_8c_source.html#l00962">settings_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a0111373e9f54795946a9fd5e7af8424b_cgraph.svg" width="432" height="354"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aac47a8410ad43f653db102ae215f8f55" name="aac47a8410ad43f653db102ae215f8f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac47a8410ad43f653db102ae215f8f55">&#9670;&#160;</a></span>app_read_axes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_read_axes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charger le repère des jeux depuis la flash. </p>
+<p>Le petit format contient version, orientation du TFT et bits d'axes. Le masque est vérifié pour garder les valeurs de départ si le contenu ne correspond pas. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01216">1216</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="obcp__input_8h_source.html#l00209">Tilt::axes</a>, <a class="el" href="app_8c_source.html#l00168">AXES_BYTES</a>, <a class="el" href="app_8c_source.html#l00167">AXES_VERSION</a>, <a class="el" href="obcp__config_8h_source.html#l00038">OBCP_LCD_MADCTL</a>, <a class="el" href="obcp__storage_8h_source.html#l00037">SAVE_TILT_AXES</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, et <a class="el" href="obcp__input_8h_source.html#l00223">TILT_AXES_MASK</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_aac47a8410ad43f653db102ae215f8f55_cgraph.svg" width="443" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abfbab0044c7c82895f8abd03bf4078e4" name="abfbab0044c7c82895f8abd03bf4078e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbab0044c7c82895f8abd03bf4078e4">&#9670;&#160;</a></span>app_read_book()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_read_book </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charger le livre des quatre motifs au démarrage. </p>
+<p>Le CRC est contrôlé par le service de stockage, puis le décodeur contrôle la version et les valeurs musicales avant d'accepter le livre. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01191">1191</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="obcp__app_8h_source.html#l00114">App::book</a>, <a class="el" href="audio_8c_source.html#l00281">book_decode()</a>, <a class="el" href="obcp__storage_8h_source.html#l00035">SAVE_MUSIC</a>, <a class="el" href="obcp__audio_8h_source.html#l00036">SEQ_BOOK_BYTES</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, et <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_abfbab0044c7c82895f8abd03bf4078e4_cgraph.svg" width="447" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa2a559b24bbd617413599ecffacf1545" name="aa2a559b24bbd617413599ecffacf1545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a559b24bbd617413599ecffacf1545">&#9670;&#160;</a></span>app_read_calibration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_read_calibration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charger les profils des deux tactiles résistifs. </p>
+<p>Le profil est associé à l'orientation MADCTL. Un objet absent ou invalide laisse un livre vide, ce qui déclenchera le calibrage lors de la reconnaissance du shield. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01205">1205</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, <a class="el" href="obcp__config_8h_source.html#l00038">OBCP_LCD_MADCTL</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, et <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_aa2a559b24bbd617413599ecffacf1545_cgraph.svg" width="491" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad323fee25d71ef3a1e53397c000546ed" name="ad323fee25d71ef3a1e53397c000546ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad323fee25d71ef3a1e53397c000546ed">&#9670;&#160;</a></span>app_read_preferences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_read_preferences </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charger les deux valeurs de réactivité. </p>
+<p>La version et les bornes 1 à 10 sont contrôlées avant de remplacer les valeurs de départ. Cette opération ne modifie pas le neutre du capteur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01231">1231</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="obcp__input_8h_source.html#l00210">Tilt::response_x</a>, <a class="el" href="obcp__input_8h_source.html#l00211">Tilt::response_y</a>, <a class="el" href="obcp__storage_8h_source.html#l00038">SAVE_PREFERENCES</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, <a class="el" href="obcp__input_8h_source.html#l00230">TILT_RESPONSE_MAX</a>, et <a class="el" href="obcp__input_8h_source.html#l00229">TILT_RESPONSE_MIN</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_ad323fee25d71ef3a1e53397c000546ed_cgraph.svg" width="491" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa35fcb6a48ee45eca0a326af27613d0a" name="aa35fcb6a48ee45eca0a326af27613d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa35fcb6a48ee45eca0a326af27613d0a">&#9670;&#160;</a></span>app_render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_render </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recomposer une bande RGB565 à partir de l'état <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a>. </p>
+<p>Choisit l'écran, ajoute le dialogue puis le message. Cette fonction est appelée synchroniquement par <a class="el" href="obcp__gfx_8h.html#a7aad3aeefb3bfad8f63100649aa9fdb1" title="Avancer l&#39;envoi non bloquant d&#39;une bande.">renderer_task()</a> avant le départ du DMA. Aucun tampon d'écran complet n'est requis. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>Pointeur <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a> valide présenté sous une forme opaque au moteur graphique. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01894">1894</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="app_8c_source.html#l00133">COLOR_BG</a>, <a class="el" href="app_8c_source.html#l00140">COLOR_GOLD</a>, <a class="el" href="app_8c_source.html#l01694">draw_calibration()</a>, <a class="el" href="app_8c_source.html#l01625">draw_diag()</a>, <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="app_8c_source.html#l01573">draw_groove()</a>, <a class="el" href="app_8c_source.html#l01370">draw_menu()</a>, <a class="el" href="app_8c_source.html#l01854">draw_modal()</a>, <a class="el" href="app_8c_source.html#l01548">draw_paint()</a>, <a class="el" href="app_8c_source.html#l01451">draw_response()</a>, <a class="el" href="app_8c_source.html#l01427">draw_settings()</a>, <a class="el" href="app_8c_source.html#l01389">draw_splash()</a>, <a class="el" href="app_8c_source.html#l01741">draw_tilt()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>, <a class="el" href="obcp__app_8h_source.html#l00122">App::modal</a>, <a class="el" href="obcp__app_8h_source.html#l00046">MODAL_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00124">App::notice</a>, <a class="el" href="app_8c_source.html#l00148">notice_box</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00030">SCREEN_GROOVE</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00029">SCREEN_PAINT</a>, <a class="el" href="obcp__app_8h_source.html#l00038">SCREEN_RESPONSE</a>, <a class="el" href="obcp__app_8h_source.html#l00034">SCREEN_SETTINGS</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00037">SCREEN_TILT</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01894">app_render()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_aa35fcb6a48ee45eca0a326af27613d0a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad2ddc9f965c2f4403dad873c65f42608" name="ad2ddc9f965c2f4403dad873c65f42608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2ddc9f965c2f4403dad873c65f42608">&#9670;&#160;</a></span>app_start_splash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_start_splash </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Afficher l'accueil en conservant sa destination. </p>
+<p>Mémorise l'écran qui devait s'ouvrir, remet le compteur à zéro et choisit l'accueil. <a class="el" href="#a11d926c742668db89d39a87e43d503f6" title="Avancer les états temporels de vingt millisecondes.">app_step()</a> termine l'accueil après 3,2 s. Les capteurs continuent d'être servis par <a class="el" href="board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle.">board.c</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l00475">475</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00131">App::splash_ms</a>, et <a class="el" href="obcp__app_8h_source.html#l00121">App::splash_target</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_ad2ddc9f965c2f4403dad873c65f42608_cgraph.svg" width="458" height="354"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a11d926c742668db89d39a87e43d503f6" name="a11d926c742668db89d39a87e43d503f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d926c742668db89d39a87e43d503f6">&#9670;&#160;</a></span>app_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer les états temporels de vingt millisecondes. </p>
+<p>Le moteur du jeu actif reçoit les commandes filtrées. Les variations de score ou de temps invalident le bandeau. L'accueil et le curseur de groovebox utilisent également ce passage coopératif. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01140">1140</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="obcp__app_8h_source.html#l00111">App::breakout</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__app_8h_source.html#l00132">App::keys</a>, <a class="el" href="obcp__app_8h_source.html#l00110">App::maze</a>, <a class="el" href="maze_8c_source.html#l00274">maze_seconds_left()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, <a class="el" href="obcp__app_8h_source.html#l00112">App::race</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, <a class="el" href="obcp__games_8h_source.html#l00138">Breakout::score</a>, <a class="el" href="obcp__games_8h_source.html#l00217">Race::score</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00032">SCREEN_BREAKOUT</a>, <a class="el" href="obcp__app_8h_source.html#l00030">SCREEN_GROOVE</a>, <a class="el" href="obcp__app_8h_source.html#l00031">SCREEN_MAZE</a>, <a class="el" href="obcp__app_8h_source.html#l00033">SCREEN_RACE</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00128">App::shown_step</a>, <a class="el" href="obcp__app_8h_source.html#l00131">App::splash_ms</a>, <a class="el" href="obcp__app_8h_source.html#l00121">App::splash_target</a>, <a class="el" href="obcp__audio_8h_source.html#l00084">Audio::step</a>, <a class="el" href="app_8c_source.html#l00235">step_button()</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, <a class="el" href="app_8c_source.html#l00143">top</a>, <a class="el" href="obcp__input_8h_source.html#l00206">Tilt::x</a>, et <a class="el" href="obcp__input_8h_source.html#l00207">Tilt::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a11d926c742668db89d39a87e43d503f6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a740baa06a6811e4e02ef495080c5c7be" name="a740baa06a6811e4e02ef495080c5c7be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740baa06a6811e4e02ef495080c5c7be">&#9670;&#160;</a></span>app_store_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__storage_8h.html#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> app_store_task </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exécuter la requête de stockage en attente. </p>
+<p>Les formats propres au dessin, au motif, au tactile et aux axes sont traités séparément. Le résultat prépare le message de fin et sera utilisé par <a class="el" href="board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle.">board.c</a> pour l'impulsion de LED. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">storage</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Résultat STORE_OK, STORE_EMPTY, STORE_IO ou STORE_INVALID. STORE_EMPTY si aucun travail n'est demandé. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01249">1249</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="obcp__input_8h_source.html#l00209">Tilt::axes</a>, <a class="el" href="obcp__input_8h_source.html#l00300">TiltGuide::axes</a>, <a class="el" href="app_8c_source.html#l00168">AXES_BYTES</a>, <a class="el" href="app_8c_source.html#l00167">AXES_VERSION</a>, <a class="el" href="obcp__app_8h_source.html#l00114">App::book</a>, <a class="el" href="audio_8c_source.html#l00261">book_encode()</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00064">JOB_DRAW_OPEN</a>, <a class="el" href="obcp__app_8h_source.html#l00063">JOB_DRAW_SAVE</a>, <a class="el" href="obcp__app_8h_source.html#l00065">JOB_MUSIC_SAVE</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00069">JOB_PREFERENCES_SAVE</a>, <a class="el" href="obcp__app_8h_source.html#l00068">JOB_TILT_SAVE</a>, <a class="el" href="obcp__app_8h_source.html#l00067">JOB_TOUCH_CAL_SAVE</a>, <a class="el" href="obcp__paint_8h_source.html#l00061">Paint::modified</a>, <a class="el" href="obcp__config_8h_source.html#l00038">OBCP_LCD_MADCTL</a>, <a class="el" href="obcp__app_8h_source.html#l00109">App::paint</a>, <a class="el" href="app_8c_source.html#l00151">paint_canvas</a>, <a class="el" href="paint_8c_source.html#l00231">paint_load()</a>, <a class="el" href="paint_8c_source.html#l00209">paint_save()</a>, <a class="el" href="obcp__audio_8h_source.html#l00079">Audio::pattern</a>, <a class="el" href="obcp__audio_8h_source.html#l00056">PatternBook::pattern</a>, <a class="el" href="obcp__audio_8h_source.html#l00057">PatternBook::present</a>, <a class="el" href="obcp__input_8h_source.html#l00210">Tilt::response_x</a>, <a class="el" href="obcp__input_8h_source.html#l00211">Tilt::response_y</a>, <a class="el" href="obcp__storage_8h_source.html#l00033">SAVE_DRAW_1</a>, <a class="el" href="obcp__storage_8h_source.html#l00034">SAVE_DRAW_2</a>, <a class="el" href="obcp__storage_8h_source.html#l00035">SAVE_MUSIC</a>, <a class="el" href="obcp__storage_8h_source.html#l00038">SAVE_PREFERENCES</a>, <a class="el" href="obcp__storage_8h_source.html#l00037">SAVE_TILT_AXES</a>, <a class="el" href="obcp__app_8h_source.html#l00034">SCREEN_SETTINGS</a>, <a class="el" href="obcp__audio_8h_source.html#l00036">SEQ_BOOK_BYTES</a>, <a class="el" href="app_8c_source.html#l00443">set_notice()</a>, <a class="el" href="obcp__app_8h_source.html#l00125">App::slot</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, <a class="el" href="obcp__storage_8h_source.html#l00046">STORE_EMPTY</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, <a class="el" href="obcp__app_8h_source.html#l00118">App::tilt_guide</a>, <a class="el" href="input_8c_source.html#l00283">tilt_project()</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00282">touch_cal_save()</a>, <a class="el" href="obcp__input_8h_source.html#l00206">Tilt::x</a>, et <a class="el" href="obcp__input_8h_source.html#l00207">Tilt::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a740baa06a6811e4e02ef495080c5c7be_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aab9fab7a8a8f803ccd24b16db1454724" name="aab9fab7a8a8f803ccd24b16db1454724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab9fab7a8a8f803ccd24b16db1454724">&#9670;&#160;</a></span>app_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structTouchEvent.html">TouchEvent</a></td>          <td class="paramname"><span class="paramname"><em>touch</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distribuer un événement tactile à l'écran approprié. </p>
+<p>Les travaux flash et le calibrage brut ont leur propre entrée. Les dialogues reçoivent ensuite les gestes, puis le canevas, le retour et les écrans. Cet ordre évite qu'un appui serve deux commandes. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>Contexte des applications en RAM. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">touch</td><td>Événement de contact en coordonnées écran. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01019">1019</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="audio_8c_source.html#l00171">audio_key_release()</a>, <a class="el" href="app_8c_source.html#l00900">diag_touch()</a>, <a class="el" href="app_8c_source.html#l00588">game_touch()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, <a class="el" href="app_8c_source.html#l00144">home</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00037">TouchEvent::kind</a>, <a class="el" href="app_8c_source.html#l00193">menu_card()</a>, <a class="el" href="obcp__app_8h_source.html#l00122">App::modal</a>, <a class="el" href="obcp__app_8h_source.html#l00046">MODAL_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00055">MODAL_RGB</a>, <a class="el" href="app_8c_source.html#l00651">modal_touch()</a>, <a class="el" href="obcp__app_8h_source.html#l00124">App::notice</a>, <a class="el" href="app_8c_source.html#l00764">paint_touch()</a>, <a class="el" href="gfx_8c_source.html#l00066">rect_contains()</a>, <a class="el" href="app_8c_source.html#l00987">response_touch()</a>, <a class="el" href="app_8c_source.html#l00744">rgb_drag()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00030">SCREEN_GROOVE</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00029">SCREEN_PAINT</a>, <a class="el" href="obcp__app_8h_source.html#l00038">SCREEN_RESPONSE</a>, <a class="el" href="obcp__app_8h_source.html#l00034">SCREEN_SETTINGS</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00037">SCREEN_TILT</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="app_8c_source.html#l00443">set_notice()</a>, <a class="el" href="app_8c_source.html#l00962">settings_touch()</a>, <a class="el" href="app_8c_source.html#l00937">tilt_touch()</a>, <a class="el" href="obcp__input_8h_source.html#l00026">TOUCH_DOWN</a>, <a class="el" href="obcp__input_8h_source.html#l00027">TOUCH_MOVE</a>, <a class="el" href="obcp__input_8h_source.html#l00025">TOUCH_NONE</a>, <a class="el" href="obcp__input_8h_source.html#l00028">TOUCH_UP</a>, <a class="el" href="obcp__input_8h_source.html#l00038">TouchEvent::x</a>, et <a class="el" href="obcp__input_8h_source.html#l00039">TouchEvent::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_aab9fab7a8a8f803ccd24b16db1454724_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0b5dff93813c759e55d49a8ee0fabf7d" name="a0b5dff93813c759e55d49a8ee0fabf7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5dff93813c759e55d49a8ee0fabf7d">&#9670;&#160;</a></span>app_wants_audio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool app_wants_audio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structApp.html">App</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indiquer si le transport PWM doit fonctionner. </p>
+<p>Un travail flash suspend la production. L'audio est demandé lorsque la groovebox est ouverte ou lorsque la note de diagnostic est active. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Contexte des applications en RAM, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si <a class="el" href="board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle.">board.c</a> doit servir l'audio à cet instant. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="app_8c_source.html#l01180">1180</a> du fichier <a class="el" href="app_8c_source.html">app.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00030">SCREEN_GROOVE</a>, et <a class="el" href="obcp__audio_8h_source.html#l00087">Audio::test_tone</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__app_8h_a0b5dff93813c759e55d49a8ee0fabf7d_cgraph.svg" width="146" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__app_8h.html">obcp_app.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Sorties de compilation
+build/
+Debug/
+Release/
+Tests/build/
+Simulator/build/
+*.o
+*.d
+*.su
+*.map
+*.elf
+*.hex
+*.bin
+*.exe
+# binaires précompilés fournis avec le projet
+!Binaries/*.hex
+!Binaries/*.bin
+!Binaries/*.elf
+!Binaries/Simulateur_Windows/*.exe
+# STM32CubeIDE (seul le choix de l'encodage UTF-8 est conservé)
+.settings/*
+!.settings/org.eclipse.core.resources.prefs
+*.launch
+# Sauvegarde du simulateur, captures intermédiaires
+*.sav
+*.ppm
+# Python
+__pycache__/
+*.pyc

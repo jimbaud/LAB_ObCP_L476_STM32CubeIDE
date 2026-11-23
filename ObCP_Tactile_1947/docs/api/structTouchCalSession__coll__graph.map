@@ -1,0 +1,8 @@
+<map id="TouchCalSession" name="TouchCalSession">
+<area shape="rect" id="Node000001" title="Acquisition progressive des quatre cibles." alt="" coords="16,215,147,240"/>
+<area shape="rect" id="Node000002" href="$structTouchCalibration.html" title="Transformation affine du brut résistif vers les pixels." alt="" coords="143,110,273,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,146,97,217,94,212,181,142"/>
+<area shape="rect" id="Node000003" href="$structRawPoint.html" title="Position native avant calibrage et rotation." alt="" coords="5,5,88,31"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="43,44,36,91,36,117,40,143,56,183,75,213,71,216,51,185,35,145,31,118,31,91,38,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,36,191,108,188,112,75,41"/>
+</map>

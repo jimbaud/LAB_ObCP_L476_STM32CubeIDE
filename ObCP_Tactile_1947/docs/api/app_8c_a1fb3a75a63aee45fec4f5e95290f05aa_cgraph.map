@@ -1,0 +1,41 @@
+<map id="draw_tilt" name="draw_tilt">
+<area shape="rect" id="Node000001" title="Présenter les gestes demandés par l&#39;assistant d&#39;axes." alt="" coords="5,180,84,205"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="22,181,17,172,20,162,29,156,45,153,63,157,71,165,67,169,60,161,45,159,31,161,24,165,22,171,26,179"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="146,104,210,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,177,142,134,145,138,70,182"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="449,155,515,180"/>
+<area shape="poly" id="edge19_Node000001_Node000003" title=" " alt="" coords="84,192,210,196,288,194,366,189,435,176,436,182,367,194,288,200,210,201,84,198"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="272,29,367,55"/>
+<area shape="poly" id="edge20_Node000001_Node000009" title=" " alt="" coords="48,179,76,122,100,91,131,65,161,51,194,42,258,35,258,41,195,47,163,56,133,70,104,94,81,125,53,181"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="281,155,357,180"/>
+<area shape="poly" id="edge21_Node000001_Node000010" title=" " alt="" coords="84,186,267,169,268,175,85,192"/>
+<area shape="rect" id="Node000012" href="$gfx_8c.html#a67be800d450e0519ef923669e4f354bc" title="Dessiner un disque plein autour d&#39;un centre." alt="" coords="140,280,216,305"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="65,204,151,270,148,274,61,208"/>
+<area shape="rect" id="Node000015" href="$input_8c.html#a305a6f59b5ab0c60e06ea1a3f53f5084" title="Projeter le filtre brut dans un repère écran choisi." alt="" coords="132,381,224,407"/>
+<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="57,204,163,368,159,371,52,207"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="155,105,150,96,153,86,162,80,178,77,196,81,204,89,201,93,194,85,178,83,164,85,157,89,156,95,160,103"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="210,110,282,107,325,109,367,115,410,129,448,146,445,151,408,134,366,121,324,115,282,113,210,116"/>
+<area shape="poly" id="edge7_Node000002_Node000009" title=" " alt="" coords="202,101,281,59,284,64,205,106"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="211,125,271,147,269,152,209,130"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="455,156,449,146,452,137,463,130,482,128,504,131,514,140,510,144,502,136,482,133,465,135,456,140,454,146,459,153"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="597,243,728,268"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="510,178,624,234,622,239,508,183"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="633,244,627,234,630,225,642,218,663,216,687,220,698,228,694,232,685,224,663,221,644,223,634,228,632,234,637,241"/>
+<area shape="poly" id="edge8_Node000009_Node000003" title=" " alt="" coords="341,53,368,72,457,144,454,148,365,76,338,57"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="295,30,290,21,293,11,303,5,319,3,339,6,347,15,344,18,336,11,319,8,305,10,297,15,296,20,300,28"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="357,165,435,165,435,170,357,170"/>
+<area shape="poly" id="edge12_Node000010_Node000010" title=" " alt="" coords="295,156,290,146,293,137,303,130,319,128,339,132,347,140,344,144,336,136,319,133,305,135,297,140,296,146,300,153"/>
+<area shape="poly" id="edge18_Node000012_Node000005" title=" " alt="" coords="217,303,272,315,319,319,367,319,461,308,546,289,612,270,614,275,547,294,462,313,367,324,319,324,272,321,216,308"/>
+<area shape="poly" id="edge15_Node000012_Node000012" title=" " alt="" coords="155,281,150,272,153,262,162,256,178,253,196,257,204,265,201,269,194,261,178,259,164,261,157,265,156,271,160,279"/>
+<area shape="rect" id="Node000013" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="279,280,360,305"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="216,290,265,290,265,295,216,295"/>
+<area shape="poly" id="edge17_Node000013_Node000013" title=" " alt="" coords="295,281,290,272,293,262,303,256,319,253,339,257,347,265,344,269,336,262,319,259,305,261,297,265,296,271,300,279"/>
+<area shape="poly" id="edge28_Node000015_Node000015" title=" " alt="" coords="155,382,150,373,153,363,162,357,178,355,196,358,204,366,201,370,194,363,178,360,164,362,157,366,156,372,160,380"/>
+<area shape="rect" id="Node000016" href="$input_8c.html#ad58bef40c07b526064ef1cd6a24db5ef" title="Borner une commande de jeu." alt="" coords="415,431,549,456"/>
+<area shape="poly" id="edge23_Node000015_Node000016" title=" " alt="" coords="224,397,367,418,407,425,406,431,366,423,224,402"/>
+<area shape="rect" id="Node000017" href="$input_8c.html#ac328c1b75a84505344ea5e697f162547" title="Appliquer la zone morte et mettre une accélération à l&#39;échelle." alt="" coords="276,456,363,481"/>
+<area shape="poly" id="edge25_Node000015_Node000017" title=" " alt="" coords="205,405,284,447,281,452,202,409"/>
+<area shape="poly" id="edge24_Node000016_Node000016" title=" " alt="" coords="455,432,449,422,452,413,463,406,482,404,504,407,514,416,510,420,502,412,482,409,465,411,456,416,454,422,459,429"/>
+<area shape="poly" id="edge26_Node000017_Node000016" title=" " alt="" coords="362,459,401,453,401,459,363,465"/>
+<area shape="poly" id="edge27_Node000017_Node000017" title=" " alt="" coords="295,457,290,448,293,438,303,432,319,429,339,433,347,441,344,445,336,438,319,435,305,437,297,441,296,447,300,455"/>
+</map>

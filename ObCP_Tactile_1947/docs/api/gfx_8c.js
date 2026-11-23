@@ -1,0 +1,25 @@
+var gfx_8c =
+[
+    [ "damage_add", "gfx_8c.html#af10480bf9f8bbe5939f455012daebf98", null ],
+    [ "damage_full", "gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1", null ],
+    [ "gfx_disc", "gfx_8c.html#a67be800d450e0519ef923669e4f354bc", null ],
+    [ "gfx_fill", "gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f", null ],
+    [ "gfx_outline", "gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e", null ],
+    [ "gfx_pixel", "gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d", null ],
+    [ "gfx_text", "gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50", null ],
+    [ "gfx_triangle", "gfx_8c.html#a517a4331601be273707c63e63d10979b", null ],
+    [ "glyph", "gfx_8c.html#a483f913fa34cd8b2871e56fa7f7ed35c", null ],
+    [ "max_int", "gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe", null ],
+    [ "min_int", "gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a", null ],
+    [ "rect_contains", "gfx_8c.html#a283661c2111fd8092727ba3616e9b333", null ],
+    [ "rect_intersection", "gfx_8c.html#a135b689508e9ec047ec2f791a4101846", null ],
+    [ "rect_union", "gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541", null ],
+    [ "rect_valid", "gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89", null ],
+    [ "renderer_idle", "gfx_8c.html#a99bf94cd931e2d081b78fe5623fcc849", null ],
+    [ "renderer_task", "gfx_8c.html#a7aad3aeefb3bfad8f63100649aa9fdb1", null ],
+    [ "digits", "gfx_8c.html#a59aebea400b80c9975ea63a94708bc7f", null ],
+    [ "LCD_RECT", "gfx_8c.html#aea3060035e49b901cb4ab30682c98655", null ],
+    [ "letters", "gfx_8c.html#af44026ee9223a4285dca3acefdb1bbfb", null ],
+    [ "lower_letters", "gfx_8c.html#a4e5c3ef0734cc3ebc991ed63b158581e", null ],
+    [ "symbols", "gfx_8c.html#a427c69e84298e23a4ab27b659511d335", null ]
+];

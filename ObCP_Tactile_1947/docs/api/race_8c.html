@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/race.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('race_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier race.c<div class="ingroups"><a class="el" href="group__obcp__apps.html">Applications et navigation</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Trafic, conduite, collisions et éclat de bande dessinée.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de race.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c__incl.svg" width="166" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="race_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:_5Bstruct_5D_2Elevels" id="r__5Bstruct_5D_2Elevels"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_0fstruct_0e_8levels.html">[struct].levels</a></td></tr>
+<tr class="memitem:_5Bstruct_5D_2Evehicles" id="r__5Bstruct_5D_2Evehicles"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_0fstruct_0e_8vehicles.html">[struct].vehicles</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a3cdc91d18cb4cdc139773eb13ca9e3b4" id="r_a3cdc91d18cb4cdc139773eb13ca9e3b4"><td class="memItemLeft"><a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e">ROAD_X</a> = 52
+, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8">ROAD_W</a> = 216
+, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">ROAD_Y</a> = 34
+, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8">CAR_W</a> = 29
+, <br />
+&#160;&#160;<b>CAR_H</b> = 32
+, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a80fd566275353a81de824a6f9a7f0279">HERO_Y</a> = 195
+<br />
+ }</td></tr>
+<tr class="memdesc:a3cdc91d18cb4cdc139773eb13ca9e3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a3cdc91d18cb4cdc139773eb13ca9e3b4">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac84a5a7328eff67860767c30560fc2e1" id="r_ac84a5a7328eff67860767c30560fc2e1"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac84a5a7328eff67860767c30560fc2e1">car_box</a> (float x, float y)</td></tr>
+<tr class="memdesc:ac84a5a7328eff67860767c30560fc2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir le centre horizontal du joueur en rectangle.  <br /></td></tr>
+<tr class="memitem:a73f9e75e67f0a315d46533a3f9969e61" id="r_a73f9e75e67f0a315d46533a3f9969e61"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73f9e75e67f0a315d46533a3f9969e61">rival_box</a> (const <a class="el" href="structRival.html">Rival</a> *r)</td></tr>
+<tr class="memdesc:a73f9e75e67f0a315d46533a3f9969e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'emprise d'un adversaire selon son véhicule.  <br /></td></tr>
+<tr class="memitem:ad1065d7ddd94b4aa4577f43ac5896916" id="r_ad1065d7ddd94b4aa4577f43ac5896916"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad1065d7ddd94b4aa4577f43ac5896916">dash</a> (unsigned lane, int y, int phase)</td></tr>
+<tr class="memdesc:ad1065d7ddd94b4aa4577f43ac5896916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer la partie visible d'un marquage routier.  <br /></td></tr>
+<tr class="memitem:abcf9910723248cdb598cdb24684d5263" id="r_abcf9910723248cdb598cdb24684d5263"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abcf9910723248cdb598cdb24684d5263">dash_damage</a> (<a class="el" href="structDamage.html">Damage</a> *d, int phase)</td></tr>
+<tr class="memdesc:abcf9910723248cdb598cdb24684d5263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalider les marquages à un décalage donné.  <br /></td></tr>
+<tr class="memitem:ad76ba4b12108d007c0d2ce44bd645719" id="r_ad76ba4b12108d007c0d2ce44bd645719"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad76ba4b12108d007c0d2ce44bd645719">race_init</a> (<a class="el" href="structRace.html">Race</a> *r, unsigned level)</td></tr>
+<tr class="memdesc:ad76ba4b12108d007c0d2ce44bd645719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer une course et son générateur déterministe.  <br /></td></tr>
+<tr class="memitem:aadd5d2edbc68622ecebb4548fe099821" id="r_aadd5d2edbc68622ecebb4548fe099821"><td class="memItemLeft">unsigned&#160;</td><td class="memItemRight"><a class="el" href="#aadd5d2edbc68622ecebb4548fe099821">race_goal</a> (const <a class="el" href="structRace.html">Race</a> *r)</td></tr>
+<tr class="memdesc:aadd5d2edbc68622ecebb4548fe099821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire l'objectif de dépassements du niveau.  <br /></td></tr>
+<tr class="memitem:ad046de6584c1e301043ba8781df2f36d" id="r_ad046de6584c1e301043ba8781df2f36d"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ad046de6584c1e301043ba8781df2f36d">spawn</a> (<a class="el" href="structRace.html">Race</a> *r)</td></tr>
+<tr class="memdesc:ad046de6584c1e301043ba8781df2f36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un adversaire dans une place libre.  <br /></td></tr>
+<tr class="memitem:a04385f55744a2f6bba48c4f9ad04353d" id="r_a04385f55744a2f6bba48c4f9ad04353d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a04385f55744a2f6bba48c4f9ad04353d">race_step</a> (<a class="el" href="structRace.html">Race</a> *r, float tilt_x, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a04385f55744a2f6bba48c4f9ad04353d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer direction, trafic et état de collision.  <br /></td></tr>
+<tr class="memitem:adc42e1d82cec6600a6a22890a89f3557" id="r_adc42e1d82cec6600a6a22890a89f3557"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#adc42e1d82cec6600a6a22890a89f3557">draw_vehicle</a> (<a class="el" href="structGfx.html">Gfx</a> *g, <a class="el" href="structRect.html">Rect</a> body, <a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1">Vehicle</a> kind, uint16_t color)</td></tr>
+<tr class="memdesc:adc42e1d82cec6600a6a22890a89f3557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner les éléments visibles d'un véhicule.  <br /></td></tr>
+<tr class="memitem:abac116bffcf3977c71409055c0f1a0e9" id="r_abac116bffcf3977c71409055c0f1a0e9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abac116bffcf3977c71409055c0f1a0e9">draw_crash</a> (const <a class="el" href="structRace.html">Race</a> *r, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:abac116bffcf3977c71409055c0f1a0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessiner l'éclat jaune et le texte BOUM.  <br /></td></tr>
+<tr class="memitem:a370172bedebc8c9d1a54127769acfd5b" id="r_a370172bedebc8c9d1a54127769acfd5b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a370172bedebc8c9d1a54127769acfd5b">race_draw</a> (const <a class="el" href="structRace.html">Race</a> *r, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:a370172bedebc8c9d1a54127769acfd5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomposer route, véhicules et collision.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad8569863f56dcc29e01f31d3b8301902" id="r_ad8569863f56dcc29e01f31d3b8301902"><td class="memItemLeft">static const <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad8569863f56dcc29e01f31d3b8301902">road</a> = {<a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e">ROAD_X</a>, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">ROAD_Y</a>, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8">ROAD_W</a>, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a> - <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">ROAD_Y</a>}</td></tr>
+<tr class="memdesc:ad8569863f56dcc29e01f31d3b8301902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emprise du ruban routier de 216 pixels de large.  <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft"><a class="el" href="struct_0fstruct_0e_8levels.html">static const struct </a>&#160;</td><td class="memItemRight"><a class="el" href="#a61cdab60b97ec986808aae8c224f53cb">levels</a> [<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td></tr>
+<tr class="memdesc:a61cdab60b97ec986808aae8c224f53cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objectifs, intervalles d'apparition et vitesse des dix niveaux de course.  <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft"><a class="el" href="struct_0fstruct_0e_8vehicles.html">static const struct </a>&#160;</td><td class="memItemRight"><a class="el" href="#a2981cf676dd31b2033654868d07106b4">vehicles</a> []</td></tr>
+<tr class="memdesc:a2981cf676dd31b2033654868d07106b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions correspondant à chaque valeur de l'énumération <a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1" title="Types de véhicules admis par les niveaux de course.">Vehicle</a>.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Trafic, conduite, collisions et éclat de bande dessinée. </p>
+<p>Le jeu possède trois voies et jusqu’à six adversaires. Leur type choisit les dimensions, tandis que leur vitesse verticale commune dépend du niveau. L’animation de collision est un état temporisé et n’utilise aucune attente bloquante.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a3cdc91d18cb4cdc139773eb13ca9e3b4" name="a3cdc91d18cb4cdc139773eb13ca9e3b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdc91d18cb4cdc139773eb13ca9e3b4">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e" name="a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e"></a>ROAD_X&#160;</td><td class="fielddoc"><p>Abscisse du bord gauche de la route en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8" name="a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8"></a>ROAD_W&#160;</td><td class="fielddoc"><p>Largeur de la route en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3" name="a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3"></a>ROAD_Y&#160;</td><td class="fielddoc"><p>Ordonnée du début visible de la route en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8" name="a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8"></a>CAR_W&#160;</td><td class="fielddoc"><p>Largeur du véhicule du joueur en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3cdc91d18cb4cdc139773eb13ca9e3b4a80fd566275353a81de824a6f9a7f0279" name="a3cdc91d18cb4cdc139773eb13ca9e3b4a80fd566275353a81de824a6f9a7f0279"></a>HERO_Y&#160;</td><td class="fielddoc"><p>Ordonnée fixe du véhicule du joueur en pixels. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00027">27</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="ac84a5a7328eff67860767c30560fc2e1" name="ac84a5a7328eff67860767c30560fc2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84a5a7328eff67860767c30560fc2e1">&#9670;&#160;</a></span>car_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> car_box </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convertir le centre horizontal du joueur en rectangle. </p>
+<p>La coordonnée verticale désigne le haut. Les dimensions du joueur sont fixes afin de partager la même emprise entre collision et dessin. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Abscisse dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la voiture du joueur. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00061">61</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="race_8c_source.html#l00061">car_box()</a>, et <a class="el" href="race_8c_source.html#l00031">CAR_W</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00061">car_box()</a>, <a class="el" href="race_8c_source.html#l00314">race_draw()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_ac84a5a7328eff67860767c30560fc2e1_cgraph.svg" width="84" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad1065d7ddd94b4aa4577f43ac5896916" name="ad1065d7ddd94b4aa4577f43ac5896916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1065d7ddd94b4aa4577f43ac5896916">&#9670;&#160;</a></span>dash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> dash </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>lane</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>phase</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer la partie visible d'un marquage routier. </p>
+<p>Le décalage de défilement est ajouté à la ligne de base, puis l'emprise est limitée à la route. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lane</td><td>Indice du séparateur de voie à dessiner. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Ordonnée dans le repère écran, en pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">phase</td><td>Décalage vertical des pointillés de route, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle visible du marquage. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00092">92</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, et <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_ad1065d7ddd94b4aa4577f43ac5896916_cgraph.svg" width="366" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abcf9910723248cdb598cdb24684d5263" name="abcf9910723248cdb598cdb24684d5263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf9910723248cdb598cdb24684d5263">&#9670;&#160;</a></span>dash_damage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dash_damage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>phase</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Invalider les marquages à un décalage donné. </p>
+<p>Cette routine est appelée avant et après l'avancement. Les anciennes marques sont donc effacées et les nouvelles recomposées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">d</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">phase</td><td>Décalage vertical des pointillés de route, en pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00106">106</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, et <a class="el" href="race_8c_source.html#l00030">ROAD_Y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_abcf9910723248cdb598cdb24684d5263_cgraph.svg" width="458" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abac116bffcf3977c71409055c0f1a0e9" name="abac116bffcf3977c71409055c0f1a0e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abac116bffcf3977c71409055c0f1a0e9">&#9670;&#160;</a></span>draw_crash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_crash </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessiner l'éclat jaune et le texte BOUM. </p>
+<p>Les triangles et le disque créent un éclat centré sur l'impact. La teinte alterne avec les tranches du compteur d'animation pour donner une brève pulsation. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00292">292</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00220">Race::crash_ms</a>, <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00277">gfx_text()</a>, <a class="el" href="gfx_8c_source.html#l00252">gfx_triangle()</a>, <a class="el" href="obcp__games_8h_source.html#l00221">Race::impact_x</a>, <a class="el" href="obcp__games_8h_source.html#l00222">Race::impact_y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_abac116bffcf3977c71409055c0f1a0e9_cgraph.svg" width="100%" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="adc42e1d82cec6600a6a22890a89f3557" name="adc42e1d82cec6600a6a22890a89f3557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc42e1d82cec6600a6a22890a89f3557">&#9670;&#160;</a></span>draw_vehicle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_vehicle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRect.html">Rect</a></td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1">Vehicle</a></td>          <td class="paramname"><span class="paramname"><em>kind</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dessiner les éléments visibles d'un véhicule. </p>
+<p>Les primitives sont intersectées avec la route en conservant le pas du tampon <a class="el" href="structGfx.html" title="Vue de dessin sur un tampon de bande RGB565.">Gfx</a>. Moto, fourgonnette et camion ont leurs détails et dimensions propres. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">body</td><td>Emprise graphique et de collision du véhicule. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kind</td><td>Type de véhicule déterminant ses détails graphiques. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Couleur encodée au format RGB565. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00255">255</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__gfx_8h_source.html#l00065">Gfx::clip</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="obcp__games_8h_source.html#l00189">VEHICLE_BIKE</a>, <a class="el" href="obcp__games_8h_source.html#l00191">VEHICLE_TRUCK</a>, <a class="el" href="obcp__games_8h_source.html#l00190">VEHICLE_VAN</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_adc42e1d82cec6600a6a22890a89f3557_cgraph.svg" width="412" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a370172bedebc8c9d1a54127769acfd5b" name="a370172bedebc8c9d1a54127769acfd5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370172bedebc8c9d1a54127769acfd5b">&#9670;&#160;</a></span>race_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recomposer route, véhicules et collision. </p>
+<p>Le fond et les marquages sont reconstruits avant les adversaires et le joueur. Le BOUM est superposé si son compteur est encore positif. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00314">314</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00202">Rival::active</a>, <a class="el" href="race_8c_source.html#l00061">car_box()</a>, <a class="el" href="obcp__games_8h_source.html#l00220">Race::crash_ms</a>, <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="race_8c_source.html#l00292">draw_crash()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="race_8c_source.html#l00033">HERO_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00203">Rival::kind</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="obcp__gfx_8h_source.html#l00029">LCD_WIDTH</a>, <a class="el" href="obcp__games_8h_source.html#l00213">Race::player_x</a>, <a class="el" href="obcp__games_8h_source.html#l00026">RACE_CARS</a>, <a class="el" href="race_8c_source.html#l00314">race_draw()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>, <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>, <a class="el" href="race_8c_source.html#l00030">ROAD_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00214">Race::scroll</a>, et <a class="el" href="obcp__games_8h_source.html#l00188">VEHICLE_CAR</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, et <a class="el" href="race_8c_source.html#l00314">race_draw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_a370172bedebc8c9d1a54127769acfd5b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aadd5d2edbc68622ecebb4548fe099821" name="aadd5d2edbc68622ecebb4548fe099821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd5d2edbc68622ecebb4548fe099821">&#9670;&#160;</a></span>race_goal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned race_goal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire l'objectif de dépassements du niveau. </p>
+<p>Le premier niveau vise 50 véhicules et le dernier 300. Les paramètres sont constants et n'occupent pas de stockage persistant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de véhicules à dépasser pour gagner le niveau. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00136">136</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00219">Race::level</a>, <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, et <a class="el" href="race_8c_source.html#l00136">race_goal()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01487">draw_game()</a>, <a class="el" href="race_8c_source.html#l00136">race_goal()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_aadd5d2edbc68622ecebb4548fe099821_cgraph.svg" width="96" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad76ba4b12108d007c0d2ce44bd645719" name="ad76ba4b12108d007c0d2ce44bd645719"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76ba4b12108d007c0d2ce44bd645719">&#9670;&#160;</a></span>race_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer une course et son générateur déterministe. </p>
+<p>Place le joueur au centre, deux véhicules de départ sur les côtés et l'objectif du niveau. Un indice hors plage choisit le niveau zéro. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00121">121</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, <a class="el" href="race_8c_source.html#l00121">race_init()</a>, et <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>, et <a class="el" href="race_8c_source.html#l00121">race_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_ad76ba4b12108d007c0d2ce44bd645719_cgraph.svg" width="90" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a04385f55744a2f6bba48c4f9ad04353d" name="a04385f55744a2f6bba48c4f9ad04353d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04385f55744a2f6bba48c4f9ad04353d">&#9670;&#160;</a></span>race_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void race_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer direction, trafic et état de collision. </p>
+<p>En course, déplace le joueur, les marquages et les adversaires. Une collision précède la validation du score gagnant. Après une collision, seul le compteur de BOUM continue jusqu'au bilan. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00175">175</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00202">Rival::active</a>, <a class="el" href="race_8c_source.html#l00061">car_box()</a>, <a class="el" href="race_8c_source.html#l00031">CAR_W</a>, <a class="el" href="obcp__games_8h_source.html#l00220">Race::crash_ms</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="race_8c_source.html#l00106">dash_damage()</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="race_8c_source.html#l00033">HERO_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00221">Race::impact_x</a>, <a class="el" href="obcp__games_8h_source.html#l00222">Race::impact_y</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="obcp__games_8h_source.html#l00219">Race::level</a>, <a class="el" href="breakout_8c.html#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="obcp__games_8h_source.html#l00223">Race::phase</a>, <a class="el" href="obcp__games_8h_source.html#l00213">Race::player_x</a>, <a class="el" href="obcp__games_8h_source.html#l00026">RACE_CARS</a>, <a class="el" href="race_8c_source.html#l00136">race_goal()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>, <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, <a class="el" href="race_8c_source.html#l00035">road</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>, <a class="el" href="obcp__games_8h_source.html#l00217">Race::score</a>, <a class="el" href="obcp__games_8h_source.html#l00214">Race::scroll</a>, <a class="el" href="race_8c_source.html#l00148">spawn()</a>, <a class="el" href="obcp__games_8h_source.html#l00215">Race::spawn_ms</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, et <a class="el" href="obcp__games_8h_source.html#l00200">Rival::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_a04385f55744a2f6bba48c4f9ad04353d_cgraph.svg" width="591" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a73f9e75e67f0a315d46533a3f9969e61" name="a73f9e75e67f0a315d46533a3f9969e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f9e75e67f0a315d46533a3f9969e61">&#9670;&#160;</a></span>rival_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> rival_box </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRival.html">Rival</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer l'emprise d'un adversaire selon son véhicule. </p>
+<p>Le numéro de voie donne le centre horizontal. Le type donne largeur et hauteur, ce qui distingue notamment moto étroite et camion long. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Position, voie et type de l’adversaire, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle de collision et de rendu de l'adversaire. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00075">75</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00203">Rival::kind</a>, <a class="el" href="obcp__games_8h_source.html#l00201">Rival::lane</a>, <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, <a class="el" href="race_8c_source.html#l00029">ROAD_W</a>, <a class="el" href="race_8c_source.html#l00028">ROAD_X</a>, <a class="el" href="#a2981cf676dd31b2033654868d07106b4">vehicles</a>, et <a class="el" href="obcp__games_8h_source.html#l00200">Rival::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00314">race_draw()</a>, <a class="el" href="race_8c_source.html#l00175">race_step()</a>, et <a class="el" href="race_8c_source.html#l00075">rival_box()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_a73f9e75e67f0a315d46533a3f9969e61_cgraph.svg" width="94" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad046de6584c1e301043ba8781df2f36d" name="ad046de6584c1e301043ba8781df2f36d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad046de6584c1e301043ba8781df2f36d">&#9670;&#160;</a></span>spawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void spawn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRace.html">Race</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Créer un adversaire dans une place libre. </p>
+<p>Le générateur choisit une voie différente de la précédente et un type autorisé par le niveau. Un seul véhicule est créé par échéance pour éviter une rangée complète. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">r</td><td>Joueur, adversaires et progression de la course. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00148">148</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00202">Rival::active</a>, <a class="el" href="obcp__games_8h_source.html#l00218">Race::last_lane</a>, <a class="el" href="obcp__games_8h_source.html#l00219">Race::level</a>, <a class="el" href="obcp__games_8h_source.html#l00026">RACE_CARS</a>, <a class="el" href="obcp__games_8h_source.html#l00212">Race::rival</a>, <a class="el" href="race_8c_source.html#l00030">ROAD_Y</a>, <a class="el" href="obcp__games_8h_source.html#l00216">Race::seed</a>, <a class="el" href="race_8c_source.html#l00148">spawn()</a>, et <a class="el" href="#a2981cf676dd31b2033654868d07106b4">vehicles</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00175">race_step()</a>, et <a class="el" href="race_8c_source.html#l00148">spawn()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="race_8c_ad046de6584c1e301043ba8781df2f36d_cgraph.svg" width="75" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a61cdab60b97ec986808aae8c224f53cb" name="a61cdab60b97ec986808aae8c224f53cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61cdab60b97ec986808aae8c224f53cb">&#9670;&#160;</a></span>levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="struct_0fstruct_0e_8levels.html">[struct].levels</a> levels[<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {1100, 50, 2.4f}, {1000, 60, 2.65f}, {900, 75, 2.9f}, {800, 90, 3.15f},</div>
+<div class="line">    {720, 110, 3.4f}, {640, 135, 3.7f}, {560, 165, 4.0f}, {480, 200, 4.4f},</div>
+<div class="line">    {420, 240, 4.8f}, {360, 300, 5.2f},</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Objectifs, intervalles d'apparition et vitesse des dix niveaux de course. </p>
+
+</div>
+</div>
+<a id="ad8569863f56dcc29e01f31d3b8301902" name="ad8569863f56dcc29e01f31d3b8301902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8569863f56dcc29e01f31d3b8301902">&#9670;&#160;</a></span>road</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structRect.html">Rect</a> road = {<a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4acd957c2de9641b29a38e7c922ab9d33e">ROAD_X</a>, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">ROAD_Y</a>, <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a9f28692dcbe4bf224e6ebd0872a8d0f8">ROAD_W</a>, <a class="el" href="obcp__gfx_8h.html#a2480998fcc7ce4bc99a1323d2ea8f180aa87431caf8f8c7abb33bca4cac9e5c16">LCD_HEIGHT</a> - <a class="el" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a902a8a4667430a740f660050705a7df3">ROAD_Y</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emprise du ruban routier de 216 pixels de large. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="race_8c_source.html#l00035">35</a> du fichier <a class="el" href="race_8c_source.html">race.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00092">dash()</a>, <a class="el" href="race_8c_source.html#l00255">draw_vehicle()</a>, <a class="el" href="race_8c_source.html#l00314">race_draw()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+
+</div>
+</div>
+<a id="a2981cf676dd31b2033654868d07106b4" name="a2981cf676dd31b2033654868d07106b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2981cf676dd31b2033654868d07106b4">&#9670;&#160;</a></span>vehicles</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="struct_0fstruct_0e_8vehicles.html">[struct].vehicles</a> vehicles[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<a class="code hl_enumvalue" href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8">CAR_W</a>, CAR_H}, {15, 27}, {35, 44}, {43, 56}</div>
+<div class="line">}</div>
+<div class="ttc" id="arace_8c_html_a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8"><div class="ttname"><a href="#a3cdc91d18cb4cdc139773eb13ca9e3b4a6dbf75b17667c4458cec1573352f4ae8">CAR_W</a></div><div class="ttdeci">@ CAR_W</div><div class="ttdef"><b>Définition</b> <a href="race_8c_source.html#l00031">race.c:31</a></div></div>
+</div><!-- fragment -->
+<p>Dimensions correspondant à chaque valeur de l'énumération <a class="el" href="obcp__games_8h.html#a0d093d9aaa5424deec47d46d2b3c9df1" title="Types de véhicules admis par les niveaux de course.">Vehicle</a>. </p>
+
+<p class="reference">Référencé par <a class="el" href="race_8c_source.html#l00075">rival_box()</a>, et <a class="el" href="race_8c_source.html#l00148">spawn()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="race_8c.html">race.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

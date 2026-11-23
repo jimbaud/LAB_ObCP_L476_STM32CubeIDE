@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Bannière d'ObCP Adventure</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure {
+    width: 960px; height: 300px;
+    background:
+      radial-gradient(520px 300px at 78% 60%, var(--lueur-1), transparent 70%),
+      radial-gradient(360px 240px at 95% 14%, var(--lueur-2), transparent 70%),
+      linear-gradient(115deg, var(--fond-doux) 0%, var(--fond) 58%);
+  }
+  [data-theme="clair"]  .figure { --lueur-1: rgba(26, 127, 55, .10);  --lueur-2: rgba(9, 105, 218, .10); }
+  [data-theme="sombre"] .figure { --lueur-1: rgba(63, 185, 80, .15); --lueur-2: rgba(68, 147, 248, .16);
+                                   background-color: var(--fond); }
+  .texte { position: absolute; left: 46px; top: 50%; transform: translateY(-52%); width: 436px; }
+  .surtitre { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--discret); }
+  h1 { font-family: "Inter Display", "Inter", sans-serif; font-size: 48px; font-weight: 800;
+       letter-spacing: -.025em; line-height: 1.02; margin: 10px 0 14px; }
+  h1 .jeu { background: linear-gradient(90deg, var(--vert), var(--bleu));
+            -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .accroche { font-size: 16.4px; line-height: 1.45; color: var(--texte); opacity: .86; }
+  .pastilles { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .pastilles .pastille { font-size: 12.5px; padding: 4px 11px; background: var(--fond); }
+  .pastilles .pastille.vert, .pastilles .pastille.bleu { background: var(--c-fond); }
+  .carte { position: absolute; right: -8px; bottom: -6px; width: 430px; opacity: .97; }
+  /* écran du shield : la vraie image du jeu (rendu C, simulateur) */
+  .ecran { position: absolute; right: 196px; top: 30px; width: 276px; padding: 11px 11px 26px;
+           border-radius: 12px; background: #11161d; box-shadow: 0 12px 30px rgba(0, 0, 0, .28), 0 0 0 1px rgba(255,255,255,.06) inset;
+           transform: rotate(-3deg); }
+  .ecran img { display: block; width: 254px; height: 190px; image-rendering: pixelated; border-radius: 2px; }
+  .ecran .marque { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-size: 9.5px;
+                   letter-spacing: .08em; color: #7d8590; font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <img class="carte" src="ressources/carte_iso.png" alt="">
+  <div class="ecran"><img src="../../images/jeu_niveau04.png" alt=""><div class="marque">ILI9341 · 320 × 240 · TACTILE</div></div>
+  <div class="texte">
+    <div class="surtitre">LAB ObCP · ObCP_Adventure</div>
+    <h1>ObCP <span class="jeu">Adventure</span></h1>
+    <p class="accroche">Jeu de plateformes en C sur écran tactile&nbsp;: dix niveaux, physique à 60 Hz, affichage par bandes et DMA.</p>
+    <div class="pastilles">
+      <span class="pastille vert">version 1.0.0</span>
+      <span class="pastille bleu">régénérable par CubeMX</span>
+      <span class="pastille">simulateur PC</span>
+    </div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>quand_pret(() => {});</script>
+</body>
+</html>

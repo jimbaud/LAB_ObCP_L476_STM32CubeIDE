@@ -1,0 +1,16 @@
+<map id="storage_read_sized" name="storage_read_sized">
+<area shape="rect" id="Node000001" title="Lire un objet en découvrant sa longueur de format." alt="" coords="5,103,153,128"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="50,104,44,94,47,85,59,78,79,76,104,80,114,88,110,92,101,84,79,81,61,83,51,88,49,94,54,101"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="207,65,307,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,100,192,89,194,94,141,105"/>
+<area shape="rect" id="Node000009" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="201,139,312,164"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="143,125,188,135,187,140,142,131"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="233,66,229,57,231,47,241,41,257,39,275,42,284,50,280,54,273,47,257,44,243,46,235,51,234,56,238,64"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a0052b460460767a33ed783dc2a5bf4fe" title="Valider l&#39;en&#45;tête, la longueur et le contenu d&#39;une copie." alt="" coords="360,29,429,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="305,63,346,52,347,57,306,68"/>
+<area shape="rect" id="Node000008" href="$storage_8c.html#a2396428e753d6782feb08c8595fd4dcc" title="Comparer deux générations avec débordement du compteur." alt="" coords="363,103,426,128"/>
+<area shape="poly" id="edge5_Node000002_Node000008" title=" " alt="" coords="305,88,351,101,349,106,303,93"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="371,30,367,21,369,11,379,5,395,3,413,6,422,14,418,18,411,11,395,8,381,10,373,15,372,20,376,28"/>
+<area shape="poly" id="edge6_Node000008_Node000008" title=" " alt="" coords="371,104,367,94,369,85,379,78,395,76,413,79,422,88,418,91,411,84,395,81,381,83,373,88,372,94,376,101"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="233,140,229,130,231,121,241,114,257,112,275,115,284,124,280,127,273,120,257,117,243,119,235,124,234,130,238,137"/>
+</map>

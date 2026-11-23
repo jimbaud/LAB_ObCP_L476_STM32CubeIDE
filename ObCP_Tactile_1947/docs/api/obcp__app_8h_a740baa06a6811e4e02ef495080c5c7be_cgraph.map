@@ -1,0 +1,70 @@
+<map id="app_store_task" name="app_store_task">
+<area shape="rect" id="Node000001" title="Exécuter la requête de stockage en attente." alt="" coords="5,589,127,615"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="38,591,32,581,35,571,47,565,66,563,89,566,99,575,95,579,87,571,66,568,48,570,39,575,37,580,42,588"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="193,191,279,216"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,588,172,345,222,228,226,230,177,347,75,590"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="557,347,660,372"/>
+<area shape="poly" id="edge25_Node000001_Node000004" title=" " alt="" coords="67,589,76,548,95,492,126,435,148,409,173,388,202,375,242,365,342,354,450,352,544,354,544,359,450,357,342,360,243,370,204,380,176,392,151,413,131,438,100,494,81,549,72,590"/>
+<area shape="rect" id="Node000014" href="$audio_8c.html#aae8b3805f86512bb5a7a7574e172db15" title="Encoder les quatre motifs dans un format stable." alt="" coords="182,427,290,452"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="73,588,113,533,141,500,173,469,192,456,195,461,176,473,145,503,117,536,78,591"/>
+<area shape="rect" id="Node000015" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="366,488,473,513"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="76,587,116,549,143,528,174,513,219,500,266,493,352,491,352,497,266,498,220,505,176,518,146,533,119,553,80,591"/>
+<area shape="rect" id="Node000021" href="$paint_8c.html#a31830eb1984f3b7d755440501c98f4fa" title="Lire un dessin historique ou enrichi et sa palette." alt="" coords="191,625,281,651"/>
+<area shape="poly" id="edge26_Node000001_Node000021" title=" " alt="" coords="127,612,178,623,176,628,126,617"/>
+<area shape="rect" id="Node000031" href="$paint_8c.html#aafb9af7906e60fbec185f38e358eb8e9" title="Encoder la palette et sauvegarder le dessin enrichi." alt="" coords="189,699,283,724"/>
+<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="89,613,205,689,202,693,86,617"/>
+<area shape="rect" id="Node000032" href="$storage_8c.html#acdb0d3d7df8fc923acd7743abdca12cf" title="Écrire et valider la copie inactive d&#39;un objet." alt="" coords="365,749,474,775"/>
+<area shape="poly" id="edge37_Node000001_Node000032" title=" " alt="" coords="76,614,90,640,112,673,141,707,176,733,218,751,264,761,309,765,350,765,350,771,309,770,263,766,217,756,173,738,137,710,108,677,85,643,71,616"/>
+<area shape="rect" id="Node000034" href="$app_8c.html#a8a71fd897fb828a8a93919001d935512" title="Préparer un message temporaire pour l&#39;utilisateur." alt="" coords="191,552,281,577"/>
+<area shape="poly" id="edge34_Node000001_Node000034" title=" " alt="" coords="124,587,177,575,178,580,125,592"/>
+<area shape="rect" id="Node000035" href="$input_8c.html#a305a6f59b5ab0c60e06ea1a3f53f5084" title="Projeter le filtre brut dans un repère écran choisi." alt="" coords="190,897,282,923"/>
+<area shape="poly" id="edge38_Node000001_Node000035" title=" " alt="" coords="73,614,85,658,106,721,136,792,177,859,205,887,201,890,173,862,131,794,101,723,80,659,68,616"/>
+<area shape="rect" id="Node000038" href="$calibration_8c.html#a042bbd7dd8ee4e02581c0b72c0b1f1e1" title="Encoder puis enregistrer les deux profils." alt="" coords="175,824,297,849"/>
+<area shape="poly" id="edge45_Node000001_Node000038" title=" " alt="" coords="76,614,115,687,144,734,177,779,210,813,206,817,173,782,139,737,110,689,71,616"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="208,192,202,182,205,173,217,166,236,164,259,167,269,176,265,180,257,172,236,169,218,171,209,176,207,182,212,189"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="373,29,466,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="243,189,282,134,311,101,344,72,367,58,369,63,347,76,315,105,286,137,247,192"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="246,188,286,150,314,130,344,116,386,101,422,94,456,98,495,116,521,137,544,163,562,192,577,223,597,283,607,332,601,333,591,285,572,225,557,195,539,166,518,141,492,120,455,103,422,99,388,107,346,120,317,135,290,154,250,192"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="353,155,486,180"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="278,192,341,180,342,185,279,198"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="363,228,475,253"/>
+<area shape="poly" id="edge9_Node000002_Node000011" title=" " alt="" coords="279,209,350,224,349,229,278,215"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="359,301,480,327"/>
+<area shape="poly" id="edge11_Node000002_Node000013" title=" " alt="" coords="259,214,387,292,384,296,257,218"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="389,31,383,21,386,11,399,5,419,3,444,6,455,15,451,19,442,11,419,8,400,10,390,15,388,20,394,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="577,348,571,338,574,328,587,322,609,320,635,324,646,332,642,336,633,328,609,325,589,327,578,332,576,338,582,345"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="389,156,383,146,386,137,399,130,419,128,444,132,455,140,451,144,442,136,419,133,400,135,390,140,388,146,394,153"/>
+<area shape="poly" id="edge10_Node000011_Node000011" title=" " alt="" coords="389,229,383,220,386,210,399,204,419,201,444,205,455,214,451,218,442,210,419,207,400,209,390,213,388,219,394,226"/>
+<area shape="poly" id="edge12_Node000013_Node000013" title=" " alt="" coords="389,303,383,293,386,283,399,277,419,275,444,278,455,287,451,291,442,283,419,280,400,282,390,287,388,292,394,300"/>
+<area shape="poly" id="edge15_Node000014_Node000014" title=" " alt="" coords="208,428,202,418,205,409,217,402,236,400,259,403,269,412,265,416,257,408,236,405,218,407,209,412,207,418,212,425"/>
+<area shape="poly" id="edge18_Node000015_Node000004" title=" " alt="" coords="429,486,473,436,505,407,540,381,550,375,553,380,543,386,508,411,477,440,433,490"/>
+<area shape="poly" id="edge17_Node000015_Node000015" title=" " alt="" coords="389,489,383,480,386,470,399,464,419,461,444,465,455,474,451,478,442,470,419,467,400,469,390,473,388,479,394,486"/>
+<area shape="rect" id="Node000016" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="543,420,674,445"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="455,485,540,454,559,447,561,452,542,459,456,490"/>
+<area shape="rect" id="Node000019" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="563,493,654,519"/>
+<area shape="poly" id="edge21_Node000015_Node000019" title=" " alt="" coords="473,500,549,502,549,507,473,505"/>
+<area shape="rect" id="Node000020" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="565,567,652,592"/>
+<area shape="poly" id="edge23_Node000015_Node000020" title=" " alt="" coords="452,511,565,559,563,564,450,516"/>
+<area shape="poly" id="edge20_Node000016_Node000016" title=" " alt="" coords="577,421,571,412,574,402,587,396,609,393,635,397,646,406,642,410,633,402,609,399,589,401,578,405,576,411,582,418"/>
+<area shape="poly" id="edge22_Node000019_Node000019" title=" " alt="" coords="577,495,571,485,574,475,587,469,609,467,635,470,646,479,642,483,633,475,609,472,589,474,578,479,576,484,582,492"/>
+<area shape="poly" id="edge24_Node000020_Node000020" title=" " alt="" coords="577,568,571,558,574,548,587,542,609,540,635,544,646,552,642,556,633,548,609,545,589,547,578,552,576,558,582,565"/>
+<area shape="poly" id="edge27_Node000021_Node000021" title=" " alt="" coords="208,627,202,617,205,607,217,601,236,599,259,602,269,611,265,615,257,607,236,604,218,606,209,611,207,616,212,624"/>
+<area shape="rect" id="Node000022" href="$storage_8c.html#a14262c35a650194efb006701a81f4d17" title="Lire un objet en découvrant sa longueur de format." alt="" coords="345,625,493,651"/>
+<area shape="poly" id="edge28_Node000021_Node000022" title=" " alt="" coords="282,635,331,635,331,641,282,641"/>
+<area shape="poly" id="edge29_Node000022_Node000022" title=" " alt="" coords="389,627,383,617,386,607,399,601,419,599,444,602,455,611,451,615,442,607,419,604,400,606,390,611,388,616,394,624"/>
+<area shape="poly" id="edge31_Node000031_Node000031" title=" " alt="" coords="208,700,202,690,205,681,217,674,236,672,259,675,269,684,265,688,257,680,236,677,218,679,209,684,207,690,212,697"/>
+<area shape="poly" id="edge32_Node000031_Node000032" title=" " alt="" coords="284,722,360,743,359,748,282,727"/>
+<area shape="poly" id="edge33_Node000032_Node000032" title=" " alt="" coords="389,751,383,741,386,731,399,725,419,723,444,726,455,735,451,739,442,731,419,728,400,730,390,735,388,740,394,748"/>
+<area shape="poly" id="edge35_Node000034_Node000015" title=" " alt="" coords="273,549,368,515,370,520,274,554"/>
+<area shape="poly" id="edge36_Node000034_Node000034" title=" " alt="" coords="208,553,202,544,205,534,217,528,236,525,259,529,269,537,265,541,257,534,236,531,218,533,209,537,207,543,212,550"/>
+<area shape="poly" id="edge44_Node000035_Node000035" title=" " alt="" coords="208,899,202,889,205,879,217,873,236,871,259,874,269,883,265,887,257,879,236,876,218,878,209,883,207,888,212,896"/>
+<area shape="rect" id="Node000036" href="$input_8c.html#ad58bef40c07b526064ef1cd6a24db5ef" title="Borner une commande de jeu." alt="" coords="541,897,676,923"/>
+<area shape="poly" id="edge39_Node000035_Node000036" title=" " alt="" coords="282,902,345,897,419,894,493,897,528,899,528,904,493,902,419,900,345,902,283,907"/>
+<area shape="rect" id="Node000037" href="$input_8c.html#ac328c1b75a84505344ea5e697f162547" title="Appliquer la zone morte et mettre une accélération à l&#39;échelle." alt="" coords="376,935,463,960"/>
+<area shape="poly" id="edge41_Node000035_Node000037" title=" " alt="" coords="283,917,363,933,362,938,282,922"/>
+<area shape="poly" id="edge40_Node000036_Node000036" title=" " alt="" coords="577,899,571,889,574,879,587,873,609,871,635,874,646,883,642,887,633,879,609,876,589,878,578,883,576,888,582,896"/>
+<area shape="poly" id="edge42_Node000037_Node000036" title=" " alt="" coords="463,936,530,923,531,928,464,941"/>
+<area shape="poly" id="edge43_Node000037_Node000037" title=" " alt="" coords="389,936,383,926,386,917,399,910,419,908,444,912,455,920,451,924,442,916,419,913,400,915,390,920,388,926,394,933"/>
+<area shape="poly" id="edge46_Node000038_Node000032" title=" " alt="" coords="267,821,374,777,376,782,269,826"/>
+<area shape="poly" id="edge47_Node000038_Node000038" title=" " alt="" coords="208,825,202,816,205,806,217,800,236,797,259,801,269,809,265,813,257,806,236,803,218,805,209,809,207,815,212,822"/>
+</map>

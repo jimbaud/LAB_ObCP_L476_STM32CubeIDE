@@ -1,0 +1,10 @@
+<map id="flash_program" name="flash_program">
+<area shape="rect" id="Node000001" title="Programmer exactement un double mot aligné." alt="" coords="5,67,120,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="34,68,28,58,31,49,43,42,63,40,86,43,96,52,93,56,84,48,63,45,45,47,35,52,33,58,39,65"/>
+<area shape="rect" id="Node000002" href="$flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac" title="Vérifier une plage d&#39;offsets dans la réserve." alt="" coords="196,29,275,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="120,64,182,51,183,56,121,70"/>
+<area shape="rect" id="Node000003" href="$flash__port_8c.html#a00f6619a0a7f84cde062ae785b23a141" title="Vérifier la géométrie réelle avant de modifier la flash." alt="" coords="168,103,303,128"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="121,89,161,97,160,102,120,94"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="207,31,201,21,204,11,216,5,235,3,259,6,269,15,265,19,256,11,235,8,217,10,208,15,206,20,211,28"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="207,104,201,94,204,85,216,78,235,76,259,79,269,88,265,92,256,84,235,81,217,83,208,88,206,94,211,101"/>
+</map>

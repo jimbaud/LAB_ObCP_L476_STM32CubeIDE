@@ -1,0 +1,10 @@
+<map id="maze_init" name="maze_init">
+<area shape="rect" id="Node000001" title="Préparer un niveau à son point de départ." alt="" coords="5,29,92,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="25,30,20,21,23,11,33,5,49,3,68,6,76,15,72,18,65,11,49,8,34,10,27,15,25,20,30,28"/>
+<area shape="rect" id="Node000002" href="$maze_8c.html#a7a77f9a29a63aff30842b2ad50da27ee" title="Obtenir la cellule de départ commune aux cartes." alt="" coords="140,29,235,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="92,39,127,39,127,45,92,45"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="167,30,163,21,165,12,173,5,187,3,204,6,211,14,207,18,201,11,187,8,176,10,169,14,168,20,172,28"/>
+<area shape="rect" id="Node000003" href="$maze_8c.html#a0deb320c2dcb6bea105f878ebc712613" title="Convertir une cellule de carte en rectangle écran." alt="" coords="283,29,328,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="235,39,269,39,269,45,235,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="285,30,281,21,283,12,291,5,305,3,322,6,329,14,325,18,319,11,305,8,294,10,287,14,286,20,290,28"/>
+</map>

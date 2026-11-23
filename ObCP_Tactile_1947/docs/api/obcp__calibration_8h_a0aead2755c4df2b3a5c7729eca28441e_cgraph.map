@@ -1,0 +1,7 @@
+<map id="touch_cal_get" name="touch_cal_get">
+<area shape="rect" id="Node000001" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="5,29,117,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="35,31,29,21,32,11,43,5,61,3,83,6,92,15,89,19,81,11,61,8,45,10,36,15,35,20,39,28"/>
+<area shape="rect" id="Node000002" href="$calibration_8c.html#a835c2a46780f0da559cf58d9e6209057" title="Associer un contrôleur résistif à sa place dans le livre." alt="" coords="165,29,272,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,39,152,39,152,45,118,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="192,31,187,21,190,11,201,5,219,3,240,6,250,15,246,19,238,11,219,8,202,10,194,15,192,20,197,28"/>
+</map>

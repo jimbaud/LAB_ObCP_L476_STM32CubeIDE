@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/ft6206.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('ft6206_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier ft6206.c<div class="ingroups"><a class="el" href="group__obcp__drivers.html">Pilotes de périphériques</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Lecture du premier contact capacitif FT62xx sur I²C1.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="touch__drivers_8h_source.html">touch_drivers.h</a>&quot;</code><br />
+<code>#include &quot;i2c.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de ft6206.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ft6206_8c__incl.svg" width="212" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="ft6206_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1563fbc78f37fa844f1bd4a89460baf4" id="r_a1563fbc78f37fa844f1bd4a89460baf4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1563fbc78f37fa844f1bd4a89460baf4">FT_ADDRESS</a>&#160;&#160;&#160;(0x38U &lt;&lt; 1)</td></tr>
+<tr class="memdesc:a1563fbc78f37fa844f1bd4a89460baf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse 0x38 sur sept bits, décalée d'un bit pour l'API HAL I2C.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a981b4da67372370cc7466cc39a18462d" id="r_a981b4da67372370cc7466cc39a18462d"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a981b4da67372370cc7466cc39a18462d">read_regs</a> (uint8_t first, uint8_t *data, uint16_t size)</td></tr>
+<tr class="memdesc:a981b4da67372370cc7466cc39a18462d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire une plage de registres FT62xx.  <br /></td></tr>
+<tr class="memitem:a3a5f95d585500c81e898a25110a58dce" id="r_a3a5f95d585500c81e898a25110a58dce"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3a5f95d585500c81e898a25110a58dce">ft6206_probe</a> (uint8_t *chip)</td></tr>
+<tr class="memdesc:a3a5f95d585500c81e898a25110a58dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier l'identifiant de famille du tactile capacitif.  <br /></td></tr>
+<tr class="memitem:acae8bf254712691396d512abf48daf90" id="r_acae8bf254712691396d512abf48daf90"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acae8bf254712691396d512abf48daf90">ft6206_sample</a> (bool *pressed, uint16_t *raw_x, uint16_t *raw_y)</td></tr>
+<tr class="memdesc:acae8bf254712691396d512abf48daf90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire l'état et les coordonnées du premier doigt.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Lecture du premier contact capacitif FT62xx sur I²C1. </p>
+<p>Le capteur est sondé à l’adresse 7 bits 0x38. La HAL reçoit cette adresse décalée d’un bit. Ce pilote livre les coordonnées natives. Le passage en paysage est réalisé par <a class="el" href="input_8c.html" title="Filtrage du contact, de SW1 et de l’inclinaison.">input.c</a>.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="ft6206_8c_source.html">ft6206.c</a>.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a1563fbc78f37fa844f1bd4a89460baf4" name="a1563fbc78f37fa844f1bd4a89460baf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1563fbc78f37fa844f1bd4a89460baf4">&#9670;&#160;</a></span>FT_ADDRESS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FT_ADDRESS&#160;&#160;&#160;(0x38U &lt;&lt; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adresse 0x38 sur sept bits, décalée d'un bit pour l'API HAL I2C. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="ft6206_8c_source.html#l00022">22</a> du fichier <a class="el" href="ft6206_8c_source.html">ft6206.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ft6206_8c_source.html#l00034">read_regs()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a3a5f95d585500c81e898a25110a58dce" name="a3a5f95d585500c81e898a25110a58dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5f95d585500c81e898a25110a58dce">&#9670;&#160;</a></span>ft6206_probe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ft6206_probe </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>chip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier l'identifiant de famille du tactile capacitif. </p>
+<p>Le registre 0xA3 est lu. Les identifiants 0x06, 0x36 et 0x64 sont admis. Le résultat de sortie commence à zéro pour éviter une identité résiduelle. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">chip</td><td>Pointeur valide recevant l’identifiant lu du composant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si une signature compatible est reçue. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ft6206_8c_source.html#l00049">49</a> du fichier <a class="el" href="ft6206_8c_source.html">ft6206.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ft6206_8c_source.html#l00049">ft6206_probe()</a>, et <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ft6206_8c_source.html#l00049">ft6206_probe()</a>, et <a class="el" href="touch__port_8c_source.html#l00023">touch_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ft6206_8c_a3a5f95d585500c81e898a25110a58dce_cgraph.svg" width="399" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acae8bf254712691396d512abf48daf90" name="acae8bf254712691396d512abf48daf90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acae8bf254712691396d512abf48daf90">&#9670;&#160;</a></span>ft6206_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ft6206_sample </td>
+          <td>(</td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>pressed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>raw_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>raw_y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire l'état et les coordonnées du premier doigt. </p>
+<p>Une rafale contient TD_STATUS et les deux coordonnées sur 12 bits. L'événement natif de relâchement ne doit pas devenir un nouvel appui. Les coordonnées sont écrites seulement si le doigt est présent. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">pressed</td><td>Pointeur valide recevant true lorsqu’un doigt est présent. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">raw_x</td><td>Coordonnée native de sortie, écrite seulement lorsque le contact est présent. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">raw_y</td><td>Coordonnée native de sortie, écrite seulement lorsque le contact est présent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la transaction réussit, y compris lorsque pressed vaut false. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ft6206_8c_source.html#l00062">62</a> du fichier <a class="el" href="ft6206_8c_source.html">ft6206.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ft6206_8c_source.html#l00062">ft6206_sample()</a>, et <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ft6206_8c_source.html#l00062">ft6206_sample()</a>, et <a class="el" href="touch__port_8c_source.html#l00051">touch_read()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ft6206_8c_acae8bf254712691396d512abf48daf90_cgraph.svg" width="411" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a981b4da67372370cc7466cc39a18462d" name="a981b4da67372370cc7466cc39a18462d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981b4da67372370cc7466cc39a18462d">&#9670;&#160;</a></span>read_regs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool read_regs </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire une plage de registres FT62xx. </p>
+<p>Le pilote évite de démarrer si le bus est marqué occupé. La HAL utilise une adresse de registre sur huit bits et un délai limité à quatre millisecondes. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">first</td><td>Adresse du premier registre FT62xx à lire. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tampon recevant au moins len octets consécutifs de registres. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si tous les registres sont reçus. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ft6206_8c_source.html#l00034">34</a> du fichier <a class="el" href="ft6206_8c_source.html">ft6206.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ft6206_8c_source.html#l00022">FT_ADDRESS</a>, et <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ft6206_8c_a981b4da67372370cc7466cc39a18462d_cgraph.svg" width="379" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="ft6206_8c.html">ft6206.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

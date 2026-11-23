@@ -1,0 +1,89 @@
+<map id="sample_inputs" name="sample_inputs">
+<area shape="rect" id="Node000001" title="Servir le tactile et échantillonner l&#39;accéléromètre." alt="" coords="5,404,123,429"/>
+<area shape="poly" id="edge20_Node000001_Node000001" title=" " alt="" coords="35,405,29,396,32,386,44,380,64,377,88,381,98,390,95,394,86,386,64,383,45,385,36,389,34,395,39,402"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#ab2a68c82c3404d6027308e1f4163de25" title="Convertir la mesure XYZ en g." alt="" coords="194,29,286,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,403,68,346,83,258,96,210,114,161,138,114,169,72,184,59,187,63,173,76,143,117,119,163,101,211,88,260,73,346,68,404"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="785,381,887,407"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="72,402,112,351,169,291,216,248,255,216,298,191,356,166,425,146,481,140,610,138,646,133,674,126,702,125,733,138,760,161,782,189,799,220,812,253,829,316,836,367,830,368,824,317,807,254,794,222,777,192,756,165,731,143,701,130,675,131,647,138,611,143,482,145,426,151,358,171,300,195,258,221,220,252,173,295,116,354,77,405"/>
+<area shape="rect" id="Node000007" href="$board_8c.html#a41dea5f3218b94cd5d5fbebb5e7ca472" title="Actualiser la reconnaissance du tactile." alt="" coords="409,205,511,231"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="83,402,196,331,274,287,356,248,397,232,399,237,358,252,277,292,199,336,86,406"/>
+<area shape="rect" id="Node000035" href="$board_8c.html#aa182a23ab6189618f777bcb1c02ab79a" title="Faire avancer une acquisition tactile et distribuer son résultat." alt="" coords="183,628,297,653"/>
+<area shape="poly" id="edge21_Node000001_Node000035" title=" " alt="" coords="77,428,222,615,218,618,73,431"/>
+<area shape="rect" id="Node000107" href="$input_8c.html#aabcef0e5b49c452670bc4a22ce5eeeb7" title="Faire avancer la reconnaissance droite puis bas." alt="" coords="171,1147,309,1172"/>
+<area shape="poly" id="edge52_Node000001_Node000107" title=" " alt="" coords="71,429,235,1132,230,1134,66,430"/>
+<area shape="rect" id="Node000111" href="$input_8c.html#ac0691e834e079d589012e5e94994b134" title="Valider, recentrer et filtrer une mesure XYZ." alt="" coords="193,1220,287,1245"/>
+<area shape="poly" id="edge61_Node000001_Node000111" title=" " alt="" coords="68,430,74,567,91,790,105,910,123,1022,145,1117,158,1154,173,1183,185,1198,201,1211,197,1215,182,1202,168,1186,154,1156,140,1118,118,1023,100,911,86,791,69,567,63,430"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="211,31,205,21,208,11,220,5,240,3,264,6,274,15,271,19,262,11,240,8,221,10,212,15,210,20,215,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a6694cbf7c5cc36d21274e49edd09d803" title="Lire les trois axes dans une même rafale." alt="" coords="399,29,521,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="286,39,385,39,385,45,286,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="425,31,418,21,422,11,436,5,460,3,489,6,501,15,498,20,487,11,460,8,438,10,426,15,423,20,430,28"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="809,383,803,373,806,363,817,357,836,355,858,358,868,367,864,371,856,363,836,360,819,362,810,367,808,372,813,380"/>
+<area shape="poly" id="edge13_Node000007_Node000006" title=" " alt="" coords="481,203,529,178,594,154,630,147,666,146,701,152,733,166,758,186,778,210,808,266,826,322,834,367,829,368,820,323,803,268,774,213,754,190,731,171,699,157,665,151,630,153,595,159,531,183,483,208"/>
+<area shape="poly" id="edge14_Node000007_Node000007" title=" " alt="" coords="425,207,418,197,422,187,436,181,460,179,489,182,501,191,498,196,487,187,460,184,438,186,426,191,423,196,430,204"/>
+<area shape="rect" id="Node000008" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="629,459,714,484"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="485,229,524,256,565,292,606,356,658,445,653,447,601,359,561,296,521,260,482,233"/>
+<area shape="rect" id="Node000016" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="780,517,892,543"/>
+<area shape="poly" id="edge15_Node000007_Node000016" title=" " alt="" coords="512,224,636,252,695,270,734,292,757,321,766,350,771,381,782,417,824,504,819,506,778,419,766,382,761,351,752,324,730,296,693,275,635,257,511,229"/>
+<area shape="rect" id="Node000019" href="$touch__port_8c.html#affeee49fda294c4b3ad35394afd3d252" title="Reconnaître le contrôleur tactile présent." alt="" coords="620,205,723,231"/>
+<area shape="poly" id="edge16_Node000007_Node000019" title=" " alt="" coords="512,215,606,215,606,221,512,221"/>
+<area shape="rect" id="Node000034" href="$input_8c.html#a4a62d2bd3618bf965844b00af3b4141c" title="Classer le type de tactile." alt="" coords="611,331,732,356"/>
+<area shape="poly" id="edge18_Node000007_Node000034" title=" " alt="" coords="512,227,564,248,604,278,649,319,645,323,600,282,561,252,510,232"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="698,456,795,410,797,415,701,461"/>
+<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="644,460,638,450,641,441,653,434,671,432,694,435,703,444,700,448,691,440,671,437,654,439,645,444,644,450,649,457"/>
+<area shape="poly" id="edge11_Node000008_Node000016" title=" " alt="" coords="709,482,788,510,786,515,707,487"/>
+<area shape="poly" id="edge12_Node000016_Node000016" title=" " alt="" coords="809,519,803,509,806,499,817,493,836,491,858,494,868,503,864,507,856,499,836,496,819,498,810,503,808,508,813,516"/>
+<area shape="poly" id="edge17_Node000019_Node000019" title=" " alt="" coords="644,207,638,197,641,187,653,181,671,179,694,182,703,191,700,195,691,187,671,184,654,186,645,191,644,196,649,204"/>
+<area shape="poly" id="edge19_Node000034_Node000034" title=" " alt="" coords="644,332,638,322,641,313,653,306,671,304,694,307,703,316,700,320,691,312,671,309,654,311,645,316,644,322,649,329"/>
+<area shape="poly" id="edge35_Node000035_Node000006" title=" " alt="" coords="241,627,251,585,272,526,287,495,306,466,329,439,356,417,389,403,434,393,546,383,668,383,771,387,771,392,668,388,547,389,434,398,390,408,359,422,332,443,310,469,292,498,277,528,256,586,246,628"/>
+<area shape="poly" id="edge39_Node000035_Node000016" title=" " alt="" coords="245,653,257,736,280,860,296,924,314,981,335,1027,359,1056,385,1073,410,1085,434,1092,458,1094,482,1091,507,1083,561,1056,595,1032,626,1005,681,942,725,871,760,796,787,723,807,655,828,556,833,557,812,657,792,725,765,798,729,873,685,945,630,1009,598,1036,564,1060,509,1088,483,1096,458,1099,433,1097,408,1090,382,1078,356,1060,331,1030,309,983,291,925,275,861,252,737,240,654"/>
+<area shape="poly" id="edge49_Node000035_Node000034" title=" " alt="" coords="241,627,255,556,280,454,314,354,334,316,356,292,390,274,428,265,467,265,507,271,581,294,638,322,636,326,579,299,506,276,467,270,429,271,392,279,359,296,339,319,319,357,285,455,260,558,246,628"/>
+<area shape="poly" id="edge36_Node000035_Node000035" title=" " alt="" coords="211,629,205,620,208,610,220,604,240,601,264,605,274,614,271,618,262,610,240,607,221,609,212,613,210,619,215,626"/>
+<area shape="rect" id="Node000036" href="$app_8c.html#af30588f5bdd9ce50ab12c67c7cc1083c" title="Transmettre une observation brute au calibrage." alt="" coords="371,603,549,628"/>
+<area shape="poly" id="edge22_Node000035_Node000036" title=" " alt="" coords="296,632,357,624,358,630,297,637"/>
+<area shape="rect" id="Node000038" href="$calibration_8c.html#a55395b89591ad780f239d936e5b580eb" title="Transformer un point brut en pixels paysage." alt="" coords="611,652,731,677"/>
+<area shape="poly" id="edge42_Node000035_Node000038" title=" " alt="" coords="297,641,598,658,597,663,297,646"/>
+<area shape="rect" id="Node000043" href="$app_8c.html#a07d30a6e22f50d9a0276d1a81d43f17b" title="Ouvrir le calibrage résistif de secours." alt="" coords="357,529,563,555"/>
+<area shape="poly" id="edge29_Node000035_Node000043" title=" " alt="" coords="256,626,299,595,356,564,376,556,378,561,358,568,302,599,259,630"/>
+<area shape="rect" id="Node000044" href="$app_8c.html#a8bd26663b7fdb99ad2d9f3517069125f" title="Distribuer un événement tactile à l&#39;écran approprié." alt="" coords="415,456,505,481"/>
+<area shape="poly" id="edge32_Node000035_Node000044" title=" " alt="" coords="245,626,285,561,317,523,356,490,378,480,401,473,403,478,380,485,359,495,321,526,290,564,250,629"/>
+<area shape="rect" id="Node000094" href="$input_8c.html#aa870f7f3df6226272847a7d8cb195ae4" title="Reconnaître le maintien tactile demandé au reset." alt="" coords="385,728,535,753"/>
+<area shape="poly" id="edge37_Node000035_Node000094" title=" " alt="" coords="270,651,419,720,417,724,268,656"/>
+<area shape="rect" id="Node000095" href="$calibration_8c.html#afaf7a616015d8abe2840c4c3bd45c909" title="Suspendre la stabilisation après une erreur de lecture." alt="" coords="387,801,533,827"/>
+<area shape="poly" id="edge40_Node000035_Node000095" title=" " alt="" coords="253,652,296,704,326,734,359,762,414,793,411,798,356,767,322,738,292,707,249,655"/>
+<area shape="rect" id="Node000096" href="$input_8c.html#a27eb6c5a2ccc3c617c30f25ee02cb27b" title="Stabiliser un contact résistif et ses coordonnées." alt="" coords="413,875,507,900"/>
+<area shape="poly" id="edge43_Node000035_Node000096" title=" " alt="" coords="248,652,262,688,286,736,318,789,359,836,383,854,409,867,406,872,380,858,356,840,314,792,281,739,258,690,243,654"/>
+<area shape="rect" id="Node000098" href="$input_8c.html#a34a8b4770c6c8a0bdd63b495ee696f1a" title="Passer des coordonnées natives capacitives au paysage." alt="" coords="395,948,525,973"/>
+<area shape="poly" id="edge45_Node000035_Node000098" title=" " alt="" coords="246,653,257,700,278,768,311,842,333,878,359,909,381,927,405,940,403,945,378,931,355,913,329,881,306,845,273,770,252,701,241,654"/>
+<area shape="rect" id="Node000099" href="$touch__port_8c.html#a3b0d17e2fbf90980cf73580e620907ed" title="Acquérir un RawTouch avec le pilote reconnu." alt="" coords="413,1021,507,1047"/>
+<area shape="poly" id="edge47_Node000035_Node000099" title=" " alt="" coords="245,653,252,711,270,798,284,847,304,895,329,941,359,983,380,1000,403,1014,401,1018,377,1005,355,986,324,944,299,897,279,848,264,799,246,712,240,654"/>
+<area shape="rect" id="Node000106" href="$input_8c.html#ad1e83c87b38461e0c8c4e5cfd286b066" title="Produire un événement à partir du contact et de sa position." alt="" coords="405,331,515,356"/>
+<area shape="poly" id="edge50_Node000035_Node000106" title=" " alt="" coords="241,627,250,580,270,512,285,475,304,438,328,404,356,373,372,362,390,353,393,358,375,366,359,377,332,407,309,441,290,477,275,514,255,581,246,629"/>
+<area shape="poly" id="edge25_Node000036_Node000006" title=" " alt="" coords="490,600,731,493,777,454,814,415,818,419,781,458,733,498,492,605"/>
+<area shape="poly" id="edge24_Node000036_Node000008" title=" " alt="" coords="495,600,528,585,561,564,576,550,585,536,594,522,609,507,633,489,636,493,612,511,598,526,589,539,580,553,564,568,531,589,497,605"/>
+<area shape="poly" id="edge26_Node000036_Node000016" title=" " alt="" coords="516,600,766,543,767,548,517,605"/>
+<area shape="poly" id="edge23_Node000036_Node000036" title=" " alt="" coords="425,604,418,594,422,584,436,578,460,576,489,580,501,589,498,593,487,585,460,581,438,583,426,588,423,594,430,601"/>
+<area shape="poly" id="edge27_Node000036_Node000038" title=" " alt="" coords="516,625,604,646,602,651,514,631"/>
+<area shape="poly" id="edge28_Node000038_Node000038" title=" " alt="" coords="644,653,638,644,641,634,653,628,671,625,694,629,703,637,700,641,691,634,671,631,654,633,645,637,644,643,649,650"/>
+<area shape="poly" id="edge31_Node000043_Node000008" title=" " alt="" coords="498,527,619,486,620,491,500,532"/>
+<area shape="poly" id="edge30_Node000043_Node000043" title=" " alt="" coords="425,531,418,521,422,511,436,505,460,503,489,506,501,515,498,520,487,511,460,508,438,510,426,515,423,520,430,528"/>
+<area shape="poly" id="edge33_Node000044_Node000008" title=" " alt="" coords="505,467,615,468,615,473,505,472"/>
+<area shape="poly" id="edge34_Node000044_Node000044" title=" " alt="" coords="425,458,418,448,422,438,436,432,460,429,489,433,501,442,498,446,487,438,460,435,438,437,426,441,423,447,430,454"/>
+<area shape="poly" id="edge38_Node000094_Node000094" title=" " alt="" coords="425,730,418,720,422,710,436,704,460,701,489,705,501,714,498,718,487,710,460,707,438,709,426,713,423,719,430,726"/>
+<area shape="poly" id="edge41_Node000095_Node000095" title=" " alt="" coords="425,803,418,793,422,783,436,777,460,775,489,778,501,787,498,792,487,783,460,780,438,782,426,787,423,792,430,800"/>
+<area shape="poly" id="edge44_Node000096_Node000096" title=" " alt="" coords="425,876,418,866,422,856,436,850,460,848,489,852,501,861,498,865,487,857,460,853,438,855,426,860,423,866,430,873"/>
+<area shape="poly" id="edge46_Node000098_Node000098" title=" " alt="" coords="425,950,418,940,422,930,436,924,460,921,489,925,501,934,498,938,487,930,460,927,438,929,426,933,423,939,430,946"/>
+<area shape="poly" id="edge48_Node000099_Node000099" title=" " alt="" coords="425,1023,418,1013,422,1003,436,997,460,995,489,998,501,1007,498,1012,487,1003,460,1000,438,1002,426,1007,423,1012,430,1020"/>
+<area shape="poly" id="edge51_Node000106_Node000106" title=" " alt="" coords="425,332,418,322,422,312,436,306,460,304,489,308,501,317,498,321,487,313,460,309,438,311,426,316,423,322,430,329"/>
+<area shape="poly" id="edge60_Node000107_Node000107" title=" " alt="" coords="211,1148,205,1138,208,1129,220,1122,240,1120,264,1124,274,1132,271,1136,262,1128,240,1125,221,1127,212,1132,210,1138,215,1145"/>
+<area shape="rect" id="Node000108" href="$input_8c.html#a69bb1a0d244863c80fa93c182cba598f" title="Calculer la valeur absolue d&#39;un flottant." alt="" coords="627,1208,715,1233"/>
+<area shape="poly" id="edge53_Node000107_Node000108" title=" " alt="" coords="289,1170,311,1183,327,1202,334,1223,342,1241,359,1256,393,1269,429,1276,467,1277,504,1274,574,1257,631,1236,632,1241,576,1262,505,1279,467,1283,429,1282,391,1275,356,1260,337,1244,329,1224,323,1205,308,1187,286,1174"/>
+<area shape="rect" id="Node000109" href="$input_8c.html#a2578aebf12b53e9521f36c97298a3f68" title="Classer une inclinaison dominante dans le repère brut." alt="" coords="421,1147,499,1172"/>
+<area shape="poly" id="edge55_Node000107_Node000109" title=" " alt="" coords="310,1157,407,1157,407,1162,310,1162"/>
+<area shape="rect" id="Node000110" href="$input_8c.html#a4366aa2dac3c5d4d6f92c9212e2a7626" title="Exiger seize observations successives d&#39;une même pose." alt="" coords="410,1220,510,1245"/>
+<area shape="poly" id="edge58_Node000107_Node000110" title=" " alt="" coords="280,1170,409,1213,407,1218,278,1175"/>
+<area shape="poly" id="edge54_Node000108_Node000108" title=" " alt="" coords="644,1209,638,1200,641,1190,653,1184,671,1181,694,1185,703,1193,700,1197,691,1190,671,1187,654,1189,645,1193,644,1199,649,1206"/>
+<area shape="poly" id="edge56_Node000109_Node000108" title=" " alt="" coords="500,1166,563,1182,622,1201,621,1206,562,1187,499,1171"/>
+<area shape="poly" id="edge57_Node000109_Node000109" title=" " alt="" coords="425,1148,418,1138,422,1128,436,1122,460,1120,489,1124,501,1133,498,1137,487,1129,460,1125,438,1127,426,1132,423,1138,430,1145"/>
+<area shape="poly" id="edge59_Node000110_Node000110" title=" " alt="" coords="425,1222,418,1212,422,1202,436,1196,460,1193,489,1197,501,1206,498,1210,487,1202,460,1199,438,1201,426,1205,423,1211,430,1218"/>
+<area shape="poly" id="edge62_Node000111_Node000111" title=" " alt="" coords="211,1221,205,1212,208,1202,220,1196,240,1193,264,1197,274,1206,271,1210,262,1202,240,1199,221,1201,212,1205,210,1211,215,1218"/>
+</map>

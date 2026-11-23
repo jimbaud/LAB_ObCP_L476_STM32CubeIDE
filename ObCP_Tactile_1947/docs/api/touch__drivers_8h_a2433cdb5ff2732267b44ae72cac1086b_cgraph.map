@@ -1,0 +1,13 @@
+<map id="tsc2007_probe" name="tsc2007_probe">
+<area shape="rect" id="Node000001" title="Tester le protocole de conversion du TSC2007." alt="" coords="5,67,123,92"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="35,68,29,58,33,49,45,42,64,40,87,43,97,52,94,56,85,48,64,45,46,47,37,52,35,58,40,65"/>
+<area shape="rect" id="Node000002" href="$tsc2007_8c.html#aa1853d96a590fa721dc9594af0eec3dc" title="Décoder une conversion 12 bits reçue sur I²C." alt="" coords="171,29,300,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,64,163,55,164,60,123,69"/>
+<area shape="rect" id="Node000003" href="$tsc2007_8c.html#acb702898e283f4c0435744fd2b224855" title="Envoyer une commande de conversion TSC2007." alt="" coords="173,103,298,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="123,89,162,97,161,102,122,94"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="209,31,204,21,207,11,218,5,235,3,257,6,266,15,262,19,254,11,235,8,219,10,211,15,209,20,214,28"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="209,104,204,94,207,85,218,78,235,76,257,79,266,88,262,92,254,84,235,81,219,83,211,88,209,94,214,101"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="348,103,435,128"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="298,113,334,113,334,118,298,118"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="365,104,360,94,363,85,374,78,391,76,413,79,422,88,418,92,410,84,391,81,375,83,367,88,365,94,370,101"/>
+</map>

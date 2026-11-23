@@ -1,0 +1,19 @@
+<map id="stmpe610_sample" name="stmpe610_sample">
+<area shape="rect" id="Node000001" title="Acquérir une observation entre deux bandes TFT." alt="" coords="5,103,148,128"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="46,104,39,94,43,84,55,78,77,76,102,80,113,88,110,92,100,84,77,81,57,83,47,88,44,94,50,101"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a0d40bfce0038207f484c4112427c3f35" title="Vérifier si SPI1 peut servir le tactile résistif." alt="" coords="196,29,331,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,100,195,64,212,57,214,62,197,68,108,105"/>
+<area shape="rect" id="Node000003" href="$stmpe610_8c.html#abf9169c901687137037e6c421403d0a7" title="Lire un lot FIFO et retenir son observation récente." alt="" coords="214,103,313,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="148,113,200,113,200,118,148,118"/>
+<area shape="rect" id="Node000008" href="$stmpe610_8c.html#a90ec26e81c172681bbdd6a36bd37b332" title="Changer temporairement fréquence et phase du SPI1." alt="" coords="229,176,297,201"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="111,126,218,168,216,173,109,131"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="237,31,232,21,235,11,246,5,263,3,285,6,294,15,290,19,282,11,263,8,247,10,239,15,237,20,242,28"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="237,104,232,94,235,85,246,78,263,76,285,79,294,88,290,92,282,84,263,81,247,83,239,88,237,94,242,101"/>
+<area shape="rect" id="Node000004" href="$stmpe610_8c.html#a26ba78ab1b0470b14784543dfb802299" title="Vider la file de points du STMPE610." alt="" coords="379,67,461,92"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="312,101,365,89,366,94,314,107"/>
+<area shape="rect" id="Node000007" href="$stmpe610_8c.html#a0b9d51b399b8a78f4f217917a02d89ae" title="Lire un registre STMPE610 avec son octet factice." alt="" coords="381,140,459,165"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="314,124,367,138,366,143,312,130"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="394,68,388,58,391,49,402,42,420,40,441,43,450,52,447,56,439,48,420,45,404,47,396,52,394,58,398,65"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="394,141,388,132,391,122,402,116,420,113,441,117,450,125,447,129,439,122,420,119,404,121,396,125,394,131,398,139"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="237,177,232,168,235,158,246,152,263,149,285,153,294,161,290,165,282,158,263,155,247,157,239,161,237,167,242,175"/>
+</map>

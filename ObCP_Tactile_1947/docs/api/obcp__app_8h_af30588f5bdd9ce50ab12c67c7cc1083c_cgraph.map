@@ -1,0 +1,47 @@
+<map id="app_calibration_sample" name="app_calibration_sample">
+<area shape="rect" id="Node000001" title="Transmettre une observation brute au calibrage." alt="" coords="5,301,183,327"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="60,303,53,293,57,283,71,277,94,275,123,278,134,287,131,292,120,283,94,280,72,282,61,287,58,292,64,300"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="257,176,343,201"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="110,299,162,261,229,218,255,205,258,210,232,223,165,266,113,303"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="433,29,535,55"/>
+<area shape="poly" id="edge16_Node000001_Node000004" title=" " alt="" coords="100,300,147,224,185,178,229,137,275,108,325,85,418,54,420,59,327,90,278,113,232,141,189,182,152,227,104,303"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="428,323,540,348"/>
+<area shape="poly" id="edge19_Node000001_Node000011" title=" " alt="" coords="121,299,170,279,230,262,300,252,332,253,370,262,419,284,459,312,456,316,416,289,368,267,331,259,301,257,231,267,172,284,123,304"/>
+<area shape="rect" id="Node000014" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="245,301,355,327"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="183,311,231,311,231,317,183,317"/>
+<area shape="rect" id="Node000015" href="$calibration_8c.html#a55395b89591ad780f239d936e5b580eb" title="Transformer un point brut en pixels paysage." alt="" coords="424,521,544,547"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="104,326,121,358,149,401,187,446,232,482,275,503,321,517,368,526,410,530,410,536,367,531,320,522,273,508,229,487,183,449,145,404,117,361,99,328"/>
+<area shape="rect" id="Node000017" href="$calibration_8c.html#a09382b78280e06f007db382415fd8d87" title="Faire avancer l&#39;acquisition d&#39;une cible résistive." alt="" coords="231,448,369,473"/>
+<area shape="poly" id="edge24_Node000001_Node000017" title=" " alt="" coords="115,325,271,438,268,442,111,329"/>
+<area shape="rect" id="Node000019" href="$calibration_8c.html#ab7a1d11cb9192e434eaae069f4283d68" title="Remplacer le profil associé au contrôleur." alt="" coords="245,375,355,400"/>
+<area shape="poly" id="edge29_Node000001_Node000019" title=" " alt="" coords="132,324,251,367,250,372,130,329"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="269,177,263,168,266,158,279,152,300,149,325,153,336,162,333,166,323,158,300,155,281,157,270,161,268,167,274,174"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="437,249,531,275"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="334,199,439,242,437,247,332,204"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="308,174,351,121,381,91,416,64,426,58,428,63,419,68,385,95,355,125,312,177"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="417,103,551,128"/>
+<area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="329,173,416,137,433,130,435,135,418,142,331,178"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="338,199,371,219,387,235,397,251,405,267,419,284,453,313,450,317,415,288,401,270,392,254,383,239,368,223,335,204"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="423,176,545,201"/>
+<area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="343,186,409,186,409,191,343,191"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="456,251,450,241,453,231,465,225,484,223,507,226,517,235,513,239,505,231,484,228,466,230,457,235,455,240,460,248"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="456,31,450,21,453,11,465,5,484,3,507,6,517,15,513,19,505,11,484,8,466,10,457,15,455,20,460,28"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="456,104,450,94,453,85,465,78,484,76,507,79,517,88,513,92,505,84,484,81,466,83,457,88,455,94,460,101"/>
+<area shape="poly" id="edge13_Node000011_Node000011" title=" " alt="" coords="456,324,450,314,453,305,465,298,484,296,507,299,517,308,513,312,505,304,484,301,466,303,457,308,455,314,460,321"/>
+<area shape="rect" id="Node000012" href="$calibration_8c.html#a835c2a46780f0da559cf58d9e6209057" title="Associer un contrôleur résistif à sa place dans le livre." alt="" coords="599,348,705,373"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="541,341,586,348,585,353,540,346"/>
+<area shape="poly" id="edge12_Node000012_Node000012" title=" " alt="" coords="624,349,618,340,621,330,633,324,652,321,675,325,685,333,681,337,673,330,652,327,634,329,625,333,623,339,628,346"/>
+<area shape="poly" id="edge15_Node000013_Node000013" title=" " alt="" coords="456,177,450,168,453,158,465,152,484,149,507,153,517,161,513,165,505,158,484,155,466,157,457,161,455,167,460,174"/>
+<area shape="poly" id="edge18_Node000014_Node000014" title=" " alt="" coords="269,303,263,293,266,283,279,277,300,275,325,278,336,287,333,291,323,283,300,280,281,282,270,287,268,292,274,300"/>
+<area shape="poly" id="edge23_Node000015_Node000015" title=" " alt="" coords="456,523,450,513,453,503,465,497,484,495,507,498,517,507,513,511,505,503,484,500,466,502,457,507,455,512,460,520"/>
+<area shape="rect" id="Node000016" href="$calibration_8c.html#ab1a93e6b2b7e960bd7f65fdc1d84f35b" title="Arrondir et borner une coordonnée calculée." alt="" coords="625,521,679,547"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="544,531,612,531,612,537,544,537"/>
+<area shape="poly" id="edge22_Node000016_Node000016" title=" " alt="" coords="624,523,618,513,621,503,633,497,652,495,675,498,685,507,681,511,673,503,652,500,634,502,625,507,623,512,628,520"/>
+<area shape="poly" id="edge27_Node000017_Node000015" title=" " alt="" coords="334,471,439,514,437,519,332,476"/>
+<area shape="poly" id="edge28_Node000017_Node000017" title=" " alt="" coords="269,449,263,440,266,430,279,424,300,421,325,425,336,434,333,438,323,430,300,427,281,429,270,433,268,439,274,446"/>
+<area shape="rect" id="Node000018" href="$calibration_8c.html#af0194f444b0eb34a49da19199ccccfee" title="Calculer une transformation affine de trois points bruts." alt="" coords="432,448,536,473"/>
+<area shape="poly" id="edge25_Node000017_Node000018" title=" " alt="" coords="369,458,418,458,418,463,369,463"/>
+<area shape="poly" id="edge26_Node000018_Node000018" title=" " alt="" coords="456,449,450,440,453,430,465,424,484,421,507,425,517,433,513,437,505,430,484,427,466,429,457,433,455,439,460,446"/>
+<area shape="poly" id="edge30_Node000019_Node000012" title=" " alt="" coords="355,381,585,363,585,368,356,386"/>
+<area shape="poly" id="edge31_Node000019_Node000019" title=" " alt="" coords="269,376,263,366,266,357,279,350,300,348,325,352,336,360,333,364,323,356,300,353,281,355,270,360,268,366,274,373"/>
+</map>

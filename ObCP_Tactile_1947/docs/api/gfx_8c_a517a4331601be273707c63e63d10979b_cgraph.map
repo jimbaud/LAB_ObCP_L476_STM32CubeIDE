@@ -1,0 +1,21 @@
+<map id="gfx_triangle" name="gfx_triangle">
+<area shape="rect" id="Node000001" title="Remplir un triangle par tests de demi&#45;plans." alt="" coords="5,117,105,143"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="28,119,22,109,25,99,37,93,55,91,78,94,87,103,84,107,75,99,55,96,38,98,29,103,28,108,33,116"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a776b0c3a2059dea7baebfc3e85a2714d" title="Écrire un pixel dans le tampon de bande." alt="" coords="178,29,259,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,115,152,72,178,58,180,63,155,76,79,119"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="349,109,424,135"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="105,120,153,115,250,113,335,116,335,122,250,119,153,121,106,125"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="351,197,422,223"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="73,141,108,167,154,190,202,202,251,209,338,211,338,216,250,214,201,207,152,195,105,172,70,145"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="153,155,284,180"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="106,139,150,149,149,154,105,144"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="191,31,186,21,189,11,200,5,219,3,241,6,251,15,247,19,239,11,219,8,202,10,193,15,191,20,196,28"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="332,29,441,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="260,39,318,39,318,45,260,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="359,31,353,21,356,11,367,5,387,3,410,6,420,15,416,19,407,11,387,8,369,10,360,15,358,20,363,28"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="359,111,353,101,356,91,367,85,387,83,410,86,420,95,416,99,407,91,387,88,369,90,360,95,358,100,363,108"/>
+<area shape="poly" id="edge9_Node000005_Node000005" title=" " alt="" coords="359,199,353,189,356,179,367,173,387,171,410,174,420,183,416,187,407,179,387,176,369,178,360,183,358,188,363,196"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="266,152,335,133,337,138,267,157"/>
+<area shape="poly" id="edge12_Node000006_Node000005" title=" " alt="" coords="270,177,338,195,337,200,268,183"/>
+<area shape="poly" id="edge13_Node000006_Node000006" title=" " alt="" coords="191,156,186,146,189,137,200,130,219,128,241,131,251,140,247,144,239,136,219,133,202,135,193,140,191,146,196,153"/>
+</map>

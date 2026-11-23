@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence de la structure [struct].obcp_live</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_0fstruct_0e_8obcp__live.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure [struct].obcp_live<div class="ingroups"><a class="el" href="group__obcp__board.html">Carte et ordonnancement</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6b33d97aeeeafa65f2ef5d064d380079">frames_per_second</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ab0b04de7979a7e429968583b2ba46b5f">pixels_per_second</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a259cac6416d9d9487891a019a764456e">lcd_errors</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a324dbe765810b68c7480920c6e13d5d7">audio_missed</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7b56086bd4b7c5af7e051484a3c55fe9">last_flash_ms</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a86da620465f2ac3668750dfebd51e408">accel_reads</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4726c915a9051d645d1f71b27a0bb35f">touch_errors</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ac7653a6f0499fb459e59966529668f42">lcd_id</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ae451269369a6d1d331a7c12b347b3323">touch_id</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab1d6c73abbbec58e185967cea260a86a">touch_raw_x</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ad0953ea9dcf20e1bba6c4ccf4cb81a4e">touch_raw_y</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab8ae0162b62c30f342bbcb0fb1541422">touch_z1</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9b5f2031720dee5149d9c37b7ea0e18f">touch_z2</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">int16_t&#160;</td><td class="memItemRight"><a class="el" href="#a4dc8706d0f4b96b0cf2faac0f08b8468">touch_x</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">int16_t&#160;</td><td class="memItemRight"><a class="el" href="#a2c176143d7f63f31828076754f766e9d">touch_y</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a31b4f8582f758f4735ab2929353243df">touch_hits</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a9327fdeab8527c404374f7e11fe94b85">flash_ok</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a08ebdeb8cd759ffc1f024d04be92c25d">lcd_io_ok</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a4b10e8b46ed5679846f4fe52f7633d58">touch_ok</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aed953610c23bd2ebef0d300746103a7d">touch_down</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a614015fab2cf9afe728cd3ca77acdc7b">diag_pattern</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a04e83dac603b5a06223cf987c7ff3ada">touch_controller</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#acff0f4c82110a2d0d0464ef9a9f367c5">touch_calibrated</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a2695ac7ac6386876a21883f2fec9eb89">tilt_axes</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock">
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00114">114</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des champs</h2>
+<a id="a86da620465f2ac3668750dfebd51e408" name="a86da620465f2ac3668750dfebd51e408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86da620465f2ac3668750dfebd51e408">&#9670;&#160;</a></span>accel_reads</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> accel_reads</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre de lectures d’accéléromètre réussies. </p>
+
+</div>
+</div>
+<a id="a324dbe765810b68c7480920c6e13d5d7" name="a324dbe765810b68c7480920c6e13d5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a324dbe765810b68c7480920c6e13d5d7">&#9670;&#160;</a></span>audio_missed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> audio_missed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre cumulé d'échéances ou erreurs audio. </p>
+
+</div>
+</div>
+<a id="a614015fab2cf9afe728cd3ca77acdc7b" name="a614015fab2cf9afe728cd3ca77acdc7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614015fab2cf9afe728cd3ca77acdc7b">&#9670;&#160;</a></span>diag_pattern</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> diag_pattern</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mire de diagnostic de zéro à quatre. </p>
+
+</div>
+</div>
+<a id="a9327fdeab8527c404374f7e11fe94b85" name="a9327fdeab8527c404374f7e11fe94b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9327fdeab8527c404374f7e11fe94b85">&#9670;&#160;</a></span>flash_ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> flash_ok</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>true quand le port de stockage physique a été obtenu. </p>
+
+</div>
+</div>
+<a id="a6b33d97aeeeafa65f2ef5d064d380079" name="a6b33d97aeeeafa65f2ef5d064d380079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b33d97aeeeafa65f2ef5d064d380079">&#9670;&#160;</a></span>frames_per_second</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> frames_per_second</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lots de rectangles achevés par seconde, hors compteur d'images complet. </p>
+
+</div>
+</div>
+<a id="a7b56086bd4b7c5af7e051484a3c55fe9" name="a7b56086bd4b7c5af7e051484a3c55fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b56086bd4b7c5af7e051484a3c55fe9">&#9670;&#160;</a></span>last_flash_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> last_flash_ms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Durée de la dernière opération de stockage en millisecondes. </p>
+
+</div>
+</div>
+<a id="a259cac6416d9d9487891a019a764456e" name="a259cac6416d9d9487891a019a764456e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a259cac6416d9d9487891a019a764456e">&#9670;&#160;</a></span>lcd_errors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> lcd_errors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre d'erreurs signalées par le moteur de transport TFT. </p>
+
+</div>
+</div>
+<a id="ac7653a6f0499fb459e59966529668f42" name="ac7653a6f0499fb459e59966529668f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7653a6f0499fb459e59966529668f42">&#9670;&#160;</a></span>lcd_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> lcd_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Identifiant ILI9341 lu, normalement 0x9341. </p>
+
+</div>
+</div>
+<a id="a08ebdeb8cd759ffc1f024d04be92c25d" name="a08ebdeb8cd759ffc1f024d04be92c25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ebdeb8cd759ffc1f024d04be92c25d">&#9670;&#160;</a></span>lcd_io_ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> lcd_io_ok</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialisation TFT réussie côté HAL. </p>
+
+</div>
+</div>
+<a id="ab0b04de7979a7e429968583b2ba46b5f" name="ab0b04de7979a7e429968583b2ba46b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b04de7979a7e429968583b2ba46b5f">&#9670;&#160;</a></span>pixels_per_second</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> pixels_per_second</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pixels acheminés vers le TFT par seconde. </p>
+
+</div>
+</div>
+<a id="a2695ac7ac6386876a21883f2fec9eb89" name="a2695ac7ac6386876a21883f2fec9eb89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2695ac7ac6386876a21883f2fec9eb89">&#9670;&#160;</a></span>tilt_axes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> tilt_axes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trois bits de permutation et de signes appliqués aux jeux. </p>
+
+</div>
+</div>
+<a id="acff0f4c82110a2d0d0464ef9a9f367c5" name="acff0f4c82110a2d0d0464ef9a9f367c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff0f4c82110a2d0d0464ef9a9f367c5">&#9670;&#160;</a></span>touch_calibrated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_calibrated</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Profil résistif présent en RAM pour le contrôleur actif. </p>
+
+</div>
+</div>
+<a id="a04e83dac603b5a06223cf987c7ff3ada" name="a04e83dac603b5a06223cf987c7ff3ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e83dac603b5a06223cf987c7ff3ada">&#9670;&#160;</a></span>touch_controller</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_controller</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Type de tactile détecté et choix du protocole à utiliser. </p>
+
+</div>
+</div>
+<a id="aed953610c23bd2ebef0d300746103a7d" name="aed953610c23bd2ebef0d300746103a7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed953610c23bd2ebef0d300746103a7d">&#9670;&#160;</a></span>touch_down</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_down</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernier état de contact converti accepté. </p>
+
+</div>
+</div>
+<a id="a4726c915a9051d645d1f71b27a0bb35f" name="a4726c915a9051d645d1f71b27a0bb35f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4726c915a9051d645d1f71b27a0bb35f">&#9670;&#160;</a></span>touch_errors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_errors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre d’erreurs de lecture tactile. </p>
+
+</div>
+</div>
+<a id="a31b4f8582f758f4735ab2929353243df" name="a31b4f8582f758f4735ab2929353243df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b4f8582f758f4735ab2929353243df">&#9670;&#160;</a></span>touch_hits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_hits</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Masque des cinq cibles tactiles validées. </p>
+
+</div>
+</div>
+<a id="ae451269369a6d1d331a7c12b347b3323" name="ae451269369a6d1d331a7c12b347b3323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae451269369a6d1d331a7c12b347b3323">&#9670;&#160;</a></span>touch_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Identifiant du contrôleur s'il en possède un. Zéro pour TSC2007. </p>
+
+</div>
+</div>
+<a id="a4b10e8b46ed5679846f4fe52f7633d58" name="a4b10e8b46ed5679846f4fe52f7633d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b10e8b46ed5679846f4fe52f7633d58">&#9670;&#160;</a></span>touch_ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_ok</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>true quand le tactile reconnu est disponible. </p>
+
+</div>
+</div>
+<a id="ab1d6c73abbbec58e185967cea260a86a" name="ab1d6c73abbbec58e185967cea260a86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d6c73abbbec58e185967cea260a86a">&#9670;&#160;</a></span>touch_raw_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_raw_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière coordonnée X native du doigt. </p>
+
+</div>
+</div>
+<a id="ad0953ea9dcf20e1bba6c4ccf4cb81a4e" name="ad0953ea9dcf20e1bba6c4ccf4cb81a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0953ea9dcf20e1bba6c4ccf4cb81a4e">&#9670;&#160;</a></span>touch_raw_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_raw_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière coordonnée Y native du doigt. </p>
+
+</div>
+</div>
+<a id="a4dc8706d0f4b96b0cf2faac0f08b8468" name="a4dc8706d0f4b96b0cf2faac0f08b8468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc8706d0f4b96b0cf2faac0f08b8468">&#9670;&#160;</a></span>touch_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière abscisse écran valide du doigt. </p>
+
+</div>
+</div>
+<a id="a2c176143d7f63f31828076754f766e9d" name="a2c176143d7f63f31828076754f766e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c176143d7f63f31828076754f766e9d">&#9670;&#160;</a></span>touch_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière ordonnée écran valide du doigt. </p>
+
+</div>
+</div>
+<a id="ab8ae0162b62c30f342bbcb0fb1541422" name="ab8ae0162b62c30f342bbcb0fb1541422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ae0162b62c30f342bbcb0fb1541422">&#9670;&#160;</a></span>touch_z1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_z1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière mesure Z1 du tactile. </p>
+
+</div>
+</div>
+<a id="a9b5f2031720dee5149d9c37b7ea0e18f" name="a9b5f2031720dee5149d9c37b7ea0e18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b5f2031720dee5149d9c37b7ea0e18f">&#9670;&#160;</a></span>touch_z2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> touch_z2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dernière mesure Z2 du tactile. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir des fichiers suivants :</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

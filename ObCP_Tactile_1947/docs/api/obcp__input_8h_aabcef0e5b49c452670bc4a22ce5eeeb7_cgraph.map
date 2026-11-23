@@ -1,0 +1,14 @@
+<map id="tilt_guide_sample" name="tilt_guide_sample">
+<area shape="rect" id="Node000001" title="Faire avancer la reconnaissance droite puis bas." alt="" coords="5,67,144,92"/>
+<area shape="poly" id="edge8_Node000001_Node000001" title=" " alt="" coords="47,68,41,58,44,49,56,42,75,40,97,43,107,52,104,56,95,48,75,45,57,47,48,52,46,58,51,65"/>
+<area shape="rect" id="Node000002" href="$input_8c.html#a69bb1a0d244863c80fa93c182cba598f" title="Calculer la valeur absolue d&#39;un flottant." alt="" coords="340,29,428,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,64,140,44,191,27,226,23,262,22,327,28,326,33,261,27,227,28,193,33,142,49,100,69"/>
+<area shape="rect" id="Node000003" href="$input_8c.html#a2578aebf12b53e9521f36c97298a3f68" title="Classer une inclinaison dominante dans le repère brut." alt="" coords="203,67,281,92"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="144,77,189,77,189,82,144,82"/>
+<area shape="rect" id="Node000004" href="$input_8c.html#a4366aa2dac3c5d4d6f92c9212e2a7626" title="Exiger seize observations successives d&#39;une même pose." alt="" coords="192,140,292,165"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="106,90,200,132,198,137,104,95"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="360,30,355,21,358,11,368,5,384,3,404,6,412,15,408,18,401,11,384,8,369,10,362,15,360,20,365,28"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="281,67,326,54,327,60,282,72"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="218,68,213,58,216,49,226,42,242,40,262,44,270,52,266,56,259,48,242,45,227,47,220,52,218,58,223,65"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="218,141,213,132,216,122,226,116,242,113,262,117,270,125,266,129,259,122,242,119,227,121,220,125,218,131,223,139"/>
+</map>

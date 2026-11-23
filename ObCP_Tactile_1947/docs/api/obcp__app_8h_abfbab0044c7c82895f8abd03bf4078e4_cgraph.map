@@ -1,0 +1,16 @@
+<map id="app_read_book" name="app_read_book">
+<area shape="rect" id="Node000001" title="Charger le livre des quatre motifs au démarrage." alt="" coords="5,67,127,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="39,68,33,58,36,49,47,42,66,40,88,43,98,52,94,56,86,48,66,45,49,47,40,52,38,58,43,65"/>
+<area shape="rect" id="Node000002" href="$audio_8c.html#a95587c7e2bcc18df8b16ef6abe6f591a" title="Valider puis décoder le livre musical." alt="" coords="175,29,283,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="121,64,161,55,162,60,123,69"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a93e975a9edc0e30b07e9fdfaa4391ef2" title="Lire un objet dont la longueur exacte est connue." alt="" coords="175,103,282,128"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="124,89,163,98,162,103,123,95"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="202,31,197,21,200,11,211,5,229,3,250,6,260,15,256,19,248,11,229,8,212,10,204,15,202,20,207,28"/>
+<area shape="poly" id="edge7_Node000003_Node000003" title=" " alt="" coords="202,104,197,94,200,85,211,78,229,76,250,79,260,88,256,92,248,84,229,81,212,83,204,88,202,94,207,101"/>
+<area shape="rect" id="Node000004" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="336,65,436,91"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="282,100,322,90,323,96,283,105"/>
+<area shape="rect" id="Node000011" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="331,139,441,164"/>
+<area shape="poly" id="edge8_Node000003_Node000011" title=" " alt="" coords="283,125,318,133,317,138,282,130"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="359,67,354,57,357,47,368,41,386,39,408,42,417,51,413,55,405,47,386,44,370,46,361,51,359,56,364,64"/>
+<area shape="poly" id="edge9_Node000011_Node000011" title=" " alt="" coords="359,140,354,130,357,121,368,114,386,112,408,115,417,124,413,128,405,120,386,117,370,119,361,124,359,130,364,137"/>
+</map>

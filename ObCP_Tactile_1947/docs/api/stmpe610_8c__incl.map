@@ -1,0 +1,15 @@
+<map id="Core/Src/obcp/stmpe610.c" name="Core/Src/obcp/stmpe610.c">
+<area shape="rect" id="Node000001" title="Tactile résistif historique sur le bus SPI1 partagé." alt="" coords="163,5,353,31"/>
+<area shape="rect" id="Node000002" href="$obcp__panel_8h.html" title="Commandes du TFT ILI9341 et transport SPI1 DMA." alt="" coords="5,79,113,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,33,106,76,104,71,225,28"/>
+<area shape="rect" id="Node000007" href="$touch__drivers_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="138,79,261,104"/>
+<area shape="poly" id="edge3_Node000001_Node000007" title=" " alt="" coords="250,33,219,70,215,67,246,29"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="285,79,351,104"/>
+<area shape="poly" id="edge5_Node000001_Node000009" title=" " alt="" coords="270,29,302,66,297,70,266,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="375,79,429,104"/>
+<area shape="poly" id="edge6_Node000001_Node000010" title=" " alt="" coords="282,28,367,70,365,75,280,33"/>
+<area shape="rect" id="Node000003" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="13,152,106,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,104,62,138,57,138,57,104"/>
+<area shape="rect" id="Node000008" href="$obcp__touch_8h.html" title="Reconnaissance des shields et façade tactile commune." alt="" coords="145,152,253,177"/>
+<area shape="poly" id="edge4_Node000007_Node000008" title=" " alt="" coords="202,104,202,138,197,138,197,104"/>
+</map>

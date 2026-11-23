@@ -1,0 +1,7 @@
+<map id="Core/Src/obcp/breakout.c" name="Core/Src/obcp/breakout.c">
+<area shape="rect" id="Node000001" title="Physique et dessin du casse&#45;briques à dix niveaux." alt="" coords="5,5,188,31"/>
+<area shape="rect" id="Node000002" href="$obcp__games_8h.html" title="Modèles, niveaux et commandes des trois jeux à inclinaison." alt="" coords="39,79,155,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,31,99,65,94,65,94,31"/>
+<area shape="rect" id="Node000003" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="50,152,143,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,104,99,138,94,138,94,104"/>
+</map>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Organisation du programme ObCP Adventure</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 18px 22px 16px; }
+  .couche { border-radius: 12px; padding: 9px 12px 12px; position: relative; }
+  .titre { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--c); margin-bottom: 8px; }
+  .titre span { font-weight: 500; letter-spacing: 0; color: var(--discret); font-size: 11.8px; margin-left: 6px; }
+  .bleu-c { background: var(--bleu-fond); border: 1px solid color-mix(in srgb, var(--bleu) 35%, transparent); --c: var(--bleu); }
+  .ambre-c { background: color-mix(in srgb, var(--ambre-fond) 55%, var(--fond)); border: 1px solid color-mix(in srgb, var(--ambre) 35%, transparent); --c: var(--ambre); }
+  .vert-c { background: var(--vert-fond); border: 1px solid color-mix(in srgb, var(--vert) 35%, transparent); --c: var(--vert); }
+  .gris-c { background: var(--fond-doux); border: 1px solid var(--bord); --c: var(--discret); }
+  .rang { display: grid; gap: 9px; }
+  .f { border: 1.5px solid var(--bord); background: var(--fond); border-radius: 8px; padding: 5px 9px 6px; position: relative; }
+  .f + .f { margin-top: 8px; }
+  .rang .f + .f { margin-top: 0; }
+  .f h4 { font-family: "DejaVu Sans Mono", monospace; font-size: 11.8px; font-weight: 700; letter-spacing: -.01em; white-space: nowrap; }
+  .f p { font-size: 11.4px; color: var(--discret); line-height: 1.33; margin-top: 2px; }
+  .f p code { font-size: 10.6px; color: var(--texte); }
+  .f.cle { border-color: var(--ambre); }
+  .crochet { color: var(--bleu); }
+  .gen { grid-template-columns: 1.3fr 1.15fr 1.2fr 1fr 1.05fr; }
+  .ligne2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+  .ligne3 { display: grid; grid-template-columns: 1fr 248px; gap: 16px; margin-top: 40px; }
+  .dossiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+  .dossier { border: 1.5px solid color-mix(in srgb, var(--vert) 45%, var(--bord)); border-radius: 9px; background: var(--fond); padding: 6px 8px 7px; }
+  .dossier > b { display: block; font-family: "DejaVu Sans Mono", monospace; font-size: 11.6px; color: var(--vert); margin-bottom: 3px; }
+  .dossier div { font-size: 11.2px; line-height: 1.4; color: var(--discret); }
+  .dossier div code { font-size: 10.6px; color: var(--texte); }
+  .pc { margin-top: 9px; font-size: 11.6px; color: var(--discret); }
+  .pc b { color: var(--vert); font-family: "DejaVu Sans Mono", monospace; font-size: 11px; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="couche bleu-c" id="c-gen">
+    <div class="titre">GÉNÉRÉ PAR STM32CUBEMX <span>réécrit à chaque génération, sauf entre <code>USER CODE BEGIN</code> et <code>END</code></span></div>
+    <div class="rang gen">
+      <div class="f" id="g-main"><h4>main.c</h4><p class="crochet"><code>oa_app_init()</code>, <code>oa_app_task()</code>, <code>oa_board_fatal()</code></p></div>
+      <div class="f"><h4>stm32l4xx_it.c</h4><p>DMA1 canal 3, USB&nbsp;; <span class="crochet">fautes → <code>oa_board_fatal()</code></span></p></div>
+      <div class="f" id="g-cdc"><h4>usbd_cdc_if.c</h4><p class="crochet">paquets reçus → <code>usb_console_on_receive()</code></p></div>
+      <div class="f"><h4>usbd_conf.c</h4><p class="crochet">veille du bus → <code>usb_console</code></p></div>
+      <div class="f"><h4>spi.c, i2c.c, dma.c…</h4><p>bus, DMA, TIM2, USART2, broches (aucun crochet)</p></div>
+    </div>
+  </div>
+
+  <div class="ligne2">
+    <div class="couche ambre-c" id="c-app">
+      <div class="titre">ORDONNANCEUR · Core/Src/app</div>
+      <div class="f cle"><h4>oa_app.c</h4><p>super-boucle sans attente&nbsp;: capteurs à 100 Hz, physique à 60 Hz, rendu par bandes et DMA, sauvegarde, console d'une lettre</p></div>
+      <p style="font-size:11.4px;color:var(--discret);margin-top:8px;line-height:1.38">N'appelle le matériel qu'à travers <code>oa_board.h</code>&nbsp;: <code>Tests/test_app.c</code> l'exécute aussi sur PC, avec une carte simulée.</p>
+    </div>
+    <div class="couche ambre-c" id="c-hw">
+      <div class="titre">LIAISON AVEC LE MATÉRIEL · Core/Src</div>
+      <div class="f cle"><h4>oa_board.c</h4><p><b>seul fichier du jeu qui appelle la HAL</b>&nbsp;: bus, sélections, DMA de l'écran, TIM2 (µs), LED, bouton, USART2</p></div>
+      <div class="f"><h4>usb_console.c</h4><p>port COM virtuel&nbsp;: file de réception, tampon d'émission</p></div>
+    </div>
+  </div>
+
+  <div class="ligne3">
+    <div class="couche vert-c" id="c-port">
+      <div class="titre">MODULES PORTABLES · Core/Src/… <span>en-têtes dans Core/Inc</span></div>
+      <div class="dossiers">
+        <div class="dossier"><b>engine/</b>
+          <div><code>oa_game.c</code> règles, états, ennemis</div>
+          <div><code>oa_physics.c</code> mouvements, collisions</div>
+          <div><code>oa_ui.c</code> menus, réglages, pause</div></div>
+        <div class="dossier"><b>graphics/</b>
+          <div><code>oa_render.c</code> une bande de 8 lignes</div>
+          <div><code>oa_assets.c</code> sprites, police (généré)</div></div>
+        <div class="dossier"><b>services/</b>
+          <div><code>oa_input.c</code> gestes, inclinaison</div>
+          <div><code>oa_calibration.c</code> étalonnages</div>
+          <div><code>oa_storage.c</code> journal EEPROM</div></div>
+        <div class="dossier"><b>devices/</b>
+          <div><code>oa_lcd.c</code> écran ILI9341</div>
+          <div><code>oa_touch.c</code> FT62xx, TSC2007, STMPE610</div>
+          <div><code>oa_accel.c</code>, <code>oa_eeprom.c</code></div></div>
+        <div class="dossier"><b>content/</b>
+          <div><code>oa_levels.c</code> 10 niveaux (généré)</div></div>
+        <div class="dossier"><b>Core/Inc/</b>
+          <div><code>oa_engine.h</code> types communs</div>
+          <div><code>oa_config.h</code> réglages du jeu</div></div>
+      </div>
+      <div class="pc">Aussi compilés sur PC, sans carte&nbsp;: <b>Simulator/</b> (jeu SDL2) et <b>Tests/</b> (3 448 vérifications)</div>
+    </div>
+    <div class="couche gris-c" id="c-lib">
+      <div class="titre">BIBLIOTHÈQUES DE ST</div>
+      <div class="f"><h4>HAL STM32L4</h4><p>SPI, I2C, DMA, TIM, UART, GPIO</p></div>
+      <div class="f"><h4>USB Device · CDC</h4><p>port COM virtuel</p></div>
+      <div class="f"><h4>CMSIS</h4><p>Cortex-M4, STM32L476</p></div>
+      <p style="font-size:11px;color:var(--discret);margin-top:7px">Drivers/, Middlewares/ · FW_L4 1.18.1</p>
+    </div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const fig = document.querySelector("#figure").getBoundingClientRect();
+  const cx = (sel) => { const r = document.querySelector(sel).getBoundingClientRect(); return r.left + r.width / 2 - fig.left; };
+  /* flèche verticale à l'abscisse x (repère de la figure) entre deux couches */
+  const verticale = (de, vers, x, o) => relier(de, vers, Object.assign({ de: "bas", vers: "haut",
+      decalage_de: [x - cx(de), 0], decalage_vers: [x - cx(vers), 0] }, o));
+  verticale("#c-gen", "#c-app", 200, { couleur: "var(--bleu)", texte: "USER CODE 2 et 3", texte_decalage: [70, 0] });
+  verticale("#c-gen", "#c-hw", 700, { couleur: "var(--bleu)", texte: "rappels USB, fautes", texte_decalage: [76, 0] });
+  verticale("#c-app", "#c-port", 200, { couleur: "var(--ambre)", texte: "appels", texte_decalage: [36, 0] });
+  verticale("#c-hw", "#c-lib", 818, { couleur: "var(--ambre)", tirets: "5 5", texte: "HAL", texte_decalage: [24, 0] });
+  relier("#c-app", "#c-hw", { de: "droite", vers: "gauche", couleur: "var(--ambre)" });
+});
+</script>
+</body>
+</html>

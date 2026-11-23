@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Inc/obcp_audio.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__audio_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">obcp_audio.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="obcp__audio_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file obcp_audio.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Synthèse numérique et séquenceur musical sans accès matériel.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_audio</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Les échantillons sont des valeurs de comparaison CCR3 sur 10 bits, centrées autour de</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * 512. Le transport DMA consomme ces valeurs à 15 625 échantillons par seconde. Le format</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * des motifs encode chaque champ explicitement.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef OBCP_AUDIO_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define OBCP_AUDIO_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* TIM1 à 64 MHz, ARR=1023, RCR=3. Un nouveau rapport toutes les 4 périodes. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">   26</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a> = 15625, <span class="comment">/**&lt; Cadence de 15 625 échantillons audio par seconde. */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">   27</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">AUDIO_CENTER</a> = 512, <span class="comment">/**&lt; Comparaison 512, centre du signal sur dix bits. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a180f2acc53a3e72ad45e28d8c9e931bb">   28</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a180f2acc53a3e72ad45e28d8c9e931bb">AUDIO_MAX_DUTY</a> = 1023, <span class="comment">/**&lt; Comparaison maximale du timer, ARR vaut 1023. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8">   29</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8">AUDIO_VOICES</a> = 5, <span class="comment">/**&lt; Cinq voix, quatre pistes et une voix de clavier. */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">   30</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a> = 4, <span class="comment">/**&lt; Quatre pistes musicales. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">   31</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">SEQ_STEPS</a> = 16, <span class="comment">/**&lt; Seize doubles croches dans une boucle. */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">   32</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">SEQ_SLOTS</a> = 4, <span class="comment">/**&lt; Quatre emplacements musicaux persistants. */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa6f2d8a153a8e0a9294514801d37d65b">   33</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa6f2d8a153a8e0a9294514801d37d65b">SEQ_MIN_BPM</a> = 60, <span class="comment">/**&lt; Tempo minimum admis, 60 battements par minute. */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a75756fc6656e5c76f0edebaf9a507b84">   34</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a75756fc6656e5c76f0edebaf9a507b84">SEQ_MAX_BPM</a> = 180, <span class="comment">/**&lt; Tempo maximum admis, 180 battements par minute. */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c">   35</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c">SEQ_PATTERN_BYTES</a> = 2 + <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a> + <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a> * <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">SEQ_STEPS</a>, <span class="comment">/**&lt; Longueur encodée d&#39;un motif, 70 octets. */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">   36</a></span>    <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a> = 2 + <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">SEQ_SLOTS</a> * <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c">SEQ_PATTERN_BYTES</a>, <span class="comment">/**&lt; Longueur du livre versionné, 282 octets. */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @brief Motif musical de quatre pistes et seize pas.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * La valeur zéro d’une note signifie silence. Les autres valeurs choisissent une des huit</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * hauteurs.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structPattern.html">   45</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structPattern.html#ae579dd14e8414464f34de5d5a811f2bf">   46</a></span>    uint16_t <a class="code hl_variable" href="structPattern.html#ae579dd14e8414464f34de5d5a811f2bf">bpm</a>; <span class="comment">/**&lt; Tempo en battements par minute, entre 60 et 180. */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structPattern.html#a013df2d8209944239b31c81ec486ffb0">   47</a></span>    uint8_t <a class="code hl_variable" href="structPattern.html#a013df2d8209944239b31c81ec486ffb0">timbre</a>[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a>]; <span class="comment">/**&lt; Type de son de chaque piste. 0 kick, 1 snare, 2 hat, 3 bass. */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structPattern.html#a4efb174a95f05c3ce7ae788d3c9f6446">   48</a></span>    uint8_t <a class="code hl_variable" href="structPattern.html#a4efb174a95f05c3ce7ae788d3c9f6446">notes</a>[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a>][<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">SEQ_STEPS</a>]; <span class="comment">/**&lt; Grille piste puis pas. Chaque case est zéro ou une hauteur de 1 à 8. */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>} <a class="code hl_struct" href="structPattern.html">Pattern</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * @brief Quatre emplacements de motifs musicaux.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * Le masque de présence distingue un motif enregistré d’un emplacement jamais initialisé.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structPatternBook.html">   55</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structPatternBook.html#aa45aeb26c297ddbd27ca3943e2f982db">   56</a></span>    <a class="code hl_struct" href="structPattern.html">Pattern</a> <a class="code hl_variable" href="structPatternBook.html#aa45aeb26c297ddbd27ca3943e2f982db">pattern</a>[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">SEQ_SLOTS</a>]; <span class="comment">/**&lt; Tableau des quatre motifs, indexés de 0 à 3. */</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structPatternBook.html#a4521d086f10329fef6e36be0a533f2ff">   57</a></span>    uint8_t <a class="code hl_variable" href="structPatternBook.html#a4521d086f10329fef6e36be0a533f2ff">present</a>; <span class="comment">/**&lt; Bits de présence. Le bit i indique que le motif i est exploitable. */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <a class="code hl_struct" href="structPatternBook.html">PatternBook</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @brief État d’une voix de synthèse DDS et de son enveloppe.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * Quand remaining est non nul, length est positif. Les durées sont exprimées en</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * échantillons audio.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structVoice.html">   65</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structVoice.html#a186729f7308d5936b442505b893fe52f">   66</a></span>    uint32_t <a class="code hl_variable" href="structVoice.html#a186729f7308d5936b442505b893fe52f">phase</a>; <span class="comment">/**&lt; Accumulateur de phase non signé sur 32 bits. Son débordement réalise une période. */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structVoice.html#ae0cded0bcbb4a7483672dc0e5a2388b3">   67</a></span>    uint32_t <a class="code hl_variable" href="structVoice.html#ae0cded0bcbb4a7483672dc0e5a2388b3">increment</a>; <span class="comment">/**&lt; Pas ajouté à la phase pour chaque échantillon. */</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structVoice.html#a50ceb429fc1d2e62f8b24c84050dee86">   68</a></span>    uint16_t <a class="code hl_variable" href="structVoice.html#a50ceb429fc1d2e62f8b24c84050dee86">remaining</a>; <span class="comment">/**&lt; Nombre d&#39;échantillons restant à produire pour la voix. */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structVoice.html#a7f653831ca5f2d72bfb739f5178a2894">   69</a></span>    uint16_t <a class="code hl_variable" href="structVoice.html#a7f653831ca5f2d72bfb739f5178a2894">length</a>; <span class="comment">/**&lt; Durée de référence de l&#39;enveloppe, en échantillons. */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structVoice.html#acd8ac44a3d6be290379fd269b1981e06">   70</a></span>    uint8_t <a class="code hl_variable" href="structVoice.html#acd8ac44a3d6be290379fd269b1981e06">type</a>; <span class="comment">/**&lt; Timbre interne, percussions, basse ou clavier. */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>} <a class="code hl_struct" href="structVoice.html">Voice</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * @brief Séquenceur et synthèse partagés par la groovebox et le diagnostic.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * Les interruptions ne modifient pas cette structure. audio_fill() fait avancer les phases</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * et le tempo dans la boucle principale.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structAudio.html">   78</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structAudio.html#a529ebec34e51e982a152c7699c83f485">   79</a></span>    <a class="code hl_struct" href="structPattern.html">Pattern</a> <a class="code hl_variable" href="structAudio.html#a529ebec34e51e982a152c7699c83f485">pattern</a>; <span class="comment">/**&lt; Motif actuellement édité et joué. */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structAudio.html#aba50e7ae23b74f51fac3f336528d7129">   80</a></span>    <a class="code hl_struct" href="structVoice.html">Voice</a> <a class="code hl_variable" href="structAudio.html#aba50e7ae23b74f51fac3f336528d7129">voices</a>[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8">AUDIO_VOICES</a>]; <span class="comment">/**&lt; Quatre voix de piste et une voix manuelle de clavier. */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structAudio.html#ab46e7d13b79c709f4605cfd1f40e1837">   81</a></span>    uint32_t <a class="code hl_variable" href="structAudio.html#ab46e7d13b79c709f4605cfd1f40e1837">beat_fraction</a>; <span class="comment">/**&lt; Reste de l&#39;accumulateur de tempo, à comparer à 60 fois AUDIO_HZ. */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="structAudio.html#a0f4fa554e50847d287ac1cfda281e97b">   82</a></span>    uint32_t <a class="code hl_variable" href="structAudio.html#a0f4fa554e50847d287ac1cfda281e97b">test_phase</a>; <span class="comment">/**&lt; Phase indépendante de la note de diagnostic à 440 Hz. */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structAudio.html#a4ea1162bdefaf30741388429221be656">   83</a></span>    uint16_t <a class="code hl_variable" href="structAudio.html#a4ea1162bdefaf30741388429221be656">noise</a>; <span class="comment">/**&lt; Registre LFSR 16 bits utilisé pour le bruit des percussions. */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structAudio.html#afbc9ecbbce9e7ca9ccfeb19c0af6de05">   84</a></span>    uint8_t <a class="code hl_variable" href="structAudio.html#afbc9ecbbce9e7ca9ccfeb19c0af6de05">step</a>; <span class="comment">/**&lt; Pas courant du séquenceur, de 0 à 15. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="structAudio.html#aff309cb275657927818ce381e5222285">   85</a></span>    uint8_t <a class="code hl_variable" href="structAudio.html#aff309cb275657927818ce381e5222285">volume</a>; <span class="comment">/**&lt; Pourcentage d&#39;amplitude de sortie, de 0 à 100. */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structAudio.html#a99c1b67f09d1324d25194f41a254d1c8">   86</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structAudio.html#a99c1b67f09d1324d25194f41a254d1c8">playing</a>; <span class="comment">/**&lt; true lorsque le séquenceur fait avancer les pas. */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structAudio.html#a6fce5959332f0fde656495145ecd1bfa">   87</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structAudio.html#a6fce5959332f0fde656495145ecd1bfa">test_tone</a>; <span class="comment">/**&lt; true lorsque la note de diagnostic remplace le mélange des voix. */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>} <a class="code hl_struct" href="structAudio.html">Audio</a>;</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * @brief Préparer un motif d&#39;exemple et les oscillateurs.</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * Réinitialise les états, choisit 112 BPM et un volume de 50 %, puis place quelques</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * événements sur les quatre pistes. La sortie matérielle reste sous le contrôle de</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * pwm_audio.c.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * @param[out] a État du motif, du séquenceur et des voix, à initialiser par cet appel.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> *   Pointeur valide.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#a2bd8da07b82ee027f3c11717ef60b552">audio_init</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a);<span class="comment"></span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @brief Reprendre le séquenceur au premier pas.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> * Remet la fraction de tempo et le curseur à zéro, active la lecture et déclenche</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * immédiatement les notes du premier pas.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * @param[in,out] a État du motif, du séquenceur et des voix. Pointeur valide.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#aeaf881e89416fb039e4acdb688dbc076">audio_start</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a);<span class="comment"></span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @brief Arrêter le séquenceur, le test et les voix.</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> * Efface les enveloppes en cours. Le motif reste disponible pour une prochaine lecture. Le</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> * transport PWM est arrêté par sa tâche dédiée.</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @param[in,out] a État du motif, du séquenceur et des voix. Pointeur valide.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#afe77d8e76f704c2d2832a8291a5b3c80">audio_stop</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a);<span class="comment"></span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * @brief Déclencher la voix réservée au clavier.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> * La voix manuelle est distincte des quatre pistes. La hauteur est interprétée dans la</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * même gamme de huit notes.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * @param[in,out] a État du motif, du séquenceur et des voix. Pointeur valide.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * @param[in] note Hauteur de 1 à 8. Zéro signifie silence.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#ad7267b4cd578a9bfb8a67ae7deb0b244">audio_key</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a, uint8_t note);<span class="comment"></span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"> * @brief Raccourcir la fin d&#39;une note manuelle.</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> * La durée restante est bornée pour laisser une courte décroissance. Cette enveloppe évite</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> * une coupure brutale de l&#39;amplitude.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * @param[in,out] a État du motif, du séquenceur et des voix. Pointeur valide.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#a0c440b16568966c3ee063b797775f778">audio_key_release</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">/* Produit des comparaisons CCR3. Appel en boucle principale, jamais en IRQ. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> * @brief Produire un bloc de rapports cycliques pour l&#39;audio.</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> * Mélange les voix ou la note d&#39;essai, applique le volume et borne l&#39;amplitude autour de</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * 512. L&#39;accumulateur de tempo avance exactement à la cadence des échantillons. Appel dans</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> * la boucle principale.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> * @param[in,out] a État du motif, du séquenceur et des voix. Pointeur valide.</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> * @param[out] dest Tampon valide d’au moins samples comparaisons uint16_t.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"> * @param[in] samples Nombre de comparaisons audio à produire dans dest.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#a322e6d421cd69759a8804f60029e20a2">audio_fill</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *a, uint16_t *dest, <span class="keywordtype">size_t</span> samples);<span class="comment"></span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> * @brief Encoder les quatre motifs dans un format stable.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> * Écrit version, masque de présence, tempo little-endian, timbres et notes dans un tableau</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment"> * d&#39;octets. Les octets ne dépendent pas du remplissage des structures C.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * @param[in] book Livre des quatre motifs et masque de présence, consulté sans</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> *   modification. Pointeur valide.</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> * @param[out] data Tableau de SEQ_BOOK_BYTES octets à remplir.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__audio_8h.html#aae8b3805f86512bb5a7a7574e172db15">book_encode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structPatternBook.html">PatternBook</a> *book, uint8_t data[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a>]);<span class="comment"></span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"> * @brief Valider puis décoder le livre musical.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> * Travaille d&#39;abord sur un candidat local. Le livre de destination est remplacé seulement</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"> * si version, masque, tempos, timbres et notes sont cohérents.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"> * @param[in,out] book Livre des quatre motifs et masque de présence. Pointeur valide.</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"> * @param[in] data Tableau de SEQ_BOOK_BYTES octets à décoder.</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment"> * @return true si tous les motifs présents sont valides.</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__audio_8h.html#a95587c7e2bcc18df8b16ef6abe6f591a">book_decode</a>(<a class="code hl_struct" href="structPatternBook.html">PatternBook</a> *book, <span class="keyword">const</span> uint8_t data[<a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a>]);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aobcp__audio_8h_html_a0c440b16568966c3ee063b797775f778"><div class="ttname"><a href="obcp__audio_8h.html#a0c440b16568966c3ee063b797775f778">audio_key_release</a></div><div class="ttdeci">void audio_key_release(Audio *a)</div><div class="ttdoc">Raccourcir la fin d&#39;une note manuelle.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00171">audio.c:171</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_a2bd8da07b82ee027f3c11717ef60b552"><div class="ttname"><a href="obcp__audio_8h.html#a2bd8da07b82ee027f3c11717ef60b552">audio_init</a></div><div class="ttdeci">void audio_init(Audio *a)</div><div class="ttdoc">Préparer un motif d&#39;exemple et les oscillateurs.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00105">audio.c:105</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_a322e6d421cd69759a8804f60029e20a2"><div class="ttname"><a href="obcp__audio_8h.html#a322e6d421cd69759a8804f60029e20a2">audio_fill</a></div><div class="ttdeci">void audio_fill(Audio *a, uint16_t *dest, size_t samples)</div><div class="ttdoc">Produire un bloc de rapports cycliques pour l&#39;audio.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00220">audio.c:220</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_a95587c7e2bcc18df8b16ef6abe6f591a"><div class="ttname"><a href="obcp__audio_8h.html#a95587c7e2bcc18df8b16ef6abe6f591a">book_decode</a></div><div class="ttdeci">bool book_decode(PatternBook *book, const uint8_t data[SEQ_BOOK_BYTES])</div><div class="ttdoc">Valider puis décoder le livre musical.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00281">audio.c:281</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_aae8b3805f86512bb5a7a7574e172db15"><div class="ttname"><a href="obcp__audio_8h.html#aae8b3805f86512bb5a7a7574e172db15">book_encode</a></div><div class="ttdeci">void book_encode(const PatternBook *book, uint8_t data[SEQ_BOOK_BYTES])</div><div class="ttdoc">Encoder les quatre motifs dans un format stable.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00261">audio.c:261</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019a180f2acc53a3e72ad45e28d8c9e931bb"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a180f2acc53a3e72ad45e28d8c9e931bb">AUDIO_MAX_DUTY</a></div><div class="ttdeci">@ AUDIO_MAX_DUTY</div><div class="ttdef"><b>Définition</b> <a href="#l00028">obcp_audio.h:28</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a4e241fc3333a181fd14f68a75823f38c">SEQ_STEPS</a></div><div class="ttdeci">@ SEQ_STEPS</div><div class="ttdef"><b>Définition</b> <a href="#l00031">obcp_audio.h:31</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a></div><div class="ttdeci">@ SEQ_BOOK_BYTES</div><div class="ttdef"><b>Définition</b> <a href="#l00036">obcp_audio.h:36</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019a75756fc6656e5c76f0edebaf9a507b84"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a75756fc6656e5c76f0edebaf9a507b84">SEQ_MAX_BPM</a></div><div class="ttdeci">@ SEQ_MAX_BPM</div><div class="ttdef"><b>Définition</b> <a href="#l00034">obcp_audio.h:34</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa27ab8e1a36b1f757586fc8d745b04a8">AUDIO_VOICES</a></div><div class="ttdeci">@ AUDIO_VOICES</div><div class="ttdef"><b>Définition</b> <a href="#l00029">obcp_audio.h:29</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a></div><div class="ttdeci">@ AUDIO_HZ</div><div class="ttdef"><b>Définition</b> <a href="#l00026">obcp_audio.h:26</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019aa6f2d8a153a8e0a9294514801d37d65b"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa6f2d8a153a8e0a9294514801d37d65b">SEQ_MIN_BPM</a></div><div class="ttdeci">@ SEQ_MIN_BPM</div><div class="ttdef"><b>Définition</b> <a href="#l00033">obcp_audio.h:33</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ace4ca34bf35e14131a2c9490e9f92b5c">SEQ_PATTERN_BYTES</a></div><div class="ttdeci">@ SEQ_PATTERN_BYTES</div><div class="ttdef"><b>Définition</b> <a href="#l00035">obcp_audio.h:35</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">AUDIO_CENTER</a></div><div class="ttdeci">@ AUDIO_CENTER</div><div class="ttdef"><b>Définition</b> <a href="#l00027">obcp_audio.h:27</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aee3e86ef15c81dc4b70df2a45387a523">SEQ_SLOTS</a></div><div class="ttdeci">@ SEQ_SLOTS</div><div class="ttdef"><b>Définition</b> <a href="#l00032">obcp_audio.h:32</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019af26f337f92299657de438ee6c006f8b4">SEQ_TRACKS</a></div><div class="ttdeci">@ SEQ_TRACKS</div><div class="ttdef"><b>Définition</b> <a href="#l00030">obcp_audio.h:30</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad7267b4cd578a9bfb8a67ae7deb0b244"><div class="ttname"><a href="obcp__audio_8h.html#ad7267b4cd578a9bfb8a67ae7deb0b244">audio_key</a></div><div class="ttdeci">void audio_key(Audio *a, uint8_t note)</div><div class="ttdoc">Déclencher la voix réservée au clavier.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00160">audio.c:160</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_aeaf881e89416fb039e4acdb688dbc076"><div class="ttname"><a href="obcp__audio_8h.html#aeaf881e89416fb039e4acdb688dbc076">audio_start</a></div><div class="ttdeci">void audio_start(Audio *a)</div><div class="ttdoc">Reprendre le séquenceur au premier pas.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00133">audio.c:133</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_afe77d8e76f704c2d2832a8291a5b3c80"><div class="ttname"><a href="obcp__audio_8h.html#afe77d8e76f704c2d2832a8291a5b3c80">audio_stop</a></div><div class="ttdeci">void audio_stop(Audio *a)</div><div class="ttdoc">Arrêter le séquenceur, le test et les voix.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00147">audio.c:147</a></div></div>
+<div class="ttc" id="astructAudio_html"><div class="ttname"><a href="structAudio.html">Audio</a></div><div class="ttdoc">Séquenceur et synthèse partagés par la groovebox et le diagnostic.</div><div class="ttdef"><b>Définition</b> <a href="#l00078">obcp_audio.h:78</a></div></div>
+<div class="ttc" id="astructAudio_html_a0f4fa554e50847d287ac1cfda281e97b"><div class="ttname"><a href="structAudio.html#a0f4fa554e50847d287ac1cfda281e97b">Audio::test_phase</a></div><div class="ttdeci">uint32_t test_phase</div><div class="ttdef"><b>Définition</b> <a href="#l00082">obcp_audio.h:82</a></div></div>
+<div class="ttc" id="astructAudio_html_a4ea1162bdefaf30741388429221be656"><div class="ttname"><a href="structAudio.html#a4ea1162bdefaf30741388429221be656">Audio::noise</a></div><div class="ttdeci">uint16_t noise</div><div class="ttdef"><b>Définition</b> <a href="#l00083">obcp_audio.h:83</a></div></div>
+<div class="ttc" id="astructAudio_html_a529ebec34e51e982a152c7699c83f485"><div class="ttname"><a href="structAudio.html#a529ebec34e51e982a152c7699c83f485">Audio::pattern</a></div><div class="ttdeci">Pattern pattern</div><div class="ttdef"><b>Définition</b> <a href="#l00079">obcp_audio.h:79</a></div></div>
+<div class="ttc" id="astructAudio_html_a6fce5959332f0fde656495145ecd1bfa"><div class="ttname"><a href="structAudio.html#a6fce5959332f0fde656495145ecd1bfa">Audio::test_tone</a></div><div class="ttdeci">bool test_tone</div><div class="ttdef"><b>Définition</b> <a href="#l00087">obcp_audio.h:87</a></div></div>
+<div class="ttc" id="astructAudio_html_a99c1b67f09d1324d25194f41a254d1c8"><div class="ttname"><a href="structAudio.html#a99c1b67f09d1324d25194f41a254d1c8">Audio::playing</a></div><div class="ttdeci">bool playing</div><div class="ttdef"><b>Définition</b> <a href="#l00086">obcp_audio.h:86</a></div></div>
+<div class="ttc" id="astructAudio_html_ab46e7d13b79c709f4605cfd1f40e1837"><div class="ttname"><a href="structAudio.html#ab46e7d13b79c709f4605cfd1f40e1837">Audio::beat_fraction</a></div><div class="ttdeci">uint32_t beat_fraction</div><div class="ttdef"><b>Définition</b> <a href="#l00081">obcp_audio.h:81</a></div></div>
+<div class="ttc" id="astructAudio_html_aba50e7ae23b74f51fac3f336528d7129"><div class="ttname"><a href="structAudio.html#aba50e7ae23b74f51fac3f336528d7129">Audio::voices</a></div><div class="ttdeci">Voice voices[AUDIO_VOICES]</div><div class="ttdef"><b>Définition</b> <a href="#l00080">obcp_audio.h:80</a></div></div>
+<div class="ttc" id="astructAudio_html_afbc9ecbbce9e7ca9ccfeb19c0af6de05"><div class="ttname"><a href="structAudio.html#afbc9ecbbce9e7ca9ccfeb19c0af6de05">Audio::step</a></div><div class="ttdeci">uint8_t step</div><div class="ttdef"><b>Définition</b> <a href="#l00084">obcp_audio.h:84</a></div></div>
+<div class="ttc" id="astructAudio_html_aff309cb275657927818ce381e5222285"><div class="ttname"><a href="structAudio.html#aff309cb275657927818ce381e5222285">Audio::volume</a></div><div class="ttdeci">uint8_t volume</div><div class="ttdef"><b>Définition</b> <a href="#l00085">obcp_audio.h:85</a></div></div>
+<div class="ttc" id="astructPatternBook_html"><div class="ttname"><a href="structPatternBook.html">PatternBook</a></div><div class="ttdoc">Quatre emplacements de motifs musicaux.</div><div class="ttdef"><b>Définition</b> <a href="#l00055">obcp_audio.h:55</a></div></div>
+<div class="ttc" id="astructPatternBook_html_a4521d086f10329fef6e36be0a533f2ff"><div class="ttname"><a href="structPatternBook.html#a4521d086f10329fef6e36be0a533f2ff">PatternBook::present</a></div><div class="ttdeci">uint8_t present</div><div class="ttdef"><b>Définition</b> <a href="#l00057">obcp_audio.h:57</a></div></div>
+<div class="ttc" id="astructPatternBook_html_aa45aeb26c297ddbd27ca3943e2f982db"><div class="ttname"><a href="structPatternBook.html#aa45aeb26c297ddbd27ca3943e2f982db">PatternBook::pattern</a></div><div class="ttdeci">Pattern pattern[SEQ_SLOTS]</div><div class="ttdef"><b>Définition</b> <a href="#l00056">obcp_audio.h:56</a></div></div>
+<div class="ttc" id="astructPattern_html"><div class="ttname"><a href="structPattern.html">Pattern</a></div><div class="ttdoc">Motif musical de quatre pistes et seize pas.</div><div class="ttdef"><b>Définition</b> <a href="#l00045">obcp_audio.h:45</a></div></div>
+<div class="ttc" id="astructPattern_html_a013df2d8209944239b31c81ec486ffb0"><div class="ttname"><a href="structPattern.html#a013df2d8209944239b31c81ec486ffb0">Pattern::timbre</a></div><div class="ttdeci">uint8_t timbre[SEQ_TRACKS]</div><div class="ttdef"><b>Définition</b> <a href="#l00047">obcp_audio.h:47</a></div></div>
+<div class="ttc" id="astructPattern_html_a4efb174a95f05c3ce7ae788d3c9f6446"><div class="ttname"><a href="structPattern.html#a4efb174a95f05c3ce7ae788d3c9f6446">Pattern::notes</a></div><div class="ttdeci">uint8_t notes[SEQ_TRACKS][SEQ_STEPS]</div><div class="ttdef"><b>Définition</b> <a href="#l00048">obcp_audio.h:48</a></div></div>
+<div class="ttc" id="astructPattern_html_ae579dd14e8414464f34de5d5a811f2bf"><div class="ttname"><a href="structPattern.html#ae579dd14e8414464f34de5d5a811f2bf">Pattern::bpm</a></div><div class="ttdeci">uint16_t bpm</div><div class="ttdef"><b>Définition</b> <a href="#l00046">obcp_audio.h:46</a></div></div>
+<div class="ttc" id="astructVoice_html"><div class="ttname"><a href="structVoice.html">Voice</a></div><div class="ttdoc">État d’une voix de synthèse DDS et de son enveloppe.</div><div class="ttdef"><b>Définition</b> <a href="#l00065">obcp_audio.h:65</a></div></div>
+<div class="ttc" id="astructVoice_html_a186729f7308d5936b442505b893fe52f"><div class="ttname"><a href="structVoice.html#a186729f7308d5936b442505b893fe52f">Voice::phase</a></div><div class="ttdeci">uint32_t phase</div><div class="ttdef"><b>Définition</b> <a href="#l00066">obcp_audio.h:66</a></div></div>
+<div class="ttc" id="astructVoice_html_a50ceb429fc1d2e62f8b24c84050dee86"><div class="ttname"><a href="structVoice.html#a50ceb429fc1d2e62f8b24c84050dee86">Voice::remaining</a></div><div class="ttdeci">uint16_t remaining</div><div class="ttdef"><b>Définition</b> <a href="#l00068">obcp_audio.h:68</a></div></div>
+<div class="ttc" id="astructVoice_html_a7f653831ca5f2d72bfb739f5178a2894"><div class="ttname"><a href="structVoice.html#a7f653831ca5f2d72bfb739f5178a2894">Voice::length</a></div><div class="ttdeci">uint16_t length</div><div class="ttdef"><b>Définition</b> <a href="#l00069">obcp_audio.h:69</a></div></div>
+<div class="ttc" id="astructVoice_html_acd8ac44a3d6be290379fd269b1981e06"><div class="ttname"><a href="structVoice.html#acd8ac44a3d6be290379fd269b1981e06">Voice::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Définition</b> <a href="#l00070">obcp_audio.h:70</a></div></div>
+<div class="ttc" id="astructVoice_html_ae0cded0bcbb4a7483672dc0e5a2388b3"><div class="ttname"><a href="structVoice.html#ae0cded0bcbb4a7483672dc0e5a2388b3">Voice::increment</a></div><div class="ttdeci">uint32_t increment</div><div class="ttdef"><b>Définition</b> <a href="#l00067">obcp_audio.h:67</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__audio_8h.html">obcp_audio.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

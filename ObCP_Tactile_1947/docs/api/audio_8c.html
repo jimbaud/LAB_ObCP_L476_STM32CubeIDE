@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/audio.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('audio_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier audio.c<div class="ingroups"><a class="el" href="group__obcp__audio.html">Synthèse et sortie musicale</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Synthèse numérique et séquenceur musical sans accès matériel.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__audio_8h_source.html">obcp_audio.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de audio.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c__incl.svg" width="304" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="audio_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae0dbc3cd49563f654afe9cfbd740345c" id="r_ae0dbc3cd49563f654afe9cfbd740345c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae0dbc3cd49563f654afe9cfbd740345c">STEP_THRESHOLD</a>&#160;&#160;&#160;((uint32_t)<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a> * 60U)</td></tr>
+<tr class="memdesc:ae0dbc3cd49563f654afe9cfbd740345c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seuil du tempo, égal à 60 fois la fréquence d'échantillonnage.  <br /></td></tr>
+<tr class="memitem:a65d057111d3bf5fedaf010be2ae4cb63" id="r_a65d057111d3bf5fedaf010be2ae4cb63"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a65d057111d3bf5fedaf010be2ae4cb63">INC_440</a>&#160;&#160;&#160;((uint32_t)((UINT64_C(440) &lt;&lt; 32) / <a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a>))</td></tr>
+<tr class="memdesc:a65d057111d3bf5fedaf010be2ae4cb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrément DDS entier produisant la note de diagnostic à 440 Hz.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad615f3950812a2819d4e546d6d3dcc4f" id="r_ad615f3950812a2819d4e546d6d3dcc4f"><td class="memItemLeft"><a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4f">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4fa552dbfc018bbff8b37c76efea76ca893">KICK</a>
+, <a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4fa8d493a1bf8555e7924466a5b0613a4fb">SNARE</a>
+, <a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4faa99ac58ec2394c9617cf653d2ab98fc8">HAT</a>
+, <a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4fa585d7e1ce678aab9da911bea04e71026">BASS</a>
+, <br />
+&#160;&#160;<a class="el" href="#ad615f3950812a2819d4e546d6d3dcc4faadc9989064066307ec2a047eeb661cea">KEYS</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ad615f3950812a2819d4e546d6d3dcc4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#ad615f3950812a2819d4e546d6d3dcc4f">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a30adcb770ddbe0d08f3a4c0c76b2e527" id="r_a30adcb770ddbe0d08f3a4c0c76b2e527"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a30adcb770ddbe0d08f3a4c0c76b2e527">triangle</a> (uint32_t phase)</td></tr>
+<tr class="memdesc:a30adcb770ddbe0d08f3a4c0c76b2e527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer une onde triangulaire à partir d'une phase DDS.  <br /></td></tr>
+<tr class="memitem:a761ab2755a6c9efa5be911510a090c72" id="r_a761ab2755a6c9efa5be911510a090c72"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a761ab2755a6c9efa5be911510a090c72">trigger</a> (<a class="el" href="structAudio.html">Audio</a> *a, unsigned voice, uint8_t note)</td></tr>
+<tr class="memdesc:a761ab2755a6c9efa5be911510a090c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réarmer une voix pour une note.  <br /></td></tr>
+<tr class="memitem:acbdf4b15a94eab4974511f04c62e002d" id="r_acbdf4b15a94eab4974511f04c62e002d"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#acbdf4b15a94eab4974511f04c62e002d">play_step</a> (<a class="el" href="structAudio.html">Audio</a> *a)</td></tr>
+<tr class="memdesc:acbdf4b15a94eab4974511f04c62e002d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déclencher les voix actives du pas courant.  <br /></td></tr>
+<tr class="memitem:a2bd8da07b82ee027f3c11717ef60b552" id="r_a2bd8da07b82ee027f3c11717ef60b552"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2bd8da07b82ee027f3c11717ef60b552">audio_init</a> (<a class="el" href="structAudio.html">Audio</a> *a)</td></tr>
+<tr class="memdesc:a2bd8da07b82ee027f3c11717ef60b552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer un motif d'exemple et les oscillateurs.  <br /></td></tr>
+<tr class="memitem:aeaf881e89416fb039e4acdb688dbc076" id="r_aeaf881e89416fb039e4acdb688dbc076"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeaf881e89416fb039e4acdb688dbc076">audio_start</a> (<a class="el" href="structAudio.html">Audio</a> *a)</td></tr>
+<tr class="memdesc:aeaf881e89416fb039e4acdb688dbc076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reprendre le séquenceur au premier pas.  <br /></td></tr>
+<tr class="memitem:afe77d8e76f704c2d2832a8291a5b3c80" id="r_afe77d8e76f704c2d2832a8291a5b3c80"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe77d8e76f704c2d2832a8291a5b3c80">audio_stop</a> (<a class="el" href="structAudio.html">Audio</a> *a)</td></tr>
+<tr class="memdesc:afe77d8e76f704c2d2832a8291a5b3c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrêter le séquenceur, le test et les voix.  <br /></td></tr>
+<tr class="memitem:ad7267b4cd578a9bfb8a67ae7deb0b244" id="r_ad7267b4cd578a9bfb8a67ae7deb0b244"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad7267b4cd578a9bfb8a67ae7deb0b244">audio_key</a> (<a class="el" href="structAudio.html">Audio</a> *a, uint8_t note)</td></tr>
+<tr class="memdesc:ad7267b4cd578a9bfb8a67ae7deb0b244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déclencher la voix réservée au clavier.  <br /></td></tr>
+<tr class="memitem:a0c440b16568966c3ee063b797775f778" id="r_a0c440b16568966c3ee063b797775f778"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0c440b16568966c3ee063b797775f778">audio_key_release</a> (<a class="el" href="structAudio.html">Audio</a> *a)</td></tr>
+<tr class="memdesc:a0c440b16568966c3ee063b797775f778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raccourcir la fin d'une note manuelle.  <br /></td></tr>
+<tr class="memitem:a29ddc18385898064f49e0800665751b3" id="r_a29ddc18385898064f49e0800665751b3"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a29ddc18385898064f49e0800665751b3">render_voice</a> (<a class="el" href="structAudio.html">Audio</a> *a, <a class="el" href="structVoice.html">Voice</a> *v)</td></tr>
+<tr class="memdesc:a29ddc18385898064f49e0800665751b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer un échantillon d'une voix et avancer son état.  <br /></td></tr>
+<tr class="memitem:a322e6d421cd69759a8804f60029e20a2" id="r_a322e6d421cd69759a8804f60029e20a2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a322e6d421cd69759a8804f60029e20a2">audio_fill</a> (<a class="el" href="structAudio.html">Audio</a> *a, uint16_t *dest, size_t samples)</td></tr>
+<tr class="memdesc:a322e6d421cd69759a8804f60029e20a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produire un bloc de rapports cycliques pour l'audio.  <br /></td></tr>
+<tr class="memitem:aae8b3805f86512bb5a7a7574e172db15" id="r_aae8b3805f86512bb5a7a7574e172db15"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aae8b3805f86512bb5a7a7574e172db15">book_encode</a> (const <a class="el" href="structPatternBook.html">PatternBook</a> *book, uint8_t data[<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a>])</td></tr>
+<tr class="memdesc:aae8b3805f86512bb5a7a7574e172db15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encoder les quatre motifs dans un format stable.  <br /></td></tr>
+<tr class="memitem:a95587c7e2bcc18df8b16ef6abe6f591a" id="r_a95587c7e2bcc18df8b16ef6abe6f591a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a95587c7e2bcc18df8b16ef6abe6f591a">book_decode</a> (<a class="el" href="structPatternBook.html">PatternBook</a> *book, const uint8_t data[<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019a50eb8e9c03dfadfd7ea43d105ad4b729">SEQ_BOOK_BYTES</a>])</td></tr>
+<tr class="memdesc:a95587c7e2bcc18df8b16ef6abe6f591a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valider puis décoder le livre musical.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:adbccb58977f447055e455d193aa18585" id="r_adbccb58977f447055e455d193aa18585"><td class="memItemLeft">static const uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#adbccb58977f447055e455d193aa18585">pitches</a> [2][8]</td></tr>
+<tr class="memdesc:adbccb58977f447055e455d193aa18585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incréments DDS des huit notes, pour la basse puis le clavier une octave au-dessus.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Synthèse numérique et séquenceur musical sans accès matériel. </p>
+<p>Les échantillons sont des valeurs de comparaison CCR3 sur 10 bits, centrées autour de</p><ol type="1">
+<li>Le transport DMA consomme ces valeurs à 15 625 échantillons par seconde. Le format des motifs encode chaque champ explicitement.</li>
+</ol>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a65d057111d3bf5fedaf010be2ae4cb63" name="a65d057111d3bf5fedaf010be2ae4cb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d057111d3bf5fedaf010be2ae4cb63">&#9670;&#160;</a></span>INC_440</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INC_440&#160;&#160;&#160;((uint32_t)((UINT64_C(440) &lt;&lt; 32) / <a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incrément DDS entier produisant la note de diagnostic à 440 Hz. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00037">37</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>.</p>
+
+</div>
+</div>
+<a id="ae0dbc3cd49563f654afe9cfbd740345c" name="ae0dbc3cd49563f654afe9cfbd740345c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0dbc3cd49563f654afe9cfbd740345c">&#9670;&#160;</a></span>STEP_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STEP_THRESHOLD&#160;&#160;&#160;((uint32_t)<a class="el" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019aa42ad8f254308bfb03934e319a93f6b8">AUDIO_HZ</a> * 60U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seuil du tempo, égal à 60 fois la fréquence d'échantillonnage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00036">36</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>.</p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ad615f3950812a2819d4e546d6d3dcc4f" name="ad615f3950812a2819d4e546d6d3dcc4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad615f3950812a2819d4e546d6d3dcc4f">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ad615f3950812a2819d4e546d6d3dcc4fa552dbfc018bbff8b37c76efea76ca893" name="ad615f3950812a2819d4e546d6d3dcc4fa552dbfc018bbff8b37c76efea76ca893"></a>KICK&#160;</td><td class="fielddoc"><p>Timbre de grosse caisse et indice de première piste. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad615f3950812a2819d4e546d6d3dcc4fa8d493a1bf8555e7924466a5b0613a4fb" name="ad615f3950812a2819d4e546d6d3dcc4fa8d493a1bf8555e7924466a5b0613a4fb"></a>SNARE&#160;</td><td class="fielddoc"><p>Timbre de caisse claire et indice de deuxième piste. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad615f3950812a2819d4e546d6d3dcc4faa99ac58ec2394c9617cf653d2ab98fc8" name="ad615f3950812a2819d4e546d6d3dcc4faa99ac58ec2394c9617cf653d2ab98fc8"></a>HAT&#160;</td><td class="fielddoc"><p>Timbre de charleston et indice de troisième piste. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad615f3950812a2819d4e546d6d3dcc4fa585d7e1ce678aab9da911bea04e71026" name="ad615f3950812a2819d4e546d6d3dcc4fa585d7e1ce678aab9da911bea04e71026"></a>BASS&#160;</td><td class="fielddoc"><p>Timbre de basse et indice de quatrième piste. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad615f3950812a2819d4e546d6d3dcc4faadc9989064066307ec2a047eeb661cea" name="ad615f3950812a2819d4e546d6d3dcc4faadc9989064066307ec2a047eeb661cea"></a>KEYS&#160;</td><td class="fielddoc"><p>Timbre tonal de la cinquième voix, réservée au clavier. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00029">29</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a322e6d421cd69759a8804f60029e20a2" name="a322e6d421cd69759a8804f60029e20a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322e6d421cd69759a8804f60029e20a2">&#9670;&#160;</a></span>audio_fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>samples</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Produire un bloc de rapports cycliques pour l'audio. </p>
+<p>Mélange les voix ou la note d'essai, applique le volume et borne l'amplitude autour de</p><ol type="1">
+<li>L'accumulateur de tempo avance exactement à la cadence des échantillons. Appel dans la boucle principale. <dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Tampon valide d’au moins samples comparaisons uint16_t. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">samples</td><td>Nombre de comparaisons audio à produire dans dest. </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ol>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00220">220</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__audio_8h_source.html#l00027">AUDIO_CENTER</a>, <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, <a class="el" href="obcp__audio_8h_source.html#l00029">AUDIO_VOICES</a>, <a class="el" href="obcp__audio_8h_source.html#l00081">Audio::beat_fraction</a>, <a class="el" href="obcp__audio_8h_source.html#l00046">Pattern::bpm</a>, <a class="el" href="audio_8c_source.html#l00037">INC_440</a>, <a class="el" href="obcp__audio_8h_source.html#l00079">Audio::pattern</a>, <a class="el" href="audio_8c_source.html#l00091">play_step()</a>, <a class="el" href="obcp__audio_8h_source.html#l00086">Audio::playing</a>, <a class="el" href="audio_8c_source.html#l00189">render_voice()</a>, <a class="el" href="obcp__audio_8h_source.html#l00031">SEQ_STEPS</a>, <a class="el" href="obcp__audio_8h_source.html#l00084">Audio::step</a>, <a class="el" href="audio_8c_source.html#l00036">STEP_THRESHOLD</a>, <a class="el" href="obcp__audio_8h_source.html#l00082">Audio::test_phase</a>, <a class="el" href="obcp__audio_8h_source.html#l00087">Audio::test_tone</a>, <a class="el" href="audio_8c_source.html#l00053">triangle()</a>, <a class="el" href="obcp__audio_8h_source.html#l00080">Audio::voices</a>, et <a class="el" href="obcp__audio_8h_source.html#l00085">Audio::volume</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, et <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a322e6d421cd69759a8804f60029e20a2_cgraph.svg" width="367" height="159"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2bd8da07b82ee027f3c11717ef60b552" name="a2bd8da07b82ee027f3c11717ef60b552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd8da07b82ee027f3c11717ef60b552">&#9670;&#160;</a></span>audio_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer un motif d'exemple et les oscillateurs. </p>
+<p>Réinitialise les états, choisit 112 BPM et un volume de 50 %, puis place quelques événements sur les quatre pistes. La sortie matérielle reste sous le contrôle de <a class="el" href="pwm__audio_8c.html" title="Transport des rapports cycliques par TIM1 et DMA circulaire.">pwm_audio.c</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix, à initialiser par cet appel. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00105">105</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00105">audio_init()</a>, <a class="el" href="audio_8c_source.html#l00033">BASS</a>, <a class="el" href="obcp__audio_8h_source.html#l00046">Pattern::bpm</a>, <a class="el" href="audio_8c_source.html#l00032">HAT</a>, <a class="el" href="audio_8c_source.html#l00030">KICK</a>, <a class="el" href="obcp__audio_8h_source.html#l00083">Audio::noise</a>, <a class="el" href="obcp__audio_8h_source.html#l00048">Pattern::notes</a>, <a class="el" href="obcp__audio_8h_source.html#l00079">Audio::pattern</a>, <a class="el" href="obcp__audio_8h_source.html#l00031">SEQ_STEPS</a>, <a class="el" href="obcp__audio_8h_source.html#l00030">SEQ_TRACKS</a>, <a class="el" href="audio_8c_source.html#l00031">SNARE</a>, <a class="el" href="obcp__audio_8h_source.html#l00047">Pattern::timbre</a>, et <a class="el" href="obcp__audio_8h_source.html#l00085">Audio::volume</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00456">app_init()</a>, et <a class="el" href="audio_8c_source.html#l00105">audio_init()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a2bd8da07b82ee027f3c11717ef60b552_cgraph.svg" width="98" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad7267b4cd578a9bfb8a67ae7deb0b244" name="ad7267b4cd578a9bfb8a67ae7deb0b244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7267b4cd578a9bfb8a67ae7deb0b244">&#9670;&#160;</a></span>audio_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_key </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>note</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Déclencher la voix réservée au clavier. </p>
+<p>La voix manuelle est distincte des quatre pistes. La hauteur est interprétée dans la même gamme de huit notes. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">note</td><td>Hauteur de 1 à 8. Zéro signifie silence. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00160">160</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00160">audio_key()</a>, <a class="el" href="audio_8c_source.html#l00034">KEYS</a>, et <a class="el" href="audio_8c_source.html#l00068">trigger()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00160">audio_key()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_ad7267b4cd578a9bfb8a67ae7deb0b244_cgraph.svg" width="212" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0c440b16568966c3ee063b797775f778" name="a0c440b16568966c3ee063b797775f778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c440b16568966c3ee063b797775f778">&#9670;&#160;</a></span>audio_key_release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_key_release </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raccourcir la fin d'une note manuelle. </p>
+<p>La durée restante est bornée pour laisser une courte décroissance. Cette enveloppe évite une coupure brutale de l'amplitude. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00171">171</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00171">audio_key_release()</a>, <a class="el" href="audio_8c_source.html#l00034">KEYS</a>, <a class="el" href="obcp__audio_8h_source.html#l00069">Voice::length</a>, <a class="el" href="obcp__audio_8h_source.html#l00068">Voice::remaining</a>, et <a class="el" href="obcp__audio_8h_source.html#l00080">Audio::voices</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="audio_8c_source.html#l00171">audio_key_release()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a0c440b16568966c3ee063b797775f778_cgraph.svg" width="154" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aeaf881e89416fb039e4acdb688dbc076" name="aeaf881e89416fb039e4acdb688dbc076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf881e89416fb039e4acdb688dbc076">&#9670;&#160;</a></span>audio_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reprendre le séquenceur au premier pas. </p>
+<p>Remet la fraction de tempo et le curseur à zéro, active la lecture et déclenche immédiatement les notes du premier pas. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00133">133</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00133">audio_start()</a>, <a class="el" href="obcp__audio_8h_source.html#l00081">Audio::beat_fraction</a>, <a class="el" href="audio_8c_source.html#l00091">play_step()</a>, <a class="el" href="obcp__audio_8h_source.html#l00086">Audio::playing</a>, et <a class="el" href="obcp__audio_8h_source.html#l00084">Audio::step</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00133">audio_start()</a>, et <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_aeaf881e89416fb039e4acdb688dbc076_cgraph.svg" width="352" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afe77d8e76f704c2d2832a8291a5b3c80" name="afe77d8e76f704c2d2832a8291a5b3c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe77d8e76f704c2d2832a8291a5b3c80">&#9670;&#160;</a></span>audio_stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void audio_stop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arrêter le séquenceur, le test et les voix. </p>
+<p>Efface les enveloppes en cours. Le motif reste disponible pour une prochaine lecture. Le transport PWM est arrêté par sa tâche dédiée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00147">147</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00147">audio_stop()</a>, <a class="el" href="obcp__audio_8h_source.html#l00086">Audio::playing</a>, <a class="el" href="obcp__audio_8h_source.html#l00087">Audio::test_tone</a>, et <a class="el" href="obcp__audio_8h_source.html#l00080">Audio::voices</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="audio_8c_source.html#l00147">audio_stop()</a>, <a class="el" href="app_8c_source.html#l00811">groove_touch()</a>, et <a class="el" href="app_8c_source.html#l00631">request_store()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_afe77d8e76f704c2d2832a8291a5b3c80_cgraph.svg" width="104" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a95587c7e2bcc18df8b16ef6abe6f591a" name="a95587c7e2bcc18df8b16ef6abe6f591a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95587c7e2bcc18df8b16ef6abe6f591a">&#9670;&#160;</a></span>book_decode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool book_decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPatternBook.html">PatternBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>[SEQ_BOOK_BYTES]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valider puis décoder le livre musical. </p>
+<p>Travaille d'abord sur un candidat local. Le livre de destination est remplacé seulement si version, masque, tempos, timbres et notes sont cohérents. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">book</td><td>Livre des quatre motifs et masque de présence. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Tableau de SEQ_BOOK_BYTES octets à décoder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si tous les motifs présents sont valides. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00281">281</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00281">book_decode()</a>, <a class="el" href="obcp__audio_8h_source.html#l00046">Pattern::bpm</a>, <a class="el" href="obcp__audio_8h_source.html#l00048">Pattern::notes</a>, <a class="el" href="obcp__audio_8h_source.html#l00056">PatternBook::pattern</a>, <a class="el" href="obcp__audio_8h_source.html#l00057">PatternBook::present</a>, <a class="el" href="obcp__audio_8h_source.html#l00036">SEQ_BOOK_BYTES</a>, <a class="el" href="obcp__audio_8h_source.html#l00034">SEQ_MAX_BPM</a>, <a class="el" href="obcp__audio_8h_source.html#l00033">SEQ_MIN_BPM</a>, <a class="el" href="obcp__audio_8h_source.html#l00035">SEQ_PATTERN_BYTES</a>, <a class="el" href="obcp__audio_8h_source.html#l00032">SEQ_SLOTS</a>, <a class="el" href="obcp__audio_8h_source.html#l00031">SEQ_STEPS</a>, <a class="el" href="obcp__audio_8h_source.html#l00030">SEQ_TRACKS</a>, et <a class="el" href="obcp__audio_8h_source.html#l00047">Pattern::timbre</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, et <a class="el" href="audio_8c_source.html#l00281">book_decode()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a95587c7e2bcc18df8b16ef6abe6f591a_cgraph.svg" width="119" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aae8b3805f86512bb5a7a7574e172db15" name="aae8b3805f86512bb5a7a7574e172db15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8b3805f86512bb5a7a7574e172db15">&#9670;&#160;</a></span>book_encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void book_encode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structPatternBook.html">PatternBook</a> *</td>          <td class="paramname"><span class="paramname"><em>book</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>[SEQ_BOOK_BYTES]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encoder les quatre motifs dans un format stable. </p>
+<p>Écrit version, masque de présence, tempo little-endian, timbres et notes dans un tableau d'octets. Les octets ne dépendent pas du remplissage des structures C. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">book</td><td>Livre des quatre motifs et masque de présence, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tableau de SEQ_BOOK_BYTES octets à remplir. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00261">261</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00261">book_encode()</a>, <a class="el" href="obcp__audio_8h_source.html#l00046">Pattern::bpm</a>, <a class="el" href="obcp__audio_8h_source.html#l00048">Pattern::notes</a>, <a class="el" href="obcp__audio_8h_source.html#l00056">PatternBook::pattern</a>, <a class="el" href="obcp__audio_8h_source.html#l00057">PatternBook::present</a>, <a class="el" href="obcp__audio_8h_source.html#l00036">SEQ_BOOK_BYTES</a>, <a class="el" href="obcp__audio_8h_source.html#l00035">SEQ_PATTERN_BYTES</a>, <a class="el" href="obcp__audio_8h_source.html#l00032">SEQ_SLOTS</a>, <a class="el" href="obcp__audio_8h_source.html#l00030">SEQ_TRACKS</a>, et <a class="el" href="obcp__audio_8h_source.html#l00047">Pattern::timbre</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, et <a class="el" href="audio_8c_source.html#l00261">book_encode()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_aae8b3805f86512bb5a7a7574e172db15_cgraph.svg" width="119" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acbdf4b15a94eab4974511f04c62e002d" name="acbdf4b15a94eab4974511f04c62e002d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbdf4b15a94eab4974511f04c62e002d">&#9670;&#160;</a></span>play_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void play_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Déclencher les voix actives du pas courant. </p>
+<p>Chaque piste possède sa voix. La valeur zéro est un silence et les valeurs 1 à 8 sont des hauteurs. Le moteur continue de faire décroître les voix déjà lancées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00091">91</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__audio_8h_source.html#l00048">Pattern::notes</a>, <a class="el" href="obcp__audio_8h_source.html#l00079">Audio::pattern</a>, <a class="el" href="audio_8c_source.html#l00091">play_step()</a>, <a class="el" href="obcp__audio_8h_source.html#l00030">SEQ_TRACKS</a>, <a class="el" href="obcp__audio_8h_source.html#l00084">Audio::step</a>, et <a class="el" href="audio_8c_source.html#l00068">trigger()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, <a class="el" href="audio_8c_source.html#l00133">audio_start()</a>, et <a class="el" href="audio_8c_source.html#l00091">play_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_acbdf4b15a94eab4974511f04c62e002d_cgraph.svg" width="210" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a29ddc18385898064f49e0800665751b3" name="a29ddc18385898064f49e0800665751b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ddc18385898064f49e0800665751b3">&#9670;&#160;</a></span>render_voice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int render_voice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structVoice.html">Voice</a> *</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer un échantillon d'une voix et avancer son état. </p>
+<p>Combine triangle ou bruit LFSR, glissement du kick, attaque puis décroissance. La phase et la durée restante appartiennent à la voix et persistent entre deux blocs. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">v</td><td>Phase et enveloppe de la voix. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Échantillon signé. Zéro lorsque la voix est terminée. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00189">189</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00032">HAT</a>, <a class="el" href="obcp__audio_8h_source.html#l00067">Voice::increment</a>, <a class="el" href="audio_8c_source.html#l00030">KICK</a>, <a class="el" href="obcp__audio_8h_source.html#l00069">Voice::length</a>, <a class="el" href="obcp__audio_8h_source.html#l00083">Audio::noise</a>, <a class="el" href="obcp__audio_8h_source.html#l00066">Voice::phase</a>, <a class="el" href="obcp__audio_8h_source.html#l00068">Voice::remaining</a>, <a class="el" href="audio_8c_source.html#l00189">render_voice()</a>, <a class="el" href="audio_8c_source.html#l00031">SNARE</a>, <a class="el" href="audio_8c_source.html#l00053">triangle()</a>, et <a class="el" href="obcp__audio_8h_source.html#l00070">Voice::type</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, et <a class="el" href="audio_8c_source.html#l00189">render_voice()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a29ddc18385898064f49e0800665751b3_cgraph.svg" width="238" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a30adcb770ddbe0d08f3a4c0c76b2e527" name="a30adcb770ddbe0d08f3a4c0c76b2e527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30adcb770ddbe0d08f3a4c0c76b2e527">&#9670;&#160;</a></span>triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int triangle </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>phase</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer une onde triangulaire à partir d'une phase DDS. </p>
+<p>Les neuf bits de poids fort désignent 512 positions dans la période. Deux segments linéaires produisent le signal sans table ni fonction trigonométrique. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">phase</td><td>Phase de l’oscillateur DDS sur 32 bits, une période correspondant à 2^32 incréments unitaires. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Amplitude entière de l'onde triangulaire. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00053">53</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="audio_8c_source.html#l00053">triangle()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00220">audio_fill()</a>, <a class="el" href="audio_8c_source.html#l00189">render_voice()</a>, et <a class="el" href="audio_8c_source.html#l00053">triangle()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a30adcb770ddbe0d08f3a4c0c76b2e527_cgraph.svg" width="83" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a761ab2755a6c9efa5be911510a090c72" name="a761ab2755a6c9efa5be911510a090c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761ab2755a6c9efa5be911510a090c72">&#9670;&#160;</a></span>trigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trigger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAudio.html">Audio</a> *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>voice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>note</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Réarmer une voix pour une note. </p>
+<p>La piste choisit le timbre, puis la note choisit l'incrément DDS pour la basse ou le clavier. La durée restante et la durée totale sont initialisées ensemble. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a</td><td>État du motif, du séquenceur et des voix. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">voice</td><td>Indice de voix, entre zéro et AUDIO_VOICES moins un. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">note</td><td>Hauteur de 1 à 8. Zéro signifie silence. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00068">68</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__audio_8h_source.html#l00029">AUDIO_VOICES</a>, <a class="el" href="audio_8c_source.html#l00033">BASS</a>, <a class="el" href="audio_8c_source.html#l00034">KEYS</a>, <a class="el" href="obcp__audio_8h_source.html#l00079">Audio::pattern</a>, <a class="el" href="audio_8c_source.html#l00040">pitches</a>, <a class="el" href="obcp__audio_8h_source.html#l00030">SEQ_TRACKS</a>, <a class="el" href="obcp__audio_8h_source.html#l00047">Pattern::timbre</a>, <a class="el" href="audio_8c_source.html#l00068">trigger()</a>, et <a class="el" href="obcp__audio_8h_source.html#l00080">Audio::voices</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00160">audio_key()</a>, <a class="el" href="audio_8c_source.html#l00091">play_step()</a>, et <a class="el" href="audio_8c_source.html#l00068">trigger()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="audio_8c_a761ab2755a6c9efa5be911510a090c72_cgraph.svg" width="76" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="adbccb58977f447055e455d193aa18585" name="adbccb58977f447055e455d193aa18585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbccb58977f447055e455d193aa18585">&#9670;&#160;</a></span>pitches</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t pitches[2][8]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">                              = {</div>
+<div class="line">    {35957549U, 40360983U, 45303672U, 47997558U, 53875438U, 60473140U, 67878818U, 71915097U},</div>
+<div class="line">    {71915097U, 80721966U, 90607345U, 95995117U, 107750875U, 120946279U, 135757608U, 143830167U},</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Incréments DDS des huit notes, pour la basse puis le clavier une octave au-dessus. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="audio_8c_source.html#l00040">40</a> du fichier <a class="el" href="audio_8c_source.html">audio.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="audio_8c_source.html#l00068">trigger()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="audio_8c.html">audio.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

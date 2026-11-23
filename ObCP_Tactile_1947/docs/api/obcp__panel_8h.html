@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_panel.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__panel_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_panel.h<div class="ingroups"><a class="el" href="group__obcp__drivers.html">Pilotes de périphériques</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Commandes du TFT ILI9341 et transport SPI1 DMA.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_panel.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__panel_8h__incl.svg" width="288" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__panel_8h__dep__incl.svg" width="100%" height="393"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="obcp__panel_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aa4256c91a09012182695cfa6b6fc0e5c" id="r_aa4256c91a09012182695cfa6b6fc0e5c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa4256c91a09012182695cfa6b6fc0e5c">lcd_init</a> (uint16_t *id)</td></tr>
+<tr class="memdesc:aa4256c91a09012182695cfa6b6fc0e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser le TFT en paysage RGB565.  <br /></td></tr>
+<tr class="memitem:a9cd53abfd0e65e8ceca404c5e47d2d1a" id="r_a9cd53abfd0e65e8ceca404c5e47d2d1a"><td class="memItemLeft"><a class="el" href="structDisplayPort.html">DisplayPort</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9cd53abfd0e65e8ceca404c5e47d2d1a">lcd_port</a> (void)</td></tr>
+<tr class="memdesc:a9cd53abfd0e65e8ceca404c5e47d2d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposer les callbacks de transport à <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a>.  <br /></td></tr>
+<tr class="memitem:a0d40bfce0038207f484c4112427c3f35" id="r_a0d40bfce0038207f484c4112427c3f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0d40bfce0038207f484c4112427c3f35">lcd_spi_available</a> (void)</td></tr>
+<tr class="memdesc:a0d40bfce0038207f484c4112427c3f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifier si SPI1 peut servir le tactile résistif.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Commandes du TFT ILI9341 et transport SPI1 DMA. </p>
+<p>Le TFT utilise CS sur D10 et D/C sur D9. L’initialisation et les petites commandes sont synchrones. Les pixels sont transmis par DMA1 canal 3. Le STMPE610 peut emprunter SPI1 uniquement entre ces bandes.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__panel_8h_source.html">obcp_panel.h</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="aa4256c91a09012182695cfa6b6fc0e5c" name="aa4256c91a09012182695cfa6b6fc0e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4256c91a09012182695cfa6b6fc0e5c">&#9670;&#160;</a></span>lcd_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcd_init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser le TFT en paysage RGB565. </p>
+<p>Lit l'identifiant, applique la séquence d'alimentation et de gamma, choisit MADCTL et sort le contrôleur du sommeil. Cette étape unique peut utiliser les délais requis au démarrage. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">id</td><td>Pointeur valide recevant l’identifiant lu du composant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les échanges d'initialisation ont réussi. L'identifiant est fourni séparément. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00124">124</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00033">CMD_DISPLAY_ON</a>, <a class="el" href="ili9341_8c_source.html#l00032">CMD_SLEEP_OUT</a>, <a class="el" href="ili9341_8c_source.html#l00031">CMD_SWRESET</a>, <a class="el" href="ili9341_8c_source.html#l00084">command()</a>, <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, <a class="el" href="obcp__config_8h_source.html#l00038">OBCP_LCD_MADCTL</a>, et <a class="el" href="ili9341_8c_source.html#l00101">read_id()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__panel_8h_aa4256c91a09012182695cfa6b6fc0e5c_cgraph.svg" width="528" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9cd53abfd0e65e8ceca404c5e47d2d1a" name="a9cd53abfd0e65e8ceca404c5e47d2d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd53abfd0e65e8ceca404c5e47d2d1a">&#9670;&#160;</a></span>lcd_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDisplayPort.html">DisplayPort</a> lcd_port </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exposer les callbacks de transport à <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a>. </p>
+<p>Le moteur graphique n'a ainsi pas besoin de connaître SPI1 ni la HAL. Le contexte opaque est inutilisé par ce port unique. </p><dl class="section return"><dt>Renvoie</dt><dd>Interface d'envoi et de consultation du TFT. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00233">233</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, <a class="el" href="ili9341_8c_source.html#l00216">poll_band()</a>, et <a class="el" href="ili9341_8c_source.html#l00185">send_band()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__panel_8h_a9cd53abfd0e65e8ceca404c5e47d2d1a_cgraph.svg" width="539" height="246"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0d40bfce0038207f484c4112427c3f35" name="a0d40bfce0038207f484c4112427c3f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d40bfce0038207f484c4112427c3f35">&#9670;&#160;</a></span>lcd_spi_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcd_spi_available </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifier si SPI1 peut servir le tactile résistif. </p>
+<p>Le transport ne doit plus être BUSY, la HAL doit être prête et le bit matériel BSY doit être effacé. </p><dl class="section return"><dt>Renvoie</dt><dd>true si le STMPE610 peut emprunter le bus. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ili9341_8c_source.html#l00244">244</a> du fichier <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="ili9341_8c_source.html#l00040">state</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00214">TRANSFER_BUSY</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>, et <a class="el" href="touch__port_8c_source.html#l00023">touch_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__panel_8h_a0d40bfce0038207f484c4112427c3f35_cgraph.svg" width="146" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__panel_8h.html">obcp_panel.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

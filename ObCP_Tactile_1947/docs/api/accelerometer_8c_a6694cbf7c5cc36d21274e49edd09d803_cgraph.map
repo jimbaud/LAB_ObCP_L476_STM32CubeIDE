@@ -1,0 +1,10 @@
+<map id="accel_read_raw" name="accel_read_raw">
+<area shape="rect" id="Node000001" title="Lire les trois axes dans une même rafale." alt="" coords="5,29,128,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="41,31,36,21,38,11,49,5,67,3,88,6,97,15,93,19,85,11,67,8,51,10,43,15,41,20,46,28"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="176,29,263,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="128,39,162,39,162,45,128,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="196,30,191,21,193,11,203,5,219,3,239,6,247,15,243,18,236,11,219,8,205,10,198,15,196,20,200,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="311,29,409,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="263,39,297,39,297,45,263,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="336,30,331,21,334,11,344,5,360,3,379,6,388,15,384,18,377,11,360,8,346,10,338,15,337,20,341,28"/>
+</map>

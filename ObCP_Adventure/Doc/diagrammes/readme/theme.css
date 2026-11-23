@@ -1,0 +1,128 @@
+/* Illustrations du README : couleurs des thèmes clair et sombre de GitHub
+   (palette Primer), polices et éléments communs.
+   generer_images.py choisit le thème : <html data-theme="clair|sombre">. */
+
+:root, [data-theme="clair"] {
+  --fond: #ffffff;
+  --fond-doux: #f6f8fa;
+  --bord: #d1d9e0;
+  --texte: #1f2328;
+  --discret: #59636e;
+  --bleu: #0969da;      --bleu-fond: #ddf4ff;
+  --vert: #1a7f37;      --vert-fond: #dafbe1;
+  --ambre: #9a6700;     --ambre-fond: #fff8c5;
+  --orange: #bc4c00;    --orange-fond: #fff1e5;
+  --violet: #8250df;    --violet-fond: #fbefff;
+  --rouge: #cf222e;     --rouge-fond: #ffebe9;
+  --piste: #e6eaef;     /* LED éteinte, rails */
+  --ombre: 0 1px 2px rgba(31, 35, 40, .06), 0 6px 18px rgba(31, 35, 40, .07);
+  /* couleurs de la LED RVB (identiques dans les deux thèmes) */
+  --led-bleu: #2f81f7;
+  --led-violet: #b250f0;
+  --led-vert: #2ea043;
+  --led-rouge: #e5484d;
+  --led-blanc: #ffffff;
+  --led-contour: rgba(31, 35, 40, .25);
+  --contour-blanc: #8c959f;     /* LED blanche visible sur fond blanc */
+}
+
+[data-theme="sombre"] {
+  --fond: #0d1117;
+  --fond-doux: #151b23;
+  --bord: #3d444d;
+  --texte: #f0f6fc;
+  --discret: #9198a1;
+  --bleu: #4493f8;      --bleu-fond: rgba(56, 139, 253, .15);
+  --vert: #3fb950;      --vert-fond: rgba(46, 160, 67, .15);
+  --ambre: #d29922;     --ambre-fond: rgba(187, 128, 9, .15);
+  --orange: #db6d28;    --orange-fond: rgba(219, 109, 40, .15);
+  --violet: #ab7df8;    --violet-fond: rgba(171, 125, 248, .15);
+  --rouge: #f85149;     --rouge-fond: rgba(248, 81, 73, .15);
+  --piste: #262c36;
+  --ombre: none;
+  --led-contour: rgba(240, 246, 252, .28);
+  --contour-blanc: rgba(240, 246, 252, .35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: transparent; }
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
+  color: var(--texte);
+  -webkit-font-smoothing: antialiased;
+  padding: 8px;               /* marge autour de la figure (ombre) */
+  width: max-content;
+}
+
+.figure {
+  position: relative;
+  background: var(--fond);
+  border: 1px solid var(--bord);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+code, .mono {
+  font-family: "DejaVu Sans Mono", "Consolas", monospace;
+  font-size: .92em;
+  letter-spacing: -.01em;
+}
+
+.discret { color: var(--discret); }
+
+/* Carte (bloc arrondi) */
+.bloc {
+  position: relative;
+  border: 1.5px solid var(--bord);
+  border-radius: 10px;
+  background: var(--fond);
+  padding: 10px 14px;
+}
+.bloc h3 { font-size: 15px; font-weight: 650; line-height: 1.25; }
+.bloc p  { font-size: 13px; line-height: 1.4; color: var(--discret); margin-top: 3px; }
+
+.bleu   { --c: var(--bleu);   --c-fond: var(--bleu-fond); }
+.vert   { --c: var(--vert);   --c-fond: var(--vert-fond); }
+.ambre  { --c: var(--ambre);  --c-fond: var(--ambre-fond); }
+.orange { --c: var(--orange); --c-fond: var(--orange-fond); }
+.violet { --c: var(--violet); --c-fond: var(--violet-fond); }
+.rouge  { --c: var(--rouge);  --c-fond: var(--rouge-fond); }
+.bloc.bleu, .bloc.vert, .bloc.ambre, .bloc.orange, .bloc.violet, .bloc.rouge {
+  border-color: var(--c);
+  background: var(--c-fond);
+}
+
+/* Pastille (petite étiquette arrondie) */
+.pastille {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 550;
+  padding: 3px 10px; border-radius: 999px;
+  border: 1px solid var(--c, var(--bord));
+  color: var(--c, var(--discret));
+  background: var(--c-fond, transparent);
+  white-space: nowrap;
+}
+
+/* LED de la carte */
+.led {
+  --l: var(--piste);
+  display: inline-block; flex: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.85) 0 18%, transparent 45%), var(--l);
+  box-shadow: 0 0 0 1px var(--led-contour), 0 0 10px 2px color-mix(in srgb, var(--l) 55%, transparent);
+}
+.led.eteinte { background: var(--piste); box-shadow: 0 0 0 1px var(--led-contour); }
+.led.l-bleu   { --l: var(--led-bleu); }
+.led.l-violet { --l: var(--led-violet); }
+.led.l-vert   { --l: var(--led-vert); }
+.led.l-rouge  { --l: var(--led-rouge); }
+.led.l-blanc  { --l: var(--led-blanc); }
+[data-theme="clair"] .led.l-blanc { box-shadow: 0 0 0 1.5px var(--contour-blanc), 0 0 9px 2px rgba(140, 149, 159, .35); }
+
+/* Flèches tracées par outils.js */
+svg.fleches { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+svg.fleches .etiquette-fond { fill: var(--fond); }
+svg.fleches text { font-family: "Inter", sans-serif; font-size: 12.5px; fill: var(--discret); font-weight: 500; }

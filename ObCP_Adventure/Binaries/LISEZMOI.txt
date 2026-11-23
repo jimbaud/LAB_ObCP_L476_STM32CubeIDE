@@ -1,0 +1,47 @@
+ObCP Adventure, version 1.0.0 - programmes précompilés
+======================================================
+
+1. Programme de la carte ObCP (STM32L476RG)
+-------------------------------------------
+Compilation Makefile (« make » à la racine du projet) : -Os, équivalent de la
+configuration Release de STM32CubeIDE ; compilateur arm-none-eabi-gcc 13.2.
+
+  ObCP_Adventure.hex   à programmer par USB DFU avec STM32CubeProgrammer (conseillé)
+  ObCP_Adventure.elf   même programme au format ELF (sans informations de débogage)
+  ObCP_Adventure.bin   image brute, à programmer à l'adresse 0x08000000
+
+Programmation par le câble USB, sans sonde :
+  1. Interrupteur SW4 sur « Prog », SW2 sur « On », appui sur RST (SW3) :
+     l'ObCP passe dans le chargeur DFU de ST.
+  2. STM32CubeProgrammer : interface USB, port USB1, Connect, Erasing & programming,
+     choisir le fichier, cocher Verify programming, Start Programming.
+     En ligne de commande :
+       STM32_Programmer_CLI -c port=usb1 -w ObCP_Adventure.hex -v
+  3. Remettre SW4 sur « Run » et appuyer sur RST : un éclair vert, puis le menu
+     s'affiche sur l'écran du shield.
+
+Avec une sonde ST-LINK sur le connecteur J17 (SWD), le même fichier .hex se
+programme sans toucher à SW4.
+
+2. Simulateur pour Windows (dossier Simulateur_Windows)
+-------------------------------------------------------
+  ObCP_Adventure_Simulateur.exe   le jeu sur PC (Windows 10 ou 11, 64 bits), sans carte :
+                                  même moteur, mêmes niveaux et même rendu que la carte
+  LICENCE_SDL2.txt                licence de la bibliothèque SDL2 (zlib), intégrée à l'exe
+
+Double-cliquer sur l'exécutable (une console s'ouvre à côté du jeu pour les
+messages). Le programme n'est pas signé : si Windows SmartScreen l'arrête,
+cliquer « Informations complémentaires » puis « Exécuter quand même ».
+La sauvegarde (EEPROM simulée de 8 Ko) est le fichier obcp_adventure.sav créé
+dans le dossier de lancement.
+
+Commandes : souris = doigt sur l'écran tactile ; clavier : flèches ou Q / D
+(AZERTY) pour marcher, Maj gauche + direction (courir), Espace (sauter),
+Échap (pause), Entrée (valider), Tab (onglet suivant des réglages),
+J / L (inclinaison simulée en mode INCLINAISON), F2 réglages, F3 diagnostic,
+F5 sauvegarder, F7 niveau suivant (mise au point).
+Guide complet : Doc/Guide_ObCP_Adventure.pdf, chapitre 8.
+
+Ces fichiers correspondent aux sources du projet. Après toute modification des
+sources, recompiler (STM32CubeIDE ou « make » ; « make -C Simulator » ou
+« make -C Simulator windows » pour le simulateur) au lieu de les utiliser.

@@ -1,0 +1,62 @@
+/**
+ * @file logo.c
+ * @brief Ressource graphique SUPMICROTECH compressée par lignes.
+ * @ingroup obcp_graphics
+ *
+ * Le fichier est produit par Tools/import_logo.py depuis le JPEG CMJN fourni. La palette
+ * RGB565 et les couples longueur-indice sont en flash. Une table d’offsets permet de lire
+ * directement les seules lignes de la bande active.
+ *
+ * @par Repères de lecture
+ * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en
+ * millisecondes. Les adresses du service de stockage sont des offsets en octets.
+ */
+/* Ressource issue du logo SUPMICROTECH fourni par J. Imbaud.
+ * Générée par Tools/import_logo.py. Une paire contient longueur et indice. */
+/** @var palette
+ * @brief Seize couleurs RGB565 obtenues après conversion ICC du logo fourni.
+ */
+/** @var rows
+ * @brief Offset de chaque ligne dans runs, avec une borne finale exclusive.
+ */
+/** @var runs
+ * @brief Paires longueur et indice de couleur des segments horizontaux du logo.
+ */
+
+#include "obcp_logo.h"
+
+/** @brief Constantes privées de ce module, avec leurs unités. */
+enum {
+    LOGO_WIDTH = @WIDTH@, /**< Largeur en pixels de la ressource du logo. */
+    LOGO_HEIGHT = @HEIGHT@, /**< Hauteur en pixels de la ressource du logo. */
+};
+static const uint16_t palette[16] = {
+@PALETTE@
+};
+static const uint16_t rows[LOGO_HEIGHT + 1] = {
+@ROWS@
+};
+static const uint8_t runs[] = {
+@RUNS@
+};
+
+/*
+ * Décompresser les lignes visibles du logo dans une bande.
+ *
+ * Pour chaque ligne utile, les couples longueur-indice décrivent des segments de couleur
+ * constante. Le rendu ne crée aucun tampon du logo et garde le pas de la bande Gfx.
+ */
+void logo_draw(Gfx *g, int x, int y)
+{
+    /* rows donne les bornes de chaque ligne dans runs. Deux octets codent longueur puis indice de palette. */
+    for (int row = 0; row < LOGO_HEIGHT; ++row) {
+        if (y + row < g->clip.y || y + row >= g->clip.y + g->clip.h) {
+            continue;
+        }
+        int column = x;
+        for (unsigned i = rows[row]; i < rows[row + 1]; i += 2U) {
+            gfx_fill(g, (Rect){(int16_t)column, (int16_t)(y + row), runs[i], 1}, palette[runs[i + 1U]]);
+            column += runs[i];
+        }
+    }
+}

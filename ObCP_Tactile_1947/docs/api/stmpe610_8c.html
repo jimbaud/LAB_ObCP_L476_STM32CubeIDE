@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/stmpe610.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('stmpe610_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier stmpe610.c<div class="ingroups"><a class="el" href="group__obcp__drivers.html">Pilotes de périphériques</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Tactile résistif historique sur le bus SPI1 partagé.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__panel_8h_source.html">obcp_panel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="touch__drivers_8h_source.html">touch_drivers.h</a>&quot;</code><br />
+<code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;spi.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de stmpe610.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c__incl.svg" width="435" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="stmpe610_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a4d5d00a0d01bec6782382cc3135ebc51" id="r_a4d5d00a0d01bec6782382cc3135ebc51"><td class="memItemLeft"><a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a460fd1189cdc458626bb62dbeb562416">STMPE_ID</a> = 0x0811
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a6f00025830aac1df9aeb3964a8fb1b17">STMPE_SYS_CTRL2</a> = 0x04
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a8a6d3fe3e582689702d00f05d621af83">STMPE_INT_CTRL</a> = 0x09
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51ad73e829529b3d31690b642b3dc5e4c59">STMPE_INT_EN</a> = 0x0A
+, <br />
+&#160;&#160;<a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a003e5d3dbd6fd2d5f4fc8c5ead76a6ac">STMPE_INT_STA</a> = 0x0B
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51aeb3679b585f3c504ad628280542d3c4f">STMPE_ADC1</a> = 0x20
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a2c5c286022e2166e0996f799f98c969e">STMPE_ADC2</a> = 0x21
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a496da205aab7371e7edc808a064bc0a5">STMPE_CTRL</a> = 0x40
+, <br />
+&#160;&#160;<a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51af003b4a1431ba7ce703c726c4e04aed4">STMPE_CFG</a> = 0x41
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a34193db2dafd84bd4395048a606386ec">STMPE_FIFO_STA</a> = 0x4B
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51ac890c620b595442ad74be9bbc987ebca">STMPE_FIFO_SIZE</a> = 0x4C
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a6b16039773c68aab160191a0b8b1152f">STMPE_FRACTION_Z</a> = 0x56
+, <br />
+&#160;&#160;<a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a428f6098046ec7569bd569680f454d36">STMPE_DATA</a> = 0x57
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a2c2d6cc3ddd853283f38b962de0b2185">STMPE_DRIVE</a> = 0x58
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51ad615b60a0ecb6be5c98224f59be85d7a">STMPE_TOUCHED</a> = 0x80
+, <a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a3695c22a325e2fbe2c1db5c4134fa56d">STMPE_FIFO_RESET</a> = 0x01
+, <br />
+&#160;&#160;<a class="el" href="#a4d5d00a0d01bec6782382cc3135ebc51a605ccefc5cc69612ed8b0faea3157311">STMPE_MAX_POINTS</a> = 8
+<br />
+ }</td></tr>
+<tr class="memdesc:a4d5d00a0d01bec6782382cc3135ebc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a4d5d00a0d01bec6782382cc3135ebc51">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a90ec26e81c172681bbdd6a36bd37b332" id="r_a90ec26e81c172681bbdd6a36bd37b332"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a90ec26e81c172681bbdd6a36bd37b332">set_spi</a> (uint32_t settings)</td></tr>
+<tr class="memdesc:a90ec26e81c172681bbdd6a36bd37b332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changer temporairement fréquence et phase du SPI1.  <br /></td></tr>
+<tr class="memitem:a1a6c235ce788ea4ccfa5228135e6d573" id="r_a1a6c235ce788ea4ccfa5228135e6d573"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a6c235ce788ea4ccfa5228135e6d573">transaction</a> (uint8_t *tx, uint8_t *rx, uint16_t count)</td></tr>
+<tr class="memdesc:a1a6c235ce788ea4ccfa5228135e6d573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Échanger un message sous la sélection tactile D8.  <br /></td></tr>
+<tr class="memitem:a0b9d51b399b8a78f4f217917a02d89ae" id="r_a0b9d51b399b8a78f4f217917a02d89ae"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a0b9d51b399b8a78f4f217917a02d89ae">reg_read</a> (uint8_t reg, uint8_t *value)</td></tr>
+<tr class="memdesc:a0b9d51b399b8a78f4f217917a02d89ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un registre STMPE610 avec son octet factice.  <br /></td></tr>
+<tr class="memitem:a84193a8dd68efdb7eae21a932dee1ea3" id="r_a84193a8dd68efdb7eae21a932dee1ea3"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a84193a8dd68efdb7eae21a932dee1ea3">reg_write</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:a84193a8dd68efdb7eae21a932dee1ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire un registre STMPE610.  <br /></td></tr>
+<tr class="memitem:a7d3da9ac06dab82d5692231cf1b51980" id="r_a7d3da9ac06dab82d5692231cf1b51980"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d3da9ac06dab82d5692231cf1b51980">init_touch</a> (void)</td></tr>
+<tr class="memdesc:a7d3da9ac06dab82d5692231cf1b51980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appliquer les réglages ADC et FIFO du tactile.  <br /></td></tr>
+<tr class="memitem:a065ad8a07d9276aaa719b079bc9e65f9" id="r_a065ad8a07d9276aaa719b079bc9e65f9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a065ad8a07d9276aaa719b079bc9e65f9">stmpe610_probe</a> (uint16_t *chip)</td></tr>
+<tr class="memdesc:a065ad8a07d9276aaa719b079bc9e65f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnaître 0x0811 et configurer le tactile.  <br /></td></tr>
+<tr class="memitem:a26ba78ab1b0470b14784543dfb802299" id="r_a26ba78ab1b0470b14784543dfb802299"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a26ba78ab1b0470b14784543dfb802299">clear_fifo</a> (void)</td></tr>
+<tr class="memdesc:a26ba78ab1b0470b14784543dfb802299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vider la file de points du STMPE610.  <br /></td></tr>
+<tr class="memitem:abf9169c901687137037e6c421403d0a7" id="r_abf9169c901687137037e6c421403d0a7"><td class="memItemLeft">static <a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3c">TouchRead</a>&#160;</td><td class="memItemRight"><a class="el" href="#abf9169c901687137037e6c421403d0a7">read_points</a> (<a class="el" href="structRawTouch.html">RawTouch</a> *sample)</td></tr>
+<tr class="memdesc:abf9169c901687137037e6c421403d0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un lot FIFO et retenir son observation récente.  <br /></td></tr>
+<tr class="memitem:a75e680da1e46d5b917ea5786ffdb7528" id="r_a75e680da1e46d5b917ea5786ffdb7528"><td class="memItemLeft"><a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3c">TouchRead</a>&#160;</td><td class="memItemRight"><a class="el" href="#a75e680da1e46d5b917ea5786ffdb7528">stmpe610_sample</a> (<a class="el" href="structRawTouch.html">RawTouch</a> *sample)</td></tr>
+<tr class="memdesc:a75e680da1e46d5b917ea5786ffdb7528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquérir une observation entre deux bandes TFT.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:adfa82a8edfbba1c733abc5fa44712085" id="r_adfa82a8edfbba1c733abc5fa44712085"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#adfa82a8edfbba1c733abc5fa44712085">spi_phase</a></td></tr>
+<tr class="memdesc:adfa82a8edfbba1c733abc5fa44712085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phase SPI reconnue lors du sondage du STMPE610, à réappliquer aux acquisitions.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Tactile résistif historique sur le bus SPI1 partagé. </p>
+<p>Le pilote sauvegarde prescaler, polarité et phase du SPI avant son accès à 1 MHz, puis les restaure pour le TFT à 8 MHz. Il lit au plus huit points FIFO par passage et utilise le dernier point reçu.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a4d5d00a0d01bec6782382cc3135ebc51" name="a4d5d00a0d01bec6782382cc3135ebc51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d5d00a0d01bec6782382cc3135ebc51">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a460fd1189cdc458626bb62dbeb562416" name="a4d5d00a0d01bec6782382cc3135ebc51a460fd1189cdc458626bb62dbeb562416"></a>STMPE_ID&#160;</td><td class="fielddoc"><p>Signature 16 bits attendue du STMPE610. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a6f00025830aac1df9aeb3964a8fb1b17" name="a4d5d00a0d01bec6782382cc3135ebc51a6f00025830aac1df9aeb3964a8fb1b17"></a>STMPE_SYS_CTRL2&#160;</td><td class="fielddoc"><p>Adresse du registre d’activation des blocs ADC et tactile. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a8a6d3fe3e582689702d00f05d621af83" name="a4d5d00a0d01bec6782382cc3135ebc51a8a6d3fe3e582689702d00f05d621af83"></a>STMPE_INT_CTRL&#160;</td><td class="fielddoc"><p>Adresse de configuration globale des interruptions du contrôleur. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51ad73e829529b3d31690b642b3dc5e4c59" name="a4d5d00a0d01bec6782382cc3135ebc51ad73e829529b3d31690b642b3dc5e4c59"></a>STMPE_INT_EN&#160;</td><td class="fielddoc"><p>Adresse du masque des sources d’interruption. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a003e5d3dbd6fd2d5f4fc8c5ead76a6ac" name="a4d5d00a0d01bec6782382cc3135ebc51a003e5d3dbd6fd2d5f4fc8c5ead76a6ac"></a>STMPE_INT_STA&#160;</td><td class="fielddoc"><p>Adresse des événements à acquitter. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51aeb3679b585f3c504ad628280542d3c4f" name="a4d5d00a0d01bec6782382cc3135ebc51aeb3679b585f3c504ad628280542d3c4f"></a>STMPE_ADC1&#160;</td><td class="fielddoc"><p>Adresse des paramètres de conversion ADC. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a2c5c286022e2166e0996f799f98c969e" name="a4d5d00a0d01bec6782382cc3135ebc51a2c5c286022e2166e0996f799f98c969e"></a>STMPE_ADC2&#160;</td><td class="fielddoc"><p>Adresse de la fréquence ADC. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a496da205aab7371e7edc808a064bc0a5" name="a4d5d00a0d01bec6782382cc3135ebc51a496da205aab7371e7edc808a064bc0a5"></a>STMPE_CTRL&#160;</td><td class="fielddoc"><p>Adresse de contrôle du tactile et du bit de contact. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51af003b4a1431ba7ce703c726c4e04aed4" name="a4d5d00a0d01bec6782382cc3135ebc51af003b4a1431ba7ce703c726c4e04aed4"></a>STMPE_CFG&#160;</td><td class="fielddoc"><p>Adresse du délai de stabilisation et de la moyenne tactile. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a34193db2dafd84bd4395048a606386ec" name="a4d5d00a0d01bec6782382cc3135ebc51a34193db2dafd84bd4395048a606386ec"></a>STMPE_FIFO_STA&#160;</td><td class="fielddoc"><p>Adresse de commande et d’état de la FIFO tactile. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51ac890c620b595442ad74be9bbc987ebca" name="a4d5d00a0d01bec6782382cc3135ebc51ac890c620b595442ad74be9bbc987ebca"></a>STMPE_FIFO_SIZE&#160;</td><td class="fielddoc"><p>Adresse du nombre de points présents dans la FIFO. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a6b16039773c68aab160191a0b8b1152f" name="a4d5d00a0d01bec6782382cc3135ebc51a6b16039773c68aab160191a0b8b1152f"></a>STMPE_FRACTION_Z&#160;</td><td class="fielddoc"><p>Adresse de répartition des bits de pression. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a428f6098046ec7569bd569680f454d36" name="a4d5d00a0d01bec6782382cc3135ebc51a428f6098046ec7569bd569680f454d36"></a>STMPE_DATA&#160;</td><td class="fielddoc"><p>Adresse d’accès non incrémenté aux coordonnées et à la pression. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a2c2d6cc3ddd853283f38b962de0b2185" name="a4d5d00a0d01bec6782382cc3135ebc51a2c2d6cc3ddd853283f38b962de0b2185"></a>STMPE_DRIVE&#160;</td><td class="fielddoc"><p>Adresse du courant de commande de la dalle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51ad615b60a0ecb6be5c98224f59be85d7a" name="a4d5d00a0d01bec6782382cc3135ebc51ad615b60a0ecb6be5c98224f59be85d7a"></a>STMPE_TOUCHED&#160;</td><td class="fielddoc"><p>Masque du bit de présence d’un contact. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a3695c22a325e2fbe2c1db5c4134fa56d" name="a4d5d00a0d01bec6782382cc3135ebc51a3695c22a325e2fbe2c1db5c4134fa56d"></a>STMPE_FIFO_RESET&#160;</td><td class="fielddoc"><p>Masque du bit de remise à zéro de la FIFO. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4d5d00a0d01bec6782382cc3135ebc51a605ccefc5cc69612ed8b0faea3157311" name="a4d5d00a0d01bec6782382cc3135ebc51a605ccefc5cc69612ed8b0faea3157311"></a>STMPE_MAX_POINTS&#160;</td><td class="fielddoc"><p>Au plus huit points retirés de la FIFO par appel. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00025">25</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a26ba78ab1b0470b14784543dfb802299" name="a26ba78ab1b0470b14784543dfb802299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ba78ab1b0470b14784543dfb802299">&#9670;&#160;</a></span>clear_fifo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool clear_fifo </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vider la file de points du STMPE610. </p>
+<p>Le bit RESET est écrit à un puis à zéro. Cette remise à zéro traite aussi les points accumulés pendant une opération lente de stockage. </p><dl class="section return"><dt>Renvoie</dt><dd>true si les deux écritures réussissent. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00181">181</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00181">clear_fifo()</a>, <a class="el" href="stmpe610_8c_source.html#l00111">reg_write()</a>, <a class="el" href="stmpe610_8c_source.html#l00041">STMPE_FIFO_RESET</a>, et <a class="el" href="stmpe610_8c_source.html#l00035">STMPE_FIFO_STA</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00181">clear_fifo()</a>, et <a class="el" href="stmpe610_8c_source.html#l00195">read_points()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a26ba78ab1b0470b14784543dfb802299_cgraph.svg" width="367" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7d3da9ac06dab82d5692231cf1b51980" name="a7d3da9ac06dab82d5692231cf1b51980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3da9ac06dab82d5692231cf1b51980">&#9670;&#160;</a></span>init_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool init_touch </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appliquer les réglages ADC et FIFO du tactile. </p>
+<p>L'interrogation se fait par scrutation. La séquence règle résolution, moyenne, délais et activation, puis vérifie le registre de contrôle. </p><dl class="section return"><dt>Renvoie</dt><dd>true si la séquence et sa relecture de contrôle réussissent. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00125">125</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00125">init_touch()</a>, <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, <a class="el" href="stmpe610_8c_source.html#l00111">reg_write()</a>, <a class="el" href="stmpe610_8c_source.html#l00031">STMPE_ADC1</a>, <a class="el" href="stmpe610_8c_source.html#l00032">STMPE_ADC2</a>, <a class="el" href="stmpe610_8c_source.html#l00034">STMPE_CFG</a>, <a class="el" href="stmpe610_8c_source.html#l00033">STMPE_CTRL</a>, <a class="el" href="stmpe610_8c_source.html#l00039">STMPE_DRIVE</a>, <a class="el" href="stmpe610_8c_source.html#l00041">STMPE_FIFO_RESET</a>, <a class="el" href="stmpe610_8c_source.html#l00035">STMPE_FIFO_STA</a>, <a class="el" href="stmpe610_8c_source.html#l00037">STMPE_FRACTION_Z</a>, <a class="el" href="stmpe610_8c_source.html#l00028">STMPE_INT_CTRL</a>, <a class="el" href="stmpe610_8c_source.html#l00029">STMPE_INT_EN</a>, <a class="el" href="stmpe610_8c_source.html#l00030">STMPE_INT_STA</a>, et <a class="el" href="stmpe610_8c_source.html#l00027">STMPE_SYS_CTRL2</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00125">init_touch()</a>, et <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a7d3da9ac06dab82d5692231cf1b51980_cgraph.svg" width="371" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abf9169c901687137037e6c421403d0a7" name="abf9169c901687137037e6c421403d0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9169c901687137037e6c421403d0a7">&#9670;&#160;</a></span>read_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3c">TouchRead</a> read_points </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRawTouch.html">RawTouch</a> *</td>          <td class="paramname"><span class="paramname"><em>sample</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire un lot FIFO et retenir son observation récente. </p>
+<p>Contrôle le registre de fonctionnement et le compteur. Une FIFO vide sous un doigt donne EMPTY, tandis qu'un relâchement donne OK sans contact. Les octets reçus sont assemblés en X/Y 12 bits et Z 8 bits. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sample</td><td>Structure <a class="el" href="structRawTouch.html" title="Observation physique d’un contrôleur tactile.">RawTouch</a> valide recevant l’observation physique. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>État de lecture OK, EMPTY ou ERROR. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00195">195</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00181">clear_fifo()</a>, <a class="el" href="stmpe610_8c_source.html#l00195">read_points()</a>, <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, <a class="el" href="stmpe610_8c_source.html#l00033">STMPE_CTRL</a>, <a class="el" href="stmpe610_8c_source.html#l00038">STMPE_DATA</a>, <a class="el" href="stmpe610_8c_source.html#l00036">STMPE_FIFO_SIZE</a>, <a class="el" href="stmpe610_8c_source.html#l00042">STMPE_MAX_POINTS</a>, <a class="el" href="stmpe610_8c_source.html#l00040">STMPE_TOUCHED</a>, <a class="el" href="obcp__touch_8h_source.html#l00072">TOUCH_READ_EMPTY</a>, <a class="el" href="obcp__touch_8h_source.html#l00073">TOUCH_READ_ERROR</a>, et <a class="el" href="obcp__touch_8h_source.html#l00070">TOUCH_READ_OK</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00195">read_points()</a>, et <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_abf9169c901687137037e6c421403d0a7_cgraph.svg" width="514" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0b9d51b399b8a78f4f217917a02d89ae" name="a0b9d51b399b8a78f4f217917a02d89ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b9d51b399b8a78f4f217917a02d89ae">&#9670;&#160;</a></span>reg_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool reg_read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire un registre STMPE610 avec son octet factice. </p>
+<p>Le bit de lecture et l'adresse sont émis en premier. La valeur utile arrive au troisième octet du protocole utilisé par ce composant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre du composant. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Pointeur valide recevant la valeur du registre ou de la conversion. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'octet de registre est reçu. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00092">92</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, et <a class="el" href="stmpe610_8c_source.html#l00075">transaction()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00125">init_touch()</a>, <a class="el" href="stmpe610_8c_source.html#l00195">read_points()</a>, <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, et <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a0b9d51b399b8a78f4f217917a02d89ae_cgraph.svg" width="232" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a84193a8dd68efdb7eae21a932dee1ea3" name="a84193a8dd68efdb7eae21a932dee1ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84193a8dd68efdb7eae21a932dee1ea3">&#9670;&#160;</a></span>reg_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool reg_write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Écrire un registre STMPE610. </p>
+<p>Émet une paire adresse-valeur, les données simultanément reçues étant ignorées. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre du composant. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur à utiliser dans ce traitement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'écriture SPI réussit. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00111">111</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00111">reg_write()</a>, et <a class="el" href="stmpe610_8c_source.html#l00075">transaction()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00181">clear_fifo()</a>, <a class="el" href="stmpe610_8c_source.html#l00125">init_touch()</a>, et <a class="el" href="stmpe610_8c_source.html#l00111">reg_write()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a84193a8dd68efdb7eae21a932dee1ea3_cgraph.svg" width="236" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a90ec26e81c172681bbdd6a36bd37b332" name="a90ec26e81c172681bbdd6a36bd37b332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ec26e81c172681bbdd6a36bd37b332">&#9670;&#160;</a></span>set_spi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t set_spi </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>settings</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changer temporairement fréquence et phase du SPI1. </p>
+<p>Le périphérique est désactivé avant la modification des bits BR, CPHA et CPOL. Le masque préserve les autres réglages matériels. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">settings</td><td>Bits BR, CPHA et CPOL du SPI à appliquer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Anciennes valeurs des bits modifiés, à restaurer après la transaction. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00055">55</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00055">set_spi()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00055">set_spi()</a>, <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, et <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a90ec26e81c172681bbdd6a36bd37b332_cgraph.svg" width="79" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a065ad8a07d9276aaa719b079bc9e65f9" name="a065ad8a07d9276aaa719b079bc9e65f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a065ad8a07d9276aaa719b079bc9e65f9">&#9670;&#160;</a></span>stmpe610_probe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stmpe610_probe </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>chip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reconnaître 0x0811 et configurer le tactile. </p>
+<p>Les modes SPI zéro puis un sont essayés à 1 MHz. La phase reconnue est conservée pour les acquisitions suivantes. Les réglages du TFT sont restaurés à la sortie. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">chip</td><td>Pointeur valide recevant l’identifiant lu du composant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'identifiant attendu et l'initialisation sont valides. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00150">150</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00125">init_touch()</a>, <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, <a class="el" href="stmpe610_8c_source.html#l00055">set_spi()</a>, <a class="el" href="stmpe610_8c_source.html#l00045">spi_phase</a>, <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, et <a class="el" href="stmpe610_8c_source.html#l00026">STMPE_ID</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, et <a class="el" href="touch__port_8c_source.html#l00023">touch_probe()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a065ad8a07d9276aaa719b079bc9e65f9_cgraph.svg" width="455" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a75e680da1e46d5b917ea5786ffdb7528" name="a75e680da1e46d5b917ea5786ffdb7528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e680da1e46d5b917ea5786ffdb7528">&#9670;&#160;</a></span>stmpe610_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__touch_8h.html#a18819940a58b2efc03d6e3d43a25df3c">TouchRead</a> stmpe610_sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRawTouch.html">RawTouch</a> *</td>          <td class="paramname"><span class="paramname"><em>sample</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acquérir une observation entre deux bandes TFT. </p>
+<p>BUSY donne WAIT pour rendre la main. Sinon le pilote emprunte le SPI, lit ses points, puis remet les paramètres initiaux quelle que soit l'issue. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sample</td><td>Structure <a class="el" href="structRawTouch.html" title="Observation physique d’un contrôleur tactile.">RawTouch</a> valide recevant l’observation physique. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>État tactile OK, WAIT, EMPTY ou ERROR. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00236">236</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="ili9341_8c_source.html#l00244">lcd_spi_available()</a>, <a class="el" href="stmpe610_8c_source.html#l00195">read_points()</a>, <a class="el" href="stmpe610_8c_source.html#l00055">set_spi()</a>, <a class="el" href="stmpe610_8c_source.html#l00045">spi_phase</a>, <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>, et <a class="el" href="obcp__touch_8h_source.html#l00071">TOUCH_READ_WAIT</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>, et <a class="el" href="touch__port_8c_source.html#l00051">touch_read()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a75e680da1e46d5b917ea5786ffdb7528_cgraph.svg" width="467" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1a6c235ce788ea4ccfa5228135e6d573" name="a1a6c235ce788ea4ccfa5228135e6d573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6c235ce788ea4ccfa5228135e6d573">&#9670;&#160;</a></span>transaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool transaction </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>tx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Échanger un message sous la sélection tactile D8. </p>
+<p>Le TFT doit déjà avoir libéré SPI1. La sélection tactile est abaissée pour l'échange, puis remontée même si la HAL signale une erreur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tx</td><td>Octets à émettre, au moins len ou count cases selon la signature. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rx</td><td>Tampon de réception, de même capacité que le nombre d’octets échangés. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>Nombre d’octets de l’opération ou de la transaction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'échange SPI se termine correctement. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00075">75</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="stmpe610_8c_source.html#l00075">transaction()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00092">reg_read()</a>, <a class="el" href="stmpe610_8c_source.html#l00111">reg_write()</a>, et <a class="el" href="stmpe610_8c_source.html#l00075">transaction()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="stmpe610_8c_a1a6c235ce788ea4ccfa5228135e6d573_cgraph.svg" width="106" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="adfa82a8edfbba1c733abc5fa44712085" name="adfa82a8edfbba1c733abc5fa44712085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa82a8edfbba1c733abc5fa44712085">&#9670;&#160;</a></span>spi_phase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t spi_phase</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Phase SPI reconnue lors du sondage du STMPE610, à réappliquer aux acquisitions. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="stmpe610_8c_source.html#l00045">45</a> du fichier <a class="el" href="stmpe610_8c_source.html">stmpe610.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="stmpe610_8c_source.html#l00150">stmpe610_probe()</a>, et <a class="el" href="stmpe610_8c_source.html#l00236">stmpe610_sample()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="stmpe610_8c.html">stmpe610.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

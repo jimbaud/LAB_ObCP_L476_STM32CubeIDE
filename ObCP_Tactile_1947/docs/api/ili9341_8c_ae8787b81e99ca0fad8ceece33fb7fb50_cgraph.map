@@ -1,0 +1,20 @@
+<map id="send_band" name="send_band">
+<area shape="rect" id="Node000001" title="Commencer le transfert DMA des pixels d&#39;un rectangle." alt="" coords="5,103,97,128"/>
+<area shape="poly" id="edge10_Node000001_Node000001" title=" " alt="" coords="25,104,19,94,22,85,33,78,51,76,73,79,82,88,79,92,71,84,51,81,35,83,26,88,25,94,29,101"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#ae22b3a371df97ab3f610d8ef2c2e5835" title="Émettre une commande en plaçant D/C à zéro." alt="" coords="145,103,276,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,113,132,113,132,118,98,118"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="459,103,545,128"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="93,125,146,137,227,142,308,139,445,123,445,128,309,145,227,147,145,142,92,131"/>
+<area shape="rect" id="Node000005" href="$ili9341_8c.html#acc7effc3861d45e5c4a2886316236b30" title="Définir un intervalle de colonnes ou de lignes du TFT." alt="" coords="175,29,247,55"/>
+<area shape="poly" id="edge11_Node000001_Node000005" title=" " alt="" coords="74,100,144,64,161,57,163,62,146,68,76,105"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="185,104,179,94,182,85,193,78,211,76,232,79,241,88,237,92,230,84,211,81,195,83,186,88,184,94,189,101"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="324,52,411,77"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="276,101,333,80,335,85,277,106"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="276,113,445,113,445,118,276,118"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="325,73,246,100,244,95,323,68"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="344,53,340,44,342,34,352,28,367,25,386,29,394,37,390,41,383,33,367,31,354,33,347,37,345,43,349,51"/>
+<area shape="poly" id="edge6_Node000003_Node000004" title=" " alt="" coords="403,75,456,95,454,100,401,80"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="479,104,474,94,477,85,486,78,502,76,520,79,528,88,525,91,518,84,502,81,488,83,481,88,480,94,484,101"/>
+<area shape="poly" id="edge12_Node000005_Node000003" title=" " alt="" coords="247,45,310,54,310,59,247,50"/>
+<area shape="poly" id="edge13_Node000005_Node000005" title=" " alt="" coords="185,31,179,21,182,11,193,5,211,3,232,6,241,15,237,19,230,11,211,8,195,10,186,15,184,20,189,28"/>
+</map>

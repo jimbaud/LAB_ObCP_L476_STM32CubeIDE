@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Src/obcp/ft6206.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('ft6206_8c_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ft6206.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ft6206_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file ft6206.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Lecture du premier contact capacitif FT62xx sur I²C1.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_drivers</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Le capteur est sondé à l’adresse 7 bits 0x38. La HAL reçoit cette adresse décalée d’un</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * bit. Ce pilote livre les coordonnées natives. Le passage en paysage est réalisé par</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * input.c.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/** @def FT_ADDRESS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Adresse 0x38 sur sept bits, décalée d&#39;un bit pour l&#39;API HAL I2C.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="touch__drivers_8h.html">touch_drivers.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;i2c.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* HAL attend l&#39;adresse décalée d&#39;un bit. Sur le bus, le numéro est 0x38. */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="ft6206_8c.html#a1563fbc78f37fa844f1bd4a89460baf4">   22</a></span><span class="preprocessor">#define FT_ADDRESS (0x38U &lt;&lt; 1)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief Lire une plage de registres FT62xx.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * Le pilote évite de démarrer si le bus est marqué occupé. La HAL utilise une adresse de</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * registre sur huit bits et un délai limité à quatre millisecondes.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @param[in] first Adresse du premier registre FT62xx à lire.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @param[out] data Tampon recevant au moins len octets consécutifs de registres.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @param[in] size Longueur du bloc en octets.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @return true si tous les registres sont reçus.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="ft6206_8c.html#a981b4da67372370cc7466cc39a18462d">   34</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379">read_regs</a>(uint8_t first, uint8_t *data, uint16_t size)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">if</span> (__HAL_I2C_GET_FLAG(&amp;hi2c1, I2C_FLAG_BUSY)) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> HAL_I2C_Mem_Read(&amp;hi2c1, <a class="code hl_define" href="ft6206_8c.html#a1563fbc78f37fa844f1bd4a89460baf4">FT_ADDRESS</a>, first, I2C_MEMADD_SIZE_8BIT,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                            data, size, 4U) == HAL_OK;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Vérifier l&#39;identifiant de famille du tactile capacitif.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * Le registre 0xA3 est lu. Les identifiants 0x06, 0x36 et 0x64 sont admis. Le résultat de</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * sortie commence à zéro pour éviter une identité résiduelle.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="ft6206_8c.html#a3a5f95d585500c81e898a25110a58dce">   49</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="ft6206_8c.html#a3a5f95d585500c81e898a25110a58dce">ft6206_probe</a>(uint8_t *chip)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    *chip = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379">read_regs</a>(0xA3, chip, 1U) &amp;&amp; (*chip == 0x06U || *chip == 0x36U || *chip == 0x64U);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * Lire l&#39;état et les coordonnées du premier doigt.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * Une rafale contient TD_STATUS et les deux coordonnées sur 12 bits. L&#39;événement natif de</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * relâchement ne doit pas devenir un nouvel appui. Les coordonnées sont écrites seulement</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * si le doigt est présent.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="ft6206_8c.html#acae8bf254712691396d512abf48daf90">   62</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="ft6206_8c.html#acae8bf254712691396d512abf48daf90">ft6206_sample</a>(<span class="keywordtype">bool</span> *pressed, uint16_t *raw_x, uint16_t *raw_y)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    uint8_t regs[5];</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379">read_regs</a>(0x02, regs, <span class="keyword">sizeof</span>(regs))) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">/* TD_STATUS, P1_XH, P1_XL, P1_YH, P1_YL. Les bits 7:6 de XH</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     * donnent l&#39;événement natif. Le firmware exploite le premier doigt. */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    *pressed = (regs[0] &amp; 0x0FU) != 0U &amp;&amp; (regs[1] &gt;&gt; 6) != 1U;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">if</span> (*pressed) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        *raw_x = (uint16_t)((uint16_t)(regs[1] &amp; 15U) &lt;&lt; 8 | regs[2]);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        *raw_y = (uint16_t)((uint16_t)(regs[3] &amp; 15U) &lt;&lt; 8 | regs[4]);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+</div>
+<div class="ttc" id="aaccelerometer_8c_html_a3be4e858030293167720c4d5c4a31379"><div class="ttname"><a href="accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379">read_regs</a></div><div class="ttdeci">static bool read_regs(uint8_t reg, uint8_t *data, uint16_t len)</div><div class="ttdoc">Lire de un à six registres consécutifs.</div><div class="ttdef"><b>Définition</b> <a href="accelerometer_8c_source.html#l00230">accelerometer.c:230</a></div></div>
+<div class="ttc" id="aft6206_8c_html_a1563fbc78f37fa844f1bd4a89460baf4"><div class="ttname"><a href="ft6206_8c.html#a1563fbc78f37fa844f1bd4a89460baf4">FT_ADDRESS</a></div><div class="ttdeci">#define FT_ADDRESS</div><div class="ttdoc">Adresse 0x38 sur sept bits, décalée d&#39;un bit pour l&#39;API HAL I2C.</div><div class="ttdef"><b>Définition</b> <a href="#l00022">ft6206.c:22</a></div></div>
+<div class="ttc" id="aft6206_8c_html_a3a5f95d585500c81e898a25110a58dce"><div class="ttname"><a href="ft6206_8c.html#a3a5f95d585500c81e898a25110a58dce">ft6206_probe</a></div><div class="ttdeci">bool ft6206_probe(uint8_t *chip)</div><div class="ttdoc">Vérifier l&#39;identifiant de famille du tactile capacitif.</div><div class="ttdef"><b>Définition</b> <a href="#l00049">ft6206.c:49</a></div></div>
+<div class="ttc" id="aft6206_8c_html_acae8bf254712691396d512abf48daf90"><div class="ttname"><a href="ft6206_8c.html#acae8bf254712691396d512abf48daf90">ft6206_sample</a></div><div class="ttdeci">bool ft6206_sample(bool *pressed, uint16_t *raw_x, uint16_t *raw_y)</div><div class="ttdoc">Lire l&#39;état et les coordonnées du premier doigt.</div><div class="ttdef"><b>Définition</b> <a href="#l00062">ft6206.c:62</a></div></div>
+<div class="ttc" id="atouch__drivers_8h_html"><div class="ttname"><a href="touch__drivers_8h.html">touch_drivers.h</a></div><div class="ttdoc">Reconnaissance des shields et façade tactile commune.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="ft6206_8c.html">ft6206.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

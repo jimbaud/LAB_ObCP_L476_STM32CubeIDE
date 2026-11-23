@@ -1,0 +1,50 @@
+# Documentation pédagogique C. Exécuter depuis le dossier du projet.
+PROJECT_NAME           = "ObCP atelier tactile"
+PROJECT_NUMBER         = "0.4.1"
+PROJECT_BRIEF          = "Comprendre les écrans, pilotes, jeux, DMA et sauvegardes"
+OUTPUT_DIRECTORY       = build/documentation
+OUTPUT_LANGUAGE        = French
+INPUT_ENCODING         = UTF-8
+INPUT                  = Core/Inc Core/Src/obcp docs/API.md docs/doxygen_groups.dox
+RECURSIVE              = YES
+FILE_PATTERNS          = *.c *.h *.md *.dox
+EXCLUDE_PATTERNS       = */Core/Inc/dma.h */Core/Inc/gpio.h */Core/Inc/i2c.h \
+                         */Core/Inc/main.h */Core/Inc/spi.h */Core/Inc/tim.h \
+                         */Core/Inc/stm32l4xx_hal_conf.h */Core/Inc/stm32l4xx_it.h
+USE_MDFILE_AS_MAINPAGE  = docs/API.md
+IMAGE_PATH             = docs/images
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_LOCAL_CLASSES  = YES
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+EXCLUDE_SYMBOLS        = *_H
+# Trier les symboles du linker par leur nom utile, tout en gardant leur nom C complet.
+IGNORE_PREFIX          = __
+JAVADOC_AUTOBRIEF       = NO
+OPTIMIZE_OUTPUT_FOR_C  = YES
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+REFERENCES_RELATION    = YES
+REFERENCED_BY_RELATION = YES
+STRIP_CODE_COMMENTS    = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = YES
+WARN_LOGFILE           = build/documentation_warnings.txt
+WARN_AS_ERROR          = FAIL_ON_WARNINGS
+QUIET                  = YES
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = NO
+MAX_DOT_GRAPH_DEPTH    = 2
+DOT_GRAPH_MAX_NODES    = 25

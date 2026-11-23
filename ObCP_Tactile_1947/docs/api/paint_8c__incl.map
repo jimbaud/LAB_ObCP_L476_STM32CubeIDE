@@ -1,0 +1,13 @@
+<map id="Core/Src/obcp/paint.c" name="Core/Src/obcp/paint.c">
+<area shape="rect" id="Node000001" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="150,5,309,31"/>
+<area shape="rect" id="Node000002" href="$obcp__paint_8h.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="65,79,170,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,33,149,73,146,69,210,28"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="194,79,265,104"/>
+<area shape="poly" id="edge4_Node000001_Node000008" title=" " alt="" coords="232,31,232,65,227,65,227,31"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="289,79,359,104"/>
+<area shape="poly" id="edge5_Node000001_Node000009" title=" " alt="" coords="246,29,299,68,296,72,243,33"/>
+<area shape="rect" id="Node000003" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="5,152,99,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,106,74,144,70,140,105,103"/>
+<area shape="rect" id="Node000007" href="$obcp__storage_8h.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="123,152,245,177"/>
+<area shape="poly" id="edge3_Node000002_Node000007" title=" " alt="" coords="130,103,166,140,162,144,126,106"/>
+</map>

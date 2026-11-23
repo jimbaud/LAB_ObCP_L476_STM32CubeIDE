@@ -1,0 +1,10 @@
+<map id="clear_fifo" name="clear_fifo">
+<area shape="rect" id="Node000001" title="Vider la file de points du STMPE610." alt="" coords="5,29,88,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="24,30,20,21,22,11,31,5,47,3,65,6,73,14,69,18,62,11,47,8,33,10,26,14,25,20,29,28"/>
+<area shape="rect" id="Node000002" href="$stmpe610_8c.html#a84193a8dd68efdb7eae21a932dee1ea3" title="Écrire un registre STMPE610." alt="" coords="136,29,219,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="88,39,122,39,122,45,88,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="155,30,150,21,153,11,162,5,177,3,195,6,203,14,199,18,193,11,177,8,164,10,157,14,156,20,160,28"/>
+<area shape="rect" id="Node000003" href="$stmpe610_8c.html#a1a6c235ce788ea4ccfa5228135e6d573" title="Échanger un message sous la sélection tactile D8." alt="" coords="267,29,361,55"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="219,39,253,39,253,45,219,45"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="291,30,286,21,288,11,298,5,314,3,333,6,341,14,337,18,330,11,314,8,300,10,293,15,291,20,295,28"/>
+</map>

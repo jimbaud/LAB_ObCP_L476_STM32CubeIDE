@@ -1,0 +1,7 @@
+<map id="Audio" name="Audio">
+<area shape="rect" id="Node000001" title="Séquenceur et synthèse partagés par la groovebox et le diagnostic." alt="" coords="53,101,111,127"/>
+<area shape="rect" id="Node000002" href="$structPattern.html" title="Motif musical de quatre pistes et seize pas." alt="" coords="5,5,73,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="38,45,39,61,43,76,52,89,64,99,60,103,48,92,38,78,33,62,33,45"/>
+<area shape="rect" id="Node000003" href="$structVoice.html" title="État d’une voix de synthèse DDS et de son enveloppe." alt="" coords="97,5,155,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,44,90,102,85,100,112,42"/>
+</map>

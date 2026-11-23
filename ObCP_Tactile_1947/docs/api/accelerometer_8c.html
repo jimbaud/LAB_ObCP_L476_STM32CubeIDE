@@ -1,0 +1,1313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/accelerometer.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('accelerometer_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier accelerometer.c<div class="ingroups"><a class="el" href="group__obcp__drivers.html">Pilotes de périphériques</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Pilote de l'accéléromètre LIS3DH (ou LIS3DSH) sur SPI3 (voir <a class="el" href="accelerometer_8h.html" title="Mesures XYZ cohérentes sur le SPI3 de la carte.">accelerometer.h</a>).  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="accelerometer_8h_source.html">accelerometer.h</a>&quot;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de accelerometer.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c__incl.svg" width="326" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="accelerometer_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a73f4728dfb5c82afcea7bee729af205c" id="r_a73f4728dfb5c82afcea7bee729af205c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a73f4728dfb5c82afcea7bee729af205c">REG_WHO_AM_I</a>&#160;&#160;&#160;0x0FU</td></tr>
+<tr class="memdesc:a73f4728dfb5c82afcea7bee729af205c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse 0x0F du registre d'identité commun aux deux capteurs.  <br /></td></tr>
+<tr class="memitem:aead30ee4c56e2e46c5e92d376a1c5f14" id="r_aead30ee4c56e2e46c5e92d376a1c5f14"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aead30ee4c56e2e46c5e92d376a1c5f14">REG_OUT_X_L</a>&#160;&#160;&#160;0x28U</td></tr>
+<tr class="memdesc:aead30ee4c56e2e46c5e92d376a1c5f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Premier registre de la rafale XYZ, octet faible de X à 0x28.  <br /></td></tr>
+<tr class="memitem:a6d9f429c7bc12f952eb946ced187eeff" id="r_a6d9f429c7bc12f952eb946ced187eeff"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6d9f429c7bc12f952eb946ced187eeff">REG_OUT_TEMP</a>&#160;&#160;&#160;0x0CU</td></tr>
+<tr class="memdesc:a6d9f429c7bc12f952eb946ced187eeff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse de la mesure thermique, avec format propre au capteur reconnu.  <br /></td></tr>
+<tr class="memitem:a9272ef70b4850d05b6ae1522e3a5f688" id="r_a9272ef70b4850d05b6ae1522e3a5f688"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9272ef70b4850d05b6ae1522e3a5f688">WHO_AM_I_LIS3DH</a>&#160;&#160;&#160;0x33U</td></tr>
+<tr class="memdesc:a9272ef70b4850d05b6ae1522e3a5f688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature 0x33 attendue du LIS3DH.  <br /></td></tr>
+<tr class="memitem:a2c192476a53aa88dc9732f612f48a182" id="r_a2c192476a53aa88dc9732f612f48a182"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2c192476a53aa88dc9732f612f48a182">WHO_AM_I_LIS3DSH</a>&#160;&#160;&#160;0x3FU</td></tr>
+<tr class="memdesc:a2c192476a53aa88dc9732f612f48a182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature 0x3F attendue du LIS3DSH.  <br /></td></tr>
+<tr class="memitem:a3302c5a48307a5f2886eb5a6e1962dde" id="r_a3302c5a48307a5f2886eb5a6e1962dde"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3302c5a48307a5f2886eb5a6e1962dde">LIS3DH_TEMP_CFG_REG</a>&#160;&#160;&#160;0x1FU</td></tr>
+<tr class="memdesc:a3302c5a48307a5f2886eb5a6e1962dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre d'activation de l'ADC et de la température du LIS3DH.  <br /></td></tr>
+<tr class="memitem:a4cbf2c028094e47efd9d27234ea00fe8" id="r_a4cbf2c028094e47efd9d27234ea00fe8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4cbf2c028094e47efd9d27234ea00fe8">LIS3DH_CTRL_REG1</a>&#160;&#160;&#160;0x20U</td></tr>
+<tr class="memdesc:a4cbf2c028094e47efd9d27234ea00fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre de cadence et d'activation XYZ du LIS3DH.  <br /></td></tr>
+<tr class="memitem:a92524df35353847fa291fbc05e912bf6" id="r_a92524df35353847fa291fbc05e912bf6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a92524df35353847fa291fbc05e912bf6">LIS3DH_CTRL_REG4</a>&#160;&#160;&#160;0x23U</td></tr>
+<tr class="memdesc:a92524df35353847fa291fbc05e912bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre BDU, format et pleine échelle du LIS3DH.  <br /></td></tr>
+<tr class="memitem:a575ea089eb020390cb572b18be6d2092" id="r_a575ea089eb020390cb572b18be6d2092"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a575ea089eb020390cb572b18be6d2092">LIS3DH_CTRL1_VALUE</a>&#160;&#160;&#160;0x57U</td></tr>
+<tr class="memdesc:a575ea089eb020390cb572b18be6d2092"><td class="mdescLeft">&#160;</td><td class="mdescRight">100 Hz et trois axes actifs, valeur 0x57.  <br /></td></tr>
+<tr class="memitem:a9bc9e683f3205c6bac319c507518e4a5" id="r_a9bc9e683f3205c6bac319c507518e4a5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9bc9e683f3205c6bac319c507518e4a5">LIS3DH_CTRL4_VALUE</a>&#160;&#160;&#160;0x88U</td></tr>
+<tr class="memdesc:a9bc9e683f3205c6bac319c507518e4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">BDU et haute résolution en ±2 g, valeur 0x88.  <br /></td></tr>
+<tr class="memitem:a44287a02145941bcd79ef637a43841ba" id="r_a44287a02145941bcd79ef637a43841ba"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a44287a02145941bcd79ef637a43841ba">LIS3DH_TEMP_CFG_VALUE</a>&#160;&#160;&#160;0xC0U</td></tr>
+<tr class="memdesc:a44287a02145941bcd79ef637a43841ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC et thermomètre interne activés, valeur 0xC0.  <br /></td></tr>
+<tr class="memitem:ab359819280fba459d57c6899af07bbe2" id="r_ab359819280fba459d57c6899af07bbe2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab359819280fba459d57c6899af07bbe2">LIS3DSH_CTRL_REG4</a>&#160;&#160;&#160;0x20U</td></tr>
+<tr class="memdesc:ab359819280fba459d57c6899af07bbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre de cadence, BDU et activation XYZ du LIS3DSH.  <br /></td></tr>
+<tr class="memitem:a27ab23cd23307d4ca89c18bc14b70d6d" id="r_a27ab23cd23307d4ca89c18bc14b70d6d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a27ab23cd23307d4ca89c18bc14b70d6d">LIS3DSH_CTRL_REG5</a>&#160;&#160;&#160;0x24U</td></tr>
+<tr class="memdesc:a27ab23cd23307d4ca89c18bc14b70d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre de filtre et de pleine échelle du LIS3DSH.  <br /></td></tr>
+<tr class="memitem:a19310fbde9b2864ecd769d8f3d1f99b3" id="r_a19310fbde9b2864ecd769d8f3d1f99b3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a19310fbde9b2864ecd769d8f3d1f99b3">LIS3DSH_CTRL_REG6</a>&#160;&#160;&#160;0x25U</td></tr>
+<tr class="memdesc:a19310fbde9b2864ecd769d8f3d1f99b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registre contenant l'auto-incrément ADD_INC du LIS3DSH.  <br /></td></tr>
+<tr class="memitem:ae0d95742be3c51165897f31c918cdfcf" id="r_ae0d95742be3c51165897f31c918cdfcf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae0d95742be3c51165897f31c918cdfcf">LIS3DSH_CTRL4_VALUE</a>&#160;&#160;&#160;0x6FU</td></tr>
+<tr class="memdesc:ae0d95742be3c51165897f31c918cdfcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">100 Hz, BDU et trois axes actifs, valeur 0x6F.  <br /></td></tr>
+<tr class="memitem:a1ded58f81f73c1cf18c0b2a3d3e64085" id="r_a1ded58f81f73c1cf18c0b2a3d3e64085"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1ded58f81f73c1cf18c0b2a3d3e64085">LIS3DSH_CTRL5_VALUE</a>&#160;&#160;&#160;0x00U</td></tr>
+<tr class="memdesc:a1ded58f81f73c1cf18c0b2a3d3e64085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Échelle ±2 g du LIS3DSH, valeur 0x00.  <br /></td></tr>
+<tr class="memitem:a2ddc0966cf9cffd05e9a968475897f68" id="r_a2ddc0966cf9cffd05e9a968475897f68"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2ddc0966cf9cffd05e9a968475897f68">LIS3DSH_CTRL6_VALUE</a>&#160;&#160;&#160;0x10U</td></tr>
+<tr class="memdesc:a2ddc0966cf9cffd05e9a968475897f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-incrément de registres activé, valeur 0x10.  <br /></td></tr>
+<tr class="memitem:a2391b9cfab401375f9193246690a043d" id="r_a2391b9cfab401375f9193246690a043d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2391b9cfab401375f9193246690a043d">SPI_READ</a>&#160;&#160;&#160;0x80U</td></tr>
+<tr class="memdesc:a2391b9cfab401375f9193246690a043d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit sept de lecture du premier octet SPI.  <br /></td></tr>
+<tr class="memitem:ae78f24b8b6632401e282e82f1b04953c" id="r_ae78f24b8b6632401e282e82f1b04953c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae78f24b8b6632401e282e82f1b04953c">SPI_LIS3DH_MULTI</a>&#160;&#160;&#160;0x40U</td></tr>
+<tr class="memdesc:ae78f24b8b6632401e282e82f1b04953c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit six d'auto-incrément pour les lectures LIS3DH multi-octets.  <br /></td></tr>
+<tr class="memitem:ae5fc280c01816e75ff740eb5768f1027" id="r_ae5fc280c01816e75ff740eb5768f1027"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae5fc280c01816e75ff740eb5768f1027">LIS3DH_MG_PER_LSB</a>&#160;&#160;&#160;0.0625f</td></tr>
+<tr class="memdesc:ae5fc280c01816e75ff740eb5768f1027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensibilité de 0,0625 mg par unité du mot brut aligné sur 16 bits.  <br /></td></tr>
+<tr class="memitem:ae3a958fa896af5e303785131cafa2d72" id="r_ae3a958fa896af5e303785131cafa2d72"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae3a958fa896af5e303785131cafa2d72">LIS3DSH_MG_PER_LSB</a>&#160;&#160;&#160;0.06f</td></tr>
+<tr class="memdesc:ae3a958fa896af5e303785131cafa2d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensibilité de 0,06 mg par unité brute du LIS3DSH.  <br /></td></tr>
+<tr class="memitem:a8fe847e1fd705110c6f54ede74af96ea" id="r_a8fe847e1fd705110c6f54ede74af96ea"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8fe847e1fd705110c6f54ede74af96ea">SPI_TIMEOUT_MS</a>&#160;&#160;&#160;3U</td></tr>
+<tr class="memdesc:a8fe847e1fd705110c6f54ede74af96ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Délai HAL maximal de trois millisecondes par transaction capteur.  <br /></td></tr>
+<tr class="memitem:af1f1f5af5101654f2c3a95c7a3f67e1a" id="r_af1f1f5af5101654f2c3a95c7a3f67e1a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af1f1f5af5101654f2c3a95c7a3f67e1a">SPI_MAX_DATA</a>&#160;&#160;&#160;6U</td></tr>
+<tr class="memdesc:af1f1f5af5101654f2c3a95c7a3f67e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Au plus six octets utiles, soit la rafale XYZ.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1afe9c2eb48767ad26f11b2f0fef5110" id="r_a1afe9c2eb48767ad26f11b2f0fef5110"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a1afe9c2eb48767ad26f11b2f0fef5110">spi_transfer</a> (uint8_t *tx, uint8_t *rx, uint16_t len)</td></tr>
+<tr class="memdesc:a1afe9c2eb48767ad26f11b2f0fef5110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Échanger un message SPI complet avec U4.  <br /></td></tr>
+<tr class="memitem:a87d3221052aacacfe425efbb3786c986" id="r_a87d3221052aacacfe425efbb3786c986"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a87d3221052aacacfe425efbb3786c986">write_reg</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:a87d3221052aacacfe425efbb3786c986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire un registre de l'accéléromètre.  <br /></td></tr>
+<tr class="memitem:a3be4e858030293167720c4d5c4a31379" id="r_a3be4e858030293167720c4d5c4a31379"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a3be4e858030293167720c4d5c4a31379">read_regs</a> (uint8_t reg, uint8_t *data, uint16_t len)</td></tr>
+<tr class="memdesc:a3be4e858030293167720c4d5c4a31379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire de un à six registres consécutifs.  <br /></td></tr>
+<tr class="memitem:af33257ddf7b9089db27d39b4cf0f926b" id="r_af33257ddf7b9089db27d39b4cf0f926b"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af33257ddf7b9089db27d39b4cf0f926b">write_and_check</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:af33257ddf7b9089db27d39b4cf0f926b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire un réglage et vérifier sa relecture.  <br /></td></tr>
+<tr class="memitem:a557c12ae54926838b046bd0af05c62f8" id="r_a557c12ae54926838b046bd0af05c62f8"><td class="memItemLeft"><a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a557c12ae54926838b046bd0af05c62f8">accel_init</a> (SPI_HandleTypeDef *hspi)</td></tr>
+<tr class="memdesc:a557c12ae54926838b046bd0af05c62f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnaître et configurer le composant connecté.  <br /></td></tr>
+<tr class="memitem:ac06e98d7d80719541c11c6e131c29031" id="r_ac06e98d7d80719541c11c6e131c29031"><td class="memItemLeft"><a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac06e98d7d80719541c11c6e131c29031">accel_chip</a> (void)</td></tr>
+<tr class="memdesc:ac06e98d7d80719541c11c6e131c29031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulter l'identité mémorisée du capteur.  <br /></td></tr>
+<tr class="memitem:ad4e3cb98edb8d4f252e5de0b69b8cb10" id="r_ad4e3cb98edb8d4f252e5de0b69b8cb10"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#ad4e3cb98edb8d4f252e5de0b69b8cb10">accel_chip_name</a> (void)</td></tr>
+<tr class="memdesc:ad4e3cb98edb8d4f252e5de0b69b8cb10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir un nom lisible du capteur.  <br /></td></tr>
+<tr class="memitem:a6694cbf7c5cc36d21274e49edd09d803" id="r_a6694cbf7c5cc36d21274e49edd09d803"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6694cbf7c5cc36d21274e49edd09d803">accel_read_raw</a> (int16_t raw[3])</td></tr>
+<tr class="memdesc:a6694cbf7c5cc36d21274e49edd09d803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire les trois axes dans une même rafale.  <br /></td></tr>
+<tr class="memitem:ab2a68c82c3404d6027308e1f4163de25" id="r_ab2a68c82c3404d6027308e1f4163de25"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab2a68c82c3404d6027308e1f4163de25">accel_read</a> (<a class="el" href="structaccel__g__t.html">accel_g_t</a> *g)</td></tr>
+<tr class="memdesc:ab2a68c82c3404d6027308e1f4163de25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertir la mesure XYZ en g.  <br /></td></tr>
+<tr class="memitem:aacf3b9c2f101e3e41dcfa9267aec6dcc" id="r_aacf3b9c2f101e3e41dcfa9267aec6dcc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aacf3b9c2f101e3e41dcfa9267aec6dcc">accel_read_temperature</a> (int *celsius)</td></tr>
+<tr class="memdesc:aacf3b9c2f101e3e41dcfa9267aec6dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire une indication de température du capteur.  <br /></td></tr>
+<tr class="memitem:a29d46b1a87a0a4fc33c863580aedcd9c" id="r_a29d46b1a87a0a4fc33c863580aedcd9c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a29d46b1a87a0a4fc33c863580aedcd9c">accel_set_calibration</a> (<a class="el" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">accel_axis_t</a> axis, float min_mg, float max_mg)</td></tr>
+<tr class="memdesc:a29d46b1a87a0a4fc33c863580aedcd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Étalonner un axe à partir de deux mesures opposées.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3b64a9666164ea78d4d4b02b47f3347d" id="r_a3b64a9666164ea78d4d4b02b47f3347d"><td class="memItemLeft">static SPI_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a3b64a9666164ea78d4d4b02b47f3347d">s_hspi</a></td></tr>
+<tr class="memdesc:a3b64a9666164ea78d4d4b02b47f3347d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle du bus physique conservé par adresse pour partager l'état HAL réel.  <br /></td></tr>
+<tr class="memitem:a5581710da77a7fdf216409745df95e82" id="r_a5581710da77a7fdf216409745df95e82"><td class="memItemLeft">static <a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5581710da77a7fdf216409745df95e82">s_chip</a> = <a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">ACCEL_NONE</a></td></tr>
+<tr class="memdesc:a5581710da77a7fdf216409745df95e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dernier type reconnu et correctement configuré.  <br /></td></tr>
+<tr class="memitem:add478dc873f7d26dab95d87726cd6300" id="r_add478dc873f7d26dab95d87726cd6300"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#add478dc873f7d26dab95d87726cd6300">s_mg_per_lsb</a></td></tr>
+<tr class="memdesc:add478dc873f7d26dab95d87726cd6300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facteur de conversion sélectionné pour le capteur présent.  <br /></td></tr>
+<tr class="memitem:a5d45155814397ac4e24ecc9c1353951d" id="r_a5d45155814397ac4e24ecc9c1353951d"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a5d45155814397ac4e24ecc9c1353951d">s_offset_mg</a> [3] = { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="memdesc:a5d45155814397ac4e24ecc9c1353951d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Décalages d'étalonnage XYZ en milligravités.  <br /></td></tr>
+<tr class="memitem:af7ebdcaef64e5b4deeaa42ac63226c3d" id="r_af7ebdcaef64e5b4deeaa42ac63226c3d"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#af7ebdcaef64e5b4deeaa42ac63226c3d">s_scale</a> [3] = { 1.0f, 1.0f, 1.0f }</td></tr>
+<tr class="memdesc:af7ebdcaef64e5b4deeaa42ac63226c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facteurs d'échelle sans dimension des trois axes.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Pilote de l'accéléromètre LIS3DH (ou LIS3DSH) sur SPI3 (voir <a class="el" href="accelerometer_8h.html" title="Mesures XYZ cohérentes sur le SPI3 de la carte.">accelerometer.h</a>). </p>
+<p>Dialogue SPI avec le capteur : la carte (maître) met CS à 0, envoie un premier octet qui dit quoi faire, puis échange les données ; CS repasse à 1 à la fin. En SPI, chaque octet envoyé fait revenir un octet : pour lire, on envoie des octets sans importance (0) pendant que le capteur renvoie ses registres.</p>
+<p>Premier octet (LIS3DH, datasheet § 6.2.1) : bit 7 RW : 1 = lecture, 0 = écriture bit 6 MS : 1 = l'adresse avance d'un cran après chaque octet (pour lire plusieurs registres qui se suivent) bits 5..0 adresse du premier registre Le LIS3DSH n'a pas de bit MS (son adresse fait 7 bits) : l'avance automatique y est réglée une fois pour toutes (bit ADD_INC de CTRL_REG6).</p>
+<p>La version 2024 utilisait les sensibilités du LIS3DSH (0,06 mg par pas) avec un LIS3DH (0,0625 mg par pas en mode haute résolution) : ses accélérations étaient 4 % trop faibles. Elle lisait aussi les trois axes en trois échanges séparés (axes de mesures différentes) et copiait la structure de gestion du SPI (deux copies pour un seul périphérique). </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentation des macros</h2>
+<a id="a575ea089eb020390cb572b18be6d2092" name="a575ea089eb020390cb572b18be6d2092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575ea089eb020390cb572b18be6d2092">&#9670;&#160;</a></span>LIS3DH_CTRL1_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_CTRL1_VALUE&#160;&#160;&#160;0x57U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>100 Hz et trois axes actifs, valeur 0x57. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00133">133</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a9bc9e683f3205c6bac319c507518e4a5" name="a9bc9e683f3205c6bac319c507518e4a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc9e683f3205c6bac319c507518e4a5">&#9670;&#160;</a></span>LIS3DH_CTRL4_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_CTRL4_VALUE&#160;&#160;&#160;0x88U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>BDU et haute résolution en ±2 g, valeur 0x88. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00134">134</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a4cbf2c028094e47efd9d27234ea00fe8" name="a4cbf2c028094e47efd9d27234ea00fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbf2c028094e47efd9d27234ea00fe8">&#9670;&#160;</a></span>LIS3DH_CTRL_REG1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_CTRL_REG1&#160;&#160;&#160;0x20U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre de cadence et d'activation XYZ du LIS3DH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00130">130</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a92524df35353847fa291fbc05e912bf6" name="a92524df35353847fa291fbc05e912bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92524df35353847fa291fbc05e912bf6">&#9670;&#160;</a></span>LIS3DH_CTRL_REG4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_CTRL_REG4&#160;&#160;&#160;0x23U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre BDU, format et pleine échelle du LIS3DH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00131">131</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="ae5fc280c01816e75ff740eb5768f1027" name="ae5fc280c01816e75ff740eb5768f1027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5fc280c01816e75ff740eb5768f1027">&#9670;&#160;</a></span>LIS3DH_MG_PER_LSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_MG_PER_LSB&#160;&#160;&#160;0.0625f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sensibilité de 0,0625 mg par unité du mot brut aligné sur 16 bits. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00157">157</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a3302c5a48307a5f2886eb5a6e1962dde" name="a3302c5a48307a5f2886eb5a6e1962dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3302c5a48307a5f2886eb5a6e1962dde">&#9670;&#160;</a></span>LIS3DH_TEMP_CFG_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_TEMP_CFG_REG&#160;&#160;&#160;0x1FU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre d'activation de l'ADC et de la température du LIS3DH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00129">129</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a44287a02145941bcd79ef637a43841ba" name="a44287a02145941bcd79ef637a43841ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44287a02145941bcd79ef637a43841ba">&#9670;&#160;</a></span>LIS3DH_TEMP_CFG_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DH_TEMP_CFG_VALUE&#160;&#160;&#160;0xC0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ADC et thermomètre interne activés, valeur 0xC0. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00135">135</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="ae0d95742be3c51165897f31c918cdfcf" name="ae0d95742be3c51165897f31c918cdfcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d95742be3c51165897f31c918cdfcf">&#9670;&#160;</a></span>LIS3DSH_CTRL4_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL4_VALUE&#160;&#160;&#160;0x6FU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>100 Hz, BDU et trois axes actifs, valeur 0x6F. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00142">142</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a1ded58f81f73c1cf18c0b2a3d3e64085" name="a1ded58f81f73c1cf18c0b2a3d3e64085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ded58f81f73c1cf18c0b2a3d3e64085">&#9670;&#160;</a></span>LIS3DSH_CTRL5_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL5_VALUE&#160;&#160;&#160;0x00U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Échelle ±2 g du LIS3DSH, valeur 0x00. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00143">143</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a2ddc0966cf9cffd05e9a968475897f68" name="a2ddc0966cf9cffd05e9a968475897f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ddc0966cf9cffd05e9a968475897f68">&#9670;&#160;</a></span>LIS3DSH_CTRL6_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL6_VALUE&#160;&#160;&#160;0x10U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Auto-incrément de registres activé, valeur 0x10. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00144">144</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="ab359819280fba459d57c6899af07bbe2" name="ab359819280fba459d57c6899af07bbe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab359819280fba459d57c6899af07bbe2">&#9670;&#160;</a></span>LIS3DSH_CTRL_REG4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL_REG4&#160;&#160;&#160;0x20U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre de cadence, BDU et activation XYZ du LIS3DSH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00138">138</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a27ab23cd23307d4ca89c18bc14b70d6d" name="a27ab23cd23307d4ca89c18bc14b70d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ab23cd23307d4ca89c18bc14b70d6d">&#9670;&#160;</a></span>LIS3DSH_CTRL_REG5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL_REG5&#160;&#160;&#160;0x24U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre de filtre et de pleine échelle du LIS3DSH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00139">139</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a19310fbde9b2864ecd769d8f3d1f99b3" name="a19310fbde9b2864ecd769d8f3d1f99b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19310fbde9b2864ecd769d8f3d1f99b3">&#9670;&#160;</a></span>LIS3DSH_CTRL_REG6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_CTRL_REG6&#160;&#160;&#160;0x25U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registre contenant l'auto-incrément ADD_INC du LIS3DSH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00140">140</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="ae3a958fa896af5e303785131cafa2d72" name="ae3a958fa896af5e303785131cafa2d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a958fa896af5e303785131cafa2d72">&#9670;&#160;</a></span>LIS3DSH_MG_PER_LSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS3DSH_MG_PER_LSB&#160;&#160;&#160;0.06f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sensibilité de 0,06 mg par unité brute du LIS3DSH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00158">158</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a6d9f429c7bc12f952eb946ced187eeff" name="a6d9f429c7bc12f952eb946ced187eeff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9f429c7bc12f952eb946ced187eeff">&#9670;&#160;</a></span>REG_OUT_TEMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REG_OUT_TEMP&#160;&#160;&#160;0x0CU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adresse de la mesure thermique, avec format propre au capteur reconnu. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00123">123</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00419">accel_read_temperature()</a>.</p>
+
+</div>
+</div>
+<a id="aead30ee4c56e2e46c5e92d376a1c5f14" name="aead30ee4c56e2e46c5e92d376a1c5f14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aead30ee4c56e2e46c5e92d376a1c5f14">&#9670;&#160;</a></span>REG_OUT_X_L</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REG_OUT_X_L&#160;&#160;&#160;0x28U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Premier registre de la rafale XYZ, octet faible de X à 0x28. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00122">122</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>.</p>
+
+</div>
+</div>
+<a id="a73f4728dfb5c82afcea7bee729af205c" name="a73f4728dfb5c82afcea7bee729af205c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f4728dfb5c82afcea7bee729af205c">&#9670;&#160;</a></span>REG_WHO_AM_I</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REG_WHO_AM_I&#160;&#160;&#160;0x0FU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adresse 0x0F du registre d'identité commun aux deux capteurs. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00121">121</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="ae78f24b8b6632401e282e82f1b04953c" name="ae78f24b8b6632401e282e82f1b04953c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae78f24b8b6632401e282e82f1b04953c">&#9670;&#160;</a></span>SPI_LIS3DH_MULTI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_LIS3DH_MULTI&#160;&#160;&#160;0x40U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bit six d'auto-incrément pour les lectures LIS3DH multi-octets. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00148">148</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+</div>
+</div>
+<a id="af1f1f5af5101654f2c3a95c7a3f67e1a" name="af1f1f5af5101654f2c3a95c7a3f67e1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f1f5af5101654f2c3a95c7a3f67e1a">&#9670;&#160;</a></span>SPI_MAX_DATA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_MAX_DATA&#160;&#160;&#160;6U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Au plus six octets utiles, soit la rafale XYZ. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00161">161</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+</div>
+</div>
+<a id="a2391b9cfab401375f9193246690a043d" name="a2391b9cfab401375f9193246690a043d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2391b9cfab401375f9193246690a043d">&#9670;&#160;</a></span>SPI_READ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_READ&#160;&#160;&#160;0x80U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bit sept de lecture du premier octet SPI. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00147">147</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+</div>
+</div>
+<a id="a8fe847e1fd705110c6f54ede74af96ea" name="a8fe847e1fd705110c6f54ede74af96ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe847e1fd705110c6f54ede74af96ea">&#9670;&#160;</a></span>SPI_TIMEOUT_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_TIMEOUT_MS&#160;&#160;&#160;3U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Délai HAL maximal de trois millisecondes par transaction capteur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00160">160</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>.</p>
+
+</div>
+</div>
+<a id="a9272ef70b4850d05b6ae1522e3a5f688" name="a9272ef70b4850d05b6ae1522e3a5f688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9272ef70b4850d05b6ae1522e3a5f688">&#9670;&#160;</a></span>WHO_AM_I_LIS3DH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WHO_AM_I_LIS3DH&#160;&#160;&#160;0x33U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signature 0x33 attendue du LIS3DH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00125">125</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a id="a2c192476a53aa88dc9732f612f48a182" name="a2c192476a53aa88dc9732f612f48a182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c192476a53aa88dc9732f612f48a182">&#9670;&#160;</a></span>WHO_AM_I_LIS3DSH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WHO_AM_I_LIS3DSH&#160;&#160;&#160;0x3FU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signature 0x3F attendue du LIS3DSH. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00126">126</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="ac06e98d7d80719541c11c6e131c29031" name="ac06e98d7d80719541c11c6e131c29031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac06e98d7d80719541c11c6e131c29031">&#9670;&#160;</a></span>accel_chip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a> accel_chip </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consulter l'identité mémorisée du capteur. </p>
+<p>Cette interrogation lit seulement l'état logiciel. Elle ne déclenche pas de transaction SPI. </p><dl class="section return"><dt>Renvoie</dt><dd>Dernier type enregistré par <a class="el" href="accelerometer_8h.html#a557c12ae54926838b046bd0af05c62f8" title="Reconnaître et configurer le composant connecté.">accel_init()</a>. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00335">335</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00335">accel_chip()</a>, et <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00335">accel_chip()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_ac06e98d7d80719541c11c6e131c29031_cgraph.svg" width="102" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad4e3cb98edb8d4f252e5de0b69b8cb10" name="ad4e3cb98edb8d4f252e5de0b69b8cb10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e3cb98edb8d4f252e5de0b69b8cb10">&#9670;&#160;</a></span>accel_chip_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * accel_chip_name </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir un nom lisible du capteur. </p>
+<p>Le texte appartient au programme en flash. L'appelant peut l'afficher et ne doit pas tenter de le modifier ou de le libérer. </p><dl class="section return"><dt>Renvoie</dt><dd>Chaîne constante LIS3DH, LIS3DSH ou none. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00347">347</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00347">accel_chip_name()</a>, <a class="el" href="accelerometer_8h_source.html#l00026">ACCEL_LIS3DH</a>, <a class="el" href="accelerometer_8h_source.html#l00027">ACCEL_LIS3DSH</a>, <a class="el" href="accelerometer_8h_source.html#l00025">ACCEL_NONE</a>, et <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00347">accel_chip_name()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_ad4e3cb98edb8d4f252e5de0b69b8cb10_cgraph.svg" width="146" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a557c12ae54926838b046bd0af05c62f8" name="a557c12ae54926838b046bd0af05c62f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557c12ae54926838b046bd0af05c62f8">&#9670;&#160;</a></span>accel_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a> accel_init </td>
+          <td>(</td>
+          <td class="paramtype">SPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>hspi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reconnaître et configurer le composant connecté. </p>
+<p>Mémorise le bus, lit WHO_AM_I puis choisit les registres et la sensibilité LIS3DH ou LIS3DSH. Une erreur de configuration ramène le pilote à ACCEL_NONE. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">hspi</td><td>Handle HAL du bus SPI déjà initialisé. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Type reconnu et configuré, ou ACCEL_NONE en cas d'échec. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00284">284</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, <a class="el" href="accelerometer_8h_source.html#l00026">ACCEL_LIS3DH</a>, <a class="el" href="accelerometer_8h_source.html#l00027">ACCEL_LIS3DSH</a>, <a class="el" href="accelerometer_8h_source.html#l00025">ACCEL_NONE</a>, <a class="el" href="accelerometer_8c_source.html#l00133">LIS3DH_CTRL1_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00134">LIS3DH_CTRL4_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00130">LIS3DH_CTRL_REG1</a>, <a class="el" href="accelerometer_8c_source.html#l00131">LIS3DH_CTRL_REG4</a>, <a class="el" href="accelerometer_8c_source.html#l00157">LIS3DH_MG_PER_LSB</a>, <a class="el" href="accelerometer_8c_source.html#l00129">LIS3DH_TEMP_CFG_REG</a>, <a class="el" href="accelerometer_8c_source.html#l00135">LIS3DH_TEMP_CFG_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00142">LIS3DSH_CTRL4_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00143">LIS3DSH_CTRL5_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00144">LIS3DSH_CTRL6_VALUE</a>, <a class="el" href="accelerometer_8c_source.html#l00138">LIS3DSH_CTRL_REG4</a>, <a class="el" href="accelerometer_8c_source.html#l00139">LIS3DSH_CTRL_REG5</a>, <a class="el" href="accelerometer_8c_source.html#l00140">LIS3DSH_CTRL_REG6</a>, <a class="el" href="accelerometer_8c_source.html#l00158">LIS3DSH_MG_PER_LSB</a>, <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00121">REG_WHO_AM_I</a>, <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>, <a class="el" href="accelerometer_8c_source.html#l00166">s_hspi</a>, <a class="el" href="accelerometer_8c_source.html#l00168">s_mg_per_lsb</a>, <a class="el" href="accelerometer_8c_source.html#l00125">WHO_AM_I_LIS3DH</a>, <a class="el" href="accelerometer_8c_source.html#l00126">WHO_AM_I_LIS3DSH</a>, et <a class="el" href="accelerometer_8c_source.html#l00266">write_and_check()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, et <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a557c12ae54926838b046bd0af05c62f8_cgraph.svg" width="555" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab2a68c82c3404d6027308e1f4163de25" name="ab2a68c82c3404d6027308e1f4163de25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2a68c82c3404d6027308e1f4163de25">&#9670;&#160;</a></span>accel_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool accel_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaccel__g__t.html">accel_g_t</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convertir la mesure XYZ en g. </p>
+<p>Applique successivement la sensibilité en mg par unité brute, le décalage et l'échelle d'étalonnage, puis la division par 1000. Cette correction de capteur précède le neutre des jeux. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">g</td><td>Structure de résultat XYZ valide, à remplir en g. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si une mesure valide a été acquise. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00390">390</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>, <a class="el" href="accelerometer_8c_source.html#l00168">s_mg_per_lsb</a>, <a class="el" href="accelerometer_8c_source.html#l00171">s_offset_mg</a>, <a class="el" href="accelerometer_8c_source.html#l00172">s_scale</a>, <a class="el" href="accelerometer_8h_source.html#l00046">accel_g_t::x</a>, <a class="el" href="accelerometer_8h_source.html#l00047">accel_g_t::y</a>, et <a class="el" href="accelerometer_8h_source.html#l00048">accel_g_t::z</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, et <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_ab2a68c82c3404d6027308e1f4163de25_cgraph.svg" width="408" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6694cbf7c5cc36d21274e49edd09d803" name="a6694cbf7c5cc36d21274e49edd09d803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6694cbf7c5cc36d21274e49edd09d803">&#9670;&#160;</a></span>accel_read_raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool accel_read_raw </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>raw</em></span>[3]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire les trois axes dans une même rafale. </p>
+<p>BDU protège la cohérence des registres pendant leur lecture. Chaque paire little-endian est recomposée en entier signé sur 16 bits. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">raw</td><td>Tableau valide de trois entiers signés pour X, Y et Z bruts. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les six octets sont lus, false si le capteur est absent ou si le SPI échoue. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00365">365</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8h_source.html#l00025">ACCEL_NONE</a>, <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>, <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00122">REG_OUT_X_L</a>, et <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, et <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a6694cbf7c5cc36d21274e49edd09d803_cgraph.svg" width="415" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aacf3b9c2f101e3e41dcfa9267aec6dcc" name="aacf3b9c2f101e3e41dcfa9267aec6dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf3b9c2f101e3e41dcfa9267aec6dcc">&#9670;&#160;</a></span>accel_read_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool accel_read_temperature </td>
+          <td>(</td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>celsius</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire une indication de température du capteur. </p>
+<p>La formule utilise l'octet signé et le décalage de 25 °C du modèle. Cette indication sert à observer une variation du capteur. L'application tactile ne l'utilise pas pour piloter les jeux. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">celsius</td><td>Pointeur valide recevant l’indication entière en degrés Celsius. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le registre du capteur reconnu a été lu. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00419">419</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8h_source.html#l00026">ACCEL_LIS3DH</a>, <a class="el" href="accelerometer_8h_source.html#l00027">ACCEL_LIS3DSH</a>, <a class="el" href="accelerometer_8c_source.html#l00419">accel_read_temperature()</a>, <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00123">REG_OUT_TEMP</a>, et <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00419">accel_read_temperature()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_aacf3b9c2f101e3e41dcfa9267aec6dcc_cgraph.svg" width="472" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a29d46b1a87a0a4fc33c863580aedcd9c" name="a29d46b1a87a0a4fc33c863580aedcd9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d46b1a87a0a4fc33c863580aedcd9c">&#9670;&#160;</a></span>accel_set_calibration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void accel_set_calibration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="accelerometer_8h.html#a8f6b55abc365d0d8a274b0e570f3c829">accel_axis_t</a></td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>min_mg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>max_mg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Étalonner un axe à partir de deux mesures opposées. </p>
+<p>Les mesures de référence correspondent à −1 g et +1 g en mg. Le milieu donne le décalage et leur différence donne l'échelle. Un axe invalide ou un intervalle inversé est ignoré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">axis</td><td>Axe brut X, Y ou Z à étalonner. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min_mg</td><td>Mesure d’étalonnage quand l’axe voit −1 g, exprimée en mg. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max_mg</td><td>Mesure d’étalonnage quand l’axe voit +1 g, en mg, supérieure à min_mg. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00454">454</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8h_source.html#l00036">ACCEL_AXIS_Z</a>, <a class="el" href="accelerometer_8c_source.html#l00454">accel_set_calibration()</a>, <a class="el" href="accelerometer_8c_source.html#l00171">s_offset_mg</a>, et <a class="el" href="accelerometer_8c_source.html#l00172">s_scale</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00454">accel_set_calibration()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a29d46b1a87a0a4fc33c863580aedcd9c_cgraph.svg" width="170" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3be4e858030293167720c4d5c4a31379" name="a3be4e858030293167720c4d5c4a31379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3be4e858030293167720c4d5c4a31379">&#9670;&#160;</a></span>read_regs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool read_regs </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire de un à six registres consécutifs. </p>
+<p>Une lecture émet d'abord l'adresse, puis des octets nuls pour produire l'horloge. Le premier octet reçu est ignoré. Le LIS3DH demande le bit multi-octets, le LIS3DSH utilise son auto-incrément configuré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre du composant. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Tampon valide pour la longueur demandée par size, len ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Nombre d’octets de l’échange. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la longueur est admise et si tous les octets sont reçus. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00230">230</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8h_source.html#l00026">ACCEL_LIS3DH</a>, <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00167">s_chip</a>, <a class="el" href="accelerometer_8c_source.html#l00148">SPI_LIS3DH_MULTI</a>, <a class="el" href="accelerometer_8c_source.html#l00161">SPI_MAX_DATA</a>, <a class="el" href="accelerometer_8c_source.html#l00147">SPI_READ</a>, et <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>, <a class="el" href="accelerometer_8c_source.html#l00419">accel_read_temperature()</a>, <a class="el" href="ft6206_8c_source.html#l00049">ft6206_probe()</a>, <a class="el" href="ft6206_8c_source.html#l00062">ft6206_sample()</a>, <a class="el" href="ft6206_8c_source.html#l00034">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, et <a class="el" href="accelerometer_8c_source.html#l00266">write_and_check()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a3be4e858030293167720c4d5c4a31379_cgraph.svg" width="244" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1afe9c2eb48767ad26f11b2f0fef5110" name="a1afe9c2eb48767ad26f11b2f0fef5110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1afe9c2eb48767ad26f11b2f0fef5110">&#9670;&#160;</a></span>spi_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool spi_transfer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>tx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>rx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Échanger un message SPI complet avec U4. </p>
+<p>CS reste bas pendant toute la transaction, puis remonte même si la HAL signale une erreur. Les octets émis et reçus ont la même longueur car le SPI est duplex. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tx</td><td>Octets à émettre, au moins len ou count cases selon la signature. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rx</td><td>Tampon de réception, de même capacité que le nombre d’octets échangés. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Nombre d’octets de l’échange. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si HAL_SPI_TransmitReceive termine correctement. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00190">190</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00166">s_hspi</a>, <a class="el" href="accelerometer_8c_source.html#l00160">SPI_TIMEOUT_MS</a>, et <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>, et <a class="el" href="accelerometer_8c_source.html#l00210">write_reg()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a1afe9c2eb48767ad26f11b2f0fef5110_cgraph.svg" width="110" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af33257ddf7b9089db27d39b4cf0f926b" name="af33257ddf7b9089db27d39b4cf0f926b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33257ddf7b9089db27d39b4cf0f926b">&#9670;&#160;</a></span>write_and_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool write_and_check </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Écrire un réglage et vérifier sa relecture. </p>
+<p>Le résultat est accepté seulement si l'écriture, la lecture et la comparaison réussissent. Cela évite de déclarer prêt un composant qui répond sans appliquer le réglage. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre du composant. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur à utiliser dans ce traitement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le registre relu égale la valeur demandée. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00266">266</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>, <a class="el" href="accelerometer_8c_source.html#l00266">write_and_check()</a>, et <a class="el" href="accelerometer_8c_source.html#l00210">write_reg()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, et <a class="el" href="accelerometer_8c_source.html#l00266">write_and_check()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_af33257ddf7b9089db27d39b4cf0f926b_cgraph.svg" width="423" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a87d3221052aacacfe425efbb3786c986" name="a87d3221052aacacfe425efbb3786c986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d3221052aacacfe425efbb3786c986">&#9670;&#160;</a></span>write_reg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool write_reg </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Écrire un registre de l'accéléromètre. </p>
+<p>Le premier octet contient l'adresse en mode écriture. Le deuxième contient la nouvelle valeur. Les deux octets reçus sont ignorés. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre du composant. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur à utiliser dans ce traitement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la transaction SPI réussit. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00210">210</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>, et <a class="el" href="accelerometer_8c_source.html#l00210">write_reg()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00266">write_and_check()</a>, et <a class="el" href="accelerometer_8c_source.html#l00210">write_reg()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="accelerometer_8c_a87d3221052aacacfe425efbb3786c986_cgraph.svg" width="240" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a5581710da77a7fdf216409745df95e82" name="a5581710da77a7fdf216409745df95e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5581710da77a7fdf216409745df95e82">&#9670;&#160;</a></span>s_chip</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143">accel_chip_t</a> s_chip = <a class="el" href="accelerometer_8h.html#a3f61dda4cc42aa064ca2654a14787143acd6c085c61ab1ec291c144e1041513ee">ACCEL_NONE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dernier type reconnu et correctement configuré. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00167">167</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00335">accel_chip()</a>, <a class="el" href="accelerometer_8c_source.html#l00347">accel_chip_name()</a>, <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, <a class="el" href="accelerometer_8c_source.html#l00365">accel_read_raw()</a>, <a class="el" href="accelerometer_8c_source.html#l00419">accel_read_temperature()</a>, et <a class="el" href="accelerometer_8c_source.html#l00230">read_regs()</a>.</p>
+
+</div>
+</div>
+<a id="a3b64a9666164ea78d4d4b02b47f3347d" name="a3b64a9666164ea78d4d4b02b47f3347d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b64a9666164ea78d4d4b02b47f3347d">&#9670;&#160;</a></span>s_hspi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPI_HandleTypeDef* s_hspi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle du bus physique conservé par adresse pour partager l'état HAL réel. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00166">166</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, et <a class="el" href="accelerometer_8c_source.html#l00190">spi_transfer()</a>.</p>
+
+</div>
+</div>
+<a id="add478dc873f7d26dab95d87726cd6300" name="add478dc873f7d26dab95d87726cd6300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add478dc873f7d26dab95d87726cd6300">&#9670;&#160;</a></span>s_mg_per_lsb</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float s_mg_per_lsb</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facteur de conversion sélectionné pour le capteur présent. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00168">168</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, et <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>.</p>
+
+</div>
+</div>
+<a id="a5d45155814397ac4e24ecc9c1353951d" name="a5d45155814397ac4e24ecc9c1353951d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d45155814397ac4e24ecc9c1353951d">&#9670;&#160;</a></span>s_offset_mg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float s_offset_mg[3] = { 0.0f, 0.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Décalages d'étalonnage XYZ en milligravités. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00171">171</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, et <a class="el" href="accelerometer_8c_source.html#l00454">accel_set_calibration()</a>.</p>
+
+</div>
+</div>
+<a id="af7ebdcaef64e5b4deeaa42ac63226c3d" name="af7ebdcaef64e5b4deeaa42ac63226c3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ebdcaef64e5b4deeaa42ac63226c3d">&#9670;&#160;</a></span>s_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float s_scale[3] = { 1.0f, 1.0f, 1.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facteurs d'échelle sans dimension des trois axes. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="accelerometer_8c_source.html#l00172">172</a> du fichier <a class="el" href="accelerometer_8c_source.html">accelerometer.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, et <a class="el" href="accelerometer_8c_source.html#l00454">accel_set_calibration()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="accelerometer_8c.html">accelerometer.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

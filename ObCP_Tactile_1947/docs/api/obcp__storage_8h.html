@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_storage.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__storage_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_storage.h<div class="ingroups"><a class="el" href="group__obcp__storage.html">Sauvegardes transactionnelles</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Format d’objet A/B, CRC32 et validation transactionnelle.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_storage.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h__incl.svg" width="288" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h__dep__incl.svg" width="100%" height="503"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="obcp__storage_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:Storage" id="r_Storage"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structStorage.html">Storage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface physique de stockage injectable dans les tests.  <a href="structStorage.html#details">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a63926879f5d46d08a5bc0dace1394100" id="r_a63926879f5d46d08a5bc0dace1394100"><td class="memItemLeft"><a class="el" href="#a63926879f5d46d08a5bc0dace1394100">enum </a>&#160;</td><td class="memItemRight">{ <a class="el" href="#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a> = 2048
+, <a class="el" href="#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">OBCP_STORAGE_BYTES</a> = 144 * 1024
+ }</td></tr>
+<tr class="memdesc:a63926879f5d46d08a5bc0dace1394100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions, bornes et constantes du module.  <a href="#a63926879f5d46d08a5bc0dace1394100">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a00e268a0843097a222c7935ddfb0e080" id="r_a00e268a0843097a222c7935ddfb0e080"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> { <br />
+&#160;&#160;<a class="el" href="#a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1">SAVE_DRAW_1</a>
+, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9">SAVE_DRAW_2</a>
+, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a">SAVE_MUSIC</a>
+, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986">SAVE_TOUCH_CAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258">SAVE_TILT_AXES</a>
+, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3">SAVE_PREFERENCES</a>
+, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1">SAVE_OBJECTS</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a00e268a0843097a222c7935ddfb0e080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiants stables des objets persistants.  <a href="#a00e268a0843097a222c7935ddfb0e080">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a3d4adcc9309b0cf493361bdbd51996a9" id="r_a3d4adcc9309b0cf493361bdbd51996a9"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> { <a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5">STORE_OK</a>
+, <a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9a2198accddc3bf760db89623023d212ab">STORE_EMPTY</a>
+, <a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9a513d6452034ae0ad2c2d31565adc11d0">STORE_IO</a>
+, <a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c">STORE_INVALID</a>
+ }</td></tr>
+<tr class="memdesc:a3d4adcc9309b0cf493361bdbd51996a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Résultats communs aux lectures et écritures de stockage.  <a href="#a3d4adcc9309b0cf493361bdbd51996a9">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a93e975a9edc0e30b07e9fdfaa4391ef2" id="r_a93e975a9edc0e30b07e9fdfaa4391ef2"><td class="memItemLeft"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a93e975a9edc0e30b07e9fdfaa4391ef2">storage_read</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, void *data, size_t size)</td></tr>
+<tr class="memdesc:a93e975a9edc0e30b07e9fdfaa4391ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un objet dont la longueur exacte est connue.  <br /></td></tr>
+<tr class="memitem:a14262c35a650194efb006701a81f4d17" id="r_a14262c35a650194efb006701a81f4d17"><td class="memItemLeft"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a14262c35a650194efb006701a81f4d17">storage_read_sized</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, void *data, size_t capacity, size_t *actual)</td></tr>
+<tr class="memdesc:a14262c35a650194efb006701a81f4d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire un objet en découvrant sa longueur de format.  <br /></td></tr>
+<tr class="memitem:acdb0d3d7df8fc923acd7743abdca12cf" id="r_acdb0d3d7df8fc923acd7743abdca12cf"><td class="memItemLeft"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#acdb0d3d7df8fc923acd7743abdca12cf">storage_save</a> (<a class="el" href="structStorage.html">Storage</a> *s, <a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a> object, const void *data, size_t size)</td></tr>
+<tr class="memdesc:acdb0d3d7df8fc923acd7743abdca12cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écrire et valider la copie inactive d'un objet.  <br /></td></tr>
+<tr class="memitem:a5101ec40d60b123d4fbb34795966fa5f" id="r_a5101ec40d60b123d4fbb34795966fa5f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a5101ec40d60b123d4fbb34795966fa5f">storage_crc32</a> (const void *data, size_t size)</td></tr>
+<tr class="memdesc:a5101ec40d60b123d4fbb34795966fa5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer le CRC32 d'un bloc de données.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Format d’objet A/B, CRC32 et validation transactionnelle. </p>
+<p>Chaque objet possède deux emplacements sur des pages distinctes. La génération et les CRC identifient la copie exploitable. Une nouvelle copie reçoit son marqueur final dans un double mot encore vierge après contrôle de toutes ses données.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a63926879f5d46d08a5bc0dace1394100" name="a63926879f5d46d08a5bc0dace1394100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63926879f5d46d08a5bc0dace1394100">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dimensions, bornes et constantes du module. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3" name="a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3"></a>OBCP_FLASH_PAGE&#160;</td><td class="fielddoc"><p>Page physique du STM32L476 de 2 048 octets. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222" name="a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222"></a>OBCP_STORAGE_BYTES&#160;</td><td class="fielddoc"><p>Réserve persistante totale de 144 Kio en banque 2. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__storage_8h_source.html#l00024">24</a> du fichier <a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>.</p>
+
+</div>
+</div>
+<a id="a00e268a0843097a222c7935ddfb0e080" name="a00e268a0843097a222c7935ddfb0e080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e268a0843097a222c7935ddfb0e080">&#9670;&#160;</a></span>SaveObject</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identifiants stables des objets persistants. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1" name="a00e268a0843097a222c7935ddfb0e080adfe70c87d936ce7e1a5c208d6c9281d1"></a>SAVE_DRAW_1&#160;</td><td class="fielddoc"><p>Premier dessin, identifiant historique zéro. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9" name="a00e268a0843097a222c7935ddfb0e080ad386deaa2265fd5a38888c97c2bf2fb9"></a>SAVE_DRAW_2&#160;</td><td class="fielddoc"><p>Deuxième dessin. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a" name="a00e268a0843097a222c7935ddfb0e080ac796b7de736399a8c6a69512c7e56a2a"></a>SAVE_MUSIC&#160;</td><td class="fielddoc"><p>Livre des quatre motifs musicaux. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986" name="a00e268a0843097a222c7935ddfb0e080a8b15e4120512b1192558ad7c329b4986"></a>SAVE_TOUCH_CAL&#160;</td><td class="fielddoc"><p>Deux profils de calibrage résistif. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258" name="a00e268a0843097a222c7935ddfb0e080ad96c10c7e34ae3bf34bc150f50bc3258"></a>SAVE_TILT_AXES&#160;</td><td class="fielddoc"><p>Orientation commune aux trois jeux. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3" name="a00e268a0843097a222c7935ddfb0e080ab32e436e33d08f28023cb972aa884ca3"></a>SAVE_PREFERENCES&#160;</td><td class="fielddoc"><p>Réactivités X et Y. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1" name="a00e268a0843097a222c7935ddfb0e080adb031598165dd334faf9f024ef7537c1"></a>SAVE_OBJECTS&#160;</td><td class="fielddoc"><p>Nombre d'identifiants, borne exclusive des requêtes. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__storage_8h_source.html#l00032">32</a> du fichier <a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>.</p>
+
+</div>
+</div>
+<a id="a3d4adcc9309b0cf493361bdbd51996a9" name="a3d4adcc9309b0cf493361bdbd51996a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4adcc9309b0cf493361bdbd51996a9">&#9670;&#160;</a></span>StoreResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Résultats communs aux lectures et écritures de stockage. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5" name="a3d4adcc9309b0cf493361bdbd51996a9a28557c32623d21545b6eb07a444c2de5"></a>STORE_OK&#160;</td><td class="fielddoc"><p>L'opération est complètement validée. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3d4adcc9309b0cf493361bdbd51996a9a2198accddc3bf760db89623023d212ab" name="a3d4adcc9309b0cf493361bdbd51996a9a2198accddc3bf760db89623023d212ab"></a>STORE_EMPTY&#160;</td><td class="fielddoc"><p>Objet absent, copie valide introuvable ou longueur exacte différente. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3d4adcc9309b0cf493361bdbd51996a9a513d6452034ae0ad2c2d31565adc11d0" name="a3d4adcc9309b0cf493361bdbd51996a9a513d6452034ae0ad2c2d31565adc11d0"></a>STORE_IO&#160;</td><td class="fielddoc"><p>Lecture, effacement, programmation ou relecture physique échouée. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c" name="a3d4adcc9309b0cf493361bdbd51996a9a3aa7770e0389d34887f4d0eaf7eb075c"></a>STORE_INVALID&#160;</td><td class="fielddoc"><p>Requête ou format hors des valeurs prises en charge. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__storage_8h_source.html#l00044">44</a> du fichier <a class="el" href="obcp__storage_8h_source.html">obcp_storage.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a5101ec40d60b123d4fbb34795966fa5f" name="a5101ec40d60b123d4fbb34795966fa5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5101ec40d60b123d4fbb34795966fa5f">&#9670;&#160;</a></span>storage_crc32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t storage_crc32 </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculer le CRC32 d'un bloc de données. </p>
+<p>Initialise le registre à tous les bits à un et complémente le résultat. Les vecteurs de tests contrôlent notamment la chaîne 123456789. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Bloc source valide de size octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>CRC32 du bloc fourni. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00124">124</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00106">crc_continue()</a>, et <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>, et <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h_a5101ec40d60b123d4fbb34795966fa5f_cgraph.svg" width="276" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a93e975a9edc0e30b07e9fdfaa4391ef2" name="a93e975a9edc0e30b07e9fdfaa4391ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e975a9edc0e30b07e9fdfaa4391ef2">&#9670;&#160;</a></span>storage_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire un objet dont la longueur exacte est connue. </p>
+<p>Sélectionne d'abord la copie récente valide, puis vérifie que sa longueur égale celle demandée avant de copier les octets vers l'appelant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tampon de destination valide. Sa capacité est donnée par size, capacity ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK, STORE_EMPTY si absent ou de longueur différente, STORE_IO ou STORE_INVALID. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00248">248</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00064">Copy::size</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, <a class="el" href="obcp__storage_8h_source.html#l00046">STORE_EMPTY</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="storage_8c_source.html#l00248">storage_read()</a>, et <a class="el" href="calibration_8c_source.html#l00251">touch_cal_load()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h_a93e975a9edc0e30b07e9fdfaa4391ef2_cgraph.svg" width="394" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a14262c35a650194efb006701a81f4d17" name="a14262c35a650194efb006701a81f4d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14262c35a650194efb006701a81f4d17">&#9670;&#160;</a></span>storage_read_sized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_read_sized </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>capacity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>actual</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire un objet en découvrant sa longueur de format. </p>
+<p>Le tampon est donné avec sa capacité. La taille réellement enregistrée est fournie seulement au succès. Une copie trop grande est rejetée avant la copie des données. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Tampon de destination valide. Sa capacité est donnée par size, capacity ou count. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td>Capacité du tampon de destination en octets. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">actual</td><td>Longueur réelle enregistrée, écrite seulement au succès. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK, STORE_EMPTY, STORE_IO ou STORE_INVALID. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00272">272</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00064">Copy::size</a>, <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>, <a class="el" href="obcp__storage_8h_source.html#l00046">STORE_EMPTY</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="paint_8c_source.html#l00231">paint_load()</a>, et <a class="el" href="storage_8c_source.html#l00272">storage_read_sized()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h_a14262c35a650194efb006701a81f4d17_cgraph.svg" width="435" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acdb0d3d7df8fc923acd7743abdca12cf" name="acdb0d3d7df8fc923acd7743abdca12cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb0d3d7df8fc923acd7743abdca12cf">&#9670;&#160;</a></span>storage_save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a3d4adcc9309b0cf493361bdbd51996a9">StoreResult</a> storage_save </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStorage.html">Storage</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a00e268a0843097a222c7935ddfb0e080">SaveObject</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Écrire et valider la copie inactive d'un objet. </p>
+<p>Garde la copie active, efface l'autre, écrit l'en-tête incomplet et les données, relit les CRC puis programme le marqueur final. La génération active est reconnue même si la nouvelle longueur de format diffère. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>Port de stockage et ses callbacks synchrones. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object</td><td>Identifiant stable d’objet, strictement inférieur à SAVE_OBJECTS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Bloc source valide de size octets. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Longueur du bloc en octets. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>STORE_OK au succès, STORE_IO en cas d'échec physique ou STORE_INVALID pour une requête hors contrat. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="storage_8c_source.html#l00301">301</a> du fichier <a class="el" href="storage_8c_source.html">storage.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="storage_8c_source.html#l00214">active_copy()</a>, <a class="el" href="storage_8c_source.html#l00044">Slot::base</a>, <a class="el" href="storage_8c_source.html#l00038">COMMIT_MAGIC</a>, <a class="el" href="obcp__storage_8h_source.html#l00062">Storage::context</a>, <a class="el" href="storage_8c_source.html#l00140">crc_flash()</a>, <a class="el" href="obcp__storage_8h_source.html#l00064">Storage::erase</a>, <a class="el" href="storage_8c_source.html#l00063">Copy::generation</a>, <a class="el" href="storage_8c_source.html#l00030">HEADER_BYTES</a>, <a class="el" href="storage_8c_source.html#l00166">inspect()</a>, <a class="el" href="storage_8c_source.html#l00031">META_BYTES</a>, <a class="el" href="storage_8c_source.html#l00062">Copy::offset</a>, <a class="el" href="obcp__storage_8h_source.html#l00065">Storage::program</a>, <a class="el" href="storage_8c_source.html#l00089">put32()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="storage_8c_source.html#l00066">Copy::read_error</a>, <a class="el" href="storage_8c_source.html#l00047">slots</a>, <a class="el" href="storage_8c_source.html#l00045">Slot::span</a>, <a class="el" href="storage_8c_source.html#l00124">storage_crc32()</a>, <a class="el" href="storage_8c_source.html#l00037">STORAGE_MAGIC</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, <a class="el" href="obcp__storage_8h_source.html#l00048">STORE_INVALID</a>, <a class="el" href="obcp__storage_8h_source.html#l00047">STORE_IO</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, <a class="el" href="storage_8c_source.html#l00065">Copy::valid</a>, et <a class="el" href="storage_8c_source.html#l00236">valid_request()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="paint_8c_source.html#l00209">paint_save()</a>, <a class="el" href="storage_8c_source.html#l00301">storage_save()</a>, et <a class="el" href="calibration_8c_source.html#l00282">touch_cal_save()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__storage_8h_acdb0d3d7df8fc923acd7743abdca12cf_cgraph.svg" width="558" height="356"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__storage_8h.html">obcp_storage.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

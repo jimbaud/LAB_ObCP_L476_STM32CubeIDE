@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['cal_5fcan_5fcancel_0',['cal_can_cancel',['../structApp.html#afed077d472db6de55e9a2ff683ad1e7a',1,'App']]],
+  ['cal_5fcancel_1',['cal_cancel',['../app_8c.html#a0749a1046c6f9fb9a22c1ca96fd2c690',1,'app.c']]],
+  ['calibrated_2',['calibrated',['../structTilt.html#ab8fcd6ae974f129335b249c72962a7ec',1,'Tilt']]],
+  ['cancel_3',['cancel',['../app_8c.html#ab29329ee48fa534778fd886e293d45b8',1,'app.c']]],
+  ['candidate_4',['candidate',['../structTouchCalSession.html#a2298e9f81ccde69d7c55f32a86863915',1,'TouchCalSession']]],
+  ['canvas_5',['canvas',['../paint_8c.html#aaf9feb793898151c4e853de4be4a7666',1,'paint.c']]],
+  ['ch_6',['ch',['../struct_0fstruct_0e_8symbols.html#a2b301ea95c7e51c717bc00426134996d',1,'[struct].symbols']]],
+  ['changed_5fat_7',['changed_at',['../structButtonState.html#a2aad7cdd55528e01d242ed2cd3134a47',1,'ButtonState']]],
+  ['changing_8',['changing',['../structResistiveFilter.html#a49ae04c98a80a605e1678acca65ea9fc',1,'ResistiveFilter']]],
+  ['clip_9',['clip',['../structGfx.html#a360ab70f2fec1cae81aefe1599956695',1,'Gfx']]],
+  ['consumed_10',['consumed',['../structButtonState.html#a76b5366502f789bd1e4523a28c78a102',1,'ButtonState']]],
+  ['contact_11',['contact',['../struct_0fstruct_0e_8adc.html#a46449a2d05aa9d00b6f13e15b8f820f1',1,'[struct].adc']]],
+  ['context_12',['context',['../structDisplayPort.html#a9afc8e173d4f8fe62ddcdca4415f32b2',1,'DisplayPort::context'],['../structStorage.html#a6f977203ac8130cc99df415314d73161',1,'Storage::context']]],
+  ['controller_13',['controller',['../structTouchDevice.html#a62699897aeb8dec923e8d481365e4e2d',1,'TouchDevice']]],
+  ['converting_14',['converting',['../struct_0fstruct_0e_8adc.html#a3a3c3a1ddcfc4d8e25d3ea6cef98794d',1,'[struct].adc']]],
+  ['count_15',['count',['../structDamage.html#aa66de138fcd4a675456d2ae4fe697396',1,'Damage']]],
+  ['crash_5fms_16',['crash_ms',['../structRace.html#abfccd5110956721d0a5d1029343094fa',1,'Race']]],
+  ['current_17',['current',['../structResistiveFilter.html#a92b2807e19367fcd95a6a30c192a8a5e',1,'ResistiveFilter']]]
+];

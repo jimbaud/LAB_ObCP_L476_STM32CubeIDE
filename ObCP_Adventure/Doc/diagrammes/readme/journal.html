@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Journal de sauvegarde dans l'EEPROM M95640</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 900px; padding: 16px 20px 16px; }
+  .titre-fig { font-size: 13px; font-weight: 650; margin-bottom: 12px; }
+  .titre-col { font-size: 11.3px; font-weight: 650; letter-spacing: .04em; color: var(--discret); margin-bottom: 6px; }
+  /* Barre de l'EEPROM */
+  .barre { display: grid; grid-template-columns: 1fr 1fr; height: 54px; border: 1.5px solid var(--bord); border-radius: 8px; overflow: hidden; }
+  .libre { background: repeating-linear-gradient(135deg, var(--fond-doux) 0 7px, var(--piste) 7px 8px);
+           display: grid; place-items: center; text-align: center; font-size: 11.6px; line-height: 1.35; color: var(--discret);
+           border-right: 1.5px solid var(--bord); }
+  .libre b { color: var(--texte); font-weight: 600; }
+  .cases { display: grid; grid-template-columns: repeat(16, 1fr); }
+  .case { display: grid; place-items: center; font-size: 11px; font-weight: 600; color: var(--discret);
+          border-left: 1px solid var(--bord); background: var(--fond); }
+  .case:first-child { border-left: none; }
+  .case.valide { background: var(--vert-fond); color: var(--vert); box-shadow: inset 0 0 0 2px var(--vert); }
+  .case.cours { background: var(--ambre-fond); color: var(--ambre); box-shadow: inset 0 0 0 2px var(--ambre); }
+  .entetes { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 4px; padding-left: 2px; }
+  .adr { font-family: "DejaVu Sans Mono", monospace; font-size: 10.8px; color: var(--discret); }
+  .reperes { display: flex; gap: 16px; margin-top: 4px; font-size: 11.3px; color: var(--discret); white-space: nowrap; }
+  .reperes i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+  /* Un emplacement */
+  .emplacement { margin-top: 18px; display: grid; grid-template-columns: 1fr 6fr 1fr; height: 42px; border: 1.5px solid var(--ambre);
+                 border-radius: 7px; overflow: hidden; }
+  .seg { display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 12px; font-weight: 650;
+         white-space: nowrap; line-height: 1.3; }
+  .seg span { font-family: "DejaVu Sans Mono", monospace; font-size: 10.6px; font-weight: 500; color: var(--discret); }
+  .seg.entete { background: var(--bleu-fond); border-right: 1.5px solid var(--bord); }
+  .seg.contenu { background: var(--vert-fond); border-right: 1.5px solid var(--bord); }
+  .seg.validation { background: var(--violet-fond); }
+  .pages { display: grid; grid-template-columns: 1fr 6fr 1fr; margin-top: 3px; font-size: 10.6px; color: var(--discret); text-align: center; }
+  .pages div { border-top: 1.5px solid var(--bord); padding-top: 2px; margin: 0 4px; }
+  .details { margin-top: 10px; display: grid; grid-template-columns: 1fr 1.9fr 1fr; gap: 12px; }
+  .details .bloc { padding: 7px 11px 8px; }
+  .details .bloc h3 { font-size: 12.6px; }
+  .details .bloc p { font-size: 11.4px; margin-top: 2px; }
+  /* Écriture */
+  .etapes { margin-top: 26px; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 26px; }
+  .etape { border: 1.5px solid var(--bord); border-radius: 9px; background: var(--fond); padding: 7px 9px 8px; font-size: 11.3px; line-height: 1.35; color: var(--discret); }
+  .etape h4 { font-size: 12.6px; font-weight: 650; color: var(--texte); margin-bottom: 2px; display: flex; gap: 6px; align-items: baseline; }
+  .etape h4 .n { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10.5px; font-weight: 700;
+                 border: 1.5px solid var(--c, var(--bord)); color: var(--c, var(--discret)); flex: none; transform: translateY(3px); }
+  .etape code { font-size: 10.6px; }
+  .note { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .note .bloc p { font-size: 11.6px; margin-top: 2px; }
+  .note .bloc h3 { font-size: 12.8px; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="titre-fig">Sauvegarde : un journal de seize emplacements dans l'EEPROM M95640 de l'ObCP (8 192 octets)</div>
+
+  <div class="entetes"><div class="adr">0x0000 à 0x0FFF</div>
+    <div><span class="adr">0x1000 à 0x1FFF : seize emplacements de 256 octets</span>
+      <div class="reperes">
+        <span><i style="background:var(--vert-fond);box-shadow:inset 0 0 0 2px var(--vert)"></i>copie valide la plus récente (séquence n)</span>
+        <span><i style="background:var(--ambre-fond);box-shadow:inset 0 0 0 2px var(--ambre)"></i>écriture en cours (n&nbsp;+&nbsp;1)</span>
+      </div></div></div>
+  <div class="barre">
+    <div class="libre"><div><b>4 096 octets jamais lus ni écrits par le jeu</b><br>(données d'autres programmes conservées)</div></div>
+    <div class="cases" id="cases">
+      <div class="case">0</div><div class="case">1</div><div class="case">2</div><div class="case">3</div>
+      <div class="case valide">4</div><div class="case cours" id="cible">5</div><div class="case">6</div><div class="case">7</div>
+      <div class="case">8</div><div class="case">9</div><div class="case">10</div><div class="case">11</div>
+      <div class="case">12</div><div class="case">13</div><div class="case">14</div><div class="case">15</div>
+    </div>
+  </div>
+
+  <div class="emplacement" id="emplacement">
+    <div class="seg entete">en-tête <span>0–31</span></div>
+    <div class="seg contenu">contenu <span>32–223 · 192 octets</span></div>
+    <div class="seg validation">validation <span>224–255</span></div>
+  </div>
+  <div class="pages"><div>page 0</div><div>pages 1 à 6 (32 octets chacune)</div><div>page 7</div></div>
+  <div class="details">
+    <div class="bloc bleu"><h3>en-tête</h3><p>«&nbsp;OACP&nbsp;», version 1, longueur 192, séquence, CRC-32 du contenu</p></div>
+    <div class="bloc vert"><h3>contenu (entiers «&nbsp;little-endian&nbsp;»)</h3><p>réglages (dont les six coefficients de l'étalonnage tactile), niveau, niveau débloqué, vies,
+      score, fragments, point de reprise, 128 bits «&nbsp;objet ramassé ou ennemi vaincu&nbsp;», jusqu'à 32 blocs <b>?</b> déjà frappés</p></div>
+    <div class="bloc violet"><h3>validation</h3><p>marqueur <code>C04D17ED</code>, séquence, CRC-32 des octets 0 à 223</p></div>
+  </div>
+
+  <div class="etapes" id="etapes">
+    <div class="etape ambre" id="t1"><h4><span class="n">1</span>invalider</h4>page 7 ← 32 zéros : l'emplacement n'est plus lisible</div>
+    <div class="etape vert" id="t2"><h4><span class="n">2</span>écrire</h4>pages 0 à 6, une par tour de boucle ; attente de fin d'écriture (WIP)</div>
+    <div class="etape vert" id="t3"><h4><span class="n">3</span>relire</h4>224 octets comparés au tampon</div>
+    <div class="etape violet" id="t4"><h4><span class="n">4</span>valider</h4>page 7 écrite en dernier</div>
+    <div class="etape violet" id="t5"><h4><span class="n">5</span>vérifier</h4>256 octets relus et contrôlés : séquence n&nbsp;+&nbsp;1</div>
+  </div>
+  <div class="note">
+    <div class="bloc rouge"><h3>Coupure ou erreur à n'importe quelle étape</h3><p>l'emplacement 5 n'a pas de validation correcte : il est ignoré. La copie de l'emplacement 4 reste la plus récente valide.</p></div>
+    <div class="bloc bleu"><h3>Au démarrage : <code>oa_storage_open()</code></h3><p>lit les seize emplacements et retient la copie valide de plus grande séquence ; zone vierge ou journal reconnu : écriture permise, sinon commande <code>W</code>.</p></div>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const fig = document.getElementById("figure");
+  const svg = calque(fig);
+  // Loupe : de l'emplacement 5 vers son détail
+  const c = ancre(document.getElementById("cible"), "bas", fig);
+  const e = document.getElementById("emplacement");
+  const g = ancre(e, "haut", fig), r = e.getBoundingClientRect(), f = fig.getBoundingClientRect();
+  const gauche = r.left - f.left, droite = r.right - f.left;
+  const cible = document.getElementById("cible").getBoundingClientRect();
+  const cg = cible.left - f.left, cd = cible.right - f.left, cb = cible.bottom - f.top;
+  const poly = document.createElementNS(SVG, "polygon");
+  poly.setAttribute("points", [cg, cb, cd, cb, droite, g[1], gauche, g[1]].join(" "));
+  poly.setAttribute("style", "fill:var(--ambre-fond);stroke:var(--ambre);stroke-width:1;stroke-dasharray:4 3;opacity:.75");
+  svg.insertBefore(poly, svg.firstChild.nextSibling);
+  // Chaîne des cinq étapes
+  for (let i = 1; i < 5; i++)
+    relier("#t" + i, "#t" + (i + 1), { de: "droite", vers: "gauche", couleur: "var(--discret)", epaisseur: 1.8, taille_fleche: 10 });
+});
+</script>
+</body>
+</html>

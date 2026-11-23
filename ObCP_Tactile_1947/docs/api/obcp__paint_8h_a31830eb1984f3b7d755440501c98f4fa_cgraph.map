@@ -1,0 +1,13 @@
+<map id="paint_load" name="paint_load">
+<area shape="rect" id="Node000001" title="Lire un dessin historique ou enrichi et sa palette." alt="" coords="5,67,96,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="23,68,17,58,20,49,32,42,51,40,73,43,83,52,80,56,71,48,51,45,33,47,24,52,22,58,27,65"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a14262c35a650194efb006701a81f4d17" title="Lire un objet en découvrant sa longueur de format." alt="" coords="144,67,292,92"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="96,77,130,77,130,82,96,82"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="190,68,184,58,188,49,199,42,218,40,241,43,250,52,247,56,238,48,218,45,201,47,192,52,190,58,195,65"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="345,29,445,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="278,64,331,53,332,58,280,69"/>
+<area shape="rect" id="Node000010" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="340,103,451,128"/>
+<area shape="poly" id="edge6_Node000002_Node000010" title=" " alt="" coords="281,89,327,99,326,104,280,95"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="366,31,360,21,363,11,375,5,395,3,420,6,430,15,426,19,417,11,395,8,377,10,367,15,365,20,370,28"/>
+<area shape="poly" id="edge7_Node000010_Node000010" title=" " alt="" coords="366,104,360,94,363,85,375,78,395,76,420,80,430,88,426,92,417,84,395,81,377,83,367,88,365,94,370,101"/>
+</map>

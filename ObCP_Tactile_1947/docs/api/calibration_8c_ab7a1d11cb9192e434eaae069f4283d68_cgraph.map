@@ -1,0 +1,7 @@
+<map id="touch_cal_set" name="touch_cal_set">
+<area shape="rect" id="Node000001" title="Remplacer le profil associé au contrôleur." alt="" coords="5,29,116,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="35,31,29,21,32,11,43,5,61,3,82,6,91,15,87,19,80,11,61,8,45,10,36,15,34,20,39,28"/>
+<area shape="rect" id="Node000002" href="$calibration_8c.html#a835c2a46780f0da559cf58d9e6209057" title="Associer un contrôleur résistif à sa place dans le livre." alt="" coords="164,29,271,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,39,150,39,150,45,116,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="191,31,186,21,189,11,200,5,217,3,239,6,248,15,244,19,236,11,217,8,201,10,193,15,191,20,196,28"/>
+</map>

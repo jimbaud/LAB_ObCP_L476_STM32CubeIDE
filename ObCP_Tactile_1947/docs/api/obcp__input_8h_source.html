@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Inc/obcp_input.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__input_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">obcp_input.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="obcp__input_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file obcp_input.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Filtrage du contact, de SW1 et de l’inclinaison.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_input</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Les pilotes livrent des états physiques. Ce module construit les événements DOWN, MOVE</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * et UP, rejette les oscillations et exprime les commandes de jeu dans le repère de</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * l’écran. Les temps sont en millisecondes et les accélérations en g.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef OBCP_INPUT_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define OBCP_INPUT_H</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__touch_8h.html">obcp_touch.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @brief Événements construits à partir des contacts successifs.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baa">   24</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee">   25</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee">TOUCH_NONE</a>, <span class="comment">/**&lt; Aucun changement par rapport au contact précédent. */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5">   26</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5">TOUCH_DOWN</a>, <span class="comment">/**&lt; Premier contact validé. */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93">   27</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93">TOUCH_MOVE</a>, <span class="comment">/**&lt; Contact maintenu dont la position a changé. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3">   28</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3">TOUCH_UP</a>, <span class="comment">/**&lt; Disparition validée du contact précédent. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_enumeration" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baa">TouchKind</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @brief Événement de contact en coordonnées écran.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * Les coordonnées UP sont celles du dernier contact. TOUCH_NONE indique une absence de</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * changement.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structTouchEvent.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structTouchEvent.html#a6e4af0c8b311e7d4f021605aeb409024">   37</a></span>    <a class="code hl_enumeration" href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baa">TouchKind</a> <a class="code hl_variable" href="structTouchEvent.html#a6e4af0c8b311e7d4f021605aeb409024">kind</a>; <span class="comment">/**&lt; Nature de la transition du doigt. */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structTouchEvent.html#a6ac244661e28ac09e200dcec207b892c">   38</a></span>    int16_t <a class="code hl_variable" href="structTouchEvent.html#a6ac244661e28ac09e200dcec207b892c">x</a>; <span class="comment">/**&lt; Abscisse du contact, en pixels paysage. */</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structTouchEvent.html#ab50974376bc948ca79d74b6ef84b8f5e">   39</a></span>    int16_t <a class="code hl_variable" href="structTouchEvent.html#ab50974376bc948ca79d74b6ef84b8f5e">y</a>; <span class="comment">/**&lt; Ordonnée du contact, en pixels paysage. */</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <a class="code hl_struct" href="structTouchEvent.html">TouchEvent</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * @brief Dernier contact accepté pour détecter une transition.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Cette mémoire permet à touch_update() de comparer le nouvel échantillon au précédent.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structTouchState.html">   46</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structTouchState.html#a8c00ce8245d09419c7d887135d431292">   47</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchState.html#a8c00ce8245d09419c7d887135d431292">down</a>; <span class="comment">/**&lt; true si le contact précédent était présent. */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structTouchState.html#a16d69b7f3316054f6074842f415292fe">   48</a></span>    int16_t <a class="code hl_variable" href="structTouchState.html#a16d69b7f3316054f6074842f415292fe">x</a>; <span class="comment">/**&lt; Dernière abscisse écran mémorisée. */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structTouchState.html#a93eab4c2ff10ac7a0b6f4ee685a40f77">   49</a></span>    int16_t <a class="code hl_variable" href="structTouchState.html#a93eab4c2ff10ac7a0b6f4ee685a40f77">y</a>; <span class="comment">/**&lt; Dernière ordonnée écran mémorisée. */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} <a class="code hl_struct" href="structTouchState.html">TouchState</a>;</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/* Les axes natifs du FT6206 vont de 0 à 239 et de 0 à 319. Le paramètre</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * flipped représente un demi-tour relatif du tactile en mode paysage. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * @brief Passer des coordonnées natives capacitives au paysage.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * Vérifie les plages portrait du FT62xx, puis applique la rotation et éventuellement le</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * demi-tour choisi dans la configuration. Les sorties sont des pixels du TFT.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * @param[in] raw_x Abscisse native capacitive, de zéro à 239.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @param[in] raw_y Ordonnée native capacitive, de zéro à 319.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @param[in] flipped true pour ajouter un demi-tour au tactile capacitif.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @param[out] x Abscisse calculée. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * @param[out] y Ordonnée calculée. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @return true si les coordonnées brutes appartiennent à la dalle attendue.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__input_8h.html#a34a8b4770c6c8a0bdd63b495ee696f1a">touch_landscape</a>(uint16_t raw_x, uint16_t raw_y, <span class="keywordtype">bool</span> flipped, int16_t *x, int16_t *y);<span class="comment"></span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * @brief Produire un événement à partir du contact et de sa position.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * Compare l&#39;état reçu au précédent. Le premier appui donne DOWN, un changement de position</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * donne MOVE et la disparition du contact donne UP. L&#39;état mémorisé est mis à jour.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @param[in,out] s Dernier état de contact utilisé pour détecter les transitions. Pointeur</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> *   valide.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @param[in] down Présence physique ou filtrée d’un contact.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * @param[in] x Abscisse dans le repère écran, en pixels.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @param[in] y Ordonnée dans le repère écran, en pixels.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * @return Événement de transition ou TOUCH_NONE si rien n&#39;a changé.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_struct" href="structTouchEvent.html">TouchEvent</a> <a class="code hl_function" href="obcp__input_8h.html#ad1e83c87b38461e0c8c4e5cfd286b066">touch_update</a>(<a class="code hl_struct" href="structTouchState.html">TouchState</a> *s, <span class="keywordtype">bool</span> down, int16_t x, int16_t y);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> * @brief Confirmation des fronts et médiane résistive.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * L’historique contient au plus trois points. Il est conservé entre les acquisitions</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * physiques.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="};">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structResistiveFilter.html">   87</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structResistiveFilter.html#a92b2807e19367fcd95a6a30c192a8a5e">   88</a></span>    <a class="code hl_struct" href="structRawTouch.html">RawTouch</a> <a class="code hl_variable" href="structResistiveFilter.html#a92b2807e19367fcd95a6a30c192a8a5e">current</a>; <span class="comment">/**&lt; Dernier état de contact accepté par le filtre. */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structResistiveFilter.html#a8d4446bcad5aa5e8b9a168accc18f00b">   89</a></span>    <a class="code hl_struct" href="structRawPoint.html">RawPoint</a> <a class="code hl_variable" href="structResistiveFilter.html#a8d4446bcad5aa5e8b9a168accc18f00b">history</a>[3]; <span class="comment">/**&lt; Trois observations brutes pour la médiane par axe. */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structResistiveFilter.html#ae03bc92eec5466fa3b72b32530b8569f">   90</a></span>    uint8_t <a class="code hl_variable" href="structResistiveFilter.html#ae03bc92eec5466fa3b72b32530b8569f">used</a>; <span class="comment">/**&lt; Nombre de positions utiles de l&#39;historique, de 0 à 3. */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="structResistiveFilter.html#a7e23eb64ab64ababbd2eb71240ec6d6b">   91</a></span>    uint8_t <a class="code hl_variable" href="structResistiveFilter.html#a7e23eb64ab64ababbd2eb71240ec6d6b">next</a>; <span class="comment">/**&lt; Prochaine case circulaire à remplacer. */</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structResistiveFilter.html#a49ae04c98a80a605e1678acca65ea9fc">   92</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structResistiveFilter.html#a49ae04c98a80a605e1678acca65ea9fc">changing</a>; <span class="comment">/**&lt; true lorsqu&#39;un premier échantillon a annoncé un changement de contact. */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>} <a class="code hl_struct" href="structResistiveFilter.html">ResistiveFilter</a>;</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"></span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * @brief Stabiliser un contact résistif et ses coordonnées.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * Deux mesures confirment les fronts. Une histoire de trois points permet ensuite une</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * médiane par axe. Le filtre conserve son état d&#39;un appel au suivant.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * @param[in,out] filter Historique et état de validation du contact résistif. Pointeur valide.</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @param[in] raw Observation physique ou point natif à interpréter.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * @return Dernière observation acceptée par le filtre.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><a class="code hl_struct" href="structRawTouch.html">RawTouch</a> <a class="code hl_function" href="obcp__input_8h.html#a27eb6c5a2ccc3c617c30f25ee02cb27b">touch_filter</a>(<a class="code hl_struct" href="structResistiveFilter.html">ResistiveFilter</a> *filter, <a class="code hl_struct" href="structRawTouch.html">RawTouch</a> raw);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2">  110</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2">TOUCH_BOOT_HOLD_MS</a> = 1300, <span class="comment">/**&lt; Seuil du raccourci de démarrage, 1 300 millisecondes. */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};<span class="comment"></span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @brief Détection d’un doigt maintenu dès le reset.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * Une fois désarmée, cette mémoire ne déclenche plus de raccourci pendant la session.</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="};">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="structTouchBoot.html">  117</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="structTouchBoot.html#a6acb4ef910371c55a60543de40504a2a">  118</a></span>    uint32_t <a class="code hl_variable" href="structTouchBoot.html#a6acb4ef910371c55a60543de40504a2a">since</a>; <span class="comment">/**&lt; Tick du premier contact, en millisecondes non signées. */</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="structTouchBoot.html#aaa63925b98d2b380be87d8cb5963ec47">  119</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchBoot.html#aaa63925b98d2b380be87d8cb5963ec47">armed</a>; <span class="comment">/**&lt; true tant que la séquence de démarrage doit examiner ce geste. */</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structTouchBoot.html#a2e1e1baff66e219ff85002537b593506">  120</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTouchBoot.html#a2e1e1baff66e219ff85002537b593506">held</a>; <span class="comment">/**&lt; true si un premier contact a commencé la mesure de durée. */</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>} <a class="code hl_struct" href="structTouchBoot.html">TouchBoot</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> * @brief Résultat du raccourci tactile de démarrage.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="};">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34">  125</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993">  126</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993">BOOT_TOUCH_NONE</a>, <span class="comment">/**&lt; Pas de commande de démarrage à traiter. */</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971">  127</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971">BOOT_TOUCH_USED</a>, <span class="comment">/**&lt; Contact de démarrage consommé sans événement écran. */</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566">  128</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566">BOOT_TOUCH_CALIBRATE</a>, <span class="comment">/**&lt; Maintien assez long pour ouvrir le calibrage brut. */</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>} <a class="code hl_enumeration" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> * @brief Reconnaître le maintien tactile demandé au reset.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> * Le premier contact arme une mesure de durée. Un relâchement précoce consomme le geste.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"> * Au seuil de 1,3 s, l&#39;événement de calibrage est émis une seule fois.</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> * @param[in,out] boot Mémoire du contact maintenu au démarrage. Pointeur valide.</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"> * @param[in] down Présence physique ou filtrée d’un contact.</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> * @param[in] now Tick courant en millisecondes non signées.</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * @return Événement absent, geste consommé ou ouverture du calibrage de secours.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><a class="code hl_enumeration" href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a> <a class="code hl_function" href="obcp__input_8h.html#aa870f7f3df6226272847a7d8cb195ae4">touch_boot_sample</a>(<a class="code hl_struct" href="structTouchBoot.html">TouchBoot</a> *boot, <span class="keywordtype">bool</span> down, uint32_t now);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"></span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1">  146</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1">BUTTON_DEBOUNCE_MS</a> = 28, <span class="comment">/**&lt; Stabilité minimale de SW1, 28 millisecondes. */</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652">  147</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652">BUTTON_HOLD_MS</a> = 900, <span class="comment">/**&lt; Seuil d&#39;appui long de SW1, 900 millisecondes. */</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>};<span class="comment"></span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * @brief Événements déjà débouncés du bouton utilisateur.</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="};">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">  152</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d">  153</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d">BUTTON_NONE</a>, <span class="comment">/**&lt; Aucun nouvel événement de SW1. */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121">  154</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121">BUTTON_SHORT</a>, <span class="comment">/**&lt; Appui validé au relâchement avant le seuil long. */</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f">  155</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f">BUTTON_LONG</a>, <span class="comment">/**&lt; Appui ayant franchi le seuil long, émis une seule fois. */</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>} <a class="code hl_enumeration" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> * @brief Mémoire de l’anti-rebond de SW1.</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"> * Le niveau logique pressed est déjà converti depuis PC13 actif à zéro par board.c.</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00162" data-start="{" data-end="};">
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="structButtonState.html">  162</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="structButtonState.html#a0052018c3269305eda701395f4a46a6a">  163</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structButtonState.html#a0052018c3269305eda701395f4a46a6a">raw</a>; <span class="comment">/**&lt; Dernier niveau lu avant validation de sa stabilité. */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="structButtonState.html#a3b50e5dfac987166736bc4bd86b2a477">  164</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structButtonState.html#a3b50e5dfac987166736bc4bd86b2a477">stable</a>; <span class="comment">/**&lt; Niveau retenu après le délai de débounce. */</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="structButtonState.html#a76b5366502f789bd1e4523a28c78a102">  165</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structButtonState.html#a76b5366502f789bd1e4523a28c78a102">consumed</a>; <span class="comment">/**&lt; true si l&#39;appui long ou le démarrage a déjà consommé le geste. */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="structButtonState.html#a2aad7cdd55528e01d242ed2cd3134a47">  166</a></span>    uint32_t <a class="code hl_variable" href="structButtonState.html#a2aad7cdd55528e01d242ed2cd3134a47">changed_at</a>; <span class="comment">/**&lt; Tick du dernier changement de niveau brut, en millisecondes. */</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="structButtonState.html#ac634e58ad533c2e43031b28fa93cc601">  167</a></span>    uint32_t <a class="code hl_variable" href="structButtonState.html#ac634e58ad533c2e43031b28fa93cc601">pressed_at</a>; <span class="comment">/**&lt; Tick de début de l&#39;appui, utilisé pour sa durée. */</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>} <a class="code hl_struct" href="structButtonState.html">ButtonState</a>;</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">/* Horodatages en ms. Un appui déjà présent au démarrage est réservé à l&#39;amorçage. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * @brief Initialiser l&#39;anti-rebond de SW1.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> * Un bouton déjà appuyé au démarrage est considéré consommé pour éviter de déclencher une</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * commande après la procédure de démarrage.</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> * @param[in,out] b Mémoire de stabilité et de durée du bouton. Pointeur valide.</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"> * @param[in] pressed État logique appuyé, après conversion du GPIO actif bas.</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"> * @param[in] now Tick courant en millisecondes non signées.</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#a0604027c7eb9dd91729176c2123acaba">button_init</a>(<a class="code hl_struct" href="structButtonState.html">ButtonState</a> *b, <span class="keywordtype">bool</span> pressed, uint32_t now);<span class="comment"></span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment"> * @brief Transformer le niveau de SW1 en appui court ou long.</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"> * Valide un changement après 28 ms. Le court est émis au relâchement, le long après 900 ms</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> * et une seule fois. Les différences de ticks non signés tolèrent leur débordement.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> * @param[in,out] b Mémoire de stabilité et de durée du bouton. Pointeur valide.</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment"> * @param[in] pressed État logique appuyé, après conversion du GPIO actif bas.</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"> * @param[in] now Tick courant en millisecondes non signées.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"> * @return BUTTON_NONE, BUTTON_SHORT ou BUTTON_LONG.</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><a class="code hl_enumeration" href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a> <a class="code hl_function" href="obcp__input_8h.html#a8043e16b40563dda56ba1c8b1c232abe">button_update</a>(<a class="code hl_struct" href="structButtonState.html">ButtonState</a> *b, <span class="keywordtype">bool</span> pressed, uint32_t now);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"></span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"> * @brief Neutre, filtre et commande d’inclinaison.</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"> * Le neutre et les mesures filtrées sont dans le repère brut du capteur. x et y sont dans</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment"> * le repère écran après permutation, signes, zone morte et gain.</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="};">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="structTilt.html">  199</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="structTilt.html#ad46c2af5bcb5a6fdc8d568b226a03aa9">  200</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#ad46c2af5bcb5a6fdc8d568b226a03aa9">zero_x</a>; <span class="comment">/**&lt; Référence de repos X brut, en g. */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="structTilt.html#afb0e97f482ec9655ff93626ab5ba8015">  201</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#afb0e97f482ec9655ff93626ab5ba8015">zero_y</a>; <span class="comment">/**&lt; Référence de repos Y brut, en g. */</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="structTilt.html#a07838526105f94e1aa03fc0f737def79">  202</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#a07838526105f94e1aa03fc0f737def79">sum_x</a>; <span class="comment">/**&lt; Somme des mesures X pendant l&#39;acquisition du neutre, en g. */</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="structTilt.html#aa9d33480e5822cdb6b4d6829c395a1f6">  203</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#aa9d33480e5822cdb6b4d6829c395a1f6">sum_y</a>; <span class="comment">/**&lt; Somme des mesures Y pendant l&#39;acquisition du neutre, en g. */</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="structTilt.html#a5447d94ad494423902ea526527bef81e">  204</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#a5447d94ad494423902ea526527bef81e">filtered_x</a>; <span class="comment">/**&lt; Écart X brut au neutre après filtre IIR, en g. */</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="structTilt.html#aa16938d0341088945c15ce79d4c60cbb">  205</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#aa16938d0341088945c15ce79d4c60cbb">filtered_y</a>; <span class="comment">/**&lt; Écart Y brut au neutre après filtre IIR, en g. */</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="structTilt.html#ac1f478127fccd29f062bc7f411380b91">  206</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#ac1f478127fccd29f062bc7f411380b91">x</a>; <span class="comment">/**&lt; Commande horizontale écran adimensionnelle, bornée entre −1 et +1. */</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="structTilt.html#a3f6b38fea4d7fae6497acfb4f9b556c3">  207</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structTilt.html#a3f6b38fea4d7fae6497acfb4f9b556c3">y</a>; <span class="comment">/**&lt; Commande verticale écran adimensionnelle, bornée entre −1 et +1. */</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="structTilt.html#a93d9f981302425cb86e07eb1812860be">  208</a></span>    <span class="keywordtype">unsigned</span> <a class="code hl_variable" href="structTilt.html#a93d9f981302425cb86e07eb1812860be">neutral_count</a>; <span class="comment">/**&lt; Mesures valides accumulées pour la moyenne de 32 points. */</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="structTilt.html#a4b31eb9d05796be0a4977227266011fd">  209</a></span>    uint8_t <a class="code hl_variable" href="structTilt.html#a4b31eb9d05796be0a4977227266011fd">axes</a>; <span class="comment">/**&lt; Masque TILT_SWAP_XY, TILT_INVERT_X et TILT_INVERT_Y. */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="structTilt.html#a07eb1e60ea8f3987e67e69f750089d51">  210</a></span>    uint8_t <a class="code hl_variable" href="structTilt.html#a07eb1e60ea8f3987e67e69f750089d51">response_x</a>; <span class="comment">/**&lt; Réactivité de l&#39;axe écran X, de 1 à 10. */</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="structTilt.html#a8b7e833c2834356ccc734622767dbcb1">  211</a></span>    uint8_t <a class="code hl_variable" href="structTilt.html#a8b7e833c2834356ccc734622767dbcb1">response_y</a>; <span class="comment">/**&lt; Réactivité de l&#39;axe écran Y, de 1 à 10. */</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="structTilt.html#ab8fcd6ae974f129335b249c72962a7ec">  212</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTilt.html#ab8fcd6ae974f129335b249c72962a7ec">calibrated</a>; <span class="comment">/**&lt; true après les 32 mesures de neutre valides. */</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="structTilt.html#a87796756102718fa9a5f82a58d3a4e2f">  213</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTilt.html#a87796756102718fa9a5f82a58d3a4e2f">valid</a>; <span class="comment">/**&lt; true si la dernière lecture et l&#39;ordre de grandeur de la norme sont admis. */</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>} <a class="code hl_struct" href="structTilt.html">Tilt</a>;</div>
+</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment"></span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">  220</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">TILT_SWAP_XY</a> = 1, <span class="comment">/**&lt; Bit zéro, permuter les axes bruts pour le repère écran. */</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">  221</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">TILT_INVERT_X</a> = 2, <span class="comment">/**&lt; Bit un, inverser le signe de l&#39;axe écran X. */</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">  222</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">TILT_INVERT_Y</a> = 4, <span class="comment">/**&lt; Bit deux, inverser le signe de l&#39;axe écran Y. */</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8">  223</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8">TILT_AXES_MASK</a> = <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">TILT_SWAP_XY</a> | <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">TILT_INVERT_X</a> | <a class="code hl_enumvalue" href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">TILT_INVERT_Y</a>, <span class="comment">/**&lt; Masque des trois seuls bits de repère admis. */</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>};<span class="comment"></span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment"> * @brief Dimensions, bornes et constantes du module.</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463">  229</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463">TILT_RESPONSE_MIN</a> = 1, <span class="comment">/**&lt; Réactivité minimale, un sur dix. */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0">  230</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0">TILT_RESPONSE_MAX</a> = 10, <span class="comment">/**&lt; Réactivité maximale, dix sur dix. */</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672">  231</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672">TILT_RESPONSE_DEFAULT</a> = 6, <span class="comment">/**&lt; Réactivité initiale de six sur dix pour chaque axe. */</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>};<span class="comment"></span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment"> * @brief Préparer le repère et les réactivités initiales.</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"> * Les signes et la permutation viennent de obcp_config.h. La réactivité initiale est six</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment"> * sur dix pour chaque axe. Le neutre sera acquis par tilt_sample().</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment"> * @param[out] t Référence, filtre et commandes de l’accéléromètre, à initialiser par cet</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment"> *   appel. Pointeur valide.</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#a7e3372c85c60ac5a47eda9c16957b430">tilt_init</a>(<a class="code hl_struct" href="structTilt.html">Tilt</a> *t);<span class="comment"></span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment"> * @brief Recommencer la mesure de la pose de repos.</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment"> * Efface sommes, compteurs et états du filtre, tout en conservant le repère et les deux</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment"> * réglages de réactivité. Les 32 prochaines mesures valides établiront le neutre.</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"> * @param[in,out] t Référence, filtre et commandes de l’accéléromètre. Pointeur valide.</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#a035be4c19850a5bb98d248f9bd52c9d0">tilt_recenter</a>(<a class="code hl_struct" href="structTilt.html">Tilt</a> *t);<span class="comment"></span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment"> * @brief Valider, recentrer et filtrer une mesure XYZ.</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"> * Contrôle l&#39;ordre de grandeur de la norme. Les 32 premières mesures valides définissent</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment"> * le neutre. Le filtre IIR suit ensuite les écarts, avec le coefficient propre au bon axe</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment"> * écran.</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment"> * @param[in,out] t Référence, filtre et commandes de l’accéléromètre. Pointeur valide.</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"> * @param[in] valid true si la transaction du capteur a réussi.</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment"> * @param[in] g_x Mesure X brute exprimée en g.</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment"> * @param[in] g_y Mesure Y brute exprimée en g.</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment"> * @param[in] g_z Mesure Z brute exprimée en g.</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#ac0691e834e079d589012e5e94994b134">tilt_sample</a>(<a class="code hl_struct" href="structTilt.html">Tilt</a> *t, <span class="keywordtype">bool</span> valid, <span class="keywordtype">float</span> g_x, <span class="keywordtype">float</span> g_y, <span class="keywordtype">float</span> g_z);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment">/* Appliquer un repère écran aux mesures filtrées, pour le jeu ou l&#39;aperçu. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment"> * @brief Projeter le filtre brut dans un repère écran choisi.</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"> * Permute les composantes, applique leurs signes, la zone morte puis les gains X/Y. Un</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"> * capteur non prêt donne deux commandes nulles. L&#39;aperçu peut ainsi essayer le repère</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"> * proposé avant sa validation.</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"> * @param[in] t Référence, filtre et commandes de l’accéléromètre, consulté sans</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"> *   modification. Pointeur valide.</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment"> * @param[in] axes Masque de permutation et de signes TILT_AXES_MASK.</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment"> * @param[out] x Commande horizontale normalisée entre −1 et +1. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment"> * @param[out] y Commande verticale normalisée entre −1 et +1. Pointeur de sortie valide.</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#a305a6f59b5ab0c60e06ea1a3f53f5084">tilt_project</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structTilt.html">Tilt</a> *t, uint8_t axes, <span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment"></span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment"> * @brief Étapes de reconnaissance du repère de l’écran.</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00281" data-start="{" data-end="};">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeac">  281</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e">  282</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e">TILT_GUIDE_INTRO</a>, <span class="comment">/**&lt; Attente de Mesurer avec la carte posée à plat. */</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46">  283</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46">TILT_GUIDE_NEUTRAL</a>, <span class="comment">/**&lt; Acquisition du neutre avant les inclinaisons. */</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4">  284</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4">TILT_GUIDE_RIGHT</a>, <span class="comment">/**&lt; Reconnaissance du bord droit abaissé. */</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359">  285</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359">TILT_GUIDE_FLAT</a>, <span class="comment">/**&lt; Retour à plat entre les deux gestes. */</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9">  286</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9">TILT_GUIDE_DOWN</a>, <span class="comment">/**&lt; Reconnaissance du bord inférieur abaissé sur l&#39;autre axe. */</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278">  287</a></span>    <a class="code hl_enumvalue" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278">TILT_GUIDE_PREVIEW</a>, <span class="comment">/**&lt; Aperçu des bits proposés avant validation. */</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>} <a class="code hl_enumeration" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeac">TiltGuidePhase</a>;<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment"> * @brief Candidat de repère de l’assistant d’axes.</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment"> * Les directions signées ±1 et ±2 désignent les axes bruts X et Y. Le candidat est</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment"> * appliqué seulement à la validation utilisateur.</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00295" data-start="{" data-end="};">
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno"><a class="line" href="structTiltGuide.html">  295</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="structTiltGuide.html#a6f5dc0471814d9c4f102fb93c937828e">  296</a></span>    <a class="code hl_enumeration" href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeac">TiltGuidePhase</a> <a class="code hl_variable" href="structTiltGuide.html#a6f5dc0471814d9c4f102fb93c937828e">phase</a>; <span class="comment">/**&lt; Instruction actuellement présentée à l&#39;utilisateur. */</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="structTiltGuide.html#aedd08f4750007e9b0058844b83b75ecf">  297</a></span>    int8_t <a class="code hl_variable" href="structTiltGuide.html#aedd08f4750007e9b0058844b83b75ecf">direction</a>; <span class="comment">/**&lt; Pose candidate en cours de stabilisation. */</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="structTiltGuide.html#a8bc27aa839abf78ba8264b17cb838ccc">  298</a></span>    int8_t <a class="code hl_variable" href="structTiltGuide.html#a8bc27aa839abf78ba8264b17cb838ccc">right</a>; <span class="comment">/**&lt; Axe brut et signe validés quand le bord droit a été abaissé. */</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="structTiltGuide.html#a81e3092e49dda032a9fe79ccf20c0f66">  299</a></span>    uint8_t <a class="code hl_variable" href="structTiltGuide.html#a81e3092e49dda032a9fe79ccf20c0f66">stable</a>; <span class="comment">/**&lt; Nombre de poses successives identiques, seuil de seize mesures. */</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="structTiltGuide.html#a6a96a42bb7578ff7558c6de801bd158a">  300</a></span>    uint8_t <a class="code hl_variable" href="structTiltGuide.html#a6a96a42bb7578ff7558c6de801bd158a">axes</a>; <span class="comment">/**&lt; Bits de repère proposés à la fin du guide. */</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>} <a class="code hl_struct" href="structTiltGuide.html">TiltGuide</a>;</div>
+</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="comment"></span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment"> * @brief Commencer l&#39;assistant d&#39;orientation.</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment"> * Réinitialise le guide en phase de neutre et relance le recentrage. Le repère</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment"> * actuellement actif est gardé jusqu&#39;à la sauvegarde du candidat.</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment"> * @param[in,out] guide Progression et candidat de l’assistant d’orientation. Pointeur valide.</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment"> * @param[in,out] tilt Référence, filtre et commandes de l’accéléromètre. Pointeur valide.</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__input_8h.html#a36641f3ddd29be3bcfaf3e1927216c48">tilt_guide_start</a>(<a class="code hl_struct" href="structTiltGuide.html">TiltGuide</a> *guide, <a class="code hl_struct" href="structTilt.html">Tilt</a> *tilt);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">/* true demande un rafraîchissement parce que l&#39;instruction a changé. */</span><span class="comment"></span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment"> * @brief Faire avancer la reconnaissance droite puis bas.</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="comment"> * Après le neutre, le guide valide une inclinaison à droite, exige le retour à plat, puis</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment"> * exige l&#39;autre axe pour le bas. Les signes et la permutation sont déduits des poses</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment"> * stabilisées.</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment"> * @param[in,out] guide Progression et candidat de l’assistant d’orientation. Pointeur valide.</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment"> * @param[in] tilt Référence, filtre et commandes de l’accéléromètre, consulté sans</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment"> *   modification. Pointeur valide.</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="comment"> * @return true si l&#39;instruction a changé et nécessite un rafraîchissement complet.</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__input_8h.html#aabcef0e5b49c452670bc4a22ce5eeeb7">tilt_guide_sample</a>(<a class="code hl_struct" href="structTiltGuide.html">TiltGuide</a> *guide, <span class="keyword">const</span> <a class="code hl_struct" href="structTilt.html">Tilt</a> *tilt);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aobcp__input_8h_html_a035be4c19850a5bb98d248f9bd52c9d0"><div class="ttname"><a href="obcp__input_8h.html#a035be4c19850a5bb98d248f9bd52c9d0">tilt_recenter</a></div><div class="ttdeci">void tilt_recenter(Tilt *t)</div><div class="ttdoc">Recommencer la mesure de la pose de repos.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00232">input.c:232</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a0604027c7eb9dd91729176c2123acaba"><div class="ttname"><a href="obcp__input_8h.html#a0604027c7eb9dd91729176c2123acaba">button_init</a></div><div class="ttdeci">void button_init(ButtonState *b, bool pressed, uint32_t now)</div><div class="ttdoc">Initialiser l&#39;anti-rebond de SW1.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00176">input.c:176</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a0c77398f416844d1f79e0a06ff20d0db"><div class="ttname"><a href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0db">ButtonEvent</a></div><div class="ttdeci">ButtonEvent</div><div class="ttdoc">Événements déjà débouncés du bouton utilisateur.</div><div class="ttdef"><b>Définition</b> <a href="#l00152">obcp_input.h:152</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d"><div class="ttname"><a href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba44b65ff2efb4231ba8109b9f72b7ad6d">BUTTON_NONE</a></div><div class="ttdeci">@ BUTTON_NONE</div><div class="ttdef"><b>Définition</b> <a href="#l00153">obcp_input.h:153</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121"><div class="ttname"><a href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dba7516578b3c169734d9d7daab5941b121">BUTTON_SHORT</a></div><div class="ttdeci">@ BUTTON_SHORT</div><div class="ttdef"><b>Définition</b> <a href="#l00154">obcp_input.h:154</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f"><div class="ttname"><a href="obcp__input_8h.html#a0c77398f416844d1f79e0a06ff20d0dbabce682a8de8e58f609b58dc41219ba4f">BUTTON_LONG</a></div><div class="ttdeci">@ BUTTON_LONG</div><div class="ttdef"><b>Définition</b> <a href="#l00155">obcp_input.h:155</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a27eb6c5a2ccc3c617c30f25ee02cb27b"><div class="ttname"><a href="obcp__input_8h.html#a27eb6c5a2ccc3c617c30f25ee02cb27b">touch_filter</a></div><div class="ttdeci">RawTouch touch_filter(ResistiveFilter *filter, RawTouch raw)</div><div class="ttdoc">Stabiliser un contact résistif et ses coordonnées.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00112">input.c:112</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a305a6f59b5ab0c60e06ea1a3f53f5084"><div class="ttname"><a href="obcp__input_8h.html#a305a6f59b5ab0c60e06ea1a3f53f5084">tilt_project</a></div><div class="ttdeci">void tilt_project(const Tilt *t, uint8_t axes, float *x, float *y)</div><div class="ttdoc">Projeter le filtre brut dans un repère écran choisi.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00283">input.c:283</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2"><div class="ttname"><a href="obcp__input_8h.html#a3087c1bb11c8452942725d361a4b4f6fa70285d2ea6c635b93f11a820831723b2">TOUCH_BOOT_HOLD_MS</a></div><div class="ttdeci">@ TOUCH_BOOT_HOLD_MS</div><div class="ttdef"><b>Définition</b> <a href="#l00110">obcp_input.h:110</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a34a8b4770c6c8a0bdd63b495ee696f1a"><div class="ttname"><a href="obcp__input_8h.html#a34a8b4770c6c8a0bdd63b495ee696f1a">touch_landscape</a></div><div class="ttdeci">bool touch_landscape(uint16_t raw_x, uint16_t raw_y, bool flipped, int16_t *x, int16_t *y)</div><div class="ttdoc">Passer des coordonnées natives capacitives au paysage.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00023">input.c:23</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a36641f3ddd29be3bcfaf3e1927216c48"><div class="ttname"><a href="obcp__input_8h.html#a36641f3ddd29be3bcfaf3e1927216c48">tilt_guide_start</a></div><div class="ttdeci">void tilt_guide_start(TiltGuide *guide, Tilt *tilt)</div><div class="ttdoc">Commencer l&#39;assistant d&#39;orientation.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00346">input.c:346</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a44f93610b8c91925d51091a9408e9a34"><div class="ttname"><a href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34">BootTouchEvent</a></div><div class="ttdeci">BootTouchEvent</div><div class="ttdoc">Résultat du raccourci tactile de démarrage.</div><div class="ttdef"><b>Définition</b> <a href="#l00125">obcp_input.h:125</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566"><div class="ttname"><a href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a25ac67e269c568d2824536b5f7b30566">BOOT_TOUCH_CALIBRATE</a></div><div class="ttdeci">@ BOOT_TOUCH_CALIBRATE</div><div class="ttdef"><b>Définition</b> <a href="#l00128">obcp_input.h:128</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993"><div class="ttname"><a href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34a38aa6226e9f8e475444b55aceb544993">BOOT_TOUCH_NONE</a></div><div class="ttdeci">@ BOOT_TOUCH_NONE</div><div class="ttdef"><b>Définition</b> <a href="#l00126">obcp_input.h:126</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971"><div class="ttname"><a href="obcp__input_8h.html#a44f93610b8c91925d51091a9408e9a34acaa1a492c208745e0f81076f3afbf971">BOOT_TOUCH_USED</a></div><div class="ttdeci">@ BOOT_TOUCH_USED</div><div class="ttdef"><b>Définition</b> <a href="#l00127">obcp_input.h:127</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd"><div class="ttname"><a href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea0af35536dc476baa4a0fe785cfc5f8bd">TILT_SWAP_XY</a></div><div class="ttdeci">@ TILT_SWAP_XY</div><div class="ttdef"><b>Définition</b> <a href="#l00220">obcp_input.h:220</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4"><div class="ttname"><a href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea349c6b597eb7735284cf45e8d0c780e4">TILT_INVERT_X</a></div><div class="ttdeci">@ TILT_INVERT_X</div><div class="ttdef"><b>Définition</b> <a href="#l00221">obcp_input.h:221</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259"><div class="ttname"><a href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16ea803279404bc22b9b66705a77cb797259">TILT_INVERT_Y</a></div><div class="ttdeci">@ TILT_INVERT_Y</div><div class="ttdef"><b>Définition</b> <a href="#l00222">obcp_input.h:222</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8"><div class="ttname"><a href="obcp__input_8h.html#a4c611924ba715fef9ac913886c2fb16eaacbbad05b69bc8efb67616ebb336cdc8">TILT_AXES_MASK</a></div><div class="ttdeci">@ TILT_AXES_MASK</div><div class="ttdef"><b>Définition</b> <a href="#l00223">obcp_input.h:223</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a511a39ea3e1f2d22e7242fde5d664baa"><div class="ttname"><a href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baa">TouchKind</a></div><div class="ttdeci">TouchKind</div><div class="ttdoc">Événements construits à partir des contacts successifs.</div><div class="ttdef"><b>Définition</b> <a href="#l00024">obcp_input.h:24</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93"><div class="ttname"><a href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa744fb6f69db9d3e132fe29477c6b8e93">TOUCH_MOVE</a></div><div class="ttdeci">@ TOUCH_MOVE</div><div class="ttdef"><b>Définition</b> <a href="#l00027">obcp_input.h:27</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3"><div class="ttname"><a href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa90884c2f9baa25f5107bfa334297fce3">TOUCH_UP</a></div><div class="ttdeci">@ TOUCH_UP</div><div class="ttdef"><b>Définition</b> <a href="#l00028">obcp_input.h:28</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5"><div class="ttname"><a href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaa9b9626b3c6c2fb5d2731f3751a0f42d5">TOUCH_DOWN</a></div><div class="ttdeci">@ TOUCH_DOWN</div><div class="ttdef"><b>Définition</b> <a href="#l00026">obcp_input.h:26</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee"><div class="ttname"><a href="obcp__input_8h.html#a511a39ea3e1f2d22e7242fde5d664baaade74ed64c0b91b603223fa528937d1ee">TOUCH_NONE</a></div><div class="ttdeci">@ TOUCH_NONE</div><div class="ttdef"><b>Définition</b> <a href="#l00025">obcp_input.h:25</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463"><div class="ttname"><a href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a0a3aaae060f662d9a99ce4586485a463">TILT_RESPONSE_MIN</a></div><div class="ttdeci">@ TILT_RESPONSE_MIN</div><div class="ttdef"><b>Définition</b> <a href="#l00229">obcp_input.h:229</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672"><div class="ttname"><a href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764a1fb9f95931973c33bc6059366c59d672">TILT_RESPONSE_DEFAULT</a></div><div class="ttdeci">@ TILT_RESPONSE_DEFAULT</div><div class="ttdef"><b>Définition</b> <a href="#l00231">obcp_input.h:231</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0"><div class="ttname"><a href="obcp__input_8h.html#a5dc955a03524c937af92507c1f0b5764ad5ce9e9e14859536fc377a6010843ce0">TILT_RESPONSE_MAX</a></div><div class="ttdeci">@ TILT_RESPONSE_MAX</div><div class="ttdef"><b>Définition</b> <a href="#l00230">obcp_input.h:230</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a7e3372c85c60ac5a47eda9c16957b430"><div class="ttname"><a href="obcp__input_8h.html#a7e3372c85c60ac5a47eda9c16957b430">tilt_init</a></div><div class="ttdeci">void tilt_init(Tilt *t)</div><div class="ttdoc">Préparer le repère et les réactivités initiales.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00218">input.c:218</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a8043e16b40563dda56ba1c8b1c232abe"><div class="ttname"><a href="obcp__input_8h.html#a8043e16b40563dda56ba1c8b1c232abe">button_update</a></div><div class="ttdeci">ButtonEvent button_update(ButtonState *b, bool pressed, uint32_t now)</div><div class="ttdoc">Transformer le niveau de SW1 en appui court ou long.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00187">input.c:187</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652"><div class="ttname"><a href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5a87f98168c39f9beb9280325096374652">BUTTON_HOLD_MS</a></div><div class="ttdeci">@ BUTTON_HOLD_MS</div><div class="ttdef"><b>Définition</b> <a href="#l00147">obcp_input.h:147</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1"><div class="ttname"><a href="obcp__input_8h.html#a9604a242fdb8713992f97faec0f7e9f5ae5b23bf59ffcd9f2212bce2469002eb1">BUTTON_DEBOUNCE_MS</a></div><div class="ttdeci">@ BUTTON_DEBOUNCE_MS</div><div class="ttdef"><b>Définition</b> <a href="#l00146">obcp_input.h:146</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_aa870f7f3df6226272847a7d8cb195ae4"><div class="ttname"><a href="obcp__input_8h.html#aa870f7f3df6226272847a7d8cb195ae4">touch_boot_sample</a></div><div class="ttdeci">BootTouchEvent touch_boot_sample(TouchBoot *boot, bool down, uint32_t now)</div><div class="ttdoc">Reconnaître le maintien tactile demandé au reset.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00148">input.c:148</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_aabcef0e5b49c452670bc4a22ce5eeeb7"><div class="ttname"><a href="obcp__input_8h.html#aabcef0e5b49c452670bc4a22ce5eeeb7">tilt_guide_sample</a></div><div class="ttdeci">bool tilt_guide_sample(TiltGuide *guide, const Tilt *tilt)</div><div class="ttdoc">Faire avancer la reconnaissance droite puis bas.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00417">input.c:417</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeac"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeac">TiltGuidePhase</a></div><div class="ttdeci">TiltGuidePhase</div><div class="ttdoc">Étapes de reconnaissance du repère de l’écran.</div><div class="ttdef"><b>Définition</b> <a href="#l00281">obcp_input.h:281</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca1ae6b382d9b290af653001744f722da4">TILT_GUIDE_RIGHT</a></div><div class="ttdeci">@ TILT_GUIDE_RIGHT</div><div class="ttdef"><b>Définition</b> <a href="#l00284">obcp_input.h:284</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca28013fb7c81aa5d97a60ed1f25956f3e">TILT_GUIDE_INTRO</a></div><div class="ttdeci">@ TILT_GUIDE_INTRO</div><div class="ttdef"><b>Définition</b> <a href="#l00282">obcp_input.h:282</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca44abfa4bd33846a7add6a27db5cd3278">TILT_GUIDE_PREVIEW</a></div><div class="ttdeci">@ TILT_GUIDE_PREVIEW</div><div class="ttdef"><b>Définition</b> <a href="#l00287">obcp_input.h:287</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeaca5cb486ab848ab33f644ac86a04422359">TILT_GUIDE_FLAT</a></div><div class="ttdeci">@ TILT_GUIDE_FLAT</div><div class="ttdef"><b>Définition</b> <a href="#l00285">obcp_input.h:285</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacadddfa6ba78c1f900068e6371eecfca46">TILT_GUIDE_NEUTRAL</a></div><div class="ttdeci">@ TILT_GUIDE_NEUTRAL</div><div class="ttdef"><b>Définition</b> <a href="#l00283">obcp_input.h:283</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9"><div class="ttname"><a href="obcp__input_8h.html#abfe860beb2aef358e5e0966a0d13aeacaef1f362a3f29c633f9700146403c41b9">TILT_GUIDE_DOWN</a></div><div class="ttdeci">@ TILT_GUIDE_DOWN</div><div class="ttdef"><b>Définition</b> <a href="#l00286">obcp_input.h:286</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_ac0691e834e079d589012e5e94994b134"><div class="ttname"><a href="obcp__input_8h.html#ac0691e834e079d589012e5e94994b134">tilt_sample</a></div><div class="ttdeci">void tilt_sample(Tilt *t, bool valid, float g_x, float g_y, float g_z)</div><div class="ttdoc">Valider, recentrer et filtrer une mesure XYZ.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00308">input.c:308</a></div></div>
+<div class="ttc" id="aobcp__input_8h_html_ad1e83c87b38461e0c8c4e5cfd286b066"><div class="ttname"><a href="obcp__input_8h.html#ad1e83c87b38461e0c8c4e5cfd286b066">touch_update</a></div><div class="ttdeci">TouchEvent touch_update(TouchState *s, bool down, int16_t x, int16_t y)</div><div class="ttdoc">Produire un événement à partir du contact et de sa position.</div><div class="ttdef"><b>Définition</b> <a href="input_8c_source.html#l00044">input.c:44</a></div></div>
+<div class="ttc" id="aobcp__touch_8h_html"><div class="ttname"><a href="obcp__touch_8h.html">obcp_touch.h</a></div><div class="ttdoc">Reconnaissance des shields et façade tactile commune.</div></div>
+<div class="ttc" id="astructButtonState_html"><div class="ttname"><a href="structButtonState.html">ButtonState</a></div><div class="ttdoc">Mémoire de l’anti-rebond de SW1.</div><div class="ttdef"><b>Définition</b> <a href="#l00162">obcp_input.h:162</a></div></div>
+<div class="ttc" id="astructButtonState_html_a0052018c3269305eda701395f4a46a6a"><div class="ttname"><a href="structButtonState.html#a0052018c3269305eda701395f4a46a6a">ButtonState::raw</a></div><div class="ttdeci">bool raw</div><div class="ttdef"><b>Définition</b> <a href="#l00163">obcp_input.h:163</a></div></div>
+<div class="ttc" id="astructButtonState_html_a2aad7cdd55528e01d242ed2cd3134a47"><div class="ttname"><a href="structButtonState.html#a2aad7cdd55528e01d242ed2cd3134a47">ButtonState::changed_at</a></div><div class="ttdeci">uint32_t changed_at</div><div class="ttdef"><b>Définition</b> <a href="#l00166">obcp_input.h:166</a></div></div>
+<div class="ttc" id="astructButtonState_html_a3b50e5dfac987166736bc4bd86b2a477"><div class="ttname"><a href="structButtonState.html#a3b50e5dfac987166736bc4bd86b2a477">ButtonState::stable</a></div><div class="ttdeci">bool stable</div><div class="ttdef"><b>Définition</b> <a href="#l00164">obcp_input.h:164</a></div></div>
+<div class="ttc" id="astructButtonState_html_a76b5366502f789bd1e4523a28c78a102"><div class="ttname"><a href="structButtonState.html#a76b5366502f789bd1e4523a28c78a102">ButtonState::consumed</a></div><div class="ttdeci">bool consumed</div><div class="ttdef"><b>Définition</b> <a href="#l00165">obcp_input.h:165</a></div></div>
+<div class="ttc" id="astructButtonState_html_ac634e58ad533c2e43031b28fa93cc601"><div class="ttname"><a href="structButtonState.html#ac634e58ad533c2e43031b28fa93cc601">ButtonState::pressed_at</a></div><div class="ttdeci">uint32_t pressed_at</div><div class="ttdef"><b>Définition</b> <a href="#l00167">obcp_input.h:167</a></div></div>
+<div class="ttc" id="astructRawPoint_html"><div class="ttname"><a href="structRawPoint.html">RawPoint</a></div><div class="ttdoc">Position native avant calibrage et rotation.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00047">obcp_touch.h:47</a></div></div>
+<div class="ttc" id="astructRawTouch_html"><div class="ttname"><a href="structRawTouch.html">RawTouch</a></div><div class="ttdoc">Observation physique d’un contrôleur tactile.</div><div class="ttdef"><b>Définition</b> <a href="obcp__touch_8h_source.html#l00057">obcp_touch.h:57</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html"><div class="ttname"><a href="structResistiveFilter.html">ResistiveFilter</a></div><div class="ttdoc">Confirmation des fronts et médiane résistive.</div><div class="ttdef"><b>Définition</b> <a href="#l00087">obcp_input.h:87</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html_a49ae04c98a80a605e1678acca65ea9fc"><div class="ttname"><a href="structResistiveFilter.html#a49ae04c98a80a605e1678acca65ea9fc">ResistiveFilter::changing</a></div><div class="ttdeci">bool changing</div><div class="ttdef"><b>Définition</b> <a href="#l00092">obcp_input.h:92</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html_a7e23eb64ab64ababbd2eb71240ec6d6b"><div class="ttname"><a href="structResistiveFilter.html#a7e23eb64ab64ababbd2eb71240ec6d6b">ResistiveFilter::next</a></div><div class="ttdeci">uint8_t next</div><div class="ttdef"><b>Définition</b> <a href="#l00091">obcp_input.h:91</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html_a8d4446bcad5aa5e8b9a168accc18f00b"><div class="ttname"><a href="structResistiveFilter.html#a8d4446bcad5aa5e8b9a168accc18f00b">ResistiveFilter::history</a></div><div class="ttdeci">RawPoint history[3]</div><div class="ttdef"><b>Définition</b> <a href="#l00089">obcp_input.h:89</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html_a92b2807e19367fcd95a6a30c192a8a5e"><div class="ttname"><a href="structResistiveFilter.html#a92b2807e19367fcd95a6a30c192a8a5e">ResistiveFilter::current</a></div><div class="ttdeci">RawTouch current</div><div class="ttdef"><b>Définition</b> <a href="#l00088">obcp_input.h:88</a></div></div>
+<div class="ttc" id="astructResistiveFilter_html_ae03bc92eec5466fa3b72b32530b8569f"><div class="ttname"><a href="structResistiveFilter.html#ae03bc92eec5466fa3b72b32530b8569f">ResistiveFilter::used</a></div><div class="ttdeci">uint8_t used</div><div class="ttdef"><b>Définition</b> <a href="#l00090">obcp_input.h:90</a></div></div>
+<div class="ttc" id="astructTiltGuide_html"><div class="ttname"><a href="structTiltGuide.html">TiltGuide</a></div><div class="ttdoc">Candidat de repère de l’assistant d’axes.</div><div class="ttdef"><b>Définition</b> <a href="#l00295">obcp_input.h:295</a></div></div>
+<div class="ttc" id="astructTiltGuide_html_a6a96a42bb7578ff7558c6de801bd158a"><div class="ttname"><a href="structTiltGuide.html#a6a96a42bb7578ff7558c6de801bd158a">TiltGuide::axes</a></div><div class="ttdeci">uint8_t axes</div><div class="ttdef"><b>Définition</b> <a href="#l00300">obcp_input.h:300</a></div></div>
+<div class="ttc" id="astructTiltGuide_html_a6f5dc0471814d9c4f102fb93c937828e"><div class="ttname"><a href="structTiltGuide.html#a6f5dc0471814d9c4f102fb93c937828e">TiltGuide::phase</a></div><div class="ttdeci">TiltGuidePhase phase</div><div class="ttdef"><b>Définition</b> <a href="#l00296">obcp_input.h:296</a></div></div>
+<div class="ttc" id="astructTiltGuide_html_a81e3092e49dda032a9fe79ccf20c0f66"><div class="ttname"><a href="structTiltGuide.html#a81e3092e49dda032a9fe79ccf20c0f66">TiltGuide::stable</a></div><div class="ttdeci">uint8_t stable</div><div class="ttdef"><b>Définition</b> <a href="#l00299">obcp_input.h:299</a></div></div>
+<div class="ttc" id="astructTiltGuide_html_a8bc27aa839abf78ba8264b17cb838ccc"><div class="ttname"><a href="structTiltGuide.html#a8bc27aa839abf78ba8264b17cb838ccc">TiltGuide::right</a></div><div class="ttdeci">int8_t right</div><div class="ttdef"><b>Définition</b> <a href="#l00298">obcp_input.h:298</a></div></div>
+<div class="ttc" id="astructTiltGuide_html_aedd08f4750007e9b0058844b83b75ecf"><div class="ttname"><a href="structTiltGuide.html#aedd08f4750007e9b0058844b83b75ecf">TiltGuide::direction</a></div><div class="ttdeci">int8_t direction</div><div class="ttdef"><b>Définition</b> <a href="#l00297">obcp_input.h:297</a></div></div>
+<div class="ttc" id="astructTilt_html"><div class="ttname"><a href="structTilt.html">Tilt</a></div><div class="ttdoc">Neutre, filtre et commande d’inclinaison.</div><div class="ttdef"><b>Définition</b> <a href="#l00199">obcp_input.h:199</a></div></div>
+<div class="ttc" id="astructTilt_html_a07838526105f94e1aa03fc0f737def79"><div class="ttname"><a href="structTilt.html#a07838526105f94e1aa03fc0f737def79">Tilt::sum_x</a></div><div class="ttdeci">float sum_x</div><div class="ttdef"><b>Définition</b> <a href="#l00202">obcp_input.h:202</a></div></div>
+<div class="ttc" id="astructTilt_html_a07eb1e60ea8f3987e67e69f750089d51"><div class="ttname"><a href="structTilt.html#a07eb1e60ea8f3987e67e69f750089d51">Tilt::response_x</a></div><div class="ttdeci">uint8_t response_x</div><div class="ttdef"><b>Définition</b> <a href="#l00210">obcp_input.h:210</a></div></div>
+<div class="ttc" id="astructTilt_html_a3f6b38fea4d7fae6497acfb4f9b556c3"><div class="ttname"><a href="structTilt.html#a3f6b38fea4d7fae6497acfb4f9b556c3">Tilt::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Définition</b> <a href="#l00207">obcp_input.h:207</a></div></div>
+<div class="ttc" id="astructTilt_html_a4b31eb9d05796be0a4977227266011fd"><div class="ttname"><a href="structTilt.html#a4b31eb9d05796be0a4977227266011fd">Tilt::axes</a></div><div class="ttdeci">uint8_t axes</div><div class="ttdef"><b>Définition</b> <a href="#l00209">obcp_input.h:209</a></div></div>
+<div class="ttc" id="astructTilt_html_a5447d94ad494423902ea526527bef81e"><div class="ttname"><a href="structTilt.html#a5447d94ad494423902ea526527bef81e">Tilt::filtered_x</a></div><div class="ttdeci">float filtered_x</div><div class="ttdef"><b>Définition</b> <a href="#l00204">obcp_input.h:204</a></div></div>
+<div class="ttc" id="astructTilt_html_a87796756102718fa9a5f82a58d3a4e2f"><div class="ttname"><a href="structTilt.html#a87796756102718fa9a5f82a58d3a4e2f">Tilt::valid</a></div><div class="ttdeci">bool valid</div><div class="ttdef"><b>Définition</b> <a href="#l00213">obcp_input.h:213</a></div></div>
+<div class="ttc" id="astructTilt_html_a8b7e833c2834356ccc734622767dbcb1"><div class="ttname"><a href="structTilt.html#a8b7e833c2834356ccc734622767dbcb1">Tilt::response_y</a></div><div class="ttdeci">uint8_t response_y</div><div class="ttdef"><b>Définition</b> <a href="#l00211">obcp_input.h:211</a></div></div>
+<div class="ttc" id="astructTilt_html_a93d9f981302425cb86e07eb1812860be"><div class="ttname"><a href="structTilt.html#a93d9f981302425cb86e07eb1812860be">Tilt::neutral_count</a></div><div class="ttdeci">unsigned neutral_count</div><div class="ttdef"><b>Définition</b> <a href="#l00208">obcp_input.h:208</a></div></div>
+<div class="ttc" id="astructTilt_html_aa16938d0341088945c15ce79d4c60cbb"><div class="ttname"><a href="structTilt.html#aa16938d0341088945c15ce79d4c60cbb">Tilt::filtered_y</a></div><div class="ttdeci">float filtered_y</div><div class="ttdef"><b>Définition</b> <a href="#l00205">obcp_input.h:205</a></div></div>
+<div class="ttc" id="astructTilt_html_aa9d33480e5822cdb6b4d6829c395a1f6"><div class="ttname"><a href="structTilt.html#aa9d33480e5822cdb6b4d6829c395a1f6">Tilt::sum_y</a></div><div class="ttdeci">float sum_y</div><div class="ttdef"><b>Définition</b> <a href="#l00203">obcp_input.h:203</a></div></div>
+<div class="ttc" id="astructTilt_html_ab8fcd6ae974f129335b249c72962a7ec"><div class="ttname"><a href="structTilt.html#ab8fcd6ae974f129335b249c72962a7ec">Tilt::calibrated</a></div><div class="ttdeci">bool calibrated</div><div class="ttdef"><b>Définition</b> <a href="#l00212">obcp_input.h:212</a></div></div>
+<div class="ttc" id="astructTilt_html_ac1f478127fccd29f062bc7f411380b91"><div class="ttname"><a href="structTilt.html#ac1f478127fccd29f062bc7f411380b91">Tilt::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Définition</b> <a href="#l00206">obcp_input.h:206</a></div></div>
+<div class="ttc" id="astructTilt_html_ad46c2af5bcb5a6fdc8d568b226a03aa9"><div class="ttname"><a href="structTilt.html#ad46c2af5bcb5a6fdc8d568b226a03aa9">Tilt::zero_x</a></div><div class="ttdeci">float zero_x</div><div class="ttdef"><b>Définition</b> <a href="#l00200">obcp_input.h:200</a></div></div>
+<div class="ttc" id="astructTilt_html_afb0e97f482ec9655ff93626ab5ba8015"><div class="ttname"><a href="structTilt.html#afb0e97f482ec9655ff93626ab5ba8015">Tilt::zero_y</a></div><div class="ttdeci">float zero_y</div><div class="ttdef"><b>Définition</b> <a href="#l00201">obcp_input.h:201</a></div></div>
+<div class="ttc" id="astructTouchBoot_html"><div class="ttname"><a href="structTouchBoot.html">TouchBoot</a></div><div class="ttdoc">Détection d’un doigt maintenu dès le reset.</div><div class="ttdef"><b>Définition</b> <a href="#l00117">obcp_input.h:117</a></div></div>
+<div class="ttc" id="astructTouchBoot_html_a2e1e1baff66e219ff85002537b593506"><div class="ttname"><a href="structTouchBoot.html#a2e1e1baff66e219ff85002537b593506">TouchBoot::held</a></div><div class="ttdeci">bool held</div><div class="ttdef"><b>Définition</b> <a href="#l00120">obcp_input.h:120</a></div></div>
+<div class="ttc" id="astructTouchBoot_html_a6acb4ef910371c55a60543de40504a2a"><div class="ttname"><a href="structTouchBoot.html#a6acb4ef910371c55a60543de40504a2a">TouchBoot::since</a></div><div class="ttdeci">uint32_t since</div><div class="ttdef"><b>Définition</b> <a href="#l00118">obcp_input.h:118</a></div></div>
+<div class="ttc" id="astructTouchBoot_html_aaa63925b98d2b380be87d8cb5963ec47"><div class="ttname"><a href="structTouchBoot.html#aaa63925b98d2b380be87d8cb5963ec47">TouchBoot::armed</a></div><div class="ttdeci">bool armed</div><div class="ttdef"><b>Définition</b> <a href="#l00119">obcp_input.h:119</a></div></div>
+<div class="ttc" id="astructTouchEvent_html"><div class="ttname"><a href="structTouchEvent.html">TouchEvent</a></div><div class="ttdoc">Événement de contact en coordonnées écran.</div><div class="ttdef"><b>Définition</b> <a href="#l00036">obcp_input.h:36</a></div></div>
+<div class="ttc" id="astructTouchEvent_html_a6ac244661e28ac09e200dcec207b892c"><div class="ttname"><a href="structTouchEvent.html#a6ac244661e28ac09e200dcec207b892c">TouchEvent::x</a></div><div class="ttdeci">int16_t x</div><div class="ttdef"><b>Définition</b> <a href="#l00038">obcp_input.h:38</a></div></div>
+<div class="ttc" id="astructTouchEvent_html_a6e4af0c8b311e7d4f021605aeb409024"><div class="ttname"><a href="structTouchEvent.html#a6e4af0c8b311e7d4f021605aeb409024">TouchEvent::kind</a></div><div class="ttdeci">TouchKind kind</div><div class="ttdef"><b>Définition</b> <a href="#l00037">obcp_input.h:37</a></div></div>
+<div class="ttc" id="astructTouchEvent_html_ab50974376bc948ca79d74b6ef84b8f5e"><div class="ttname"><a href="structTouchEvent.html#ab50974376bc948ca79d74b6ef84b8f5e">TouchEvent::y</a></div><div class="ttdeci">int16_t y</div><div class="ttdef"><b>Définition</b> <a href="#l00039">obcp_input.h:39</a></div></div>
+<div class="ttc" id="astructTouchState_html"><div class="ttname"><a href="structTouchState.html">TouchState</a></div><div class="ttdoc">Dernier contact accepté pour détecter une transition.</div><div class="ttdef"><b>Définition</b> <a href="#l00046">obcp_input.h:46</a></div></div>
+<div class="ttc" id="astructTouchState_html_a16d69b7f3316054f6074842f415292fe"><div class="ttname"><a href="structTouchState.html#a16d69b7f3316054f6074842f415292fe">TouchState::x</a></div><div class="ttdeci">int16_t x</div><div class="ttdef"><b>Définition</b> <a href="#l00048">obcp_input.h:48</a></div></div>
+<div class="ttc" id="astructTouchState_html_a8c00ce8245d09419c7d887135d431292"><div class="ttname"><a href="structTouchState.html#a8c00ce8245d09419c7d887135d431292">TouchState::down</a></div><div class="ttdeci">bool down</div><div class="ttdef"><b>Définition</b> <a href="#l00047">obcp_input.h:47</a></div></div>
+<div class="ttc" id="astructTouchState_html_a93eab4c2ff10ac7a0b6f4ee685a40f77"><div class="ttname"><a href="structTouchState.html#a93eab4c2ff10ac7a0b6f4ee685a40f77">TouchState::y</a></div><div class="ttdeci">int16_t y</div><div class="ttdef"><b>Définition</b> <a href="#l00049">obcp_input.h:49</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__input_8h.html">obcp_input.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Inc/obcp_board.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('obcp__board_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier obcp_board.h<div class="ingroups"><a class="el" href="group__obcp__board.html">Carte et ordonnancement</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Ordonnancement coopératif et liaison avec la carte réelle.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de obcp_board.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__board_8h__incl.svg" width="178" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__board_8h__dep__incl.svg" width="344" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="obcp__board_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac69cf5cb592decc72337cd600bbe6f0a" id="r_ac69cf5cb592decc72337cd600bbe6f0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac69cf5cb592decc72337cd600bbe6f0a">obcp_start</a> (void)</td></tr>
+<tr class="memdesc:ac69cf5cb592decc72337cd600bbe6f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser l'application après les périphériques CubeMX.  <br /></td></tr>
+<tr class="memitem:a6d81ac98354cf0d30593d87476563d5a" id="r_a6d81ac98354cf0d30593d87476563d5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6d81ac98354cf0d30593d87476563d5a">obcp_task</a> (void)</td></tr>
+<tr class="memdesc:a6d81ac98354cf0d30593d87476563d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servir une itération de toutes les tâches de l'application.  <br /></td></tr>
+<tr class="memitem:ad462f45ad5266ddee98505757ed738d5" id="r_ad462f45ad5266ddee98505757ed738d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad462f45ad5266ddee98505757ed738d5">obcp_flash_ecc_nmi</a> (void)</td></tr>
+<tr class="memdesc:ad462f45ad5266ddee98505757ed738d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnaître une NMI provoquée par une erreur ECC double.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Ordonnancement coopératif et liaison avec la carte réelle. </p>
+<p>Ce module possède <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a>, <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a> et les états d’entrée. Il cadence les tâches sans RTOS, arbitre l’affichage, prépare les demandes flash et expose obcp_live au débogueur. Les callbacks d’interruption se limitent à leurs pilotes.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="obcp__board_8h_source.html">obcp_board.h</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="ad462f45ad5266ddee98505757ed738d5" name="ad462f45ad5266ddee98505757ed738d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad462f45ad5266ddee98505757ed738d5">&#9670;&#160;</a></span>obcp_flash_ecc_nmi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool obcp_flash_ecc_nmi </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reconnaître une NMI provoquée par une erreur ECC double. </p>
+<p>Le bit ECCD est acquitté et un indicateur volatile mémorise l'erreur pour la lecture en cours. Les autres causes de NMI restent à traiter par le gestionnaire généré. </p><dl class="section return"><dt>Renvoie</dt><dd>true si la cause ECCD a été prise en charge. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Appel depuis NMI_Handler(). L’indicateur est consulté par la lecture flash. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="flash__port_8c_source.html#l00064">64</a> du fichier <a class="el" href="flash__port_8c_source.html">flash_port.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="flash__port_8c_source.html#l00037">ecc_failed</a>, et <a class="el" href="flash__port_8c_source.html#l00064">obcp_flash_ecc_nmi()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="flash__port_8c_source.html#l00064">obcp_flash_ecc_nmi()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__board_8h_ad462f45ad5266ddee98505757ed738d5_cgraph.svg" width="163" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac69cf5cb592decc72337cd600bbe6f0a" name="ac69cf5cb592decc72337cd600bbe6f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69cf5cb592decc72337cd600bbe6f0a">&#9670;&#160;</a></span>obcp_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void obcp_start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser l'application après les périphériques CubeMX. </p>
+<p>Charge les objets persistants, initialise TFT et capteur, sonde le tactile, prépare l'accueil et les bases de temps. À appeler une fois depuis le bloc USER CODE 2 de main(). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00225">225</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00347">accel_chip_name()</a>, <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, <a class="el" href="obcp__app_8h_source.html#l00097">Diagnostics::accel_name</a>, <a class="el" href="accelerometer_8h_source.html#l00025">ACCEL_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00096">Diagnostics::accel_ok</a>, <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="obcp__input_8h_source.html#l00119">TouchBoot::armed</a>, <a class="el" href="board_8c_source.html#l00104">boot_touch</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="input_8c_source.html#l00176">button_init()</a>, <a class="el" href="obcp__touch_8h_source.html#l00037">TouchDevice::controller</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="board_8c_source.html#l00105">flash</a>, <a class="el" href="obcp__app_8h_source.html#l00095">Diagnostics::flash_ok</a>, <a class="el" href="board_8c_source.html#l00106">last_game</a>, <a class="el" href="board_8c_source.html#l00106">last_rates</a>, <a class="el" href="board_8c_source.html#l00106">last_sample</a>, <a class="el" href="board_8c_source.html#l00107">last_touch</a>, <a class="el" href="board_8c_source.html#l00107">last_touch_probe</a>, <a class="el" href="board_8c_source.html#l00109">lcd_bus_ok</a>, <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, <a class="el" href="flash__port_8c_source.html#l00178">obcp_flash_storage()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00245">Renderer::port</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="pwm__audio_8c_source.html#l00107">pwm_audio_init()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="board_8c_source.html#l00099">renderer</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00083">Diagnostics::tft_id</a>, <a class="el" href="board_8c_source.html#l00101">touch_device</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, et <a class="el" href="input_8c_source.html#l00068">touch_resistive()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__board_8h_ac69cf5cb592decc72337cd600bbe6f0a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6d81ac98354cf0d30593d87476563d5a" name="a6d81ac98354cf0d30593d87476563d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d81ac98354cf0d30593d87476563d5a">&#9670;&#160;</a></span>obcp_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void obcp_task </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Servir une itération de toutes les tâches de l'application. </p>
+<p>Priorise l'audio, les entrées et au plus quatre pas de simulation de rattrapage. Sert le rendu puis un travail flash lorsque son message a pu être affiché. À appeler continuellement depuis USER CODE 3. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00454">454</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="board_8c_source.html#l00105">flash</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="board_8c_source.html#l00106">last_diag</a>, <a class="el" href="board_8c_source.html#l00106">last_flash_job</a>, <a class="el" href="board_8c_source.html#l00106">last_game</a>, <a class="el" href="obcp__app_8h_source.html#l00091">Diagnostics::last_save_ms</a>, <a class="el" href="board_8c_source.html#l00109">lcd_bus_ok</a>, <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, <a class="el" href="board_8c_source.html#l00164">led_update()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, <a class="el" href="board_8c_source.html#l00099">renderer</a>, <a class="el" href="gfx_8c_source.html#l00353">renderer_idle()</a>, <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>, <a class="el" href="board_8c_source.html#l00397">sample_button()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="obcp__board_8h_a6d81ac98354cf0d30593d87476563d5a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="obcp__board_8h.html">obcp_board.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

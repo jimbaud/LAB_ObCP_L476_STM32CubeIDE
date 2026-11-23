@@ -1,0 +1,20 @@
+<map id="draw_bar" name="draw_bar">
+<area shape="rect" id="Node000001" title="Composer le bandeau de navigation d&#39;un écran." alt="" coords="5,127,88,152"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="26,128,22,119,24,109,32,103,47,100,63,104,71,112,67,116,61,108,47,106,35,108,28,112,27,118,31,126"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#aad6101b071ae35aa79257d5b7d97c0ce" title="Dessiner un bouton rectangulaire et son libellé." alt="" coords="136,66,200,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,125,129,95,131,100,74,129"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="391,91,457,116"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="87,150,139,163,204,173,274,174,308,170,342,161,373,145,399,124,403,128,376,150,344,166,309,175,274,179,203,178,138,168,86,155"/>
+<area shape="rect" id="Node000010" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="257,127,333,152"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="88,137,244,137,244,142,88,142"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="147,67,143,57,145,48,154,41,168,39,185,42,192,51,188,54,182,47,168,44,156,46,150,51,148,57,152,64"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="179,63,207,37,226,24,247,15,274,6,296,3,318,5,344,15,365,27,383,43,410,77,406,80,379,47,361,31,342,19,317,11,296,8,275,11,249,19,229,29,211,41,182,67"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a71b2ce09bccc4310953f4b85fb99425e" title="Dessiner les quatre côtés d&#39;un rectangle." alt="" coords="248,54,343,79"/>
+<area shape="poly" id="edge5_Node000002_Node000009" title=" " alt="" coords="200,73,234,69,235,75,200,78"/>
+<area shape="poly" id="edge8_Node000002_Node000010" title=" " alt="" coords="196,89,257,119,255,123,194,93"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="402,92,397,83,400,73,409,67,424,64,442,68,450,76,446,80,439,72,424,70,411,72,404,76,403,82,407,90"/>
+<area shape="poly" id="edge6_Node000009_Node000003" title=" " alt="" coords="340,77,378,88,377,93,339,82"/>
+<area shape="poly" id="edge7_Node000009_Node000009" title=" " alt="" coords="274,55,269,45,272,36,281,29,295,27,313,30,320,39,316,42,310,35,295,32,283,34,276,39,275,45,278,52"/>
+<area shape="poly" id="edge9_Node000010_Node000003" title=" " alt="" coords="333,127,376,114,378,119,334,132"/>
+<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="274,128,269,119,272,109,281,103,295,100,313,104,320,112,316,116,310,108,295,106,283,108,276,112,275,118,278,126"/>
+</map>

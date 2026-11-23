@@ -1,0 +1,7 @@
+<map id="paint_get" name="paint_get">
+<area shape="rect" id="Node000001" title="Lire l&#39;indice de couleur d&#39;un pixel." alt="" coords="5,29,88,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="22,30,17,21,20,11,30,5,47,3,67,6,75,15,71,18,64,11,47,8,32,10,24,15,22,20,27,28"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="136,29,245,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="88,39,122,39,122,45,88,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="166,30,161,21,164,11,174,5,191,3,211,6,219,15,215,18,208,11,191,8,176,10,168,15,166,20,171,28"/>
+</map>

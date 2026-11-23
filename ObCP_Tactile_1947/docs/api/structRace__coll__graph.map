@@ -1,0 +1,5 @@
+<map id="Race" name="Race">
+<area shape="rect" id="Node000001" title="État de la route, du joueur et de la progression." alt="" coords="5,101,60,127"/>
+<area shape="rect" id="Node000002" href="$structRival.html" title="Adversaire occupant une voie de la course." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,45,35,101,30,101,30,45"/>
+</map>

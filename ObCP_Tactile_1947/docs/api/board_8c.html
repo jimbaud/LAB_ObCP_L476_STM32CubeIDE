@@ -1,0 +1,1274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/board.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('board_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier board.c<div class="ingroups"><a class="el" href="group__obcp__board.html">Carte et ordonnancement</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Ordonnancement coopératif et liaison avec la carte réelle.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__board_8h_source.html">obcp_board.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__app_8h_source.html">obcp_app.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__config_8h_source.html">obcp_config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__flash_8h_source.html">obcp_flash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__panel_8h_source.html">obcp_panel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="obcp__pwm_8h_source.html">obcp_pwm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="accelerometer_8h_source.html">accelerometer.h</a>&quot;</code><br />
+<code>#include &quot;main.h&quot;</code><br />
+<code>#include &quot;spi.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de board.c:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c__incl.svg" width="100%" height="547"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="board_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:_5Bstruct_5D_2Eobcp_5Flive" id="r__5Bstruct_5D_2Eobcp_5Flive"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a5f7f78ef3c56ec090f69e4f1e03e935b" id="r_a5f7f78ef3c56ec090f69e4f1e03e935b"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a5f7f78ef3c56ec090f69e4f1e03e935b">led_signal</a> (bool ok, uint32_t now)</td></tr>
+<tr class="memdesc:a5f7f78ef3c56ec090f69e4f1e03e935b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarrer une impulsion de LED d'état.  <br /></td></tr>
+<tr class="memitem:a42ce44360623a9f25b4316be9595146f" id="r_a42ce44360623a9f25b4316be9595146f"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a42ce44360623a9f25b4316be9595146f">led_update</a> (uint32_t now)</td></tr>
+<tr class="memdesc:a42ce44360623a9f25b4316be9595146f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Éteindre les sorties de LED à l'échéance.  <br /></td></tr>
+<tr class="memitem:a41dea5f3218b94cd5d5fbebb5e7ca472" id="r_a41dea5f3218b94cd5d5fbebb5e7ca472"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a41dea5f3218b94cd5d5fbebb5e7ca472">probe_touch</a> (bool auto_calibrate)</td></tr>
+<tr class="memdesc:a41dea5f3218b94cd5d5fbebb5e7ca472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiser la reconnaissance du tactile.  <br /></td></tr>
+<tr class="memitem:ac69cf5cb592decc72337cd600bbe6f0a" id="r_ac69cf5cb592decc72337cd600bbe6f0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac69cf5cb592decc72337cd600bbe6f0a">obcp_start</a> (void)</td></tr>
+<tr class="memdesc:ac69cf5cb592decc72337cd600bbe6f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser l'application après les périphériques CubeMX.  <br /></td></tr>
+<tr class="memitem:aa182a23ab6189618f777bcb1c02ab79a" id="r_aa182a23ab6189618f777bcb1c02ab79a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa182a23ab6189618f777bcb1c02ab79a">sample_touch</a> (uint32_t now)</td></tr>
+<tr class="memdesc:aa182a23ab6189618f777bcb1c02ab79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faire avancer une acquisition tactile et distribuer son résultat.  <br /></td></tr>
+<tr class="memitem:abba409f58eca8a29c478fccc55510cc2" id="r_abba409f58eca8a29c478fccc55510cc2"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abba409f58eca8a29c478fccc55510cc2">sample_inputs</a> (uint32_t now)</td></tr>
+<tr class="memdesc:abba409f58eca8a29c478fccc55510cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servir le tactile et échantillonner l'accéléromètre.  <br /></td></tr>
+<tr class="memitem:a970b5a3ed4d3a8e401a702f79eb7fa80" id="r_a970b5a3ed4d3a8e401a702f79eb7fa80"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a970b5a3ed4d3a8e401a702f79eb7fa80">sample_button</a> (uint32_t now)</td></tr>
+<tr class="memdesc:a970b5a3ed4d3a8e401a702f79eb7fa80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire PC13 et transmettre un événement débouncé.  <br /></td></tr>
+<tr class="memitem:aa374818c83b018c35bbf18405fced6df" id="r_aa374818c83b018c35bbf18405fced6df"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa374818c83b018c35bbf18405fced6df">update_rates</a> (uint32_t now)</td></tr>
+<tr class="memdesc:aa374818c83b018c35bbf18405fced6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publier les mesures et les compteurs de diagnostic.  <br /></td></tr>
+<tr class="memitem:a6d81ac98354cf0d30593d87476563d5a" id="r_a6d81ac98354cf0d30593d87476563d5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6d81ac98354cf0d30593d87476563d5a">obcp_task</a> (void)</td></tr>
+<tr class="memdesc:a6d81ac98354cf0d30593d87476563d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servir une itération de toutes les tâches de l'application.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a05b5a24325d46227633053ca49de6234" id="r_a05b5a24325d46227633053ca49de6234"><td class="memItemLeft">static <a class="el" href="structApp.html">App</a>&#160;</td><td class="memItemRight"><a class="el" href="#a05b5a24325d46227633053ca49de6234">app</a></td></tr>
+<tr class="memdesc:a05b5a24325d46227633053ca49de6234"><td class="mdescLeft">&#160;</td><td class="mdescRight">État applicatif unique de la carte, conservé entre toutes les itérations.  <br /></td></tr>
+<tr class="memitem:a96120bdea31dc797b1f3acbb8cf5a322" id="r_a96120bdea31dc797b1f3acbb8cf5a322"><td class="memItemLeft">static <a class="el" href="structRenderer.html">Renderer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a96120bdea31dc797b1f3acbb8cf5a322">renderer</a></td></tr>
+<tr class="memdesc:a96120bdea31dc797b1f3acbb8cf5a322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tampon et progression du moteur d'affichage.  <br /></td></tr>
+<tr class="memitem:a98ce6a4462819176d40a502de4ebd5ae" id="r_a98ce6a4462819176d40a502de4ebd5ae"><td class="memItemLeft">static <a class="el" href="structTouchState.html">TouchState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a98ce6a4462819176d40a502de4ebd5ae">touch</a></td></tr>
+<tr class="memdesc:a98ce6a4462819176d40a502de4ebd5ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dernier contact converti pour produire les événements tactiles.  <br /></td></tr>
+<tr class="memitem:ae1b7bcaec7122dfd6d68dce35cc5a6e1" id="r_ae1b7bcaec7122dfd6d68dce35cc5a6e1"><td class="memItemLeft">static <a class="el" href="structTouchDevice.html">TouchDevice</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae1b7bcaec7122dfd6d68dce35cc5a6e1">touch_device</a></td></tr>
+<tr class="memdesc:ae1b7bcaec7122dfd6d68dce35cc5a6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type et identifiant du contrôleur présent.  <br /></td></tr>
+<tr class="memitem:a53d9eb57cde11a38c6ea465ea9da38bb" id="r_a53d9eb57cde11a38c6ea465ea9da38bb"><td class="memItemLeft">static <a class="el" href="structResistiveFilter.html">ResistiveFilter</a>&#160;</td><td class="memItemRight"><a class="el" href="#a53d9eb57cde11a38c6ea465ea9da38bb">touch_filter_state</a></td></tr>
+<tr class="memdesc:a53d9eb57cde11a38c6ea465ea9da38bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Historique de médiane et de confirmation du résistif.  <br /></td></tr>
+<tr class="memitem:a55ee34bb3d5221a19622871f04c24023" id="r_a55ee34bb3d5221a19622871f04c24023"><td class="memItemLeft">static <a class="el" href="structButtonState.html">ButtonState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a55ee34bb3d5221a19622871f04c24023">button</a></td></tr>
+<tr class="memdesc:a55ee34bb3d5221a19622871f04c24023"><td class="mdescLeft">&#160;</td><td class="mdescRight">État d'anti-rebond du bouton PC13.  <br /></td></tr>
+<tr class="memitem:abf30501ad3b2050816909f64c69c19c3" id="r_abf30501ad3b2050816909f64c69c19c3"><td class="memItemLeft">static <a class="el" href="structTouchBoot.html">TouchBoot</a>&#160;</td><td class="memItemRight"><a class="el" href="#abf30501ad3b2050816909f64c69c19c3">boot_touch</a></td></tr>
+<tr class="memdesc:abf30501ad3b2050816909f64c69c19c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mémoire du geste résistif de secours au démarrage.  <br /></td></tr>
+<tr class="memitem:adca3180dae18def6448856795fa6d87d" id="r_adca3180dae18def6448856795fa6d87d"><td class="memItemLeft">static <a class="el" href="structStorage.html">Storage</a>&#160;</td><td class="memItemRight"><a class="el" href="#adca3180dae18def6448856795fa6d87d">flash</a></td></tr>
+<tr class="memdesc:adca3180dae18def6448856795fa6d87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callbacks du port de flash interne validé au démarrage.  <br /></td></tr>
+<tr class="memitem:a87a32aa2400084d7366f1003f3507017" id="r_a87a32aa2400084d7366f1003f3507017"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a87a32aa2400084d7366f1003f3507017">last_sample</a></td></tr>
+<tr class="memdesc:a87a32aa2400084d7366f1003f3507017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick du dernier échantillonnage de l'accéléromètre.  <br /></td></tr>
+<tr class="memitem:a0994f080b4535ab197d09f05c86fd2aa" id="r_a0994f080b4535ab197d09f05c86fd2aa"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0994f080b4535ab197d09f05c86fd2aa">last_game</a></td></tr>
+<tr class="memdesc:a0994f080b4535ab197d09f05c86fd2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base de temps du prochain pas fixe de simulation.  <br /></td></tr>
+<tr class="memitem:ac653746418ffb9fd14548c6387924ae3" id="r_ac653746418ffb9fd14548c6387924ae3"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac653746418ffb9fd14548c6387924ae3">last_diag</a></td></tr>
+<tr class="memdesc:ac653746418ffb9fd14548c6387924ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick du dernier rafraîchissement des valeurs de diagnostic.  <br /></td></tr>
+<tr class="memitem:aed2b155eb0456ac344179b2e7a69e364" id="r_aed2b155eb0456ac344179b2e7a69e364"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aed2b155eb0456ac344179b2e7a69e364">last_rates</a></td></tr>
+<tr class="memdesc:aed2b155eb0456ac344179b2e7a69e364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick du début de la fenêtre de calcul des débits.  <br /></td></tr>
+<tr class="memitem:a4913fcf2b97778649e14ad6a73a7fa8b" id="r_a4913fcf2b97778649e14ad6a73a7fa8b"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4913fcf2b97778649e14ad6a73a7fa8b">last_flash_job</a></td></tr>
+<tr class="memdesc:a4913fcf2b97778649e14ad6a73a7fa8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick de début d'attente du message avant une opération flash.  <br /></td></tr>
+<tr class="memitem:ae52468b472ef00ed4b7fc46848c0489c" id="r_ae52468b472ef00ed4b7fc46848c0489c"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae52468b472ef00ed4b7fc46848c0489c">last_frames</a></td></tr>
+<tr class="memdesc:ae52468b472ef00ed4b7fc46848c0489c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de lots au début de la fenêtre de débit.  <br /></td></tr>
+<tr class="memitem:a38395f2ee5ad1a22f09001013aa2faf8" id="r_a38395f2ee5ad1a22f09001013aa2faf8"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a38395f2ee5ad1a22f09001013aa2faf8">last_pixels</a></td></tr>
+<tr class="memdesc:a38395f2ee5ad1a22f09001013aa2faf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de pixels au début de la fenêtre de débit.  <br /></td></tr>
+<tr class="memitem:a1b6c693f0bc1c8c371e5d0ed818868ec" id="r_a1b6c693f0bc1c8c371e5d0ed818868ec"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1b6c693f0bc1c8c371e5d0ed818868ec">last_touch</a></td></tr>
+<tr class="memdesc:a1b6c693f0bc1c8c371e5d0ed818868ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick du dernier départ de lecture tactile.  <br /></td></tr>
+<tr class="memitem:a1990162517dd91b19bfd8b17730cc46e" id="r_a1990162517dd91b19bfd8b17730cc46e"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1990162517dd91b19bfd8b17730cc46e">last_touch_probe</a></td></tr>
+<tr class="memdesc:a1990162517dd91b19bfd8b17730cc46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick de la dernière tentative de reconnaissance tactile.  <br /></td></tr>
+<tr class="memitem:ad8d37af05cf65c579bd9882e20bdee37" id="r_ad8d37af05cf65c579bd9882e20bdee37"><td class="memItemLeft">static uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ad8d37af05cf65c579bd9882e20bdee37">touch_failures</a></td></tr>
+<tr class="memdesc:ad8d37af05cf65c579bd9882e20bdee37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre d'erreurs tactiles consécutives, seuil de reprise à trois.  <br /></td></tr>
+<tr class="memitem:abe7bd755954fe3756770875cbc43e593" id="r_abe7bd755954fe3756770875cbc43e593"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#abe7bd755954fe3756770875cbc43e593">lcd_bus_ok</a></td></tr>
+<tr class="memdesc:abe7bd755954fe3756770875cbc43e593"><td class="mdescLeft">&#160;</td><td class="mdescRight">true si les commandes d'initialisation TFT ont été transmises.  <br /></td></tr>
+<tr class="memitem:af80cdb0489221f873a8cc2f170cb3372" id="r_af80cdb0489221f873a8cc2f170cb3372"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af80cdb0489221f873a8cc2f170cb3372">touch_sampling</a></td></tr>
+<tr class="memdesc:af80cdb0489221f873a8cc2f170cb3372"><td class="mdescLeft">&#160;</td><td class="mdescRight">true quand une acquisition tactile doit continuer avant le prochain départ périodique.  <br /></td></tr>
+<tr class="memitem:af3ace44989806644449bf0b529cd39e1" id="r_af3ace44989806644449bf0b529cd39e1"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af3ace44989806644449bf0b529cd39e1">touch_wait_release</a></td></tr>
+<tr class="memdesc:af3ace44989806644449bf0b529cd39e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">true si le geste de calibrage ou d'accueil doit être relâché avant l'usage normal.  <br /></td></tr>
+<tr class="memitem:a7e516f8e94e7ece92b77933faecf730b" id="r_a7e516f8e94e7ece92b77933faecf730b"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7e516f8e94e7ece92b77933faecf730b">led_since</a></td></tr>
+<tr class="memdesc:a7e516f8e94e7ece92b77933faecf730b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick de début de l'impulsion de LED courante.  <br /></td></tr>
+<tr class="memitem:a545c6ab5161b7d38a5ff9fe86105f1c7" id="r_a545c6ab5161b7d38a5ff9fe86105f1c7"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a545c6ab5161b7d38a5ff9fe86105f1c7">led_duration</a></td></tr>
+<tr class="memdesc:a545c6ab5161b7d38a5ff9fe86105f1c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Durée de l'impulsion en millisecondes. Zéro lorsque la LED est au repos.  <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft"><a class="el" href="struct_0fstruct_0e_8obcp__live.html">volatile struct </a>&#160;</td><td class="memItemRight"><a class="el" href="#a9ccc5b040aa08a73ccfd75ef1860aeb1">obcp_live</a></td></tr>
+<tr class="memdesc:a9ccc5b040aa08a73ccfd75ef1860aeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vue volatile du diagnostic pour Live Expressions dans CubeIDE.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Ordonnancement coopératif et liaison avec la carte réelle. </p>
+<p>Ce module possède <a class="el" href="structApp.html" title="État complet des applications et de leur navigation.">App</a>, <a class="el" href="structRenderer.html" title="Machine d’état du rendu par bandes.">Renderer</a> et les états d’entrée. Il cadence les tâches sans RTOS, arbitre l’affichage, prépare les demandes flash et expose obcp_live au débogueur. Les callbacks d’interruption se limitent à leurs pilotes.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a5f7f78ef3c56ec090f69e4f1e03e935b" name="a5f7f78ef3c56ec090f69e4f1e03e935b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7f78ef3c56ec090f69e4f1e03e935b">&#9670;&#160;</a></span>led_signal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void led_signal </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>ok</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Démarrer une impulsion de LED d'état. </p>
+<p>Sélectionne vert pendant 300 ms pour un succès ou rouge pendant 500 ms pour un échec. Le début et la durée sont enregistrés pour une extinction ultérieure sans attente active. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ok</td><td>true pour un état réussi, false pour signaler un échec. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00149">149</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00111">led_duration</a>, <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, et <a class="el" href="board_8c_source.html#l00110">led_since</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_a5f7f78ef3c56ec090f69e4f1e03e935b_cgraph.svg" width="99" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a42ce44360623a9f25b4316be9595146f" name="a42ce44360623a9f25b4316be9595146f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ce44360623a9f25b4316be9595146f">&#9670;&#160;</a></span>led_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void led_update </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Éteindre les sorties de LED à l'échéance. </p>
+<p>La soustraction de ticks non signés conserve le délai lors du débordement du compteur. Une durée nulle indique qu'aucune impulsion n'est active. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00164">164</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00111">led_duration</a>, <a class="el" href="board_8c_source.html#l00110">led_since</a>, et <a class="el" href="board_8c_source.html#l00164">led_update()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00164">led_update()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_a42ce44360623a9f25b4316be9595146f_cgraph.svg" width="106" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac69cf5cb592decc72337cd600bbe6f0a" name="ac69cf5cb592decc72337cd600bbe6f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69cf5cb592decc72337cd600bbe6f0a">&#9670;&#160;</a></span>obcp_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void obcp_start </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialiser l'application après les périphériques CubeMX. </p>
+<p>Charge les objets persistants, initialise TFT et capteur, sonde le tactile, prépare l'accueil et les bases de temps. À appeler une fois depuis le bloc USER CODE 2 de main(). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00225">225</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="accelerometer_8c_source.html#l00347">accel_chip_name()</a>, <a class="el" href="accelerometer_8c_source.html#l00284">accel_init()</a>, <a class="el" href="obcp__app_8h_source.html#l00097">Diagnostics::accel_name</a>, <a class="el" href="accelerometer_8h_source.html#l00025">ACCEL_NONE</a>, <a class="el" href="obcp__app_8h_source.html#l00096">Diagnostics::accel_ok</a>, <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l00456">app_init()</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="app_8c_source.html#l01216">app_read_axes()</a>, <a class="el" href="app_8c_source.html#l01191">app_read_book()</a>, <a class="el" href="app_8c_source.html#l01205">app_read_calibration()</a>, <a class="el" href="app_8c_source.html#l01231">app_read_preferences()</a>, <a class="el" href="app_8c_source.html#l00475">app_start_splash()</a>, <a class="el" href="obcp__input_8h_source.html#l00119">TouchBoot::armed</a>, <a class="el" href="board_8c_source.html#l00104">boot_touch</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="input_8c_source.html#l00176">button_init()</a>, <a class="el" href="obcp__touch_8h_source.html#l00037">TouchDevice::controller</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="board_8c_source.html#l00105">flash</a>, <a class="el" href="obcp__app_8h_source.html#l00095">Diagnostics::flash_ok</a>, <a class="el" href="board_8c_source.html#l00106">last_game</a>, <a class="el" href="board_8c_source.html#l00106">last_rates</a>, <a class="el" href="board_8c_source.html#l00106">last_sample</a>, <a class="el" href="board_8c_source.html#l00107">last_touch</a>, <a class="el" href="board_8c_source.html#l00107">last_touch_probe</a>, <a class="el" href="board_8c_source.html#l00109">lcd_bus_ok</a>, <a class="el" href="ili9341_8c_source.html#l00124">lcd_init()</a>, <a class="el" href="ili9341_8c_source.html#l00233">lcd_port()</a>, <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, <a class="el" href="flash__port_8c_source.html#l00178">obcp_flash_storage()</a>, <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00245">Renderer::port</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="pwm__audio_8c_source.html#l00107">pwm_audio_init()</a>, <a class="el" href="obcp__storage_8h_source.html#l00063">Storage::read</a>, <a class="el" href="board_8c_source.html#l00099">renderer</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00083">Diagnostics::tft_id</a>, <a class="el" href="board_8c_source.html#l00101">touch_device</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, et <a class="el" href="input_8c_source.html#l00068">touch_resistive()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_ac69cf5cb592decc72337cd600bbe6f0a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6d81ac98354cf0d30593d87476563d5a" name="a6d81ac98354cf0d30593d87476563d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d81ac98354cf0d30593d87476563d5a">&#9670;&#160;</a></span>obcp_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void obcp_task </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Servir une itération de toutes les tâches de l'application. </p>
+<p>Priorise l'audio, les entrées et au plus quatre pas de simulation de rattrapage. Sert le rendu puis un travail flash lorsque son message a pu être affiché. À appeler continuellement depuis USER CODE 3. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00454">454</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l01323">app_diag_refresh()</a>, <a class="el" href="app_8c_source.html#l01894">app_render()</a>, <a class="el" href="app_8c_source.html#l01140">app_step()</a>, <a class="el" href="app_8c_source.html#l01249">app_store_task()</a>, <a class="el" href="app_8c_source.html#l01180">app_wants_audio()</a>, <a class="el" href="obcp__app_8h_source.html#l00113">App::audio</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="board_8c_source.html#l00105">flash</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__app_8h_source.html#l00123">App::job</a>, <a class="el" href="obcp__app_8h_source.html#l00062">JOB_NONE</a>, <a class="el" href="board_8c_source.html#l00106">last_diag</a>, <a class="el" href="board_8c_source.html#l00106">last_flash_job</a>, <a class="el" href="board_8c_source.html#l00106">last_game</a>, <a class="el" href="obcp__app_8h_source.html#l00091">Diagnostics::last_save_ms</a>, <a class="el" href="board_8c_source.html#l00109">lcd_bus_ok</a>, <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, <a class="el" href="board_8c_source.html#l00164">led_update()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="pwm__audio_8c_source.html#l00203">pwm_audio_task()</a>, <a class="el" href="board_8c_source.html#l00099">renderer</a>, <a class="el" href="gfx_8c_source.html#l00353">renderer_idle()</a>, <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>, <a class="el" href="board_8c_source.html#l00397">sample_button()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="obcp__storage_8h_source.html#l00045">STORE_OK</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_a6d81ac98354cf0d30593d87476563d5a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a41dea5f3218b94cd5d5fbebb5e7ca472" name="a41dea5f3218b94cd5d5fbebb5e7ca472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41dea5f3218b94cd5d5fbebb5e7ca472">&#9670;&#160;</a></span>probe_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool probe_touch </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>auto_calibrate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actualiser la reconnaissance du tactile. </p>
+<p>Le sondage peut être différé par SPI1 occupé. Un nouveau contrôleur réinitialise le filtre, met à jour le diagnostic et peut ouvrir un calibrage si son profil manque. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">auto_calibrate</td><td>true pour proposer le calibrage d’un nouveau contrôleur résistif sans profil. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le sondage a été effectué, même si aucun contrôleur n'a été reconnu. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00182">182</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l00508">app_open()</a>, <a class="el" href="obcp__touch_8h_source.html#l00037">TouchDevice::controller</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__app_8h_source.html#l00093">Diagnostics::hits</a>, <a class="el" href="obcp__touch_8h_source.html#l00038">TouchDevice::id</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00035">SCREEN_DIAG</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="obcp__app_8h_source.html#l00121">App::splash_target</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, <a class="el" href="obcp__app_8h_source.html#l00092">Diagnostics::touch_controller</a>, <a class="el" href="obcp__touch_8h_source.html#l00024">TOUCH_CTRL_NONE</a>, <a class="el" href="board_8c_source.html#l00101">touch_device</a>, <a class="el" href="board_8c_source.html#l00108">touch_failures</a>, <a class="el" href="board_8c_source.html#l00102">touch_filter_state</a>, <a class="el" href="obcp__app_8h_source.html#l00084">Diagnostics::touch_id</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, <a class="el" href="touch__port_8c_source.html#l00023">touch_probe()</a>, et <a class="el" href="input_8c_source.html#l00068">touch_resistive()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, et <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_a41dea5f3218b94cd5d5fbebb5e7ca472_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a970b5a3ed4d3a8e401a702f79eb7fa80" name="a970b5a3ed4d3a8e401a702f79eb7fa80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970b5a3ed4d3a8e401a702f79eb7fa80">&#9670;&#160;</a></span>sample_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sample_button </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lire PC13 et transmettre un événement débouncé. </p>
+<p>La lecture matérielle est active à zéro. <a class="el" href="obcp__input_8h.html#a8043e16b40563dda56ba1c8b1c232abe" title="Transformer le niveau de SW1 en appui court ou long.">button_update()</a> transforme ce niveau en appui court, long ou aucun événement avant l'appel de l'application. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00397">397</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l01112">app_button()</a>, <a class="el" href="app_8c_source.html#l00413">button()</a>, <a class="el" href="input_8c_source.html#l00187">button_update()</a>, et <a class="el" href="board_8c_source.html#l00397">sample_button()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="board_8c_source.html#l00397">sample_button()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_a970b5a3ed4d3a8e401a702f79eb7fa80_cgraph.svg" width="596" height="479"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abba409f58eca8a29c478fccc55510cc2" name="abba409f58eca8a29c478fccc55510cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba409f58eca8a29c478fccc55510cc2">&#9670;&#160;</a></span>sample_inputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sample_inputs </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Servir le tactile et échantillonner l'accéléromètre. </p>
+<p>Vise un départ toutes les 10 ms pour le capteur. Met à jour le filtre et fait avancer l'assistant d'axes quand sa page est ouverte. Les transitions de disponibilité invalident la scène. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00364">364</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__app_8h_source.html#l00096">Diagnostics::accel_ok</a>, <a class="el" href="accelerometer_8c_source.html#l00390">accel_read()</a>, <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="obcp__input_8h_source.html#l00212">Tilt::calibrated</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="board_8c_source.html#l00106">last_sample</a>, <a class="el" href="board_8c_source.html#l00107">last_touch_probe</a>, <a class="el" href="#a9ccc5b040aa08a73ccfd75ef1860aeb1">obcp_live</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00037">SCREEN_TILT</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, <a class="el" href="obcp__app_8h_source.html#l00118">App::tilt_guide</a>, <a class="el" href="input_8c_source.html#l00417">tilt_guide_sample()</a>, <a class="el" href="input_8c_source.html#l00308">tilt_sample()</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, <a class="el" href="obcp__input_8h_source.html#l00213">Tilt::valid</a>, <a class="el" href="accelerometer_8h_source.html#l00046">accel_g_t::x</a>, <a class="el" href="accelerometer_8h_source.html#l00047">accel_g_t::y</a>, et <a class="el" href="accelerometer_8h_source.html#l00048">accel_g_t::z</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_abba409f58eca8a29c478fccc55510cc2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa182a23ab6189618f777bcb1c02ab79a" name="aa182a23ab6189618f777bcb1c02ab79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa182a23ab6189618f777bcb1c02ab79a">&#9670;&#160;</a></span>sample_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sample_touch </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Faire avancer une acquisition tactile et distribuer son résultat. </p>
+<p>WAIT poursuit une conversion ou attend le bus. EMPTY garde le dernier contact. Une erreur répétée relance la reconnaissance. Les entrées de secours, le calibrage brut et les coordonnées écran sont traités dans cet ordre. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00266">266</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="app_8c_source.html#l01081">app_calibration_sample()</a>, <a class="el" href="app_8c_source.html#l00534">app_force_touch_calibration()</a>, <a class="el" href="app_8c_source.html#l01019">app_touch()</a>, <a class="el" href="obcp__input_8h_source.html#l00119">TouchBoot::armed</a>, <a class="el" href="board_8c_source.html#l00104">boot_touch</a>, <a class="el" href="obcp__input_8h_source.html#l00128">BOOT_TOUCH_CALIBRATE</a>, <a class="el" href="obcp__input_8h_source.html#l00126">BOOT_TOUCH_NONE</a>, <a class="el" href="obcp__touch_8h_source.html#l00037">TouchDevice::controller</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__app_8h_source.html#l00108">App::dirty</a>, <a class="el" href="obcp__touch_8h_source.html#l00061">RawTouch::down</a>, <a class="el" href="board_8c_source.html#l00107">last_touch</a>, <a class="el" href="board_8c_source.html#l00107">last_touch_probe</a>, <a class="el" href="#a9ccc5b040aa08a73ccfd75ef1860aeb1">obcp_live</a>, <a class="el" href="obcp__config_8h_source.html#l00034">OBCP_TOUCH_FLIPPED</a>, <a class="el" href="obcp__touch_8h_source.html#l00058">RawTouch::point</a>, <a class="el" href="obcp__app_8h_source.html#l00079">Diagnostics::raw_x</a>, <a class="el" href="obcp__app_8h_source.html#l00080">Diagnostics::raw_y</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, <a class="el" href="obcp__app_8h_source.html#l00120">App::screen</a>, <a class="el" href="obcp__app_8h_source.html#l00028">SCREEN_MENU</a>, <a class="el" href="obcp__app_8h_source.html#l00039">SCREEN_SPLASH</a>, <a class="el" href="obcp__app_8h_source.html#l00036">SCREEN_TOUCH_CAL</a>, <a class="el" href="board_8c_source.html#l00100">touch</a>, <a class="el" href="input_8c_source.html#l00148">touch_boot_sample()</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, <a class="el" href="calibration_8c_source.html#l00136">touch_cal_interrupt()</a>, <a class="el" href="calibration_8c_source.html#l00109">touch_cal_map()</a>, <a class="el" href="obcp__app_8h_source.html#l00116">App::touch_cal_session</a>, <a class="el" href="board_8c_source.html#l00101">touch_device</a>, <a class="el" href="board_8c_source.html#l00108">touch_failures</a>, <a class="el" href="input_8c_source.html#l00112">touch_filter()</a>, <a class="el" href="board_8c_source.html#l00102">touch_filter_state</a>, <a class="el" href="input_8c_source.html#l00023">touch_landscape()</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, <a class="el" href="touch__port_8c_source.html#l00051">touch_read()</a>, <a class="el" href="obcp__touch_8h_source.html#l00072">TOUCH_READ_EMPTY</a>, <a class="el" href="obcp__touch_8h_source.html#l00073">TOUCH_READ_ERROR</a>, <a class="el" href="obcp__touch_8h_source.html#l00071">TOUCH_READ_WAIT</a>, <a class="el" href="input_8c_source.html#l00068">touch_resistive()</a>, <a class="el" href="board_8c_source.html#l00109">touch_sampling</a>, <a class="el" href="input_8c_source.html#l00044">touch_update()</a>, <a class="el" href="board_8c_source.html#l00109">touch_wait_release</a>, <a class="el" href="obcp__app_8h_source.html#l00085">Diagnostics::x</a>, <a class="el" href="obcp__touch_8h_source.html#l00048">RawPoint::x</a>, <a class="el" href="obcp__app_8h_source.html#l00086">Diagnostics::y</a>, <a class="el" href="obcp__touch_8h_source.html#l00049">RawPoint::y</a>, <a class="el" href="obcp__app_8h_source.html#l00081">Diagnostics::z1</a>, <a class="el" href="obcp__touch_8h_source.html#l00059">RawTouch::z1</a>, <a class="el" href="obcp__app_8h_source.html#l00082">Diagnostics::z2</a>, et <a class="el" href="obcp__touch_8h_source.html#l00060">RawTouch::z2</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_aa182a23ab6189618f777bcb1c02ab79a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa374818c83b018c35bbf18405fced6df" name="aa374818c83b018c35bbf18405fced6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa374818c83b018c35bbf18405fced6df">&#9670;&#160;</a></span>update_rates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_rates </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Publier les mesures et les compteurs de diagnostic. </p>
+<p>Les débits sont calculés sur un intervalle d'au moins une seconde. Les autres champs copient l'état du dernier contact, des pilotes et du stockage vers obcp_live. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">now</td><td>Tick courant en millisecondes non signées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00410">410</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="board_8c_source.html#l00098">app</a>, <a class="el" href="obcp__app_8h_source.html#l00090">Diagnostics::audio_missed</a>, <a class="el" href="obcp__input_8h_source.html#l00209">Tilt::axes</a>, <a class="el" href="obcp__gfx_8h_source.html#l00251">Renderer::batches</a>, <a class="el" href="obcp__app_8h_source.html#l00119">App::diag</a>, <a class="el" href="obcp__input_8h_source.html#l00047">TouchState::down</a>, <a class="el" href="obcp__gfx_8h_source.html#l00254">Renderer::errors</a>, <a class="el" href="obcp__app_8h_source.html#l00095">Diagnostics::flash_ok</a>, <a class="el" href="obcp__app_8h_source.html#l00087">Diagnostics::frames_per_second</a>, <a class="el" href="obcp__app_8h_source.html#l00093">Diagnostics::hits</a>, <a class="el" href="board_8c_source.html#l00107">last_frames</a>, <a class="el" href="board_8c_source.html#l00107">last_pixels</a>, <a class="el" href="board_8c_source.html#l00106">last_rates</a>, <a class="el" href="obcp__app_8h_source.html#l00091">Diagnostics::last_save_ms</a>, <a class="el" href="board_8c_source.html#l00109">lcd_bus_ok</a>, <a class="el" href="obcp__app_8h_source.html#l00089">Diagnostics::lcd_errors</a>, <a class="el" href="#a9ccc5b040aa08a73ccfd75ef1860aeb1">obcp_live</a>, <a class="el" href="obcp__gfx_8h_source.html#l00253">Renderer::pixels</a>, <a class="el" href="obcp__app_8h_source.html#l00088">Diagnostics::pixels_per_second</a>, <a class="el" href="pwm__audio_8c_source.html#l00258">pwm_audio_missed()</a>, <a class="el" href="obcp__app_8h_source.html#l00079">Diagnostics::raw_x</a>, <a class="el" href="obcp__app_8h_source.html#l00080">Diagnostics::raw_y</a>, <a class="el" href="board_8c_source.html#l00099">renderer</a>, <a class="el" href="obcp__app_8h_source.html#l00129">App::test_color</a>, <a class="el" href="obcp__app_8h_source.html#l00083">Diagnostics::tft_id</a>, <a class="el" href="obcp__app_8h_source.html#l00117">App::tilt</a>, <a class="el" href="board_8c_source.html#l00100">touch</a>, <a class="el" href="obcp__app_8h_source.html#l00115">App::touch_cal</a>, <a class="el" href="calibration_8c_source.html#l00225">touch_cal_get()</a>, <a class="el" href="obcp__app_8h_source.html#l00092">Diagnostics::touch_controller</a>, <a class="el" href="obcp__app_8h_source.html#l00084">Diagnostics::touch_id</a>, <a class="el" href="obcp__app_8h_source.html#l00094">Diagnostics::touch_ok</a>, <a class="el" href="board_8c_source.html#l00410">update_rates()</a>, <a class="el" href="obcp__app_8h_source.html#l00085">Diagnostics::x</a>, <a class="el" href="obcp__app_8h_source.html#l00086">Diagnostics::y</a>, <a class="el" href="obcp__app_8h_source.html#l00081">Diagnostics::z1</a>, et <a class="el" href="obcp__app_8h_source.html#l00082">Diagnostics::z2</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="board_8c_aa374818c83b018c35bbf18405fced6df_cgraph.svg" width="471" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a05b5a24325d46227633053ca49de6234" name="a05b5a24325d46227633053ca49de6234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b5a24325d46227633053ca49de6234">&#9670;&#160;</a></span>app</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structApp.html">App</a> app</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>État applicatif unique de la carte, conservé entre toutes les itérations. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00098">98</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, <a class="el" href="board_8c_source.html#l00397">sample_button()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="abf30501ad3b2050816909f64c69c19c3" name="abf30501ad3b2050816909f64c69c19c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf30501ad3b2050816909f64c69c19c3">&#9670;&#160;</a></span>boot_touch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchBoot.html">TouchBoot</a> boot_touch</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mémoire du geste résistif de secours au démarrage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00104">104</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a55ee34bb3d5221a19622871f04c24023" name="a55ee34bb3d5221a19622871f04c24023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ee34bb3d5221a19622871f04c24023">&#9670;&#160;</a></span>button</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structButtonState.html">ButtonState</a> button</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>État d'anti-rebond du bouton PC13. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00103">103</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+</div>
+</div>
+<a id="adca3180dae18def6448856795fa6d87d" name="adca3180dae18def6448856795fa6d87d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca3180dae18def6448856795fa6d87d">&#9670;&#160;</a></span>flash</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structStorage.html">Storage</a> flash</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callbacks du port de flash interne validé au démarrage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00105">105</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+
+</div>
+</div>
+<a id="ac653746418ffb9fd14548c6387924ae3" name="ac653746418ffb9fd14548c6387924ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac653746418ffb9fd14548c6387924ae3">&#9670;&#160;</a></span>last_diag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_diag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick du dernier rafraîchissement des valeurs de diagnostic. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00106">106</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+
+</div>
+</div>
+<a id="a4913fcf2b97778649e14ad6a73a7fa8b" name="a4913fcf2b97778649e14ad6a73a7fa8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4913fcf2b97778649e14ad6a73a7fa8b">&#9670;&#160;</a></span>last_flash_job</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_flash_job</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick de début d'attente du message avant une opération flash. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00106">106</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+
+</div>
+</div>
+<a id="ae52468b472ef00ed4b7fc46848c0489c" name="ae52468b472ef00ed4b7fc46848c0489c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52468b472ef00ed4b7fc46848c0489c">&#9670;&#160;</a></span>last_frames</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_frames</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nombre de lots au début de la fenêtre de débit. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00107">107</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a0994f080b4535ab197d09f05c86fd2aa" name="a0994f080b4535ab197d09f05c86fd2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0994f080b4535ab197d09f05c86fd2aa">&#9670;&#160;</a></span>last_game</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_game</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Base de temps du prochain pas fixe de simulation. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00106">106</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>.</p>
+
+</div>
+</div>
+<a id="a38395f2ee5ad1a22f09001013aa2faf8" name="a38395f2ee5ad1a22f09001013aa2faf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38395f2ee5ad1a22f09001013aa2faf8">&#9670;&#160;</a></span>last_pixels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_pixels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nombre de pixels au début de la fenêtre de débit. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00107">107</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="aed2b155eb0456ac344179b2e7a69e364" name="aed2b155eb0456ac344179b2e7a69e364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed2b155eb0456ac344179b2e7a69e364">&#9670;&#160;</a></span>last_rates</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_rates</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick du début de la fenêtre de calcul des débits. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00106">106</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a87a32aa2400084d7366f1003f3507017" name="a87a32aa2400084d7366f1003f3507017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a32aa2400084d7366f1003f3507017">&#9670;&#160;</a></span>last_sample</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_sample</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick du dernier échantillonnage de l'accéléromètre. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00106">106</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>.</p>
+
+</div>
+</div>
+<a id="a1b6c693f0bc1c8c371e5d0ed818868ec" name="a1b6c693f0bc1c8c371e5d0ed818868ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6c693f0bc1c8c371e5d0ed818868ec">&#9670;&#160;</a></span>last_touch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_touch</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick du dernier départ de lecture tactile. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00107">107</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a1990162517dd91b19bfd8b17730cc46e" name="a1990162517dd91b19bfd8b17730cc46e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1990162517dd91b19bfd8b17730cc46e">&#9670;&#160;</a></span>last_touch_probe</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t last_touch_probe</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick de la dernière tentative de reconnaissance tactile. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00107">107</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="abe7bd755954fe3756770875cbc43e593" name="abe7bd755954fe3756770875cbc43e593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7bd755954fe3756770875cbc43e593">&#9670;&#160;</a></span>lcd_bus_ok</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcd_bus_ok</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true si les commandes d'initialisation TFT ont été transmises. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00109">109</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a545c6ab5161b7d38a5ff9fe86105f1c7" name="a545c6ab5161b7d38a5ff9fe86105f1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545c6ab5161b7d38a5ff9fe86105f1c7">&#9670;&#160;</a></span>led_duration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t led_duration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Durée de l'impulsion en millisecondes. Zéro lorsque la LED est au repos. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00111">111</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, et <a class="el" href="board_8c_source.html#l00164">led_update()</a>.</p>
+
+</div>
+</div>
+<a id="a7e516f8e94e7ece92b77933faecf730b" name="a7e516f8e94e7ece92b77933faecf730b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e516f8e94e7ece92b77933faecf730b">&#9670;&#160;</a></span>led_since</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t led_since</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tick de début de l'impulsion de LED courante. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00110">110</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00149">led_signal()</a>, et <a class="el" href="board_8c_source.html#l00164">led_update()</a>.</p>
+
+</div>
+</div>
+<a id="a9ccc5b040aa08a73ccfd75ef1860aeb1" name="a9ccc5b040aa08a73ccfd75ef1860aeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ccc5b040aa08a73ccfd75ef1860aeb1">&#9670;&#160;</a></span>obcp_live</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile struct <a class="el" href="struct_0fstruct_0e_8obcp__live.html">[struct].obcp_live</a> obcp_live</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vue volatile du diagnostic pour Live Expressions dans CubeIDE. </p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00364">sample_inputs()</a>, <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a96120bdea31dc797b1f3acbb8cf5a322" name="a96120bdea31dc797b1f3acbb8cf5a322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96120bdea31dc797b1f3acbb8cf5a322">&#9670;&#160;</a></span>renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRenderer.html">Renderer</a> renderer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tampon et progression du moteur d'affichage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00099">99</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00454">obcp_task()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="a98ce6a4462819176d40a502de4ebd5ae" name="a98ce6a4462819176d40a502de4ebd5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ce6a4462819176d40a502de4ebd5ae">&#9670;&#160;</a></span>touch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchState.html">TouchState</a> touch</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dernier contact converti pour produire les événements tactiles. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00100">100</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>, et <a class="el" href="board_8c_source.html#l00410">update_rates()</a>.</p>
+
+</div>
+</div>
+<a id="ae1b7bcaec7122dfd6d68dce35cc5a6e1" name="ae1b7bcaec7122dfd6d68dce35cc5a6e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b7bcaec7122dfd6d68dce35cc5a6e1">&#9670;&#160;</a></span>touch_device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTouchDevice.html">TouchDevice</a> touch_device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Type et identifiant du contrôleur présent. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00101">101</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00225">obcp_start()</a>, <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="ad8d37af05cf65c579bd9882e20bdee37" name="ad8d37af05cf65c579bd9882e20bdee37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d37af05cf65c579bd9882e20bdee37">&#9670;&#160;</a></span>touch_failures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t touch_failures</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nombre d'erreurs tactiles consécutives, seuil de reprise à trois. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00108">108</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="a53d9eb57cde11a38c6ea465ea9da38bb" name="a53d9eb57cde11a38c6ea465ea9da38bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d9eb57cde11a38c6ea465ea9da38bb">&#9670;&#160;</a></span>touch_filter_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structResistiveFilter.html">ResistiveFilter</a> touch_filter_state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Historique de médiane et de confirmation du résistif. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00102">102</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00182">probe_touch()</a>, et <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="af80cdb0489221f873a8cc2f170cb3372" name="af80cdb0489221f873a8cc2f170cb3372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80cdb0489221f873a8cc2f170cb3372">&#9670;&#160;</a></span>touch_sampling</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool touch_sampling</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true quand une acquisition tactile doit continuer avant le prochain départ périodique. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00109">109</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+<a id="af3ace44989806644449bf0b529cd39e1" name="af3ace44989806644449bf0b529cd39e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ace44989806644449bf0b529cd39e1">&#9670;&#160;</a></span>touch_wait_release</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool touch_wait_release</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true si le geste de calibrage ou d'accueil doit être relâché avant l'usage normal. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="board_8c_source.html#l00109">109</a> du fichier <a class="el" href="board_8c_source.html">board.c</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="board_8c_source.html#l00266">sample_touch()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="board_8c.html">board.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

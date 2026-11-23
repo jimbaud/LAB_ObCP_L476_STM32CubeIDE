@@ -1,0 +1,9 @@
+<map id="read_regs" name="read_regs">
+<area shape="rect" id="Node000001" title="Lire une plage de registres FT62xx." alt="" coords="5,29,92,55"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="140,29,227,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,39,126,39,126,45,92,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="160,30,156,21,158,11,168,5,183,3,202,6,210,14,206,18,199,11,183,8,170,10,163,14,161,20,165,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="275,29,373,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="227,39,261,39,261,45,227,45"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="300,30,295,21,298,11,308,5,324,3,343,6,352,15,348,18,341,11,324,8,310,10,302,15,301,20,305,28"/>
+</map>

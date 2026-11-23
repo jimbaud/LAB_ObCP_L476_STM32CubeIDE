@@ -1,0 +1,20 @@
+<map id="lcd_init" name="lcd_init">
+<area shape="rect" id="Node000001" title="Initialiser le TFT en paysage RGB565." alt="" coords="5,67,75,92"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="18,68,14,58,16,49,25,42,40,40,57,43,65,52,61,55,55,48,40,45,27,47,21,52,19,58,23,65"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#a03e2b7f6c8de9f421c0fcf7639646eb6" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="123,29,209,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,67,109,56,110,61,76,72"/>
+<area shape="rect" id="Node000005" href="$ili9341_8c.html#a87da3a1b604d0e0838af1788c69a313c" title="Lire le code du contrôleur TFT à une fréquence réduite." alt="" coords="131,103,201,128"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="76,87,118,99,117,104,74,92"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="144,30,140,21,142,11,151,5,166,3,183,6,191,14,187,18,181,11,166,8,153,10,147,14,145,20,149,28"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#ae22b3a371df97ab3f610d8ef2c2e5835" title="Émettre une commande en plaçant D/C à zéro." alt="" coords="257,52,388,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,52,244,60,243,65,201,57"/>
+<area shape="rect" id="Node000004" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="436,52,523,77"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="201,27,257,13,323,4,352,5,389,13,422,25,451,42,448,46,419,30,387,18,352,11,323,9,258,18,203,32"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="287,55,223,44,223,39,288,49"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="297,53,291,44,294,34,305,28,323,25,344,29,353,37,349,41,342,34,323,31,307,33,298,37,296,43,301,51"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="388,62,422,62,422,67,388,67"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="453,53,448,44,451,34,462,28,479,25,501,29,510,37,506,41,498,34,479,31,463,33,455,37,453,43,458,51"/>
+<area shape="poly" id="edge11_Node000005_Node000003" title=" " alt="" coords="201,102,269,79,270,84,202,107"/>
+<area shape="poly" id="edge13_Node000005_Node000004" title=" " alt="" coords="201,110,286,103,387,87,424,79,425,84,389,93,287,108,202,116"/>
+<area shape="poly" id="edge12_Node000005_Node000005" title=" " alt="" coords="144,104,140,94,142,85,151,78,166,76,183,79,191,88,187,91,181,84,166,81,153,83,147,88,145,94,149,101"/>
+</map>

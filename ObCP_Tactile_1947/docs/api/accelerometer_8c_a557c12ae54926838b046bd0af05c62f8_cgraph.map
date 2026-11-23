@@ -1,0 +1,18 @@
+<map id="accel_init" name="accel_init">
+<area shape="rect" id="Node000001" title="Reconnaître et configurer le composant connecté." alt="" coords="5,65,89,91"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="21,67,16,57,19,47,30,41,47,39,69,42,78,51,74,55,66,47,47,44,31,46,23,51,21,56,26,64"/>
+<area shape="rect" id="Node000002" href="$accelerometer_8c.html#a3be4e858030293167720c4d5c4a31379" title="Lire de un à six registres consécutifs." alt="" coords="316,29,403,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="89,70,137,65,302,46,302,51,138,70,90,76"/>
+<area shape="rect" id="Node000004" href="$accelerometer_8c.html#af33257ddf7b9089db27d39b4cf0f926b" title="Écrire un réglage et vérifier sa relecture." alt="" coords="137,103,268,128"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="90,85,137,97,136,102,89,91"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="336,30,331,21,333,11,343,5,359,3,379,6,387,15,383,18,376,11,359,8,345,10,338,15,336,20,340,28"/>
+<area shape="rect" id="Node000003" href="$accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110" title="Échanger un message SPI complet avec U4." alt="" coords="451,67,549,92"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="404,51,439,60,438,66,402,56"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="476,68,471,58,474,49,484,42,500,40,519,44,528,52,524,56,517,48,500,45,486,47,478,52,477,58,481,65"/>
+<area shape="poly" id="edge7_Node000004_Node000002" title=" " alt="" coords="230,100,317,58,320,63,232,105"/>
+<area shape="poly" id="edge8_Node000004_Node000004" title=" " alt="" coords="177,104,171,94,174,85,185,78,203,76,224,79,233,88,229,92,222,84,203,81,187,83,178,88,176,94,181,101"/>
+<area shape="rect" id="Node000005" href="$accelerometer_8c.html#a87d3221052aacacfe425efbb3786c986" title="Écrire un registre de l&#39;accéléromètre." alt="" coords="318,103,401,128"/>
+<area shape="poly" id="edge9_Node000004_Node000005" title=" " alt="" coords="268,113,304,113,304,118,268,118"/>
+<area shape="poly" id="edge10_Node000005_Node000003" title=" " alt="" coords="400,102,436,93,438,98,402,107"/>
+<area shape="poly" id="edge11_Node000005_Node000005" title=" " alt="" coords="336,104,331,94,333,85,343,78,359,76,379,80,387,88,383,92,376,84,359,81,345,83,338,88,336,94,340,101"/>
+</map>

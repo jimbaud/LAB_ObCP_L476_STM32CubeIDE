@@ -1,0 +1,28 @@
+<map id="paint_segment" name="paint_segment">
+<area shape="rect" id="Node000001" title="Relier deux relevés tactiles par un trait continu." alt="" coords="5,104,124,129"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="36,105,30,96,33,86,45,80,65,77,88,81,98,89,95,93,86,86,65,83,47,85,37,89,35,95,41,102"/>
+<area shape="rect" id="Node000002" href="$paint_8c.html#af1e2abdc3234999ad3bbd2b54c756a78" title="Déposer un disque de crayon ou de gomme." alt="" coords="214,67,261,92"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,101,200,85,201,90,125,107"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="473,29,583,55"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="75,102,114,63,141,43,171,28,209,17,248,10,327,7,402,13,464,24,463,29,401,18,327,12,249,15,210,22,173,32,144,47,117,67,79,105"/>
+<area shape="rect" id="Node000005" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="172,140,303,165"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="125,126,163,135,162,140,123,132"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="192,213,283,239"/>
+<area shape="poly" id="edge15_Node000001_Node000008" title=" " alt="" coords="87,127,206,204,204,208,84,132"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="212,68,207,58,210,49,220,42,237,40,258,44,267,52,263,56,255,48,237,45,222,47,214,52,212,58,217,65"/>
+<area shape="rect" id="Node000003" href="$paint_8c.html#a6fdc2feb9ee946dba47aff269224180c" title="Modifier le demi&#45;octet d&#39;un seul pixel." alt="" coords="365,67,411,92"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="261,77,351,77,351,82,261,82"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="364,68,359,58,362,49,372,42,388,40,407,44,416,52,412,56,405,48,388,45,374,47,366,52,365,58,369,65"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="411,71,466,56,467,61,412,76"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="504,30,499,21,502,11,512,5,528,3,547,6,556,15,552,18,545,11,528,8,514,10,506,15,505,20,509,28"/>
+<area shape="poly" id="edge14_Node000005_Node000005" title=" " alt="" coords="212,141,207,132,210,122,220,116,237,113,258,117,267,125,263,129,255,122,237,119,222,121,214,125,212,131,217,139"/>
+<area shape="rect" id="Node000006" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="351,140,425,165"/>
+<area shape="poly" id="edge10_Node000005_Node000006" title=" " alt="" coords="303,150,337,150,337,155,303,155"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="353,213,423,239"/>
+<area shape="poly" id="edge12_Node000005_Node000007" title=" " alt="" coords="275,163,304,176,356,204,354,209,301,180,273,168"/>
+<area shape="poly" id="edge11_Node000006_Node000006" title=" " alt="" coords="364,141,359,132,362,122,372,116,388,113,407,117,416,125,412,129,405,122,388,119,374,121,366,125,365,131,369,139"/>
+<area shape="poly" id="edge13_Node000007_Node000007" title=" " alt="" coords="364,214,359,205,362,195,372,189,388,187,407,190,416,199,412,202,405,195,388,192,374,194,366,199,365,204,369,212"/>
+<area shape="poly" id="edge16_Node000008_Node000006" title=" " alt="" coords="263,211,347,169,350,174,266,216"/>
+<area shape="poly" id="edge17_Node000008_Node000007" title=" " alt="" coords="283,223,339,223,339,229,283,229"/>
+<area shape="poly" id="edge18_Node000008_Node000008" title=" " alt="" coords="212,215,207,205,210,195,220,189,237,187,258,190,267,199,263,203,255,195,237,192,222,194,214,199,212,204,217,212"/>
+</map>

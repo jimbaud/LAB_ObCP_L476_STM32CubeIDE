@@ -1,0 +1,43 @@
+<map id="probe_touch" name="probe_touch">
+<area shape="rect" id="Node000001" title="Actualiser la reconnaissance du tactile." alt="" coords="5,323,108,348"/>
+<area shape="poly" id="edge14_Node000001_Node000001" title=" " alt="" coords="30,324,24,314,27,305,38,298,57,296,79,299,88,308,85,312,76,304,57,301,40,303,31,308,29,314,34,321"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a0111373e9f54795946a9fd5e7af8424b" title="Effectuer une transition vers un autre écran." alt="" coords="174,213,259,239"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,320,184,245,187,249,78,325"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="341,29,443,55"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="61,321,95,255,122,213,154,175,196,136,233,110,324,64,338,57,340,62,326,68,235,115,199,140,158,178,126,217,100,258,66,324"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#a0aead2755c4df2b3a5c7729eca28441e" title="Consulter le profil valide d&#39;un contrôleur." alt="" coords="336,323,448,348"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="108,333,322,333,322,338,108,338"/>
+<area shape="rect" id="Node000014" href="$touch__port_8c.html#affeee49fda294c4b3ad35394afd3d252" title="Reconnaître le contrôleur tactile présent." alt="" coords="165,421,268,447"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="80,346,185,412,182,416,77,350"/>
+<area shape="rect" id="Node000031" href="$input_8c.html#a4a62d2bd3618bf965844b00af3b4141c" title="Classer le type de tactile." alt="" coords="156,495,277,520"/>
+<area shape="poly" id="edge27_Node000001_Node000031" title=" " alt="" coords="69,347,106,396,158,456,189,484,186,488,154,460,102,400,65,350"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="190,215,184,205,187,195,198,189,217,187,239,190,248,199,245,203,236,195,217,192,200,194,191,199,189,204,194,212"/>
+<area shape="rect" id="Node000003" href="$audio_8c.html#afe77d8e76f704c2d2832a8291a5b3c80" title="Arrêter le séquenceur, le test et les voix." alt="" coords="345,103,439,128"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="229,211,270,175,324,137,336,131,338,136,327,142,273,179,233,215"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="221,212,257,143,287,101,324,64,331,59,334,63,327,68,291,104,261,145,226,214"/>
+<area shape="rect" id="Node000005" href="$app_8c.html#a58d1a809e789db125d4932cef4de155d" title="Charger un niveau dans le moteur du jeu actif." alt="" coords="325,176,459,201"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="259,214,318,202,319,207,260,220"/>
+<area shape="poly" id="edge9_Node000002_Node000011" title=" " alt="" coords="240,237,361,313,358,318,237,241"/>
+<area shape="rect" id="Node000013" href="$calibration_8c.html#a3fe9be5a59e5451f5356831d3bef4065" title="Commencer une session en attendant le relâchement." alt="" coords="331,249,453,275"/>
+<area shape="poly" id="edge11_Node000002_Node000013" title=" " alt="" coords="260,232,318,244,317,249,259,237"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="363,104,357,94,360,85,372,78,392,76,416,80,426,88,422,92,414,84,392,81,374,83,364,88,362,94,368,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="363,31,357,21,360,11,372,5,392,3,416,6,426,15,422,19,414,11,392,8,374,10,364,15,362,20,368,28"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="363,177,357,168,360,158,372,152,392,149,416,153,426,162,422,166,414,158,392,155,374,157,364,161,362,167,368,174"/>
+<area shape="poly" id="edge10_Node000011_Node000011" title=" " alt="" coords="363,324,357,314,360,305,372,298,392,296,416,300,426,308,422,312,414,304,392,301,374,303,364,308,362,314,368,321"/>
+<area shape="poly" id="edge12_Node000013_Node000013" title=" " alt="" coords="363,251,357,241,360,231,372,225,392,223,416,226,426,235,422,239,414,231,392,228,374,230,364,235,362,240,368,248"/>
+<area shape="poly" id="edge24_Node000014_Node000014" title=" " alt="" coords="190,423,184,413,187,403,198,397,217,395,239,398,248,407,245,411,236,403,217,400,200,402,191,407,189,412,194,420"/>
+<area shape="rect" id="Node000015" href="$ft6206_8c.html#a3a5f95d585500c81e898a25110a58dce" title="Vérifier l&#39;identifiant de famille du tactile capacitif." alt="" coords="339,396,445,421"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="268,424,324,416,325,421,269,429"/>
+<area shape="rect" id="Node000018" href="$ili9341_8c.html#a0d40bfce0038207f484c4112427c3f35" title="Vérifier si SPI1 peut servir le tactile résistif." alt="" coords="507,484,641,509"/>
+<area shape="poly" id="edge19_Node000014_Node000018" title=" " alt="" coords="269,440,494,480,493,485,268,445"/>
+<area shape="rect" id="Node000019" href="$stmpe610_8c.html#a065ad8a07d9276aaa719b079bc9e65f9" title="Reconnaître 0x0811 et configurer le tactile." alt="" coords="327,521,457,547"/>
+<area shape="poly" id="edge21_Node000014_Node000019" title=" " alt="" coords="254,444,279,456,325,483,364,511,361,515,322,488,276,460,252,449"/>
+<area shape="rect" id="Node000025" href="$tsc2007_8c.html#a2433cdb5ff2732267b44ae72cac1086b" title="Tester le protocole de conversion du TSC2007." alt="" coords="333,595,451,620"/>
+<area shape="poly" id="edge25_Node000014_Node000025" title=" " alt="" coords="263,445,279,456,298,481,306,506,312,530,327,556,359,585,356,589,323,560,307,532,301,507,293,484,275,460,260,449"/>
+<area shape="poly" id="edge18_Node000015_Node000015" title=" " alt="" coords="363,397,357,388,360,378,372,372,392,369,416,373,426,382,422,386,414,378,392,375,374,377,364,381,362,387,368,394"/>
+<area shape="poly" id="edge20_Node000018_Node000018" title=" " alt="" coords="544,485,538,476,541,466,553,460,574,457,599,461,609,470,606,474,597,466,574,463,555,465,545,469,543,475,548,482"/>
+<area shape="poly" id="edge22_Node000019_Node000018" title=" " alt="" coords="454,519,498,509,499,515,455,524"/>
+<area shape="poly" id="edge23_Node000019_Node000019" title=" " alt="" coords="363,523,357,513,360,503,372,497,392,495,416,498,426,507,422,511,414,503,392,500,374,502,364,507,362,512,368,520"/>
+<area shape="poly" id="edge26_Node000025_Node000025" title=" " alt="" coords="363,596,357,586,360,577,372,570,392,568,416,572,426,580,422,584,414,576,392,573,374,575,364,580,362,586,368,593"/>
+<area shape="poly" id="edge28_Node000031_Node000031" title=" " alt="" coords="190,496,184,486,187,477,198,470,217,468,239,471,248,480,245,484,236,476,217,473,200,475,191,480,189,486,194,493"/>
+</map>

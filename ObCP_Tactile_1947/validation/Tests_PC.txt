@@ -1,0 +1,23 @@
+mkdir -p ../build/host
+cc -std=c11 -pedantic-errors -Wall -Wextra -Werror -Wshadow -g -O1 -I../Core/Inc -fsanitize=address,undefined -fno-omit-frame-pointer -no-pie test_obcp.c ../Core/Src/obcp/app.c ../Core/Src/obcp/gfx.c ../Core/Src/obcp/input.c ../Core/Src/obcp/calibration.c ../Core/Src/obcp/paint.c ../Core/Src/obcp/maze.c ../Core/Src/obcp/breakout.c ../Core/Src/obcp/race.c ../Core/Src/obcp/audio.c ../Core/Src/obcp/storage.c ../Core/Src/obcp/logo.c -o ../build/host/test_obcp
+mkdir -p ../build/host
+cc -Imock_hal -std=c11 -pedantic-errors -Wall -Wextra -Werror -Wshadow -g -O1 -I../Core/Inc -fsanitize=address,undefined -fno-omit-frame-pointer -no-pie test_touch_bus.c ../Core/Src/obcp/touch_port.c ../Core/Src/obcp/ft6206.c ../Core/Src/obcp/stmpe610.c ../Core/Src/obcp/tsc2007.c -o ../build/host/test_touch_bus
+ASAN_OPTIONS=detect_leaks=0 ../build/host/test_obcp
+ENTREES transformation tactile, transitions et filtre a 100 Hz
+AXES assistant tactile, 8 reperes, refus diagonale et reprise flash
+SECOURS TACTILE contact au demarrage, appui bref filtre et seuil long
+SW1 rebond, appuis court et long, reset et debordement du tick
+FLASH 2 dessins de 32000 octets, CRC et 15 interruptions injectees
+PARAMETRES accueil 3,2 s, commandes X/Y distinctes et persistance de la reactivite
+DESSIN taille 1 a 19 px, edition RVB, palette par dessin et 8 coupures de migration
+CALIBRAGE axes, appui, controle independant, deux profils et 9 coupures simulees
+JEUX 10 cartes resolubles, progression, commande rapide, briques renforcees, vehicules et BOUM
+DIAGNOSTIC quatre mires RGB565, ouverture et retour via le tactile
+APPLICATIONS navigation, pause, peinture, sauvegarde et rappel du motif 4
+PARCOURS jeux, retour apres defaite, reprise du niveau et progression 1 a 10
+AUDIO 120 BPM et 440 passages montants pour la note en une seconde
+RENDU 25 lots course sur PC, moyenne 2932 pixels par lot, equivalence par bandes
+RENDU accueil, parametres, RVB et animation BOUM identiques en bandes et en image complete
+Recette PC terminee.
+ASAN_OPTIONS=detect_leaks=0 ../build/host/test_touch_bus
+BUS TACTILE FT62xx, STMPE610 modes 0/1, TSC2007, absence, erreur et SPI partage

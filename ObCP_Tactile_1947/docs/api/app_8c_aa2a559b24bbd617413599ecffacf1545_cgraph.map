@@ -1,0 +1,13 @@
+<map id="app_read_calibration" name="app_read_calibration">
+<area shape="rect" id="Node000001" title="Charger les profils des deux tactiles résistifs." alt="" coords="5,67,164,92"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="54,68,47,58,51,48,63,42,85,40,110,44,121,52,118,56,108,48,85,45,65,47,55,52,52,58,58,65"/>
+<area shape="rect" id="Node000002" href="$calibration_8c.html#ae6482abe8b966f9810c72676082a7004" title="Charger et reconstruire les deux profils résistifs." alt="" coords="212,67,331,92"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="164,77,198,77,198,82,164,82"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="244,68,239,58,242,49,253,42,271,40,293,43,303,52,299,56,291,48,271,45,255,47,246,52,244,58,249,65"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a93e975a9edc0e30b07e9fdfaa4391ef2" title="Lire un objet dont la longueur exacte est connue." alt="" coords="379,29,485,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="326,64,365,55,366,60,327,69"/>
+<area shape="rect" id="Node000012" href="$calibration_8c.html#af0194f444b0eb34a49da19199ccccfee" title="Calculer une transformation affine de trois points bruts." alt="" coords="380,103,484,128"/>
+<area shape="poly" id="edge5_Node000002_Node000012" title=" " alt="" coords="329,89,367,98,366,103,328,95"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="405,31,399,21,402,11,414,5,432,3,454,6,463,15,460,19,452,11,432,8,415,10,407,15,405,20,410,28"/>
+<area shape="poly" id="edge6_Node000012_Node000012" title=" " alt="" coords="405,104,399,94,402,85,414,78,432,76,454,79,463,88,460,92,452,84,432,81,415,83,407,88,405,94,410,101"/>
+</map>

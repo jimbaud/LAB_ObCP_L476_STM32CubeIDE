@@ -1,0 +1,6 @@
+ObCP tactile 0.4.1 — compilation ARM Debug
+GNU Tools for STM32 13.3.1
+Commande : make -B -s -j6 DEBUG=1
+<toolchain>/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld: warning: build/Debug/ObCP_Tactile_1947.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+ 108852	    148	  51452	 160452	  272c4	build/Debug/ObCP_Tactile_1947.elf

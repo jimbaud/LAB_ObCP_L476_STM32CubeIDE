@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence de la structure DisplayPort</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('structDisplayPort.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure DisplayPort</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Transport abstrait d’une bande vers un écran.  
+ <a href="#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:a9afc8e173d4f8fe62ddcdca4415f32b2" id="r_a9afc8e173d4f8fe62ddcdca4415f32b2"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#a9afc8e173d4f8fe62ddcdca4415f32b2">context</a></td></tr>
+<tr class="memitem:ac632f1d3f7163c41116646f00dfa8bdd" id="r_ac632f1d3f7163c41116646f00dfa8bdd"><td class="memItemLeft">bool(*)&#160;</td><td class="memItemRight"><a class="el" href="#ac632f1d3f7163c41116646f00dfa8bdd">send</a> (void *<a class="el" href="#a9afc8e173d4f8fe62ddcdca4415f32b2">context</a>, <a class="el" href="structRect.html">Rect</a> r, const uint8_t *data, uint16_t count)</td></tr>
+<tr class="memitem:a2f17ffff748f769bf9960484da31472f" id="r_a2f17ffff748f769bf9960484da31472f"><td class="memItemLeft"><a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a>(*)&#160;</td><td class="memItemRight"><a class="el" href="#a2f17ffff748f769bf9960484da31472f">poll</a> (void *<a class="el" href="#a9afc8e173d4f8fe62ddcdca4415f32b2">context</a>)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Transport abstrait d’une bande vers un écran. </p>
+<p><a class="el" href="#ac632f1d3f7163c41116646f00dfa8bdd">send()</a> prend le tampon jusqu’à <a class="el" href="#a2f17ffff748f769bf9960484da31472f">poll()</a> DONE ou ERROR. Le contexte peut pointer vers un pilote ou une simulation PC. Le moteur ne connaît pas la HAL. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__gfx_8h_source.html#l00224">224</a> du fichier <a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des champs</h2>
+<a id="a9afc8e173d4f8fe62ddcdca4415f32b2" name="a9afc8e173d4f8fe62ddcdca4415f32b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9afc8e173d4f8fe62ddcdca4415f32b2">&#9670;&#160;</a></span>context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* DisplayPort::context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Contexte opaque transmis aux deux callbacks. NULL est permis pour le port TFT unique. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__gfx_8h_source.html#l00225">225</a> du fichier <a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>.</p>
+
+</div>
+</div>
+<a id="a2f17ffff748f769bf9960484da31472f" name="a2f17ffff748f769bf9960484da31472f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f17ffff748f769bf9960484da31472f">&#9670;&#160;</a></span>poll</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="obcp__gfx_8h.html#a31a3f1d5162b357dab81b2652a499f3b">TransferState</a>(*) DisplayPort::poll(void *<a class="el" href="#a9afc8e173d4f8fe62ddcdca4415f32b2">context</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback de consultation de l'état du dernier envoi. Il rend BUSY, DONE ou ERROR sans dessiner de pixels. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__gfx_8h_source.html#l00227">227</a> du fichier <a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>.</p>
+
+</div>
+</div>
+<a id="ac632f1d3f7163c41116646f00dfa8bdd" name="ac632f1d3f7163c41116646f00dfa8bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac632f1d3f7163c41116646f00dfa8bdd">&#9670;&#160;</a></span>send</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool(*) DisplayPort::send(void *<a class="el" href="#a9afc8e173d4f8fe62ddcdca4415f32b2">context</a>, <a class="el" href="structRect.html">Rect</a> r, const uint8_t *data, uint16_t count)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback synchrone de départ. true signifie que le transport possède maintenant les données jusqu'à la fin signalée par poll. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="obcp__gfx_8h_source.html#l00226">226</a> du fichier <a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="gfx_8c_source.html#l00365">renderer_task()</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>Core/Inc/<a class="el" href="obcp__gfx_8h_source.html">obcp_gfx.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="structDisplayPort.html">DisplayPort</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

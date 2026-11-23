@@ -1,0 +1,18 @@
+<map id="draw_splash" name="draw_splash">
+<area shape="rect" id="Node000001" title="Composer l&#39;accueil SUPMICROTECH." alt="" coords="5,80,108,105"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="31,81,25,72,28,62,39,56,57,53,78,57,87,65,83,69,76,62,57,59,41,61,32,65,30,71,35,79"/>
+<area shape="rect" id="Node000002" href="$app_8c.html#a82f182070bba784eb7f341aeb2efe703" title="Centrer une chaîne dans la largeur du TFT." alt="" coords="156,29,268,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,77,158,57,160,62,97,82"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a97927b0ab32c9b7c95adc54a9c743f7f" title="Remplir la partie visible d&#39;un rectangle." alt="" coords="453,80,520,105"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="108,90,439,90,439,95,108,95"/>
+<area shape="rect" id="Node000011" href="$logo_8c.html#a7449d4b827d6385f4c2dae163a3290dd" title="Décompresser les lignes visibles du logo dans une bande." alt="" coords="316,155,405,180"/>
+<area shape="poly" id="edge9_Node000001_Node000011" title=" " alt="" coords="109,102,303,151,302,156,107,108"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="187,31,182,21,185,11,195,5,212,3,232,6,241,15,237,18,230,11,212,8,197,10,189,15,187,20,192,28"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a6b5b2c056e34384c60772bb7d2c1bb50" title="Dessiner une chaîne avec une police de cinq par sept pixels." alt="" coords="323,29,399,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="268,39,309,39,309,45,268,45"/>
+<area shape="poly" id="edge6_Node000003_Node000003" title=" " alt="" coords="339,30,335,21,337,11,346,5,361,3,378,6,386,14,382,18,375,11,361,8,348,10,341,14,340,20,344,28"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="394,52,443,72,441,77,392,57"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="465,81,461,72,463,62,472,56,487,53,504,57,512,65,508,69,501,61,487,59,474,61,467,65,466,71,470,79"/>
+<area shape="poly" id="edge10_Node000011_Node000004" title=" " alt="" coords="382,152,451,110,454,115,385,157"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="339,156,335,146,337,137,346,130,361,128,378,131,386,140,382,143,375,136,361,133,348,135,341,140,340,146,344,153"/>
+</map>

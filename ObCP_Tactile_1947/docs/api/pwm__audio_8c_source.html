@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Src/obcp/pwm_audio.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('pwm__audio_8c_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">pwm_audio.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="pwm__audio_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file pwm_audio.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Transport des rapports cycliques par TIM1 et DMA circulaire.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_audio</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Deux demi-tampons de 256 comparaisons alternent sur DMA1 canal 6. Les interruptions</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * comptent les moitiés consommées. La synthèse reste dans la boucle principale et passe</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * par staging avant une copie protégée vers la moitié libre.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/** @var ring</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Anneau DMA de deux fois 256 comparaisons uint16_t.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/** @var staging</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @brief Demi-bloc de synthèse préparé avant sa copie dans ring.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/** @var epoch</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @brief Compteur volatile de moitiés consommées, incrémenté par les callbacks DMA.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/** @var dma_error</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @brief Erreur volatile signalée en interruption et traitée par la boucle principale.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/** @var served</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @brief Dernière valeur de epoch dont la moitié libre a été traitée.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/** @var missed</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @brief Nombre cumulé d&#39;échéances et incidents audio.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/** @var running</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @brief true si le DMA et la sortie complémentaire du timer fonctionnent.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/** @var failed</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @brief true si le démarrage doit rester suspendu jusqu&#39;à une nouvelle demande audio.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__pwm_8h.html">obcp_pwm.h</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;tim.h&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/** @brief Constantes privées de ce module, avec leurs unités. */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">   47</a></span>    <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a> = 256, <span class="comment">/**&lt; 256 échantillons par moitié, soit 16,384 ms à 15 625 Hz. */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">   48</a></span>    <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">COPY_GUARD</a> = 8, <span class="comment">/**&lt; Marge minimale de huit échantillons avant la reprise DMA. */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">   50</a></span><span class="keyword">static</span> uint16_t <a class="code hl_variable" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">ring</a>[2 * <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">   51</a></span><span class="keyword">static</span> uint16_t <a class="code hl_variable" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">staging</a>[<a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>];</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">   52</a></span><span class="keyword">static</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">   53</a></span><span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">   54</a></span><span class="keyword">static</span> uint32_t <a class="code hl_variable" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a>, <a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">   55</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a>, <a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @brief Retrouver le handle DMA associé aux mises à jour de TIM1.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * La liaison hdma de TIM1 est préparée par CubeMX. Ce handle porte aussi les callbacks de</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * demi-transfert et de fin de transfert.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @return Pointeur HAL du DMA TIM1_UP, éventuellement NULL avant configuration.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">   64</a></span><span class="keyword">static</span> DMA_HandleTypeDef *<a class="code hl_function" href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">dma</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> htim1.hdma[TIM_DMA_ID_UPDATE];</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * @brief Placer PB1 à zéro en sortie GPIO.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * Précharge le niveau bas avant de choisir le mode GPIO. Ce chemin est utilisé au repos et</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * avant l&#39;arrêt du transport.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0">   75</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0">drive_low</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    GPIO_InitTypeDef gpio = {0};</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    HAL_GPIO_WritePin(PWM_MOTOR_GPIO_Port, PWM_MOTOR_Pin, GPIO_PIN_RESET);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    gpio.Pin = PWM_MOTOR_Pin;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    gpio.Mode = GPIO_MODE_OUTPUT_PP;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    gpio.Speed = GPIO_SPEED_FREQ_LOW;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    HAL_GPIO_Init(PWM_MOTOR_GPIO_Port, &amp;gpio);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> * @brief Relier PB1 à la sortie complémentaire TIM1_CH3N.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * Le niveau PWM vient ensuite du timer et de son registre CCR3. Le changement de fonction</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * alternative est réalisé une fois le transport préparé.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a9c4a4db95fad944941ab93f8e96ec11d">   91</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pwm__audio_8c.html#a9c4a4db95fad944941ab93f8e96ec11d">connect_timer</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    GPIO_InitTypeDef gpio = {0};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    gpio.Pin = PWM_MOTOR_Pin;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    gpio.Mode = GPIO_MODE_AF_PP;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    gpio.Speed = GPIO_SPEED_FREQ_LOW;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    gpio.Alternate = GPIO_AF1_TIM1;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    HAL_GPIO_Init(PWM_MOTOR_GPIO_Port, &amp;gpio);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * Préparer l&#39;état de repos de la sortie PWM.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * L&#39;initialisation démarre avec PB1 en GPIO bas. Le timer et le DMA seront lancés</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * seulement quand l&#39;application demandera de l&#39;audio.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="obcp__pwm_8h.html#abd53303a0a6c08e47b71a75b3b03ac58">  107</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__pwm_8h.html#abd53303a0a6c08e47b71a75b3b03ac58">pwm_audio_init</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0">drive_low</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @brief Signaler une demi-zone consommée par le DMA.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * Callback d&#39;interruption très court. L&#39;incrément de epoch permet à la boucle principale</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> * de savoir quelle moitié elle peut préparer. Aucune synthèse n&#39;est faite ici.</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * @param[in,out] handle Handle HAL du canal DMA à l’origine du callback. Pointeur valide.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @note Contexte interruption. Garder ce traitement court et sans opération flash.</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997">  120</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997">half_done</a>(DMA_HandleTypeDef *handle)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    (void)handle;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    ++<a class="code hl_variable" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"></span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> * @brief Mémoriser une erreur de transfert audio.</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> * Le callback place un indicateur volatile. La tâche principale arrêtera ensuite le</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * transport et comptabilisera l&#39;erreur.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment"> * @param[in,out] handle Handle HAL du canal DMA à l’origine du callback. Pointeur valide.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"> * @note Contexte interruption. Garder ce traitement court et sans opération flash.</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a0bd95b14fa116f314b033e2ced0abd61">  134</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pwm__audio_8c.html#a0bd95b14fa116f314b033e2ced0abd61">dma_fault</a>(DMA_HandleTypeDef *handle)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    (void)handle;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"></span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> * @brief Préparer et lancer le timer avec son anneau circulaire.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"> * Vérifie ARR et RCR, remplit l&#39;anneau au centre de la PWM, branche les callbacks, démarre</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"> * le DMA puis la sortie complémentaire et sa requête de mise à jour.</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"> * @return true si les démarrages DMA et timer ont réussi.</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc">  147</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc">start</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    DMA_HandleTypeDef *handle = <a class="code hl_function" href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">dma</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (handle == NULL || htim1.Init.Period != 1023U || htim1.Init.RepetitionCounter != 3U) {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a> = 0;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a> = 0;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 2U * <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>; ++i) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <a class="code hl_variable" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">ring</a>[i] = <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">AUDIO_CENTER</a>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">/* Le DMA alterne deux moitiés. Chaque interruption incrémente epoch ; la synthèse reste dans la boucle principale. */</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    handle-&gt;XferHalfCpltCallback = <a class="code hl_function" href="pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997">half_done</a>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    handle-&gt;XferCpltCallback = <a class="code hl_function" href="pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997">half_done</a>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    handle-&gt;XferErrorCallback = <a class="code hl_function" href="pwm__audio_8c.html#a0bd95b14fa116f314b033e2ced0abd61">dma_fault</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    __HAL_TIM_SET_COMPARE(&amp;htim1, TIM_CHANNEL_3, <a class="code hl_enumvalue" href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">AUDIO_CENTER</a>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    __HAL_TIM_SET_COUNTER(&amp;htim1, 0U);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    htim1.Instance-&gt;EGR = TIM_EGR_UG;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    __HAL_TIM_CLEAR_FLAG(&amp;htim1, TIM_FLAG_UPDATE);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">if</span> (HAL_DMA_Start_IT(handle, (uint32_t)(uintptr_t)<a class="code hl_variable" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">ring</a>,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                         (uint32_t)(uintptr_t)&amp;htim1.Instance-&gt;CCR3,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                         2U * <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>) != HAL_OK) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordflow">if</span> (HAL_TIMEx_PWMN_Start(&amp;htim1, TIM_CHANNEL_3) != HAL_OK) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        (void)HAL_DMA_Abort(handle);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_function" href="pwm__audio_8c.html#a9c4a4db95fad944941ab93f8e96ec11d">connect_timer</a>();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    __HAL_TIM_ENABLE_DMA(&amp;htim1, TIM_DMA_UPDATE);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
+</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"></span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment"> * @brief Arrêter le transport et revenir au niveau de repos.</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"> * Déconnecte d&#39;abord PB1, désactive la requête DMA, arrête la sortie PWM puis interrompt</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"> * le DMA. L&#39;état running est remis à false.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2">  187</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2">stop</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>{</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_function" href="pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0">drive_low</a>();</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    __HAL_TIM_DISABLE_DMA(&amp;htim1, TIM_DMA_UPDATE);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    (void)HAL_TIMEx_PWMN_Stop(&amp;htim1, TIM_CHANNEL_3);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    (void)HAL_DMA_Abort(<a class="code hl_function" href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">dma</a>());</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment"> * Produire au bon moment la moitié libre de l&#39;anneau.</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment"> * Compare epoch à served, synthétise dans staging puis relit le compteur DMA. La copie se</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment"> * fait seulement si le DMA utilise toujours l&#39;autre moitié avec une marge de huit</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> * échantillons. Les échéances perdues sont comptées.</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="obcp__pwm_8h.html#abb0b529e4ff7db5826343687e2df5266">  203</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="obcp__pwm_8h.html#abb0b529e4ff7db5826343687e2df5266">pwm_audio_task</a>(<a class="code hl_struct" href="structAudio.html">Audio</a> *audio, <span class="keywordtype">bool</span> needed)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">if</span> (!needed) {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a>) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <a class="code hl_function" href="pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2">stop</a>();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a> &amp;&amp; !<a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a>) {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a> = <a class="code hl_function" href="pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc">start</a>();</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a> = !<a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a>) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            ++<a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a>) {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a>) {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        ++<a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <a class="code hl_function" href="pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2">stop</a>();</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <a class="code hl_variable" href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    uint32_t observed = <a class="code hl_variable" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">if</span> (observed == <a class="code hl_variable" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a>) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a> += observed - <a class="code hl_variable" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a> - 1U;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_variable" href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a> = observed;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">/* Après une fin de première moitié, le DMA lit la seconde : la première est donc la moitié à refaire. La parité suit cette alternance. */</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordtype">unsigned</span> half = (observed &amp; 1U) != 0U ? 0U : 1U;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_function" href="obcp__audio_8h.html#a322e6d421cd69759a8804f60029e20a2">audio_fill</a>(audio, <a class="code hl_variable" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">staging</a>, <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="comment">/* On synthétise dans staging. Avant la copie, vérifier que le DMA</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">     * lit toujours l&#39;autre moitié et qu&#39;il reste assez de temps. */</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    uint32_t left = __HAL_DMA_GET_COUNTER(<a class="code hl_function" href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">dma</a>());</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">bool</span> writable = half == 0U ? left &lt;= HALF_SAMPLES &amp;&amp; left &gt; <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">COPY_GUARD</a></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                                : left &gt; <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a> + <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">COPY_GUARD</a>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="comment">/* Une interruption survenue pendant le calcul invalide notre autorisation. Le contrôle du compteur ajoute une marge avant la copie. */</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a> == observed &amp;&amp; writable) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        memcpy(&amp;<a class="code hl_variable" href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">ring</a>[half * <a class="code hl_enumvalue" href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a>], <a class="code hl_variable" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">staging</a>, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">staging</a>));</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        ++<a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    }</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>}</div>
+</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"> * Consulter le nombre d&#39;échéances ou erreurs audio.</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment"> * Ce compteur sert à qualifier le comportement lorsque l&#39;écran et le tactile sollicitent</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment"> * aussi le processeur.</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="obcp__pwm_8h.html#aa60d391d2311871c1b440c4aaa671516">  258</a></span>uint32_t <a class="code hl_function" href="obcp__pwm_8h.html#aa60d391d2311871c1b440c4aaa671516">pwm_audio_missed</a>(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a>; }</div>
+<div class="ttc" id="aobcp__audio_8h_html_a322e6d421cd69759a8804f60029e20a2"><div class="ttname"><a href="obcp__audio_8h.html#a322e6d421cd69759a8804f60029e20a2">audio_fill</a></div><div class="ttdeci">void audio_fill(Audio *a, uint16_t *dest, size_t samples)</div><div class="ttdoc">Produire un bloc de rapports cycliques pour l&#39;audio.</div><div class="ttdef"><b>Définition</b> <a href="audio_8c_source.html#l00220">audio.c:220</a></div></div>
+<div class="ttc" id="aobcp__audio_8h_html_ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc"><div class="ttname"><a href="obcp__audio_8h.html#ad35565593b2fc3bd9f4ad985994f1019ad3e6704c56a2bd99a448370feb9ef5bc">AUDIO_CENTER</a></div><div class="ttdeci">@ AUDIO_CENTER</div><div class="ttdef"><b>Définition</b> <a href="obcp__audio_8h_source.html#l00027">obcp_audio.h:27</a></div></div>
+<div class="ttc" id="aobcp__pwm_8h_html"><div class="ttname"><a href="obcp__pwm_8h.html">obcp_pwm.h</a></div><div class="ttdoc">Transport des rapports cycliques par TIM1 et DMA circulaire.</div></div>
+<div class="ttc" id="aobcp__pwm_8h_html_aa60d391d2311871c1b440c4aaa671516"><div class="ttname"><a href="obcp__pwm_8h.html#aa60d391d2311871c1b440c4aaa671516">pwm_audio_missed</a></div><div class="ttdeci">uint32_t pwm_audio_missed(void)</div><div class="ttdoc">Consulter le nombre d&#39;échéances ou erreurs audio.</div><div class="ttdef"><b>Définition</b> <a href="#l00258">pwm_audio.c:258</a></div></div>
+<div class="ttc" id="aobcp__pwm_8h_html_abb0b529e4ff7db5826343687e2df5266"><div class="ttname"><a href="obcp__pwm_8h.html#abb0b529e4ff7db5826343687e2df5266">pwm_audio_task</a></div><div class="ttdeci">void pwm_audio_task(Audio *audio, bool needed)</div><div class="ttdoc">Produire au bon moment la moitié libre de l&#39;anneau.</div><div class="ttdef"><b>Définition</b> <a href="#l00203">pwm_audio.c:203</a></div></div>
+<div class="ttc" id="aobcp__pwm_8h_html_abd53303a0a6c08e47b71a75b3b03ac58"><div class="ttname"><a href="obcp__pwm_8h.html#abd53303a0a6c08e47b71a75b3b03ac58">pwm_audio_init</a></div><div class="ttdeci">void pwm_audio_init(void)</div><div class="ttdoc">Préparer l&#39;état de repos de la sortie PWM.</div><div class="ttdef"><b>Définition</b> <a href="#l00107">pwm_audio.c:107</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a0bd95b14fa116f314b033e2ced0abd61"><div class="ttname"><a href="pwm__audio_8c.html#a0bd95b14fa116f314b033e2ced0abd61">dma_fault</a></div><div class="ttdeci">static void dma_fault(DMA_HandleTypeDef *handle)</div><div class="ttdoc">Mémoriser une erreur de transfert audio.</div><div class="ttdef"><b>Définition</b> <a href="#l00134">pwm_audio.c:134</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a0f01b939bb122d6d45bc4c21acdf280d"><div class="ttname"><a href="pwm__audio_8c.html#a0f01b939bb122d6d45bc4c21acdf280d">dma</a></div><div class="ttdeci">static DMA_HandleTypeDef * dma(void)</div><div class="ttdoc">Retrouver le handle DMA associé aux mises à jour de TIM1.</div><div class="ttdef"><b>Définition</b> <a href="#l00064">pwm_audio.c:64</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a1a127f3b18e168dd6cb368dfecb59ea2"><div class="ttname"><a href="pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2">stop</a></div><div class="ttdeci">static void stop(void)</div><div class="ttdoc">Arrêter le transport et revenir au niveau de repos.</div><div class="ttdef"><b>Définition</b> <a href="#l00187">pwm_audio.c:187</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a237473b9d9e8e469d391b6759131ff2d"><div class="ttname"><a href="pwm__audio_8c.html#a237473b9d9e8e469d391b6759131ff2d">served</a></div><div class="ttdeci">static uint32_t served</div><div class="ttdoc">Dernière valeur de epoch dont la moitié libre a été traitée.</div><div class="ttdef"><b>Définition</b> <a href="#l00054">pwm_audio.c:54</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a2a420dbbcabdab6b076d86deba79f6a0"><div class="ttname"><a href="pwm__audio_8c.html#a2a420dbbcabdab6b076d86deba79f6a0">drive_low</a></div><div class="ttdeci">static void drive_low(void)</div><div class="ttdoc">Placer PB1 à zéro en sortie GPIO.</div><div class="ttdef"><b>Définition</b> <a href="#l00075">pwm_audio.c:75</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a2ccff338cee10f95ee6097691d6ccb21"><div class="ttname"><a href="pwm__audio_8c.html#a2ccff338cee10f95ee6097691d6ccb21">dma_error</a></div><div class="ttdeci">static volatile bool dma_error</div><div class="ttdoc">Erreur volatile signalée en interruption et traitée par la boucle principale.</div><div class="ttdef"><b>Définition</b> <a href="#l00053">pwm_audio.c:53</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a3117ca6352519be200106ca971c66acc"><div class="ttname"><a href="pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc">start</a></div><div class="ttdeci">static bool start(void)</div><div class="ttdoc">Préparer et lancer le timer avec son anneau circulaire.</div><div class="ttdef"><b>Définition</b> <a href="#l00147">pwm_audio.c:147</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a33ec7f90aafe42fea66197841d1c9dc1"><div class="ttname"><a href="pwm__audio_8c.html#a33ec7f90aafe42fea66197841d1c9dc1">epoch</a></div><div class="ttdeci">static volatile uint32_t epoch</div><div class="ttdoc">Compteur volatile de moitiés consommées, incrémenté par les callbacks DMA.</div><div class="ttdef"><b>Définition</b> <a href="#l00052">pwm_audio.c:52</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a36f7b6be7108281af77939ceaec42fd6"><div class="ttname"><a href="pwm__audio_8c.html#a36f7b6be7108281af77939ceaec42fd6">running</a></div><div class="ttdeci">static bool running</div><div class="ttdoc">true si le DMA et la sortie complémentaire du timer fonctionnent.</div><div class="ttdef"><b>Définition</b> <a href="#l00055">pwm_audio.c:55</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7"><div class="ttname"><a href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a2e6524b416a9e88edeabfbb12dfc91b7">COPY_GUARD</a></div><div class="ttdeci">@ COPY_GUARD</div><div class="ttdef"><b>Définition</b> <a href="#l00048">pwm_audio.c:48</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295"><div class="ttname"><a href="pwm__audio_8c.html#a48966917a84e698fdb12989417563c51a3fafc38e4fae8897fa5d08065acb8295">HALF_SAMPLES</a></div><div class="ttdeci">@ HALF_SAMPLES</div><div class="ttdef"><b>Définition</b> <a href="#l00047">pwm_audio.c:47</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a53794d9466be19cb9c0b65f87090e237"><div class="ttname"><a href="pwm__audio_8c.html#a53794d9466be19cb9c0b65f87090e237">failed</a></div><div class="ttdeci">static bool failed</div><div class="ttdoc">true si le démarrage doit rester suspendu jusqu&#39;à une nouvelle demande audio.</div><div class="ttdef"><b>Définition</b> <a href="#l00055">pwm_audio.c:55</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a65c507a39c827a48efda9a58dd950bac"><div class="ttname"><a href="pwm__audio_8c.html#a65c507a39c827a48efda9a58dd950bac">missed</a></div><div class="ttdeci">static uint32_t missed</div><div class="ttdoc">Nombre cumulé d&#39;échéances et incidents audio.</div><div class="ttdef"><b>Définition</b> <a href="#l00054">pwm_audio.c:54</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a8b20b697b7b0c98a490ef91e74469075"><div class="ttname"><a href="pwm__audio_8c.html#a8b20b697b7b0c98a490ef91e74469075">ring</a></div><div class="ttdeci">static uint16_t ring[2 *HALF_SAMPLES]</div><div class="ttdoc">Anneau DMA de deux fois 256 comparaisons uint16_t.</div><div class="ttdef"><b>Définition</b> <a href="#l00050">pwm_audio.c:50</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_a9c4a4db95fad944941ab93f8e96ec11d"><div class="ttname"><a href="pwm__audio_8c.html#a9c4a4db95fad944941ab93f8e96ec11d">connect_timer</a></div><div class="ttdeci">static void connect_timer(void)</div><div class="ttdoc">Relier PB1 à la sortie complémentaire TIM1_CH3N.</div><div class="ttdef"><b>Définition</b> <a href="#l00091">pwm_audio.c:91</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_ac0e193dfffcba6c12719bad9eb592cc3"><div class="ttname"><a href="pwm__audio_8c.html#ac0e193dfffcba6c12719bad9eb592cc3">staging</a></div><div class="ttdeci">static uint16_t staging[HALF_SAMPLES]</div><div class="ttdoc">Demi-bloc de synthèse préparé avant sa copie dans ring.</div><div class="ttdef"><b>Définition</b> <a href="#l00051">pwm_audio.c:51</a></div></div>
+<div class="ttc" id="apwm__audio_8c_html_ad5dad959ac49d3ef1422867f98b7f997"><div class="ttname"><a href="pwm__audio_8c.html#ad5dad959ac49d3ef1422867f98b7f997">half_done</a></div><div class="ttdeci">static void half_done(DMA_HandleTypeDef *handle)</div><div class="ttdoc">Signaler une demi-zone consommée par le DMA.</div><div class="ttdef"><b>Définition</b> <a href="#l00120">pwm_audio.c:120</a></div></div>
+<div class="ttc" id="astructAudio_html"><div class="ttname"><a href="structAudio.html">Audio</a></div><div class="ttdoc">Séquenceur et synthèse partagés par la groovebox et le diagnostic.</div><div class="ttdef"><b>Définition</b> <a href="obcp__audio_8h_source.html#l00078">obcp_audio.h:78</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="pwm__audio_8c.html">pwm_audio.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

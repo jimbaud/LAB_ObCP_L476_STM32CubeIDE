@@ -1,0 +1,7 @@
+<map id="Core/Src/obcp/maze.c" name="Core/Src/obcp/maze.c">
+<area shape="rect" id="Node000001" title="Cartes fixes, inertie et collisions du labyrinthe." alt="" coords="5,5,168,31"/>
+<area shape="rect" id="Node000002" href="$obcp__games_8h.html" title="Modèles, niveaux et commandes des trois jeux à inclinaison." alt="" coords="29,79,145,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,31,89,65,84,65,84,31"/>
+<area shape="rect" id="Node000003" href="$obcp__gfx_8h.html" title="Géométrie, primitives RGB565 et rendu par bandes DMA." alt="" coords="40,152,133,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,104,89,138,84,138,84,104"/>
+</map>

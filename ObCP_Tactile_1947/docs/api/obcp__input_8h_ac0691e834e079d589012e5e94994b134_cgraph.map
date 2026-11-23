@@ -1,0 +1,14 @@
+<map id="tilt_sample" name="tilt_sample">
+<area shape="rect" id="Node000001" title="Valider, recentrer et filtrer une mesure XYZ." alt="" coords="5,29,100,55"/>
+<area shape="poly" id="edge8_Node000001_Node000001" title=" " alt="" coords="29,30,24,21,26,11,36,5,53,3,72,6,81,15,77,18,70,11,53,8,38,10,31,15,29,20,33,28"/>
+<area shape="rect" id="Node000002" href="$input_8c.html#a305a6f59b5ab0c60e06ea1a3f53f5084" title="Projeter le filtre brut dans un repère écran choisi." alt="" coords="148,29,240,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,39,134,39,134,45,100,45"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="171,30,166,21,168,11,178,5,194,3,213,6,221,14,217,18,210,11,194,8,180,10,173,15,171,20,175,28"/>
+<area shape="rect" id="Node000003" href="$input_8c.html#ad58bef40c07b526064ef1cd6a24db5ef" title="Borner une commande de jeu." alt="" coords="423,29,557,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,32,288,27,375,27,409,30,409,35,375,33,288,33,241,38"/>
+<area shape="rect" id="Node000004" href="$input_8c.html#ac328c1b75a84505344ea5e697f162547" title="Appliquer la zone morte et mettre une accélération à l&#39;échelle." alt="" coords="288,67,375,92"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="241,52,275,61,274,67,239,57"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="463,31,458,21,461,11,472,5,490,3,512,6,521,15,517,19,509,11,490,8,474,10,465,15,463,20,468,28"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="374,67,421,55,423,61,376,72"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="308,68,303,58,306,49,315,42,331,40,350,43,358,52,354,55,347,48,331,45,317,47,310,52,309,58,313,65"/>
+</map>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile:  Fichier source de Core/Src/obcp/flash_port.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('flash__port_8c_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">flash_port.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="flash__port_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file flash_port.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Adaptation du stockage aux banques et à l’ECC STM32L476.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @ingroup obcp_storage</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Les adresses logiques sont des offsets dans la réserve du linker. La programmation porte</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * sur huit octets alignés. Les opérations physiques sont synchrones et exécutées dans la</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * boucle principale. Le seul chemin d’interruption est le signal ECCD en NMI.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @par Repères de lecture</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Les coordonnées écran sont en pixels. Les durées suffixées ms sont en</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * millisecondes. Les adresses du service de stockage sont des offsets en octets.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/** @def BANK_2_ADDRESS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Début physique de la banque 2 à 0x08080000 sur le L476 de 1 Mio.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/** @var __obcp_storage_start</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @brief Symbole du linker. Son adresse, et non sa valeur, désigne le début de la réserve.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/** @var __obcp_storage_end</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @brief Symbole du linker dont l&#39;adresse est la borne exclusive de la réserve.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/** @var ecc_failed</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @brief Indicateur volatile posé en NMI si une lecture déclenche une erreur ECCD.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__board_8h.html">obcp_board.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="obcp__flash_8h.html">obcp_flash.h</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="flash__port_8c.html#a6d8096588d719f685ccb30d7847e10df">   33</a></span><span class="preprocessor">#define BANK_2_ADDRESS UINT32_C(0x08080000)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="flash__port_8c.html#a00e36cec7a2fd819ab52301534816983">__obcp_storage_end</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">   37</a></span><span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">ecc_failed</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * Vérifier la géométrie réelle avant de modifier la flash.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Contrôle capacité 1 Mio, absence de permutation des banques, pages de 2 Kio et bornes de</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * la réserve. Ces contrôles relient les hypothèses du linker au composant lu.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">   45</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">obcp_flash_ready</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    uintptr_t start = (uintptr_t)&amp;<a class="code hl_variable" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    uintptr_t end = (uintptr_t)&amp;<a class="code hl_variable" href="flash__port_8c.html#a00e36cec7a2fd819ab52301534816983">__obcp_storage_end</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">/* Sur le L476 à 1 Mio, les deux banques font 512 Kio. DUALBANK</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     * concerne les variantes 256/512 Kio. FB_MODE doit rester à zéro. */</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> *(<span class="keyword">const</span> <span class="keyword">volatile</span> uint16_t *)FLASHSIZE_BASE == 1024U &amp;&amp;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>           (SYSCFG-&gt;MEMRMP &amp; SYSCFG_MEMRMP_FB_MODE) == 0U &amp;&amp;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>           FLASH_PAGE_SIZE == <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a> &amp;&amp;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>           start &gt;= <a class="code hl_define" href="flash__port_8c.html#a6d8096588d719f685ccb30d7847e10df">BANK_2_ADDRESS</a> &amp;&amp; end &lt;= UINT32_C(0x08100000) &amp;&amp;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>           end - start == <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">OBCP_STORAGE_BYTES</a> &amp;&amp; start % <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a> == 0U;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * Reconnaître une NMI provoquée par une erreur ECC double.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * Le bit ECCD est acquitté et un indicateur volatile mémorise l&#39;erreur pour la lecture en</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * cours. Les autres causes de NMI restent à traiter par le gestionnaire généré.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="obcp__board_8h.html#ad462f45ad5266ddee98505757ed738d5">   64</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="obcp__board_8h.html#ad462f45ad5266ddee98505757ed738d5">obcp_flash_ecc_nmi</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> ((FLASH-&gt;ECCR &amp; FLASH_ECCR_ECCD) == 0U) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ECCD);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_variable" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">ecc_failed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"></span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * @brief Vérifier une plage d&#39;offsets dans la réserve.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * Le test utilise count inférieur à la taille restante, après le contrôle d&#39;offset. Cette</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * forme évite un débordement de offset + count.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * @param[in] offset Offset en octets depuis le début de la réserve flash.</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * @param[in] count Nombre d’octets de l’opération ou de la transaction.</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * @return true si toute la plage reste dans la réserve.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">   83</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">in_range</a>(uint32_t offset, <span class="keywordtype">size_t</span> count)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> offset &lt;= <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">OBCP_STORAGE_BYTES</a> &amp;&amp; count &lt;= <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">OBCP_STORAGE_BYTES</a> - offset;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"></span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * @brief Lire une plage mémoire et surveiller son ECC.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * Calcule l&#39;adresse à partir du symbole du linker, copie vers le tampon puis consulte</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * l&#39;indicateur NMI. Le contexte opaque du port n&#39;est pas utilisé.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * @param[in] context Contexte opaque transmis sans allocation. Le port physique peut ne pas</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> *   l’utiliser.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * @param[in] offset Offset en octets depuis le début de la réserve flash.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * @param[out] data Tampon de destination valide. Sa capacité est donnée par size, capacity</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> *   ou count.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * @param[in] count Nombre d’octets de l’opération ou de la transaction.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @return true si les bornes et la lecture ECC sont valides.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="flash__port_8c.html#ae211ff08aca7a651392cef7740bc0b1a">  101</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="flash__port_8c.html#ae211ff08aca7a651392cef7740bc0b1a">flash_read</a>(<span class="keywordtype">void</span> *context, uint32_t offset, <span class="keywordtype">void</span> *data, <span class="keywordtype">size_t</span> count)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    (void)context;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">in_range</a>(offset, count)) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_variable" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">ecc_failed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">const</span> <span class="keywordtype">void</span> *source = (<span class="keyword">const</span> <span class="keywordtype">void</span> *)((uintptr_t)&amp;<a class="code hl_variable" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a> + offset);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    memcpy(data, source, count);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> !<a class="code hl_variable" href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">ecc_failed</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"></span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> * @brief Effacer un nombre entier de pages en banque 2.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> * Contrôle géométrie et alignement, déverrouille la flash, convertit l&#39;adresse en numéro</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * de page de banque 2, efface puis reverrouille.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * @param[in] context Contexte opaque transmis sans allocation. Le port physique peut ne pas</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *   l’utiliser.</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * @param[in] offset Offset en octets depuis le début de la réserve flash.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * @param[in] count Nombre d’octets de l’opération ou de la transaction.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * @return true si tous les contrôles et l&#39;effacement réussissent.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="flash__port_8c.html#a882681ca046e05e7ca2acc252f8f6b5d">  124</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="flash__port_8c.html#a882681ca046e05e7ca2acc252f8f6b5d">flash_erase</a>(<span class="keywordtype">void</span> *context, uint32_t offset, uint32_t count)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    (void)context;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">obcp_flash_ready</a>() || !<a class="code hl_function" href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">in_range</a>(offset, count) ||</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        offset % <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a> != 0U || count == 0U || count % <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a> != 0U ||</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        HAL_FLASH_Unlock() != HAL_OK) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    uint32_t addr = (uint32_t)(uintptr_t)&amp;<a class="code hl_variable" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a> + offset;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    FLASH_EraseInitTypeDef params = {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        .TypeErase = FLASH_TYPEERASE_PAGES, .Banks = FLASH_BANK_2,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        .Page = (addr - <a class="code hl_define" href="flash__port_8c.html#a6d8096588d719f685ccb30d7847e10df">BANK_2_ADDRESS</a>) / <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a>,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        .NbPages = count / <a class="code hl_enumvalue" href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    };</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    uint32_t bad_page;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ALL_ERRORS);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    HAL_StatusTypeDef result = HAL_FLASHEx_Erase(&amp;params, &amp;bad_page);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    (void)HAL_FLASH_Lock();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">return</span> result == HAL_OK;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"></span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"> * @brief Programmer exactement un double mot aligné.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> * Copie les huit octets vers un uint64_t local pour respecter l&#39;alignement, effectue la</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment"> * programmation puis reverrouille le contrôleur.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * @param[in] context Contexte opaque transmis sans allocation. Le port physique peut ne pas</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> *   l’utiliser.</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> * @param[in] offset Offset en octets depuis le début de la réserve flash.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * @param[in] bytes Huit octets source du double mot à programmer.</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> * @return true si la programmation HAL réussit.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="flash__port_8c.html#a2f383d10f017226deeb7c96ba5e3a42e">  156</a></span><span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="flash__port_8c.html#a2f383d10f017226deeb7c96ba5e3a42e">flash_program</a>(<span class="keywordtype">void</span> *context, uint32_t offset, <span class="keyword">const</span> uint8_t bytes[8])</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    (void)context;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">obcp_flash_ready</a>() || !<a class="code hl_function" href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">in_range</a>(offset, 8U) || (offset &amp; 7U) != 0U ||</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        HAL_FLASH_Unlock() != HAL_OK) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    uint64_t word;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    memcpy(&amp;word, bytes, <span class="keyword">sizeof</span>(word));</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    uint32_t addr = (uint32_t)(uintptr_t)&amp;<a class="code hl_variable" href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a> + offset;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ALL_ERRORS);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    HAL_StatusTypeDef result = HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addr, word);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    (void)HAL_FLASH_Lock();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">return</span> result == HAL_OK;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>}</div>
+</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> * Construire le port utilisé par storage.c.</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> * Le port contient les trois callbacks synchrones. Un port nul est renvoyé si les</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> * hypothèses de placement ne correspondent pas au composant.</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="obcp__flash_8h.html#a9ea7ac446d51236620575d69d23f9f04">  178</a></span><a class="code hl_struct" href="structStorage.html">Storage</a> <a class="code hl_function" href="obcp__flash_8h.html#a9ea7ac446d51236620575d69d23f9f04">obcp_flash_storage</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>{</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">obcp_flash_ready</a>()) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span> (<a class="code hl_struct" href="structStorage.html">Storage</a>){0};</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">return</span> (<a class="code hl_struct" href="structStorage.html">Storage</a>){NULL, <a class="code hl_function" href="flash__port_8c.html#ae211ff08aca7a651392cef7740bc0b1a">flash_read</a>, <a class="code hl_function" href="flash__port_8c.html#a882681ca046e05e7ca2acc252f8f6b5d">flash_erase</a>, <a class="code hl_function" href="flash__port_8c.html#a2f383d10f017226deeb7c96ba5e3a42e">flash_program</a>};</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
+</div>
+<div class="ttc" id="aflash__port_8c_html_a00e36cec7a2fd819ab52301534816983"><div class="ttname"><a href="flash__port_8c.html#a00e36cec7a2fd819ab52301534816983">__obcp_storage_end</a></div><div class="ttdeci">const uint8_t __obcp_storage_end</div><div class="ttdoc">Symbole du linker dont l&#39;adresse est la borne exclusive de la réserve.</div></div>
+<div class="ttc" id="aflash__port_8c_html_a220949728c6461d14b561b81ac5b1be0"><div class="ttname"><a href="flash__port_8c.html#a220949728c6461d14b561b81ac5b1be0">__obcp_storage_start</a></div><div class="ttdeci">const uint8_t __obcp_storage_start</div><div class="ttdoc">Symbole du linker. Son adresse, et non sa valeur, désigne le début de la réserve.</div></div>
+<div class="ttc" id="aflash__port_8c_html_a22231e51194ff421f3dea5c264252cad"><div class="ttname"><a href="flash__port_8c.html#a22231e51194ff421f3dea5c264252cad">ecc_failed</a></div><div class="ttdeci">static volatile bool ecc_failed</div><div class="ttdoc">Indicateur volatile posé en NMI si une lecture déclenche une erreur ECCD.</div><div class="ttdef"><b>Définition</b> <a href="#l00037">flash_port.c:37</a></div></div>
+<div class="ttc" id="aflash__port_8c_html_a2f383d10f017226deeb7c96ba5e3a42e"><div class="ttname"><a href="flash__port_8c.html#a2f383d10f017226deeb7c96ba5e3a42e">flash_program</a></div><div class="ttdeci">static bool flash_program(void *context, uint32_t offset, const uint8_t bytes[8])</div><div class="ttdoc">Programmer exactement un double mot aligné.</div><div class="ttdef"><b>Définition</b> <a href="#l00156">flash_port.c:156</a></div></div>
+<div class="ttc" id="aflash__port_8c_html_a6d8096588d719f685ccb30d7847e10df"><div class="ttname"><a href="flash__port_8c.html#a6d8096588d719f685ccb30d7847e10df">BANK_2_ADDRESS</a></div><div class="ttdeci">#define BANK_2_ADDRESS</div><div class="ttdoc">Début physique de la banque 2 à 0x08080000 sur le L476 de 1 Mio.</div><div class="ttdef"><b>Définition</b> <a href="#l00033">flash_port.c:33</a></div></div>
+<div class="ttc" id="aflash__port_8c_html_a882681ca046e05e7ca2acc252f8f6b5d"><div class="ttname"><a href="flash__port_8c.html#a882681ca046e05e7ca2acc252f8f6b5d">flash_erase</a></div><div class="ttdeci">static bool flash_erase(void *context, uint32_t offset, uint32_t count)</div><div class="ttdoc">Effacer un nombre entier de pages en banque 2.</div><div class="ttdef"><b>Définition</b> <a href="#l00124">flash_port.c:124</a></div></div>
+<div class="ttc" id="aflash__port_8c_html_ae211ff08aca7a651392cef7740bc0b1a"><div class="ttname"><a href="flash__port_8c.html#ae211ff08aca7a651392cef7740bc0b1a">flash_read</a></div><div class="ttdeci">static bool flash_read(void *context, uint32_t offset, void *data, size_t count)</div><div class="ttdoc">Lire une plage mémoire et surveiller son ECC.</div><div class="ttdef"><b>Définition</b> <a href="#l00101">flash_port.c:101</a></div></div>
+<div class="ttc" id="aflash__port_8c_html_ae31bc42af8010a9aebf2686b629ffeac"><div class="ttname"><a href="flash__port_8c.html#ae31bc42af8010a9aebf2686b629ffeac">in_range</a></div><div class="ttdeci">static bool in_range(uint32_t offset, size_t count)</div><div class="ttdoc">Vérifier une plage d&#39;offsets dans la réserve.</div><div class="ttdef"><b>Définition</b> <a href="#l00083">flash_port.c:83</a></div></div>
+<div class="ttc" id="aobcp__board_8h_html"><div class="ttname"><a href="obcp__board_8h.html">obcp_board.h</a></div><div class="ttdoc">Ordonnancement coopératif et liaison avec la carte réelle.</div></div>
+<div class="ttc" id="aobcp__board_8h_html_ad462f45ad5266ddee98505757ed738d5"><div class="ttname"><a href="obcp__board_8h.html#ad462f45ad5266ddee98505757ed738d5">obcp_flash_ecc_nmi</a></div><div class="ttdeci">bool obcp_flash_ecc_nmi(void)</div><div class="ttdoc">Reconnaître une NMI provoquée par une erreur ECC double.</div><div class="ttdef"><b>Définition</b> <a href="#l00064">flash_port.c:64</a></div></div>
+<div class="ttc" id="aobcp__flash_8h_html"><div class="ttname"><a href="obcp__flash_8h.html">obcp_flash.h</a></div><div class="ttdoc">Adaptation du stockage aux banques et à l’ECC STM32L476.</div></div>
+<div class="ttc" id="aobcp__flash_8h_html_a00f6619a0a7f84cde062ae785b23a141"><div class="ttname"><a href="obcp__flash_8h.html#a00f6619a0a7f84cde062ae785b23a141">obcp_flash_ready</a></div><div class="ttdeci">bool obcp_flash_ready(void)</div><div class="ttdoc">Vérifier la géométrie réelle avant de modifier la flash.</div><div class="ttdef"><b>Définition</b> <a href="#l00045">flash_port.c:45</a></div></div>
+<div class="ttc" id="aobcp__flash_8h_html_a9ea7ac446d51236620575d69d23f9f04"><div class="ttname"><a href="obcp__flash_8h.html#a9ea7ac446d51236620575d69d23f9f04">obcp_flash_storage</a></div><div class="ttdeci">Storage obcp_flash_storage(void)</div><div class="ttdoc">Construire le port utilisé par storage.c.</div><div class="ttdef"><b>Définition</b> <a href="#l00178">flash_port.c:178</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222"><div class="ttname"><a href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a1f5446f7ebe1fd7de7d7748c5e672222">OBCP_STORAGE_BYTES</a></div><div class="ttdeci">@ OBCP_STORAGE_BYTES</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00026">obcp_storage.h:26</a></div></div>
+<div class="ttc" id="aobcp__storage_8h_html_a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3"><div class="ttname"><a href="obcp__storage_8h.html#a63926879f5d46d08a5bc0dace1394100a83741657a2e933c9da792a51c416f5c3">OBCP_FLASH_PAGE</a></div><div class="ttdeci">@ OBCP_FLASH_PAGE</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00025">obcp_storage.h:25</a></div></div>
+<div class="ttc" id="astructStorage_html"><div class="ttname"><a href="structStorage.html">Storage</a></div><div class="ttdoc">Interface physique de stockage injectable dans les tests.</div><div class="ttdef"><b>Définition</b> <a href="obcp__storage_8h_source.html#l00061">obcp_storage.h:61</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="flash__port_8c.html">flash_port.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

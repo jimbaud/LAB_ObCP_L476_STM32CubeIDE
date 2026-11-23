@@ -1,0 +1,5 @@
+<map id="Paint" name="Paint">
+<area shape="rect" id="Node000001" title="Canevas et état des outils de dessin." alt="" coords="25,101,80,127"/>
+<area shape="rect" id="Node000002" href="$structPaintImage.html" title="Format contigu des pixels et métadonnées du dessin." alt="" coords="5,5,100,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,45,55,101,50,101,50,45"/>
+</map>

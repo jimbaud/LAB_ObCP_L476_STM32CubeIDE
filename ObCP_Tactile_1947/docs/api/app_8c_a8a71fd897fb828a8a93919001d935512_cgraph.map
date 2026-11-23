@@ -1,0 +1,19 @@
+<map id="set_notice" name="set_notice">
+<area shape="rect" id="Node000001" title="Préparer un message temporaire pour l&#39;utilisateur." alt="" coords="5,140,95,165"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="25,141,20,132,23,122,33,116,50,113,70,117,79,125,75,129,67,122,50,119,35,121,27,125,26,131,30,139"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="143,140,249,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,150,129,150,129,155,95,155"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="171,141,166,132,169,122,179,116,196,113,216,117,225,125,221,129,213,122,196,119,181,121,173,125,172,131,176,139"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="311,29,414,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="207,138,245,102,296,64,307,58,310,62,299,68,248,106,211,142"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="297,103,428,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="249,138,292,128,293,134,250,143"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="317,176,408,201"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="250,162,305,173,303,179,249,167"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="319,249,406,275"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="218,163,332,239,329,244,215,168"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="335,31,329,21,332,11,344,5,363,3,385,6,395,15,392,19,383,11,363,8,345,10,336,15,334,20,339,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="335,104,329,94,332,85,344,78,363,76,385,79,395,88,392,92,383,84,363,81,345,83,336,88,334,94,339,101"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="335,177,329,168,332,158,344,152,363,149,385,153,395,161,392,165,383,158,363,155,345,157,336,161,334,167,339,174"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="335,251,329,241,332,231,344,225,363,223,385,226,395,235,392,239,383,231,363,228,345,230,336,235,334,240,339,248"/>
+</map>

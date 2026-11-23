@@ -1,0 +1,13 @@
+<map id="Core/Src/obcp/pwm_audio.c" name="Core/Src/obcp/pwm_audio.c">
+<area shape="rect" id="Node000001" title="Transport des rapports cycliques par TIM1 et DMA circulaire." alt="" coords="111,5,312,31"/>
+<area shape="rect" id="Node000002" href="$obcp__pwm_8h.html" title="Transport des rapports cycliques par TIM1 et DMA circulaire." alt="" coords="7,79,111,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,33,97,75,95,70,186,28"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="135,79,202,104"/>
+<area shape="poly" id="edge3_Node000001_Node000007" title=" " alt="" coords="207,32,185,68,180,66,202,30"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="226,79,282,104"/>
+<area shape="poly" id="edge4_Node000001_Node000008" title=" " alt="" coords="221,30,242,66,238,68,216,32"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="307,79,377,104"/>
+<area shape="poly" id="edge5_Node000001_Node000009" title=" " alt="" coords="234,28,310,70,308,74,231,33"/>
+<area shape="rect" id="Node000003" href="$obcp__audio_8h.html" title="Synthèse numérique et séquenceur musical sans accès matériel." alt="" coords="5,152,113,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,104,62,138,57,138,57,104"/>
+</map>

@@ -1,0 +1,18 @@
+ObCP tactile 0.4.1 — documentation
+Doxygen 1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482) ; Graphviz 2.42.4
+Génération HTML et XML, zéro avertissement.
+Couverture des modules utilisateur, Doxygen XML
+champs : 251
+define : 44
+enum : 40
+fonctions : 243
+interfaces : 115
+parametres : 463
+privees : 126
+publiques : 117
+typedef : 1
+valeurs_enum : 198
+variable : 96
+Bilan 0 écart(s). Ce contrôle ne constitue pas une certification de code.
+Liens locaux Markdown et HTML : aucun fichier absent.
+Générateur de logo : ressource C commentée identique après régénération.

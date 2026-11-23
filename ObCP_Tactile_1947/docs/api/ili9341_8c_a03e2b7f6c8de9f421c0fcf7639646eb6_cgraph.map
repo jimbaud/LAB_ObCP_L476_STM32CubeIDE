@@ -1,0 +1,12 @@
+<map id="command" name="command">
+<area shape="rect" id="Node000001" title="Envoyer une commande avec ses paramètres puis libérer CS." alt="" coords="5,29,92,55"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="23,31,17,21,20,11,31,5,49,3,70,6,79,15,75,19,68,11,49,8,33,10,24,15,22,20,27,28"/>
+<area shape="rect" id="Node000002" href="$ili9341_8c.html#ae22b3a371df97ab3f610d8ef2c2e5835" title="Émettre une commande en plaçant D/C à zéro." alt="" coords="140,29,271,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,47,126,48,126,54,92,53"/>
+<area shape="rect" id="Node000003" href="$ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042" title="Appliquer le niveau logique de sélection du TFT." alt="" coords="319,55,405,80"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="90,52,140,63,227,69,305,68,305,74,226,75,140,69,88,57"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="139,36,106,36,106,31,139,30"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="179,31,174,21,177,11,188,5,205,3,227,6,236,15,232,19,224,11,205,8,189,10,181,15,179,20,184,28"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="272,50,305,56,304,61,271,55"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="336,56,330,46,333,37,344,30,362,28,383,31,392,40,389,44,381,36,362,33,346,35,338,40,336,46,340,53"/>
+</map>

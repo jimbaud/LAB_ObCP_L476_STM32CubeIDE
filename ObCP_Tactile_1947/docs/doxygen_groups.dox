@@ -1,0 +1,34 @@
+/**
+ * @defgroup obcp_board Carte et ordonnancement
+ * @brief Cadences, état global et intégration dans la boucle CubeMX.
+ *
+ * Commencer par obcp_start() puis obcp_task() pour retrouver les chemins qui
+ * desservent les entrées, le rendu, l'audio et le stockage.
+ */
+/**
+ * @defgroup obcp_drivers Pilotes de périphériques
+ * @brief Protocoles SPI, I2C et commandes propres aux composants.
+ *
+ * Les pilotes transforment les échanges matériels en observations brutes ou en
+ * un transport de pixels. Leurs erreurs restent distinctes d'un contact absent.
+ */
+/**
+ * @defgroup obcp_input Entrées et transformations
+ * @brief Anti-rebond, coordonnées, calibrage, neutre et repère des jeux.
+ */
+/**
+ * @defgroup obcp_graphics Graphisme et transport par bandes
+ * @brief Géométrie, RGB565, police, invalidations et propriété du tampon DMA.
+ */
+/**
+ * @defgroup obcp_apps Applications et navigation
+ * @brief États des écrans, dessin indexé et modèles physiques des jeux.
+ */
+/**
+ * @defgroup obcp_audio Synthèse et sortie musicale
+ * @brief Motifs, DDS, enveloppes, tempo et anneau DMA du timer.
+ */
+/**
+ * @defgroup obcp_storage Sauvegardes transactionnelles
+ * @brief Formats explicites, CRC, copies A/B et port flash STM32.
+ */

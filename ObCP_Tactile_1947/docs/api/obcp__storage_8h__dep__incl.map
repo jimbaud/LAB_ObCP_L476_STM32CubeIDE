@@ -1,0 +1,26 @@
+<map id="Core/Inc/obcp_storage.h" name="Core/Inc/obcp_storage.h">
+<area shape="rect" id="Node000001" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="384,5,563,31"/>
+<area shape="rect" id="Node000002" href="$obcp__app_8h.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="225,159,378,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="441,40,382,81,341,123,312,161,307,157,337,120,378,77,438,35"/>
+<area shape="rect" id="Node000005" href="$obcp__calibration_8h.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="119,79,318,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="420,37,261,81,259,76,418,32"/>
+<area shape="rect" id="Node000007" href="$obcp__flash_8h.html" title="Adaptation du stockage aux banques et à l’ECC STM32L476." alt="" coords="579,79,739,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="517,33,629,76,627,81,515,38"/>
+<area shape="rect" id="Node000009" href="$obcp__paint_8h.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="392,79,555,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="476,44,476,79,471,79,471,44"/>
+<area shape="rect" id="Node000011" href="$storage_8c.html" title="Format d’objet A/B, CRC32 et validation transactionnelle." alt="" coords="763,79,938,104"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="548,31,790,76,789,81,547,36"/>
+<area shape="rect" id="Node000003" href="$app_8c.html" title="Écrans, commandes tactiles et requêtes de sauvegarde." alt="" coords="226,240,377,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,198,304,240,299,240,299,198"/>
+<area shape="rect" id="Node000004" href="$board_8c.html" title="Ordonnancement coopératif et liaison avec la carte réelle." alt="" coords="544,240,707,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="362,185,579,237,578,243,361,190"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="243,112,291,157,287,161,239,115"/>
+<area shape="rect" id="Node000006" href="$calibration_8c.html" title="Transformation affine et assistant de calibrage résistif." alt="" coords="5,159,200,185"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="192,114,121,161,118,157,189,110"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="701,108,726,126,746,151,753,172,746,193,732,211,715,224,676,242,674,237,712,220,729,207,742,191,748,172,742,153,723,130,698,113"/>
+<area shape="rect" id="Node000008" href="$flash__port_8c.html" title="Adaptation du stockage aux banques et à l’ECC STM32L476." alt="" coords="585,152,732,192"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="661,118,661,152,656,152,656,118"/>
+<area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="437,112,327,162,325,157,435,107"/>
+<area shape="rect" id="Node000010" href="$paint_8c.html" title="Canevas indexé, diamètres de trait et palette persistante." alt="" coords="402,159,561,185"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="479,118,483,159,477,159,473,118"/>
+</map>

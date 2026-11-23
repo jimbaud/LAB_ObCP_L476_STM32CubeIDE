@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>La super-boucle d'ObCP Adventure et les interruptions</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 22px 28px 18px; }
+  .rangee { display: grid; grid-template-columns: 222px 1fr; column-gap: 62px; }
+  .titre-col { font-size: 12.5px; font-weight: 650; letter-spacing: .04em; color: var(--discret); margin-bottom: 8px; }
+  .irqs { position: relative; }
+  .irq { position: absolute; left: 0; right: 0; border: 1.5px solid var(--orange); background: var(--orange-fond);
+         border-radius: 9px; padding: 5px 10px; }
+  .irq h4 { font-size: 12.8px; font-weight: 650; white-space: nowrap; }
+  .irq h4 span { font-weight: 450; color: var(--discret); font-size: 11.8px; }
+  .irq p { font-size: 11.8px; color: var(--discret); line-height: 1.35; margin-top: 1px; }
+  .irq code { font-size: 11px; }
+  .note { margin-top: 16px; font-size: 12.8px; line-height: 1.45; color: var(--discret); text-align: center; }
+  .note b { color: var(--texte); font-weight: 600; }
+  .init { border: 1.5px solid var(--bleu); background: var(--bleu-fond); border-radius: 10px; padding: 8px 14px; margin-bottom: 16px;
+          display: flex; align-items: baseline; gap: 10px; }
+  .init h3 { font-size: 14px; font-weight: 650; white-space: nowrap; }
+  .init p { font-size: 12.2px; color: var(--discret); }
+  .boucle { position: relative; border: 1.5px solid var(--bord); border-radius: 12px; background: var(--fond-doux);
+            padding: 10px 12px; margin-right: 58px; }
+  .etape { display: grid; grid-template-columns: 24px 198px 1fr; align-items: center; gap: 8px; height: 33px;
+           padding: 0 8px; border-radius: 7px; font-size: 12.6px; background: var(--fond); border: 1px solid var(--bord); }
+  .etape + .etape { margin-top: 3px; }
+  .etape .n { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700;
+              background: var(--fond); border: 1.5px solid var(--bord); color: var(--discret); }
+  .etape .f { font-family: "DejaVu Sans Mono", monospace; font-size: 11.5px; color: var(--texte); white-space: nowrap; }
+  .etape .d { color: var(--discret); white-space: nowrap; }
+  .etape .d code { font-size: 11.2px; }
+  .etape.jeu { background: var(--vert-fond); border-color: color-mix(in srgb, var(--vert) 55%, transparent); }
+  .etape.jeu .n { border-color: var(--vert); color: var(--vert); }
+  .etape.ecran { background: var(--violet-fond); border-color: color-mix(in srgb, var(--violet) 55%, transparent); }
+  .etape.ecran .n { border-color: var(--violet); color: var(--violet); }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="rangee">
+    <div>
+      <div class="titre-col">INTERRUPTIONS</div>
+      <div class="irqs" id="irqs">
+        <div class="irq" id="i-usb"><h4>USB · paquet reçu du PC</h4><p>octets copiés dans la file de <code>usb_console</code></p></div>
+        <div class="irq" id="i-sys" style="border-color:var(--violet);background:var(--violet-fond)"><h4>SysTick · 1 ms</h4><p><code>HAL_GetTick()</code>&nbsp;: anti-rebond, délais de la sauvegarde</p></div>
+        <div class="irq" id="i-dma"><h4>DMA1 canal 3 <span>fin d'envoi</span></h4><p>écran libéré&nbsp;: <code>HAL_SPI_TxCpltCallback()</code></p></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="init" id="init"><h3><code>oa_app_init()</code> · une fois</h3><p>TIM2, éclair vert, sauvegarde, tactile, accéléromètre, écran</p></div>
+      <div class="titre-col">PUIS <code>while (1) oa_app_task();</code> · DES MILLIERS DE TOURS PAR SECONDE</div>
+      <div class="boucle" id="boucle">
+        <div class="etape" id="s1"><span class="n">1</span><span class="f">temps écoulé (TIM2)</span><span class="d">dette de physique&nbsp;: µs écoulées × 60</span></div>
+        <div class="etape" id="s2"><span class="n">2</span><span class="f">oa_board_button()</span><span class="d">bouton USER&nbsp;: pause ou étalonnage</span></div>
+        <div class="etape" id="s3"><span class="n">3</span><span class="f">console USB, USART2</span><span class="d">commandes d'une lettre&nbsp;: <code>command()</code></span></div>
+        <div class="etape" id="s4"><span class="n">4</span><span class="f">oa_touch_poll()</span><span class="d">tactile&nbsp;; STMPE610 seulement écran libre</span></div>
+        <div class="etape" id="s5"><span class="n">5</span><span class="f">oa_accel_read()</span><span class="d">toutes les 10 ms (100 Hz), filtre</span></div>
+        <div class="etape jeu" id="s6"><span class="n">6</span><span class="f">oa_game_step()</span><span class="d">pas de 1/60 s, 4 au plus par tour</span></div>
+        <div class="etape" id="s7"><span class="n">7</span><span class="f">calibration_task()</span><span class="d">assistant d'étalonnage, s'il est ouvert</span></div>
+        <div class="etape" id="s8"><span class="n">8</span><span class="f">oa_storage_task()</span><span class="d">sauvegarde&nbsp;: une page EEPROM au plus</span></div>
+        <div class="etape" id="s9"><span class="n">9</span><span class="f">mesures, chaque seconde</span><span class="d">images/s, octets envoyés → console</span></div>
+        <div class="etape ecran" id="s10"><span class="n">10</span><span class="f">render_task()</span><span class="d">une bande de 8 lignes, envoi DMA</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="note"><b>Aucune étape n'attend.</b> Le rendu prépare une bande pendant que le DMA envoie la précédente&nbsp;; la physique rattrape son retard par pas fixes, sans jamais changer la durée d'un pas. Si le retard dépasse quatre pas, le jeu se met en pause au lieu d'accélérer.</p>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const zone = document.getElementById("irqs").getBoundingClientRect();
+  const place = (irq, etape) => {
+    const e = document.getElementById(etape).getBoundingClientRect();
+    const i = document.getElementById(irq);
+    i.style.top = (e.top + e.height / 2 - zone.top - i.offsetHeight / 2) + "px";
+  };
+  place("i-usb", "s3"); place("i-sys", "s7"); place("i-dma", "s10");
+  document.getElementById("irqs").style.height = (document.getElementById("boucle").getBoundingClientRect().bottom - zone.top) + "px";
+  const opt = { de: "droite", vers: "gauche", couleur: "var(--orange)", tirets: "5 5", epaisseur: 1.6 };
+  relier("#i-usb", "#s3", opt); relier("#i-dma", "#s10", opt);
+  relier("#i-sys", "#s7", Object.assign({}, opt, { couleur: "var(--violet)" }));
+  const fig = document.getElementById("figure");
+  const svg = calque(fig);
+  const a = ancre(document.getElementById("s10"), "droite", fig), b = ancre(document.getElementById("s1"), "droite", fig);
+  const x = ancre(document.getElementById("boucle"), "droite", fig)[0] + 26;
+  const chemin = document.createElementNS(SVG, "path");
+  chemin.setAttribute("d", chemin_arrondi([a, [x, a[1]], [x, b[1]], b], 12));
+  chemin.setAttribute("style", "fill:none;stroke:var(--vert);stroke-width:2.2;stroke-linecap:round");
+  chemin.setAttribute("marker-end", "url(#" + marqueur(svg, "var(--vert)", 11) + ")");
+  svg.appendChild(chemin);
+  const t = document.createElementNS(SVG, "text");
+  t.setAttribute("transform", "translate(" + (x + 16) + " " + ((a[1] + b[1]) / 2) + ") rotate(90)");
+  t.setAttribute("text-anchor", "middle");
+  t.setAttribute("style", "fill:var(--vert);font-weight:650");
+  t.textContent = "tour suivant, aussitôt";
+  svg.appendChild(t);
+});
+</script>
+</body>
+</html>

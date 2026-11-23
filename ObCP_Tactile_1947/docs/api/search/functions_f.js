@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['sample_5fbutton_0',['sample_button',['../board_8c.html#a970b5a3ed4d3a8e401a702f79eb7fa80',1,'board.c']]],
+  ['sample_5finputs_1',['sample_inputs',['../board_8c.html#abba409f58eca8a29c478fccc55510cc2',1,'board.c']]],
+  ['sample_5ftouch_2',['sample_touch',['../board_8c.html#aa182a23ab6189618f777bcb1c02ab79a',1,'board.c']]],
+  ['select_5flcd_3',['select_lcd',['../ili9341_8c.html#a32b5321d4f8a809fc69ed1b2eef60042',1,'ili9341.c']]],
+  ['send_5fband_4',['send_band',['../ili9341_8c.html#ae8787b81e99ca0fad8ceece33fb7fb50',1,'ili9341.c']]],
+  ['send_5fcommand_5',['send_command',['../tsc2007_8c.html#acb702898e283f4c0435744fd2b224855',1,'tsc2007.c']]],
+  ['set_5fnotice_6',['set_notice',['../app_8c.html#a8a71fd897fb828a8a93919001d935512',1,'app.c']]],
+  ['set_5fspi_7',['set_spi',['../stmpe610_8c.html#a90ec26e81c172681bbdd6a36bd37b332',1,'stmpe610.c']]],
+  ['settings_5fbutton_8',['settings_button',['../app_8c.html#aa4559810086bd8c27807175f032a79d4',1,'app.c']]],
+  ['settings_5ftouch_9',['settings_touch',['../app_8c.html#ac2fefd8f79b60d09a4873d35efd42f54',1,'app.c']]],
+  ['show_5fmodal_10',['show_modal',['../app_8c.html#a23824b732b554d96856b6361f1f032f3',1,'app.c']]],
+  ['slot_5fbutton_11',['slot_button',['../app_8c.html#aad111ed85a3f086d87d012f1272ceb0f',1,'app.c']]],
+  ['spawn_12',['spawn',['../race_8c.html#ad046de6584c1e301043ba8781df2f36d',1,'race.c']]],
+  ['spi_5ftransfer_13',['spi_transfer',['../accelerometer_8c.html#a1afe9c2eb48767ad26f11b2f0fef5110',1,'accelerometer.c']]],
+  ['stable_5fpose_14',['stable_pose',['../input_8c.html#a4366aa2dac3c5d4d6f92c9212e2a7626',1,'input.c']]],
+  ['start_15',['start',['../pwm__audio_8c.html#a3117ca6352519be200106ca971c66acc',1,'pwm_audio.c']]],
+  ['step_5fbutton_16',['step_button',['../app_8c.html#a0bb0f32014623502187cae6a557996d1',1,'app.c']]],
+  ['stmpe610_5fprobe_17',['stmpe610_probe',['../stmpe610_8c.html#a065ad8a07d9276aaa719b079bc9e65f9',1,'stmpe610_probe(uint16_t *chip):&#160;stmpe610.c'],['../touch__drivers_8h.html#a065ad8a07d9276aaa719b079bc9e65f9',1,'stmpe610_probe(uint16_t *chip):&#160;stmpe610.c']]],
+  ['stmpe610_5fsample_18',['stmpe610_sample',['../stmpe610_8c.html#a75e680da1e46d5b917ea5786ffdb7528',1,'stmpe610_sample(RawTouch *sample):&#160;stmpe610.c'],['../touch__drivers_8h.html#a75e680da1e46d5b917ea5786ffdb7528',1,'stmpe610_sample(RawTouch *sample):&#160;stmpe610.c']]],
+  ['stop_19',['stop',['../pwm__audio_8c.html#a1a127f3b18e168dd6cb368dfecb59ea2',1,'pwm_audio.c']]],
+  ['storage_5fcrc32_20',['storage_crc32',['../obcp__storage_8h.html#a5101ec40d60b123d4fbb34795966fa5f',1,'storage_crc32(const void *data, size_t size):&#160;storage.c'],['../storage_8c.html#a5101ec40d60b123d4fbb34795966fa5f',1,'storage_crc32(const void *data, size_t size):&#160;storage.c']]],
+  ['storage_5fread_21',['storage_read',['../obcp__storage_8h.html#a93e975a9edc0e30b07e9fdfaa4391ef2',1,'storage_read(Storage *s, SaveObject object, void *data, size_t size):&#160;storage.c'],['../storage_8c.html#a93e975a9edc0e30b07e9fdfaa4391ef2',1,'storage_read(Storage *s, SaveObject object, void *data, size_t size):&#160;storage.c']]],
+  ['storage_5fread_5fsized_22',['storage_read_sized',['../obcp__storage_8h.html#a14262c35a650194efb006701a81f4d17',1,'storage_read_sized(Storage *s, SaveObject object, void *data, size_t capacity, size_t *actual):&#160;storage.c'],['../storage_8c.html#a14262c35a650194efb006701a81f4d17',1,'storage_read_sized(Storage *s, SaveObject object, void *data, size_t capacity, size_t *actual):&#160;storage.c']]],
+  ['storage_5fsave_23',['storage_save',['../obcp__storage_8h.html#acdb0d3d7df8fc923acd7743abdca12cf',1,'storage_save(Storage *s, SaveObject object, const void *data, size_t size):&#160;storage.c'],['../storage_8c.html#acdb0d3d7df8fc923acd7743abdca12cf',1,'storage_save(Storage *s, SaveObject object, const void *data, size_t size):&#160;storage.c']]]
+];

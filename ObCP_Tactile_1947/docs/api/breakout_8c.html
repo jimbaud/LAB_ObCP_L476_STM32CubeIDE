@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ObCP atelier tactile: Référence du fichier Core/Src/obcp/breakout.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ObCP atelier tactile<span id="projectnumber">&#160;0.4.1</span>
+   </div>
+   <div id="projectbrief">Comprendre les écrans, pilotes, jeux, DMA et sauvegardes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('breakout_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier breakout.c<div class="ingroups"><a class="el" href="group__obcp__apps.html">Applications et navigation</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Physique et dessin du casse-briques à dix niveaux.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="obcp__games_8h_source.html">obcp_games.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de breakout.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c__incl.svg" width="194" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="breakout_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:_5Bstruct_5D_2Elevels" id="r__5Bstruct_5D_2Elevels"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_0fstruct_0e_8levels.html">[struct].levels</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a5b6d300dc83d4e5ecbb31c4b3ca91291" id="r_a5b6d300dc83d4e5ecbb31c4b3ca91291"><td class="memItemLeft"><a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291">enum </a>&#160;</td><td class="memItemRight">{ <br />
+&#160;&#160;<a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291ad93cc05ff4c52ef1d42e667f905608e2">PADDLE_Y</a> = 213
+, <a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291aa28f97f0fbd29a55e3ad35004062928f">BALL_R</a> = 4
+, <a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291adb45120aafd37a973140edee24708065">LEFT</a> = 10
+, <a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291aec8379af7490bb9eaaf579cf17876f38">RIGHT</a> = 310
+, <br />
+&#160;&#160;<a class="el" href="#a5b6d300dc83d4e5ecbb31c4b3ca91291a0ad44897a70fba309c24a5b6007de3e3">TOP</a> = 44
+<br />
+ }</td></tr>
+<tr class="memdesc:a5b6d300dc83d4e5ecbb31c4b3ca91291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constantes privées de ce module, avec leurs unités.  <a href="#a5b6d300dc83d4e5ecbb31c4b3ca91291">Plus de détails...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a725b2159591771f868aac2dcbdc6947a" id="r_a725b2159591771f868aac2dcbdc6947a"><td class="memItemLeft"><a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#a725b2159591771f868aac2dcbdc6947a">breakout_brick</a> (unsigned i)</td></tr>
+<tr class="memdesc:a725b2159591771f868aac2dcbdc6947a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'emprise d'une brique.  <br /></td></tr>
+<tr class="memitem:aafba131d0ee623d398d63c57f7db9f80" id="r_aafba131d0ee623d398d63c57f7db9f80"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#aafba131d0ee623d398d63c57f7db9f80">paddle_bounds</a> (const <a class="el" href="structBreakout.html">Breakout</a> *b)</td></tr>
+<tr class="memdesc:aafba131d0ee623d398d63c57f7db9f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'emprise de la raquette.  <br /></td></tr>
+<tr class="memitem:aab0a6fda4dafb6c7a34e3d239882e229" id="r_aab0a6fda4dafb6c7a34e3d239882e229"><td class="memItemLeft">static <a class="el" href="structRect.html">Rect</a>&#160;</td><td class="memItemRight"><a class="el" href="#aab0a6fda4dafb6c7a34e3d239882e229">ball_bounds</a> (const <a class="el" href="structBreakout.html">Breakout</a> *b)</td></tr>
+<tr class="memdesc:aab0a6fda4dafb6c7a34e3d239882e229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculer l'ancienne ou la nouvelle emprise de balle.  <br /></td></tr>
+<tr class="memitem:a78b7d8c01ca12fa617b3772d6d963082" id="r_a78b7d8c01ca12fa617b3772d6d963082"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78b7d8c01ca12fa617b3772d6d963082">breakout_init</a> (<a class="el" href="structBreakout.html">Breakout</a> *b, unsigned level)</td></tr>
+<tr class="memdesc:a78b7d8c01ca12fa617b3772d6d963082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Préparer les positions et les briques d'un niveau.  <br /></td></tr>
+<tr class="memitem:a6fc3258439fa8094edebfcbaa5c23862" id="r_a6fc3258439fa8094edebfcbaa5c23862"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a6fc3258439fa8094edebfcbaa5c23862">move_ball</a> (<a class="el" href="structBreakout.html">Breakout</a> *b, float dt, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:a6fc3258439fa8094edebfcbaa5c23862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer la balle d'un sous-pas et traiter ses impacts.  <br /></td></tr>
+<tr class="memitem:af7d2616ab126daefbe136d28fafe0bcf" id="r_af7d2616ab126daefbe136d28fafe0bcf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af7d2616ab126daefbe136d28fafe0bcf">breakout_step</a> (<a class="el" href="structBreakout.html">Breakout</a> *b, float tilt_x, <a class="el" href="structDamage.html">Damage</a> *damage)</td></tr>
+<tr class="memdesc:af7d2616ab126daefbe136d28fafe0bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avancer une simulation de vingt millisecondes.  <br /></td></tr>
+<tr class="memitem:a8f6c9d6f6f06944b692d9c96dcf61a06" id="r_a8f6c9d6f6f06944b692d9c96dcf61a06"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f6c9d6f6f06944b692d9c96dcf61a06">breakout_draw</a> (const <a class="el" href="structBreakout.html">Breakout</a> *b, <a class="el" href="structGfx.html">Gfx</a> *g)</td></tr>
+<tr class="memdesc:a8f6c9d6f6f06944b692d9c96dcf61a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomposer les briques, la raquette et la balle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft"><a class="el" href="struct_0fstruct_0e_8levels.html">static const struct </a>&#160;</td><td class="memItemRight"><a class="el" href="#a38d0ed189ecda4c11cc1f72183cee44c">levels</a> [<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td></tr>
+<tr class="memdesc:a38d0ed189ecda4c11cc1f72183cee44c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paramètres des dix niveaux. Masques de briques, largeur et vitesses sont en flash.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Physique et dessin du casse-briques à dix niveaux. </p>
+<p>Un bit de bricks représente une brique. hard_bricks indique un renfort à retirer au premier impact. La raquette suit une cible de position. La trajectoire de balle est divisée en trois sous-pas pour borner le déplacement entre collisions.</p>
+<dl class="section user"><dt>Repères de lecture</dt><dd>Les coordonnées écran sont en pixels. Les durées suffixées ms sont en millisecondes. Les adresses du service de stockage sont des offsets en octets. </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a5b6d300dc83d4e5ecbb31c4b3ca91291" name="a5b6d300dc83d4e5ecbb31c4b3ca91291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6d300dc83d4e5ecbb31c4b3ca91291">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constantes privées de ce module, avec leurs unités. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a5b6d300dc83d4e5ecbb31c4b3ca91291ad93cc05ff4c52ef1d42e667f905608e2" name="a5b6d300dc83d4e5ecbb31c4b3ca91291ad93cc05ff4c52ef1d42e667f905608e2"></a>PADDLE_Y&#160;</td><td class="fielddoc"><p>Ordonnée fixe de la raquette en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5b6d300dc83d4e5ecbb31c4b3ca91291aa28f97f0fbd29a55e3ad35004062928f" name="a5b6d300dc83d4e5ecbb31c4b3ca91291aa28f97f0fbd29a55e3ad35004062928f"></a>BALL_R&#160;</td><td class="fielddoc"><p>Rayon de la balle en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5b6d300dc83d4e5ecbb31c4b3ca91291adb45120aafd37a973140edee24708065" name="a5b6d300dc83d4e5ecbb31c4b3ca91291adb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc"><p>Abscisse du bord gauche de l’aire de jeu, en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5b6d300dc83d4e5ecbb31c4b3ca91291aec8379af7490bb9eaaf579cf17876f38" name="a5b6d300dc83d4e5ecbb31c4b3ca91291aec8379af7490bb9eaaf579cf17876f38"></a>RIGHT&#160;</td><td class="fielddoc"><p>Abscisse du bord droit de l’aire de jeu, en pixels. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5b6d300dc83d4e5ecbb31c4b3ca91291a0ad44897a70fba309c24a5b6007de3e3" name="a5b6d300dc83d4e5ecbb31c4b3ca91291a0ad44897a70fba309c24a5b6007de3e3"></a>TOP&#160;</td><td class="fielddoc"><p>Ordonnée du bord supérieur de l’aire de jeu, en pixels. </p>
+</td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00021">21</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="aab0a6fda4dafb6c7a34e3d239882e229" name="aab0a6fda4dafb6c7a34e3d239882e229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab0a6fda4dafb6c7a34e3d239882e229">&#9670;&#160;</a></span>ball_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> ball_bounds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer l'ancienne ou la nouvelle emprise de balle. </p>
+<p>Le rayon est ajouté de part et d'autre du centre pour que le rectangle englobe aussi les pixels du bord. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle englobant la balle. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00083">83</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="obcp__games_8h_source.html#l00131">Breakout::x</a>, et <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="maze_8c_source.html#l00249">ball_bounds()</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="maze_8c_source.html#l00286">maze_step()</a>, et <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_aab0a6fda4dafb6c7a34e3d239882e229_cgraph.svg" width="111" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a725b2159591771f868aac2dcbdc6947a" name="a725b2159591771f868aac2dcbdc6947a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725b2159591771f868aac2dcbdc6947a">&#9670;&#160;</a></span>breakout_brick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> breakout_brick </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculer l'emprise d'une brique. </p>
+<p>L'indice va de 0 à 31. Le quotient et le reste de la division par huit donnent la rangée et la colonne. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice de l’élément dans la table de géométrie décrite ci-dessus. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle de la brique, en pixels. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00054">54</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, et <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_a725b2159591771f868aac2dcbdc6947a_cgraph.svg" width="130" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8f6c9d6f6f06944b692d9c96dcf61a06" name="a8f6c9d6f6f06944b692d9c96dcf61a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6c9d6f6f06944b692d9c96dcf61a06">&#9670;&#160;</a></span>breakout_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGfx.html">Gfx</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recomposer les briques, la raquette et la balle. </p>
+<p>Le modèle est lu sans modifier la simulation. Les briques renforcées reçoivent un cadre clair. Le clipping des primitives limite le travail à la bande demandée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, consulté sans modification. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>Vue de la bande RGB565 et de son tampon accessible en écriture. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00208">208</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>, <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="obcp__games_8h_source.html#l00136">Breakout::bricks</a>, <a class="el" href="gfx_8c_source.html#l00163">gfx_disc()</a>, <a class="el" href="gfx_8c_source.html#l00122">gfx_fill()</a>, <a class="el" href="gfx_8c_source.html#l00146">gfx_outline()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__games_8h_source.html#l00137">Breakout::hard_bricks</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00043">RGB565</a>, <a class="el" href="breakout_8c_source.html#l00025">RIGHT</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__gfx_8h_source.html#l00055">Rect::w</a>, <a class="el" href="obcp__games_8h_source.html#l00131">Breakout::x</a>, <a class="el" href="obcp__gfx_8h_source.html#l00053">Rect::x</a>, <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, et <a class="el" href="app_8c_source.html#l01487">draw_game()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_a8f6c9d6f6f06944b692d9c96dcf61a06_cgraph.svg" width="606" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a78b7d8c01ca12fa617b3772d6d963082" name="a78b7d8c01ca12fa617b3772d6d963082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b7d8c01ca12fa617b3772d6d963082">&#9670;&#160;</a></span>breakout_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Préparer les positions et les briques d'un niveau. </p>
+<p>Un indice hors plage revient au premier niveau. L'état est prêt à jouer, avec les masques, dimensions et vitesses choisis dans la table constante. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, à initialiser par cet appel. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Indice de niveau à base zéro. Une valeur hors plage choisit le premier niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00095">95</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00095">breakout_init()</a>, <a class="el" href="obcp__games_8h_source.html#l00025">GAME_LEVELS</a>, <a class="el" href="obcp__games_8h_source.html#l00032">GAME_READY</a>, et <a class="el" href="#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00095">breakout_init()</a>, et <a class="el" href="app_8c_source.html#l00491">game_load_level()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_a78b7d8c01ca12fa617b3772d6d963082_cgraph.svg" width="118" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af7d2616ab126daefbe136d28fafe0bcf" name="af7d2616ab126daefbe136d28fafe0bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7d2616ab126daefbe136d28fafe0bcf">&#9670;&#160;</a></span>breakout_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void breakout_step </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tilt_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Avancer une simulation de vingt millisecondes. </p>
+<p>Seule GAME_RUN avance. La raquette rejoint 75 % de l'écart à sa cible, puis la balle fait trois sous-pas. Les anciennes et nouvelles emprises sont invalidées. Une balle sortie ou un masque vide termine le niveau. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tilt_x</td><td>Commande écran X, adimensionnelle entre −1 et +1. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00169">169</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="obcp__games_8h_source.html#l00136">Breakout::bricks</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="gfx_8c_source.html#l00305">damage_full()</a>, <a class="el" href="obcp__games_8h_source.html#l00036">GAME_LOST</a>, <a class="el" href="obcp__games_8h_source.html#l00033">GAME_RUN</a>, <a class="el" href="obcp__games_8h_source.html#l00024">GAME_STEP_MS</a>, <a class="el" href="obcp__games_8h_source.html#l00035">GAME_WON</a>, <a class="el" href="obcp__gfx_8h_source.html#l00030">LCD_HEIGHT</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="obcp__games_8h_source.html#l00139">Breakout::level</a>, <a class="el" href="#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="obcp__games_8h_source.html#l00135">Breakout::paddle</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, <a class="el" href="obcp__games_8h_source.html#l00140">Breakout::phase</a>, <a class="el" href="breakout_8c_source.html#l00025">RIGHT</a>, et <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="app_8c_source.html#l01140">app_step()</a>, et <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_af7d2616ab126daefbe136d28fafe0bcf_cgraph.svg" width="639" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6fc3258439fa8094edebfcbaa5c23862" name="a6fc3258439fa8094edebfcbaa5c23862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc3258439fa8094edebfcbaa5c23862">&#9670;&#160;</a></span>move_ball()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void move_ball </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a> *</td>          <td class="paramname"><span class="paramname"><em>damage</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Avancer la balle d'un sous-pas et traiter ses impacts. </p>
+<p>Teste murs, raquette puis briques. L'ancienne position aide à choisir la composante de vitesse à inverser. Un impact sur renfort enlève d'abord ce renfort. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques. Pointeur valide. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Durée du sous-pas, en secondes. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">damage</td><td>Liste de rectangles à recomposer. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00113">113</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="breakout_8c_source.html#l00083">ball_bounds()</a>, <a class="el" href="breakout_8c_source.html#l00023">BALL_R</a>, <a class="el" href="breakout_8c_source.html#l00054">breakout_brick()</a>, <a class="el" href="obcp__games_8h_source.html#l00136">Breakout::bricks</a>, <a class="el" href="gfx_8c_source.html#l00317">damage_add()</a>, <a class="el" href="obcp__gfx_8h_source.html#l00056">Rect::h</a>, <a class="el" href="obcp__games_8h_source.html#l00137">Breakout::hard_bricks</a>, <a class="el" href="breakout_8c_source.html#l00024">LEFT</a>, <a class="el" href="obcp__games_8h_source.html#l00139">Breakout::level</a>, <a class="el" href="#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="obcp__games_8h_source.html#l00135">Breakout::paddle</a>, <a class="el" href="breakout_8c_source.html#l00022">PADDLE_Y</a>, <a class="el" href="gfx_8c_source.html#l00077">rect_intersection()</a>, <a class="el" href="gfx_8c_source.html#l00058">rect_valid()</a>, <a class="el" href="breakout_8c_source.html#l00025">RIGHT</a>, <a class="el" href="obcp__games_8h_source.html#l00138">Breakout::score</a>, <a class="el" href="breakout_8c_source.html#l00026">TOP</a>, <a class="el" href="obcp__games_8h_source.html#l00133">Breakout::vx</a>, <a class="el" href="obcp__games_8h_source.html#l00134">Breakout::vy</a>, <a class="el" href="obcp__games_8h_source.html#l00131">Breakout::x</a>, <a class="el" href="obcp__games_8h_source.html#l00132">Breakout::y</a>, et <a class="el" href="obcp__gfx_8h_source.html#l00054">Rect::y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, et <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_a6fc3258439fa8094edebfcbaa5c23862_cgraph.svg" width="447" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aafba131d0ee623d398d63c57f7db9f80" name="aafba131d0ee623d398d63c57f7db9f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafba131d0ee623d398d63c57f7db9f80">&#9670;&#160;</a></span>paddle_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect.html">Rect</a> paddle_bounds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structBreakout.html">Breakout</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculer l'emprise de la raquette. </p>
+<p>La largeur dépend du niveau. La position conservée dans le modèle désigne le centre, alors que le rectangle utilise son bord gauche. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Balle, raquette et briques du casse-briques, consulté sans modification. Pointeur valide. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Rectangle occupé par la raquette. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="breakout_8c_source.html#l00068">68</a> du fichier <a class="el" href="breakout_8c_source.html">breakout.c</a>.</p>
+
+<p class="reference">Références <a class="el" href="obcp__games_8h_source.html#l00139">Breakout::level</a>, <a class="el" href="#a38d0ed189ecda4c11cc1f72183cee44c">levels</a>, <a class="el" href="obcp__games_8h_source.html#l00135">Breakout::paddle</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, et <a class="el" href="breakout_8c_source.html#l00022">PADDLE_Y</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00208">breakout_draw()</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, et <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="breakout_8c_aafba131d0ee623d398d63c57f7db9f80_cgraph.svg" width="131" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a38d0ed189ecda4c11cc1f72183cee44c" name="a38d0ed189ecda4c11cc1f72183cee44c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38d0ed189ecda4c11cc1f72183cee44c">&#9670;&#160;</a></span>levels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="struct_0fstruct_0e_8levels.html">[struct].levels</a> levels[<a class="el" href="obcp__games_8h.html#ac1385d88feb69e5d627b16cb8feaa957abd9db855ee2fccddd37f45149e65a81e">GAME_LEVELS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {UINT32_C(0x0000FFFF), 0,                    72, 84,  -135, -155},</div>
+<div class="line">    {UINT32_C(0x000FFFFF), 0,                    68, 88,  -150, -170},</div>
+<div class="line">    {UINT32_C(0x00FFFFFF), 0,                    64, 92,  -170, -190},</div>
+<div class="line">    {UINT32_C(0x0FFFFFFF), 0,                    60, 96,  -190, -210},</div>
+<div class="line">    {UINT32_MAX,          0,                    56, 100, -210, -230},</div>
+<div class="line">    {UINT32_MAX,          UINT32_C(0x000000FF), 50, 104, -235, -255},</div>
+<div class="line">    {UINT32_MAX,          UINT32_C(0x0000FFFF), 44, 108, -260, -280},</div>
+<div class="line">    {UINT32_MAX,          UINT32_C(0x00FFFFFF), 38, 112, -290, -310},</div>
+<div class="line">    {UINT32_MAX,          UINT32_MAX,          32, 116, -325, -345},</div>
+<div class="line">    {UINT32_MAX,          UINT32_MAX,          26, 120, -360, -380},</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Paramètres des dix niveaux. Masques de briques, largeur et vitesses sont en flash. </p>
+
+<p class="reference">Référencé par <a class="el" href="breakout_8c_source.html#l00095">breakout_init()</a>, <a class="el" href="breakout_8c_source.html#l00169">breakout_step()</a>, <a class="el" href="breakout_8c_source.html#l00113">move_ball()</a>, <a class="el" href="breakout_8c_source.html#l00068">paddle_bounds()</a>, <a class="el" href="race_8c_source.html#l00136">race_goal()</a>, et <a class="el" href="race_8c_source.html#l00175">race_step()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Src</b></li><li class="navelem"><b>obcp</b></li><li class="navelem"><a href="breakout_8c.html">breakout.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

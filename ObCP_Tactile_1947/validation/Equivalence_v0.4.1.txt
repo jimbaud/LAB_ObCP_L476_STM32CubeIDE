@@ -1,0 +1,14 @@
+ObCP tactile 0.4.1 — équivalence des images programmables
+Date : 7 novembre 2026
+Outils : GNU Tools for STM32 13.3.1, mêmes options dans les trois copies.
+Référence : archive v0.4.0, avec le seul texte OBCP TACTILE 0.4.0 remplacé par OBCP TACTILE 0.4.1.
+Les différences de commentaires et de lignes de débogage ne se comparent pas dans les ELF.
+
+Release HEX : identique à la référence et à la copie régénérée ; SHA256 02c2bb1f6cc6efcbdb99d07d552d58b6ceec73a5633142bf9415cc68f7263417
+Release BIN : identique à la référence et à la copie régénérée ; SHA256 8072c8fe1e4a6f67a3fc588cdcf828a4a05834206b84abebfe3f7b621b93a3e0
+HEX 0x08000000 à 0x08012ca7, 76960 octets en banque 1.
+Bilan 0 écart(s).
+Debug HEX : identique à la référence et à la copie régénérée ; SHA256 6518593815807f7539b2e5b9a1b29f329d180923f1c6e63ad1ed2839dde1849b
+Debug BIN : identique à la référence et à la copie régénérée ; SHA256 0bfd7c7be99ad4fb92ff89897d88806b01035020c3ae6a47ef09332b22e7ff7d
+HEX 0x08000000 à 0x0801a9cf, 109000 octets en banque 1.
+Bilan 0 écart(s).

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="utf-8">
+<title>Raccordement du shield tactile à l'ObCP</title>
+<link rel="stylesheet" href="theme.css">
+<script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") || "clair";</script>
+<style>
+  .figure { width: 960px; padding: 18px 22px 16px; }
+  .colonnes { display: grid; grid-template-columns: 290px 1fr 290px; column-gap: 58px; align-items: start; }
+  .groupe { border-radius: 12px; padding: 10px 12px 12px; }
+  .groupe > .titre { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: var(--c); margin-bottom: 8px; }
+  .groupe > .titre span { display: block; font-weight: 500; letter-spacing: 0; color: var(--discret); font-size: 11.6px; margin-top: 1px; }
+  .groupe.bleu { background: var(--bleu-fond); border: 1px solid color-mix(in srgb, var(--bleu) 35%, transparent); }
+  .groupe.vert { background: var(--vert-fond); border: 1px solid color-mix(in srgb, var(--vert) 35%, transparent); }
+  .f { border: 1.5px solid var(--bord); background: var(--fond); border-radius: 8px; padding: 6px 9px; position: relative; }
+  .f + .f { margin-top: 8px; }
+  .f h4 { font-size: 13px; font-weight: 650; }
+  .f p { font-size: 11.6px; color: var(--discret); line-height: 1.35; margin-top: 1px; }
+  .f .bus { position: absolute; right: 8px; top: 6px; font-size: 10.5px; font-weight: 650; color: var(--c, var(--discret)); }
+  .f.inutile { border-style: dashed; opacity: .85; }
+  .milieu { padding-top: 60px; }
+  .bus-bloc { border: 1.5px solid var(--c); border-radius: 10px; background: var(--fond); padding: 7px 10px 8px; }
+  .bus-bloc + .bus-bloc { margin-top: 16px; }
+  .bus-bloc h4 { font-size: 12.5px; font-weight: 700; color: var(--c); margin-bottom: 4px; letter-spacing: .02em; }
+  .bus-bloc .l { font-family: "DejaVu Sans Mono", monospace; font-size: 11.4px; margin-top: 5px; white-space: nowrap; }
+  .bus-bloc .l b { font-weight: 700; }
+  .bus-bloc .c { font-size: 11.3px; color: var(--discret); line-height: 1.3; }
+  .f.mcu { border-color: var(--vert); }
+  .attention { margin-top: 16px; border-radius: 10px; padding: 9px 14px 10px; background: var(--rouge-fond);
+               border: 1px solid color-mix(in srgb, var(--rouge) 40%, transparent); }
+  .attention h4 { font-size: 12.5px; font-weight: 700; color: var(--rouge); letter-spacing: .04em; margin-bottom: 4px; }
+  .attention ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; row-gap: 2px; font-size: 12.2px; line-height: 1.42; }
+  .attention li::before { content: "› "; color: var(--rouge); font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="figure" class="figure">
+  <div class="colonnes">
+    <div class="groupe bleu" style="--c:var(--bleu)">
+      <div class="titre">SHIELD ADAFRUIT 2,8″ <span>écran tactile, sur les connecteurs Arduino</span></div>
+      <div class="f" id="s-lcd" style="--c:var(--bleu)"><span class="bus">SPI1</span><h4>Écran ILI9341</h4><p>320 × 240, couleurs RGB565</p></div>
+      <div class="f" id="s-ft" style="--c:var(--violet)"><span class="bus">I2C 0x38</span><h4>Tactile capacitif FT62xx</h4><p>réf. 1947</p></div>
+      <div class="f" id="s-tsc" style="--c:var(--violet)"><span class="bus">I2C 0x48</span><h4>Tactile résistif TSC2007</h4><p>réf. 1651, version récente</p></div>
+      <div class="f" id="s-stm" style="--c:var(--bleu)"><span class="bus">SPI1</span><h4>Tactile résistif STMPE610</h4><p>réf. 1651, version ancienne</p></div>
+      <div class="f inutile" id="s-sd" style="--c:var(--discret)"><span class="bus">SPI1</span><h4>Lecteur microSD</h4><p>non utilisé, toujours désélectionné</p></div>
+    </div>
+
+    <div class="milieu">
+      <div class="bus-bloc" id="b-spi" style="--c:var(--bleu)"><h4>SPI1 + DMA1 canal 3</h4>
+        <div class="l"><b>D13 D12 D11</b> → <b>PA5 PA6 PA7</b></div>
+        <div class="c">horloge, MISO, MOSI · 10 MHz pour l'écran</div>
+        <div class="l"><b>D10</b> → <b>PB6</b> · <b>D9</b> → <b>PC7</b></div>
+        <div class="c">sélection et D/C de l'écran</div>
+        <div class="l"><b>D8</b> → <b>PA9</b> · <b>D4</b> → <b>PB5</b></div>
+        <div class="c">sélections STMPE610 (≤ 1 MHz) et microSD</div>
+      </div>
+      <div class="bus-bloc" id="b-i2c" style="--c:var(--violet)"><h4>I2C1 · 100 kHz</h4>
+        <div class="l"><b>SCL SDA</b> → <b>PB8 PB9</b></div>
+        <div class="c">broches SCL/SDA du connecteur R3</div>
+      </div>
+    </div>
+
+    <div class="groupe vert" style="--c:var(--vert)">
+      <div class="titre">OBCP · STM32L476RG À 80 MHZ <span>composants de la carte utilisés par le jeu</span></div>
+      <div class="f mcu" id="o-mcu" style="--c:var(--vert)"><span class="bus">80 MHz</span><h4>STM32L476RG</h4><p>SPI1, I2C1, DMA, TIM2 (µs), USB</p></div>
+      <div class="f" id="o-acc" style="--c:var(--vert)"><span class="bus">SPI3</span><h4>Accéléromètre</h4><p>LIS3DH ou LIS3DSH, CS PC5&nbsp;: inclinaison</p></div>
+      <div class="f" id="o-ee" style="--c:var(--vert)"><span class="bus">SPI2</span><h4>EEPROM M95640</h4><p>CS PC3&nbsp;: sauvegarde, 4 derniers Ko</p></div>
+      <div class="f inutile" style="--c:var(--discret)"><span class="bus">SPI2</span><h4>Module Bluetooth</h4><p>CS PB2 à 1, maintenu en reset (PC2)</p></div>
+      <div class="f" style="--c:var(--vert)"><span class="bus">GPIO</span><h4>LED RVB, bouton USER</h4><p>PC6, PC8, PC9&nbsp;; PC13</p></div>
+      <div class="f" style="--c:var(--vert)"><span class="bus">USB · USART2</span><h4>Consoles</h4><p>port COM virtuel&nbsp;; D1/D0 à 115200 bauds</p></div>
+    </div>
+  </div>
+  <div class="attention">
+    <h4>À VÉRIFIER AVANT DE BRANCHER LE SHIELD</h4>
+    <ul>
+      <li>sur l'ObCP, A4 = PC1 et A5 = PC0 ne sont <b>pas</b> l'I2C&nbsp;: ponts A4/A5 du shield ouverts</li>
+      <li>l'ObCP n'a pas le connecteur ICSP&nbsp;: le shield doit prendre le SPI sur D11 à D13</li>
+      <li>IOREF vaut 3,3 V&nbsp;; contrôler les ponts VddIO et les tirages I2C du shield</li>
+      <li>D2 (PA10) est reliée à USB_ID&nbsp;: le jeu n'utilise pas l'interruption du tactile</li>
+    </ul>
+  </div>
+</div>
+<script src="outils.js"></script>
+<script>
+quand_pret(() => {
+  const o = (couleur) => ({ de: "droite", vers: "gauche", couleur, forme: "courbe", epaisseur: 1.8, taille_fleche: 9 });
+  relier("#s-lcd", "#b-spi", o("var(--bleu)"));
+  relier("#s-stm", "#b-spi", o("var(--bleu)"));
+  relier("#s-sd", "#b-spi", Object.assign(o("var(--discret)"), { tirets: true }));
+  relier("#s-ft", "#b-i2c", o("var(--violet)"));
+  relier("#s-tsc", "#b-i2c", o("var(--violet)"));
+  relier("#b-spi", "#o-mcu", Object.assign(o("var(--bleu)"), { double: true }));
+  relier("#b-i2c", "#o-mcu", Object.assign(o("var(--violet)"), { double: true }));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<map id="rgb_drag" name="rgb_drag">
+<area shape="rect" id="Node000001" title="Convertir une abscisse de barre en composante RVB." alt="" coords="5,212,84,237"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="21,213,16,204,18,194,28,188,45,185,64,189,73,197,69,201,62,194,45,191,30,193,23,197,21,203,25,211"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#af10480bf9f8bbe5939f455012daebf98" title="Ajouter une zone à recomposer et fusionner les voisines." alt="" coords="133,139,240,164"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,210,131,173,142,167,145,172,133,178,68,214"/>
+<area shape="rect" id="Node000009" href="$gfx_8c.html#a283661c2111fd8092727ba3616e9b333" title="Tester l&#39;appartenance d&#39;un point à un rectangle." alt="" coords="132,212,241,237"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="84,222,118,222,118,227,84,227"/>
+<area shape="rect" id="Node000010" href="$app_8c.html#aaaffe6685e48b1bca4579c11bb5bf62e" title="Calculer le rectangle de une barre de composante RVB." alt="" coords="143,285,230,311"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="72,235,150,277,148,281,69,240"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="163,140,158,130,160,121,170,114,187,112,206,116,215,124,211,128,204,120,187,117,172,119,165,124,163,130,167,137"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a99580b0a5d9ff3557611276dfd86b1e1" title="Demander une recomposition de tout l&#39;écran." alt="" coords="303,29,406,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="199,136,237,101,288,64,299,58,302,62,291,68,240,105,202,140"/>
+<area shape="rect" id="Node000004" href="$gfx_8c.html#a135b689508e9ec047ec2f791a4101846" title="Trouver la surface commune à deux rectangles." alt="" coords="289,103,420,128"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="240,137,281,128,282,134,241,143"/>
+<area shape="rect" id="Node000007" href="$gfx_8c.html#a972f7038ac7c5f72eae8e6d20bd7b541" title="Construire une enveloppe rectangulaire commune." alt="" coords="309,176,400,201"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="241,161,296,173,295,178,240,166"/>
+<area shape="rect" id="Node000008" href="$gfx_8c.html#a1fa4fc7dd28927c215eb54b2f77c7c89" title="Vérifier qu&#39;un rectangle possède une surface." alt="" coords="311,249,398,275"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="221,162,243,173,268,191,291,211,328,239,324,243,288,215,264,195,240,178,218,166"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="327,31,321,21,324,11,335,5,355,3,378,6,388,15,384,19,375,11,355,8,337,10,328,15,326,20,331,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="327,104,321,94,324,85,335,78,355,76,378,79,388,88,384,92,375,84,355,81,337,83,328,88,326,94,331,101"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="327,177,321,168,324,158,335,152,355,149,378,153,388,161,384,165,375,158,355,155,337,157,328,161,326,167,331,174"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="327,251,321,241,324,231,335,225,355,223,378,226,388,235,384,239,375,231,355,228,337,230,328,235,326,240,331,248"/>
+<area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="163,213,158,204,160,194,170,188,187,185,206,189,215,197,211,201,204,194,187,191,172,193,165,197,163,203,167,211"/>
+<area shape="poly" id="edge15_Node000010_Node000010" title=" " alt="" coords="163,286,158,277,160,267,170,261,187,259,206,262,215,271,211,274,204,267,187,264,172,266,165,271,163,276,167,284"/>
+</map>

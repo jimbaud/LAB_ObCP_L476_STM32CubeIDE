@@ -1,0 +1,10 @@
+<map id="rect_union" name="rect_union">
+<area shape="rect" id="Node000001" title="Construire une enveloppe rectangulaire commune." alt="" coords="5,67,96,92"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="28,68,24,58,26,49,35,42,51,40,69,43,77,52,73,55,66,48,51,45,37,47,30,52,29,58,33,65"/>
+<area shape="rect" id="Node000002" href="$gfx_8c.html#a94f155fcce337a2b9d4719ed8042cbbe" title="Choisir la plus grande de deux valeurs entières." alt="" coords="144,29,219,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,64,130,54,131,59,96,69"/>
+<area shape="rect" id="Node000003" href="$gfx_8c.html#a29a7a26d9387c01c1b4e9fe4fff5704a" title="Choisir la plus petite de deux valeurs entières." alt="" coords="146,103,217,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="97,89,134,100,132,105,95,94"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="159,30,154,21,157,11,166,5,181,3,199,6,207,14,203,18,197,11,181,8,168,10,161,14,160,20,164,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="159,104,154,94,157,85,166,78,181,76,199,79,207,88,203,91,197,84,181,81,168,83,161,88,160,94,164,101"/>
+</map>

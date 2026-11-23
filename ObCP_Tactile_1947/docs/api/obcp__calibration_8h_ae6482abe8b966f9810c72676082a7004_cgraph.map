@@ -1,0 +1,16 @@
+<map id="touch_cal_load" name="touch_cal_load">
+<area shape="rect" id="Node000001" title="Charger et reconstruire les deux profils résistifs." alt="" coords="5,103,124,128"/>
+<area shape="poly" id="edge9_Node000001_Node000001" title=" " alt="" coords="38,104,32,94,35,85,46,78,65,76,87,79,96,88,93,92,84,84,65,81,48,83,39,88,37,94,42,101"/>
+<area shape="rect" id="Node000002" href="$storage_8c.html#a93e975a9edc0e30b07e9fdfaa4391ef2" title="Lire un objet dont la longueur exacte est connue." alt="" coords="172,65,279,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,100,158,91,159,96,121,105"/>
+<area shape="rect" id="Node000011" href="$calibration_8c.html#af0194f444b0eb34a49da19199ccccfee" title="Calculer une transformation affine de trois points bruts." alt="" coords="173,139,277,164"/>
+<area shape="poly" id="edge7_Node000001_Node000011" title=" " alt="" coords="122,125,160,134,159,139,121,131"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="199,67,194,57,197,47,208,41,225,39,247,42,256,51,252,55,244,47,225,44,209,46,201,51,199,56,204,64"/>
+<area shape="rect" id="Node000003" href="$storage_8c.html#a3a9aac6c5327b3df7353da8ee6a085a0" title="Choisir la dernière copie valide d&#39;un objet." alt="" coords="332,29,432,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,63,318,54,319,59,279,68"/>
+<area shape="rect" id="Node000010" href="$storage_8c.html#a6e534e2144670ed18c70f2292cc1b6fc" title="Contrôler type d&#39;objet, pointeur et longueur." alt="" coords="327,103,437,128"/>
+<area shape="poly" id="edge5_Node000002_Node000010" title=" " alt="" coords="279,88,315,97,314,102,278,93"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="356,31,350,21,353,11,364,5,382,3,403,6,412,15,409,19,401,11,382,8,366,10,358,15,356,20,360,28"/>
+<area shape="poly" id="edge6_Node000010_Node000010" title=" " alt="" coords="356,104,350,94,353,85,364,78,382,76,403,79,412,88,409,92,401,84,382,81,366,83,358,88,356,94,360,101"/>
+<area shape="poly" id="edge8_Node000011_Node000011" title=" " alt="" coords="199,140,194,130,197,121,208,114,225,112,247,115,256,124,252,128,244,120,225,117,209,119,201,124,199,130,204,137"/>
+</map>
