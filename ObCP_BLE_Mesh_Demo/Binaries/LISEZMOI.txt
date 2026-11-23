@@ -1,0 +1,28 @@
+Programme précompilé du réseau maillé Bluetooth de l'ObCP (version 1.2.1, projet STM32CubeMX)
+(compilation Makefile : -Os, équivalent de la configuration Release)
+Un seul programme pour les deux versions de la carte : module BlueNRG-M0 (cartes de 2024 et
+après) ou SPBTLE-RF (cartes d'avant 2024).
+
+Version USB, programme à 0x08000000 (cas habituel) :
+  ObCP_BLE_Mesh_Demo.hex       à programmer par USB DFU avec STM32CubeProgrammer (conseillé)
+  ObCP_BLE_Mesh_Demo.elf       même programme au format ELF (sans informations de débogage)
+  ObCP_BLE_Mesh_Demo.bin       image brute, à programmer à l'adresse 0x08000000
+
+Version OTA, programme à 0x08080000, derrière le chargeur Bluetooth ObCP-OTA :
+  ObCP_BLE_Mesh_Demo_OTA.elf   à envoyer par Bluetooth : python obcp_ota.py ObCP_BLE_Mesh_Demo_OTA.elf
+  ObCP_BLE_Mesh_Demo_OTA.hex   même programme au format Intel HEX (adresses comprises)
+  (pas de .bin : chargé par erreur à 0x08000000, il effacerait le chargeur)
+
+Programmation de la version USB (détails : guide de découverte, chapitre 3) :
+  1. Activer le chargeur DFU de l'ObCP : interrupteur SW4 sur Prog, SW2 sur On, puis bouton RST.
+  2. STM32CubeProgrammer : interface USB, port USB1, Connect, Erasing & programming,
+     choisir le fichier, cocher Verify programming et Run after programming, Start.
+     En ligne de commande :
+       STM32_Programmer_CLI -c port=usb1 -w ObCP_BLE_Mesh_Demo.hex -v -s
+  3. Remettre SW4 sur Run et appuyer sur RST : un éclat vert de la LED, la carte est prête.
+
+Version OTA : mettre la carte en mode chargement (commande « #ota » dans le terminal, ou
+bouton User1 maintenu pendant un appui sur RST), puis lancer obcp_ota.py (projet ObCP_OTA_BLE).
+
+Ces fichiers correspondent aux sources du paquet. Après toute modification des sources,
+recompiler (STM32CubeIDE ou « make ») au lieu de les utiliser.

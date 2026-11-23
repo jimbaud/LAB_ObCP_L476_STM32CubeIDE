@@ -1,0 +1,23 @@
+# Sorties de compilation
+build/
+Debug/
+Release/
+Tests/build/
+*.o
+*.d
+*.su
+*.map
+*.elf
+*.hex
+*.bin
+# binaires précompilés fournis avec le paquet
+!Binaries/*.hex
+!Binaries/*.bin
+!Binaries/*.elf
+# Python (outil PC)
+__pycache__/
+*.pyc
+# STM32CubeIDE : on garde le réglage « fichiers en UTF-8 » du projet
+.settings/*
+!.settings/org.eclipse.core.resources.prefs
+*.launch
