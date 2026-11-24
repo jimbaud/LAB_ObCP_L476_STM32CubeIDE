@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="290" viewBox="0 0 1120 290" role="img" aria-labelledby="title desc">
+  <title id="title">Aller-retour d’une commande de LED rouge à 50 pour cent</title>
+  <desc id="desc">Le navigateur écrit r8191 dans la caractéristique 0003. La carte applique la consigne sur TIM3 puis répond Red = 8191 par notification sur la caractéristique 0002.</desc>
+  <defs>
+    <marker id="right" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 0L9 5L1 10" fill="none" stroke="#07755e" stroke-width="2.5"/></marker>
+    <marker id="left" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 0L9 5L1 10" fill="none" stroke="#245e96" stroke-width="2.5"/></marker>
+  </defs>
+  <rect x="1" y="1" width="1118" height="288" rx="18" fill="#f5f8f7" stroke="#cbdcd6" stroke-width="2"/>
+  <g font-family="DejaVu Sans,Segoe UI,Arial,sans-serif" fill="#173f36">
+    <text x="34" y="42" font-size="24" font-weight="bold">Que se passe-t-il quand on règle le rouge à 50 % ?</text>
+    <rect x="32" y="73" width="287" height="182" rx="12" fill="#ffffff" stroke="#c4d9ce"/>
+    <rect x="800" y="73" width="287" height="182" rx="12" fill="#ffffff" stroke="#c4d9ce"/>
+    <g transform="translate(54 94)" stroke="#14755f" stroke-width="2.6" fill="none" stroke-linejoin="round">
+      <rect width="40" height="29" rx="3"/><path d="M0 8h40M13 35h14m-7-6v6"/>
+    </g>
+    <g transform="translate(826 95)" stroke="#14755f" stroke-width="2.2" fill="none">
+      <rect x="4" y="4" width="29" height="29" rx="3"/><rect x="12" y="12" width="13" height="13" rx="1"/>
+      <path d="M11 0v4m8-4v4m8-4v4M11 33v4m8-4v4m8-4v4M0 11h4m-4 8h4m-4 8h4m29-16h4m-4 8h4m-4 8h4"/>
+    </g>
+    <text x="53" y="161" font-size="23" font-weight="bold">Navigateur</text>
+    <text x="824" y="161" font-size="23" font-weight="bold">Carte ObCP</text>
+    <g font-size="17" fill="#3d5a50">
+      <text x="53" y="195">Le curseur calcule 8 191.</text>
+      <text x="53" y="221">Le journal affiche la réponse.</text>
+      <text x="824" y="195">Le STM32 règle TIM3.</text>
+      <text x="824" y="221">La LED rouge est pilotée.</text>
+    </g>
+    <g text-anchor="middle">
+      <text x="559" y="97" font-size="16" fill="#07624d">Écriture · caractéristique …0003</text>
+      <text x="559" y="128" fill="#075c49" font-family="DejaVu Sans Mono,Consolas,monospace" font-size="23" font-weight="bold">r8191</text>
+      <path d="M337 141h445" stroke="#07755e" stroke-width="2.8" marker-end="url(#right)"/>
+      <text x="559" y="187" font-size="16" fill="#245e96">Notification · caractéristique …0002</text>
+      <text x="559" y="218" fill="#245e96" font-family="DejaVu Sans Mono,Consolas,monospace" font-size="23" font-weight="bold">Red = 8191</text>
+      <path d="M783 232H338" stroke="#245e96" stroke-width="2.8" marker-end="url(#left)"/>
+    </g>
+  </g>
+</svg>

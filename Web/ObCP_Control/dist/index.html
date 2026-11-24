@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#113936">
+  <meta name="description" content="Commande Bluetooth et télémesure de la carte pédagogique ObCP STM32L476RG.">
+  <title>ObCP Control · Banc de commande</title>
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 13h5l3-8 4 14 3-8h5"/></symbol>
+  <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M10 10v10"/></symbol>
+  <symbol id="i-log" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-guide" viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1zM12 6v14"/></symbol>
+  <symbol id="i-bt" viewBox="0 0 24 24"><path d="m7 7 11 10-6 5V2l6 5L7 17"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6m-5 0v6L4 19a1.4 1.4 0 0 0 1.2 2h13.6a1.4 1.4 0 0 0 1.2-2L14 9V3m-7.7 13h11.4"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M3 7h8m5 0h5M3 17h3m5 0h10"/><circle cx="13.5" cy="7" r="2.5"/><circle cx="8.5" cy="17" r="2.5"/></symbol>
+  <symbol id="i-restart" viewBox="0 0 24 24"><path d="M3.5 11a8.5 8.5 0 1 1 1.7 6m-2-11v5h5"/></symbol>
+  <symbol id="i-axes" viewBox="0 0 24 24"><path d="M11 4v12l9 3M11 16l-7 5m5-15 2-2 2 2m5 10 2 3-3 1"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M9 14.1V5a3 3 0 0 1 6 0v9.1a5 5 0 1 1-6 0zM12 8v9"/><circle cx="12" cy="18" r="1"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="1.4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16m-13 0 1 13h8l1-13M9 7V4h6v3m-5 4v5m4-5v5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14m-7-7v14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 3.8 2.3c-1.3.7-1.3 1.2-1.3 2.2m0 3h.01"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9m-1-8H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6"/><path d="M8.3 8.3a5.2 5.2 0 0 0 0 7.4m7.4-7.4a5.2 5.2 0 0 1 0 7.4M5.3 5.3a9.5 9.5 0 0 0 0 13.4m13.4-13.4a9.5 9.5 0 0 1 0 13.4"/></symbol>
+</svg>
+<a href="#main" class="skip">Aller au contenu</a>
+<header class="mast">
+  <div class="wrap mast-inner">
+    <a class="brand" href="#pilotage" aria-label="ObCP Control, pilotage">
+      <span class="brand-mark"><svg class="icon"><use href="#i-pulse"/></svg></span>
+      <span>ObCP <b>Control</b></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#pilotage" aria-current="page"><svg class="icon"><use href="#i-panel"/></svg>Pilotage</a>
+      <a href="#journal"><svg class="icon"><use href="#i-log"/></svg>Journal</a>
+      <a href="#guide"><svg class="icon"><use href="#i-guide"/></svg>Guide</a>
+    </nav>
+    <a class="school" href="https://www.supmicrotech.fr/" target="_blank" rel="noopener">SUPMICROTECH<span>ENSMM · Besançon</span></a>
+  </div>
+</header>
+
+<main id="main" class="wrap" tabindex="-1">
+  <div class="page-head">
+    <div><h1 id="page-title">Banc de commande</h1><p id="page-intro">Pilotage des sorties et acquisition des capteurs par Bluetooth LE.</p></div>
+    <div class="actions connection-actions">
+      <span class="badge" id="link-state" role="status"><svg class="icon"><use href="#i-flask"/></svg><span>Mode démo</span></span>
+      <button type="button" id="connect" class="btn primary"><svg class="icon"><use href="#i-bt"/></svg><span>Connecter une carte</span></button>
+    </div>
+  </div>
+  <div class="notice" id="notice" role="status" hidden><span></span><button class="icon-btn" aria-label="Fermer le message"><svg class="icon"><use href="#i-close"/></svg></button></div>
+  <noscript><p>Activez JavaScript pour utiliser la commande BLE et le simulateur.</p></noscript>
+  <section id="pilotage" aria-label="Pilotage">
+    <div class="top-grid">
+      <article class="board-card" aria-labelledby="board-title">
+        <div class="board-stage">
+          <div class="board-heading"><h2 id="board-title">Carte ObCP</h2><span>Objet connecté personnel</span></div>
+          <span class="cross cross-a" aria-hidden="true"></span><span class="cross cross-b" aria-hidden="true"></span>
+          <img class="board-photo" src="assets/obcp.webp" alt="Vue de dessus de la carte ObCP, avec sa LED tricolore et le bornier PWM." width="510" height="792">
+          <span class="board-caption"><span class="tiny-line"></span> Vue d’implantation</span>
+        </div>
+        <div class="board-specs"><div><span>Microcontrôleur</span><strong>STM32L476RG</strong></div><div><span>Interface</span><strong>Bluetooth LE</strong></div></div>
+      </article>
+
+      <article class="card outputs" aria-labelledby="outputs-title">
+        <div class="card-heading"><div class="title-line"><span class="icon-tile"><svg class="icon"><use href="#i-sliders"/></svg></span><h2 id="outputs-title">Commande des sorties</h2></div><span class="meta" id="rgb-preview"><i></i>Aperçu RVB</span></div>
+        <div class="sliders" id="sliders"></div>
+        <div class="outputs-foot"><span id="outputs-note" role="status">Consignes simulées sur 16 bits.</span><button id="reset" class="btn subtle"><svg class="icon"><use href="#i-restart"/></svg>Remise à zéro</button></div>
+      </article>
+    </div>
+
+    <section class="telemetry" aria-labelledby="tele-title">
+      <div class="tele-heading">
+        <div class="tele-ident"><h2 id="tele-title">Télémétrie</h2><span id="stream-state" role="status" class="stream-state">Simulation en cours</span></div>
+        <div class="actions tele-actions">
+          <button id="timer" class="btn small"><svg class="icon"><use href="#i-stop"/></svg><span>Arrêter l’acquisition</span></button>
+          <button id="clear" class="btn square" title="Effacer les courbes" aria-label="Effacer les courbes"><svg class="icon"><use href="#i-trash"/></svg></button>
+        </div>
+      </div>
+      <div class="graphs">
+        <article class="card graph-card"><div class="graph-title"><div class="title-line"><span class="sensor-icon"><svg class="icon"><use href="#i-axes"/></svg></span><h3>Accélération</h3></div><span class="unit">g</span></div>
+          <div class="legend" id="acc-legend" aria-label="Dernières valeurs d’accélération"><span class="series x"><i></i>X <b>—</b></span><span class="series y"><i></i>Y <b>—</b></span><span class="series z"><i></i>Z <b>—</b></span></div>
+          <canvas id="acc-chart" width="640" height="170" role="img" aria-label="Historique des trois composantes de l’accélération"></canvas>
+        </article>
+        <article class="card graph-card"><div class="graph-title"><div class="title-line"><span class="sensor-icon temp-ink"><svg class="icon"><use href="#i-temp"/></svg></span><h3>Température</h3></div><span class="unit">°C</span></div>
+          <div class="legend" id="temp-legend"><span class="series t"><i></i>Capteur <b>—</b></span></div>
+          <canvas id="temp-chart" width="490" height="170" role="img" aria-label="Historique des températures du capteur"></canvas>
+        </article>
+      </div>
+      <div class="chart-tools">
+        <span>Abscisse en échantillons</span>
+        <div class="zoom-tools">
+          <button id="older" class="icon-btn" aria-label="Échantillons précédents" title="Échantillons précédents"><svg class="icon"><use href="#i-prev"/></svg></button>
+          <button id="newer" class="icon-btn" aria-label="Échantillons suivants" title="Échantillons suivants"><svg class="icon"><use href="#i-next"/></svg></button>
+          <button id="follow" class="text-btn" title="Revenir aux derniers échantillons">Suivi direct</button>
+          <span class="tool-div"></span>
+          <button id="zoom-out" class="icon-btn" aria-label="Dézoomer" title="Dézoomer"><svg class="icon"><use href="#i-minus"/></svg></button>
+          <span id="window-count" title="Échantillons par fenêtre">60 éch.</span>
+          <button id="zoom-in" class="icon-btn" aria-label="Zoomer" title="Zoomer"><svg class="icon"><use href="#i-plus"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="journal" class="card secondary" aria-labelledby="log-title" hidden>
+    <div class="card-heading"><div class="title-line"><span class="icon-tile"><svg class="icon"><use href="#i-log"/></svg></span><h2 id="log-title">Échanges de la session</h2></div><button id="clear-log" class="btn subtle"><svg class="icon"><use href="#i-trash"/></svg>Effacer</button></div>
+    <div class="log-filters" aria-label="Filtre du journal"><button data-log-filter="all" aria-pressed="true">Tout</button><button data-log-filter="TX" aria-pressed="false">Envois</button><button data-log-filter="RX" aria-pressed="false">Réceptions</button><button data-log-filter="INFO" aria-pressed="false">Événements</button></div>
+    <div class="log-list" id="log-list" role="list" aria-label="Échanges, du plus récent au plus ancien"></div>
+  </section>
+
+  <section id="guide" class="guide-grid" aria-label="Guide d’utilisation" hidden>
+    <article class="card secondary"><div class="title-line"><span class="icon-tile"><svg class="icon"><use href="#i-bt"/></svg></span><h2>Connexion à la carte</h2></div>
+      <ol class="instructions">
+        <li>Alimentez l’ObCP en position <strong>Run</strong>, avec le programme <code>OBCP_template_2026</code> ou le template 2024. Libérez la liaison si l’application Android est connectée.</li>
+        <li>Ouvrez cette page dans un onglet en <strong>HTTPS</strong> ou sur <code>localhost</code>, puis activez le Bluetooth sur l’appareil.</li>
+        <li>Appuyez sur <strong>Connecter une carte</strong> et sélectionnez <code>OBCP-CROC</code>. Déplacez le curseur rouge à 50 % puis démarrez l’acquisition et inclinez la carte.</li>
+      </ol>
+      <label class="field-label" for="prefix">Filtrer la recherche par début de nom</label>
+      <input id="prefix" type="text" maxlength="29" placeholder="Tous les périphériques BLE" autocomplete="off">
+      <p class="hint">Le sélecteur du navigateur gère les autorisations. L’adresse MAC physique reste masquée.</p>
+      <button id="demo" class="btn"><svg class="icon"><use href="#i-flask"/></svg><span>Activer la démonstration</span></button>
+    </article>
+    <div class="guide-stack">
+      <article class="card secondary"><h2>Navigateurs</h2><p>Sur Windows et macOS, utilisez Chrome ou Edge. Sur Android, utilisez Chrome. Sous Linux, la disponibilité dépend de Chromium, de sa configuration et de l’adaptateur.</p><p>Sur iPhone ou iPad, ouvrez l’adresse HTTPS dans <strong>Bluefy</strong> pour essayer le BLE. Safari et Firefox permettent d’explorer le simulateur.</p><p class="hint">Pour installer la version hébergée, utilisez le menu d’installation du navigateur lorsqu’il est proposé. Les fichiers sont disponibles hors ligne après leur première mise en cache.</p>
+      <div class="guide-links"><a href="https://developer.chrome.com/docs/capabilities/bluetooth" target="_blank" rel="noopener">Web Bluetooth <svg class="icon"><use href="#i-link"/></svg></a><a href="https://apps.apple.com/fr/app/bluefy-web-ble-browser/id1492822055" target="_blank" rel="noopener">Bluefy pour iOS <svg class="icon"><use href="#i-link"/></svg></a></div></article>
+      <article class="card secondary"><h2>Mesures et commandes</h2><p>Les curseurs transmettent leur consigne au relâchement. La LED RVB suit une loi cubique, la sortie PWM du bornier J13 une loi linéaire. La remise à zéro coupe les quatre sorties et arrête le timer.</p><p>Le template transmet les accélérations en <strong>g</strong> et la température du capteur en <strong>°C</strong> chaque seconde. Faites glisser une courbe pour parcourir l’historique. Utilisez deux doigts, la molette ou les boutons pour zoomer.</p>
+      <div class="guide-links"><a href="https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/tree/main/Android/ObCP_Control" target="_blank" rel="noopener">Application Android <svg class="icon"><use href="#i-link"/></svg></a><a href="https://github.com/jimbaud/LAB_ObCP_L476_STM32CubeIDE/tree/main/OBCP_template_2026" target="_blank" rel="noopener">Firmware STM32 <svg class="icon"><use href="#i-link"/></svg></a></div></article>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>ObCP Control <b>v1.0.0</b></span><span>Joël IMBAUD · SUPMICROTECH–ENSMM · CROC</span></div></footer>
+<dialog id="confirm"><form method="dialog"><h2 id="confirm-title">Remise à zéro</h2><p id="confirm-text"></p><div class="actions"><button class="btn" value="cancel" autofocus>Annuler</button><button class="btn primary" id="confirm-yes" value="ok">Confirmer</button></div></form></dialog>
+<script src="protocol.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
